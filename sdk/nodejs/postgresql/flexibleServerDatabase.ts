@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a PostgreSQL Flexible Server Database.
+ *
+ * !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `preventDestroy` lifecycle argument in your configuration file for this resource. For more information on the `preventDestroy` lifecycle argument please see the terraform documentation.
+ *
  * ## Example Usage
  *
  * ```typescript

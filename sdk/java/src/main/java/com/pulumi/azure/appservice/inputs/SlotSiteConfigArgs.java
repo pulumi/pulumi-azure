@@ -473,9 +473,21 @@ public final class SlotSiteConfigArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.use32BitWorkerProcess);
     }
 
+    /**
+     * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+     * 
+     */
     @Import(name="vnetRouteAllEnabled")
     private @Nullable Output<Boolean> vnetRouteAllEnabled;
 
+    /**
+     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+     * 
+     */
     public Optional<Output<Boolean>> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
@@ -1222,11 +1234,27 @@ public final class SlotSiteConfigArgs extends com.pulumi.resources.ResourceArgs 
             return use32BitWorkerProcess(Output.of(use32BitWorkerProcess));
         }
 
+        /**
+         * @param vnetRouteAllEnabled Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vnetRouteAllEnabled(@Nullable Output<Boolean> vnetRouteAllEnabled) {
             $.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
 
+        /**
+         * @param vnetRouteAllEnabled Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
             return vnetRouteAllEnabled(Output.of(vnetRouteAllEnabled));
         }

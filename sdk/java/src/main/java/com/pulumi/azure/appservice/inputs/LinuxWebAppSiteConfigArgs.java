@@ -184,9 +184,21 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
 
+    /**
+     * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+     * 
+     * &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+     * 
+     */
     @Import(name="ftpsState")
     private @Nullable Output<String> ftpsState;
 
+    /**
+     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+     * 
+     * &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+     * 
+     */
     public Optional<Output<String>> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }
@@ -779,11 +791,27 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
             return detailedErrorLoggingEnabled(Output.of(detailedErrorLoggingEnabled));
         }
 
+        /**
+         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+         * 
+         * &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ftpsState(@Nullable Output<String> ftpsState) {
             $.ftpsState = ftpsState;
             return this;
         }
 
+        /**
+         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+         * 
+         * &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ftpsState(String ftpsState) {
             return ftpsState(Output.of(ftpsState));
         }

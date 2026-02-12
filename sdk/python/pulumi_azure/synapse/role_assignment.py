@@ -288,6 +288,8 @@ class RoleAssignment(pulumi.CustomResource):
         $ pulumi import azure:synapse/roleAssignment:RoleAssignment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1|000000000000"
         ```
 
+        > **NOTE:** This ID is specific to this provider - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
@@ -363,6 +365,8 @@ class RoleAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/roleAssignment:RoleAssignment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1|000000000000"
         ```
+
+        > **NOTE:** This ID is specific to this provider - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.

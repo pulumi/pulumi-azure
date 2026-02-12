@@ -22,9 +22,17 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceState Empty = new ServiceState();
 
+    /**
+     * A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+     * 
+     */
     @Import(name="accessPolicyObjectIds")
     private @Nullable Output<List<String>> accessPolicyObjectIds;
 
+    /**
+     * @return A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+     * 
+     */
     public Optional<Output<List<String>>> accessPolicyObjectIds() {
         return Optional.ofNullable(this.accessPolicyObjectIds);
     }
@@ -253,15 +261,33 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessPolicyObjectIds A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicyObjectIds(@Nullable Output<List<String>> accessPolicyObjectIds) {
             $.accessPolicyObjectIds = accessPolicyObjectIds;
             return this;
         }
 
+        /**
+         * @param accessPolicyObjectIds A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicyObjectIds(List<String> accessPolicyObjectIds) {
             return accessPolicyObjectIds(Output.of(accessPolicyObjectIds));
         }
 
+        /**
+         * @param accessPolicyObjectIds A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessPolicyObjectIds(String... accessPolicyObjectIds) {
             return accessPolicyObjectIds(List.of(accessPolicyObjectIds));
         }

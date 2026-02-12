@@ -259,6 +259,15 @@ namespace Pulumi.Azure.Compute
     [AzureResourceType("azure:compute/diskEncryptionSet:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `True` or `False`. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When `AutoKeyRotationEnabled` is set to `True` the `KeyVaultKeyId` or `ManagedHsmKeyId` must use the `VersionlessId`.
+        /// 
+        /// &gt; **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `KeyVaultKeyUrl` or `ManagedHsmKeyId` field.
+        /// 
+        /// &gt; **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+        /// </summary>
         [Output("autoKeyRotationEnabled")]
         public Output<bool?> AutoKeyRotationEnabled { get; private set; } = null!;
 
@@ -373,6 +382,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class DiskEncryptionSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `True` or `False`. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When `AutoKeyRotationEnabled` is set to `True` the `KeyVaultKeyId` or `ManagedHsmKeyId` must use the `VersionlessId`.
+        /// 
+        /// &gt; **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `KeyVaultKeyUrl` or `ManagedHsmKeyId` field.
+        /// 
+        /// &gt; **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+        /// </summary>
         [Input("autoKeyRotationEnabled")]
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
@@ -449,6 +467,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class DiskEncryptionSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `True` or `False`. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** When `AutoKeyRotationEnabled` is set to `True` the `KeyVaultKeyId` or `ManagedHsmKeyId` must use the `VersionlessId`.
+        /// 
+        /// &gt; **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `KeyVaultKeyUrl` or `ManagedHsmKeyId` field.
+        /// 
+        /// &gt; **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+        /// </summary>
         [Input("autoKeyRotationEnabled")]
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 

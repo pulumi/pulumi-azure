@@ -323,6 +323,8 @@ class Definition(pulumi.CustomResource):
         $ pulumi import azure:role/definition:Definition example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
         ```
 
+        > **Note:** This ID is specific to this provider - and is of the format `{roleDefinitionId}|{scope}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
@@ -395,6 +397,8 @@ class Definition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:role/definition:Definition example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
         ```
+
+        > **Note:** This ID is specific to this provider - and is of the format `{roleDefinitionId}|{scope}`.
 
         :param str resource_name: The name of the resource.
         :param DefinitionArgs args: The arguments to use to populate this resource's properties.

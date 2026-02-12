@@ -26,6 +26,11 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
         The set of arguments for constructing a WorkspaceRootDbfsCustomerManagedKey resource.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
         :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
+        :param pulumi.Input[_builtins.str] key_vault_id: Specifies the Resource ID of the Key Vault which contains the `key_vault_key_id`.
+               
+               > **Note:** The `key_vault_id` field only needs to be specified if the Key Vault which contains the `key_vault_key_id` exists in a different subscription than the Databricks Workspace. If the `key_vault_id` field is not specified it is assumed that the `key_vault_key_id` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+               
+               > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -59,6 +64,13 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Resource ID of the Key Vault which contains the `key_vault_key_id`.
+
+        > **Note:** The `key_vault_id` field only needs to be specified if the Key Vault which contains the `key_vault_key_id` exists in a different subscription than the Databricks Workspace. If the `key_vault_id` field is not specified it is assumed that the `key_vault_key_id` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+
+        > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+        """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
@@ -74,6 +86,11 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceRootDbfsCustomerManagedKey resources.
+        :param pulumi.Input[_builtins.str] key_vault_id: Specifies the Resource ID of the Key Vault which contains the `key_vault_key_id`.
+               
+               > **Note:** The `key_vault_id` field only needs to be specified if the Key Vault which contains the `key_vault_key_id` exists in a different subscription than the Databricks Workspace. If the `key_vault_id` field is not specified it is assumed that the `key_vault_key_id` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+               
+               > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
         :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
         """
@@ -87,6 +104,13 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Resource ID of the Key Vault which contains the `key_vault_key_id`.
+
+        > **Note:** The `key_vault_id` field only needs to be specified if the Key Vault which contains the `key_vault_key_id` exists in a different subscription than the Databricks Workspace. If the `key_vault_id` field is not specified it is assumed that the `key_vault_key_id` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+
+        > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+        """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
@@ -230,6 +254,11 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] key_vault_id: Specifies the Resource ID of the Key Vault which contains the `key_vault_key_id`.
+               
+               > **Note:** The `key_vault_id` field only needs to be specified if the Key Vault which contains the `key_vault_key_id` exists in a different subscription than the Databricks Workspace. If the `key_vault_id` field is not specified it is assumed that the `key_vault_key_id` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+               
+               > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
         :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
         """
@@ -395,6 +424,11 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] key_vault_id: Specifies the Resource ID of the Key Vault which contains the `key_vault_key_id`.
+               
+               > **Note:** The `key_vault_id` field only needs to be specified if the Key Vault which contains the `key_vault_key_id` exists in a different subscription than the Databricks Workspace. If the `key_vault_id` field is not specified it is assumed that the `key_vault_key_id` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+               
+               > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to be used.
         :param pulumi.Input[_builtins.str] workspace_id: The Resource ID of the Databricks Workspace.
         """
@@ -410,6 +444,13 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the Resource ID of the Key Vault which contains the `key_vault_key_id`.
+
+        > **Note:** The `key_vault_id` field only needs to be specified if the Key Vault which contains the `key_vault_key_id` exists in a different subscription than the Databricks Workspace. If the `key_vault_id` field is not specified it is assumed that the `key_vault_key_id` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+
+        > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+        """
         return pulumi.get(self, "key_vault_id")
 
     @_builtins.property

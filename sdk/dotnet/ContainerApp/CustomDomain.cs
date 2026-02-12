@@ -180,7 +180,9 @@ namespace Pulumi.Azure.ContainerApp
     public partial class CustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        /// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** If using an Azure Managed Certificate `ContainerAppEnvironmentCertificateId` and `CertificateBindingType` should be added to `IgnoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         /// </summary>
         [Output("certificateBindingType")]
         public Output<string?> CertificateBindingType { get; private set; } = null!;
@@ -260,7 +262,9 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class CustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        /// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** If using an Azure Managed Certificate `ContainerAppEnvironmentCertificateId` and `CertificateBindingType` should be added to `IgnoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         /// </summary>
         [Input("certificateBindingType")]
         public Input<string>? CertificateBindingType { get; set; }
@@ -296,7 +300,9 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class CustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        /// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `ContainerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** If using an Azure Managed Certificate `ContainerAppEnvironmentCertificateId` and `CertificateBindingType` should be added to `IgnoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         /// </summary>
         [Input("certificateBindingType")]
         public Input<string>? CertificateBindingType { get; set; }

@@ -82,6 +82,10 @@ class AwaitableGetSourceControlTokenResult(GetSourceControlTokenResult):
 def get_source_control_token(type: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlTokenResult:
     """
+    Use this data source to access information about an existing App Service Source Control Token.
+
+    > **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+
     ## Example Usage
 
     ```python
@@ -115,6 +119,10 @@ def get_source_control_token(type: Optional[_builtins.str] = None,
 def get_source_control_token_output(type: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlTokenResult]:
     """
+    Use this data source to access information about an existing App Service Source Control Token.
+
+    > **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+
     ## Example Usage
 
     ```python

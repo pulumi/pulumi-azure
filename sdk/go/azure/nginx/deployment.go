@@ -165,7 +165,10 @@ type Deployment struct {
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Sku               pulumi.StringOutput `pulumi:"sku"`
+	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	//
+	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `webApplicationFirewall` blocks as defined below.
@@ -244,7 +247,10 @@ type deploymentState struct {
 	NginxVersion *string `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Sku               *string `pulumi:"sku"`
+	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	//
+	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
 	// A `webApplicationFirewall` blocks as defined below.
@@ -288,7 +294,10 @@ type DeploymentState struct {
 	NginxVersion pulumi.StringPtrInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Sku               pulumi.StringPtrInput
+	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	//
+	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
 	// A `webApplicationFirewall` blocks as defined below.
@@ -330,7 +339,10 @@ type deploymentArgs struct {
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Sku               string `pulumi:"sku"`
+	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	//
+	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+	Sku string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
 	// A `webApplicationFirewall` blocks as defined below.
@@ -369,7 +381,10 @@ type DeploymentArgs struct {
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringInput
-	Sku               pulumi.StringInput
+	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	//
+	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+	Sku pulumi.StringInput
 	// A mapping of tags which should be assigned to the NGINX Deployment.
 	Tags pulumi.StringMapInput
 	// A `webApplicationFirewall` blocks as defined below.
@@ -550,6 +565,9 @@ func (o DeploymentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+//
+// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 func (o DeploymentOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

@@ -10,6 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core
 {
     /// <summary>
+    /// Manages an Alias for a Subscription - which adds an Alias to an existing Subscription, allowing it to be managed in the provider - or create a new Subscription with a new Alias.
+    /// 
+    /// &gt; **NOTE:** Destroying a Subscription controlled by this resource will place the Subscription into a cancelled state. It is possible to re-activate a subscription within 90-days of cancellation, after which time the Subscription is irrevocably deleted, and the Subscription ID cannot be re-used. For further information see [here](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#what-happens-after-subscription-cancellation). Users can optionally delete a Subscription once 72 hours have passed, however, this functionality is not suitable for this provider. A `Deleted` subscription cannot be reactivated.
+    /// 
+    /// &gt; **NOTE:** It is not possible to destroy (cancel) a subscription if it contains resources. If resources are present that are not managed by the provider then these will need to be removed before the Subscription can be destroyed.
+    /// 
+    /// &gt; **Note:** This resource will automatically attempt to cancel a subscription when it is deleted. This behavior can be disabled in the provider `Features` block by setting the `PreventCancellationOnDestroy` field to `True` within the `Subscription` block.
+    /// 
+    /// &gt; **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in Terraform only a single Alias is supported.
+    /// 
+    /// &gt; **NOTE:** When using this resource across tenants the `ClientId` and `TenantId` of the `Provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Creating A New Alias And Subscription For An Enrollment Account
@@ -122,6 +134,8 @@ namespace Pulumi.Azure.Core
     /// ```sh
     /// $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
     /// ```
+    /// 
+    /// !&gt; **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `SubscriptionId` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
     /// </summary>
     [AzureResourceType("azure:core/subscription:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource

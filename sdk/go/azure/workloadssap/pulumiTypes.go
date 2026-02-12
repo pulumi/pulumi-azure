@@ -326,6 +326,9 @@ func (o SingleNodeVirtualInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutpu
 }
 
 type SingleNodeVirtualInstanceSingleServerConfiguration struct {
+	// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+	//
+	// > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 	AppResourceGroupName string `pulumi:"appResourceGroupName"`
 	// The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
 	DatabaseType *string `pulumi:"databaseType"`
@@ -353,6 +356,9 @@ type SingleNodeVirtualInstanceSingleServerConfigurationInput interface {
 }
 
 type SingleNodeVirtualInstanceSingleServerConfigurationArgs struct {
+	// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+	//
+	// > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 	AppResourceGroupName pulumi.StringInput `pulumi:"appResourceGroupName"`
 	// The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
 	DatabaseType pulumi.StringPtrInput `pulumi:"databaseType"`
@@ -445,6 +451,9 @@ func (o SingleNodeVirtualInstanceSingleServerConfigurationOutput) ToSingleNodeVi
 	}).(SingleNodeVirtualInstanceSingleServerConfigurationPtrOutput)
 }
 
+// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+//
+// > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 func (o SingleNodeVirtualInstanceSingleServerConfigurationOutput) AppResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v SingleNodeVirtualInstanceSingleServerConfiguration) string { return v.AppResourceGroupName }).(pulumi.StringOutput)
 }
@@ -509,6 +518,9 @@ func (o SingleNodeVirtualInstanceSingleServerConfigurationPtrOutput) Elem() Sing
 	}).(SingleNodeVirtualInstanceSingleServerConfigurationOutput)
 }
 
+// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+//
+// > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 func (o SingleNodeVirtualInstanceSingleServerConfigurationPtrOutput) AppResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SingleNodeVirtualInstanceSingleServerConfiguration) *string {
 		if v == nil {
@@ -1764,6 +1776,9 @@ func (o ThreeTierVirtualInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput
 }
 
 type ThreeTierVirtualInstanceThreeTierConfiguration struct {
+	// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+	//
+	// > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 	AppResourceGroupName string `pulumi:"appResourceGroupName"`
 	// An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
 	ApplicationServerConfiguration ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration `pulumi:"applicationServerConfiguration"`
@@ -1797,6 +1812,9 @@ type ThreeTierVirtualInstanceThreeTierConfigurationInput interface {
 }
 
 type ThreeTierVirtualInstanceThreeTierConfigurationArgs struct {
+	// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+	//
+	// > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 	AppResourceGroupName pulumi.StringInput `pulumi:"appResourceGroupName"`
 	// An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
 	ApplicationServerConfiguration ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationInput `pulumi:"applicationServerConfiguration"`
@@ -1895,6 +1913,9 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationOutput) ToThreeTierVirtual
 	}).(ThreeTierVirtualInstanceThreeTierConfigurationPtrOutput)
 }
 
+// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+//
+// > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 func (o ThreeTierVirtualInstanceThreeTierConfigurationOutput) AppResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ThreeTierVirtualInstanceThreeTierConfiguration) string { return v.AppResourceGroupName }).(pulumi.StringOutput)
 }
@@ -1972,6 +1993,9 @@ func (o ThreeTierVirtualInstanceThreeTierConfigurationPtrOutput) Elem() ThreeTie
 	}).(ThreeTierVirtualInstanceThreeTierConfigurationOutput)
 }
 
+// The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+//
+// > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
 func (o ThreeTierVirtualInstanceThreeTierConfigurationPtrOutput) AppResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreeTierVirtualInstanceThreeTierConfiguration) *string {
 		if v == nil {

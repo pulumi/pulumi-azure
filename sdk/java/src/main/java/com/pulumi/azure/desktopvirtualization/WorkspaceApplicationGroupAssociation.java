@@ -100,6 +100,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup&#34;
  * ```
  * 
+ * &gt; **Note:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
+ * 
  */
 @ResourceType(type="azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation")
 public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.CustomResource {

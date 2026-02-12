@@ -860,6 +860,10 @@ class Workspace(pulumi.CustomResource):
                  v1_legacy_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Manages a Azure Machine Learning Workspace
+
+        > **Note:** For examples on how to set up the Azure Machine Learning workspace, together with compute and integrated services, see Terraform Quickstart
+
         ## Example Usage
 
         ```python
@@ -1022,6 +1026,10 @@ class Workspace(pulumi.CustomResource):
                  args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Azure Machine Learning Workspace
+
+        > **Note:** For examples on how to set up the Azure Machine Learning workspace, together with compute and integrated services, see Terraform Quickstart
+
         ## Example Usage
 
         ```python

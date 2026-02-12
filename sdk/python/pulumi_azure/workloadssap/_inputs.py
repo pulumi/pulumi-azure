@@ -93,20 +93,15 @@ __all__ = [
     'ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DiscoveryVirtualInstanceIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
-        """
-elif False:
-    DiscoveryVirtualInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveryVirtualInstanceIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this SAP Discovery Virtual Instance.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity that should be configured on this SAP Discovery Virtual Instance. The only possible value is `UserAssigned`.
+    """
 
 @pulumi.input_type
 class DiscoveryVirtualInstanceIdentityArgs:
@@ -145,18 +140,15 @@ class DiscoveryVirtualInstanceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this SAP Single Node Virtual Instance.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Service Identity that should be configured on this SAP Single Node Virtual Instance. The only possible value is `UserAssigned`.
-        """
-elif False:
-    SingleNodeVirtualInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this SAP Single Node Virtual Instance.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity that should be configured on this SAP Single Node Virtual Instance. The only possible value is `UserAssigned`.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceIdentityArgs:
@@ -195,35 +187,37 @@ class SingleNodeVirtualInstanceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceSingleServerConfigurationArgsDict(TypedDict):
-        app_resource_group_name: pulumi.Input[_builtins.str]
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the Subnet for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
-        """
-        virtual_machine_configuration: pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgsDict']
-        """
-        A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-        database_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
-        """
-        disk_volume_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgsDict']]]]
-        """
-        One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
-        """
-        secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
-        """
-        virtual_machine_resource_names: NotRequired[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict']]
-        """
-        A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    SingleNodeVirtualInstanceSingleServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceSingleServerConfigurationArgsDict(TypedDict):
+    app_resource_group_name: pulumi.Input[_builtins.str]
+    """
+    The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+
+    > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Subnet for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
+    """
+    virtual_machine_configuration: pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgsDict']
+    """
+    A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+    """
+    database_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
+    """
+    disk_volume_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgsDict']]]]
+    """
+    One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+    """
+    virtual_machine_resource_names: NotRequired[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict']]
+    """
+    A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationArgs:
@@ -236,6 +230,9 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgs:
                  secondary_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  virtual_machine_resource_names: Optional[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']] = None):
         """
+        :param pulumi.Input[_builtins.str] app_resource_group_name: The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+               
+               > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
         :param pulumi.Input[_builtins.str] subnet_id: The resource ID of the Subnet for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs'] virtual_machine_configuration: A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_type: The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
@@ -258,6 +255,11 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="appResourceGroupName")
     def app_resource_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+
+        > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+        """
         return pulumi.get(self, "app_resource_group_name")
 
     @app_resource_group_name.setter
@@ -337,26 +339,23 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgs:
         pulumi.set(self, "virtual_machine_resource_names", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgsDict(TypedDict):
-        number_of_disks: pulumi.Input[_builtins.int]
-        """
-        The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
-        """
-        size_in_gb: pulumi.Input[_builtins.int]
-        """
-        The size of the Disk in GB. Changing this forces a new resource to be created.
-        """
-        sku_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
-        """
-elif False:
-    SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgsDict(TypedDict):
+    number_of_disks: pulumi.Input[_builtins.int]
+    """
+    The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
+    """
+    size_in_gb: pulumi.Input[_builtins.int]
+    """
+    The size of the Disk in GB. Changing this forces a new resource to be created.
+    """
+    sku_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs:
@@ -425,22 +424,19 @@ class SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationA
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
-        image: pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgsDict']
-        """
-        An `image` block as defined below. Changing this forces a new resource to be created.
-        """
-        os_profile: pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
-        """
-        An `os_profile` block as defined below. Changing this forces a new resource to be created.
-        """
-        virtual_machine_size: pulumi.Input[_builtins.str]
-        """
-        The size of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
+    image: pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgsDict']
+    """
+    An `image` block as defined below. Changing this forces a new resource to be created.
+    """
+    os_profile: pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
+    """
+    An `os_profile` block as defined below. Changing this forces a new resource to be created.
+    """
+    virtual_machine_size: pulumi.Input[_builtins.str]
+    """
+    The size of the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs:
@@ -494,26 +490,23 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurat
         pulumi.set(self, "virtual_machine_size", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
-        offer: pulumi.Input[_builtins.str]
-        """
-        Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The SKU of the Image. Changing this forces a new resource to be created.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
+    offer: pulumi.Input[_builtins.str]
+    """
+    Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The SKU of the Image. Changing this forces a new resource to be created.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs:
@@ -582,22 +575,19 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurat
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
-        admin_username: pulumi.Input[_builtins.str]
-        """
-        The name of the administrator account. Changing this forces a new resource to be created.
-        """
-        ssh_private_key: pulumi.Input[_builtins.str]
-        """
-        The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        ssh_public_key: pulumi.Input[_builtins.str]
-        """
-        The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
+    admin_username: pulumi.Input[_builtins.str]
+    """
+    The name of the administrator account. Changing this forces a new resource to be created.
+    """
+    ssh_private_key: pulumi.Input[_builtins.str]
+    """
+    The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    ssh_public_key: pulumi.Input[_builtins.str]
+    """
+    The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs:
@@ -651,30 +641,27 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurat
         pulumi.set(self, "ssh_public_key", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict(TypedDict):
-        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgsDict']]]]
-        """
-        (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
-        """
-elif False:
-    SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict(TypedDict):
+    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgsDict']]]]
+    """
+    (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs:
@@ -763,18 +750,15 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNa
         pulumi.set(self, "virtual_machine_name", value)
 
 
-if not MYPY:
-    class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgsDict(TypedDict):
-        names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Volume. The only possible value is `default`. Changing this forces a new resource to be created.
-        """
-elif False:
-    SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgsDict: TypeAlias = Mapping[str, Any]
+class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgsDict(TypedDict):
+    names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Volume. The only possible value is `default`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs:
@@ -813,18 +797,15 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNa
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this SAP Three Tier Virtual Instance.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Service Identity that should be configured on this SAP Three Tier Virtual Instance. Only possible value is `UserAssigned`.
-        """
-elif False:
-    ThreeTierVirtualInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this SAP Three Tier Virtual Instance.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity that should be configured on this SAP Three Tier Virtual Instance. Only possible value is `UserAssigned`.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceIdentityArgs:
@@ -863,43 +844,45 @@ class ThreeTierVirtualInstanceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationArgsDict(TypedDict):
-        app_resource_group_name: pulumi.Input[_builtins.str]
-        application_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgsDict']
-        """
-        An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-        central_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgsDict']
-        """
-        A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-        database_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgsDict']
-        """
-        A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-        high_availability_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The high availability type for the three tier configuration. Possible values are `AvailabilitySet` and `AvailabilityZone`. Changing this forces a new resource to be created.
-        """
-        resource_names: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict']]
-        """
-        A `resource_names` block as defined below. Changing this forces a new resource to be created.
-        """
-        secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
-        """
-        transport_create_and_mount: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict']]
-        """
-        A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+class ThreeTierVirtualInstanceThreeTierConfigurationArgsDict(TypedDict):
+    app_resource_group_name: pulumi.Input[_builtins.str]
+    """
+    The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
 
-        > **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn't set.
+    > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+    """
+    application_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgsDict']
+    """
+    An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+    """
+    central_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgsDict']
+    """
+    A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+    """
+    database_server_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgsDict']
+    """
+    A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+    """
+    high_availability_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The high availability type for the three tier configuration. Possible values are `AvailabilitySet` and `AvailabilityZone`. Changing this forces a new resource to be created.
+    """
+    resource_names: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict']]
+    """
+    A `resource_names` block as defined below. Changing this forces a new resource to be created.
+    """
+    secondary_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+    """
+    transport_create_and_mount: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict']]
+    """
+    A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
 
-        > **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn't set.
+
+    > **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationArgs:
@@ -913,6 +896,9 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgs:
                  secondary_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  transport_create_and_mount: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']] = None):
         """
+        :param pulumi.Input[_builtins.str] app_resource_group_name: The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+               
+               > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
         :param pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs'] application_server_configuration: An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs'] central_server_configuration: A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs'] database_server_configuration: A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
@@ -941,6 +927,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="appResourceGroupName")
     def app_resource_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+
+        > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+        """
         return pulumi.get(self, "app_resource_group_name")
 
     @app_resource_group_name.setter
@@ -1036,22 +1027,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgs:
         pulumi.set(self, "transport_create_and_mount", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgsDict(TypedDict):
-        instance_count: pulumi.Input[_builtins.int]
-        """
-        The number of instances for the Application Server. Possible values are at least `1`. Changing this forces a new resource to be created.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the Subnet for the Application Server. Changing this forces a new resource to be created.
-        """
-        virtual_machine_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgsDict']
-        """
-        A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgsDict(TypedDict):
+    instance_count: pulumi.Input[_builtins.int]
+    """
+    The number of instances for the Application Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Subnet for the Application Server. Changing this forces a new resource to be created.
+    """
+    virtual_machine_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgsDict']
+    """
+    A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs:
@@ -1105,22 +1093,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurati
         pulumi.set(self, "virtual_machine_configuration", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
-        image: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgsDict']
-        """
-        An `image` block as defined below. Changing this forces a new resource to be created.
-        """
-        os_profile: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
-        """
-        An `os_profile` block as defined below. Changing this forces a new resource to be created.
-        """
-        virtual_machine_size: pulumi.Input[_builtins.str]
-        """
-        The size of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
+    image: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgsDict']
+    """
+    An `image` block as defined below. Changing this forces a new resource to be created.
+    """
+    os_profile: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
+    """
+    An `os_profile` block as defined below. Changing this forces a new resource to be created.
+    """
+    virtual_machine_size: pulumi.Input[_builtins.str]
+    """
+    The size of the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs:
@@ -1174,26 +1159,23 @@ class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurati
         pulumi.set(self, "virtual_machine_size", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
-        offer: pulumi.Input[_builtins.str]
-        """
-        Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The SKU of the Image. Changing this forces a new resource to be created.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
+    offer: pulumi.Input[_builtins.str]
+    """
+    Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The SKU of the Image. Changing this forces a new resource to be created.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs:
@@ -1262,22 +1244,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurati
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
-        admin_username: pulumi.Input[_builtins.str]
-        """
-        The name of the administrator account. Changing this forces a new resource to be created.
-        """
-        ssh_private_key: pulumi.Input[_builtins.str]
-        """
-        The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        ssh_public_key: pulumi.Input[_builtins.str]
-        """
-        The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
+    admin_username: pulumi.Input[_builtins.str]
+    """
+    The name of the administrator account. Changing this forces a new resource to be created.
+    """
+    ssh_private_key: pulumi.Input[_builtins.str]
+    """
+    The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    ssh_public_key: pulumi.Input[_builtins.str]
+    """
+    The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgs:
@@ -1331,22 +1310,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurati
         pulumi.set(self, "ssh_public_key", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgsDict(TypedDict):
-        instance_count: pulumi.Input[_builtins.int]
-        """
-        The number of instances for the Central Server. Possible values are at least `1`. Changing this forces a new resource to be created.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the Subnet for the Central Server. Changing this forces a new resource to be created.
-        """
-        virtual_machine_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgsDict']
-        """
-        A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgsDict(TypedDict):
+    instance_count: pulumi.Input[_builtins.int]
+    """
+    The number of instances for the Central Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Subnet for the Central Server. Changing this forces a new resource to be created.
+    """
+    virtual_machine_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgsDict']
+    """
+    A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs:
@@ -1400,22 +1376,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationAr
         pulumi.set(self, "virtual_machine_configuration", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
-        image: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgsDict']
-        """
-        An `image` block as defined below. Changing this forces a new resource to be created.
-        """
-        os_profile: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
-        """
-        An `os_profile` block as defined below. Changing this forces a new resource to be created.
-        """
-        virtual_machine_size: pulumi.Input[_builtins.str]
-        """
-        The size of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
+    image: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgsDict']
+    """
+    An `image` block as defined below. Changing this forces a new resource to be created.
+    """
+    os_profile: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
+    """
+    An `os_profile` block as defined below. Changing this forces a new resource to be created.
+    """
+    virtual_machine_size: pulumi.Input[_builtins.str]
+    """
+    The size of the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgs:
@@ -1469,26 +1442,23 @@ class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVi
         pulumi.set(self, "virtual_machine_size", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
-        offer: pulumi.Input[_builtins.str]
-        """
-        Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The SKU of the Image. Changing this forces a new resource to be created.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
+    offer: pulumi.Input[_builtins.str]
+    """
+    Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The SKU of the Image. Changing this forces a new resource to be created.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs:
@@ -1557,22 +1527,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVi
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
-        admin_username: pulumi.Input[_builtins.str]
-        """
-        The name of the administrator account. Changing this forces a new resource to be created.
-        """
-        ssh_private_key: pulumi.Input[_builtins.str]
-        """
-        The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        ssh_public_key: pulumi.Input[_builtins.str]
-        """
-        The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
+    admin_username: pulumi.Input[_builtins.str]
+    """
+    The name of the administrator account. Changing this forces a new resource to be created.
+    """
+    ssh_private_key: pulumi.Input[_builtins.str]
+    """
+    The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    ssh_public_key: pulumi.Input[_builtins.str]
+    """
+    The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgs:
@@ -1626,30 +1593,27 @@ class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVi
         pulumi.set(self, "ssh_public_key", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgsDict(TypedDict):
-        instance_count: pulumi.Input[_builtins.int]
-        """
-        The number of instances for the Database Server. Possible values are at least `1`. Changing this forces a new resource to be created.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the Subnet for the Database Server. Changing this forces a new resource to be created.
-        """
-        virtual_machine_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgsDict']
-        """
-        A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
-        """
-        database_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The database type for the Database Server. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
-        """
-        disk_volume_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgsDict']]]]
-        """
-        One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgsDict(TypedDict):
+    instance_count: pulumi.Input[_builtins.int]
+    """
+    The number of instances for the Database Server. Possible values are at least `1`. Changing this forces a new resource to be created.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Subnet for the Database Server. Changing this forces a new resource to be created.
+    """
+    virtual_machine_configuration: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgsDict']
+    """
+    A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+    """
+    database_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The database type for the Database Server. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
+    """
+    disk_volume_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgsDict']]]]
+    """
+    One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs:
@@ -1735,26 +1699,23 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationA
         pulumi.set(self, "disk_volume_configurations", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgsDict(TypedDict):
-        number_of_disks: pulumi.Input[_builtins.int]
-        """
-        The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
-        """
-        size_in_gb: pulumi.Input[_builtins.int]
-        """
-        The size of the Disk in GB. Changing this forces a new resource to be created.
-        """
-        sku_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgsDict(TypedDict):
+    number_of_disks: pulumi.Input[_builtins.int]
+    """
+    The total number of disks required for the concerned volume. Possible values are at least `1`. Changing this forces a new resource to be created.
+    """
+    size_in_gb: pulumi.Input[_builtins.int]
+    """
+    The size of the Disk in GB. Changing this forces a new resource to be created.
+    """
+    sku_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Disk SKU. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the volumn name of the database disk. Possible values are `backup`, `hana/data`, `hana/log`, `hana/shared`, `os` and `usr/sap`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs:
@@ -1823,22 +1784,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationD
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
-        image: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgsDict']
-        """
-        An `image` block as defined below. Changing this forces a new resource to be created.
-        """
-        os_profile: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
-        """
-        An `os_profile` block as defined below. Changing this forces a new resource to be created.
-        """
-        virtual_machine_size: pulumi.Input[_builtins.str]
-        """
-        The size of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgsDict(TypedDict):
+    image: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgsDict']
+    """
+    An `image` block as defined below. Changing this forces a new resource to be created.
+    """
+    os_profile: pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgsDict']
+    """
+    An `os_profile` block as defined below. Changing this forces a new resource to be created.
+    """
+    virtual_machine_size: pulumi.Input[_builtins.str]
+    """
+    The size of the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs:
@@ -1892,26 +1850,23 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationV
         pulumi.set(self, "virtual_machine_size", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
-        offer: pulumi.Input[_builtins.str]
-        """
-        Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The SKU of the Image. Changing this forces a new resource to be created.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgsDict(TypedDict):
+    offer: pulumi.Input[_builtins.str]
+    """
+    Specifies the offer of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the Image. Possible values are `RedHat` and `SUSE`. Changing this forces a new resource to be created.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The SKU of the Image. Changing this forces a new resource to be created.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgs:
@@ -1980,22 +1935,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationV
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
-        admin_username: pulumi.Input[_builtins.str]
-        """
-        The name of the administrator account. Changing this forces a new resource to be created.
-        """
-        ssh_private_key: pulumi.Input[_builtins.str]
-        """
-        The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        ssh_public_key: pulumi.Input[_builtins.str]
-        """
-        The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgsDict(TypedDict):
+    admin_username: pulumi.Input[_builtins.str]
+    """
+    The name of the administrator account. Changing this forces a new resource to be created.
+    """
+    ssh_private_key: pulumi.Input[_builtins.str]
+    """
+    The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    ssh_public_key: pulumi.Input[_builtins.str]
+    """
+    The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgs:
@@ -2049,26 +2001,23 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationV
         pulumi.set(self, "ssh_public_key", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict(TypedDict):
-        application_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict']]
-        """
-        An `application_server` block as defined below. Changing this forces a new resource to be created.
-        """
-        central_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict']]
-        """
-        A `central_server` block as defined below. Changing this forces a new resource to be created.
-        """
-        database_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict']]
-        """
-        A `database_server` block as defined below. Changing this forces a new resource to be created.
-        """
-        shared_storage: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict']]
-        """
-        A `shared_storage` block as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict(TypedDict):
+    application_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict']]
+    """
+    An `application_server` block as defined below. Changing this forces a new resource to be created.
+    """
+    central_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict']]
+    """
+    A `central_server` block as defined below. Changing this forces a new resource to be created.
+    """
+    database_server: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict']]
+    """
+    A `database_server` block as defined below. Changing this forces a new resource to be created.
+    """
+    shared_storage: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict']]
+    """
+    A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs:
@@ -2141,18 +2090,15 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs:
         pulumi.set(self, "shared_storage", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict(TypedDict):
-        availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for the availability set. Changing this forces a new resource to be created.
-        """
-        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict']]]]
-        """
-        One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict(TypedDict):
+    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for the availability set. Changing this forces a new resource to be created.
+    """
+    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict']]]]
+    """
+    One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs:
@@ -2193,30 +2139,27 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
         pulumi.set(self, "virtual_machines", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict(TypedDict):
-        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgsDict']]]]
-        """
-        One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict(TypedDict):
+    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgsDict']]]]
+    """
+    One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs:
@@ -2305,22 +2248,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
         pulumi.set(self, "virtual_machine_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgsDict(TypedDict):
-        names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgsDict(TypedDict):
+    names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 
-        > **Note:** Possible value for Application Server and Central Server is `default`.
+    > **Note:** Possible value for Application Server and Central Server is `default`.
 
-        > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs:
@@ -2367,22 +2307,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict(TypedDict):
-        availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for the availability set. Changing this forces a new resource to be created.
-        """
-        load_balancer: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict']]
-        """
-        A `load_balancer` block as defined below. Changing this forces a new resource to be created.
-        """
-        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict']]]]
-        """
-        One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict(TypedDict):
+    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for the availability set. Changing this forces a new resource to be created.
+    """
+    load_balancer: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict']]
+    """
+    A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+    """
+    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict']]]]
+    """
+    One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs:
@@ -2439,26 +2376,23 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerAr
         pulumi.set(self, "virtual_machines", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict(TypedDict):
-        backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
-        """
-        frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
-        """
-        health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Health Probe names. Changing this forces a new resource to be created.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full resource name of the Load Balancer. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict(TypedDict):
+    backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
+    """
+    frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
+    """
+    health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Health Probe names. Changing this forces a new resource to be created.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full resource name of the Load Balancer. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs:
@@ -2531,30 +2465,27 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLo
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict(TypedDict):
-        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgsDict']]]]
-        """
-        One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict(TypedDict):
+    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgsDict']]]]
+    """
+    One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs:
@@ -2643,22 +2574,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVi
         pulumi.set(self, "virtual_machine_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgsDict(TypedDict):
-        names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgsDict(TypedDict):
+    names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 
-        > **Note:** Possible value for Application Server and Central Server is `default`.
+    > **Note:** Possible value for Application Server and Central Server is `default`.
 
-        > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs:
@@ -2705,22 +2633,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVi
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict(TypedDict):
-        availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name for the availability set. Changing this forces a new resource to be created.
-        """
-        load_balancer: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict']]
-        """
-        A `load_balancer` block as defined below. Changing this forces a new resource to be created.
-        """
-        virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict']]]]
-        """
-        One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict(TypedDict):
+    availability_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name for the availability set. Changing this forces a new resource to be created.
+    """
+    load_balancer: NotRequired[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict']]
+    """
+    A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+    """
+    virtual_machines: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict']]]]
+    """
+    One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs:
@@ -2777,26 +2702,23 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerA
         pulumi.set(self, "virtual_machines", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict(TypedDict):
-        backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
-        """
-        frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
-        """
-        health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Health Probe names. Changing this forces a new resource to be created.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full resource name of the Load Balancer. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict(TypedDict):
+    backend_pool_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Backend Pool names for the Load Balancer. Changing this forces a new resource to be created.
+    """
+    frontend_ip_configuration_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Frontend IP Configuration names. Changing this forces a new resource to be created.
+    """
+    health_probe_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Health Probe names. Changing this forces a new resource to be created.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full resource name of the Load Balancer. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs:
@@ -2869,30 +2791,27 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerL
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict(TypedDict):
-        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgsDict']]]]
-        """
-        One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict(TypedDict):
+    data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgsDict']]]]
+    """
+    One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    network_interface_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of full names for the Network Interface of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    os_disk_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the OS Disk attached to the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    virtual_machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the Virtual Machine in a single server SAP system. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs:
@@ -2981,22 +2900,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerV
         pulumi.set(self, "virtual_machine_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgsDict(TypedDict):
-        names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-        """
-        volume_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgsDict(TypedDict):
+    names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+    """
+    volume_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Volume. Possible values are `default`, `hanaData`, `hanaLog`, `hanaShared` and `usrSap`. Changing this forces a new resource to be created.
 
-        > **Note:** Possible value for Application Server and Central Server is `default`.
+    > **Note:** Possible value for Application Server and Central Server is `default`.
 
-        > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs:
@@ -3043,18 +2959,15 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerV
         pulumi.set(self, "volume_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict(TypedDict):
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of the Shared Storage Account. Changing this forces a new resource to be created.
-        """
-        private_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The full name of Private Endpoint for the Shared Storage Account. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict(TypedDict):
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of the Shared Storage Account. Changing this forces a new resource to be created.
+    """
+    private_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The full name of Private Endpoint for the Shared Storage Account. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs:
@@ -3095,18 +3008,15 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageAr
         pulumi.set(self, "private_endpoint_name", value)
 
 
-if not MYPY:
-    class ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict(TypedDict):
-        resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Resource Group of the transport File Share. Changing this forces a new resource to be created.
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Storage Account of the File Share. Changing this forces a new resource to be created.
-        """
-elif False:
-    ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict: TypeAlias = Mapping[str, Any]
+class ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict(TypedDict):
+    resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Resource Group of the transport File Share. Changing this forces a new resource to be created.
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Storage Account of the File Share. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs:

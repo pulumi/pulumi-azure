@@ -70,7 +70,10 @@ type SqlDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
+	// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+	//
+	// > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
 // NewSqlDatabase registers a new resource with the given unique name, arguments, and options.
@@ -119,7 +122,10 @@ type sqlDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Throughput        *int    `pulumi:"throughput"`
+	// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+	//
+	// > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+	Throughput *int `pulumi:"throughput"`
 }
 
 type SqlDatabaseState struct {
@@ -133,7 +139,10 @@ type SqlDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Throughput        pulumi.IntPtrInput
+	// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+	//
+	// > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+	Throughput pulumi.IntPtrInput
 }
 
 func (SqlDatabaseState) ElementType() reflect.Type {
@@ -151,7 +160,10 @@ type sqlDatabaseArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput        *int   `pulumi:"throughput"`
+	// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+	//
+	// > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+	Throughput *int `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a SqlDatabase resource.
@@ -166,7 +178,10 @@ type SqlDatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Throughput        pulumi.IntPtrInput
+	// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+	//
+	// > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+	Throughput pulumi.IntPtrInput
 }
 
 func (SqlDatabaseArgs) ElementType() reflect.Type {
@@ -278,6 +293,9 @@ func (o SqlDatabaseOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlDatabase) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+//
+// > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 func (o SqlDatabaseOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *SqlDatabase) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

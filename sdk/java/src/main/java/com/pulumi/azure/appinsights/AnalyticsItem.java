@@ -85,9 +85,13 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:appinsights/analyticsItem:AnalyticsItem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/analyticsItems/11111111-1111-1111-1111-111111111111
  * ```
  * 
+ * &gt; **Please Note:** This is a provider Unique ID matching the format: `{appInsightsID}/analyticsItems/{itemId}` for items with `scope` set to `shared`, or  `{appInsightsID}/myAnalyticsItems/{itemId}` for items with `scope` set to `user`
+ * 
  * To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g.
  * 
+ * ```sh
  * az rest --method GET --uri &#34;https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01&#34;
+ * ```
  * 
  */
 @ResourceType(type="azure:appinsights/analyticsItem:AnalyticsItem")

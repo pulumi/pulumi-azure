@@ -79,6 +79,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
  * ```
  * 
+ * &gt; **NOTE:** This ID is unique to this provider and doesn&#39;t directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
+ * 
  */
 @ResourceType(type="azure:logicapps/actionHttp:ActionHttp")
 public class ActionHttp extends com.pulumi.resources.CustomResource {

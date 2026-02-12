@@ -269,9 +269,21 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.subnetId);
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -746,11 +758,27 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
             return subnetId(Output.of(subnetId));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

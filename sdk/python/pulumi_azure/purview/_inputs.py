@@ -21,30 +21,25 @@ __all__ = [
     'AccountManagedResourceArgsDict',
 ]
 
-MYPY = False
+class AccountIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
 
-if not MYPY:
-    class AccountIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
-
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -120,22 +115,19 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AccountManagedResourceArgsDict(TypedDict):
-        event_hub_namespace_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the managed event hub namespace.
-        """
-        resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the managed resource group.
-        """
-        storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the managed storage account.
-        """
-elif False:
-    AccountManagedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class AccountManagedResourceArgsDict(TypedDict):
+    event_hub_namespace_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the managed event hub namespace.
+    """
+    resource_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the managed resource group.
+    """
+    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the managed storage account.
+    """
 
 @pulumi.input_type
 class AccountManagedResourceArgs:

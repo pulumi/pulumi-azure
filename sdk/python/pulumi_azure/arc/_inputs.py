@@ -19,24 +19,19 @@ __all__ = [
     'ResourceBridgeApplianceIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ResourceBridgeApplianceIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ResourceBridgeApplianceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceBridgeApplianceIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ResourceBridgeApplianceIdentityArgs:

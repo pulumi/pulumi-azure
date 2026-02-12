@@ -23,16 +23,11 @@ __all__ = [
     'AccountIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountCorsArgsDict(TypedDict):
-        allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of origins that should be allowed to make cross-origin calls.
-        """
-elif False:
-    AccountCorsArgsDict: TypeAlias = Mapping[str, Any]
+class AccountCorsArgsDict(TypedDict):
+    allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of origins that should be allowed to make cross-origin calls.
+    """
 
 @pulumi.input_type
 class AccountCorsArgs:
@@ -56,18 +51,15 @@ class AccountCorsArgs:
         pulumi.set(self, "allowed_origins", value)
 
 
-if not MYPY:
-    class AccountDataStoreArgsDict(TypedDict):
-        unique_name: pulumi.Input[_builtins.str]
-        """
-        The name given to the linked Storage Account.
-        """
-        storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Storage Account that should be linked to this Azure Maps Account.
-        """
-elif False:
-    AccountDataStoreArgsDict: TypeAlias = Mapping[str, Any]
+class AccountDataStoreArgsDict(TypedDict):
+    unique_name: pulumi.Input[_builtins.str]
+    """
+    The name given to the linked Storage Account.
+    """
+    storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Storage Account that should be linked to this Azure Maps Account.
+    """
 
 @pulumi.input_type
 class AccountDataStoreArgs:
@@ -107,28 +99,25 @@ class AccountDataStoreArgs:
         pulumi.set(self, "storage_account_id", value)
 
 
-if not MYPY:
-    class AccountIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Azure Maps Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
+class AccountIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Azure Maps Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
 
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class AccountIdentityArgs:

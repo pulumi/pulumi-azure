@@ -17,6 +17,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a File within an Azure Storage File Share.
+ * 
+ * &gt; **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `storageUseAzuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create files. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -130,9 +134,21 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     public Output<Integer> contentLength() {
         return this.contentLength;
     }
+    /**
+     * The MD5 sum of the file contents. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * 
+     */
     @Export(name="contentMd5", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentMd5;
 
+    /**
+     * @return The MD5 sum of the file contents. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * 
+     */
     public Output<Optional<String>> contentMd5() {
         return Codegen.optional(this.contentMd5);
     }

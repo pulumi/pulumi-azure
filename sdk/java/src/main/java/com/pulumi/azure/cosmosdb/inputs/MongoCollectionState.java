@@ -50,9 +50,21 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.analyticalStorageTtl);
     }
 
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     @Import(name="autoscaleSettings")
     private @Nullable Output<MongoCollectionAutoscaleSettingsArgs> autoscaleSettings;
 
+    /**
+     * @return An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     public Optional<Output<MongoCollectionAutoscaleSettingsArgs>> autoscaleSettings() {
         return Optional.ofNullable(this.autoscaleSettings);
     }
@@ -162,9 +174,17 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.systemIndexes);
     }
 
+    /**
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
+    /**
+     * @return The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
@@ -245,11 +265,27 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
             return analyticalStorageTtl(Output.of(analyticalStorageTtl));
         }
 
+        /**
+         * @param autoscaleSettings An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+         * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscaleSettings(@Nullable Output<MongoCollectionAutoscaleSettingsArgs> autoscaleSettings) {
             $.autoscaleSettings = autoscaleSettings;
             return this;
         }
 
+        /**
+         * @param autoscaleSettings An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+         * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscaleSettings(MongoCollectionAutoscaleSettingsArgs autoscaleSettings) {
             return autoscaleSettings(Output.of(autoscaleSettings));
         }
@@ -421,11 +457,23 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
             return systemIndexes(List.of(systemIndexes));
         }
 
+        /**
+         * @param throughput The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
+        /**
+         * @param throughput The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }

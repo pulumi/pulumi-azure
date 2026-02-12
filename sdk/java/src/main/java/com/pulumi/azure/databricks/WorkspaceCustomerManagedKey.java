@@ -14,6 +14,74 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Databricks Workspace
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.databricks.Workspace;
+ * import com.pulumi.azure.databricks.WorkspaceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .name("databricks-test")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("standard")
+ *             .tags(Map.of("Environment", "Production"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note:** You can use the Databricks Terraform Provider to manage resources within the Databricks Workspace.
+ * 
+ * ## Example HCL Configurations
+ * 
+ * * Databricks Workspace Secure Connectivity Cluster with Load Balancer
+ * * Databricks Workspace Secure Connectivity Cluster without Load Balancer
+ * * Databricks Workspace with Private Endpoint
+ * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
+ * * Databricks Workspace with Customer Managed Keys for Managed Services
+ * * Databricks Workspace with Customer Managed Keys for Managed Services with Key Vault and Key in a Different Subscription
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Databricks` - 2024-05-01, 2022-10-01-preview
+ * 
+ * * `Microsoft.Network` - 2025-01-01, 2023-09-01
+ * 
  * ## Import
  * 
  * Databrick Workspaces can be imported using the `resource id`, e.g.

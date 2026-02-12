@@ -41,6 +41,9 @@ class DeploymentArgs:
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[_builtins.str] sku: Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+               
+               > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[_builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
@@ -111,6 +114,11 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter
     def sku(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+
+        > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
+        """
         return pulumi.get(self, "sku")
 
     @sku.setter
@@ -338,6 +346,9 @@ class _DeploymentState:
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[_builtins.str] nginx_version: The version of the NGINX Deployment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[_builtins.str] sku: Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+               
+               > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         :param pulumi.Input['DeploymentWebApplicationFirewallArgs'] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
@@ -593,6 +604,11 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+
+        > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
+        """
         return pulumi.get(self, "sku")
 
     @sku.setter
@@ -734,6 +750,9 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[_builtins.str] sku: Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+               
+               > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
@@ -932,6 +951,9 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[_builtins.str] nginx_version: The version of the NGINX Deployment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[_builtins.str] sku: Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+               
+               > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
@@ -1098,6 +1120,11 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def sku(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+
+        > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
+        """
         return pulumi.get(self, "sku")
 
     @_builtins.property

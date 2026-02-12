@@ -91,6 +91,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1&#34;
  * ```
  * 
+ * &gt; **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
+ * 
  */
 @ResourceType(type="azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation")
 public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.CustomResource {

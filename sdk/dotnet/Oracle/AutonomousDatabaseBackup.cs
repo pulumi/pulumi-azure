@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Oracle
     /// 
     /// ## Import
     /// 
-    /// Autonomous Database Backups can be imported using the `id`, e.g.
+    /// Autonomous Database Backups can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/autonomousDatabases/autonomousDatabase1/autonomousDatabaseBackups/autonomousDatabaseBackup1

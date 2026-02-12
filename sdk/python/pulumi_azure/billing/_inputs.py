@@ -21,20 +21,15 @@ __all__ = [
     'AccountCostManagementExportExportDataStorageLocationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountCostManagementExportExportDataOptionsArgsDict(TypedDict):
-        time_frame: pulumi.Input[_builtins.str]
-        """
-        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
-        """
-elif False:
-    AccountCostManagementExportExportDataOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class AccountCostManagementExportExportDataOptionsArgsDict(TypedDict):
+    time_frame: pulumi.Input[_builtins.str]
+    """
+    The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
+    """
 
 @pulumi.input_type
 class AccountCostManagementExportExportDataOptionsArgs:
@@ -73,20 +68,17 @@ class AccountCostManagementExportExportDataOptionsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AccountCostManagementExportExportDataStorageLocationArgsDict(TypedDict):
-        container_id: pulumi.Input[_builtins.str]
-        """
-        The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
-        """
-        root_folder_path: pulumi.Input[_builtins.str]
-        """
-        The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+class AccountCostManagementExportExportDataStorageLocationArgsDict(TypedDict):
+    container_id: pulumi.Input[_builtins.str]
+    """
+    The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
+    """
+    root_folder_path: pulumi.Input[_builtins.str]
+    """
+    The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 
-        > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
-        """
-elif False:
-    AccountCostManagementExportExportDataStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
+    """
 
 @pulumi.input_type
 class AccountCostManagementExportExportDataStorageLocationArgs:

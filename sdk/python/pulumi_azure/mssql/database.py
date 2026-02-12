@@ -1300,6 +1300,10 @@ class Database(pulumi.CustomResource):
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Manages a MS SQL Database.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python
@@ -1505,6 +1509,10 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a MS SQL Database.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python

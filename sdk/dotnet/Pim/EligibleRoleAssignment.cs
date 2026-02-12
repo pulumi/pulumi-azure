@@ -128,6 +128,8 @@ namespace Pulumi.Azure.Pim
     /// ```sh
     /// $ pulumi import azure:pim/eligibleRoleAssignment:EligibleRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
     /// ```
+    /// 
+    /// &gt; **Note:** This ID is specific to Terraform - and is of the format `{scope}|{roleDefinitionId}|{principalId}`, where the first segment is the scope of the role assignment, the second segment is the role definition ID, and the last segment is the principal object ID.
     /// </summary>
     [AzureResourceType("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment")]
     public partial class EligibleRoleAssignment : global::Pulumi.CustomResource

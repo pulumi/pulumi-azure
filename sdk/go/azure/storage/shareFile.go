@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a File within an Azure Storage File Share.
+//
+// > **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `storageUseAzuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create files. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+//
 // ## Example Usage
 //
 // ```go
@@ -80,8 +84,11 @@ type ShareFile struct {
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding pulumi.StringPtrOutput `pulumi:"contentEncoding"`
 	// The length in bytes of the file content
-	ContentLength pulumi.IntOutput       `pulumi:"contentLength"`
-	ContentMd5    pulumi.StringPtrOutput `pulumi:"contentMd5"`
+	ContentLength pulumi.IntOutput `pulumi:"contentLength"`
+	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// A mapping of metadata to assign to this file.
@@ -135,8 +142,11 @@ type shareFileState struct {
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding *string `pulumi:"contentEncoding"`
 	// The length in bytes of the file content
-	ContentLength *int    `pulumi:"contentLength"`
-	ContentMd5    *string `pulumi:"contentMd5"`
+	ContentLength *int `pulumi:"contentLength"`
+	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A mapping of metadata to assign to this file.
@@ -162,7 +172,10 @@ type ShareFileState struct {
 	ContentEncoding pulumi.StringPtrInput
 	// The length in bytes of the file content
 	ContentLength pulumi.IntPtrInput
-	ContentMd5    pulumi.StringPtrInput
+	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	ContentMd5 pulumi.StringPtrInput
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A mapping of metadata to assign to this file.
@@ -190,7 +203,10 @@ type shareFileArgs struct {
 	ContentDisposition *string `pulumi:"contentDisposition"`
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding *string `pulumi:"contentEncoding"`
-	ContentMd5      *string `pulumi:"contentMd5"`
+	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A mapping of metadata to assign to this file.
@@ -215,7 +231,10 @@ type ShareFileArgs struct {
 	ContentDisposition pulumi.StringPtrInput
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding pulumi.StringPtrInput
-	ContentMd5      pulumi.StringPtrInput
+	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	ContentMd5 pulumi.StringPtrInput
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A mapping of metadata to assign to this file.
@@ -336,6 +355,9 @@ func (o ShareFileOutput) ContentLength() pulumi.IntOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.IntOutput { return v.ContentLength }).(pulumi.IntOutput)
 }
 
+// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+//
+// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
 func (o ShareFileOutput) ContentMd5() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.ContentMd5 }).(pulumi.StringPtrOutput)
 }

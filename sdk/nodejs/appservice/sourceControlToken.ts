@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an App Service Source Control Token.
+ *
+ * > **Note:** This resource can only manage the token for the user currently running Terraform. Managing tokens for another user is not supported by the service.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -133,6 +133,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:authorization/roleDefinition:RoleDefinition example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000&#34;
  * ```
  * 
+ * &gt; **Note:** This ID is specific to this provider - and is of the format `{roleDefinitionId}|{scope}`.
+ * 
  */
 @ResourceType(type="azure:authorization/roleDefinition:RoleDefinition")
 public class RoleDefinition extends com.pulumi.resources.CustomResource {

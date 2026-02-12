@@ -101,12 +101,16 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args extends com.
     /**
      * The thumbprint of the certificate used for signing purposes.
      * 
+     * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+     * 
      */
     @Import(name="clientSecretCertificateThumbprint")
     private @Nullable Output<String> clientSecretCertificateThumbprint;
 
     /**
      * @return The thumbprint of the certificate used for signing purposes.
+     * 
+     * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretCertificateThumbprint() {
@@ -400,6 +404,8 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args extends com.
         /**
          * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
          * 
+         * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -410,6 +416,8 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args extends com.
 
         /**
          * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
+         * 
+         * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          * 
          * @return builder
          * 

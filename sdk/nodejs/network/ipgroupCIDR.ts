@@ -42,7 +42,6 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * IP Group CIDRs can be imported using the `resource id` of the IP Group and
- *
  * the CIDR value (`/` characters have to be replaced by `_`), e.g.
  *
  * ```sh
@@ -77,6 +76,12 @@ export class IPGroupCIDR extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPGroupCIDR.__pulumiType;
     }
 
+    /**
+     * The `CIDR` that should be added to the IP Group.
+     * Changing this forces a new IP Group CIDR to be created.
+     *
+     * > **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+     */
     declare public readonly cidr: pulumi.Output<string>;
     /**
      * The ID of the destination IP Group.
@@ -119,6 +124,12 @@ export class IPGroupCIDR extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IPGroupCIDR resources.
  */
 export interface IPGroupCIDRState {
+    /**
+     * The `CIDR` that should be added to the IP Group.
+     * Changing this forces a new IP Group CIDR to be created.
+     *
+     * > **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+     */
     cidr?: pulumi.Input<string>;
     /**
      * The ID of the destination IP Group.
@@ -131,6 +142,12 @@ export interface IPGroupCIDRState {
  * The set of arguments for constructing a IPGroupCIDR resource.
  */
 export interface IPGroupCIDRArgs {
+    /**
+     * The `CIDR` that should be added to the IP Group.
+     * Changing this forces a new IP Group CIDR to be created.
+     *
+     * > **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+     */
     cidr: pulumi.Input<string>;
     /**
      * The ID of the destination IP Group.

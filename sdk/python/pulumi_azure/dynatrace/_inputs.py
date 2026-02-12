@@ -35,16 +35,11 @@ __all__ = [
     'TagRulesMetricRuleFilteringTagArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MonitorEnvironmentPropertyArgsDict(TypedDict):
-        environment_infos: pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyEnvironmentInfoArgsDict']]]
-        """
-        Information about the Dynatrace environment. An `environment_info` block as defined below.
-        """
-elif False:
-    MonitorEnvironmentPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorEnvironmentPropertyArgsDict(TypedDict):
+    environment_infos: pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyEnvironmentInfoArgsDict']]]
+    """
+    Information about the Dynatrace environment. An `environment_info` block as defined below.
+    """
 
 @pulumi.input_type
 class MonitorEnvironmentPropertyArgs:
@@ -68,14 +63,11 @@ class MonitorEnvironmentPropertyArgs:
         pulumi.set(self, "environment_infos", value)
 
 
-if not MYPY:
-    class MonitorEnvironmentPropertyEnvironmentInfoArgsDict(TypedDict):
-        environment_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Dynatrace environment to be created.
-        """
-elif False:
-    MonitorEnvironmentPropertyEnvironmentInfoArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorEnvironmentPropertyEnvironmentInfoArgsDict(TypedDict):
+    environment_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Dynatrace environment to be created.
+    """
 
 @pulumi.input_type
 class MonitorEnvironmentPropertyEnvironmentInfoArgs:
@@ -99,16 +91,13 @@ class MonitorEnvironmentPropertyEnvironmentInfoArgs:
         pulumi.set(self, "environment_id", value)
 
 
-if not MYPY:
-    class MonitorIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of identity used for the resource. Only possible value is `SystemAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    MonitorIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of identity used for the resource. Only possible value is `SystemAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class MonitorIdentityArgs:
@@ -156,26 +145,23 @@ class MonitorIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class MonitorPlanArgsDict(TypedDict):
-        plan: pulumi.Input[_builtins.str]
-        """
-        Plan id as published by Dynatrace.
-        """
-        billing_cycle: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
-        """
-        effective_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date when plan was applied.
-        """
-        usage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Different usage type. Possible values are `PAYG` and `COMMITTED`.
-        """
-elif False:
-    MonitorPlanArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorPlanArgsDict(TypedDict):
+    plan: pulumi.Input[_builtins.str]
+    """
+    Plan id as published by Dynatrace.
+    """
+    billing_cycle: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Different billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`.
+    """
+    effective_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date when plan was applied.
+    """
+    usage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Different usage type. Possible values are `PAYG` and `COMMITTED`.
+    """
 
 @pulumi.input_type
 class MonitorPlanArgs:
@@ -247,30 +233,27 @@ class MonitorPlanArgs:
         pulumi.set(self, "usage_type", value)
 
 
-if not MYPY:
-    class MonitorUserArgsDict(TypedDict):
-        email: pulumi.Input[_builtins.str]
-        """
-        Email of the user used by Dynatrace for contacting them if needed.
-        """
-        first_name: pulumi.Input[_builtins.str]
-        """
-        First name of the user.
-        """
-        last_name: pulumi.Input[_builtins.str]
-        """
-        Last name of the user.
-        """
-        country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Country of the user.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        phone number of the user by Dynatrace for contacting them if needed.
-        """
-elif False:
-    MonitorUserArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorUserArgsDict(TypedDict):
+    email: pulumi.Input[_builtins.str]
+    """
+    Email of the user used by Dynatrace for contacting them if needed.
+    """
+    first_name: pulumi.Input[_builtins.str]
+    """
+    First name of the user.
+    """
+    last_name: pulumi.Input[_builtins.str]
+    """
+    Last name of the user.
+    """
+    country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Country of the user.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    phone number of the user by Dynatrace for contacting them if needed.
+    """
 
 @pulumi.input_type
 class MonitorUserArgs:
@@ -356,26 +339,23 @@ class MonitorUserArgs:
         pulumi.set(self, "phone_number", value)
 
 
-if not MYPY:
-    class TagRulesLogRuleArgsDict(TypedDict):
-        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgsDict']]]]
-        """
-        Filtering tag for the log rule. A `filtering_tag` block as defined below.
-        """
-        send_activity_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Send Activity logs. The default value is `false`.
-        """
-        send_azure_active_directory_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Send Azure Active Directory logs. The default value is `false`.
-        """
-        send_subscription_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Send Subscription logs. The default value is `false`.
-        """
-elif False:
-    TagRulesLogRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TagRulesLogRuleArgsDict(TypedDict):
+    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgsDict']]]]
+    """
+    Filtering tag for the log rule. A `filtering_tag` block as defined below.
+    """
+    send_activity_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Send Activity logs. The default value is `false`.
+    """
+    send_azure_active_directory_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Send Azure Active Directory logs. The default value is `false`.
+    """
+    send_subscription_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Send Subscription logs. The default value is `false`.
+    """
 
 @pulumi.input_type
 class TagRulesLogRuleArgs:
@@ -448,22 +428,19 @@ class TagRulesLogRuleArgs:
         pulumi.set(self, "send_subscription_logs_enabled", value)
 
 
-if not MYPY:
-    class TagRulesLogRuleFilteringTagArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        Action of the filtering tag. Possible values are `Include` and `Exclude`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the filtering tag.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of the filtering tag.
-        """
-elif False:
-    TagRulesLogRuleFilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+class TagRulesLogRuleFilteringTagArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    Action of the filtering tag. Possible values are `Include` and `Exclude`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the filtering tag.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of the filtering tag.
+    """
 
 @pulumi.input_type
 class TagRulesLogRuleFilteringTagArgs:
@@ -517,18 +494,15 @@ class TagRulesLogRuleFilteringTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TagRulesMetricRuleArgsDict(TypedDict):
-        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgsDict']]]]
-        """
-        Filtering tag for the metric rule. A `filtering_tag` block as defined below.
-        """
-        sending_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If sending metrics is enabled. The default value is `false`.
-        """
-elif False:
-    TagRulesMetricRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TagRulesMetricRuleArgsDict(TypedDict):
+    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgsDict']]]]
+    """
+    Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+    """
+    sending_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If sending metrics is enabled. The default value is `false`.
+    """
 
 @pulumi.input_type
 class TagRulesMetricRuleArgs:
@@ -569,22 +543,19 @@ class TagRulesMetricRuleArgs:
         pulumi.set(self, "sending_metrics_enabled", value)
 
 
-if not MYPY:
-    class TagRulesMetricRuleFilteringTagArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        Action of the filtering tag. Possible values are `Include` and `Exclude`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the filtering tag.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of the filtering tag.
-        """
-elif False:
-    TagRulesMetricRuleFilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+class TagRulesMetricRuleFilteringTagArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    Action of the filtering tag. Possible values are `Include` and `Exclude`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the filtering tag.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of the filtering tag.
+    """
 
 @pulumi.input_type
 class TagRulesMetricRuleFilteringTagArgs:

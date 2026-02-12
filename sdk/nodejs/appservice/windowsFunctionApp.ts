@@ -88,7 +88,17 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     }
 
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     *
+     * > **Note:** For runtime related settings, please use `nodeVersion` in `siteConfig` to set the node version and use `functionsExtensionVersion` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+     *
+     * > **Note:** For storage related settings, please use related properties that are available such as `storageAccountAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+     *
+     * > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+     *
+     * > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+     *
+     * > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
      */
     declare public readonly appSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -253,6 +263,13 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -398,7 +415,17 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
  */
 export interface WindowsFunctionAppState {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     *
+     * > **Note:** For runtime related settings, please use `nodeVersion` in `siteConfig` to set the node version and use `functionsExtensionVersion` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+     *
+     * > **Note:** For storage related settings, please use related properties that are available such as `storageAccountAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+     *
+     * > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+     *
+     * > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+     *
+     * > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -563,6 +590,13 @@ export interface WindowsFunctionAppState {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -589,7 +623,17 @@ export interface WindowsFunctionAppState {
  */
 export interface WindowsFunctionAppArgs {
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     *
+     * > **Note:** For runtime related settings, please use `nodeVersion` in `siteConfig` to set the node version and use `functionsExtensionVersion` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+     *
+     * > **Note:** For storage related settings, please use related properties that are available such as `storageAccountAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+     *
+     * > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+     *
+     * > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+     *
+     * > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -718,6 +762,13 @@ export interface WindowsFunctionAppArgs {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.

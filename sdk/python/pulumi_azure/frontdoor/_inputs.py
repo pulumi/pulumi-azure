@@ -65,38 +65,33 @@ __all__ = [
     'RulesEngineRuleMatchConditionArgsDict',
 ]
 
-MYPY = False
+class CustomHttpsConfigurationCustomHttpsConfigurationArgsDict(TypedDict):
+    azure_key_vault_certificate_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Key Vault secret representing the full certificate PFX.
+    """
+    azure_key_vault_certificate_secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the Key Vault secret representing the full certificate PFX.
 
-if not MYPY:
-    class CustomHttpsConfigurationCustomHttpsConfigurationArgsDict(TypedDict):
-        azure_key_vault_certificate_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Key Vault secret representing the full certificate PFX.
-        """
-        azure_key_vault_certificate_secret_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the Key Vault secret representing the full certificate PFX.
+    > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
+    """
+    azure_key_vault_certificate_vault_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Key Vault containing the SSL certificate.
+    """
+    certificate_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
 
-        > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
-        """
-        azure_key_vault_certificate_vault_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Key Vault containing the SSL certificate.
-        """
-        certificate_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-
-        The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
-        """
-        minimum_tls_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Minimum client TLS version supported.
-        """
-        provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
-        provisioning_substate: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CustomHttpsConfigurationCustomHttpsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+    """
+    minimum_tls_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Minimum client TLS version supported.
+    """
+    provisioning_state: NotRequired[pulumi.Input[_builtins.str]]
+    provisioning_substate: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
@@ -217,42 +212,39 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
         pulumi.set(self, "provisioning_substate", value)
 
 
-if not MYPY:
-    class FirewallPolicyCustomRuleArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the rule is enabled or disabled? Defaults to `true`.
-        """
-        match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgsDict']]]]
-        """
-        One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
-        """
-        rate_limit_duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rate limit duration in minutes. Defaults to `1`.
-        """
-        rate_limit_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The rate limit threshold. Defaults to `10`.
-        """
-elif False:
-    FirewallPolicyCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyCustomRuleArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the rule is enabled or disabled? Defaults to `true`.
+    """
+    match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgsDict']]]]
+    """
+    One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+    """
+    rate_limit_duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rate limit duration in minutes. Defaults to `1`.
+    """
+    rate_limit_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The rate limit threshold. Defaults to `10`.
+    """
 
 @pulumi.input_type
 class FirewallPolicyCustomRuleArgs:
@@ -386,34 +378,31 @@ class FirewallPolicyCustomRuleArgs:
         pulumi.set(self, "rate_limit_threshold", value)
 
 
-if not MYPY:
-    class FirewallPolicyCustomRuleMatchConditionArgsDict(TypedDict):
-        match_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
-        """
-        match_variable: pulumi.Input[_builtins.str]
-        """
-        The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
-        """
-        negation_condition: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the result of the condition be negated.
-        """
-        selector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
-        """
-        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
-        """
-elif False:
-    FirewallPolicyCustomRuleMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyCustomRuleMatchConditionArgsDict(TypedDict):
+    match_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
+    """
+    match_variable: pulumi.Input[_builtins.str]
+    """
+    The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+    """
+    negation_condition: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the result of the condition be negated.
+    """
+    selector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+    """
+    transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
+    """
 
 @pulumi.input_type
 class FirewallPolicyCustomRuleMatchConditionArgs:
@@ -515,26 +504,23 @@ class FirewallPolicyCustomRuleMatchConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
-if not MYPY:
-    class FirewallPolicyManagedRuleArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The name of the managed rule to use with this resource.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        The version on the managed rule to use with this resource.
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgsDict']]]]
-        """
-        One or more `exclusion` blocks as defined below.
-        """
-        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgsDict']]]]
-        """
-        One or more `override` blocks as defined below.
-        """
-elif False:
-    FirewallPolicyManagedRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyManagedRuleArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The name of the managed rule to use with this resource.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The version on the managed rule to use with this resource.
+    """
+    exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgsDict']]]]
+    """
+    One or more `exclusion` blocks as defined below.
+    """
+    overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgsDict']]]]
+    """
+    One or more `override` blocks as defined below.
+    """
 
 @pulumi.input_type
 class FirewallPolicyManagedRuleArgs:
@@ -605,22 +591,19 @@ class FirewallPolicyManagedRuleArgs:
         pulumi.set(self, "overrides", value)
 
 
-if not MYPY:
-    class FirewallPolicyManagedRuleExclusionArgsDict(TypedDict):
-        match_variable: pulumi.Input[_builtins.str]
-        """
-        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
-        """
-        selector: pulumi.Input[_builtins.str]
-        """
-        Selector for the value in the `match_variable` attribute this exclusion applies to.
-        """
-elif False:
-    FirewallPolicyManagedRuleExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyManagedRuleExclusionArgsDict(TypedDict):
+    match_variable: pulumi.Input[_builtins.str]
+    """
+    The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+    """
+    selector: pulumi.Input[_builtins.str]
+    """
+    Selector for the value in the `match_variable` attribute this exclusion applies to.
+    """
 
 @pulumi.input_type
 class FirewallPolicyManagedRuleExclusionArgs:
@@ -674,22 +657,19 @@ class FirewallPolicyManagedRuleExclusionArgs:
         pulumi.set(self, "selector", value)
 
 
-if not MYPY:
-    class FirewallPolicyManagedRuleOverrideArgsDict(TypedDict):
-        rule_group_name: pulumi.Input[_builtins.str]
-        """
-        The managed rule group to override.
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgsDict']]]]
-        """
-        One or more `exclusion` blocks as defined below.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgsDict']]]]
-        """
-        One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
-        """
-elif False:
-    FirewallPolicyManagedRuleOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyManagedRuleOverrideArgsDict(TypedDict):
+    rule_group_name: pulumi.Input[_builtins.str]
+    """
+    The managed rule group to override.
+    """
+    exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgsDict']]]]
+    """
+    One or more `exclusion` blocks as defined below.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgsDict']]]]
+    """
+    One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+    """
 
 @pulumi.input_type
 class FirewallPolicyManagedRuleOverrideArgs:
@@ -745,22 +725,19 @@ class FirewallPolicyManagedRuleOverrideArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class FirewallPolicyManagedRuleOverrideExclusionArgsDict(TypedDict):
-        match_variable: pulumi.Input[_builtins.str]
-        """
-        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
-        """
-        selector: pulumi.Input[_builtins.str]
-        """
-        Selector for the value in the `match_variable` attribute this exclusion applies to.
-        """
-elif False:
-    FirewallPolicyManagedRuleOverrideExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyManagedRuleOverrideExclusionArgsDict(TypedDict):
+    match_variable: pulumi.Input[_builtins.str]
+    """
+    The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+    """
+    selector: pulumi.Input[_builtins.str]
+    """
+    Selector for the value in the `match_variable` attribute this exclusion applies to.
+    """
 
 @pulumi.input_type
 class FirewallPolicyManagedRuleOverrideExclusionArgs:
@@ -814,26 +791,23 @@ class FirewallPolicyManagedRuleOverrideExclusionArgs:
         pulumi.set(self, "selector", value)
 
 
-if not MYPY:
-    class FirewallPolicyManagedRuleOverrideRuleArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
-        """
-        rule_id: pulumi.Input[_builtins.str]
-        """
-        Identifier for the managed rule.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the managed rule override enabled or disabled. Defaults to `false`
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgsDict']]]]
-        """
-        One or more `exclusion` blocks as defined below.
-        """
-elif False:
-    FirewallPolicyManagedRuleOverrideRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyManagedRuleOverrideRuleArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+    """
+    rule_id: pulumi.Input[_builtins.str]
+    """
+    Identifier for the managed rule.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the managed rule override enabled or disabled. Defaults to `false`
+    """
+    exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgsDict']]]]
+    """
+    One or more `exclusion` blocks as defined below.
+    """
 
 @pulumi.input_type
 class FirewallPolicyManagedRuleOverrideRuleArgs:
@@ -904,22 +878,19 @@ class FirewallPolicyManagedRuleOverrideRuleArgs:
         pulumi.set(self, "exclusions", value)
 
 
-if not MYPY:
-    class FirewallPolicyManagedRuleOverrideRuleExclusionArgsDict(TypedDict):
-        match_variable: pulumi.Input[_builtins.str]
-        """
-        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
-        """
-        selector: pulumi.Input[_builtins.str]
-        """
-        Selector for the value in the `match_variable` attribute this exclusion applies to.
-        """
-elif False:
-    FirewallPolicyManagedRuleOverrideRuleExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyManagedRuleOverrideRuleExclusionArgsDict(TypedDict):
+    match_variable: pulumi.Input[_builtins.str]
+    """
+    The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+    """
+    selector: pulumi.Input[_builtins.str]
+    """
+    Selector for the value in the `match_variable` attribute this exclusion applies to.
+    """
 
 @pulumi.input_type
 class FirewallPolicyManagedRuleOverrideRuleExclusionArgs:
@@ -973,30 +944,27 @@ class FirewallPolicyManagedRuleOverrideRuleExclusionArgs:
         pulumi.set(self, "selector", value)
 
 
-if not MYPY:
-    class FrontdoorBackendPoolArgsDict(TypedDict):
-        backends: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgsDict']]]
-        """
-        A `backend` block as defined below.
-        """
-        health_probe_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
-        """
-        load_balancing_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the Backend Pool.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the FrontDoor.
-        """
-elif False:
-    FrontdoorBackendPoolArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorBackendPoolArgsDict(TypedDict):
+    backends: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgsDict']]]
+    """
+    A `backend` block as defined below.
+    """
+    health_probe_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+    """
+    load_balancing_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the Backend Pool.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the FrontDoor.
+    """
 
 @pulumi.input_type
 class FrontdoorBackendPoolArgs:
@@ -1081,38 +1049,35 @@ class FrontdoorBackendPoolArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FrontdoorBackendPoolBackendArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        Location of the backend (IP address or FQDN)
-        """
-        host_header: pulumi.Input[_builtins.str]
-        """
-        The value to use as the host header sent to the backend.
-        """
-        http_port: pulumi.Input[_builtins.int]
-        """
-        The HTTP TCP port number. Possible values are between `1` - `65535`.
-        """
-        https_port: pulumi.Input[_builtins.int]
-        """
-        The HTTPS TCP port number. Possible values are between `1` - `65535`.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
-        """
-        weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Weight of this endpoint for load balancing purposes. Defaults to `50`.
-        """
-elif False:
-    FrontdoorBackendPoolBackendArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorBackendPoolBackendArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    Location of the backend (IP address or FQDN)
+    """
+    host_header: pulumi.Input[_builtins.str]
+    """
+    The value to use as the host header sent to the backend.
+    """
+    http_port: pulumi.Input[_builtins.int]
+    """
+    The HTTP TCP port number. Possible values are between `1` - `65535`.
+    """
+    https_port: pulumi.Input[_builtins.int]
+    """
+    The HTTPS TCP port number. Possible values are between `1` - `65535`.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+    """
+    weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Weight of this endpoint for load balancing purposes. Defaults to `50`.
+    """
 
 @pulumi.input_type
 class FrontdoorBackendPoolBackendArgs:
@@ -1229,40 +1194,37 @@ class FrontdoorBackendPoolBackendArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class FrontdoorBackendPoolHealthProbeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the Health Probe.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is this health probe enabled? Defaults to `true`.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the FrontDoor.
-        """
-        interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds between each Health Probe. Defaults to `120`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to use for the Health Probe. Default is `/`.
-        """
-        probe_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
+class FrontdoorBackendPoolHealthProbeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the Health Probe.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is this health probe enabled? Defaults to `true`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the FrontDoor.
+    """
+    interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds between each Health Probe. Defaults to `120`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to use for the Health Probe. Default is `/`.
+    """
+    probe_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 
-        > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
-        """
-elif False:
-    FrontdoorBackendPoolHealthProbeArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
+    """
 
 @pulumi.input_type
 class FrontdoorBackendPoolHealthProbeArgs:
@@ -1386,30 +1348,27 @@ class FrontdoorBackendPoolHealthProbeArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class FrontdoorBackendPoolLoadBalancingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the Load Balancer.
-        """
-        additional_latency_milliseconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the FrontDoor.
-        """
-        sample_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of samples to consider for load balancing decisions. Defaults to `4`.
-        """
-        successful_samples_required: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of samples within the sample period that must succeed. Defaults to `2`.
-        """
-elif False:
-    FrontdoorBackendPoolLoadBalancingArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorBackendPoolLoadBalancingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the Load Balancer.
+    """
+    additional_latency_milliseconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the FrontDoor.
+    """
+    sample_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of samples to consider for load balancing decisions. Defaults to `4`.
+    """
+    successful_samples_required: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of samples within the sample period that must succeed. Defaults to `2`.
+    """
 
 @pulumi.input_type
 class FrontdoorBackendPoolLoadBalancingArgs:
@@ -1497,20 +1456,17 @@ class FrontdoorBackendPoolLoadBalancingArgs:
         pulumi.set(self, "successful_samples_required", value)
 
 
-if not MYPY:
-    class FrontdoorBackendPoolSettingArgsDict(TypedDict):
-        enforce_backend_pools_certificate_name_check: pulumi.Input[_builtins.bool]
-        """
-        Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+class FrontdoorBackendPoolSettingArgsDict(TypedDict):
+    enforce_backend_pools_certificate_name_check: pulumi.Input[_builtins.bool]
+    """
+    Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 
-        > **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
-        """
-        backend_pools_send_receive_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
-        """
-elif False:
-    FrontdoorBackendPoolSettingArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
+    """
+    backend_pools_send_receive_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+    """
 
 @pulumi.input_type
 class FrontdoorBackendPoolSettingArgs:
@@ -1554,15 +1510,12 @@ class FrontdoorBackendPoolSettingArgs:
         pulumi.set(self, "backend_pools_send_receive_timeout_seconds", value)
 
 
-if not MYPY:
-    class FrontdoorExplicitResourceOrderArgsDict(TypedDict):
-        backend_pool_health_probe_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        backend_pool_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        backend_pool_load_balancing_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        frontend_endpoint_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        routing_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    FrontdoorExplicitResourceOrderArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorExplicitResourceOrderArgsDict(TypedDict):
+    backend_pool_health_probe_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    backend_pool_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    backend_pool_load_balancing_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    frontend_endpoint_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    routing_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class FrontdoorExplicitResourceOrderArgs:
@@ -1629,34 +1582,31 @@ class FrontdoorExplicitResourceOrderArgs:
         pulumi.set(self, "routing_rule_ids", value)
 
 
-if not MYPY:
-    class FrontdoorFrontendEndpointArgsDict(TypedDict):
-        host_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the `frontend_endpoint`.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the FrontDoor.
-        """
-        session_affinity_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
-        """
-        session_affinity_ttl_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
-        """
-        web_application_firewall_policy_link_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines the Web Application Firewall policy `ID` for each host.
-        """
-elif False:
-    FrontdoorFrontendEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorFrontendEndpointArgsDict(TypedDict):
+    host_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the `frontend_endpoint`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the FrontDoor.
+    """
+    session_affinity_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+    """
+    session_affinity_ttl_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+    """
+    web_application_firewall_policy_link_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines the Web Application Firewall policy `ID` for each host.
+    """
 
 @pulumi.input_type
 class FrontdoorFrontendEndpointArgs:
@@ -1759,42 +1709,39 @@ class FrontdoorFrontendEndpointArgs:
         pulumi.set(self, "web_application_firewall_policy_link_id", value)
 
 
-if not MYPY:
-    class FrontdoorRoutingRuleArgsDict(TypedDict):
-        accepted_protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
-        """
-        frontend_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the Routing Rule.
-        """
-        patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The route patterns for the Backend Routing Rule.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
-        """
-        forwarding_configuration: NotRequired[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgsDict']]
-        """
-        A `forwarding_configuration` block as defined below.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the FrontDoor.
-        """
-        redirect_configuration: NotRequired[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgsDict']]
-        """
-        A `redirect_configuration` block as defined below.
-        """
-elif False:
-    FrontdoorRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorRoutingRuleArgsDict(TypedDict):
+    accepted_protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
+    """
+    frontend_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the Routing Rule.
+    """
+    patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The route patterns for the Backend Routing Rule.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+    """
+    forwarding_configuration: NotRequired[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgsDict']]
+    """
+    A `forwarding_configuration` block as defined below.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the FrontDoor.
+    """
+    redirect_configuration: NotRequired[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgsDict']]
+    """
+    A `redirect_configuration` block as defined below.
+    """
 
 @pulumi.input_type
 class FrontdoorRoutingRuleArgs:
@@ -1927,42 +1874,39 @@ class FrontdoorRoutingRuleArgs:
         pulumi.set(self, "redirect_configuration", value)
 
 
-if not MYPY:
-    class FrontdoorRoutingRuleForwardingConfigurationArgsDict(TypedDict):
-        backend_pool_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the Backend Pool to forward the incoming traffic to.
-        """
-        cache_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
-        """
-        cache_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
-        """
-        cache_query_parameter_strip_directive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
-        """
-        cache_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
-        """
-        cache_use_dynamic_compression: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
-        """
-        custom_forwarding_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
-        """
-        forwarding_protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
-        """
-elif False:
-    FrontdoorRoutingRuleForwardingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorRoutingRuleForwardingConfigurationArgsDict(TypedDict):
+    backend_pool_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the Backend Pool to forward the incoming traffic to.
+    """
+    cache_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+    """
+    cache_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+    """
+    cache_query_parameter_strip_directive: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
+    """
+    cache_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+    """
+    cache_use_dynamic_compression: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+    """
+    custom_forwarding_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
+    """
+    forwarding_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
+    """
 
 @pulumi.input_type
 class FrontdoorRoutingRuleForwardingConfigurationArgs:
@@ -2098,34 +2042,31 @@ class FrontdoorRoutingRuleForwardingConfigurationArgs:
         pulumi.set(self, "forwarding_protocol", value)
 
 
-if not MYPY:
-    class FrontdoorRoutingRuleRedirectConfigurationArgsDict(TypedDict):
-        redirect_protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
-        """
-        redirect_type: pulumi.Input[_builtins.str]
-        """
-        Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
-        """
-        custom_fragment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
-        """
-        custom_host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set this to change the URL for the redirection.
-        """
-        custom_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to retain as per the incoming request, or update in the URL for the redirection.
-        """
-        custom_query_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Replace any existing query string from the incoming request URL.
-        """
-elif False:
-    FrontdoorRoutingRuleRedirectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class FrontdoorRoutingRuleRedirectConfigurationArgsDict(TypedDict):
+    redirect_protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
+    """
+    redirect_type: pulumi.Input[_builtins.str]
+    """
+    Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
+    """
+    custom_fragment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+    """
+    custom_host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set this to change the URL for the redirection.
+    """
+    custom_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to retain as per the incoming request, or update in the URL for the redirection.
+    """
+    custom_query_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Replace any existing query string from the incoming request URL.
+    """
 
 @pulumi.input_type
 class FrontdoorRoutingRuleRedirectConfigurationArgs:
@@ -2228,26 +2169,23 @@ class FrontdoorRoutingRuleRedirectConfigurationArgs:
         pulumi.set(self, "custom_query_string", value)
 
 
-if not MYPY:
-    class RulesEngineRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the rule.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        Priority of the rule, must be unique per rules engine definition.
-        """
-        action: NotRequired[pulumi.Input['RulesEngineRuleActionArgsDict']]
-        """
-        An `action` block as defined below.
-        """
-        match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgsDict']]]]
-        """
-        One or more `match_condition` block as defined below.
-        """
-elif False:
-    RulesEngineRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RulesEngineRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the rule.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    Priority of the rule, must be unique per rules engine definition.
+    """
+    action: NotRequired[pulumi.Input['RulesEngineRuleActionArgsDict']]
+    """
+    An `action` block as defined below.
+    """
+    match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgsDict']]]]
+    """
+    One or more `match_condition` block as defined below.
+    """
 
 @pulumi.input_type
 class RulesEngineRuleArgs:
@@ -2318,18 +2256,15 @@ class RulesEngineRuleArgs:
         pulumi.set(self, "match_conditions", value)
 
 
-if not MYPY:
-    class RulesEngineRuleActionArgsDict(TypedDict):
-        request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgsDict']]]]
-        """
-        A `request_header` block as defined below.
-        """
-        response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgsDict']]]]
-        """
-        A `response_header` block as defined below.
-        """
-elif False:
-    RulesEngineRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class RulesEngineRuleActionArgsDict(TypedDict):
+    request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgsDict']]]]
+    """
+    A `request_header` block as defined below.
+    """
+    response_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgsDict']]]]
+    """
+    A `response_header` block as defined below.
+    """
 
 @pulumi.input_type
 class RulesEngineRuleActionArgs:
@@ -2370,22 +2305,19 @@ class RulesEngineRuleActionArgs:
         pulumi.set(self, "response_headers", value)
 
 
-if not MYPY:
-    class RulesEngineRuleActionRequestHeaderArgsDict(TypedDict):
-        header_action_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        can be set to `Overwrite`, `Append` or `Delete`.
-        """
-        header_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        header name (string).
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        value name (string).
-        """
-elif False:
-    RulesEngineRuleActionRequestHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class RulesEngineRuleActionRequestHeaderArgsDict(TypedDict):
+    header_action_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    can be set to `Overwrite`, `Append` or `Delete`.
+    """
+    header_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    header name (string).
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    value name (string).
+    """
 
 @pulumi.input_type
 class RulesEngineRuleActionRequestHeaderArgs:
@@ -2442,22 +2374,19 @@ class RulesEngineRuleActionRequestHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RulesEngineRuleActionResponseHeaderArgsDict(TypedDict):
-        header_action_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        can be set to `Overwrite`, `Append` or `Delete`.
-        """
-        header_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        header name (string).
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        value name (string).
-        """
-elif False:
-    RulesEngineRuleActionResponseHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class RulesEngineRuleActionResponseHeaderArgsDict(TypedDict):
+    header_action_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    can be set to `Overwrite`, `Append` or `Delete`.
+    """
+    header_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    header name (string).
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    value name (string).
+    """
 
 @pulumi.input_type
 class RulesEngineRuleActionResponseHeaderArgs:
@@ -2514,34 +2443,31 @@ class RulesEngineRuleActionResponseHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RulesEngineRuleMatchConditionArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
-        """
-        negate_condition: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        can be set to `true` or `false` to negate the given condition. Defaults to `false`.
-        """
-        selector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
-        """
-        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (array) can contain one or more strings.
-        """
-        variable: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
-        """
-elif False:
-    RulesEngineRuleMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+class RulesEngineRuleMatchConditionArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
+    """
+    negate_condition: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    can be set to `true` or `false` to negate the given condition. Defaults to `false`.
+    """
+    selector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
+    """
+    transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (array) can contain one or more strings.
+    """
+    variable: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
+    """
 
 @pulumi.input_type
 class RulesEngineRuleMatchConditionArgs:

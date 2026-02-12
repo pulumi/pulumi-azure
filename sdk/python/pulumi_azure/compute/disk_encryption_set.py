@@ -35,6 +35,13 @@ class DiskEncryptionSetArgs:
         The set of arguments for constructing a DiskEncryptionSet resource.
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+               
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               
+               > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
@@ -94,6 +101,15 @@ class DiskEncryptionSetArgs:
     @_builtins.property
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+
+        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+
+        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+
+        > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+        """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
     @auto_key_rotation_enabled.setter
@@ -206,6 +222,13 @@ class _DiskEncryptionSetState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DiskEncryptionSet resources.
+        :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+               
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               
+               > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -248,6 +271,15 @@ class _DiskEncryptionSetState:
     @_builtins.property
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+
+        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+
+        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+
+        > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+        """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
     @auto_key_rotation_enabled.setter
@@ -574,6 +606,13 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+               
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               
+               > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -847,6 +886,13 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+               
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               
+               > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -883,6 +929,15 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+
+        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+
+        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+
+        > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+        """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
     @_builtins.property

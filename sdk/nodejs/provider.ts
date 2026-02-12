@@ -208,6 +208,9 @@ export interface ProviderArgs {
      * This will disable the x-ms-correlation-request-id header.
      */
     disableCorrelationRequestId?: pulumi.Input<boolean>;
+    /**
+     * This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
+     */
     disableTerraformPartnerId?: pulumi.Input<boolean>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.

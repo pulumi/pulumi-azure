@@ -37,10 +37,14 @@ class MongoCollectionArgs:
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        :param pulumi.Input['MongoCollectionAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
@@ -111,6 +115,11 @@ class MongoCollectionArgs:
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -168,6 +177,9 @@ class MongoCollectionArgs:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -193,6 +205,9 @@ class _MongoCollectionState:
         Input properties used for looking up and filtering MongoCollection resources.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        :param pulumi.Input['MongoCollectionAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
@@ -200,6 +215,7 @@ class _MongoCollectionState:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]] system_indexes: One or more `system_indexes` blocks as defined below.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -251,6 +267,11 @@ class _MongoCollectionState:
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -344,6 +365,9 @@ class _MongoCollectionState:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -409,12 +433,16 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        :param pulumi.Input[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         ...
     @overload
@@ -540,6 +568,9 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        :param pulumi.Input[Union['MongoCollectionAutoscaleSettingsArgs', 'MongoCollectionAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MongoCollectionIndexArgs', 'MongoCollectionIndexArgsDict']]]] indices: One or more `index` blocks as defined below.
@@ -547,6 +578,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MongoCollectionSystemIndexArgs', 'MongoCollectionSystemIndexArgsDict']]]] system_indexes: One or more `system_indexes` blocks as defined below.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -584,6 +616,11 @@ class MongoCollection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.MongoCollectionAutoscaleSettings']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @_builtins.property
@@ -645,5 +682,8 @@ class MongoCollection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[_builtins.int]:
+        """
+        The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        """
         return pulumi.get(self, "throughput")
 

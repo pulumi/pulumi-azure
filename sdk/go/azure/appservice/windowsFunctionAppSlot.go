@@ -181,8 +181,13 @@ type WindowsFunctionAppSlot struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -317,8 +322,13 @@ type windowsFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -410,7 +420,12 @@ type WindowsFunctionAppSlotState struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -487,8 +502,13 @@ type windowsFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -563,7 +583,12 @@ type WindowsFunctionAppSlotArgs struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -861,6 +886,11 @@ func (o WindowsFunctionAppSlotOutput) VirtualNetworkBackupRestoreEnabled() pulum
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+//
+// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+//
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
 func (o WindowsFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

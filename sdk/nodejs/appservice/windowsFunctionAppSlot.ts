@@ -250,6 +250,13 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -535,6 +542,13 @@ export interface WindowsFunctionAppSlotState {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -674,6 +688,13 @@ export interface WindowsFunctionAppSlotArgs {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app slot configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.

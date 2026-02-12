@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Azure Machine Learning Workspace
+ *
+ * > **Note:** For examples on how to set up the Azure Machine Learning workspace, together with compute and integrated services, see Terraform Quickstart
+ *
  * ## Example Usage
  *
  * ```typescript

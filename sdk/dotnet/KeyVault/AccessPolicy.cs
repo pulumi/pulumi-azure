@@ -20,23 +20,25 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata.
     /// 
-    /// If both an `object_id` and `application_id` are specified, then the Access Policy can be imported using the following code:
+    /// If both an `ObjectId` and `ApplicationId` are specified, then the Access Policy can be imported using the following code:
     /// 
     /// ```sh
     /// $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111/applicationId/22222222-2222-2222-2222-222222222222
     /// ```
     /// 
-    /// where `11111111-1111-1111-1111-111111111111` is the `object_id` and `22222222-2222-2222-2222-222222222222` is the `application_id`.
+    /// where `11111111-1111-1111-1111-111111111111` is the `ObjectId` and `22222222-2222-2222-2222-222222222222` is the `ApplicationId`.
     /// 
     /// ***
     /// 
-    /// Access Policies with an `object_id` but no `application_id` can be imported using the following command:
+    /// Access Policies with an `ObjectId` but no `ApplicationId` can be imported using the following command:
     /// 
     /// ```sh
     /// $ pulumi import azure:keyvault/accessPolicy:AccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/test-vault/objectId/11111111-1111-1111-1111-111111111111
     /// ```
     /// 
-    /// where `11111111-1111-1111-1111-111111111111` is the `object_id`.
+    /// where `11111111-1111-1111-1111-111111111111` is the `ObjectId`.
+    /// 
+    /// &gt; **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
     /// </summary>
     [AzureResourceType("azure:keyvault/accessPolicy:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

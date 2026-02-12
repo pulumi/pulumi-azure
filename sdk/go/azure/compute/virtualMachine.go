@@ -31,8 +31,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"

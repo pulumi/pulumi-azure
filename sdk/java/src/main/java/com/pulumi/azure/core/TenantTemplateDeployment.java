@@ -16,6 +16,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Template Deployment at the Tenant Scope.
+ * 
+ * &gt; **Note:** Deleting a Deployment at the Tenant Scope will not delete any resources created by the deployment.
+ * 
+ * &gt; **Note:** Deployments to a Tenant are always Incrementally applied. Existing resources that are not part of the template will not be removed.
+ * 
+ * &gt; **Note:** Tenant Template Deployments are always targeted at the Tenant in which the current User, Managed Identity, or Service Principal being used by Terraform is homed.
+ * 
  * ## Example Usage
  * 
  * <pre>

@@ -27,30 +27,25 @@ __all__ = [
     'ExperimentStepBranchActionArgsDict',
 ]
 
-MYPY = False
+class ExperimentIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
-if not MYPY:
-    class ExperimentIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
-
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ExperimentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ExperimentIdentityArgs:
@@ -126,18 +121,15 @@ class ExperimentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ExperimentSelectorArgsDict(TypedDict):
-        chaos_studio_target_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Chaos Studio Target IDs that should be part of this Selector.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of this Selector.
-        """
-elif False:
-    ExperimentSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentSelectorArgsDict(TypedDict):
+    chaos_studio_target_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Chaos Studio Target IDs that should be part of this Selector.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of this Selector.
+    """
 
 @pulumi.input_type
 class ExperimentSelectorArgs:
@@ -176,18 +168,15 @@ class ExperimentSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ExperimentStepArgsDict(TypedDict):
-        branches: pulumi.Input[Sequence[pulumi.Input['ExperimentStepBranchArgsDict']]]
-        """
-        One or more `branch` blocks as defined above.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Step.
-        """
-elif False:
-    ExperimentStepArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentStepArgsDict(TypedDict):
+    branches: pulumi.Input[Sequence[pulumi.Input['ExperimentStepBranchArgsDict']]]
+    """
+    One or more `branch` blocks as defined above.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Step.
+    """
 
 @pulumi.input_type
 class ExperimentStepArgs:
@@ -226,18 +215,15 @@ class ExperimentStepArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ExperimentStepBranchArgsDict(TypedDict):
-        actions: pulumi.Input[Sequence[pulumi.Input['ExperimentStepBranchActionArgsDict']]]
-        """
-        One or more `actions` blocks as defined above.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the branch.
-        """
-elif False:
-    ExperimentStepBranchArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentStepBranchArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input['ExperimentStepBranchActionArgsDict']]]
+    """
+    One or more `actions` blocks as defined above.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the branch.
+    """
 
 @pulumi.input_type
 class ExperimentStepBranchArgs:
@@ -276,30 +262,27 @@ class ExperimentStepBranchArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ExperimentStepBranchActionArgsDict(TypedDict):
-        action_type: pulumi.Input[_builtins.str]
-        """
-        The type of action that should be added to the experiment. Possible values are `continuous`, `delay` and `discrete`.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
-        """
-        selector_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
-        """
-        urn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Unique Resource Name of the action, this value is provided by the `chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
-        """
-elif False:
-    ExperimentStepBranchActionArgsDict: TypeAlias = Mapping[str, Any]
+class ExperimentStepBranchActionArgsDict(TypedDict):
+    action_type: pulumi.Input[_builtins.str]
+    """
+    The type of action that should be added to the experiment. Possible values are `continuous`, `delay` and `discrete`.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
+    """
+    selector_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+    """
+    urn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Unique Resource Name of the action, this value is provided by the `chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+    """
 
 @pulumi.input_type
 class ExperimentStepBranchActionArgs:

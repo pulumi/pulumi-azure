@@ -152,8 +152,13 @@ type WindowsWebApp struct {
 	// Whether traffic for the image pull should be routed over the virtual network.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
-	VirtualNetworkImagePullEnabled pulumi.BoolOutput      `pulumi:"virtualNetworkImagePullEnabled"`
-	VirtualNetworkSubnetId         pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkImagePullEnabled pulumi.BoolOutput `pulumi:"virtualNetworkImagePullEnabled"`
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -281,8 +286,13 @@ type windowsWebAppState struct {
 	// Whether traffic for the image pull should be routed over the virtual network.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
-	VirtualNetworkImagePullEnabled *bool   `pulumi:"virtualNetworkImagePullEnabled"`
-	VirtualNetworkSubnetId         *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -368,7 +378,12 @@ type WindowsWebAppState struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId         pulumi.StringPtrInput
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -439,8 +454,13 @@ type windowsWebAppArgs struct {
 	// Whether traffic for the image pull should be routed over the virtual network.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
-	VirtualNetworkImagePullEnabled *bool   `pulumi:"virtualNetworkImagePullEnabled"`
-	VirtualNetworkSubnetId         *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -509,7 +529,12 @@ type WindowsWebAppArgs struct {
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId         pulumi.StringPtrInput
+	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -786,6 +811,11 @@ func (o WindowsWebAppOutput) VirtualNetworkImagePullEnabled() pulumi.BoolOutput 
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolOutput { return v.VirtualNetworkImagePullEnabled }).(pulumi.BoolOutput)
 }
 
+// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+//
+// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+//
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
 func (o WindowsWebAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Static Web App Custom Domain.
+//
+// !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+//
 // ## Example Usage
 //
 // ### CNAME validation
@@ -157,7 +161,12 @@ type StaticWebAppCustomDomain struct {
 	StaticWebAppId pulumi.StringOutput `pulumi:"staticWebAppId"`
 	// Token to be used with `dns-txt-token` validation.
 	ValidationToken pulumi.StringOutput `pulumi:"validationToken"`
-	ValidationType  pulumi.StringOutput `pulumi:"validationType"`
+	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+	//
+	// > **Note:** Apex domains must use `dns-txt-token` validation.
+	//
+	// > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+	ValidationType pulumi.StringOutput `pulumi:"validationType"`
 }
 
 // NewStaticWebAppCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -209,7 +218,12 @@ type staticWebAppCustomDomainState struct {
 	StaticWebAppId *string `pulumi:"staticWebAppId"`
 	// Token to be used with `dns-txt-token` validation.
 	ValidationToken *string `pulumi:"validationToken"`
-	ValidationType  *string `pulumi:"validationType"`
+	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+	//
+	// > **Note:** Apex domains must use `dns-txt-token` validation.
+	//
+	// > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+	ValidationType *string `pulumi:"validationType"`
 }
 
 type StaticWebAppCustomDomainState struct {
@@ -219,7 +233,12 @@ type StaticWebAppCustomDomainState struct {
 	StaticWebAppId pulumi.StringPtrInput
 	// Token to be used with `dns-txt-token` validation.
 	ValidationToken pulumi.StringPtrInput
-	ValidationType  pulumi.StringPtrInput
+	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+	//
+	// > **Note:** Apex domains must use `dns-txt-token` validation.
+	//
+	// > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+	ValidationType pulumi.StringPtrInput
 }
 
 func (StaticWebAppCustomDomainState) ElementType() reflect.Type {
@@ -231,6 +250,11 @@ type staticWebAppCustomDomainArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
 	StaticWebAppId string `pulumi:"staticWebAppId"`
+	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+	//
+	// > **Note:** Apex domains must use `dns-txt-token` validation.
+	//
+	// > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
 	ValidationType string `pulumi:"validationType"`
 }
 
@@ -240,6 +264,11 @@ type StaticWebAppCustomDomainArgs struct {
 	DomainName pulumi.StringInput
 	// The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
 	StaticWebAppId pulumi.StringInput
+	// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+	//
+	// > **Note:** Apex domains must use `dns-txt-token` validation.
+	//
+	// > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
 	ValidationType pulumi.StringInput
 }
 
@@ -345,6 +374,11 @@ func (o StaticWebAppCustomDomainOutput) ValidationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticWebAppCustomDomain) pulumi.StringOutput { return v.ValidationToken }).(pulumi.StringOutput)
 }
 
+// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+//
+// > **Note:** Apex domains must use `dns-txt-token` validation.
+//
+// > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
 func (o StaticWebAppCustomDomainOutput) ValidationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticWebAppCustomDomain) pulumi.StringOutput { return v.ValidationType }).(pulumi.StringOutput)
 }

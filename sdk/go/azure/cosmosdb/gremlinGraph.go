@@ -106,8 +106,11 @@ type GremlinGraph struct {
 	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
 	//
 	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
-	AnalyticalStorageTtl pulumi.IntPtrOutput                    `pulumi:"analyticalStorageTtl"`
-	AutoscaleSettings    GremlinGraphAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl pulumi.IntPtrOutput `pulumi:"analyticalStorageTtl"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -177,8 +180,11 @@ type gremlinGraphState struct {
 	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
 	//
 	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
-	AnalyticalStorageTtl *int                           `pulumi:"analyticalStorageTtl"`
-	AutoscaleSettings    *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -208,7 +214,10 @@ type GremlinGraphState struct {
 	//
 	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	AutoscaleSettings    GremlinGraphAutoscaleSettingsPtrInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -241,8 +250,11 @@ type gremlinGraphArgs struct {
 	// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
 	//
 	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
-	AnalyticalStorageTtl *int                           `pulumi:"analyticalStorageTtl"`
-	AutoscaleSettings    *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -273,7 +285,10 @@ type GremlinGraphArgs struct {
 	//
 	// > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	AutoscaleSettings    GremlinGraphAutoscaleSettingsPtrInput
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy GremlinGraphConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -395,6 +410,9 @@ func (o GremlinGraphOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GremlinGraph) pulumi.IntPtrOutput { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
+// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+//
+// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o GremlinGraphOutput) AutoscaleSettings() GremlinGraphAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *GremlinGraph) GremlinGraphAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(GremlinGraphAutoscaleSettingsPtrOutput)
 }

@@ -4036,6 +4036,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -5033,6 +5035,11 @@ export namespace appservice {
          * > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          */
         use32BitWorkerProcess?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         *
+         * > **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+         */
         vnetRouteAllEnabled: boolean;
         /**
          * Should WebSockets be enabled?
@@ -5571,6 +5578,11 @@ export namespace appservice {
          * > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          */
         use32BitWorkerProcess?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         *
+         * > **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+         */
         vnetRouteAllEnabled: boolean;
         /**
          * Should WebSockets be enabled?
@@ -11163,6 +11175,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -12169,6 +12183,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -13238,6 +13254,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -13697,6 +13715,11 @@ export namespace appservice {
          */
         defaultDocuments: string[];
         detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+         *
+         * > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+         */
         ftpsState?: string;
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
@@ -14083,7 +14106,9 @@ export namespace appservice {
 
     export interface LinuxWebAppSiteCredential {
         /**
-         * The Site Credentials Username used for publishing.
+         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         *
+         * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
          */
         name: string;
         /**
@@ -14393,6 +14418,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -14856,6 +14883,11 @@ export namespace appservice {
          */
         defaultDocuments: string[];
         detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+         *
+         * > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+         */
         ftpsState?: string;
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
@@ -15240,7 +15272,9 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotSiteCredential {
         /**
-         * The Site Credentials Username used for publishing.
+         * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+         *
+         * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
          */
         name: string;
         /**
@@ -15708,6 +15742,11 @@ export namespace appservice {
          * > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          */
         use32BitWorkerProcess?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         *
+         * > **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+         */
         vnetRouteAllEnabled: boolean;
         /**
          * Should WebSockets be enabled?
@@ -16313,6 +16352,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -17276,6 +17317,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -18302,6 +18345,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -18761,6 +18806,11 @@ export namespace appservice {
          */
         defaultDocuments: string[];
         detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+         *
+         * > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+         */
         ftpsState?: string;
         /**
          * One or more `handlerMapping` blocks as defined below.
@@ -19551,6 +19601,8 @@ export namespace appservice {
         clientId: string;
         /**
          * The thumbprint of the certificate used for signing purposes.
+         *
+         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
@@ -20014,6 +20066,11 @@ export namespace appservice {
          */
         defaultDocuments: string[];
         detailedErrorLoggingEnabled: boolean;
+        /**
+         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+         *
+         * > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+         */
         ftpsState?: string;
         /**
          * One or more `handlerMapping` blocks as defined below.
@@ -20480,7 +20537,9 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotSiteCredential {
         /**
-         * The Site Credentials Username used for publishing.
+         * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         *
+         * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
          */
         name: string;
         /**
@@ -25624,6 +25683,11 @@ export namespace cognitive {
          * If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
          */
         family?: string;
+        /**
+         * The name of the SKU. Possible values include `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`, `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, and `ProvisionedManaged`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
+         */
         name: string;
         /**
          * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
@@ -34074,6 +34138,10 @@ export namespace containerservice {
          * How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
          */
         scanInterval: string;
+        /**
+         * If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+         * <!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. -->
+         */
         skipNodesWithLocalStorage?: boolean;
         /**
          * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
@@ -34565,6 +34633,13 @@ export namespace containerservice {
          * The proxy address to be used when communicating over HTTPS.
          */
         httpsProxy?: string;
+        /**
+         * The list of domains that will not use the proxy for communication.
+         *
+         * > **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+         *
+         * > **Note:** You may wish to use Terraform's `ignoreChanges` functionality to ignore the changes to this field.
+         */
         noProxies?: string[];
         /**
          * The base64 encoded alternative CA certificate content in PEM format.
@@ -36380,6 +36455,11 @@ export namespace core {
     }
 
     export interface ResourceProviderRegistrationFeature {
+        /**
+         * Specifies the name of the feature to register.
+         *
+         * > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+         */
         name: string;
         /**
          * Should this feature be Registered or Unregistered?
@@ -46655,6 +46735,10 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
          */
         audiences: string[];
+        /**
+         * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+         */
         authority: string;
     }
 
@@ -46723,6 +46807,10 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service.
          */
         audience: string;
+        /**
+         * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+         */
         authority: string;
         /**
          * Whether smart proxy is enabled.
@@ -46786,6 +46874,10 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
          */
         audiences: string[];
+        /**
+         * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+         */
         authority: string;
     }
 
@@ -46846,6 +46938,10 @@ export namespace healthcare {
          * The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
          */
         audience: string;
+        /**
+         * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+         */
         authority: string;
         smartProxyEnabled: boolean;
     }
@@ -54531,6 +54627,13 @@ export namespace mysql {
          * > **Note:** `storage[0].auto_grow_enabled` must be enabled when `highAvailability` is enabled. To change the `highAvailability` for a MySQL Flexible Server created with `highAvailability` disabled during creation, the resource has to be recreated.
          */
         mode: string;
+        /**
+         * Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+         *
+         * > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+         *
+         * > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+         */
         standbyAvailabilityZone: string;
     }
 
@@ -61071,6 +61174,11 @@ export namespace nginx {
     }
 
     export interface DeploymentAutoScaleProfile {
+        /**
+         * Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+         *
+         * > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+         */
         maxCapacity: number;
         /**
          * Specify the minimum number of NGINX capacity units for this NGINX Deployment.
@@ -63755,6 +63863,13 @@ export namespace postgresql {
          * The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
          */
         mode: string;
+        /**
+         * Specifies the Availability Zone in which the standby Flexible Server should be located.
+         *
+         * > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+         *
+         * > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+         */
         standbyAvailabilityZone?: string;
     }
 
@@ -68108,6 +68223,15 @@ export namespace storage {
          * Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
          */
         id?: string;
+        /**
+         * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         *
+         * More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
+         *
+         * > **Note:** Using the service's ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+         *
+         * > **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
+         */
         permissions: string;
         /**
          * Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
@@ -70021,6 +70145,11 @@ export namespace workloadssap {
     }
 
     export interface SingleNodeVirtualInstanceSingleServerConfiguration {
+        /**
+         * The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+         *
+         * > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+         */
         appResourceGroupName: string;
         /**
          * The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
@@ -70162,6 +70291,11 @@ export namespace workloadssap {
     }
 
     export interface ThreeTierVirtualInstanceThreeTierConfiguration {
+        /**
+         * The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+         *
+         * > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+         */
         appResourceGroupName: string;
         /**
          * An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.

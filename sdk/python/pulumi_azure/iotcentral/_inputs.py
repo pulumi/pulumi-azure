@@ -21,24 +21,19 @@ __all__ = [
     'ApplicationNetworkRuleSetIpRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this IoT Central Application. The only possible value is `SystemAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ApplicationIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this IoT Central Application. The only possible value is `SystemAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ApplicationIdentityArgs:
@@ -94,18 +89,15 @@ class ApplicationIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ApplicationNetworkRuleSetIpRuleArgsDict(TypedDict):
-        ip_mask: pulumi.Input[_builtins.str]
-        """
-        The IP address range in CIDR notation for the IP Rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the IP Rule
-        """
-elif False:
-    ApplicationNetworkRuleSetIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationNetworkRuleSetIpRuleArgsDict(TypedDict):
+    ip_mask: pulumi.Input[_builtins.str]
+    """
+    The IP address range in CIDR notation for the IP Rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the IP Rule
+    """
 
 @pulumi.input_type
 class ApplicationNetworkRuleSetIpRuleArgs:

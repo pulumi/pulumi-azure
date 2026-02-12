@@ -16,6 +16,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Static Site Custom Domain.
+ * 
+ * !&gt; **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+ * 
+ * &gt; **Note:** The `azure.appservice.StaticSiteCustomDomain` resource is deprecated in favour of `azure.appservice.StaticWebAppCustomDomain` and will be removed in a future major release.
+ * 
  * ## Example Usage
  * 
  * ### CNAME validation

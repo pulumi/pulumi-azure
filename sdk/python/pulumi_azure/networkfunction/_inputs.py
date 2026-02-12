@@ -21,18 +21,13 @@ __all__ = [
     'CollectorPolicyIpfxIngestionArgsDict',
 ]
 
-MYPY = False
+class CollectorPolicyIpfxEmissionArgsDict(TypedDict):
+    destination_types: pulumi.Input[_builtins.str]
+    """
+    A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
 
-if not MYPY:
-    class CollectorPolicyIpfxEmissionArgsDict(TypedDict):
-        destination_types: pulumi.Input[_builtins.str]
-        """
-        A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
-
-        > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
-        """
-elif False:
-    CollectorPolicyIpfxEmissionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
+    """
 
 @pulumi.input_type
 class CollectorPolicyIpfxEmissionArgs:
@@ -60,14 +55,11 @@ class CollectorPolicyIpfxEmissionArgs:
         pulumi.set(self, "destination_types", value)
 
 
-if not MYPY:
-    class CollectorPolicyIpfxIngestionArgsDict(TypedDict):
-        source_resource_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
-        """
-elif False:
-    CollectorPolicyIpfxIngestionArgsDict: TypeAlias = Mapping[str, Any]
+class CollectorPolicyIpfxIngestionArgsDict(TypedDict):
+    source_resource_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
+    """
 
 @pulumi.input_type
 class CollectorPolicyIpfxIngestionArgs:

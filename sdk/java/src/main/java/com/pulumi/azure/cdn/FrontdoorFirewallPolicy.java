@@ -194,9 +194,25 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy")
 public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+     * 
+     * &gt; **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+     * 
+     * &gt; **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
+     * 
+     */
     @Export(name="captchaCookieExpirationInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> captchaCookieExpirationInMinutes;
 
+    /**
+     * @return Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+     * 
+     * &gt; **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+     * 
+     * &gt; **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
+     * 
+     */
     public Output<Integer> captchaCookieExpirationInMinutes() {
         return this.captchaCookieExpirationInMinutes;
     }
@@ -270,9 +286,25 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     public Output<List<String>> frontendEndpointIds() {
         return this.frontendEndpointIds;
     }
+    /**
+     * Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+     * 
+     * &gt; **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+     * 
+     * &gt; **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
+     * 
+     */
     @Export(name="jsChallengeCookieExpirationInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> jsChallengeCookieExpirationInMinutes;
 
+    /**
+     * @return Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+     * 
+     * &gt; **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+     * 
+     * &gt; **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
+     * 
+     */
     public Output<Integer> jsChallengeCookieExpirationInMinutes() {
         return this.jsChallengeCookieExpirationInMinutes;
     }

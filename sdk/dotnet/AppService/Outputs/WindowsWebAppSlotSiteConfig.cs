@@ -60,6 +60,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
         public readonly bool? DetailedErrorLoggingEnabled;
+        /// <summary>
+        /// The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+        /// 
+        /// &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+        /// </summary>
         public readonly string? FtpsState;
         /// <summary>
         /// One or more `HandlerMapping` blocks as defined below.

@@ -170,8 +170,11 @@ type EnvironmentV3 struct {
 	// > **Note:** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
 	//
 	// > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
-	SubnetId pulumi.StringOutput    `pulumi:"subnetId"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"windowsOutboundIpAddresses"`
 	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
@@ -251,8 +254,11 @@ type environmentV3State struct {
 	// > **Note:** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
 	//
 	// > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
-	SubnetId *string           `pulumi:"subnetId"`
-	Tags     map[string]string `pulumi:"tags"`
+	SubnetId *string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+	Tags map[string]string `pulumi:"tags"`
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses []string `pulumi:"windowsOutboundIpAddresses"`
 	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
@@ -298,7 +304,10 @@ type EnvironmentV3State struct {
 	//
 	// > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
 	SubnetId pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+	Tags pulumi.StringMapInput
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses pulumi.StringArrayInput
 	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
@@ -331,8 +340,11 @@ type environmentV3Args struct {
 	// > **Note:** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
 	//
 	// > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
-	SubnetId string            `pulumi:"subnetId"`
-	Tags     map[string]string `pulumi:"tags"`
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+	Tags map[string]string `pulumi:"tags"`
 	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
@@ -361,7 +373,10 @@ type EnvironmentV3Args struct {
 	//
 	// > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
 	SubnetId pulumi.StringInput
-	Tags     pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+	Tags pulumi.StringMapInput
 	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
@@ -541,6 +556,9 @@ func (o EnvironmentV3Output) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
+//
+// > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
 func (o EnvironmentV3Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

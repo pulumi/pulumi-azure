@@ -141,6 +141,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
+        /// <summary>
+        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `False`.
+        /// 
+        /// &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `AppSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+        /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
         /// Should WebSockets be enabled?

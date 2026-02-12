@@ -11,6 +11,12 @@ import java.util.Objects;
 
 @CustomType
 public final class DeploymentAutoScaleProfile {
+    /**
+     * @return Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+     * 
+     * &gt; **Note:** If you&#39;re using autoscaling with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     private Integer maxCapacity;
     /**
      * @return Specify the minimum number of NGINX capacity units for this NGINX Deployment.
@@ -24,6 +30,12 @@ public final class DeploymentAutoScaleProfile {
     private String name;
 
     private DeploymentAutoScaleProfile() {}
+    /**
+     * @return Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+     * 
+     * &gt; **Note:** If you&#39;re using autoscaling with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     public Integer maxCapacity() {
         return this.maxCapacity;
     }

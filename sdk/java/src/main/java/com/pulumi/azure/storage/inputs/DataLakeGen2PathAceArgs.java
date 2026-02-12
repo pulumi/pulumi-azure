@@ -31,9 +31,29 @@ public final class DataLakeGen2PathAceArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+     * 
+     * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+     * 
+     * &gt; **Note:** Using the service&#39;s ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+     * 
+     * &gt; **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
+     * 
+     */
     @Import(name="permissions", required=true)
     private Output<String> permissions;
 
+    /**
+     * @return Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+     * 
+     * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+     * 
+     * &gt; **Note:** Using the service&#39;s ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+     * 
+     * &gt; **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
+     * 
+     */
     public Output<String> permissions() {
         return this.permissions;
     }
@@ -116,11 +136,35 @@ public final class DataLakeGen2PathAceArgs extends com.pulumi.resources.Resource
             return id(Output.of(id));
         }
 
+        /**
+         * @param permissions Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         * 
+         * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+         * 
+         * &gt; **Note:** Using the service&#39;s ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+         * 
+         * &gt; **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permissions(Output<String> permissions) {
             $.permissions = permissions;
             return this;
         }
 
+        /**
+         * @param permissions Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+         * 
+         * More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+         * 
+         * &gt; **Note:** Using the service&#39;s ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+         * 
+         * &gt; **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder permissions(String permissions) {
             return permissions(Output.of(permissions));
         }

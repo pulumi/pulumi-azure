@@ -56,9 +56,21 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.analyticalStorageTtl);
     }
 
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     @Import(name="autoscaleSettings")
     private @Nullable Output<GremlinGraphAutoscaleSettingsArgs> autoscaleSettings;
 
+    /**
+     * @return An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     public Optional<Output<GremlinGraphAutoscaleSettingsArgs>> autoscaleSettings() {
         return Optional.ofNullable(this.autoscaleSettings);
     }
@@ -295,11 +307,27 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
             return analyticalStorageTtl(Output.of(analyticalStorageTtl));
         }
 
+        /**
+         * @param autoscaleSettings An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+         * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscaleSettings(@Nullable Output<GremlinGraphAutoscaleSettingsArgs> autoscaleSettings) {
             $.autoscaleSettings = autoscaleSettings;
             return this;
         }
 
+        /**
+         * @param autoscaleSettings An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+         * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscaleSettings(GremlinGraphAutoscaleSettingsArgs autoscaleSettings) {
             return autoscaleSettings(Output.of(autoscaleSettings));
         }

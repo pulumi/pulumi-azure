@@ -41,28 +41,23 @@ __all__ = [
     'WindowsVirtualMachineInboundNatRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GlobalVMShutdownScheduleNotificationSettingsArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        E-mail address to which the notification will be sent.
-        """
-        time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
-        """
-        webhook_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The webhook URL to which the notification will be sent.
-        """
-elif False:
-    GlobalVMShutdownScheduleNotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalVMShutdownScheduleNotificationSettingsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    E-mail address to which the notification will be sent.
+    """
+    time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+    """
+    webhook_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The webhook URL to which the notification will be sent.
+    """
 
 @pulumi.input_type
 class GlobalVMShutdownScheduleNotificationSettingsArgs:
@@ -134,26 +129,23 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
         pulumi.set(self, "webhook_url", value)
 
 
-if not MYPY:
-    class LinuxVirtualMachineGalleryImageReferenceArgsDict(TypedDict):
-        offer: pulumi.Input[_builtins.str]
-        """
-        The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        The Version of the Gallery Image. Changing this forces a new resource to be created.
-        """
-elif False:
-    LinuxVirtualMachineGalleryImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class LinuxVirtualMachineGalleryImageReferenceArgsDict(TypedDict):
+    offer: pulumi.Input[_builtins.str]
+    """
+    The Offer of the Gallery Image. Changing this forces a new resource to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The SKU of the Gallery Image. Changing this forces a new resource to be created.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The Version of the Gallery Image. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class LinuxVirtualMachineGalleryImageReferenceArgs:
@@ -222,22 +214,19 @@ class LinuxVirtualMachineGalleryImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class LinuxVirtualMachineInboundNatRuleArgsDict(TypedDict):
-        backend_port: pulumi.Input[_builtins.int]
-        """
-        The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
-        """
-        frontend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The frontend port associated with this Inbound NAT Rule.
-        """
-elif False:
-    LinuxVirtualMachineInboundNatRuleArgsDict: TypeAlias = Mapping[str, Any]
+class LinuxVirtualMachineInboundNatRuleArgsDict(TypedDict):
+    backend_port: pulumi.Input[_builtins.int]
+    """
+    The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
+    """
+    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The frontend port associated with this Inbound NAT Rule.
+    """
 
 @pulumi.input_type
 class LinuxVirtualMachineInboundNatRuleArgs:
@@ -292,14 +281,11 @@ class LinuxVirtualMachineInboundNatRuleArgs:
         pulumi.set(self, "frontend_port", value)
 
 
-if not MYPY:
-    class ScheduleDailyRecurrenceArgsDict(TypedDict):
-        time: pulumi.Input[_builtins.str]
-        """
-        The time each day when the schedule takes effect.
-        """
-elif False:
-    ScheduleDailyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleDailyRecurrenceArgsDict(TypedDict):
+    time: pulumi.Input[_builtins.str]
+    """
+    The time each day when the schedule takes effect.
+    """
 
 @pulumi.input_type
 class ScheduleDailyRecurrenceArgs:
@@ -323,14 +309,11 @@ class ScheduleDailyRecurrenceArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class ScheduleHourlyRecurrenceArgsDict(TypedDict):
-        minute: pulumi.Input[_builtins.int]
-        """
-        Minutes of the hour the schedule will run.
-        """
-elif False:
-    ScheduleHourlyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleHourlyRecurrenceArgsDict(TypedDict):
+    minute: pulumi.Input[_builtins.int]
+    """
+    Minutes of the hour the schedule will run.
+    """
 
 @pulumi.input_type
 class ScheduleHourlyRecurrenceArgs:
@@ -354,22 +337,19 @@ class ScheduleHourlyRecurrenceArgs:
         pulumi.set(self, "minute", value)
 
 
-if not MYPY:
-    class ScheduleNotificationSettingsArgsDict(TypedDict):
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-        """
-        time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in minutes before event at which notification will be sent.
-        """
-        webhook_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The webhook URL to which the notification will be sent.
-        """
-elif False:
-    ScheduleNotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleNotificationSettingsArgsDict(TypedDict):
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+    """
+    time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in minutes before event at which notification will be sent.
+    """
+    webhook_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The webhook URL to which the notification will be sent.
+    """
 
 @pulumi.input_type
 class ScheduleNotificationSettingsArgs:
@@ -426,18 +406,15 @@ class ScheduleNotificationSettingsArgs:
         pulumi.set(self, "webhook_url", value)
 
 
-if not MYPY:
-    class ScheduleWeeklyRecurrenceArgsDict(TypedDict):
-        time: pulumi.Input[_builtins.str]
-        """
-        The time when the schedule takes effect.
-        """
-        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-        """
-elif False:
-    ScheduleWeeklyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduleWeeklyRecurrenceArgsDict(TypedDict):
+    time: pulumi.Input[_builtins.str]
+    """
+    The time when the schedule takes effect.
+    """
+    week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+    """
 
 @pulumi.input_type
 class ScheduleWeeklyRecurrenceArgs:
@@ -477,26 +454,23 @@ class ScheduleWeeklyRecurrenceArgs:
         pulumi.set(self, "week_days", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        """
-        shared_public_ip_address: NotRequired[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressArgsDict']]
-        """
-        A `shared_public_ip_address` block as defined below.
-        """
-        use_in_virtual_machine_creation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
-        """
-        use_public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
-        """
-elif False:
-    VirtualNetworkSubnetArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkSubnetArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
+    """
+    shared_public_ip_address: NotRequired[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressArgsDict']]
+    """
+    A `shared_public_ip_address` block as defined below.
+    """
+    use_in_virtual_machine_creation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
+    """
+    use_public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetArgs:
@@ -569,14 +543,11 @@ class VirtualNetworkSubnetArgs:
         pulumi.set(self, "use_public_ip_address", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetSharedPublicIpAddressArgsDict(TypedDict):
-        allowed_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict']]]]
-        """
-        A list of `allowed_ports` blocks as defined below.
-        """
-elif False:
-    VirtualNetworkSubnetSharedPublicIpAddressArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkSubnetSharedPublicIpAddressArgsDict(TypedDict):
+    allowed_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict']]]]
+    """
+    A list of `allowed_ports` blocks as defined below.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetSharedPublicIpAddressArgs:
@@ -601,18 +572,15 @@ class VirtualNetworkSubnetSharedPublicIpAddressArgs:
         pulumi.set(self, "allowed_ports", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict(TypedDict):
-        backend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port on the Virtual Machine that the traffic will be sent to.
-        """
-        transport_protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
-        """
-elif False:
-    VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict(TypedDict):
+    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port on the Virtual Machine that the traffic will be sent to.
+    """
+    transport_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs:
@@ -653,26 +621,23 @@ class VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs:
         pulumi.set(self, "transport_protocol", value)
 
 
-if not MYPY:
-    class WindowsVirtualMachineGalleryImageReferenceArgsDict(TypedDict):
-        offer: pulumi.Input[_builtins.str]
-        """
-        The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        The Version of the Gallery Image. Changing this forces a new resource to be created.
-        """
-elif False:
-    WindowsVirtualMachineGalleryImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class WindowsVirtualMachineGalleryImageReferenceArgsDict(TypedDict):
+    offer: pulumi.Input[_builtins.str]
+    """
+    The Offer of the Gallery Image. Changing this forces a new resource to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The SKU of the Gallery Image. Changing this forces a new resource to be created.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    The Version of the Gallery Image. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class WindowsVirtualMachineGalleryImageReferenceArgs:
@@ -741,22 +706,19 @@ class WindowsVirtualMachineGalleryImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class WindowsVirtualMachineInboundNatRuleArgsDict(TypedDict):
-        backend_port: pulumi.Input[_builtins.int]
-        """
-        The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
-        """
-        frontend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The frontend port associated with this Inbound NAT Rule.
-        """
-elif False:
-    WindowsVirtualMachineInboundNatRuleArgsDict: TypeAlias = Mapping[str, Any]
+class WindowsVirtualMachineInboundNatRuleArgsDict(TypedDict):
+    backend_port: pulumi.Input[_builtins.int]
+    """
+    The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
+    """
+    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The frontend port associated with this Inbound NAT Rule.
+    """
 
 @pulumi.input_type
 class WindowsVirtualMachineInboundNatRuleArgs:

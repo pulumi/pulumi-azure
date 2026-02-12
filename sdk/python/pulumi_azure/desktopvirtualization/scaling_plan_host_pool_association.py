@@ -146,6 +146,8 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
         $ pulumi import azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostPools/myhostpool"
         ```
 
+        > **Note:** This ID is specific to Terraform - and is of the format `{virtualDesktopScalingPlanID}|{virtualDesktopHostPoolID}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Should the Scaling Plan be enabled on this Host Pool.
@@ -168,6 +170,8 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostPools/myhostpool"
         ```
+
+        > **Note:** This ID is specific to Terraform - and is of the format `{virtualDesktopScalingPlanID}|{virtualDesktopHostPoolID}`.
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanHostPoolAssociationArgs args: The arguments to use to populate this resource's properties.

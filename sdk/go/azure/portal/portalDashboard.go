@@ -12,6 +12,225 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a shared dashboard in the Azure Portal.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/portal"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			// Content for the MD tile
+//			mdContent := "# Hello all :)"
+//			if param := cfg.Get("mdContent"); param != "" {
+//				mdContent = param
+//			}
+//			// Link to a video
+//			videoLink := "https://www.youtube.com/watch?v=......"
+//			if param := cfg.Get("videoLink"); param != "" {
+//				videoLink = param
+//			}
+//			current, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("mygroup"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = portal.NewPortalDashboard(ctx, "my-board", &portal.PortalDashboardArgs{
+//				Name:              pulumi.String("my-cool-dashboard"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("terraform"),
+//				},
+//				DashboardProperties: pulumi.Sprintf(`{
+//	   \"lenses\": {
+//	        \"0\": {
+//	            \"order\": 0,
+//	            \"parts\": {
+//	                \"0\": {
+//	                    \"position\": {
+//	                        \"x\": 0,
+//	                        \"y\": 0,
+//	                        \"rowSpan\": 2,
+//	                        \"colSpan\": 3
+//	                    },
+//	                    \"metadata\": {
+//	                        \"inputs\": [],
+//	                        \"type\": \"Extension/HubsExtension/PartType/MarkdownPart\",
+//	                        \"settings\": {
+//	                            \"content\": {
+//	                                \"settings\": {
+//	                                    \"content\": \"%v\",
+//	                                    \"subtitle\": \"\",
+//	                                    \"title\": \"\"
+//	                                }
+//	                            }
+//	                        }
+//	                    }
+//	                },
+//	                \"1\": {
+//	                    \"position\": {
+//	                        \"x\": 5,
+//	                        \"y\": 0,
+//	                        \"rowSpan\": 4,
+//	                        \"colSpan\": 6
+//	                    },
+//	                    \"metadata\": {
+//	                        \"inputs\": [],
+//	                        \"type\": \"Extension/HubsExtension/PartType/VideoPart\",
+//	                        \"settings\": {
+//	                            \"content\": {
+//	                                \"settings\": {
+//	                                    \"title\": \"Important Information\",
+//	                                    \"subtitle\": \"\",
+//	                                    \"src\": \"%v\",
+//	                                    \"autoplay\": true
+//	                                }
+//	                            }
+//	                        }
+//	                    }
+//	                },
+//	                \"2\": {
+//	                    \"position\": {
+//	                        \"x\": 0,
+//	                        \"y\": 4,
+//	                        \"rowSpan\": 4,
+//	                        \"colSpan\": 6
+//	                    },
+//	                    \"metadata\": {
+//	                        \"inputs\": [
+//	                            {
+//	                                \"name\": \"ComponentId\",
+//	                                \"value\": \"/subscriptions/%v/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp\"
+//	                            }
+//	                        ],
+//	                        \"type\": \"Extension/AppInsightsExtension/PartType/AppMapGalPt\",
+//	                        \"settings\": {},
+//	                        \"asset\": {
+//	                            \"idInputName\": \"ComponentId\",
+//	                            \"type\": \"ApplicationInsights\"
+//	                        }
+//	                    }
+//	                }
+//	            }
+//	        }
+//	    },
+//	    \"metadata\": {
+//	        \"model\": {
+//	            \"timeRange\": {
+//	                \"value\": {
+//	                    \"relative\": {
+//	                        \"duration\": 24,
+//	                        \"timeUnit\": 1
+//	                    }
+//	                },
+//	                \"type\": \"MsPortalFx.Composition.Configuration.ValueTypes.TimeRange\"
+//	            },
+//	            \"filterLocale\": {
+//	                \"value\": \"en-us\"
+//	            },
+//	            \"filters\": {
+//	                \"value\": {
+//	                    \"MsPortalFx_TimeRange\": {
+//	                        \"model\": {
+//	                            \"format\": \"utc\",
+//	                            \"granularity\": \"auto\",
+//	                            \"relative\": \"24h\"
+//	                        },
+//	                        \"displayCache\": {
+//	                            \"name\": \"UTC Time\",
+//	                            \"value\": \"Past 24 hours\"
+//	                        },
+//	                        \"filteredPartIds\": [
+//	                            \"StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7\"
+//	                        ]
+//	                    }
+//	                }
+//	            }
+//	        }
+//	    }
+//	}
+//
+// `, mdContent, videoLink, current.SubscriptionId),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// It is recommended to follow the steps outlined
+// [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+//
+// ### Using a `templateFile` data source or the `templatefile` function
+//
+// Since the contents of the dashboard JSON can be quite lengthy, use a template file to improve readability:
+//
+// `dash.tpl`:
+//
+// This is then referenced in the `.tf` file by using a `templateFile` data source (terraform 0.11 or earlier), or the `templatefile` function (terraform 0.12+).
+//
+// `main.tf` (terraform 0.11 or earlier):
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			dash_template := notImplemented("The template_file data resource is not yet supported.")
+//			// ...
+//			_, err := azurerm.NewDashboard(ctx, "my-board", &azurerm.DashboardArgs{
+//				Name:              "my-cool-dashboard",
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Tags: map[string]interface{}{
+//					"source": "terraform",
+//				},
+//				DashboardProperties: dash_template.Rendered,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// `main.tf` (terraform 0.12+)
+//
 // ## Import
 //
 // Dashboards can be imported using the `resource id`, e.g.

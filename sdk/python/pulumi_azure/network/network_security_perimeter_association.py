@@ -27,6 +27,10 @@ class NetworkSecurityPerimeterAssociationArgs:
         The set of arguments for constructing a NetworkSecurityPerimeterAssociation resource.
         :param pulumi.Input[_builtins.str] access_mode: Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
         :param pulumi.Input[_builtins.str] network_security_perimeter_profile_id: The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+               
+               > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+               If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Association. Changing this forces a new Network Security Perimeter Association to be created.
         """
         pulumi.set(__self__, "access_mode", access_mode)
@@ -62,6 +66,12 @@ class NetworkSecurityPerimeterAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+
+        > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+        If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -93,6 +103,10 @@ class _NetworkSecurityPerimeterAssociationState:
         :param pulumi.Input[_builtins.str] access_mode: Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Association. Changing this forces a new Network Security Perimeter Association to be created.
         :param pulumi.Input[_builtins.str] network_security_perimeter_profile_id: The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+               
+               > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+               If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
         """
         if access_mode is not None:
             pulumi.set(__self__, "access_mode", access_mode)
@@ -142,6 +156,12 @@ class _NetworkSecurityPerimeterAssociationState:
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+
+        > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+        If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -210,6 +230,10 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_mode: Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Association. Changing this forces a new Network Security Perimeter Association to be created.
         :param pulumi.Input[_builtins.str] network_security_perimeter_profile_id: The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+               
+               > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+               If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
         """
         ...
     @overload
@@ -324,6 +348,10 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_mode: Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Association. Changing this forces a new Network Security Perimeter Association to be created.
         :param pulumi.Input[_builtins.str] network_security_perimeter_profile_id: The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
+        :param pulumi.Input[_builtins.str] resource_id: The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+               
+               > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+               If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -362,5 +390,11 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+
+        > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+        If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+        """
         return pulumi.get(self, "resource_id")
 

@@ -112,9 +112,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:healthcare/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
+    /**
+     * A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+     * 
+     */
     @Export(name="accessPolicyObjectIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accessPolicyObjectIds;
 
+    /**
+     * @return A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+     * 
+     */
     public Output<Optional<List<String>>> accessPolicyObjectIds() {
         return Codegen.optional(this.accessPolicyObjectIds);
     }

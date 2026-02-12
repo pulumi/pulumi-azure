@@ -61,7 +61,17 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['WindowsFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+               
+               > **Note:** For storage related settings, please use related properties that are available such as `storage_account_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+               
+               > **Note:** For application insight related settings, please use `application_insights_connection_string` and `application_insights_key`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+               
+               > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+               
+               > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -95,6 +105,11 @@ class WindowsFunctionAppArgs:
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -213,7 +228,17 @@ class WindowsFunctionAppArgs:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+
+        > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+
+        > **Note:** For storage related settings, please use related properties that are available such as `storage_account_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+
+        > **Note:** For application insight related settings, please use `application_insights_connection_string` and `application_insights_key`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+
+        > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+
+        > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
         """
         return pulumi.get(self, "app_settings")
 
@@ -554,6 +579,13 @@ class WindowsFunctionAppArgs:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -652,7 +684,17 @@ class _WindowsFunctionAppState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsFunctionApp resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+               
+               > **Note:** For storage related settings, please use related properties that are available such as `storage_account_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+               
+               > **Note:** For application insight related settings, please use `application_insights_connection_string` and `application_insights_key`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+               
+               > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+               
+               > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -698,6 +740,11 @@ class _WindowsFunctionAppState:
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -801,7 +848,17 @@ class _WindowsFunctionAppState:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+
+        > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+
+        > **Note:** For storage related settings, please use related properties that are available such as `storage_account_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+
+        > **Note:** For application insight related settings, please use `application_insights_connection_string` and `application_insights_key`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+
+        > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+
+        > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1286,6 +1343,13 @@ class _WindowsFunctionAppState:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -1428,7 +1492,17 @@ class WindowsFunctionApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+               
+               > **Note:** For storage related settings, please use related properties that are available such as `storage_account_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+               
+               > **Note:** For application insight related settings, please use `application_insights_connection_string` and `application_insights_key`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+               
+               > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+               
+               > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsArgs', 'WindowsFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsV2Args', 'WindowsFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppBackupArgs', 'WindowsFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
@@ -1465,6 +1539,11 @@ class WindowsFunctionApp(pulumi.CustomResource):
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -1702,7 +1781,17 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+               
+               > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+               
+               > **Note:** For storage related settings, please use related properties that are available such as `storage_account_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+               
+               > **Note:** For application insight related settings, please use `application_insights_connection_string` and `application_insights_key`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+               
+               > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+               
+               > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsArgs', 'WindowsFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsV2Args', 'WindowsFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppBackupArgs', 'WindowsFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
@@ -1748,6 +1837,11 @@ class WindowsFunctionApp(pulumi.CustomResource):
                > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -1812,7 +1906,17 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+
+        > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
+
+        > **Note:** For storage related settings, please use related properties that are available such as `storage_account_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+
+        > **Note:** For application insight related settings, please use `application_insights_connection_string` and `application_insights_key`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+
+        > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+
+        > **Note:** Please create a predefined share if you are restricting your storage account to a virtual network by setting `WEBSITE_CONTENTOVERVNET` to 1 in app_setting.
         """
         return pulumi.get(self, "app_settings")
 
@@ -2137,6 +2241,13 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the function app configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property

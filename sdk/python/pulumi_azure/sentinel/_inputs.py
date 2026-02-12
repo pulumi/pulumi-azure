@@ -103,28 +103,23 @@ __all__ = [
     'ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the threshold observation.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the built-in Anomaly Alert Rule.
-        """
-        supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of supported values of the single select observation.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values of the single select observation.
-        """
-elif False:
-    AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the threshold observation.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the built-in Anomaly Alert Rule.
+    """
+    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of supported values of the single select observation.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values of the single select observation.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
@@ -197,26 +192,23 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the threshold observation.
-        """
-        exclude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The excluded value per `description`.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the built-in Anomaly Alert Rule.
-        """
-        prioritize: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prioritized value per `description`.
-        """
-elif False:
-    AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the threshold observation.
+    """
+    exclude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The excluded value per `description`.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the built-in Anomaly Alert Rule.
+    """
+    prioritize: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prioritized value per `description`.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
@@ -289,18 +281,15 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
         pulumi.set(self, "prioritize", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict(TypedDict):
-        connector_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the required Data Connector.
-        """
-        data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of data types of the required Data Connector.
-        """
-elif False:
-    AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict(TypedDict):
+    connector_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the required Data Connector.
+    """
+    data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of data types of the required Data Connector.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
@@ -341,26 +330,23 @@ class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
         pulumi.set(self, "data_types", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the threshold observation.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the built-in Anomaly Alert Rule.
-        """
-        supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of supported values of the single select observation.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the threshold observation.
-        """
-elif False:
-    AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the threshold observation.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the built-in Anomaly Alert Rule.
+    """
+    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of supported values of the single select observation.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the threshold observation.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
@@ -433,30 +419,27 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyBuiltInThresholdObservationArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the threshold observation.
-        """
-        max: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The max value of the threshold observation.
-        """
-        min: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The min value of the threshold observation.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the built-in Anomaly Alert Rule.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the threshold observation.
-        """
-elif False:
-    AlertRuleAnomalyBuiltInThresholdObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyBuiltInThresholdObservationArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the threshold observation.
+    """
+    max: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The max value of the threshold observation.
+    """
+    min: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The min value of the threshold observation.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the built-in Anomaly Alert Rule.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the threshold observation.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyBuiltInThresholdObservationArgs:
@@ -545,26 +528,23 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyDuplicateMultiSelectObservationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the multi select observation.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of values of the multi select observation.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the multi select observation.
-        """
-        supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of supported values of the multi select observation.
-        """
-elif False:
-    AlertRuleAnomalyDuplicateMultiSelectObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyDuplicateMultiSelectObservationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the multi select observation.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of values of the multi select observation.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the multi select observation.
+    """
+    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of supported values of the multi select observation.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
@@ -635,26 +615,23 @@ class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
         pulumi.set(self, "supported_values", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the prioritized exclude observation.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the prioritized exclude observation.
-        """
-        exclude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The excluded value per `description`.
-        """
-        prioritize: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prioritized value per `description`.
-        """
-elif False:
-    AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the prioritized exclude observation.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the prioritized exclude observation.
+    """
+    exclude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The excluded value per `description`.
+    """
+    prioritize: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prioritized value per `description`.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
@@ -726,18 +703,15 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
         pulumi.set(self, "prioritize", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyDuplicateRequiredDataConnectorArgsDict(TypedDict):
-        connector_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the required Data Connector.
-        """
-        data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of data types of the required Data Connector.
-        """
-elif False:
-    AlertRuleAnomalyDuplicateRequiredDataConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyDuplicateRequiredDataConnectorArgsDict(TypedDict):
+    connector_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the required Data Connector.
+    """
+    data_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of data types of the required Data Connector.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
@@ -778,26 +752,23 @@ class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
         pulumi.set(self, "data_types", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyDuplicateSingleSelectObservationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the single select observation.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the multi select observation.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the single select observation.
-        """
-        supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of supported values of the single select observation.
-        """
-elif False:
-    AlertRuleAnomalyDuplicateSingleSelectObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyDuplicateSingleSelectObservationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the single select observation.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the multi select observation.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the single select observation.
+    """
+    supported_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of supported values of the single select observation.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
@@ -868,30 +839,27 @@ class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
         pulumi.set(self, "supported_values", value)
 
 
-if not MYPY:
-    class AlertRuleAnomalyDuplicateThresholdObservationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the threshold observation.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the threshold observation.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the threshold observation.
-        """
-        max: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The max value of the threshold observation.
-        """
-        min: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The min value of the threshold observation.
-        """
-elif False:
-    AlertRuleAnomalyDuplicateThresholdObservationArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleAnomalyDuplicateThresholdObservationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the threshold observation.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the threshold observation.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the threshold observation.
+    """
+    max: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The max value of the threshold observation.
+    """
+    min: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The min value of the threshold observation.
+    """
 
 @pulumi.input_type
 class AlertRuleAnomalyDuplicateThresholdObservationArgs:
@@ -978,22 +946,19 @@ class AlertRuleAnomalyDuplicateThresholdObservationArgs:
         pulumi.set(self, "min", value)
 
 
-if not MYPY:
-    class AlertRuleFusionSourceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
-        """
-        sub_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgsDict']]]]
-        """
-        One or more `sub_type` blocks as defined below.
-        """
-elif False:
-    AlertRuleFusionSourceArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleFusionSourceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+    """
+    sub_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgsDict']]]]
+    """
+    One or more `sub_type` blocks as defined below.
+    """
 
 @pulumi.input_type
 class AlertRuleFusionSourceArgs:
@@ -1049,22 +1014,19 @@ class AlertRuleFusionSourceArgs:
         pulumi.set(self, "sub_types", value)
 
 
-if not MYPY:
-    class AlertRuleFusionSourceSubTypeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
-        """
-        severities_alloweds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
-        """
-elif False:
-    AlertRuleFusionSourceSubTypeArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleFusionSourceSubTypeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+    """
+    severities_alloweds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are `High`, `Medium`, `Low`, `Informational`.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to `true`.
+    """
 
 @pulumi.input_type
 class AlertRuleFusionSourceSubTypeArgs:
@@ -1119,30 +1081,27 @@ class AlertRuleFusionSourceSubTypeArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class AlertRuleNrtAlertDetailsOverrideArgsDict(TypedDict):
-        description_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The format containing columns name(s) to override the description of this Sentinel Alert Rule.
-        """
-        display_name_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The format containing columns name(s) to override the name of this Sentinel Alert Rule.
-        """
-        dynamic_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict']]]]
-        """
-        A list of `dynamic_property` blocks as defined below.
-        """
-        severity_column_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The column name to take the alert severity from.
-        """
-        tactics_column_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The column name to take the alert tactics from.
-        """
-elif False:
-    AlertRuleNrtAlertDetailsOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtAlertDetailsOverrideArgsDict(TypedDict):
+    description_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+    """
+    display_name_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+    """
+    dynamic_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict']]]]
+    """
+    A list of `dynamic_property` blocks as defined below.
+    """
+    severity_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The column name to take the alert severity from.
+    """
+    tactics_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The column name to take the alert tactics from.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtAlertDetailsOverrideArgs:
@@ -1231,18 +1190,15 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
         pulumi.set(self, "tactics_column_name", value)
 
 
-if not MYPY:
-    class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
-        """
-elif False:
-    AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
@@ -1281,18 +1237,15 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AlertRuleNrtEntityMappingArgsDict(TypedDict):
-        entity_type: pulumi.Input[_builtins.str]
-        """
-        The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        """
-        field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgsDict']]]
-        """
-        A list of `field_mapping` blocks as defined below.
-        """
-elif False:
-    AlertRuleNrtEntityMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtEntityMappingArgsDict(TypedDict):
+    entity_type: pulumi.Input[_builtins.str]
+    """
+    The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+    """
+    field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgsDict']]]
+    """
+    A list of `field_mapping` blocks as defined below.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtEntityMappingArgs:
@@ -1331,18 +1284,15 @@ class AlertRuleNrtEntityMappingArgs:
         pulumi.set(self, "field_mappings", value)
 
 
-if not MYPY:
-    class AlertRuleNrtEntityMappingFieldMappingArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The column name to be mapped to the identifier.
-        """
-        identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the entity.
-        """
-elif False:
-    AlertRuleNrtEntityMappingFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtEntityMappingFieldMappingArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The column name to be mapped to the identifier.
+    """
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the entity.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtEntityMappingFieldMappingArgs:
@@ -1381,14 +1331,11 @@ class AlertRuleNrtEntityMappingFieldMappingArgs:
         pulumi.set(self, "identifier", value)
 
 
-if not MYPY:
-    class AlertRuleNrtEventGroupingArgsDict(TypedDict):
-        aggregation_method: pulumi.Input[_builtins.str]
-        """
-        The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
-        """
-elif False:
-    AlertRuleNrtEventGroupingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtEventGroupingArgsDict(TypedDict):
+    aggregation_method: pulumi.Input[_builtins.str]
+    """
+    The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtEventGroupingArgs:
@@ -1412,18 +1359,15 @@ class AlertRuleNrtEventGroupingArgs:
         pulumi.set(self, "aggregation_method", value)
 
 
-if not MYPY:
-    class AlertRuleNrtIncidentArgsDict(TypedDict):
-        create_incident_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
-        """
-        grouping: pulumi.Input['AlertRuleNrtIncidentGroupingArgsDict']
-        """
-        A `grouping` block as defined below.
-        """
-elif False:
-    AlertRuleNrtIncidentArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtIncidentArgsDict(TypedDict):
+    create_incident_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+    """
+    grouping: pulumi.Input['AlertRuleNrtIncidentGroupingArgsDict']
+    """
+    A `grouping` block as defined below.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtIncidentArgs:
@@ -1462,38 +1406,35 @@ class AlertRuleNrtIncidentArgs:
         pulumi.set(self, "grouping", value)
 
 
-if not MYPY:
-    class AlertRuleNrtIncidentGroupingArgsDict(TypedDict):
-        by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-        """
-        by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-        """
-        by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
-        """
-        entity_matching_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-        """
-        lookback_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
-        """
-        reopen_closed_incidents: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to re-open closed matching incidents? Defaults to `false`.
-        """
-elif False:
-    AlertRuleNrtIncidentGroupingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtIncidentGroupingArgsDict(TypedDict):
+    by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+    """
+    by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+    """
+    by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+    """
+    entity_matching_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+    """
+    lookback_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+    """
+    reopen_closed_incidents: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to re-open closed matching incidents? Defaults to `false`.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtIncidentGroupingArgs:
@@ -1614,14 +1555,11 @@ class AlertRuleNrtIncidentGroupingArgs:
         pulumi.set(self, "reopen_closed_incidents", value)
 
 
-if not MYPY:
-    class AlertRuleNrtSentinelEntityMappingArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The column name to be mapped to the identifier.
-        """
-elif False:
-    AlertRuleNrtSentinelEntityMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleNrtSentinelEntityMappingArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The column name to be mapped to the identifier.
+    """
 
 @pulumi.input_type
 class AlertRuleNrtSentinelEntityMappingArgs:
@@ -1645,30 +1583,27 @@ class AlertRuleNrtSentinelEntityMappingArgs:
         pulumi.set(self, "column_name", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledAlertDetailsOverrideArgsDict(TypedDict):
-        description_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The format containing columns name(s) to override the description of this Sentinel Alert Rule.
-        """
-        display_name_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The format containing columns name(s) to override the name of this Sentinel Alert Rule.
-        """
-        dynamic_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict']]]]
-        """
-        A list of `dynamic_property` blocks as defined below.
-        """
-        severity_column_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The column name to take the alert severity from.
-        """
-        tactics_column_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The column name to take the alert tactics from.
-        """
-elif False:
-    AlertRuleScheduledAlertDetailsOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledAlertDetailsOverrideArgsDict(TypedDict):
+    description_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+    """
+    display_name_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+    """
+    dynamic_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict']]]]
+    """
+    A list of `dynamic_property` blocks as defined below.
+    """
+    severity_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The column name to take the alert severity from.
+    """
+    tactics_column_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The column name to take the alert tactics from.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledAlertDetailsOverrideArgs:
@@ -1757,18 +1692,15 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
         pulumi.set(self, "tactics_column_name", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
-        """
-elif False:
-    AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the dynamic property. Possible values are `AlertLink`, `ConfidenceLevel`, `ConfidenceScore`, `ExtendedLinks`, `ProductComponentName`, `ProductName`, `ProviderName`, `RemediationSteps`, `SubTechniques` and `Techniques`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the dynamic property. Pssible Values are `Caller`, `dcount_ResourceId` and `EventSubmissionTimestamp`.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
@@ -1807,18 +1739,15 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledEntityMappingArgsDict(TypedDict):
-        entity_type: pulumi.Input[_builtins.str]
-        """
-        The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        """
-        field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgsDict']]]
-        """
-        A list of `field_mapping` blocks as defined below.
-        """
-elif False:
-    AlertRuleScheduledEntityMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledEntityMappingArgsDict(TypedDict):
+    entity_type: pulumi.Input[_builtins.str]
+    """
+    The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+    """
+    field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgsDict']]]
+    """
+    A list of `field_mapping` blocks as defined below.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledEntityMappingArgs:
@@ -1857,18 +1786,15 @@ class AlertRuleScheduledEntityMappingArgs:
         pulumi.set(self, "field_mappings", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledEntityMappingFieldMappingArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The column name to be mapped to the identifier.
-        """
-        identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the entity.
-        """
-elif False:
-    AlertRuleScheduledEntityMappingFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledEntityMappingFieldMappingArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The column name to be mapped to the identifier.
+    """
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the entity.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledEntityMappingFieldMappingArgs:
@@ -1907,14 +1833,11 @@ class AlertRuleScheduledEntityMappingFieldMappingArgs:
         pulumi.set(self, "identifier", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledEventGroupingArgsDict(TypedDict):
-        aggregation_method: pulumi.Input[_builtins.str]
-        """
-        The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
-        """
-elif False:
-    AlertRuleScheduledEventGroupingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledEventGroupingArgsDict(TypedDict):
+    aggregation_method: pulumi.Input[_builtins.str]
+    """
+    The aggregation type of grouping the events. Possible values are `AlertPerResult` and `SingleAlert`.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledEventGroupingArgs:
@@ -1938,18 +1861,15 @@ class AlertRuleScheduledEventGroupingArgs:
         pulumi.set(self, "aggregation_method", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledIncidentArgsDict(TypedDict):
-        create_incident_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-        """
-        grouping: pulumi.Input['AlertRuleScheduledIncidentGroupingArgsDict']
-        """
-        A `grouping` block as defined below.
-        """
-elif False:
-    AlertRuleScheduledIncidentArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledIncidentArgsDict(TypedDict):
+    create_incident_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+    """
+    grouping: pulumi.Input['AlertRuleScheduledIncidentGroupingArgsDict']
+    """
+    A `grouping` block as defined below.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledIncidentArgs:
@@ -1988,38 +1908,35 @@ class AlertRuleScheduledIncidentArgs:
         pulumi.set(self, "grouping", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledIncidentGroupingArgsDict(TypedDict):
-        by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-        """
-        by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-        """
-        by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
-        """
-        entity_matching_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-        """
-        lookback_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
-        """
-        reopen_closed_incidents: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to re-open closed matching incidents? Defaults to `false`.
-        """
-elif False:
-    AlertRuleScheduledIncidentGroupingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledIncidentGroupingArgsDict(TypedDict):
+    by_alert_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+    """
+    by_custom_details: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+    """
+    by_entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+    """
+    entity_matching_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+    """
+    lookback_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+    """
+    reopen_closed_incidents: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to re-open closed matching incidents? Defaults to `false`.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledIncidentGroupingArgs:
@@ -2140,14 +2057,11 @@ class AlertRuleScheduledIncidentGroupingArgs:
         pulumi.set(self, "reopen_closed_incidents", value)
 
 
-if not MYPY:
-    class AlertRuleScheduledSentinelEntityMappingArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The column name to be mapped to the identifier.
-        """
-elif False:
-    AlertRuleScheduledSentinelEntityMappingArgsDict: TypeAlias = Mapping[str, Any]
+class AlertRuleScheduledSentinelEntityMappingArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The column name to be mapped to the identifier.
+    """
 
 @pulumi.input_type
 class AlertRuleScheduledSentinelEntityMappingArgs:
@@ -2171,44 +2085,41 @@ class AlertRuleScheduledSentinelEntityMappingArgs:
         pulumi.set(self, "column_name", value)
 
 
-if not MYPY:
-    class AuthomationRuleActionIncidentArgsDict(TypedDict):
-        order: pulumi.Input[_builtins.int]
-        """
-        The execution order of this action.
-        """
-        classification: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+class AuthomationRuleActionIncidentArgsDict(TypedDict):
+    order: pulumi.Input[_builtins.int]
+    """
+    The execution order of this action.
+    """
+    classification: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
 
-        > **Note:** The `classification` is required when `status` is `Closed`.
-        """
-        classification_comment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The comment why the incident is to be closed.
+    > **Note:** The `classification` is required when `status` is `Closed`.
+    """
+    classification_comment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The comment why the incident is to be closed.
 
-        > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
-        """
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of labels to add to the incident.
-        """
-        owner_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object ID of the entity this incident is assigned to.
-        """
-        severity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+    > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of labels to add to the incident.
+    """
+    owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object ID of the entity this incident is assigned to.
+    """
+    severity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
-        """
-elif False:
-    AuthomationRuleActionIncidentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+    """
 
 @pulumi.input_type
 class AuthomationRuleActionIncidentArgs:
@@ -2340,22 +2251,19 @@ class AuthomationRuleActionIncidentArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class AuthomationRuleActionIncidentTaskArgsDict(TypedDict):
-        order: pulumi.Input[_builtins.int]
-        """
-        The execution order of this action.
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        The title of the incident task.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the incident task.
-        """
-elif False:
-    AuthomationRuleActionIncidentTaskArgsDict: TypeAlias = Mapping[str, Any]
+class AuthomationRuleActionIncidentTaskArgsDict(TypedDict):
+    order: pulumi.Input[_builtins.int]
+    """
+    The execution order of this action.
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    The title of the incident task.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the incident task.
+    """
 
 @pulumi.input_type
 class AuthomationRuleActionIncidentTaskArgs:
@@ -2410,22 +2318,19 @@ class AuthomationRuleActionIncidentTaskArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AuthomationRuleActionPlaybookArgsDict(TypedDict):
-        logic_app_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Logic App that defines the playbook's logic.
-        """
-        order: pulumi.Input[_builtins.int]
-        """
-        The execution order of this action.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Tenant that owns the playbook.
-        """
-elif False:
-    AuthomationRuleActionPlaybookArgsDict: TypeAlias = Mapping[str, Any]
+class AuthomationRuleActionPlaybookArgsDict(TypedDict):
+    logic_app_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Logic App that defines the playbook's logic.
+    """
+    order: pulumi.Input[_builtins.int]
+    """
+    The execution order of this action.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Tenant that owns the playbook.
+    """
 
 @pulumi.input_type
 class AuthomationRuleActionPlaybookArgs:
@@ -2480,44 +2385,41 @@ class AuthomationRuleActionPlaybookArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AutomationRuleActionIncidentArgsDict(TypedDict):
-        order: pulumi.Input[_builtins.int]
-        """
-        The execution order of this action.
-        """
-        classification: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+class AutomationRuleActionIncidentArgsDict(TypedDict):
+    order: pulumi.Input[_builtins.int]
+    """
+    The execution order of this action.
+    """
+    classification: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
 
-        > **Note:** The `classification` is required when `status` is `Closed`.
-        """
-        classification_comment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The comment why the incident is to be closed.
+    > **Note:** The `classification` is required when `status` is `Closed`.
+    """
+    classification_comment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The comment why the incident is to be closed.
 
-        > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
-        """
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of labels to add to the incident.
-        """
-        owner_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object ID of the entity this incident is assigned to.
-        """
-        severity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+    > **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of labels to add to the incident.
+    """
+    owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object ID of the entity this incident is assigned to.
+    """
+    severity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
-        """
-elif False:
-    AutomationRuleActionIncidentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+    """
 
 @pulumi.input_type
 class AutomationRuleActionIncidentArgs:
@@ -2649,22 +2551,19 @@ class AutomationRuleActionIncidentArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class AutomationRuleActionIncidentTaskArgsDict(TypedDict):
-        order: pulumi.Input[_builtins.int]
-        """
-        The execution order of this action.
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        The title of the incident task.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the incident task.
-        """
-elif False:
-    AutomationRuleActionIncidentTaskArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleActionIncidentTaskArgsDict(TypedDict):
+    order: pulumi.Input[_builtins.int]
+    """
+    The execution order of this action.
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    The title of the incident task.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the incident task.
+    """
 
 @pulumi.input_type
 class AutomationRuleActionIncidentTaskArgs:
@@ -2719,22 +2618,19 @@ class AutomationRuleActionIncidentTaskArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AutomationRuleActionPlaybookArgsDict(TypedDict):
-        logic_app_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Logic App that defines the playbook's logic.
-        """
-        order: pulumi.Input[_builtins.int]
-        """
-        The execution order of this action.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Tenant that owns the playbook.
-        """
-elif False:
-    AutomationRuleActionPlaybookArgsDict: TypeAlias = Mapping[str, Any]
+class AutomationRuleActionPlaybookArgsDict(TypedDict):
+    logic_app_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Logic App that defines the playbook's logic.
+    """
+    order: pulumi.Input[_builtins.int]
+    """
+    The execution order of this action.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Tenant that owns the playbook.
+    """
 
 @pulumi.input_type
 class AutomationRuleActionPlaybookArgs:
@@ -2789,22 +2685,19 @@ class AutomationRuleActionPlaybookArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class MetadataAuthorArgsDict(TypedDict):
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address of the author contact.
-        """
-        link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The link for author/vendor page.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the author, company or person.
-        """
-elif False:
-    MetadataAuthorArgsDict: TypeAlias = Mapping[str, Any]
+class MetadataAuthorArgsDict(TypedDict):
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address of the author contact.
+    """
+    link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The link for author/vendor page.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the author, company or person.
+    """
 
 @pulumi.input_type
 class MetadataAuthorArgs:
@@ -2861,18 +2754,15 @@ class MetadataAuthorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class MetadataCategoryArgsDict(TypedDict):
-        domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of domains for the solution content item.
-        """
-        verticals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of industry verticals for the solution content item.
-        """
-elif False:
-    MetadataCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class MetadataCategoryArgsDict(TypedDict):
+    domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of domains for the solution content item.
+    """
+    verticals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of industry verticals for the solution content item.
+    """
 
 @pulumi.input_type
 class MetadataCategoryArgs:
@@ -2913,22 +2803,19 @@ class MetadataCategoryArgs:
         pulumi.set(self, "verticals", value)
 
 
-if not MYPY:
-    class MetadataSourceArgsDict(TypedDict):
-        kind: pulumi.Input[_builtins.str]
-        """
-        The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the content source, the solution ID, Log Analytics Workspace name etc.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
-        """
-elif False:
-    MetadataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class MetadataSourceArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    """
+    The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the content source, the solution ID, Log Analytics Workspace name etc.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
+    """
 
 @pulumi.input_type
 class MetadataSourceArgs:
@@ -2984,26 +2871,23 @@ class MetadataSourceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class MetadataSupportArgsDict(TypedDict):
-        tier: pulumi.Input[_builtins.str]
-        """
-        The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address of the support contact.
-        """
-        link: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The link for support help.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the support contact.
-        """
-elif False:
-    MetadataSupportArgsDict: TypeAlias = Mapping[str, Any]
+class MetadataSupportArgsDict(TypedDict):
+    tier: pulumi.Input[_builtins.str]
+    """
+    The type of support for content item. Possible values are `Microsoft`, `Partner` and `Community`.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address of the support contact.
+    """
+    link: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The link for support help.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the support contact.
+    """
 
 @pulumi.input_type
 class MetadataSupportArgs:
@@ -3075,30 +2959,27 @@ class MetadataSupportArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ThreatIntelligenceIndicatorExternalReferenceArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the external reference of the Threat Intelligence Indicator.
-        """
-        hashes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The list of hashes of the external reference of the Threat Intelligence Indicator.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Sentinel Threat Intelligence Indicator.
-        """
-        source_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The source name of the external reference of the Threat Intelligence Indicator.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The url of the external reference of the Threat Intelligence Indicator.
-        """
-elif False:
-    ThreatIntelligenceIndicatorExternalReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ThreatIntelligenceIndicatorExternalReferenceArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the external reference of the Threat Intelligence Indicator.
+    """
+    hashes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The list of hashes of the external reference of the Threat Intelligence Indicator.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Sentinel Threat Intelligence Indicator.
+    """
+    source_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source name of the external reference of the Threat Intelligence Indicator.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The url of the external reference of the Threat Intelligence Indicator.
+    """
 
 @pulumi.input_type
 class ThreatIntelligenceIndicatorExternalReferenceArgs:
@@ -3187,22 +3068,19 @@ class ThreatIntelligenceIndicatorExternalReferenceArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ThreatIntelligenceIndicatorGranularMarkingArgsDict(TypedDict):
-        language: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The language of granular marking of the Threat Intelligence Indicator.
-        """
-        marking_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reference of the granular marking of the Threat Intelligence Indicator.
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of selectors of the granular marking of the Threat Intelligence Indicator.
-        """
-elif False:
-    ThreatIntelligenceIndicatorGranularMarkingArgsDict: TypeAlias = Mapping[str, Any]
+class ThreatIntelligenceIndicatorGranularMarkingArgsDict(TypedDict):
+    language: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The language of granular marking of the Threat Intelligence Indicator.
+    """
+    marking_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference of the granular marking of the Threat Intelligence Indicator.
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of selectors of the granular marking of the Threat Intelligence Indicator.
+    """
 
 @pulumi.input_type
 class ThreatIntelligenceIndicatorGranularMarkingArgs:
@@ -3259,14 +3137,11 @@ class ThreatIntelligenceIndicatorGranularMarkingArgs:
         pulumi.set(self, "selectors", value)
 
 
-if not MYPY:
-    class ThreatIntelligenceIndicatorKillChainPhaseArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for the Lockheed Martin cyber kill chain phase.
-        """
-elif False:
-    ThreatIntelligenceIndicatorKillChainPhaseArgsDict: TypeAlias = Mapping[str, Any]
+class ThreatIntelligenceIndicatorKillChainPhaseArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for the Lockheed Martin cyber kill chain phase.
+    """
 
 @pulumi.input_type
 class ThreatIntelligenceIndicatorKillChainPhaseArgs:
@@ -3291,18 +3166,15 @@ class ThreatIntelligenceIndicatorKillChainPhaseArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ThreatIntelligenceIndicatorParsedPatternArgsDict(TypedDict):
-        pattern_type_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type key of parsed pattern.
-        """
-        pattern_type_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict']]]]
-        """
-        A `pattern_type_values` block as defined below.
-        """
-elif False:
-    ThreatIntelligenceIndicatorParsedPatternArgsDict: TypeAlias = Mapping[str, Any]
+class ThreatIntelligenceIndicatorParsedPatternArgsDict(TypedDict):
+    pattern_type_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type key of parsed pattern.
+    """
+    pattern_type_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict']]]]
+    """
+    A `pattern_type_values` block as defined below.
+    """
 
 @pulumi.input_type
 class ThreatIntelligenceIndicatorParsedPatternArgs:
@@ -3343,18 +3215,15 @@ class ThreatIntelligenceIndicatorParsedPatternArgs:
         pulumi.set(self, "pattern_type_values", value)
 
 
-if not MYPY:
-    class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict(TypedDict):
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the parsed pattern type.
-        """
-        value_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the value of the parsed pattern type value.
-        """
-elif False:
-    ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict: TypeAlias = Mapping[str, Any]
+class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict(TypedDict):
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the parsed pattern type.
+    """
+    value_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the value of the parsed pattern type value.
+    """
 
 @pulumi.input_type
 class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs:

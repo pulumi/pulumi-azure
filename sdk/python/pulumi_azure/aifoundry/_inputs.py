@@ -25,26 +25,21 @@ __all__ = [
     'ProjectIdentityArgsDict',
 ]
 
-MYPY = False
+class HubEncryptionArgsDict(TypedDict):
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The Key Vault URI to access the encryption key.
+    """
+    key_vault_id: pulumi.Input[_builtins.str]
+    """
+    The Key Vault ID where the customer owned encryption key exists.
+    """
+    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user assigned identity ID that has access to the encryption key.
 
-if not MYPY:
-    class HubEncryptionArgsDict(TypedDict):
-        key_id: pulumi.Input[_builtins.str]
-        """
-        The Key Vault URI to access the encryption key.
-        """
-        key_vault_id: pulumi.Input[_builtins.str]
-        """
-        The Key Vault ID where the customer owned encryption key exists.
-        """
-        user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user assigned identity ID that has access to the encryption key.
-
-        > **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
-        """
-elif False:
-    HubEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+    """
 
 @pulumi.input_type
 class HubEncryptionArgs:
@@ -103,28 +98,25 @@ class HubEncryptionArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class HubIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this AI Foundry Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
+class HubIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this AI Foundry Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
 
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    HubIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class HubIdentityArgs:
@@ -200,14 +192,11 @@ class HubIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class HubManagedNetworkArgsDict(TypedDict):
-        isolation_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The isolation mode of the AI Foundry Hub. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
-        """
-elif False:
-    HubManagedNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class HubManagedNetworkArgsDict(TypedDict):
+    isolation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The isolation mode of the AI Foundry Hub. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
+    """
 
 @pulumi.input_type
 class HubManagedNetworkArgs:
@@ -232,28 +221,25 @@ class HubManagedNetworkArgs:
         pulumi.set(self, "isolation_mode", value)
 
 
-if not MYPY:
-    class ProjectIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this AI Foundry Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
+class ProjectIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this AI Foundry Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
 
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ProjectIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ProjectIdentityArgs:

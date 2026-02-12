@@ -368,9 +368,21 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+     * 
+     */
     @Export(name="restore", refs={MongoClusterRestore.class}, tree="[0]")
     private Output</* @Nullable */ MongoClusterRestore> restore;
 
+    /**
+     * @return A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+     * 
+     */
     public Output<Optional<MongoClusterRestore>> restore() {
         return Codegen.optional(this.restore);
     }

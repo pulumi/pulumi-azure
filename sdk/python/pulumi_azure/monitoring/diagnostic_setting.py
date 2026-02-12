@@ -537,6 +537,8 @@ class DiagnosticSetting(pulumi.CustomResource):
         $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
         ```
 
+        > **Note:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
@@ -629,6 +631,8 @@ class DiagnosticSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
         ```
+
+        > **Note:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 
         :param str resource_name: The name of the resource.
         :param DiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

@@ -294,6 +294,13 @@ namespace Pulumi.Azure.LogicApps
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `azure.storage.Share`.
+        /// 
+        /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+        /// 
+        /// &gt; **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
+        /// </summary>
         [Output("storageAccountShareName")]
         public Output<string> StorageAccountShareName { get; private set; } = null!;
 
@@ -315,6 +322,13 @@ namespace Pulumi.Azure.LogicApps
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -508,6 +522,13 @@ namespace Pulumi.Azure.LogicApps
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `azure.storage.Share`.
+        /// 
+        /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+        /// 
+        /// &gt; **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
+        /// </summary>
         [Input("storageAccountShareName")]
         public Input<string>? StorageAccountShareName { get; set; }
 
@@ -535,6 +556,13 @@ namespace Pulumi.Azure.LogicApps
         [Input("version")]
         public Input<string>? Version { get; set; }
 
+        /// <summary>
+        /// The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -728,6 +756,13 @@ namespace Pulumi.Azure.LogicApps
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
+        /// <summary>
+        /// The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `azure.storage.Share`.
+        /// 
+        /// &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+        /// 
+        /// &gt; **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
+        /// </summary>
         [Input("storageAccountShareName")]
         public Input<string>? StorageAccountShareName { get; set; }
 
@@ -755,6 +790,13 @@ namespace Pulumi.Azure.LogicApps
         [Input("version")]
         public Input<string>? Version { get; set; }
 
+        /// <summary>
+        /// The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 

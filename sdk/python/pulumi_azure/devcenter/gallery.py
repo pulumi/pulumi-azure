@@ -186,11 +186,8 @@ class Gallery(pulumi.CustomResource):
         ```
 
         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center Gallery exists. For example `12345678-1234-9876-4563-123456789012`.
-
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Gallery exists. For example `example-resource-group`.
-
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
-
         * Where `{galleryName}` is the name of the Gallery. For example `galleryValue`.
 
         :param str resource_name: The name of the resource.
@@ -255,11 +252,8 @@ class Gallery(pulumi.CustomResource):
         ```
 
         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center Gallery exists. For example `12345678-1234-9876-4563-123456789012`.
-
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Gallery exists. For example `example-resource-group`.
-
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
-
         * Where `{galleryName}` is the name of the Gallery. For example `galleryValue`.
 
         :param str resource_name: The name of the resource.

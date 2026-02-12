@@ -159,7 +159,16 @@ type ManagedDisk struct {
 	DiskMbpsReadOnly pulumi.IntOutput `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
-	DiskSizeGb        pulumi.IntOutput `pulumi:"diskSizeGb"`
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	//
+	// > **NOTE:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+	//
+	// > **NOTE:** If No Downtime Resizing is not available, be aware that changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. The provider will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	//
+	// > **NOTE:** When upgrading `diskSizeGb` from a value less than 4095 to one greater than 4095, and if `storageAccountType` is not set to `PremiumV2_LRS` or `UltraSSD_LRS`, the disk will be detached from its associated Virtual Machine as required by Azure to action the change. Terraform will attempt to reattach the disk again after the update.
+	//
+	// > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
@@ -228,7 +237,10 @@ type ManagedDisk struct {
 	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Tier pulumi.StringOutput    `pulumi:"tier"`
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	//
+	// > **NOTE:** Changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. Terraform will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
@@ -307,7 +319,16 @@ type managedDiskState struct {
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	DiskSizeGb        *int `pulumi:"diskSizeGb"`
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	//
+	// > **NOTE:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+	//
+	// > **NOTE:** If No Downtime Resizing is not available, be aware that changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. The provider will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	//
+	// > **NOTE:** When upgrading `diskSizeGb` from a value less than 4095 to one greater than 4095, and if `storageAccountType` is not set to `PremiumV2_LRS` or `UltraSSD_LRS`, the disk will be detached from its associated Virtual Machine as required by Azure to action the change. Terraform will attempt to reattach the disk again after the update.
+	//
+	// > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
@@ -376,7 +397,10 @@ type managedDiskState struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Tier *string           `pulumi:"tier"`
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	//
+	// > **NOTE:** Changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. Terraform will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
@@ -417,7 +441,16 @@ type ManagedDiskState struct {
 	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	DiskSizeGb        pulumi.IntPtrInput
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	//
+	// > **NOTE:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+	//
+	// > **NOTE:** If No Downtime Resizing is not available, be aware that changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. The provider will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	//
+	// > **NOTE:** When upgrading `diskSizeGb` from a value less than 4095 to one greater than 4095, and if `storageAccountType` is not set to `PremiumV2_LRS` or `UltraSSD_LRS`, the disk will be detached from its associated Virtual Machine as required by Azure to action the change. Terraform will attempt to reattach the disk again after the update.
+	//
+	// > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+	DiskSizeGb pulumi.IntPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
@@ -486,6 +519,9 @@ type ManagedDiskState struct {
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	//
+	// > **NOTE:** Changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. Terraform will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	//
@@ -531,7 +567,16 @@ type managedDiskArgs struct {
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	DiskSizeGb        *int `pulumi:"diskSizeGb"`
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	//
+	// > **NOTE:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+	//
+	// > **NOTE:** If No Downtime Resizing is not available, be aware that changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. The provider will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	//
+	// > **NOTE:** When upgrading `diskSizeGb` from a value less than 4095 to one greater than 4095, and if `storageAccountType` is not set to `PremiumV2_LRS` or `UltraSSD_LRS`, the disk will be detached from its associated Virtual Machine as required by Azure to action the change. Terraform will attempt to reattach the disk again after the update.
+	//
+	// > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
@@ -600,7 +645,10 @@ type managedDiskArgs struct {
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	Tier *string           `pulumi:"tier"`
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	//
+	// > **NOTE:** Changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. Terraform will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	Tier *string `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
@@ -642,7 +690,16 @@ type ManagedDiskArgs struct {
 	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	DiskSizeGb        pulumi.IntPtrInput
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	//
+	// > **NOTE:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+	//
+	// > **NOTE:** If No Downtime Resizing is not available, be aware that changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. The provider will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+	//
+	// > **NOTE:** When upgrading `diskSizeGb` from a value less than 4095 to one greater than 4095, and if `storageAccountType` is not set to `PremiumV2_LRS` or `UltraSSD_LRS`, the disk will be detached from its associated Virtual Machine as required by Azure to action the change. Terraform will attempt to reattach the disk again after the update.
+	//
+	// > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+	DiskSizeGb pulumi.IntPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
@@ -711,6 +768,9 @@ type ManagedDiskArgs struct {
 	StorageAccountType pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	//
+	// > **NOTE:** Changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. Terraform will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	//
@@ -859,6 +919,15 @@ func (o ManagedDiskOutput) DiskMbpsReadWrite() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskMbpsReadWrite }).(pulumi.IntOutput)
 }
 
+// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+//
+// > **NOTE:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+//
+// > **NOTE:** If No Downtime Resizing is not available, be aware that changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. The provider will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
+//
+// > **NOTE:** When upgrading `diskSizeGb` from a value less than 4095 to one greater than 4095, and if `storageAccountType` is not set to `PremiumV2_LRS` or `UltraSSD_LRS`, the disk will be detached from its associated Virtual Machine as required by Azure to action the change. Terraform will attempt to reattach the disk again after the update.
+//
+// > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
 func (o ManagedDiskOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskSizeGb }).(pulumi.IntOutput)
 }
@@ -1000,6 +1069,9 @@ func (o ManagedDiskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+//
+// > **NOTE:** Changing this value is disruptive if the disk is attached to a Virtual Machine. The VM will be shut down and de-allocated as required by Azure to action the change. Terraform will attempt to start the machine again after the update if it was in a `running` state when the apply was started.
 func (o ManagedDiskOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }

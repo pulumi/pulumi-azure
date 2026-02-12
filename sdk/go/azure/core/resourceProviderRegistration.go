@@ -94,6 +94,9 @@ import (
 type ResourceProviderRegistration struct {
 	pulumi.CustomResourceState
 
+	// A list of `feature` blocks as defined below.
+	//
+	// > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
 	Features ResourceProviderRegistrationFeatureArrayOutput `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -129,12 +132,18 @@ func GetResourceProviderRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceProviderRegistration resources.
 type resourceProviderRegistrationState struct {
+	// A list of `feature` blocks as defined below.
+	//
+	// > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
 	Features []ResourceProviderRegistrationFeature `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 }
 
 type ResourceProviderRegistrationState struct {
+	// A list of `feature` blocks as defined below.
+	//
+	// > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
 	Features ResourceProviderRegistrationFeatureArrayInput
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -145,6 +154,9 @@ func (ResourceProviderRegistrationState) ElementType() reflect.Type {
 }
 
 type resourceProviderRegistrationArgs struct {
+	// A list of `feature` blocks as defined below.
+	//
+	// > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
 	Features []ResourceProviderRegistrationFeature `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -152,6 +164,9 @@ type resourceProviderRegistrationArgs struct {
 
 // The set of arguments for constructing a ResourceProviderRegistration resource.
 type ResourceProviderRegistrationArgs struct {
+	// A list of `feature` blocks as defined below.
+	//
+	// > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
 	Features ResourceProviderRegistrationFeatureArrayInput
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -244,6 +259,9 @@ func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationOutput
 	return o
 }
 
+// A list of `feature` blocks as defined below.
+//
+// > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
 func (o ResourceProviderRegistrationOutput) Features() ResourceProviderRegistrationFeatureArrayOutput {
 	return o.ApplyT(func(v *ResourceProviderRegistration) ResourceProviderRegistrationFeatureArrayOutput {
 		return v.Features

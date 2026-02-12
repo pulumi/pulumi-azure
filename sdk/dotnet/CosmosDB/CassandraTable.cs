@@ -114,6 +114,11 @@ namespace Pulumi.Azure.CosmosDB
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.CassandraTableAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -141,6 +146,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("schema")]
         public Output<Outputs.CassandraTableSchema> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
@@ -198,6 +206,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraTableAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -225,6 +238,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("schema", required: true)]
         public Input<Inputs.CassandraTableSchemaArgs> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
@@ -244,6 +260,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraTableAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
@@ -271,6 +292,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("schema")]
         public Input<Inputs.CassandraTableSchemaGetArgs>? Schema { get; set; }
 
+        /// <summary>
+        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 

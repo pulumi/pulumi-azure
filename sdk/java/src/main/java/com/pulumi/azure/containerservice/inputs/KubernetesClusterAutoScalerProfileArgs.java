@@ -288,9 +288,19 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         return Optional.ofNullable(this.scanInterval);
     }
 
+    /**
+     * If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+     * &lt;!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. --&gt;
+     * 
+     */
     @Import(name="skipNodesWithLocalStorage")
     private @Nullable Output<Boolean> skipNodesWithLocalStorage;
 
+    /**
+     * @return If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+     * &lt;!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. --&gt;
+     * 
+     */
     public Optional<Output<Boolean>> skipNodesWithLocalStorage() {
         return Optional.ofNullable(this.skipNodesWithLocalStorage);
     }
@@ -731,11 +741,25 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
             return scanInterval(Output.of(scanInterval));
         }
 
+        /**
+         * @param skipNodesWithLocalStorage If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+         * &lt;!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. --&gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipNodesWithLocalStorage(@Nullable Output<Boolean> skipNodesWithLocalStorage) {
             $.skipNodesWithLocalStorage = skipNodesWithLocalStorage;
             return this;
         }
 
+        /**
+         * @param skipNodesWithLocalStorage If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+         * &lt;!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. --&gt;
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipNodesWithLocalStorage(Boolean skipNodesWithLocalStorage) {
             return skipNodesWithLocalStorage(Output.of(skipNodesWithLocalStorage));
         }

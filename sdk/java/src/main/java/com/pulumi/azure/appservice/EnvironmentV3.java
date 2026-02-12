@@ -376,9 +376,21 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     public Output<String> subnetId() {
         return this.subnetId;
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

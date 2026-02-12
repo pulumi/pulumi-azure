@@ -87,6 +87,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:pim/activeRoleAssignment:ActiveRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
  * ```
+ *
+ * > **Note:** This ID is specific to Terraform - and is of the format `{scope}|{roleDefinitionId}|{principalId}`, where the first segment is the scope of the role assignment, the second segment is the role definition ID, and the last segment is the principal object ID.
  */
 export class ActiveRoleAssignment extends pulumi.CustomResource {
     /**

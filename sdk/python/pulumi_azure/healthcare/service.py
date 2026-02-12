@@ -37,6 +37,7 @@ class ServiceArgs:
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
@@ -94,6 +95,9 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter(name="accessPolicyObjectIds")
     def access_policy_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+        """
         return pulumi.get(self, "access_policy_object_ids")
 
     @access_policy_object_ids.setter
@@ -255,6 +259,7 @@ class _ServiceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
@@ -302,6 +307,9 @@ class _ServiceState:
     @_builtins.property
     @pulumi.getter(name="accessPolicyObjectIds")
     def access_policy_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+        """
         return pulumi.get(self, "access_policy_object_ids")
 
     @access_policy_object_ids.setter
@@ -542,6 +550,7 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
         :param pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
         :param pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']] cors_configuration: A `cors_configuration` block as defined below.
@@ -710,6 +719,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
         :param pulumi.Input[Union['ServiceAuthenticationConfigurationArgs', 'ServiceAuthenticationConfigurationArgsDict']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
         :param pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']] cors_configuration: A `cors_configuration` block as defined below.
@@ -749,6 +759,9 @@ class Service(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accessPolicyObjectIds")
     def access_policy_object_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+        """
         return pulumi.get(self, "access_policy_object_ids")
 
     @_builtins.property

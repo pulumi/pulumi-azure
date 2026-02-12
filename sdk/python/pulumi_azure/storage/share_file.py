@@ -33,6 +33,9 @@ class ShareFileArgs:
         The set of arguments for constructing a ShareFile resource.
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
+        :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -93,6 +96,11 @@ class ShareFileArgs:
     @_builtins.property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The MD5 sum of the file contents. Changing this forces a new resource to be created.
+
+        > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+        """
         return pulumi.get(self, "content_md5")
 
     @content_md5.setter
@@ -203,6 +211,9 @@ class _ShareFileState:
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[_builtins.int] content_length: The length in bytes of the file content
+        :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -277,6 +288,11 @@ class _ShareFileState:
     @_builtins.property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The MD5 sum of the file contents. Changing this forces a new resource to be created.
+
+        > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+        """
         return pulumi.get(self, "content_md5")
 
     @content_md5.setter
@@ -386,6 +402,10 @@ class ShareFile(pulumi.CustomResource):
                  storage_share_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a File within an Azure Storage File Share.
+
+        > **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `storage_use_azuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create files. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+
         ## Example Usage
 
         ```python
@@ -423,6 +443,9 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
+        :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -439,6 +462,10 @@ class ShareFile(pulumi.CustomResource):
                  args: Optional[ShareFileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a File within an Azure Storage File Share.
+
+        > **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `storage_use_azuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create files. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+
         ## Example Usage
 
         ```python
@@ -548,6 +575,9 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[_builtins.int] content_length: The length in bytes of the file content
+        :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -601,6 +631,11 @@ class ShareFile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The MD5 sum of the file contents. Changing this forces a new resource to be created.
+
+        > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+        """
         return pulumi.get(self, "content_md5")
 
     @_builtins.property

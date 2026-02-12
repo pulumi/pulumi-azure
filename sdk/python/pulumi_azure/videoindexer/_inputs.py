@@ -21,22 +21,17 @@ __all__ = [
     'AccountStorageArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the identity type of the Video Indexer Account. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AccountIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the identity type of the Video Indexer Account. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -100,18 +95,15 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AccountStorageArgsDict(TypedDict):
-        storage_account_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the storage account to be associated with the Video Indexer Account. Changing this forces a new Video Indexer Account to be created.
-        """
-        user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reference to the user assigned identity to use to access the Storage Account.
-        """
-elif False:
-    AccountStorageArgsDict: TypeAlias = Mapping[str, Any]
+class AccountStorageArgsDict(TypedDict):
+    storage_account_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the storage account to be associated with the Video Indexer Account. Changing this forces a new Video Indexer Account to be created.
+    """
+    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reference to the user assigned identity to use to access the Storage Account.
+    """
 
 @pulumi.input_type
 class AccountStorageArgs:

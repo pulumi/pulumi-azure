@@ -407,9 +407,21 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<LinuxWebAppSlotLogs>> logs() {
         return Codegen.optional(this.logs);
     }
+    /**
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -571,9 +583,25 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> virtualNetworkBackupRestoreEnabled() {
         return Codegen.optional(this.virtualNetworkBackupRestoreEnabled);
     }
+    /**
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
+    /**
+     * @return The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }

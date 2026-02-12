@@ -144,9 +144,25 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.location);
     }
 
+    /**
+     * Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     @Import(name="managedDiskCmkKeyVaultId")
     private @Nullable Output<String> managedDiskCmkKeyVaultId;
 
+    /**
+     * @return Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     public Optional<Output<String>> managedDiskCmkKeyVaultId() {
         return Optional.ofNullable(this.managedDiskCmkKeyVaultId);
     }
@@ -200,9 +216,25 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.managedResourceGroupName);
     }
 
+    /**
+     * Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     @Import(name="managedServicesCmkKeyVaultId")
     private @Nullable Output<String> managedServicesCmkKeyVaultId;
 
+    /**
+     * @return Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     public Optional<Output<String>> managedServicesCmkKeyVaultId() {
         return Optional.ofNullable(this.managedServicesCmkKeyVaultId);
     }
@@ -531,11 +563,31 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
             return location(Output.of(location));
         }
 
+        /**
+         * @param managedDiskCmkKeyVaultId Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
+         * 
+         * &gt; **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+         * 
+         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedDiskCmkKeyVaultId(@Nullable Output<String> managedDiskCmkKeyVaultId) {
             $.managedDiskCmkKeyVaultId = managedDiskCmkKeyVaultId;
             return this;
         }
 
+        /**
+         * @param managedDiskCmkKeyVaultId Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
+         * 
+         * &gt; **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+         * 
+         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedDiskCmkKeyVaultId(String managedDiskCmkKeyVaultId) {
             return managedDiskCmkKeyVaultId(Output.of(managedDiskCmkKeyVaultId));
         }
@@ -607,11 +659,31 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
             return managedResourceGroupName(Output.of(managedResourceGroupName));
         }
 
+        /**
+         * @param managedServicesCmkKeyVaultId Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
+         * 
+         * &gt; **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+         * 
+         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedServicesCmkKeyVaultId(@Nullable Output<String> managedServicesCmkKeyVaultId) {
             $.managedServicesCmkKeyVaultId = managedServicesCmkKeyVaultId;
             return this;
         }
 
+        /**
+         * @param managedServicesCmkKeyVaultId Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
+         * 
+         * &gt; **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+         * 
+         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedServicesCmkKeyVaultId(String managedServicesCmkKeyVaultId) {
             return managedServicesCmkKeyVaultId(Output.of(managedServicesCmkKeyVaultId));
         }

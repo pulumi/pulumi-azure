@@ -256,6 +256,8 @@ class PolicyFragment(pulumi.CustomResource):
 
         Api Management Policy Fragments can be imported using the `resource id`, e.g.
 
+        > **Note:** Due to the behaviour of the API, Api Management Policy Fragments can only be imported as `xml`, but can be updated to the desired format after importing.
+
         ```sh
         $ pulumi import azure:apimanagement/policyFragment:PolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policyFragments/policyFragment1
         ```
@@ -315,6 +317,8 @@ class PolicyFragment(pulumi.CustomResource):
         ## Import
 
         Api Management Policy Fragments can be imported using the `resource id`, e.g.
+
+        > **Note:** Due to the behaviour of the API, Api Management Policy Fragments can only be imported as `xml`, but can be updated to the desired format after importing.
 
         ```sh
         $ pulumi import azure:apimanagement/policyFragment:PolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policyFragments/policyFragment1

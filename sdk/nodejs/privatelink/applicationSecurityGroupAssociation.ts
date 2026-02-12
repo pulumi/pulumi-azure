@@ -104,6 +104,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateEndpoints/endpoints1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationSecurityGroups/securityGroup1",
  * ```
+ *
+ * > **Note:** This ID is specific to Terraform - and is of the format `{privateEndpointId}|{applicationSecurityGroupId}`.
  */
 export class ApplicationSecurityGroupAssociation extends pulumi.CustomResource {
     /**

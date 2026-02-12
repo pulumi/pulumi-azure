@@ -18,6 +18,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThreeTierVirtualInstanceThreeTierConfiguration {
+    /**
+     * @return The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+     * 
+     */
     private String appResourceGroupName;
     /**
      * @return An `applicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
@@ -60,6 +66,12 @@ public final class ThreeTierVirtualInstanceThreeTierConfiguration {
     private @Nullable ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMount transportCreateAndMount;
 
     private ThreeTierVirtualInstanceThreeTierConfiguration() {}
+    /**
+     * @return The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `appResourceGroupName` that are not defined in the HCL Configuration. At this time, if the `appResourceGroupName` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `preventDeletionIfContainsResources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `appResourceGroupName` with `terraform destroy`. However, if the `appResourceGroupName` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+     * 
+     */
     public String appResourceGroupName() {
         return this.appResourceGroupName;
     }

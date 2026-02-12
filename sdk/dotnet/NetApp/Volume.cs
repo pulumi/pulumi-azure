@@ -88,7 +88,9 @@ namespace Pulumi.Azure.NetApp
         public Output<ImmutableArray<Outputs.VolumeExportPolicyRule>> ExportPolicyRules { get; private set; } = null!;
 
         /// <summary>
-        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `KerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         /// </summary>
         [Output("kerberosEnabled")]
         public Output<bool?> KerberosEnabled { get; private set; } = null!;
@@ -157,6 +159,13 @@ namespace Pulumi.Azure.NetApp
         [Output("securityStyle")]
         public Output<string> SecurityStyle { get; private set; } = null!;
 
+        /// <summary>
+        /// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+        /// 
+        /// &gt; **Note:** When updating `ServiceLevel` by migrating it to another Capacity Pool, both `ServiceLevel` and `PoolName` must be changed, otherwise the volume will be recreated with the specified `ServiceLevel`.
+        /// 
+        /// &gt; **Note:** After updating `ServiceLevel` the `Id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+        /// </summary>
         [Output("serviceLevel")]
         public Output<string> ServiceLevel { get; private set; } = null!;
 
@@ -343,7 +352,9 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `KerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
@@ -412,6 +423,13 @@ namespace Pulumi.Azure.NetApp
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
 
+        /// <summary>
+        /// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+        /// 
+        /// &gt; **Note:** When updating `ServiceLevel` by migrating it to another Capacity Pool, both `ServiceLevel` and `PoolName` must be changed, otherwise the volume will be recreated with the specified `ServiceLevel`.
+        /// 
+        /// &gt; **Note:** After updating `ServiceLevel` the `Id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+        /// </summary>
         [Input("serviceLevel", required: true)]
         public Input<string> ServiceLevel { get; set; } = null!;
 
@@ -566,7 +584,9 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
-        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+        /// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `KerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         /// </summary>
         [Input("kerberosEnabled")]
         public Input<bool>? KerberosEnabled { get; set; }
@@ -647,6 +667,13 @@ namespace Pulumi.Azure.NetApp
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
 
+        /// <summary>
+        /// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+        /// 
+        /// &gt; **Note:** When updating `ServiceLevel` by migrating it to another Capacity Pool, both `ServiceLevel` and `PoolName` must be changed, otherwise the volume will be recreated with the specified `ServiceLevel`.
+        /// 
+        /// &gt; **Note:** After updating `ServiceLevel` the `Id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+        /// </summary>
         [Input("serviceLevel")]
         public Input<string>? ServiceLevel { get; set; }
 

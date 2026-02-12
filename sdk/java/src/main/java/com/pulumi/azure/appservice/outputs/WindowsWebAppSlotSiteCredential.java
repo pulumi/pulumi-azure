@@ -12,7 +12,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotSiteCredential {
     /**
-     * @return The Site Credentials Username used for publishing.
+     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
      * 
      */
     private @Nullable String name;
@@ -24,7 +26,9 @@ public final class WindowsWebAppSlotSiteCredential {
 
     private WindowsWebAppSlotSiteCredential() {}
     /**
-     * @return The Site Credentials Username used for publishing.
+     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
      * 
      */
     public Optional<String> name() {

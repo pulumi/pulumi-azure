@@ -25,36 +25,31 @@ __all__ = [
     'ServiceSecurityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ServiceInitialReplicaSetArgsDict(TypedDict):
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
-        """
-        domain_controller_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
-        """
-        external_access_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publicly routable IP address for the domain controllers in the initial replica set.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique ID for the replica set.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
-        """
-        service_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The current service status for the initial replica set.
-        """
-elif False:
-    ServiceInitialReplicaSetArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceInitialReplicaSetArgsDict(TypedDict):
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
+    """
+    domain_controller_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
+    """
+    external_access_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publicly routable IP address for the domain controllers in the initial replica set.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique ID for the replica set.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
+    """
+    service_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current service status for the initial replica set.
+    """
 
 @pulumi.input_type
 class ServiceInitialReplicaSetArgs:
@@ -158,22 +153,19 @@ class ServiceInitialReplicaSetArgs:
         pulumi.set(self, "service_status", value)
 
 
-if not MYPY:
-    class ServiceNotificationsArgsDict(TypedDict):
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of additional email addresses to notify when there are alerts in the managed domain.
-        """
-        notify_dc_admins: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
-        """
-        notify_global_admins: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to notify all Global Administrators when there are alerts in the managed domain.
-        """
-elif False:
-    ServiceNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceNotificationsArgsDict(TypedDict):
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of additional email addresses to notify when there are alerts in the managed domain.
+    """
+    notify_dc_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+    """
+    notify_global_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to notify all Global Administrators when there are alerts in the managed domain.
+    """
 
 @pulumi.input_type
 class ServiceNotificationsArgs:
@@ -230,38 +222,35 @@ class ServiceNotificationsArgs:
         pulumi.set(self, "notify_global_admins", value)
 
 
-if not MYPY:
-    class ServiceSecureLdapArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
-        """
-        pfx_certificate: pulumi.Input[_builtins.str]
-        """
-        The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
-        """
-        pfx_certificate_password: pulumi.Input[_builtins.str]
-        """
-        The password to use for decrypting the PKCS#12 bundle (PFX file).
-        """
-        certificate_expiry: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The expiry time of the certificate.
-        """
-        certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thumbprint of the certificate.
-        """
-        external_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
-        """
-        public_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public certificate.
-        """
-elif False:
-    ServiceSecureLdapArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceSecureLdapArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
+    """
+    pfx_certificate: pulumi.Input[_builtins.str]
+    """
+    The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
+    """
+    pfx_certificate_password: pulumi.Input[_builtins.str]
+    """
+    The password to use for decrypting the PKCS#12 bundle (PFX file).
+    """
+    certificate_expiry: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The expiry time of the certificate.
+    """
+    certificate_thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thumbprint of the certificate.
+    """
+    external_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
+    """
+    public_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public certificate.
+    """
 
 @pulumi.input_type
 class ServiceSecureLdapArgs:
@@ -379,38 +368,35 @@ class ServiceSecureLdapArgs:
         pulumi.set(self, "public_certificate", value)
 
 
-if not MYPY:
-    class ServiceSecurityArgsDict(TypedDict):
-        kerberos_armoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable Kerberos Armoring. Defaults to `false`.
-        """
-        kerberos_rc4_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
-        """
-        ntlm_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable legacy NTLM v1 support. Defaults to `false`.
-        """
-        sync_kerberos_passwords: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
-        """
-        sync_ntlm_passwords: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
-        """
-        sync_on_prem_passwords: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
-        """
-        tls_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable legacy TLS v1 support. Defaults to `false`.
-        """
-elif False:
-    ServiceSecurityArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceSecurityArgsDict(TypedDict):
+    kerberos_armoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable Kerberos Armoring. Defaults to `false`.
+    """
+    kerberos_rc4_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+    """
+    ntlm_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable legacy NTLM v1 support. Defaults to `false`.
+    """
+    sync_kerberos_passwords: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
+    """
+    sync_ntlm_passwords: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
+    """
+    sync_on_prem_passwords: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
+    """
+    tls_v1_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable legacy TLS v1 support. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ServiceSecurityArgs:

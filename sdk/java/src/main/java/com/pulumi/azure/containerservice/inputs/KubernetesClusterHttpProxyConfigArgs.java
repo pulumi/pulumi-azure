@@ -46,9 +46,25 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         return Optional.ofNullable(this.httpsProxy);
     }
 
+    /**
+     * The list of domains that will not use the proxy for communication.
+     * 
+     * &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+     * 
+     * &gt; **Note:** You may wish to use Terraform&#39;s `ignoreChanges` functionality to ignore the changes to this field.
+     * 
+     */
     @Import(name="noProxies")
     private @Nullable Output<List<String>> noProxies;
 
+    /**
+     * @return The list of domains that will not use the proxy for communication.
+     * 
+     * &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+     * 
+     * &gt; **Note:** You may wish to use Terraform&#39;s `ignoreChanges` functionality to ignore the changes to this field.
+     * 
+     */
     public Optional<Output<List<String>>> noProxies() {
         return Optional.ofNullable(this.noProxies);
     }
@@ -137,15 +153,45 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
             return httpsProxy(Output.of(httpsProxy));
         }
 
+        /**
+         * @param noProxies The list of domains that will not use the proxy for communication.
+         * 
+         * &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+         * 
+         * &gt; **Note:** You may wish to use Terraform&#39;s `ignoreChanges` functionality to ignore the changes to this field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder noProxies(@Nullable Output<List<String>> noProxies) {
             $.noProxies = noProxies;
             return this;
         }
 
+        /**
+         * @param noProxies The list of domains that will not use the proxy for communication.
+         * 
+         * &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+         * 
+         * &gt; **Note:** You may wish to use Terraform&#39;s `ignoreChanges` functionality to ignore the changes to this field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder noProxies(List<String> noProxies) {
             return noProxies(Output.of(noProxies));
         }
 
+        /**
+         * @param noProxies The list of domains that will not use the proxy for communication.
+         * 
+         * &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+         * 
+         * &gt; **Note:** You may wish to use Terraform&#39;s `ignoreChanges` functionality to ignore the changes to this field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder noProxies(String... noProxies) {
             return noProxies(List.of(noProxies));
         }

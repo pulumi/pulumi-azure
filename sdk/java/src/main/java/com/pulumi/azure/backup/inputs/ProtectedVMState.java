@@ -17,9 +17,25 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
 
     public static final ProtectedVMState Empty = new ProtectedVMState();
 
+    /**
+     * Specifies the ID of the backup policy to use.
+     * 
+     * &gt; **Note:** `backupPolicyId` is required during initial creation of this resource.
+     * 
+     * &gt; **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform&#39;s ignoreChanges argument.
+     * 
+     */
     @Import(name="backupPolicyId")
     private @Nullable Output<String> backupPolicyId;
 
+    /**
+     * @return Specifies the ID of the backup policy to use.
+     * 
+     * &gt; **Note:** `backupPolicyId` is required during initial creation of this resource.
+     * 
+     * &gt; **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform&#39;s ignoreChanges argument.
+     * 
+     */
     public Optional<Output<String>> backupPolicyId() {
         return Optional.ofNullable(this.backupPolicyId);
     }
@@ -152,11 +168,31 @@ public final class ProtectedVMState extends com.pulumi.resources.ResourceArgs {
             $ = new ProtectedVMState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param backupPolicyId Specifies the ID of the backup policy to use.
+         * 
+         * &gt; **Note:** `backupPolicyId` is required during initial creation of this resource.
+         * 
+         * &gt; **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform&#39;s ignoreChanges argument.
+         * 
+         * @return builder
+         * 
+         */
         public Builder backupPolicyId(@Nullable Output<String> backupPolicyId) {
             $.backupPolicyId = backupPolicyId;
             return this;
         }
 
+        /**
+         * @param backupPolicyId Specifies the ID of the backup policy to use.
+         * 
+         * &gt; **Note:** `backupPolicyId` is required during initial creation of this resource.
+         * 
+         * &gt; **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform&#39;s ignoreChanges argument.
+         * 
+         * @return builder
+         * 
+         */
         public Builder backupPolicyId(String backupPolicyId) {
             return backupPolicyId(Output.of(backupPolicyId));
         }

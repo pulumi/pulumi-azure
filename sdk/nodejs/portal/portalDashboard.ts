@@ -5,6 +5,179 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a shared dashboard in the Azure Portal.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const config = new pulumi.Config();
+ * // Content for the MD tile
+ * const mdContent = config.get("mdContent") || "# Hello all :)";
+ * // Link to a video
+ * const videoLink = config.get("videoLink") || "https://www.youtube.com/watch?v=......";
+ * const current = azure.core.getSubscription({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "mygroup",
+ *     location: "West Europe",
+ * });
+ * const my_board = new azure.portal.PortalDashboard("my-board", {
+ *     name: "my-cool-dashboard",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ *     dashboardProperties: current.then(current => `{
+ *    \"lenses\": {
+ *         \"0\": {
+ *             \"order\": 0,
+ *             \"parts\": {
+ *                 \"0\": {
+ *                     \"position\": {
+ *                         \"x\": 0,
+ *                         \"y\": 0,
+ *                         \"rowSpan\": 2,
+ *                         \"colSpan\": 3
+ *                     },
+ *                     \"metadata\": {
+ *                         \"inputs\": [],
+ *                         \"type\": \"Extension/HubsExtension/PartType/MarkdownPart\",
+ *                         \"settings\": {
+ *                             \"content\": {
+ *                                 \"settings\": {
+ *                                     \"content\": \"${mdContent}\",
+ *                                     \"subtitle\": \"\",
+ *                                     \"title\": \"\"
+ *                                 }
+ *                             }
+ *                         }
+ *                     }
+ *                 },               
+ *                 \"1\": {
+ *                     \"position\": {
+ *                         \"x\": 5,
+ *                         \"y\": 0,
+ *                         \"rowSpan\": 4,
+ *                         \"colSpan\": 6
+ *                     },
+ *                     \"metadata\": {
+ *                         \"inputs\": [],
+ *                         \"type\": \"Extension/HubsExtension/PartType/VideoPart\",
+ *                         \"settings\": {
+ *                             \"content\": {
+ *                                 \"settings\": {
+ *                                     \"title\": \"Important Information\",
+ *                                     \"subtitle\": \"\",
+ *                                     \"src\": \"${videoLink}\",
+ *                                     \"autoplay\": true
+ *                                 }
+ *                             }
+ *                         }
+ *                     }
+ *                 },
+ *                 \"2\": {
+ *                     \"position\": {
+ *                         \"x\": 0,
+ *                         \"y\": 4,
+ *                         \"rowSpan\": 4,
+ *                         \"colSpan\": 6
+ *                     },
+ *                     \"metadata\": {
+ *                         \"inputs\": [
+ *                             {
+ *                                 \"name\": \"ComponentId\",
+ *                                 \"value\": \"/subscriptions/${current.subscriptionId}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp\"
+ *                             }
+ *                         ],
+ *                         \"type\": \"Extension/AppInsightsExtension/PartType/AppMapGalPt\",
+ *                         \"settings\": {},
+ *                         \"asset\": {
+ *                             \"idInputName\": \"ComponentId\",
+ *                             \"type\": \"ApplicationInsights\"
+ *                         }
+ *                     }
+ *                 }              
+ *             }
+ *         }
+ *     },
+ *     \"metadata\": {
+ *         \"model\": {
+ *             \"timeRange\": {
+ *                 \"value\": {
+ *                     \"relative\": {
+ *                         \"duration\": 24,
+ *                         \"timeUnit\": 1
+ *                     }
+ *                 },
+ *                 \"type\": \"MsPortalFx.Composition.Configuration.ValueTypes.TimeRange\"
+ *             },
+ *             \"filterLocale\": {
+ *                 \"value\": \"en-us\"
+ *             },
+ *             \"filters\": {
+ *                 \"value\": {
+ *                     \"MsPortalFx_TimeRange\": {
+ *                         \"model\": {
+ *                             \"format\": \"utc\",
+ *                             \"granularity\": \"auto\",
+ *                             \"relative\": \"24h\"
+ *                         },
+ *                         \"displayCache\": {
+ *                             \"name\": \"UTC Time\",
+ *                             \"value\": \"Past 24 hours\"
+ *                         },
+ *                         \"filteredPartIds\": [
+ *                             \"StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7\"
+ *                         ]
+ *                     }
+ *                 }
+ *             }
+ *         }
+ *     }
+ * }
+ * `),
+ * });
+ * ```
+ *
+ * It is recommended to follow the steps outlined
+ * [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+ *
+ * ### Using a `templateFile` data source or the `templatefile` function
+ *
+ * Since the contents of the dashboard JSON can be quite lengthy, use a template file to improve readability:
+ *
+ * `dash.tpl`:
+ *
+ * This is then referenced in the `.tf` file by using a `templateFile` data source (terraform 0.11 or earlier), or the `templatefile` function (terraform 0.12+).
+ *
+ * `main.tf` (terraform 0.11 or earlier):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const dash_template = notImplemented("The template_file data resource is not yet supported.");
+ * //...
+ * const my_board = new azurerm.index.Dashboard("my-board", {
+ *     name: "my-cool-dashboard",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ *     dashboardProperties: dash_template.rendered,
+ * });
+ * ```
+ *
+ * `main.tf` (terraform 0.12+)
+ *
  * ## Import
  *
  * Dashboards can be imported using the `resource id`, e.g.

@@ -21,20 +21,15 @@ __all__ = [
     'ModuleNetworkProfileArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ModuleManagementNetworkProfileArgsDict(TypedDict):
-        network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
-        """
-elif False:
-    ModuleManagementNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ModuleManagementNetworkProfileArgsDict(TypedDict):
+    network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+    """
 
 @pulumi.input_type
 class ModuleManagementNetworkProfileArgs:
@@ -73,18 +68,15 @@ class ModuleManagementNetworkProfileArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class ModuleNetworkProfileArgsDict(TypedDict):
-        network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
-        """
-elif False:
-    ModuleNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ModuleNetworkProfileArgsDict(TypedDict):
+    network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+    """
 
 @pulumi.input_type
 class ModuleNetworkProfileArgs:

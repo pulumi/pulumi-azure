@@ -44,9 +44,25 @@ public final class StaticWebAppCustomDomainArgs extends com.pulumi.resources.Res
         return this.staticWebAppId;
     }
 
+    /**
+     * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+     * 
+     * &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+     * 
+     * &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+     * 
+     */
     @Import(name="validationType", required=true)
     private Output<String> validationType;
 
+    /**
+     * @return One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+     * 
+     * &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+     * 
+     * &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+     * 
+     */
     public Output<String> validationType() {
         return this.validationType;
     }
@@ -119,11 +135,31 @@ public final class StaticWebAppCustomDomainArgs extends com.pulumi.resources.Res
             return staticWebAppId(Output.of(staticWebAppId));
         }
 
+        /**
+         * @param validationType One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+         * 
+         * &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+         * 
+         * &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validationType(Output<String> validationType) {
             $.validationType = validationType;
             return this;
         }
 
+        /**
+         * @param validationType One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+         * 
+         * &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+         * 
+         * &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validationType(String validationType) {
             return validationType(Output.of(validationType));
         }

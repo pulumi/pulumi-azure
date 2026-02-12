@@ -59,6 +59,8 @@ namespace Pulumi.Azure.LogicApps
     /// ```sh
     /// $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
     /// ```
+    /// 
+    /// &gt; **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
     /// </summary>
     [AzureResourceType("azure:logicapps/triggerCustom:TriggerCustom")]
     public partial class TriggerCustom : global::Pulumi.CustomResource

@@ -239,6 +239,10 @@ class ManagedDatabase(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python
@@ -305,6 +309,10 @@ class ManagedDatabase(pulumi.CustomResource):
                  args: ManagedDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python

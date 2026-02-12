@@ -12,6 +12,11 @@ namespace Pulumi.Azure.Nginx.Inputs
 
     public sealed class DeploymentAutoScaleProfileGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+        /// 
+        /// &gt; **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `IgnoreChanges` functionality to ignore changes to the `Capacity` field.
+        /// </summary>
         [Input("maxCapacity", required: true)]
         public Input<int> MaxCapacity { get; set; } = null!;
 

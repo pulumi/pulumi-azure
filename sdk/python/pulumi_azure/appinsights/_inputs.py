@@ -29,36 +29,31 @@ __all__ = [
     'WorkbookTemplateGalleryArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StandardWebTestRequestArgsDict(TypedDict):
-        url: pulumi.Input[_builtins.str]
-        """
-        The WebTest request URL.
-        """
-        body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The WebTest request body.
-        """
-        follow_redirects_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the following of redirects be enabled? Defaults to `true`.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgsDict']]]]
-        """
-        One or more `header` blocks as defined above.
-        """
-        http_verb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', and 'OPTIONS'. Defaults to `GET`.
-        """
-        parse_dependent_requests_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the parsing of dependend requests be enabled? Defaults to `true`.
-        """
-elif False:
-    StandardWebTestRequestArgsDict: TypeAlias = Mapping[str, Any]
+class StandardWebTestRequestArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    The WebTest request URL.
+    """
+    body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The WebTest request body.
+    """
+    follow_redirects_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the following of redirects be enabled? Defaults to `true`.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgsDict']]]]
+    """
+    One or more `header` blocks as defined above.
+    """
+    http_verb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', and 'OPTIONS'. Defaults to `GET`.
+    """
+    parse_dependent_requests_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the parsing of dependend requests be enabled? Defaults to `true`.
+    """
 
 @pulumi.input_type
 class StandardWebTestRequestArgs:
@@ -162,18 +157,15 @@ class StandardWebTestRequestArgs:
         pulumi.set(self, "parse_dependent_requests_enabled", value)
 
 
-if not MYPY:
-    class StandardWebTestRequestHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for a header in the request.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value which should be used for a header in the request.
-        """
-elif False:
-    StandardWebTestRequestHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class StandardWebTestRequestHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for a header in the request.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value which should be used for a header in the request.
+    """
 
 @pulumi.input_type
 class StandardWebTestRequestHeaderArgs:
@@ -212,26 +204,23 @@ class StandardWebTestRequestHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class StandardWebTestValidationRulesArgsDict(TypedDict):
-        content: NotRequired[pulumi.Input['StandardWebTestValidationRulesContentArgsDict']]
-        """
-        A `content` block as defined above.
-        """
-        expected_status_code: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expected status code of the response. Default is '200', '0' means 'response code < 400'
-        """
-        ssl_cert_remaining_lifetime: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
-        """
-        ssl_check_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the SSL check be enabled?
-        """
-elif False:
-    StandardWebTestValidationRulesArgsDict: TypeAlias = Mapping[str, Any]
+class StandardWebTestValidationRulesArgsDict(TypedDict):
+    content: NotRequired[pulumi.Input['StandardWebTestValidationRulesContentArgsDict']]
+    """
+    A `content` block as defined above.
+    """
+    expected_status_code: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expected status code of the response. Default is '200', '0' means 'response code < 400'
+    """
+    ssl_cert_remaining_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
+    """
+    ssl_check_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the SSL check be enabled?
+    """
 
 @pulumi.input_type
 class StandardWebTestValidationRulesArgs:
@@ -304,22 +293,19 @@ class StandardWebTestValidationRulesArgs:
         pulumi.set(self, "ssl_check_enabled", value)
 
 
-if not MYPY:
-    class StandardWebTestValidationRulesContentArgsDict(TypedDict):
-        content_match: pulumi.Input[_builtins.str]
-        """
-        A string value containing the content to match on.
-        """
-        ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Ignore the casing in the `content_match` value.
-        """
-        pass_if_text_found: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
-        """
-elif False:
-    StandardWebTestValidationRulesContentArgsDict: TypeAlias = Mapping[str, Any]
+class StandardWebTestValidationRulesContentArgsDict(TypedDict):
+    content_match: pulumi.Input[_builtins.str]
+    """
+    A string value containing the content to match on.
+    """
+    ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Ignore the casing in the `content_match` value.
+    """
+    pass_if_text_found: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+    """
 
 @pulumi.input_type
 class StandardWebTestValidationRulesContentArgs:
@@ -375,26 +361,23 @@ class StandardWebTestValidationRulesContentArgs:
         pulumi.set(self, "pass_if_text_found", value)
 
 
-if not MYPY:
-    class WorkbookIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
-        """
-elif False:
-    WorkbookIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class WorkbookIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+    """
 
 @pulumi.input_type
 class WorkbookIdentityArgs:
@@ -466,32 +449,29 @@ class WorkbookIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class WorkbookTemplateGalleryArgsDict(TypedDict):
-        category: pulumi.Input[_builtins.str]
-        """
-        Category for the gallery.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the workbook template in the gallery.
-        """
-        order: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Order of the template within the gallery. Defaults to `0`.
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of workbook supported by the workbook template. Defaults to `workbook`.
+class WorkbookTemplateGalleryArgsDict(TypedDict):
+    category: pulumi.Input[_builtins.str]
+    """
+    Category for the gallery.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the workbook template in the gallery.
+    """
+    order: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Order of the template within the gallery. Defaults to `0`.
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of workbook supported by the workbook template. Defaults to `workbook`.
 
-        > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
-        """
-elif False:
-    WorkbookTemplateGalleryArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+    """
 
 @pulumi.input_type
 class WorkbookTemplateGalleryArgs:

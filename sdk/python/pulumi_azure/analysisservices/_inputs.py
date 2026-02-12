@@ -19,24 +19,19 @@ __all__ = [
     'ServerIpv4FirewallRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ServerIpv4FirewallRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the firewall rule.
-        """
-        range_end: pulumi.Input[_builtins.str]
-        """
-        End of the firewall rule range as IPv4 address.
-        """
-        range_start: pulumi.Input[_builtins.str]
-        """
-        Start of the firewall rule range as IPv4 address.
-        """
-elif False:
-    ServerIpv4FirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ServerIpv4FirewallRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the firewall rule.
+    """
+    range_end: pulumi.Input[_builtins.str]
+    """
+    End of the firewall rule range as IPv4 address.
+    """
+    range_start: pulumi.Input[_builtins.str]
+    """
+    Start of the firewall rule range as IPv4 address.
+    """
 
 @pulumi.input_type
 class ServerIpv4FirewallRuleArgs:

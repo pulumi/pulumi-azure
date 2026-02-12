@@ -201,6 +201,12 @@ class Database(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a PostgreSQL Database within a PostgreSQL Server
+
+        > **Note:** The `postgresql.Database` resource is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `postgresql.FlexibleServerDatabase` resource instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python
@@ -261,6 +267,12 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a PostgreSQL Database within a PostgreSQL Server
+
+        > **Note:** The `postgresql.Database` resource is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `postgresql.FlexibleServerDatabase` resource instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python

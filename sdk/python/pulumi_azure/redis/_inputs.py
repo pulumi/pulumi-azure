@@ -25,24 +25,19 @@ __all__ = [
     'EnterpriseDatabaseModuleArgsDict',
 ]
 
-MYPY = False
+class CacheIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 
-if not MYPY:
-    class CacheIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
-
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CacheIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CacheIdentityArgs:
@@ -110,24 +105,21 @@ class CacheIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class CachePatchScheduleArgsDict(TypedDict):
-        day_of_week: pulumi.Input[_builtins.str]
-        """
-        the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
-        """
-        maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
-        """
-        start_hour_utc: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+class CachePatchScheduleArgsDict(TypedDict):
+    day_of_week: pulumi.Input[_builtins.str]
+    """
+    the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+    """
+    maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+    """
+    start_hour_utc: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
 
-        > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
-        """
-elif False:
-    CachePatchScheduleArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+    """
 
 @pulumi.input_type
 class CachePatchScheduleArgs:
@@ -187,88 +179,85 @@ class CachePatchScheduleArgs:
         pulumi.set(self, "start_hour_utc", value)
 
 
-if not MYPY:
-    class CacheRedisConfigurationArgsDict(TypedDict):
-        active_directory_authentication_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
-        """
-        aof_backup_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+class CacheRedisConfigurationArgsDict(TypedDict):
+    active_directory_authentication_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+    """
+    aof_backup_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 
-        > **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
-        """
-        aof_storage_connection_string0: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First Storage Account connection string for AOF persistence.
-        """
-        aof_storage_connection_string1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second Storage Account connection string for AOF persistence.
+    > **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+    """
+    aof_storage_connection_string0: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First Storage Account connection string for AOF persistence.
+    """
+    aof_storage_connection_string1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second Storage Account connection string for AOF persistence.
 
-        Example usage:
-        """
-        authentication_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+    Example usage:
+    """
+    authentication_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 
-        > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
-        """
-        data_persistence_authentication_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
-        """
-        maxclients: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Returns the max number of connected clients at the same time.
-        """
-        maxfragmentationmemory_reserved: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
-        """
-        maxmemory_delta: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The max-memory delta for this Redis instance. Defaults are shown below.
-        """
-        maxmemory_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
-        """
-        maxmemory_reserved: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
-        """
-        notify_keyspace_events: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        """
-        rdb_backup_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+    > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+    """
+    data_persistence_authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
+    """
+    maxclients: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Returns the max number of connected clients at the same time.
+    """
+    maxfragmentationmemory_reserved: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
+    """
+    maxmemory_delta: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The max-memory delta for this Redis instance. Defaults are shown below.
+    """
+    maxmemory_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
+    """
+    maxmemory_reserved: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
+    """
+    notify_keyspace_events: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+    """
+    rdb_backup_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 
-        > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
-        """
-        rdb_backup_frequency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        """
-        rdb_backup_max_snapshot_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
-        """
-        rdb_storage_connection_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+    > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+    """
+    rdb_backup_frequency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+    """
+    rdb_backup_max_snapshot_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
+    """
+    rdb_storage_connection_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 
-        > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
-        """
-        storage_account_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Subscription containing the Storage Account.
-        """
-elif False:
-    CacheRedisConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+    """
+    storage_account_subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Subscription containing the Storage Account.
+    """
 
 @pulumi.input_type
 class CacheRedisConfigurationArgs:
@@ -569,19 +558,16 @@ class CacheRedisConfigurationArgs:
         pulumi.set(self, "storage_account_subscription_id", value)
 
 
-if not MYPY:
-    class EnterpriseDatabaseModuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-        """
-        args: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EnterpriseDatabaseModuleArgsDict: TypeAlias = Mapping[str, Any]
+class EnterpriseDatabaseModuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
+    """
+    args: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EnterpriseDatabaseModuleArgs:

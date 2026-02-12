@@ -135,24 +135,19 @@ __all__ = [
     'JobTemplateVolumeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AppDaprArgsDict(TypedDict):
-        app_id: pulumi.Input[_builtins.str]
-        """
-        The Dapr Application Identifier.
-        """
-        app_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port which the application is listening on. This is the same as the `ingress` port.
-        """
-        app_protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
-        """
-elif False:
-    AppDaprArgsDict: TypeAlias = Mapping[str, Any]
+class AppDaprArgsDict(TypedDict):
+    app_id: pulumi.Input[_builtins.str]
+    """
+    The Dapr Application Identifier.
+    """
+    app_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port which the application is listening on. This is the same as the `ingress` port.
+    """
+    app_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+    """
 
 @pulumi.input_type
 class AppDaprArgs:
@@ -208,20 +203,17 @@ class AppDaprArgs:
         pulumi.set(self, "app_protocol", value)
 
 
-if not MYPY:
-    class AppIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AppIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AppIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AppIdentityArgs:
@@ -285,58 +277,55 @@ class AppIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AppIngressArgsDict(TypedDict):
-        target_port: pulumi.Input[_builtins.int]
-        """
-        The target port on the container for the Ingress traffic.
-        """
-        traffic_weights: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgsDict']]]
-        """
-        One or more `traffic_weight` blocks as detailed below.
-        """
-        allow_insecure_connections: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should this ingress allow insecure connections?
-        """
-        client_certificate_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
-        """
-        cors: NotRequired[pulumi.Input['AppIngressCorsArgsDict']]
-        """
-        A `cors` block as defined below.
-        """
-        custom_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgsDict']]]]
-        """
-        One or more `custom_domain` block as detailed below.
-        """
-        exposed_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The exposed port on the container for the Ingress traffic.
+class AppIngressArgsDict(TypedDict):
+    target_port: pulumi.Input[_builtins.int]
+    """
+    The target port on the container for the Ingress traffic.
+    """
+    traffic_weights: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgsDict']]]
+    """
+    One or more `traffic_weight` blocks as detailed below.
+    """
+    allow_insecure_connections: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should this ingress allow insecure connections?
+    """
+    client_certificate_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+    """
+    cors: NotRequired[pulumi.Input['AppIngressCorsArgsDict']]
+    """
+    A `cors` block as defined below.
+    """
+    custom_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgsDict']]]]
+    """
+    One or more `custom_domain` block as detailed below.
+    """
+    exposed_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The exposed port on the container for the Ingress traffic.
 
-        > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
-        """
-        external_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
-        """
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The FQDN of the ingress.
-        """
-        ip_security_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgsDict']]]]
-        """
-        One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
-        """
-        transport: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+    > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+    """
+    external_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
+    """
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The FQDN of the ingress.
+    """
+    ip_security_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgsDict']]]]
+    """
+    One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+    """
+    transport: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 
-        > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
-        """
-elif False:
-    AppIngressArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+    """
 
 @pulumi.input_type
 class AppIngressArgs:
@@ -527,34 +516,31 @@ class AppIngressArgs:
         pulumi.set(self, "transport", value)
 
 
-if not MYPY:
-    class AppIngressCorsArgsDict(TypedDict):
-        allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the list of origins that are allowed to make cross-origin calls.
-        """
-        allow_credentials_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
-        """
-        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of request headers that are permitted in the actual request.
-        """
-        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
-        """
-        exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of headers exposed to the browser in the response to a cross-origin request.
-        """
-        max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of seconds that the browser can cache the results of a preflight request.
-        """
-elif False:
-    AppIngressCorsArgsDict: TypeAlias = Mapping[str, Any]
+class AppIngressCorsArgsDict(TypedDict):
+    allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the list of origins that are allowed to make cross-origin calls.
+    """
+    allow_credentials_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+    """
+    allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of request headers that are permitted in the actual request.
+    """
+    allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+    """
+    exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+    """
+    max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of seconds that the browser can cache the results of a preflight request.
+    """
 
 @pulumi.input_type
 class AppIngressCorsArgs:
@@ -658,22 +644,19 @@ class AppIngressCorsArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
-if not MYPY:
-    class AppIngressCustomDomainArgsDict(TypedDict):
-        certificate_binding_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Binding type.
-        """
-        certificate_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Container App Environment Certificate.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name for this Container App. Changing this forces a new resource to be created.
-        """
-elif False:
-    AppIngressCustomDomainArgsDict: TypeAlias = Mapping[str, Any]
+class AppIngressCustomDomainArgsDict(TypedDict):
+    certificate_binding_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Binding type.
+    """
+    certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Container App Environment Certificate.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name for this Container App. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class AppIngressCustomDomainArgs:
@@ -730,28 +713,25 @@ class AppIngressCustomDomainArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AppIngressIpSecurityRestrictionArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The IP-filter action. `Allow` or `Deny`.
+class AppIngressIpSecurityRestrictionArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The IP-filter action. `Allow` or `Deny`.
 
-        > **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
-        """
-        ip_address_range: pulumi.Input[_builtins.str]
-        """
-        The incoming IP address or range of IP addresses (in CIDR notation).
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the IP restriction rule.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describe the IP restriction rule that is being sent to the container-app.
-        """
-elif False:
-    AppIngressIpSecurityRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+    """
+    ip_address_range: pulumi.Input[_builtins.str]
+    """
+    The incoming IP address or range of IP addresses (in CIDR notation).
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the IP restriction rule.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Describe the IP restriction rule that is being sent to the container-app.
+    """
 
 @pulumi.input_type
 class AppIngressIpSecurityRestrictionArgs:
@@ -825,30 +805,27 @@ class AppIngressIpSecurityRestrictionArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class AppIngressTrafficWeightArgsDict(TypedDict):
-        percentage: pulumi.Input[_builtins.int]
-        """
-        The percentage of traffic which should be sent this revision.
+class AppIngressTrafficWeightArgsDict(TypedDict):
+    percentage: pulumi.Input[_builtins.int]
+    """
+    The percentage of traffic which should be sent this revision.
 
-        > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The label to apply to the revision as a name prefix for routing traffic.
-        """
-        latest_revision: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
-        """
-        revision_suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The suffix string to which this `traffic_weight` applies.
+    > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The label to apply to the revision as a name prefix for routing traffic.
+    """
+    latest_revision: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+    """
+    revision_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The suffix string to which this `traffic_weight` applies.
 
-        > **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
-        """
-elif False:
-    AppIngressTrafficWeightArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+    """
 
 @pulumi.input_type
 class AppIngressTrafficWeightArgs:
@@ -928,30 +905,27 @@ class AppIngressTrafficWeightArgs:
         pulumi.set(self, "revision_suffix", value)
 
 
-if not MYPY:
-    class AppRegistryArgsDict(TypedDict):
-        server: pulumi.Input[_builtins.str]
-        """
-        The hostname for the Container Registry.
+class AppRegistryArgsDict(TypedDict):
+    server: pulumi.Input[_builtins.str]
+    """
+    The hostname for the Container Registry.
 
-        The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+    The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 
-        > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
-        """
-        password_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username to use for this Container Registry, `password_secret_name` must also be supplied..
-        """
-elif False:
-    AppRegistryArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
+    """
+    password_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username to use for this Container Registry, `password_secret_name` must also be supplied..
+    """
 
 @pulumi.input_type
 class AppRegistryArgs:
@@ -1031,32 +1005,29 @@ class AppRegistryArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class AppSecretArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The secret name.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+class AppSecretArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The secret name.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 
-        !> **Note:** `identity` must be used together with `key_vault_secret_id`
-        """
-        key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a Key Vault secret. This can be a versioned or version-less ID.
+    !> **Note:** `identity` must be used together with `key_vault_secret_id`
+    """
+    key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a Key Vault secret. This can be a versioned or version-less ID.
 
-        !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for this secret.
+    !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for this secret.
 
-        !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
-        """
-elif False:
-    AppSecretArgsDict: TypeAlias = Mapping[str, Any]
+    !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+    """
 
 @pulumi.input_type
 class AppSecretArgs:
@@ -1140,62 +1111,59 @@ class AppSecretArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AppTemplateArgsDict(TypedDict):
-        containers: pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgsDict']]]
-        """
-        One or more `container` blocks as detailed below.
-        """
-        azure_queue_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgsDict']]]]
-        """
-        One or more `azure_queue_scale_rule` blocks as defined below.
-        """
-        cooldown_period_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
-        """
-        custom_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgsDict']]]]
-        """
-        One or more `custom_scale_rule` blocks as defined below.
-        """
-        http_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgsDict']]]]
-        """
-        One or more `http_scale_rule` blocks as defined below.
-        """
-        init_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgsDict']]]]
-        """
-        The definition of an init container that is part of the group as documented in the `init_container` block below.
-        """
-        max_replicas: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of replicas for this container.
-        """
-        min_replicas: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of replicas for this container.
-        """
-        polling_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval in seconds used for polling KEDA. Defaults to `30`.
-        """
-        revision_suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
-        """
-        tcp_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgsDict']]]]
-        """
-        One or more `tcp_scale_rule` blocks as defined below.
-        """
-        termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArgsDict']]]]
-        """
-        A `volume` block as detailed below.
-        """
-elif False:
-    AppTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateArgsDict(TypedDict):
+    containers: pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgsDict']]]
+    """
+    One or more `container` blocks as detailed below.
+    """
+    azure_queue_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgsDict']]]]
+    """
+    One or more `azure_queue_scale_rule` blocks as defined below.
+    """
+    cooldown_period_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
+    """
+    custom_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgsDict']]]]
+    """
+    One or more `custom_scale_rule` blocks as defined below.
+    """
+    http_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgsDict']]]]
+    """
+    One or more `http_scale_rule` blocks as defined below.
+    """
+    init_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgsDict']]]]
+    """
+    The definition of an init container that is part of the group as documented in the `init_container` block below.
+    """
+    max_replicas: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of replicas for this container.
+    """
+    min_replicas: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of replicas for this container.
+    """
+    polling_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval in seconds used for polling KEDA. Defaults to `30`.
+    """
+    revision_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
+    """
+    tcp_scale_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgsDict']]]]
+    """
+    One or more `tcp_scale_rule` blocks as defined below.
+    """
+    termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+    """
+    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArgsDict']]]]
+    """
+    A `volume` block as detailed below.
+    """
 
 @pulumi.input_type
 class AppTemplateArgs:
@@ -1411,26 +1379,23 @@ class AppTemplateArgs:
         pulumi.set(self, "volumes", value)
 
 
-if not MYPY:
-    class AppTemplateAzureQueueScaleRuleArgsDict(TypedDict):
-        authentications: pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArgsDict']]]
-        """
-        One or more `authentication` blocks as defined below.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Scaling Rule
-        """
-        queue_length: pulumi.Input[_builtins.int]
-        """
-        The value of the length of the queue to trigger scaling actions.
-        """
-        queue_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Azure Queue
-        """
-elif False:
-    AppTemplateAzureQueueScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateAzureQueueScaleRuleArgsDict(TypedDict):
+    authentications: pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArgsDict']]]
+    """
+    One or more `authentication` blocks as defined below.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Scaling Rule
+    """
+    queue_length: pulumi.Input[_builtins.int]
+    """
+    The value of the length of the queue to trigger scaling actions.
+    """
+    queue_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure Queue
+    """
 
 @pulumi.input_type
 class AppTemplateAzureQueueScaleRuleArgs:
@@ -1499,18 +1464,15 @@ class AppTemplateAzureQueueScaleRuleArgs:
         pulumi.set(self, "queue_name", value)
 
 
-if not MYPY:
-    class AppTemplateAzureQueueScaleRuleAuthenticationArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Container App Secret to use for this Scale Rule Authentication.
-        """
-        trigger_parameter: pulumi.Input[_builtins.str]
-        """
-        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
-        """
-elif False:
-    AppTemplateAzureQueueScaleRuleAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateAzureQueueScaleRuleAuthenticationArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Container App Secret to use for this Scale Rule Authentication.
+    """
+    trigger_parameter: pulumi.Input[_builtins.str]
+    """
+    The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+    """
 
 @pulumi.input_type
 class AppTemplateAzureQueueScaleRuleAuthenticationArgs:
@@ -1549,64 +1511,61 @@ class AppTemplateAzureQueueScaleRuleAuthenticationArgs:
         pulumi.set(self, "trigger_parameter", value)
 
 
-if not MYPY:
-    class AppTemplateContainerArgsDict(TypedDict):
-        cpu: pulumi.Input[_builtins.float]
-        """
-        The amount of vCPU to allocate to the container.
+class AppTemplateContainerArgsDict(TypedDict):
+    cpu: pulumi.Input[_builtins.float]
+    """
+    The amount of vCPU to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        image: pulumi.Input[_builtins.str]
-        """
-        The image to use to create the container.
-        """
-        memory: pulumi.Input[_builtins.str]
-        """
-        The amount of memory to allocate to the container.
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    image: pulumi.Input[_builtins.str]
+    """
+    The image to use to create the container.
+    """
+    memory: pulumi.Input[_builtins.str]
+    """
+    The amount of memory to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the container
-        """
-        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of extra arguments to pass to the container.
-        """
-        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        """
-        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgsDict']]]]
-        """
-        One or more `env` blocks as detailed below.
-        """
-        ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of ephemeral storage available to the Container App.
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the container
+    """
+    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of extra arguments to pass to the container.
+    """
+    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+    """
+    envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgsDict']]]]
+    """
+    One or more `env` blocks as detailed below.
+    """
+    ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of ephemeral storage available to the Container App.
 
-        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        """
-        liveness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgsDict']]]]
-        """
-        A `liveness_probe` block as detailed below.
-        """
-        readiness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgsDict']]]]
-        """
-        A `readiness_probe` block as detailed below.
-        """
-        startup_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgsDict']]]]
-        """
-        A `startup_probe` block as detailed below.
-        """
-        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgsDict']]]]
-        """
-        A `volume_mounts` block as detailed below.
-        """
-elif False:
-    AppTemplateContainerArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+    """
+    liveness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgsDict']]]]
+    """
+    A `liveness_probe` block as detailed below.
+    """
+    readiness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgsDict']]]]
+    """
+    A `readiness_probe` block as detailed below.
+    """
+    startup_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgsDict']]]]
+    """
+    A `startup_probe` block as detailed below.
+    """
+    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgsDict']]]]
+    """
+    A `volume_mounts` block as detailed below.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerArgs:
@@ -1815,24 +1774,21 @@ class AppTemplateContainerArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
-if not MYPY:
-    class AppTemplateContainerEnvArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable for the container.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the secret that contains the value for this environment variable.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for this environment variable.
+class AppTemplateContainerEnvArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable for the container.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the secret that contains the value for this environment variable.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for this environment variable.
 
-        > **Note:** This value is ignored if `secret_name` is used
-        """
-elif False:
-    AppTemplateContainerEnvArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This value is ignored if `secret_name` is used
+    """
 
 @pulumi.input_type
 class AppTemplateContainerEnvArgs:
@@ -1892,50 +1848,47 @@ class AppTemplateContainerEnvArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AppTemplateContainerLivenessProbeArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number on which to connect. Possible values are between `1` and `65535`.
-        """
-        transport: pulumi.Input[_builtins.str]
-        """
-        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        """
-        failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgsDict']]]]
-        """
-        A `header` block as detailed below.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        """
-        initial_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
-        """
-        interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        """
-        termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
-        """
-elif False:
-    AppTemplateContainerLivenessProbeArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateContainerLivenessProbeArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number on which to connect. Possible values are between `1` and `65535`.
+    """
+    transport: pulumi.Input[_builtins.str]
+    """
+    Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+    """
+    failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgsDict']]]]
+    """
+    A `header` block as detailed below.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+    """
+    initial_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
+    """
+    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+    """
+    termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerLivenessProbeArgs:
@@ -2102,18 +2055,15 @@ class AppTemplateContainerLivenessProbeArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class AppTemplateContainerLivenessProbeHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header Name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header value.
-        """
-elif False:
-    AppTemplateContainerLivenessProbeHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateContainerLivenessProbeHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header Name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header value.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerLivenessProbeHeaderArgs:
@@ -2152,50 +2102,47 @@ class AppTemplateContainerLivenessProbeHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AppTemplateContainerReadinessProbeArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number on which to connect. Possible values are between `1` and `65535`.
-        """
-        transport: pulumi.Input[_builtins.str]
-        """
-        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        """
-        failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgsDict']]]]
-        """
-        A `header` block as detailed below.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        """
-        initial_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
-        """
-        interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        """
-        success_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
-        """
-elif False:
-    AppTemplateContainerReadinessProbeArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateContainerReadinessProbeArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number on which to connect. Possible values are between `1` and `65535`.
+    """
+    transport: pulumi.Input[_builtins.str]
+    """
+    Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+    """
+    failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgsDict']]]]
+    """
+    A `header` block as detailed below.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+    """
+    initial_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+    """
+    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+    """
+    success_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerReadinessProbeArgs:
@@ -2362,18 +2309,15 @@ class AppTemplateContainerReadinessProbeArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class AppTemplateContainerReadinessProbeHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header Name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header value.
-        """
-elif False:
-    AppTemplateContainerReadinessProbeHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateContainerReadinessProbeHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header Name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header value.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerReadinessProbeHeaderArgs:
@@ -2412,50 +2356,47 @@ class AppTemplateContainerReadinessProbeHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AppTemplateContainerStartupProbeArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number on which to connect. Possible values are between `1` and `65535`.
-        """
-        transport: pulumi.Input[_builtins.str]
-        """
-        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        """
-        failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgsDict']]]]
-        """
-        A `header` block as detailed below.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        """
-        initial_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
-        """
-        interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        """
-        termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
-        """
-elif False:
-    AppTemplateContainerStartupProbeArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateContainerStartupProbeArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number on which to connect. Possible values are between `1` and `65535`.
+    """
+    transport: pulumi.Input[_builtins.str]
+    """
+    Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+    """
+    failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgsDict']]]]
+    """
+    A `header` block as detailed below.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+    """
+    initial_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+    """
+    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+    """
+    termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerStartupProbeArgs:
@@ -2622,18 +2563,15 @@ class AppTemplateContainerStartupProbeArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class AppTemplateContainerStartupProbeHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header Name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header value.
-        """
-elif False:
-    AppTemplateContainerStartupProbeHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateContainerStartupProbeHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header Name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header value.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerStartupProbeHeaderArgs:
@@ -2672,22 +2610,19 @@ class AppTemplateContainerStartupProbeHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AppTemplateContainerVolumeMountArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Volume to be mounted in the container.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The path in the container at which to mount this volume.
-        """
-        sub_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sub path of the volume to be mounted in the container.
-        """
-elif False:
-    AppTemplateContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateContainerVolumeMountArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Volume to be mounted in the container.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The path in the container at which to mount this volume.
+    """
+    sub_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sub path of the volume to be mounted in the container.
+    """
 
 @pulumi.input_type
 class AppTemplateContainerVolumeMountArgs:
@@ -2742,26 +2677,23 @@ class AppTemplateContainerVolumeMountArgs:
         pulumi.set(self, "sub_path", value)
 
 
-if not MYPY:
-    class AppTemplateCustomScaleRuleArgsDict(TypedDict):
-        custom_rule_type: pulumi.Input[_builtins.str]
-        """
-        The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
-        """
-        metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        A map of string key-value pairs to configure the Custom Scale Rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Scaling Rule
-        """
-        authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgsDict']]]]
-        """
-        Zero or more `authentication` blocks as defined below.
-        """
-elif False:
-    AppTemplateCustomScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateCustomScaleRuleArgsDict(TypedDict):
+    custom_rule_type: pulumi.Input[_builtins.str]
+    """
+    The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+    """
+    metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    A map of string key-value pairs to configure the Custom Scale Rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Scaling Rule
+    """
+    authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgsDict']]]]
+    """
+    Zero or more `authentication` blocks as defined below.
+    """
 
 @pulumi.input_type
 class AppTemplateCustomScaleRuleArgs:
@@ -2831,18 +2763,15 @@ class AppTemplateCustomScaleRuleArgs:
         pulumi.set(self, "authentications", value)
 
 
-if not MYPY:
-    class AppTemplateCustomScaleRuleAuthenticationArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Container App Secret to use for this Scale Rule Authentication.
-        """
-        trigger_parameter: pulumi.Input[_builtins.str]
-        """
-        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
-        """
-elif False:
-    AppTemplateCustomScaleRuleAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateCustomScaleRuleAuthenticationArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Container App Secret to use for this Scale Rule Authentication.
+    """
+    trigger_parameter: pulumi.Input[_builtins.str]
+    """
+    The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+    """
 
 @pulumi.input_type
 class AppTemplateCustomScaleRuleAuthenticationArgs:
@@ -2881,22 +2810,19 @@ class AppTemplateCustomScaleRuleAuthenticationArgs:
         pulumi.set(self, "trigger_parameter", value)
 
 
-if not MYPY:
-    class AppTemplateHttpScaleRuleArgsDict(TypedDict):
-        concurrent_requests: pulumi.Input[_builtins.str]
-        """
-        The number of concurrent requests to trigger scaling.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Scaling Rule
-        """
-        authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgsDict']]]]
-        """
-        Zero or more `authentication` blocks as defined below.
-        """
-elif False:
-    AppTemplateHttpScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateHttpScaleRuleArgsDict(TypedDict):
+    concurrent_requests: pulumi.Input[_builtins.str]
+    """
+    The number of concurrent requests to trigger scaling.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Scaling Rule
+    """
+    authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgsDict']]]]
+    """
+    Zero or more `authentication` blocks as defined below.
+    """
 
 @pulumi.input_type
 class AppTemplateHttpScaleRuleArgs:
@@ -2951,18 +2877,15 @@ class AppTemplateHttpScaleRuleArgs:
         pulumi.set(self, "authentications", value)
 
 
-if not MYPY:
-    class AppTemplateHttpScaleRuleAuthenticationArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Container App Secret to use for this Scale Rule Authentication.
-        """
-        trigger_parameter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
-        """
-elif False:
-    AppTemplateHttpScaleRuleAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateHttpScaleRuleAuthenticationArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Container App Secret to use for this Scale Rule Authentication.
+    """
+    trigger_parameter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+    """
 
 @pulumi.input_type
 class AppTemplateHttpScaleRuleAuthenticationArgs:
@@ -3002,52 +2925,49 @@ class AppTemplateHttpScaleRuleAuthenticationArgs:
         pulumi.set(self, "trigger_parameter", value)
 
 
-if not MYPY:
-    class AppTemplateInitContainerArgsDict(TypedDict):
-        image: pulumi.Input[_builtins.str]
-        """
-        The image to use to create the container.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the container
-        """
-        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of extra arguments to pass to the container.
-        """
-        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The amount of vCPU to allocate to the container.
+class AppTemplateInitContainerArgsDict(TypedDict):
+    image: pulumi.Input[_builtins.str]
+    """
+    The image to use to create the container.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the container
+    """
+    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of extra arguments to pass to the container.
+    """
+    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The amount of vCPU to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgsDict']]]]
-        """
-        One or more `env` blocks as detailed below.
-        """
-        ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of ephemeral storage available to the Container App.
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgsDict']]]]
+    """
+    One or more `env` blocks as detailed below.
+    """
+    ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of ephemeral storage available to the Container App.
 
-        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        """
-        memory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of memory to allocate to the container.
+    > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+    """
+    memory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of memory to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgsDict']]]]
-        """
-        A `volume_mounts` block as detailed below.
-        """
-elif False:
-    AppTemplateInitContainerArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgsDict']]]]
+    """
+    A `volume_mounts` block as detailed below.
+    """
 
 @pulumi.input_type
 class AppTemplateInitContainerArgs:
@@ -3210,24 +3130,21 @@ class AppTemplateInitContainerArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
-if not MYPY:
-    class AppTemplateInitContainerEnvArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable for the container.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the secret that contains the value for this environment variable.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for this environment variable.
+class AppTemplateInitContainerEnvArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable for the container.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the secret that contains the value for this environment variable.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for this environment variable.
 
-        > **Note:** This value is ignored if `secret_name` is used
-        """
-elif False:
-    AppTemplateInitContainerEnvArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This value is ignored if `secret_name` is used
+    """
 
 @pulumi.input_type
 class AppTemplateInitContainerEnvArgs:
@@ -3287,22 +3204,19 @@ class AppTemplateInitContainerEnvArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AppTemplateInitContainerVolumeMountArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Volume to be mounted in the container.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The path in the container at which to mount this volume.
-        """
-        sub_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sub path of the volume to be mounted in the container.
-        """
-elif False:
-    AppTemplateInitContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateInitContainerVolumeMountArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Volume to be mounted in the container.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The path in the container at which to mount this volume.
+    """
+    sub_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sub path of the volume to be mounted in the container.
+    """
 
 @pulumi.input_type
 class AppTemplateInitContainerVolumeMountArgs:
@@ -3357,22 +3271,19 @@ class AppTemplateInitContainerVolumeMountArgs:
         pulumi.set(self, "sub_path", value)
 
 
-if not MYPY:
-    class AppTemplateTcpScaleRuleArgsDict(TypedDict):
-        concurrent_requests: pulumi.Input[_builtins.str]
-        """
-        The number of concurrent requests to trigger scaling.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Scaling Rule
-        """
-        authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgsDict']]]]
-        """
-        Zero or more `authentication` blocks as defined below.
-        """
-elif False:
-    AppTemplateTcpScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateTcpScaleRuleArgsDict(TypedDict):
+    concurrent_requests: pulumi.Input[_builtins.str]
+    """
+    The number of concurrent requests to trigger scaling.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Scaling Rule
+    """
+    authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgsDict']]]]
+    """
+    Zero or more `authentication` blocks as defined below.
+    """
 
 @pulumi.input_type
 class AppTemplateTcpScaleRuleArgs:
@@ -3427,18 +3338,15 @@ class AppTemplateTcpScaleRuleArgs:
         pulumi.set(self, "authentications", value)
 
 
-if not MYPY:
-    class AppTemplateTcpScaleRuleAuthenticationArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Container App Secret to use for this Scale Rule Authentication.
-        """
-        trigger_parameter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
-        """
-elif False:
-    AppTemplateTcpScaleRuleAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateTcpScaleRuleAuthenticationArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Container App Secret to use for this Scale Rule Authentication.
+    """
+    trigger_parameter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+    """
 
 @pulumi.input_type
 class AppTemplateTcpScaleRuleAuthenticationArgs:
@@ -3478,26 +3386,23 @@ class AppTemplateTcpScaleRuleAuthenticationArgs:
         pulumi.set(self, "trigger_parameter", value)
 
 
-if not MYPY:
-    class AppTemplateVolumeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the volume.
-        """
-        mount_options: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
-        """
-        storage_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the `AzureFile` storage.
-        """
-        storage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
-        """
-elif False:
-    AppTemplateVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class AppTemplateVolumeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the volume.
+    """
+    mount_options: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+    """
+    storage_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the `AzureFile` storage.
+    """
+    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of storage volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
+    """
 
 @pulumi.input_type
 class AppTemplateVolumeArgs:
@@ -3569,20 +3474,17 @@ class AppTemplateVolumeArgs:
         pulumi.set(self, "storage_type", value)
 
 
-if not MYPY:
-    class EnvironmentCertificateCertificateKeyVaultArgsDict(TypedDict):
-        key_vault_secret_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
+class EnvironmentCertificateCertificateKeyVaultArgsDict(TypedDict):
+    key_vault_secret_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Key Vault Secret containing the certificate. Changing this forces a new resource to be created.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The managed identity to authenticate with Azure Key Vault. Possible values are the resource ID of user-assigned identity, and `System` for system-assigned identity. Defaults to `System`. Changing this forces a new resource to be created.
 
-        > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
-        """
-elif False:
-    EnvironmentCertificateCertificateKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Please make sure [required permissions](https://learn.microsoft.com/en-us/azure/container-apps/key-vault-certificates-manage) are correctly configured for your Key Vault and managed identity.
+    """
 
 @pulumi.input_type
 class EnvironmentCertificateCertificateKeyVaultArgs:
@@ -3626,22 +3528,19 @@ class EnvironmentCertificateCertificateKeyVaultArgs:
         pulumi.set(self, "identity", value)
 
 
-if not MYPY:
-    class EnvironmentDaprComponentMetadataArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Metadata configuration item.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for this metadata configuration item.
-        """
-elif False:
-    EnvironmentDaprComponentMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentDaprComponentMetadataArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Metadata configuration item.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for this metadata configuration item.
+    """
 
 @pulumi.input_type
 class EnvironmentDaprComponentMetadataArgs:
@@ -3697,26 +3596,23 @@ class EnvironmentDaprComponentMetadataArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EnvironmentDaprComponentSecretArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Secret name.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
-        """
-        key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Key Vault Secret ID.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for this secret.
-        """
-elif False:
-    EnvironmentDaprComponentSecretArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentDaprComponentSecretArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Secret name.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity to use for accessing key vault reference. Possible values are the Resource ID of a User Assigned Managed Identity, or `System` to use the System Assigned Managed Identity.
+    """
+    key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Key Vault Secret ID.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for this secret.
+    """
 
 @pulumi.input_type
 class EnvironmentDaprComponentSecretArgs:
@@ -3788,20 +3684,17 @@ class EnvironmentDaprComponentSecretArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EnvironmentIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EnvironmentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EnvironmentIdentityArgs:
@@ -3865,30 +3758,27 @@ class EnvironmentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class EnvironmentWorkloadProfileArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the workload profile.
-        """
-        workload_profile_type: pulumi.Input[_builtins.str]
-        """
-        Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
+class EnvironmentWorkloadProfileArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the workload profile.
+    """
+    workload_profile_type: pulumi.Input[_builtins.str]
+    """
+    Workload profile type for the workloads to run on. Possible values include `Consumption`, `Consumption-GPU-NC24-A100`, `Consumption-GPU-NC8as-T4`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16`, `E32`, `NC24-A100`, `NC48-A100` and `NC96-A100`.
 
-        > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+    > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
 
-        > **Note:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
-        """
-        maximum_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of instances of workload profile that can be deployed in the Container App Environment.
-        """
-        minimum_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of instances of workload profile that can be deployed in the Container App Environment.
-        """
-elif False:
-    EnvironmentWorkloadProfileArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
+    """
+    maximum_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+    """
+    minimum_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+    """
 
 @pulumi.input_type
 class EnvironmentWorkloadProfileArgs:
@@ -3967,22 +3857,19 @@ class EnvironmentWorkloadProfileArgs:
         pulumi.set(self, "minimum_count", value)
 
 
-if not MYPY:
-    class JobEventTriggerConfigArgsDict(TypedDict):
-        parallelism: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of parallel replicas of a job that can run at a given time.
-        """
-        replica_completion_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum number of successful replica completions before overall job completion.
-        """
-        scales: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleArgsDict']]]]
-        """
-        A `scale` block as defined below.
-        """
-elif False:
-    JobEventTriggerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class JobEventTriggerConfigArgsDict(TypedDict):
+    parallelism: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of parallel replicas of a job that can run at a given time.
+    """
+    replica_completion_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum number of successful replica completions before overall job completion.
+    """
+    scales: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleArgsDict']]]]
+    """
+    A `scale` block as defined below.
+    """
 
 @pulumi.input_type
 class JobEventTriggerConfigArgs:
@@ -4039,26 +3926,23 @@ class JobEventTriggerConfigArgs:
         pulumi.set(self, "scales", value)
 
 
-if not MYPY:
-    class JobEventTriggerConfigScaleArgsDict(TypedDict):
-        max_executions: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of job executions that are created for a trigger.
-        """
-        min_executions: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum number of job executions that are created for a trigger.
-        """
-        polling_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Interval to check each event source in seconds.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleArgsDict']]]]
-        """
-        A `rules` block as defined below.
-        """
-elif False:
-    JobEventTriggerConfigScaleArgsDict: TypeAlias = Mapping[str, Any]
+class JobEventTriggerConfigScaleArgsDict(TypedDict):
+    max_executions: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of job executions that are created for a trigger.
+    """
+    min_executions: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum number of job executions that are created for a trigger.
+    """
+    polling_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Interval to check each event source in seconds.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleArgsDict']]]]
+    """
+    A `rules` block as defined below.
+    """
 
 @pulumi.input_type
 class JobEventTriggerConfigScaleArgs:
@@ -4131,26 +4015,23 @@ class JobEventTriggerConfigScaleArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class JobEventTriggerConfigScaleRuleArgsDict(TypedDict):
-        custom_rule_type: pulumi.Input[_builtins.str]
-        """
-        Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
-        """
-        metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Metadata properties to describe the scale rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the scale rule.
-        """
-        authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgsDict']]]]
-        """
-        A `authentication` block as defined below.
-        """
-elif False:
-    JobEventTriggerConfigScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class JobEventTriggerConfigScaleRuleArgsDict(TypedDict):
+    custom_rule_type: pulumi.Input[_builtins.str]
+    """
+    Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
+    """
+    metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Metadata properties to describe the scale rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the scale rule.
+    """
+    authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgsDict']]]]
+    """
+    A `authentication` block as defined below.
+    """
 
 @pulumi.input_type
 class JobEventTriggerConfigScaleRuleArgs:
@@ -4220,18 +4101,15 @@ class JobEventTriggerConfigScaleRuleArgs:
         pulumi.set(self, "authentications", value)
 
 
-if not MYPY:
-    class JobEventTriggerConfigScaleRuleAuthenticationArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret from which to pull the auth params.
-        """
-        trigger_parameter: pulumi.Input[_builtins.str]
-        """
-        Trigger Parameter that uses the secret.
-        """
-elif False:
-    JobEventTriggerConfigScaleRuleAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class JobEventTriggerConfigScaleRuleAuthenticationArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret from which to pull the auth params.
+    """
+    trigger_parameter: pulumi.Input[_builtins.str]
+    """
+    Trigger Parameter that uses the secret.
+    """
 
 @pulumi.input_type
 class JobEventTriggerConfigScaleRuleAuthenticationArgs:
@@ -4270,26 +4148,23 @@ class JobEventTriggerConfigScaleRuleAuthenticationArgs:
         pulumi.set(self, "trigger_parameter", value)
 
 
-if not MYPY:
-    class JobIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Managed Identity IDs to assign to the Container App Job.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    JobIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class JobIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Managed Identity IDs to assign to the Container App Job.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class JobIdentityArgs:
@@ -4361,18 +4236,15 @@ class JobIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class JobManualTriggerConfigArgsDict(TypedDict):
-        parallelism: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of parallel replicas of a job that can run at a given time.
-        """
-        replica_completion_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum number of successful replica completions before overall job completion.
-        """
-elif False:
-    JobManualTriggerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class JobManualTriggerConfigArgsDict(TypedDict):
+    parallelism: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of parallel replicas of a job that can run at a given time.
+    """
+    replica_completion_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum number of successful replica completions before overall job completion.
+    """
 
 @pulumi.input_type
 class JobManualTriggerConfigArgs:
@@ -4413,26 +4285,23 @@ class JobManualTriggerConfigArgs:
         pulumi.set(self, "replica_completion_count", value)
 
 
-if not MYPY:
-    class JobRegistryArgsDict(TypedDict):
-        server: pulumi.Input[_builtins.str]
-        """
-        The URL of the Azure Container Registry server.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A Managed Identity to use to authenticate with Azure Container Registry.
-        """
-        password_secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Secret that contains the registry login password.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username to use to authenticate with Azure Container Registry.
-        """
-elif False:
-    JobRegistryArgsDict: TypeAlias = Mapping[str, Any]
+class JobRegistryArgsDict(TypedDict):
+    server: pulumi.Input[_builtins.str]
+    """
+    The URL of the Azure Container Registry server.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A Managed Identity to use to authenticate with Azure Container Registry.
+    """
+    password_secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Secret that contains the registry login password.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username to use to authenticate with Azure Container Registry.
+    """
 
 @pulumi.input_type
 class JobRegistryArgs:
@@ -4504,22 +4373,19 @@ class JobRegistryArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class JobScheduleTriggerConfigArgsDict(TypedDict):
-        cron_expression: pulumi.Input[_builtins.str]
-        """
-        Cron formatted repeating schedule of a Cron Job.
-        """
-        parallelism: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of parallel replicas of a job that can run at a given time.
-        """
-        replica_completion_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum number of successful replica completions before overall job completion.
-        """
-elif False:
-    JobScheduleTriggerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class JobScheduleTriggerConfigArgsDict(TypedDict):
+    cron_expression: pulumi.Input[_builtins.str]
+    """
+    Cron formatted repeating schedule of a Cron Job.
+    """
+    parallelism: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of parallel replicas of a job that can run at a given time.
+    """
+    replica_completion_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum number of successful replica completions before overall job completion.
+    """
 
 @pulumi.input_type
 class JobScheduleTriggerConfigArgs:
@@ -4575,32 +4441,29 @@ class JobScheduleTriggerConfigArgs:
         pulumi.set(self, "replica_completion_count", value)
 
 
-if not MYPY:
-    class JobSecretArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The secret name.
-        """
-        identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+class JobSecretArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The secret name.
+    """
+    identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 
-        !> **Note:** `identity` must be used together with `key_vault_secret_id`
-        """
-        key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a Key Vault secret. This can be a versioned or version-less ID.
+    !> **Note:** `identity` must be used together with `key_vault_secret_id`
+    """
+    key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a Key Vault secret. This can be a versioned or version-less ID.
 
-        !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for this secret.
+    !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for this secret.
 
-        !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
-        """
-elif False:
-    JobSecretArgsDict: TypeAlias = Mapping[str, Any]
+    !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+    """
 
 @pulumi.input_type
 class JobSecretArgs:
@@ -4684,22 +4547,19 @@ class JobSecretArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class JobTemplateArgsDict(TypedDict):
-        containers: pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerArgsDict']]]
-        """
-        A `container` block as defined below.
-        """
-        init_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerArgsDict']]]]
-        """
-        A `init_container` block as defined below.
-        """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateVolumeArgsDict']]]]
-        """
-        A `volume` block as defined below.
-        """
-elif False:
-    JobTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateArgsDict(TypedDict):
+    containers: pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerArgsDict']]]
+    """
+    A `container` block as defined below.
+    """
+    init_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerArgsDict']]]]
+    """
+    A `init_container` block as defined below.
+    """
+    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateVolumeArgsDict']]]]
+    """
+    A `volume` block as defined below.
+    """
 
 @pulumi.input_type
 class JobTemplateArgs:
@@ -4755,64 +4615,61 @@ class JobTemplateArgs:
         pulumi.set(self, "volumes", value)
 
 
-if not MYPY:
-    class JobTemplateContainerArgsDict(TypedDict):
-        cpu: pulumi.Input[_builtins.float]
-        """
-        The amount of vCPU to allocate to the container.
+class JobTemplateContainerArgsDict(TypedDict):
+    cpu: pulumi.Input[_builtins.float]
+    """
+    The amount of vCPU to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        image: pulumi.Input[_builtins.str]
-        """
-        The image to use to create the container.
-        """
-        memory: pulumi.Input[_builtins.str]
-        """
-        The amount of memory to allocate to the container.
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    image: pulumi.Input[_builtins.str]
+    """
+    The image to use to create the container.
+    """
+    memory: pulumi.Input[_builtins.str]
+    """
+    The amount of memory to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the container.
-        """
-        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of extra arguments to pass to the container.
-        """
-        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        """
-        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerEnvArgsDict']]]]
-        """
-        One or more `env` blocks as detailed below.
-        """
-        ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of ephemeral storage available to the Container App.
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the container.
+    """
+    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of extra arguments to pass to the container.
+    """
+    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+    """
+    envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerEnvArgsDict']]]]
+    """
+    One or more `env` blocks as detailed below.
+    """
+    ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of ephemeral storage available to the Container App.
 
-        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        """
-        liveness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeArgsDict']]]]
-        """
-        A `liveness_probe` block as detailed below.
-        """
-        readiness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeArgsDict']]]]
-        """
-        A `readiness_probe` block as detailed below.
-        """
-        startup_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeArgsDict']]]]
-        """
-        A `startup_probe` block as detailed below.
-        """
-        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerVolumeMountArgsDict']]]]
-        """
-        A `volume_mounts` block as detailed below.
-        """
-elif False:
-    JobTemplateContainerArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+    """
+    liveness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeArgsDict']]]]
+    """
+    A `liveness_probe` block as detailed below.
+    """
+    readiness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeArgsDict']]]]
+    """
+    A `readiness_probe` block as detailed below.
+    """
+    startup_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeArgsDict']]]]
+    """
+    A `startup_probe` block as detailed below.
+    """
+    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerVolumeMountArgsDict']]]]
+    """
+    A `volume_mounts` block as detailed below.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerArgs:
@@ -5021,22 +4878,19 @@ class JobTemplateContainerArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
-if not MYPY:
-    class JobTemplateContainerEnvArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Container App secret from which to pull the environment variable value.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the environment variable.
-        """
-elif False:
-    JobTemplateContainerEnvArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerEnvArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Container App secret from which to pull the environment variable value.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the environment variable.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerEnvArgs:
@@ -5092,50 +4946,47 @@ class JobTemplateContainerEnvArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class JobTemplateContainerLivenessProbeArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number on which to connect. Possible values are between `1` and `65535`.
-        """
-        transport: pulumi.Input[_builtins.str]
-        """
-        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        """
-        failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeHeaderArgsDict']]]]
-        """
-        A `header` block as detailed below.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        """
-        initial_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in seconds to wait after the container has started before the probe is started.
-        """
-        interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        """
-        termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
-        """
-elif False:
-    JobTemplateContainerLivenessProbeArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerLivenessProbeArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number on which to connect. Possible values are between `1` and `65535`.
+    """
+    transport: pulumi.Input[_builtins.str]
+    """
+    Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+    """
+    failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeHeaderArgsDict']]]]
+    """
+    A `header` block as detailed below.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+    """
+    initial_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in seconds to wait after the container has started before the probe is started.
+    """
+    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+    """
+    termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerLivenessProbeArgs:
@@ -5302,18 +5153,15 @@ class JobTemplateContainerLivenessProbeArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class JobTemplateContainerLivenessProbeHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header Name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header value.
-        """
-elif False:
-    JobTemplateContainerLivenessProbeHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerLivenessProbeHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header Name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header value.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerLivenessProbeHeaderArgs:
@@ -5352,50 +5200,47 @@ class JobTemplateContainerLivenessProbeHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class JobTemplateContainerReadinessProbeArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number on which to connect. Possible values are between `1` and `65535`.
-        """
-        transport: pulumi.Input[_builtins.str]
-        """
-        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        """
-        failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeHeaderArgsDict']]]]
-        """
-        A `header` block as detailed below.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        """
-        initial_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
-        """
-        interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        """
-        success_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
-        """
-elif False:
-    JobTemplateContainerReadinessProbeArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerReadinessProbeArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number on which to connect. Possible values are between `1` and `65535`.
+    """
+    transport: pulumi.Input[_builtins.str]
+    """
+    Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+    """
+    failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeHeaderArgsDict']]]]
+    """
+    A `header` block as detailed below.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+    """
+    initial_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+    """
+    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+    """
+    success_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerReadinessProbeArgs:
@@ -5562,18 +5407,15 @@ class JobTemplateContainerReadinessProbeArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class JobTemplateContainerReadinessProbeHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header Name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header value.
-        """
-elif False:
-    JobTemplateContainerReadinessProbeHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerReadinessProbeHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header Name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header value.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerReadinessProbeHeaderArgs:
@@ -5612,50 +5454,47 @@ class JobTemplateContainerReadinessProbeHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class JobTemplateContainerStartupProbeArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number on which to connect. Possible values are between `1` and `65535`.
-        """
-        transport: pulumi.Input[_builtins.str]
-        """
-        Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        """
-        failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeHeaderArgsDict']]]]
-        """
-        A `header` block as detailed below.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        """
-        initial_delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
-        """
-        interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        """
-        termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
-        """
-elif False:
-    JobTemplateContainerStartupProbeArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerStartupProbeArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number on which to connect. Possible values are between `1` and `65535`.
+    """
+    transport: pulumi.Input[_builtins.str]
+    """
+    Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
+    """
+    failure_count_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeHeaderArgsDict']]]]
+    """
+    A `header` block as detailed below.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+    """
+    initial_delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+    """
+    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+    """
+    termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerStartupProbeArgs:
@@ -5822,18 +5661,15 @@ class JobTemplateContainerStartupProbeArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class JobTemplateContainerStartupProbeHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header Name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The HTTP Header value.
-        """
-elif False:
-    JobTemplateContainerStartupProbeHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerStartupProbeHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header Name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The HTTP Header value.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerStartupProbeHeaderArgs:
@@ -5872,22 +5708,19 @@ class JobTemplateContainerStartupProbeHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class JobTemplateContainerVolumeMountArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The path within the container at which the volume should be mounted. Must not contain `:`.
-        """
-        sub_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sub path of the volume to be mounted in the container.
-        """
-elif False:
-    JobTemplateContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateContainerVolumeMountArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The path within the container at which the volume should be mounted. Must not contain `:`.
+    """
+    sub_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sub path of the volume to be mounted in the container.
+    """
 
 @pulumi.input_type
 class JobTemplateContainerVolumeMountArgs:
@@ -5942,52 +5775,49 @@ class JobTemplateContainerVolumeMountArgs:
         pulumi.set(self, "sub_path", value)
 
 
-if not MYPY:
-    class JobTemplateInitContainerArgsDict(TypedDict):
-        image: pulumi.Input[_builtins.str]
-        """
-        The image to use to create the container.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the container.
-        """
-        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of extra arguments to pass to the container.
-        """
-        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The amount of vCPU to allocate to the container.
+class JobTemplateInitContainerArgsDict(TypedDict):
+    image: pulumi.Input[_builtins.str]
+    """
+    The image to use to create the container.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the container.
+    """
+    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of extra arguments to pass to the container.
+    """
+    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The amount of vCPU to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgsDict']]]]
-        """
-        One or more `env` blocks as detailed below.
-        """
-        ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of ephemeral storage available to the Container App.
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgsDict']]]]
+    """
+    One or more `env` blocks as detailed below.
+    """
+    ephemeral_storage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of ephemeral storage available to the Container App.
 
-        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        """
-        memory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The amount of memory to allocate to the container.
+    > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+    """
+    memory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The amount of memory to allocate to the container.
 
-        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
-        """
-        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgsDict']]]]
-        """
-        A `volume_mounts` block as detailed below.
-        """
-elif False:
-    JobTemplateInitContainerArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+    """
+    volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgsDict']]]]
+    """
+    A `volume_mounts` block as detailed below.
+    """
 
 @pulumi.input_type
 class JobTemplateInitContainerArgs:
@@ -6150,22 +5980,19 @@ class JobTemplateInitContainerArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
-if not MYPY:
-    class JobTemplateInitContainerEnvArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment variable.
-        """
-        secret_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Container App secret from which to pull the environment variable value.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the environment variable.
-        """
-elif False:
-    JobTemplateInitContainerEnvArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateInitContainerEnvArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment variable.
+    """
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Container App secret from which to pull the environment variable value.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the environment variable.
+    """
 
 @pulumi.input_type
 class JobTemplateInitContainerEnvArgs:
@@ -6221,22 +6048,19 @@ class JobTemplateInitContainerEnvArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class JobTemplateInitContainerVolumeMountArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The path within the container at which the volume should be mounted. Must not contain `:`.
-        """
-        sub_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sub path of the volume to be mounted in the container.
-        """
-elif False:
-    JobTemplateInitContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateInitContainerVolumeMountArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The path within the container at which the volume should be mounted. Must not contain `:`.
+    """
+    sub_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sub path of the volume to be mounted in the container.
+    """
 
 @pulumi.input_type
 class JobTemplateInitContainerVolumeMountArgs:
@@ -6291,26 +6115,23 @@ class JobTemplateInitContainerVolumeMountArgs:
         pulumi.set(self, "sub_path", value)
 
 
-if not MYPY:
-    class JobTemplateVolumeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the volume.
-        """
-        mount_options: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
-        """
-        storage_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the storage to use for the volume.
-        """
-        storage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
-        """
-elif False:
-    JobTemplateVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class JobTemplateVolumeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the volume.
+    """
+    mount_options: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+    """
+    storage_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the storage to use for the volume.
+    """
+    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir`, `NfsAzureFile` and `Secret`. Defaults to `EmptyDir`.
+    """
 
 @pulumi.input_type
 class JobTemplateVolumeArgs:

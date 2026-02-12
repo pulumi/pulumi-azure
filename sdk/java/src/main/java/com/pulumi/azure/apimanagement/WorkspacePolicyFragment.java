@@ -95,6 +95,8 @@ import javax.annotation.Nullable;
  * 
  * API Management Workspace Policy Fragments can be imported using the `resource id`, e.g.
  * 
+ * &gt; **Note:** Due to the behaviour of the API, API Management Workspace Policy Fragments can only be imported as `xml`, but can be updated to the desired format after importing.
+ * 
  * ```sh
  * $ pulumi import azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/workspaces/workspace1/policyFragments/policyFragment1
  * ```

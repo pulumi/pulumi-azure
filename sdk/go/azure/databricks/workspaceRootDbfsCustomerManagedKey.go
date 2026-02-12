@@ -165,6 +165,11 @@ import (
 type WorkspaceRootDbfsCustomerManagedKey struct {
 	pulumi.CustomResourceState
 
+	// Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+	//
+	// > **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+	//
+	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
 	KeyVaultId pulumi.StringPtrOutput `pulumi:"keyVaultId"`
 	// The ID of the Key Vault Key to be used.
 	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
@@ -214,6 +219,11 @@ func GetWorkspaceRootDbfsCustomerManagedKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceRootDbfsCustomerManagedKey resources.
 type workspaceRootDbfsCustomerManagedKeyState struct {
+	// Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+	//
+	// > **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+	//
+	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The ID of the Key Vault Key to be used.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
@@ -222,6 +232,11 @@ type workspaceRootDbfsCustomerManagedKeyState struct {
 }
 
 type WorkspaceRootDbfsCustomerManagedKeyState struct {
+	// Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+	//
+	// > **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+	//
+	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
 	KeyVaultId pulumi.StringPtrInput
 	// The ID of the Key Vault Key to be used.
 	KeyVaultKeyId pulumi.StringPtrInput
@@ -234,6 +249,11 @@ func (WorkspaceRootDbfsCustomerManagedKeyState) ElementType() reflect.Type {
 }
 
 type workspaceRootDbfsCustomerManagedKeyArgs struct {
+	// Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+	//
+	// > **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+	//
+	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The ID of the Key Vault Key to be used.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -243,6 +263,11 @@ type workspaceRootDbfsCustomerManagedKeyArgs struct {
 
 // The set of arguments for constructing a WorkspaceRootDbfsCustomerManagedKey resource.
 type WorkspaceRootDbfsCustomerManagedKeyArgs struct {
+	// Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+	//
+	// > **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+	//
+	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
 	KeyVaultId pulumi.StringPtrInput
 	// The ID of the Key Vault Key to be used.
 	KeyVaultKeyId pulumi.StringInput
@@ -337,6 +362,11 @@ func (o WorkspaceRootDbfsCustomerManagedKeyOutput) ToWorkspaceRootDbfsCustomerMa
 	return o
 }
 
+// Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+//
+// > **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+//
+// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
 func (o WorkspaceRootDbfsCustomerManagedKeyOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceRootDbfsCustomerManagedKey) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }

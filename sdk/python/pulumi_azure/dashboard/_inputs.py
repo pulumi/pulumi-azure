@@ -25,16 +25,11 @@ __all__ = [
     'GetGrafanaIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GrafanaAzureMonitorWorkspaceIntegrationArgsDict(TypedDict):
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the resource ID of the connected Azure Monitor Workspace.
-        """
-elif False:
-    GrafanaAzureMonitorWorkspaceIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class GrafanaAzureMonitorWorkspaceIntegrationArgsDict(TypedDict):
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the resource ID of the connected Azure Monitor Workspace.
+    """
 
 @pulumi.input_type
 class GrafanaAzureMonitorWorkspaceIntegrationArgs:
@@ -58,26 +53,23 @@ class GrafanaAzureMonitorWorkspaceIntegrationArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class GrafanaIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    GrafanaIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class GrafanaIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class GrafanaIdentityArgs:
@@ -149,42 +141,39 @@ class GrafanaIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class GrafanaSmtpArgsDict(TypedDict):
-        from_address: pulumi.Input[_builtins.str]
-        """
-        Address used when sending emails.
-        """
-        host: pulumi.Input[_builtins.str]
-        """
-        SMTP server hostname with port, e.g. test.email.net:587
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        Password of SMTP authentication.
-        """
-        start_tls_policy: pulumi.Input[_builtins.str]
-        """
-        Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
-        """
-        user: pulumi.Input[_builtins.str]
-        """
-        User of SMTP authentication.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
-        """
-        from_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
-        """
-        verification_skip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether verify SSL for SMTP server. Defaults to `false`.
-        """
-elif False:
-    GrafanaSmtpArgsDict: TypeAlias = Mapping[str, Any]
+class GrafanaSmtpArgsDict(TypedDict):
+    from_address: pulumi.Input[_builtins.str]
+    """
+    Address used when sending emails.
+    """
+    host: pulumi.Input[_builtins.str]
+    """
+    SMTP server hostname with port, e.g. test.email.net:587
+    """
+    password: pulumi.Input[_builtins.str]
+    """
+    Password of SMTP authentication.
+    """
+    start_tls_policy: pulumi.Input[_builtins.str]
+    """
+    Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+    """
+    user: pulumi.Input[_builtins.str]
+    """
+    User of SMTP authentication.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+    """
+    from_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+    """
+    verification_skip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether verify SSL for SMTP server. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class GrafanaSmtpArgs:
@@ -316,14 +305,11 @@ class GrafanaSmtpArgs:
         pulumi.set(self, "verification_skip_enabled", value)
 
 
-if not MYPY:
-    class GetGrafanaIdentityArgsDict(TypedDict):
-        principal_id: _builtins.str
-        tenant_id: _builtins.str
-        type: _builtins.str
-        identity_ids: NotRequired[Sequence[_builtins.str]]
-elif False:
-    GetGrafanaIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class GetGrafanaIdentityArgsDict(TypedDict):
+    principal_id: _builtins.str
+    tenant_id: _builtins.str
+    type: _builtins.str
+    identity_ids: NotRequired[Sequence[_builtins.str]]
 
 @pulumi.input_type
 class GetGrafanaIdentityArgs:

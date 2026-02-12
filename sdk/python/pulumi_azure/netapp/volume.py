@@ -58,6 +58,11 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+               
+               > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
+               
+               > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
         :param pulumi.Input[_builtins.int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
@@ -72,7 +77,9 @@ class VolumeArgs:
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+               
+               > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
@@ -192,6 +199,13 @@ class VolumeArgs:
     @_builtins.property
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Input[_builtins.str]:
+        """
+        The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+
+        > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
+
+        > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+        """
         return pulumi.get(self, "service_level")
 
     @service_level.setter
@@ -348,7 +362,9 @@ class VolumeArgs:
     @pulumi.getter(name="kerberosEnabled")
     def kerberos_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+        Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+
+        > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -593,7 +609,9 @@ class _VolumeState:
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+               
+               > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
@@ -608,6 +626,11 @@ class _VolumeState:
                > **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+               
+               > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
+               
+               > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
         :param pulumi.Input[_builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[_builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
@@ -815,7 +838,9 @@ class _VolumeState:
     @pulumi.getter(name="kerberosEnabled")
     def kerberos_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+        Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+
+        > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -950,6 +975,13 @@ class _VolumeState:
     @_builtins.property
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+
+        > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
+
+        > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+        """
         return pulumi.get(self, "service_level")
 
     @service_level.setter
@@ -1157,7 +1189,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+               
+               > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
@@ -1171,6 +1205,11 @@ class Volume(pulumi.CustomResource):
                > **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+               
+               > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
+               
+               > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
         :param pulumi.Input[_builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[_builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
@@ -1369,7 +1408,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
-        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+        :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+               
+               > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] large_volume_enabled: A boolean specifying if the volume is a large volume. Defaults to `false`.
                
@@ -1384,6 +1425,11 @@ class Volume(pulumi.CustomResource):
                > **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+               
+               > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
+               
+               > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
         :param pulumi.Input[_builtins.bool] smb3_protocol_encryption_enabled: Enable SMB encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[_builtins.bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability. Changing this forces a new resource to be created.
@@ -1523,7 +1569,9 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="kerberosEnabled")
     def kerberos_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+        Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+
+        > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -1614,6 +1662,13 @@ class Volume(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Output[_builtins.str]:
+        """
+        The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+
+        > **Note:** When updating `service_level` by migrating it to another Capacity Pool, both `service_level` and `pool_name` must be changed, otherwise the volume will be recreated with the specified `service_level`.
+
+        > **Note:** After updating `service_level` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+        """
         return pulumi.get(self, "service_level")
 
     @_builtins.property

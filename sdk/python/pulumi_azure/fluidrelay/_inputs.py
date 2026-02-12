@@ -21,20 +21,15 @@ __all__ = [
     'ServerIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ServerCustomerManagedKeyArgsDict(TypedDict):
-        key_vault_key_id: pulumi.Input[_builtins.str]
-        """
-        The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
-        """
-        user_assigned_identity_id: pulumi.Input[_builtins.str]
-        """
-        The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
-        """
-elif False:
-    ServerCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ServerCustomerManagedKeyArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+    """
+    user_assigned_identity_id: pulumi.Input[_builtins.str]
+    """
+    The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+    """
 
 @pulumi.input_type
 class ServerCustomerManagedKeyArgs:
@@ -73,26 +68,23 @@ class ServerCustomerManagedKeyArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class ServerIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Fluid Relay Service. Possible values are `SystemAssigned`,`UserAssigned` and `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID for the Service Principal associated with the Identity of this Fluid Relay Server.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID for the Service Principal associated with the Identity of this Fluid Relay Server.
-        """
-elif False:
-    ServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ServerIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Fluid Relay Service. Possible values are `SystemAssigned`,`UserAssigned` and `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID for the Service Principal associated with the Identity of this Fluid Relay Server.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID for the Service Principal associated with the Identity of this Fluid Relay Server.
+    """
 
 @pulumi.input_type
 class ServerIdentityArgs:

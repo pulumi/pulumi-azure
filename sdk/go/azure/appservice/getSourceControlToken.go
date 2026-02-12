@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to access information about an existing App Service Source Control Token.
+//
+// > **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+//
 // ## Example Usage
 //
 // ```go

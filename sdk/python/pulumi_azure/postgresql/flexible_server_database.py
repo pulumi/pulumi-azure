@@ -171,6 +171,10 @@ class FlexibleServerDatabase(pulumi.CustomResource):
                  server_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a PostgreSQL Flexible Server Database.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python
@@ -225,6 +229,10 @@ class FlexibleServerDatabase(pulumi.CustomResource):
                  args: FlexibleServerDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a PostgreSQL Flexible Server Database.
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python

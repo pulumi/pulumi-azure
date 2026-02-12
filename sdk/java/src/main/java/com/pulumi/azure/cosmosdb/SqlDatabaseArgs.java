@@ -82,9 +82,21 @@ public final class SqlDatabaseArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
+     * 
+     * &gt; **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+     * 
+     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
+    /**
+     * @return The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
+     * 
+     * &gt; **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+     * 
+     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
@@ -205,11 +217,27 @@ public final class SqlDatabaseArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param throughput The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
+         * 
+         * &gt; **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
+        /**
+         * @param throughput The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
+         * 
+         * &gt; **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }

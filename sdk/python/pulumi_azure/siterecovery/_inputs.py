@@ -55,30 +55,25 @@ __all__ = [
     'VmwareReplicatedVmNetworkInterfaceArgsDict',
 ]
 
-MYPY = False
+class ProtectionContainerMappingAutomaticUpdateArgsDict(TypedDict):
+    authentication_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 
-if not MYPY:
-    class ProtectionContainerMappingAutomaticUpdateArgsDict(TypedDict):
-        authentication_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
+    > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+    """
+    automation_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
 
-        > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
-        """
-        automation_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+    > **Note:** `automation_account_id` is required when `enabled` is specified.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
 
-        > **Note:** `automation_account_id` is required when `enabled` is specified.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-
-        > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-        """
-elif False:
-    ProtectionContainerMappingAutomaticUpdateArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
+    """
 
 @pulumi.input_type
 class ProtectionContainerMappingAutomaticUpdateArgs:
@@ -147,40 +142,37 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ReplicatedVMManagedDiskArgsDict(TypedDict):
-        disk_id: pulumi.Input[_builtins.str]
-        """
-        Id of disk that should be replicated. Changing this forces a new resource to be created.
-        """
-        staging_storage_account_id: pulumi.Input[_builtins.str]
-        """
-        Storage account that should be used for caching. Changing this forces a new resource to be created.
-        """
-        target_disk_type: pulumi.Input[_builtins.str]
-        """
-        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
-        target_replica_disk_type: pulumi.Input[_builtins.str]
-        """
-        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
-        target_resource_group_id: pulumi.Input[_builtins.str]
-        """
-        Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
-        """
-        target_disk_encryption: NotRequired[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict']]
-        """
-        A `target_disk_encryption` block as defined below.
-        """
-        target_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
+class ReplicatedVMManagedDiskArgsDict(TypedDict):
+    disk_id: pulumi.Input[_builtins.str]
+    """
+    Id of disk that should be replicated. Changing this forces a new resource to be created.
+    """
+    staging_storage_account_id: pulumi.Input[_builtins.str]
+    """
+    Storage account that should be used for caching. Changing this forces a new resource to be created.
+    """
+    target_disk_type: pulumi.Input[_builtins.str]
+    """
+    What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+    """
+    target_replica_disk_type: pulumi.Input[_builtins.str]
+    """
+    What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+    """
+    target_resource_group_id: pulumi.Input[_builtins.str]
+    """
+    Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
+    """
+    target_disk_encryption: NotRequired[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict']]
+    """
+    A `target_disk_encryption` block as defined below.
+    """
+    target_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 
-        > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
-        """
-elif False:
-    ReplicatedVMManagedDiskArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+    """
 
 @pulumi.input_type
 class ReplicatedVMManagedDiskArgs:
@@ -300,18 +292,15 @@ class ReplicatedVMManagedDiskArgs:
         pulumi.set(self, "target_disk_encryption_set_id", value)
 
 
-if not MYPY:
-    class ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict(TypedDict):
-        disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgsDict']
-        """
-        A `disk_encryption_key` block as defined below.
-        """
-        key_encryption_key: NotRequired[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict']]
-        """
-        A `key_encryption_key` block as defined below.
-        """
-elif False:
-    ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict(TypedDict):
+    disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgsDict']
+    """
+    A `disk_encryption_key` block as defined below.
+    """
+    key_encryption_key: NotRequired[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict']]
+    """
+    A `key_encryption_key` block as defined below.
+    """
 
 @pulumi.input_type
 class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
@@ -351,18 +340,15 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
         pulumi.set(self, "key_encryption_key", value)
 
 
-if not MYPY:
-    class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgsDict(TypedDict):
-        secret_url: pulumi.Input[_builtins.str]
-        """
-        The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
-        """
-        vault_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
-        """
-elif False:
-    ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgsDict(TypedDict):
+    secret_url: pulumi.Input[_builtins.str]
+    """
+    The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+    """
+    vault_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
@@ -401,18 +387,15 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
         pulumi.set(self, "vault_id", value)
 
 
-if not MYPY:
-    class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict(TypedDict):
-        key_url: pulumi.Input[_builtins.str]
-        """
-        The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
-        """
-        vault_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
-        """
-elif False:
-    ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict(TypedDict):
+    key_url: pulumi.Input[_builtins.str]
+    """
+    The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+    """
+    vault_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
@@ -451,42 +434,39 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
         pulumi.set(self, "vault_id", value)
 
 
-if not MYPY:
-    class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
-        failover_test_public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the public IP object to use when a test failover is done.
-        """
-        failover_test_static_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Static IP to assign when a test failover is done.
-        """
-        failover_test_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the subnet to use when a test failover is done.
-        """
-        recovery_load_balancer_backend_address_pool_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-        """
-        recovery_public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the public IP object to use when a failover is done.
-        """
-        source_network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required if the network_interface block is specified) Id source network interface.
-        """
-        target_static_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Static IP to assign when a failover is done.
-        """
-        target_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the subnet to use when a failover is done.
-        """
-elif False:
-    ReplicatedVMNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
+    failover_test_public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the public IP object to use when a test failover is done.
+    """
+    failover_test_static_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Static IP to assign when a test failover is done.
+    """
+    failover_test_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the subnet to use when a test failover is done.
+    """
+    recovery_load_balancer_backend_address_pool_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+    """
+    recovery_public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the public IP object to use when a failover is done.
+    """
+    source_network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required if the network_interface block is specified) Id source network interface.
+    """
+    target_static_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Static IP to assign when a failover is done.
+    """
+    target_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the subnet to use when a failover is done.
+    """
 
 @pulumi.input_type
 class ReplicatedVMNetworkInterfaceArgs:
@@ -623,22 +603,19 @@ class ReplicatedVMNetworkInterfaceArgs:
         pulumi.set(self, "target_subnet_name", value)
 
 
-if not MYPY:
-    class ReplicatedVMUnmanagedDiskArgsDict(TypedDict):
-        disk_uri: pulumi.Input[_builtins.str]
-        """
-        Id of disk that should be replicated. Changing this forces a new resource to be created.
-        """
-        staging_storage_account_id: pulumi.Input[_builtins.str]
-        """
-        Storage account that should be used for caching. Changing this forces a new resource to be created.
-        """
-        target_storage_account_id: pulumi.Input[_builtins.str]
-        """
-        Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
-        """
-elif False:
-    ReplicatedVMUnmanagedDiskArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatedVMUnmanagedDiskArgsDict(TypedDict):
+    disk_uri: pulumi.Input[_builtins.str]
+    """
+    Id of disk that should be replicated. Changing this forces a new resource to be created.
+    """
+    staging_storage_account_id: pulumi.Input[_builtins.str]
+    """
+    Storage account that should be used for caching. Changing this forces a new resource to be created.
+    """
+    target_storage_account_id: pulumi.Input[_builtins.str]
+    """
+    Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ReplicatedVMUnmanagedDiskArgs:
@@ -692,30 +669,27 @@ class ReplicatedVMUnmanagedDiskArgs:
         pulumi.set(self, "target_storage_account_id", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanAzureToAzureSettingsArgsDict(TypedDict):
-        primary_edge_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
-        """
-        primary_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
-        """
-        recovery_edge_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+class ReplicationRecoveryPlanAzureToAzureSettingsArgsDict(TypedDict):
+    primary_edge_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+    """
+    primary_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+    """
+    recovery_edge_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
 
-        > **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
-        """
-        recovery_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
+    > **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+    """
+    recovery_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
 
-        > **Note:** `primary_zone` and `recovery_zone` must be specified together.
-        """
-elif False:
-    ReplicationRecoveryPlanAzureToAzureSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `primary_zone` and `recovery_zone` must be specified together.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
@@ -796,22 +770,19 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
         pulumi.set(self, "recovery_zone", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanBootRecoveryGroupArgsDict(TypedDict):
-        post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict']]]]
-        """
-        one or more `action` block as defined below. which will be executed after the group recovery.
-        """
-        pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict']]]]
-        """
-        one or more `action` block as defined below. which will be executed before the group recovery.
-        """
-        replicated_protected_items: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more protected VM IDs.
-        """
-elif False:
-    ReplicationRecoveryPlanBootRecoveryGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationRecoveryPlanBootRecoveryGroupArgsDict(TypedDict):
+    post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict']]]]
+    """
+    one or more `action` block as defined below. which will be executed after the group recovery.
+    """
+    pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict']]]]
+    """
+    one or more `action` block as defined below. which will be executed before the group recovery.
+    """
+    replicated_protected_items: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more protected VM IDs.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanBootRecoveryGroupArgs:
@@ -868,50 +839,47 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
         pulumi.set(self, "replicated_protected_items", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict(TypedDict):
-        fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-        """
-        fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-        """
-        fabric_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict(TypedDict):
+    fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+    """
+    fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+    """
+    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-        """
-        manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instructions of manual action.
+    > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+    """
+    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instructions of manual action.
 
-        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
-        """
-        runbook_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of runbook.
+    > **Note:** This property is required when `type` is set to `ManualActionDetails`.
+    """
+    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of runbook.
 
-        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-        """
-        script_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of action script.
+    > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+    """
+    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path of action script.
 
-        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
-        """
-elif False:
-    ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
@@ -1060,50 +1028,47 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         pulumi.set(self, "script_path", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict(TypedDict):
-        fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-        """
-        fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-        """
-        fabric_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict(TypedDict):
+    fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+    """
+    fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+    """
+    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-        """
-        manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instructions of manual action.
+    > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+    """
+    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instructions of manual action.
 
-        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
-        """
-        runbook_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of runbook.
+    > **Note:** This property is required when `type` is set to `ManualActionDetails`.
+    """
+    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of runbook.
 
-        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-        """
-        script_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of action script.
+    > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+    """
+    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path of action script.
 
-        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
-        """
-elif False:
-    ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
@@ -1252,18 +1217,15 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         pulumi.set(self, "script_path", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict(TypedDict):
-        post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict']]]]
-        """
-        one or more `action` block as defined below. which will be executed after the group recovery.
-        """
-        pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict']]]]
-        """
-        one or more `action` block as defined below. which will be executed before the group recovery.
-        """
-elif False:
-    ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict(TypedDict):
+    post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict']]]]
+    """
+    one or more `action` block as defined below. which will be executed after the group recovery.
+    """
+    pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict']]]]
+    """
+    one or more `action` block as defined below. which will be executed before the group recovery.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
@@ -1304,50 +1266,47 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
         pulumi.set(self, "pre_actions", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict(TypedDict):
-        fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-        """
-        fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-        """
-        fabric_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict(TypedDict):
+    fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+    """
+    fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+    """
+    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-        """
-        manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instructions of manual action.
+    > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+    """
+    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instructions of manual action.
 
-        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
-        """
-        runbook_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of runbook.
+    > **Note:** This property is required when `type` is set to `ManualActionDetails`.
+    """
+    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of runbook.
 
-        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-        """
-        script_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of action script.
+    > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+    """
+    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path of action script.
 
-        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
-        """
-elif False:
-    ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
@@ -1496,50 +1455,47 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         pulumi.set(self, "script_path", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict(TypedDict):
-        fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-        """
-        fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-        """
-        fabric_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict(TypedDict):
+    fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+    """
+    fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+    """
+    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-        """
-        manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instructions of manual action.
+    > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+    """
+    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instructions of manual action.
 
-        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
-        """
-        runbook_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of runbook.
+    > **Note:** This property is required when `type` is set to `ManualActionDetails`.
+    """
+    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of runbook.
 
-        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-        """
-        script_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of action script.
+    > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+    """
+    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path of action script.
 
-        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
-        """
-elif False:
-    ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
@@ -1688,18 +1644,15 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         pulumi.set(self, "script_path", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict(TypedDict):
-        post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict']]]]
-        """
-        one or more `action` block as defined below. which will be executed after the group recovery.
-        """
-        pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict']]]]
-        """
-        one or more `action` block as defined below. which will be executed before the group recovery.
-        """
-elif False:
-    ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict(TypedDict):
+    post_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict']]]]
+    """
+    one or more `action` block as defined below. which will be executed after the group recovery.
+    """
+    pre_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict']]]]
+    """
+    one or more `action` block as defined below. which will be executed before the group recovery.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
@@ -1740,50 +1693,47 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
         pulumi.set(self, "pre_actions", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict(TypedDict):
-        fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-        """
-        fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-        """
-        fabric_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict(TypedDict):
+    fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+    """
+    fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+    """
+    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-        """
-        manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instructions of manual action.
+    > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+    """
+    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instructions of manual action.
 
-        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
-        """
-        runbook_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of runbook.
+    > **Note:** This property is required when `type` is set to `ManualActionDetails`.
+    """
+    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of runbook.
 
-        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-        """
-        script_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of action script.
+    > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+    """
+    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path of action script.
 
-        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
-        """
-elif False:
-    ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
@@ -1932,50 +1882,47 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         pulumi.set(self, "script_path", value)
 
 
-if not MYPY:
-    class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict(TypedDict):
-        fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-        """
-        fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
-        """
-        fabric_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict(TypedDict):
+    fail_over_directions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+    """
+    fail_over_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+    """
+    fabric_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 
-        > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-        """
-        manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Instructions of manual action.
+    > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+    """
+    manual_action_instruction: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Instructions of manual action.
 
-        > **Note:** This property is required when `type` is set to `ManualActionDetails`.
-        """
-        runbook_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of runbook.
+    > **Note:** This property is required when `type` is set to `ManualActionDetails`.
+    """
+    runbook_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of runbook.
 
-        > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-        """
-        script_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path of action script.
+    > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+    """
+    script_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path of action script.
 
-        > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
-        """
-elif False:
-    ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
+    """
 
 @pulumi.input_type
 class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
@@ -2124,26 +2071,23 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         pulumi.set(self, "script_path", value)
 
 
-if not MYPY:
-    class VmwareReplicatedVmManagedDiskArgsDict(TypedDict):
-        disk_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the disk to be replicated.
-        """
-        target_disk_type: pulumi.Input[_builtins.str]
-        """
-        The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
-        """
-        log_storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the storage account that should be used for logging during replication.
-        """
-        target_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
-        """
-elif False:
-    VmwareReplicatedVmManagedDiskArgsDict: TypeAlias = Mapping[str, Any]
+class VmwareReplicatedVmManagedDiskArgsDict(TypedDict):
+    disk_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the disk to be replicated.
+    """
+    target_disk_type: pulumi.Input[_builtins.str]
+    """
+    The disk type of the disk to be created when a failover is done. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`.
+    """
+    log_storage_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the storage account that should be used for logging during replication.
+    """
+    target_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+    """
 
 @pulumi.input_type
 class VmwareReplicatedVmManagedDiskArgs:
@@ -2214,30 +2158,27 @@ class VmwareReplicatedVmManagedDiskArgs:
         pulumi.set(self, "target_disk_encryption_set_id", value)
 
 
-if not MYPY:
-    class VmwareReplicatedVmNetworkInterfaceArgsDict(TypedDict):
-        is_primary: pulumi.Input[_builtins.bool]
-        """
-        Whether this `network_interface` is primary for the replicated VM.
-        """
-        source_mac_address: pulumi.Input[_builtins.str]
-        """
-        Mac address of the network interface of source VM.
-        """
-        target_static_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Static IP to assign when a failover is done.
-        """
-        target_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the subnet to use when a failover is done.
-        """
-        test_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the subnet to use when a test failover is done.
-        """
-elif False:
-    VmwareReplicatedVmNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class VmwareReplicatedVmNetworkInterfaceArgsDict(TypedDict):
+    is_primary: pulumi.Input[_builtins.bool]
+    """
+    Whether this `network_interface` is primary for the replicated VM.
+    """
+    source_mac_address: pulumi.Input[_builtins.str]
+    """
+    Mac address of the network interface of source VM.
+    """
+    target_static_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Static IP to assign when a failover is done.
+    """
+    target_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the subnet to use when a failover is done.
+    """
+    test_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the subnet to use when a test failover is done.
+    """
 
 @pulumi.input_type
 class VmwareReplicatedVmNetworkInterfaceArgs:

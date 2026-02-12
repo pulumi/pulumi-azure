@@ -200,6 +200,11 @@ namespace Pulumi.Azure.AppService
         [Output("logs")]
         public Output<Outputs.LinuxWebAppSlotLogs?> Logs { get; private set; } = null!;
 
+        /// <summary>
+        /// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+        /// 
+        /// &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -271,6 +276,13 @@ namespace Pulumi.Azure.AppService
         [Output("virtualNetworkBackupRestoreEnabled")]
         public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the web app slot configuration.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -457,6 +469,11 @@ namespace Pulumi.Azure.AppService
         [Input("logs")]
         public Input<Inputs.LinuxWebAppSlotLogsArgs>? Logs { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+        /// 
+        /// &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -510,6 +527,13 @@ namespace Pulumi.Azure.AppService
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
+        /// <summary>
+        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the web app slot configuration.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -699,6 +723,11 @@ namespace Pulumi.Azure.AppService
         [Input("logs")]
         public Input<Inputs.LinuxWebAppSlotLogsGetArgs>? Logs { get; set; }
 
+        /// <summary>
+        /// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+        /// 
+        /// &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -804,6 +833,13 @@ namespace Pulumi.Azure.AppService
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
+        /// <summary>
+        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource AppServiceVirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the web app slot configuration.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 

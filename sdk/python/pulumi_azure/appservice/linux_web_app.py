@@ -71,11 +71,19 @@ class LinuxWebAppArgs:
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -373,6 +381,11 @@ class LinuxWebAppArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -442,6 +455,13 @@ class LinuxWebAppArgs:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -554,6 +574,9 @@ class _LinuxWebAppState:
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A list of possible outbound ip address.
@@ -567,6 +590,11 @@ class _LinuxWebAppState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -897,6 +925,11 @@ class _LinuxWebAppState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1062,6 +1095,13 @@ class _LinuxWebAppState:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -1206,6 +1246,9 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
@@ -1214,6 +1257,11 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1445,6 +1493,9 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A list of possible outbound ip address.
@@ -1458,6 +1509,11 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1675,6 +1731,11 @@ class LinuxWebApp(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -1784,6 +1845,13 @@ class LinuxWebApp(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property

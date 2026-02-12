@@ -204,6 +204,10 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
                  rule_collection_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a Network Manager Routing Rule.
+
+        !> **Note:** Terraform has enabled force deletion. This setting deletes the resource even if it's part of a deployed configuration. If the configuration is deployed, the service will perform a cleanup deployment in the background before the deletion.
+
         ## Example Usage
 
         ```python
@@ -276,6 +280,10 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
                  args: NetworkManagerRoutingRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Network Manager Routing Rule.
+
+        !> **Note:** Terraform has enabled force deletion. This setting deletes the resource even if it's part of a deployed configuration. If the configuration is deployed, the service will perform a cleanup deployment in the background before the deletion.
+
         ## Example Usage
 
         ```python

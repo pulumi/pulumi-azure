@@ -353,6 +353,11 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      * The Unique ID for this Windows Virtual Machine Scale Set.
      */
     declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    /**
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+     */
     declare public readonly upgradeMode: pulumi.Output<string | undefined>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -779,6 +784,11 @@ export interface WindowsVirtualMachineScaleSetState {
      * The Unique ID for this Windows Virtual Machine Scale Set.
      */
     uniqueId?: pulumi.Input<string>;
+    /**
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+     */
     upgradeMode?: pulumi.Input<string>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -1042,6 +1052,11 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
     timezone?: pulumi.Input<string>;
+    /**
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+     */
     upgradeMode?: pulumi.Input<string>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.

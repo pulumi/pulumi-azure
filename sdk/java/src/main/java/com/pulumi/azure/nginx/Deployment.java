@@ -377,9 +377,21 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     * 
+     * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
+    /**
+     * @return Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     * 
+     * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     public Output<String> sku() {
         return this.sku;
     }

@@ -19,20 +19,15 @@ __all__ = [
     'CapacitySkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CapacitySkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
-        """
-        tier: pulumi.Input[_builtins.str]
-        """
-        The tier of the SKU to use for the Fabric Capacity. The only possible value is `Fabric`.
-        """
-elif False:
-    CapacitySkuArgsDict: TypeAlias = Mapping[str, Any]
+class CapacitySkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+    """
+    tier: pulumi.Input[_builtins.str]
+    """
+    The tier of the SKU to use for the Fabric Capacity. The only possible value is `Fabric`.
+    """
 
 @pulumi.input_type
 class CapacitySkuArgs:

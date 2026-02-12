@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql
 {
     /// <summary>
+    /// Manages a MS SQL Database.
+    /// 
+    /// !&gt; **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `PreventDestroy` lifecycle argument in your configuration file for this resource. For more information on the `PreventDestroy` lifecycle argument please see the terraform documentation.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

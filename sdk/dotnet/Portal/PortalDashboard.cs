@@ -10,6 +10,201 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Portal
 {
     /// <summary>
+    /// Manages a shared dashboard in the Azure Portal.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     // Content for the MD tile
+    ///     var mdContent = config.Get("mdContent") ?? "# Hello all :)";
+    ///     // Link to a video
+    ///     var videoLink = config.Get("videoLink") ?? "https://www.youtube.com/watch?v=......";
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "mygroup",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var my_board = new Azure.Portal.PortalDashboard("my-board", new()
+    ///     {
+    ///         Name = "my-cool-dashboard",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Tags = 
+    ///         {
+    ///             { "source", "terraform" },
+    ///         },
+    ///         DashboardProperties = @$"{{
+    ///    \""lenses\"": {{
+    ///         \""0\"": {{
+    ///             \""order\"": 0,
+    ///             \""parts\"": {{
+    ///                 \""0\"": {{
+    ///                     \""position\"": {{
+    ///                         \""x\"": 0,
+    ///                         \""y\"": 0,
+    ///                         \""rowSpan\"": 2,
+    ///                         \""colSpan\"": 3
+    ///                     }},
+    ///                     \""metadata\"": {{
+    ///                         \""inputs\"": [],
+    ///                         \""type\"": \""Extension/HubsExtension/PartType/MarkdownPart\"",
+    ///                         \""settings\"": {{
+    ///                             \""content\"": {{
+    ///                                 \""settings\"": {{
+    ///                                     \""content\"": \""{mdContent}\"",
+    ///                                     \""subtitle\"": \""\"",
+    ///                                     \""title\"": \""\""
+    ///                                 }}
+    ///                             }}
+    ///                         }}
+    ///                     }}
+    ///                 }},               
+    ///                 \""1\"": {{
+    ///                     \""position\"": {{
+    ///                         \""x\"": 5,
+    ///                         \""y\"": 0,
+    ///                         \""rowSpan\"": 4,
+    ///                         \""colSpan\"": 6
+    ///                     }},
+    ///                     \""metadata\"": {{
+    ///                         \""inputs\"": [],
+    ///                         \""type\"": \""Extension/HubsExtension/PartType/VideoPart\"",
+    ///                         \""settings\"": {{
+    ///                             \""content\"": {{
+    ///                                 \""settings\"": {{
+    ///                                     \""title\"": \""Important Information\"",
+    ///                                     \""subtitle\"": \""\"",
+    ///                                     \""src\"": \""{videoLink}\"",
+    ///                                     \""autoplay\"": true
+    ///                                 }}
+    ///                             }}
+    ///                         }}
+    ///                     }}
+    ///                 }},
+    ///                 \""2\"": {{
+    ///                     \""position\"": {{
+    ///                         \""x\"": 0,
+    ///                         \""y\"": 4,
+    ///                         \""rowSpan\"": 4,
+    ///                         \""colSpan\"": 6
+    ///                     }},
+    ///                     \""metadata\"": {{
+    ///                         \""inputs\"": [
+    ///                             {{
+    ///                                 \""name\"": \""ComponentId\"",
+    ///                                 \""value\"": \""/subscriptions/{current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.SubscriptionId)}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp\""
+    ///                             }}
+    ///                         ],
+    ///                         \""type\"": \""Extension/AppInsightsExtension/PartType/AppMapGalPt\"",
+    ///                         \""settings\"": {{}},
+    ///                         \""asset\"": {{
+    ///                             \""idInputName\"": \""ComponentId\"",
+    ///                             \""type\"": \""ApplicationInsights\""
+    ///                         }}
+    ///                     }}
+    ///                 }}              
+    ///             }}
+    ///         }}
+    ///     }},
+    ///     \""metadata\"": {{
+    ///         \""model\"": {{
+    ///             \""timeRange\"": {{
+    ///                 \""value\"": {{
+    ///                     \""relative\"": {{
+    ///                         \""duration\"": 24,
+    ///                         \""timeUnit\"": 1
+    ///                     }}
+    ///                 }},
+    ///                 \""type\"": \""MsPortalFx.Composition.Configuration.ValueTypes.TimeRange\""
+    ///             }},
+    ///             \""filterLocale\"": {{
+    ///                 \""value\"": \""en-us\""
+    ///             }},
+    ///             \""filters\"": {{
+    ///                 \""value\"": {{
+    ///                     \""MsPortalFx_TimeRange\"": {{
+    ///                         \""model\"": {{
+    ///                             \""format\"": \""utc\"",
+    ///                             \""granularity\"": \""auto\"",
+    ///                             \""relative\"": \""24h\""
+    ///                         }},
+    ///                         \""displayCache\"": {{
+    ///                             \""name\"": \""UTC Time\"",
+    ///                             \""value\"": \""Past 24 hours\""
+    ///                         }},
+    ///                         \""filteredPartIds\"": [
+    ///                             \""StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7\""
+    ///                         ]
+    ///                     }}
+    ///                 }}
+    ///             }}
+    ///         }}
+    ///     }}
+    /// }}
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// It is recommended to follow the steps outlined
+    /// [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+    /// 
+    /// ### Using a `TemplateFile` data source or the `Templatefile` function
+    /// 
+    /// Since the contents of the dashboard JSON can be quite lengthy, use a template file to improve readability:
+    /// 
+    /// `dash.tpl`:
+    /// 
+    /// This is then referenced in the `.tf` file by using a `TemplateFile` data source (terraform 0.11 or earlier), or the `Templatefile` function (terraform 0.12+).
+    /// 
+    /// `main.tf` (terraform 0.11 or earlier):
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azurerm = Pulumi.Azurerm;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dash_template = NotImplemented("The template_file data resource is not yet supported.");
+    /// 
+    ///     //...
+    ///     var my_board = new Azurerm.Index.Dashboard("my-board", new()
+    ///     {
+    ///         Name = "my-cool-dashboard",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Tags = 
+    ///         {
+    ///             { "source", "terraform" },
+    ///         },
+    ///         DashboardProperties = dash_template.Rendered,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// `main.tf` (terraform 0.12+)
+    /// 
     /// ## Import
     /// 
     /// Dashboards can be imported using the `resource id`, e.g.

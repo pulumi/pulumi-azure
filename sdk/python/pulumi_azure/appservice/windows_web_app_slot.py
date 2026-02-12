@@ -67,6 +67,9 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input['WindowsWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input['WindowsWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
                
@@ -79,6 +82,11 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -344,6 +352,11 @@ class WindowsWebAppSlotArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -431,6 +444,13 @@ class WindowsWebAppSlotArgs:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -525,6 +545,9 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Windows Web App Slot.
         :param pulumi.Input['WindowsWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A list of possible outbound ip address.
@@ -543,6 +566,11 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -864,6 +892,11 @@ class _WindowsWebAppSlotState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1023,6 +1056,13 @@ class _WindowsWebAppSlotState:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -1153,6 +1193,9 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
                
@@ -1166,6 +1209,11 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1388,6 +1436,9 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Windows Web App Slot.
         :param pulumi.Input[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A list of possible outbound ip address.
@@ -1406,6 +1457,11 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1616,6 +1672,11 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -1723,6 +1784,13 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property

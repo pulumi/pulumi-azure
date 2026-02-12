@@ -45,6 +45,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The thumbprint of the certificate used for signing purposes.
      * 
+     * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+     * 
      */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
@@ -122,6 +124,8 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     }
     /**
      * @return The thumbprint of the certificate used for signing purposes.
+     * 
+     * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
      * 
      */
     public Optional<String> clientSecretCertificateThumbprint() {

@@ -67,6 +67,9 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input['LinuxWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input['LinuxWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
                
@@ -74,6 +77,11 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -344,6 +352,11 @@ class LinuxWebAppSlotArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -415,6 +428,13 @@ class LinuxWebAppSlotArgs:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -527,6 +547,9 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input['LinuxWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list`.
@@ -540,6 +563,11 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -880,6 +908,11 @@ class _LinuxWebAppSlotState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1023,6 +1056,13 @@ class _LinuxWebAppSlotState:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -1169,6 +1209,9 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
                
@@ -1177,6 +1220,11 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1407,6 +1455,9 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list`.
@@ -1420,6 +1471,11 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1644,6 +1700,11 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -1739,6 +1800,13 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `app_service_virtual_network_swift_connection` then `ignore_changes` should be used in the web app slot configuration.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property

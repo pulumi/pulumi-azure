@@ -112,6 +112,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation association1 &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securityGroup1&#34;
  * ```
  * 
+ * &gt; **Note:** This ID is specific to this provider - and is of the format `{networkInterfaceId}|{applicationSecurityGroupId}`.
+ * 
  */
 @ResourceType(type="azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation")
 public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pulumi.resources.CustomResource {

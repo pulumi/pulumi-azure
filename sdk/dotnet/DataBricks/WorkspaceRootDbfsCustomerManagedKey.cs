@@ -157,6 +157,13 @@ namespace Pulumi.Azure.DataBricks
     [AzureResourceType("azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey")]
     public partial class WorkspaceRootDbfsCustomerManagedKey : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the Resource ID of the Key Vault which contains the `KeyVaultKeyId`.
+        /// 
+        /// &gt; **Note:** The `KeyVaultId` field only needs to be specified if the Key Vault which contains the `KeyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `KeyVaultId` field is not specified it is assumed that the `KeyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+        /// 
+        /// &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+        /// </summary>
         [Output("keyVaultId")]
         public Output<string?> KeyVaultId { get; private set; } = null!;
 
@@ -222,6 +229,13 @@ namespace Pulumi.Azure.DataBricks
 
     public sealed class WorkspaceRootDbfsCustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the Resource ID of the Key Vault which contains the `KeyVaultKeyId`.
+        /// 
+        /// &gt; **Note:** The `KeyVaultId` field only needs to be specified if the Key Vault which contains the `KeyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `KeyVaultId` field is not specified it is assumed that the `KeyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+        /// 
+        /// &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
@@ -245,6 +259,13 @@ namespace Pulumi.Azure.DataBricks
 
     public sealed class WorkspaceRootDbfsCustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the Resource ID of the Key Vault which contains the `KeyVaultKeyId`.
+        /// 
+        /// &gt; **Note:** The `KeyVaultId` field only needs to be specified if the Key Vault which contains the `KeyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `KeyVaultId` field is not specified it is assumed that the `KeyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+        /// 
+        /// &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+        /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 

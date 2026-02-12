@@ -17,6 +17,15 @@ namespace Pulumi.Azure.Storage.Outputs
         /// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `User` or `Group` entries.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies the permissions for the entry in `Rwx` form. For example, `Rwx` gives full permissions but `r--` only gives read permissions.
+        /// 
+        /// More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+        /// 
+        /// &gt; **Note:** Using the service's ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+        /// 
+        /// &gt; **Note:** The Storage Account requires `AccountKind` to be either `StorageV2` or `BlobStorage`. In addition, `IsHnsEnabled` has to be set to `True`.
+        /// </summary>
         public readonly string Permissions;
         /// <summary>
         /// Specifies whether the ACE represents an `Access` entry or a `Default` entry. Default value is `Access`.

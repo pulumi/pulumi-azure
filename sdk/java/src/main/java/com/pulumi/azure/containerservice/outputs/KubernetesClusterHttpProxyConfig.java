@@ -22,6 +22,14 @@ public final class KubernetesClusterHttpProxyConfig {
      * 
      */
     private @Nullable String httpsProxy;
+    /**
+     * @return The list of domains that will not use the proxy for communication.
+     * 
+     * &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+     * 
+     * &gt; **Note:** You may wish to use Terraform&#39;s `ignoreChanges` functionality to ignore the changes to this field.
+     * 
+     */
     private @Nullable List<String> noProxies;
     /**
      * @return The base64 encoded alternative CA certificate content in PEM format.
@@ -44,6 +52,14 @@ public final class KubernetesClusterHttpProxyConfig {
     public Optional<String> httpsProxy() {
         return Optional.ofNullable(this.httpsProxy);
     }
+    /**
+     * @return The list of domains that will not use the proxy for communication.
+     * 
+     * &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+     * 
+     * &gt; **Note:** You may wish to use Terraform&#39;s `ignoreChanges` functionality to ignore the changes to this field.
+     * 
+     */
     public List<String> noProxies() {
         return this.noProxies == null ? List.of() : this.noProxies;
     }

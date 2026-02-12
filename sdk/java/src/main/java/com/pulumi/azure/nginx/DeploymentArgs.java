@@ -249,9 +249,21 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     * 
+     * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
+    /**
+     * @return Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     * 
+     * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     public Output<String> sku() {
         return this.sku;
     }
@@ -674,11 +686,27 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param sku Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+         * 
+         * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(Output<String> sku) {
             $.sku = sku;
             return this;
         }
 
+        /**
+         * @param sku Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+         * 
+         * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
         }

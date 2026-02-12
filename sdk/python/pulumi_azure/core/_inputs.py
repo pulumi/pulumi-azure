@@ -109,20 +109,15 @@ __all__ = [
     'SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomProviderActionArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        Specifies the endpoint of the action.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the action.
-        """
-elif False:
-    CustomProviderActionArgsDict: TypeAlias = Mapping[str, Any]
+class CustomProviderActionArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    Specifies the endpoint of the action.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the action.
+    """
 
 @pulumi.input_type
 class CustomProviderActionArgs:
@@ -161,22 +156,19 @@ class CustomProviderActionArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CustomProviderResourceTypeArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        Specifies the endpoint of the route definition.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the route definition.
-        """
-        routing_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. Defaults to `Proxy`.
-        """
-elif False:
-    CustomProviderResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+class CustomProviderResourceTypeArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    Specifies the endpoint of the route definition.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the route definition.
+    """
+    routing_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. Defaults to `Proxy`.
+    """
 
 @pulumi.input_type
 class CustomProviderResourceTypeArgs:
@@ -231,14 +223,11 @@ class CustomProviderResourceTypeArgs:
         pulumi.set(self, "routing_type", value)
 
 
-if not MYPY:
-    class CustomProviderValidationArgsDict(TypedDict):
-        specification: pulumi.Input[_builtins.str]
-        """
-        The endpoint where the validation specification is located.
-        """
-elif False:
-    CustomProviderValidationArgsDict: TypeAlias = Mapping[str, Any]
+class CustomProviderValidationArgsDict(TypedDict):
+    specification: pulumi.Input[_builtins.str]
+    """
+    The endpoint where the validation specification is located.
+    """
 
 @pulumi.input_type
 class CustomProviderValidationArgs:
@@ -262,14 +251,11 @@ class CustomProviderValidationArgs:
         pulumi.set(self, "specification", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptAzureCliContainerArgsDict(TypedDict):
-        container_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
-        """
-elif False:
-    ResourceDeploymentScriptAzureCliContainerArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptAzureCliContainerArgsDict(TypedDict):
+    container_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptAzureCliContainerArgs:
@@ -294,22 +280,19 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
         pulumi.set(self, "container_group_name", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptAzureCliEnvironmentVariableArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the environment variable.
-        """
-        secure_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the value of the secure environment variable.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the value of the environment variable.
-        """
-elif False:
-    ResourceDeploymentScriptAzureCliEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptAzureCliEnvironmentVariableArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the environment variable.
+    """
+    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the value of the secure environment variable.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the value of the environment variable.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
@@ -365,18 +348,15 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptAzureCliIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
-        """
-elif False:
-    ResourceDeploymentScriptAzureCliIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptAzureCliIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptAzureCliIdentityArgs:
@@ -415,18 +395,15 @@ class ResourceDeploymentScriptAzureCliIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptAzureCliStorageAccountArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Specifies the storage account access key.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the storage account name.
-        """
-elif False:
-    ResourceDeploymentScriptAzureCliStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptAzureCliStorageAccountArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Specifies the storage account access key.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the storage account name.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptAzureCliStorageAccountArgs:
@@ -465,14 +442,11 @@ class ResourceDeploymentScriptAzureCliStorageAccountArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptPowerShellContainerArgsDict(TypedDict):
-        container_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
-        """
-elif False:
-    ResourceDeploymentScriptPowerShellContainerArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptPowerShellContainerArgsDict(TypedDict):
+    container_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptPowerShellContainerArgs:
@@ -497,22 +471,19 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
         pulumi.set(self, "container_group_name", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the environment variable.
-        """
-        secure_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the value of the secure environment variable.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the value of the environment variable.
-        """
-elif False:
-    ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the environment variable.
+    """
+    secure_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the value of the secure environment variable.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the value of the environment variable.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
@@ -568,18 +539,15 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptPowerShellIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
-        """
-elif False:
-    ResourceDeploymentScriptPowerShellIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptPowerShellIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the managed identity. The only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptPowerShellIdentityArgs:
@@ -618,18 +586,15 @@ class ResourceDeploymentScriptPowerShellIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceDeploymentScriptPowerShellStorageAccountArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Specifies the storage account access key.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the storage account name.
-        """
-elif False:
-    ResourceDeploymentScriptPowerShellStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceDeploymentScriptPowerShellStorageAccountArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Specifies the storage account access key.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the storage account name.
+    """
 
 @pulumi.input_type
 class ResourceDeploymentScriptPowerShellStorageAccountArgs:
@@ -668,18 +633,15 @@ class ResourceDeploymentScriptPowerShellStorageAccountArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementExportExportDataOptionsArgsDict(TypedDict):
-        time_frame: pulumi.Input[_builtins.str]
-        """
-        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
-        """
-elif False:
-    ResourceGroupCostManagementExportExportDataOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupCostManagementExportExportDataOptionsArgsDict(TypedDict):
+    time_frame: pulumi.Input[_builtins.str]
+    """
+    The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementExportExportDataOptionsArgs:
@@ -718,20 +680,17 @@ class ResourceGroupCostManagementExportExportDataOptionsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementExportExportDataStorageLocationArgsDict(TypedDict):
-        container_id: pulumi.Input[_builtins.str]
-        """
-        The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
-        """
-        root_folder_path: pulumi.Input[_builtins.str]
-        """
-        The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+class ResourceGroupCostManagementExportExportDataStorageLocationArgsDict(TypedDict):
+    container_id: pulumi.Input[_builtins.str]
+    """
+    The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
+    """
+    root_folder_path: pulumi.Input[_builtins.str]
+    """
+    The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 
-        > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
-        """
-elif False:
-    ResourceGroupCostManagementExportExportDataStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
@@ -774,26 +733,23 @@ class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
         pulumi.set(self, "root_folder_path", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementViewDatasetArgsDict(TypedDict):
-        aggregations: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgsDict']]]
-        """
-        One or more `aggregation` blocks as defined above.
-        """
-        granularity: pulumi.Input[_builtins.str]
-        """
-        The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
-        """
-        groupings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgsDict']]]]
-        """
-        One or more `grouping` blocks as defined below.
-        """
-        sortings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgsDict']]]]
-        """
-        One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
-        """
-elif False:
-    ResourceGroupCostManagementViewDatasetArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupCostManagementViewDatasetArgsDict(TypedDict):
+    aggregations: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgsDict']]]
+    """
+    One or more `aggregation` blocks as defined above.
+    """
+    granularity: pulumi.Input[_builtins.str]
+    """
+    The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+    """
+    groupings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgsDict']]]]
+    """
+    One or more `grouping` blocks as defined below.
+    """
+    sortings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgsDict']]]]
+    """
+    One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementViewDatasetArgs:
@@ -864,18 +820,15 @@ class ResourceGroupCostManagementViewDatasetArgs:
         pulumi.set(self, "sortings", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementViewDatasetAggregationArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
-        """
-elif False:
-    ResourceGroupCostManagementViewDatasetAggregationArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupCostManagementViewDatasetAggregationArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementViewDatasetAggregationArgs:
@@ -914,18 +867,15 @@ class ResourceGroupCostManagementViewDatasetAggregationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementViewDatasetGroupingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to group.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the column. Possible values are `Dimension` and `TagKey`.
-        """
-elif False:
-    ResourceGroupCostManagementViewDatasetGroupingArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupCostManagementViewDatasetGroupingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to group.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the column. Possible values are `Dimension` and `TagKey`.
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementViewDatasetGroupingArgs:
@@ -964,18 +914,15 @@ class ResourceGroupCostManagementViewDatasetGroupingArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementViewDatasetSortingArgsDict(TypedDict):
-        direction: pulumi.Input[_builtins.str]
-        """
-        Direction of sort. Possible values are `Ascending` and `Descending`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to sort.
-        """
-elif False:
-    ResourceGroupCostManagementViewDatasetSortingArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupCostManagementViewDatasetSortingArgsDict(TypedDict):
+    direction: pulumi.Input[_builtins.str]
+    """
+    Direction of sort. Possible values are `Ascending` and `Descending`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to sort.
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementViewDatasetSortingArgs:
@@ -1014,14 +961,11 @@ class ResourceGroupCostManagementViewDatasetSortingArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementViewKpiArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        KPI type. Possible values are `Budget` and `Forecast`.
-        """
-elif False:
-    ResourceGroupCostManagementViewKpiArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupCostManagementViewKpiArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    KPI type. Possible values are `Budget` and `Forecast`.
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementViewKpiArgs:
@@ -1045,18 +989,15 @@ class ResourceGroupCostManagementViewKpiArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceGroupCostManagementViewPivotArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column which should be used for this sub-view in the Cost Analysis UI.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
-        """
-elif False:
-    ResourceGroupCostManagementViewPivotArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupCostManagementViewPivotArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column which should be used for this sub-view in the Cost Analysis UI.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+    """
 
 @pulumi.input_type
 class ResourceGroupCostManagementViewPivotArgs:
@@ -1095,28 +1036,25 @@ class ResourceGroupCostManagementViewPivotArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ResourceGroupPolicyAssignmentIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+class ResourceGroupPolicyAssignmentIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID of the Policy Assignment for this Resource Group.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the Policy Assignment for this Resource Group.
-        """
-elif False:
-    ResourceGroupPolicyAssignmentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID of the Policy Assignment for this Resource Group.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the Policy Assignment for this Resource Group.
+    """
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentIdentityArgs:
@@ -1192,18 +1130,15 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ResourceGroupPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
-        """
-        policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
-        """
-elif False:
-    ResourceGroupPolicyAssignmentNonComplianceMessageArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+    """
+    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+    """
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
@@ -1243,18 +1178,15 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
-if not MYPY:
-    class ResourceGroupPolicyAssignmentOverrideArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgsDict']]]]
-        """
-        One or more `override_selector` block as defined below.
-        """
-elif False:
-    ResourceGroupPolicyAssignmentOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupPolicyAssignmentOverrideArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgsDict']]]]
+    """
+    One or more `override_selector` block as defined below.
+    """
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentOverrideArgs:
@@ -1294,13 +1226,10 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
         pulumi.set(self, "selectors", value)
 
 
-if not MYPY:
-    class ResourceGroupPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ResourceGroupPolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
@@ -1343,18 +1272,15 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
-if not MYPY:
-    class ResourceGroupPolicyAssignmentResourceSelectorArgsDict(TypedDict):
-        selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgsDict']]]
-        """
-        One or more `resource_selector` block as defined below.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a name for the resource selector.
-        """
-elif False:
-    ResourceGroupPolicyAssignmentResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupPolicyAssignmentResourceSelectorArgsDict(TypedDict):
+    selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgsDict']]]
+    """
+    One or more `resource_selector` block as defined below.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a name for the resource selector.
+    """
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentResourceSelectorArgs:
@@ -1394,13 +1320,10 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
-        kind: pulumi.Input[_builtins.str]
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ResourceGroupPolicyAssignmentResourceSelectorSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
@@ -1442,28 +1365,25 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
-if not MYPY:
-    class ResourcePolicyAssignmentIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+class ResourcePolicyAssignmentIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID of the Policy Assignment for this Resource.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the Policy Assignment for this Resource.
-        """
-elif False:
-    ResourcePolicyAssignmentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID of the Policy Assignment for this Resource.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the Policy Assignment for this Resource.
+    """
 
 @pulumi.input_type
 class ResourcePolicyAssignmentIdentityArgs:
@@ -1539,18 +1459,15 @@ class ResourcePolicyAssignmentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ResourcePolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
-        """
-        policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
-        """
-elif False:
-    ResourcePolicyAssignmentNonComplianceMessageArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+    """
+    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+    """
 
 @pulumi.input_type
 class ResourcePolicyAssignmentNonComplianceMessageArgs:
@@ -1590,18 +1507,15 @@ class ResourcePolicyAssignmentNonComplianceMessageArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
-if not MYPY:
-    class ResourcePolicyAssignmentOverrideArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgsDict']]]]
-        """
-        One or more `override_selector` block as defined below.
-        """
-elif False:
-    ResourcePolicyAssignmentOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyAssignmentOverrideArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgsDict']]]]
+    """
+    One or more `override_selector` block as defined below.
+    """
 
 @pulumi.input_type
 class ResourcePolicyAssignmentOverrideArgs:
@@ -1641,13 +1555,10 @@ class ResourcePolicyAssignmentOverrideArgs:
         pulumi.set(self, "selectors", value)
 
 
-if not MYPY:
-    class ResourcePolicyAssignmentOverrideSelectorArgsDict(TypedDict):
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ResourcePolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyAssignmentOverrideSelectorArgsDict(TypedDict):
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ResourcePolicyAssignmentOverrideSelectorArgs:
@@ -1690,18 +1601,15 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
-if not MYPY:
-    class ResourcePolicyAssignmentResourceSelectorArgsDict(TypedDict):
-        selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgsDict']]]
-        """
-        One or more `resource_selector` block as defined below.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a name for the resource selector.
-        """
-elif False:
-    ResourcePolicyAssignmentResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyAssignmentResourceSelectorArgsDict(TypedDict):
+    selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgsDict']]]
+    """
+    One or more `resource_selector` block as defined below.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a name for the resource selector.
+    """
 
 @pulumi.input_type
 class ResourcePolicyAssignmentResourceSelectorArgs:
@@ -1741,13 +1649,10 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ResourcePolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
-        kind: pulumi.Input[_builtins.str]
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ResourcePolicyAssignmentResourceSelectorSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
@@ -1789,15 +1694,17 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
-if not MYPY:
-    class ResourceProviderRegistrationFeatureArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        registered: pulumi.Input[_builtins.bool]
-        """
-        Should this feature be Registered or Unregistered?
-        """
-elif False:
-    ResourceProviderRegistrationFeatureArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceProviderRegistrationFeatureArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the feature to register.
+
+    > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+    """
+    registered: pulumi.Input[_builtins.bool]
+    """
+    Should this feature be Registered or Unregistered?
+    """
 
 @pulumi.input_type
 class ResourceProviderRegistrationFeatureArgs:
@@ -1805,6 +1712,9 @@ class ResourceProviderRegistrationFeatureArgs:
                  name: pulumi.Input[_builtins.str],
                  registered: pulumi.Input[_builtins.bool]):
         """
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the feature to register.
+               
+               > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
         :param pulumi.Input[_builtins.bool] registered: Should this feature be Registered or Unregistered?
         """
         pulumi.set(__self__, "name", name)
@@ -1813,6 +1723,11 @@ class ResourceProviderRegistrationFeatureArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the name of the feature to register.
+
+        > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1832,18 +1747,15 @@ class ResourceProviderRegistrationFeatureArgs:
         pulumi.set(self, "registered", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementExportExportDataOptionsArgsDict(TypedDict):
-        time_frame: pulumi.Input[_builtins.str]
-        """
-        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
-        """
-elif False:
-    SubscriptionCostManagementExportExportDataOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionCostManagementExportExportDataOptionsArgsDict(TypedDict):
+    time_frame: pulumi.Input[_builtins.str]
+    """
+    The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementExportExportDataOptionsArgs:
@@ -1882,20 +1794,17 @@ class SubscriptionCostManagementExportExportDataOptionsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementExportExportDataStorageLocationArgsDict(TypedDict):
-        container_id: pulumi.Input[_builtins.str]
-        """
-        The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
-        """
-        root_folder_path: pulumi.Input[_builtins.str]
-        """
-        The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+class SubscriptionCostManagementExportExportDataStorageLocationArgsDict(TypedDict):
+    container_id: pulumi.Input[_builtins.str]
+    """
+    The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
+    """
+    root_folder_path: pulumi.Input[_builtins.str]
+    """
+    The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 
-        > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
-        """
-elif False:
-    SubscriptionCostManagementExportExportDataStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementExportExportDataStorageLocationArgs:
@@ -1938,26 +1847,23 @@ class SubscriptionCostManagementExportExportDataStorageLocationArgs:
         pulumi.set(self, "root_folder_path", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementViewDatasetArgsDict(TypedDict):
-        aggregations: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgsDict']]]
-        """
-        One or more `aggregation` blocks as defined above.
-        """
-        granularity: pulumi.Input[_builtins.str]
-        """
-        The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
-        """
-        groupings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgsDict']]]]
-        """
-        One or more `grouping` blocks as defined below.
-        """
-        sortings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgsDict']]]]
-        """
-        One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
-        """
-elif False:
-    SubscriptionCostManagementViewDatasetArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionCostManagementViewDatasetArgsDict(TypedDict):
+    aggregations: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgsDict']]]
+    """
+    One or more `aggregation` blocks as defined above.
+    """
+    granularity: pulumi.Input[_builtins.str]
+    """
+    The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+    """
+    groupings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgsDict']]]]
+    """
+    One or more `grouping` blocks as defined below.
+    """
+    sortings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgsDict']]]]
+    """
+    One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementViewDatasetArgs:
@@ -2028,18 +1934,15 @@ class SubscriptionCostManagementViewDatasetArgs:
         pulumi.set(self, "sortings", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementViewDatasetAggregationArgsDict(TypedDict):
-        column_name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
-        """
-elif False:
-    SubscriptionCostManagementViewDatasetAggregationArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionCostManagementViewDatasetAggregationArgsDict(TypedDict):
+    column_name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementViewDatasetAggregationArgs:
@@ -2078,18 +1981,15 @@ class SubscriptionCostManagementViewDatasetAggregationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementViewDatasetGroupingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to group.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the column. Possible values are `Dimension` and `TagKey`.
-        """
-elif False:
-    SubscriptionCostManagementViewDatasetGroupingArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionCostManagementViewDatasetGroupingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to group.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the column. Possible values are `Dimension` and `TagKey`.
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementViewDatasetGroupingArgs:
@@ -2128,18 +2028,15 @@ class SubscriptionCostManagementViewDatasetGroupingArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementViewDatasetSortingArgsDict(TypedDict):
-        direction: pulumi.Input[_builtins.str]
-        """
-        Direction of sort. Possible values are `Ascending` and `Descending`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to sort.
-        """
-elif False:
-    SubscriptionCostManagementViewDatasetSortingArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionCostManagementViewDatasetSortingArgsDict(TypedDict):
+    direction: pulumi.Input[_builtins.str]
+    """
+    Direction of sort. Possible values are `Ascending` and `Descending`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to sort.
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementViewDatasetSortingArgs:
@@ -2178,14 +2075,11 @@ class SubscriptionCostManagementViewDatasetSortingArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementViewKpiArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        KPI type. Possible values are `Budget` and `Forecast`.
-        """
-elif False:
-    SubscriptionCostManagementViewKpiArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionCostManagementViewKpiArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    KPI type. Possible values are `Budget` and `Forecast`.
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementViewKpiArgs:
@@ -2209,18 +2103,15 @@ class SubscriptionCostManagementViewKpiArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SubscriptionCostManagementViewPivotArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column which should be used for this sub-view in the Cost Analysis UI.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
-        """
-elif False:
-    SubscriptionCostManagementViewPivotArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionCostManagementViewPivotArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column which should be used for this sub-view in the Cost Analysis UI.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+    """
 
 @pulumi.input_type
 class SubscriptionCostManagementViewPivotArgs:
@@ -2259,28 +2150,25 @@ class SubscriptionCostManagementViewPivotArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class SubscriptionPolicyAssignmentIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+class SubscriptionPolicyAssignmentIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` or `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID of the Policy Assignment for this Subscription.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the Policy Assignment for this Subscription.
-        """
-elif False:
-    SubscriptionPolicyAssignmentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID of the Policy Assignment for this Subscription.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the Policy Assignment for this Subscription.
+    """
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentIdentityArgs:
@@ -2356,18 +2244,15 @@ class SubscriptionPolicyAssignmentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class SubscriptionPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
-        """
-        policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
-        """
-elif False:
-    SubscriptionPolicyAssignmentNonComplianceMessageArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+    """
+    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+    """
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
@@ -2407,18 +2292,15 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
-if not MYPY:
-    class SubscriptionPolicyAssignmentOverrideArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgsDict']]]]
-        """
-        One or more `override_selector` block as defined below.
-        """
-elif False:
-    SubscriptionPolicyAssignmentOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionPolicyAssignmentOverrideArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgsDict']]]]
+    """
+    One or more `override_selector` block as defined below.
+    """
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentOverrideArgs:
@@ -2458,13 +2340,10 @@ class SubscriptionPolicyAssignmentOverrideArgs:
         pulumi.set(self, "selectors", value)
 
 
-if not MYPY:
-    class SubscriptionPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    SubscriptionPolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentOverrideSelectorArgs:
@@ -2507,18 +2386,15 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
-if not MYPY:
-    class SubscriptionPolicyAssignmentResourceSelectorArgsDict(TypedDict):
-        selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict']]]
-        """
-        One or more `resource_selector` block as defined below.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a name for the resource selector.
-        """
-elif False:
-    SubscriptionPolicyAssignmentResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionPolicyAssignmentResourceSelectorArgsDict(TypedDict):
+    selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict']]]
+    """
+    One or more `resource_selector` block as defined below.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a name for the resource selector.
+    """
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentResourceSelectorArgs:
@@ -2558,13 +2434,10 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
-        kind: pulumi.Input[_builtins.str]
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:

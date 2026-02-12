@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage
 {
     /// <summary>
+    /// Manages a File within an Azure Storage File Share.
+    /// 
+    /// &gt; **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `StorageUseAzuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create files. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -81,6 +85,11 @@ namespace Pulumi.Azure.Storage
         [Output("contentLength")]
         public Output<int> ContentLength { get; private set; } = null!;
 
+        /// <summary>
+        /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `Source` is defined.
+        /// </summary>
         [Output("contentMd5")]
         public Output<string?> ContentMd5 { get; private set; } = null!;
 
@@ -183,6 +192,11 @@ namespace Pulumi.Azure.Storage
         [Input("contentEncoding")]
         public Input<string>? ContentEncoding { get; set; }
 
+        /// <summary>
+        /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `Source` is defined.
+        /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 
@@ -259,6 +273,11 @@ namespace Pulumi.Azure.Storage
         [Input("contentLength")]
         public Input<int>? ContentLength { get; set; }
 
+        /// <summary>
+        /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `Source` is defined.
+        /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 

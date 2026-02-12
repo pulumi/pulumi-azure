@@ -35,8 +35,12 @@ class CassandraTableArgs:
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
                
                > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        :param pulumi.Input['CassandraTableAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         pulumi.set(__self__, "cassandra_keyspace_id", cassandra_keyspace_id)
         pulumi.set(__self__, "schema", schema)
@@ -92,6 +96,11 @@ class CassandraTableArgs:
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -125,6 +134,9 @@ class CassandraTableArgs:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -147,10 +159,14 @@ class _CassandraTableState:
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
                
                > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        :param pulumi.Input['CassandraTableAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input['CassandraTableSchemaArgs'] schema: A `schema` block as defined below.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         if analytical_storage_ttl is not None:
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
@@ -184,6 +200,11 @@ class _CassandraTableState:
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -241,6 +262,9 @@ class _CassandraTableState:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -327,10 +351,14 @@ class CassandraTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
                
                > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        :param pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']] schema: A `schema` block as defined below.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         ...
     @overload
@@ -467,10 +495,14 @@ class CassandraTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
                
                > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        :param pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']] schema: A `schema` block as defined below.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -498,6 +530,11 @@ class CassandraTable(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.CassandraTableAutoscaleSettings']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @_builtins.property
@@ -535,5 +572,8 @@ class CassandraTable(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[_builtins.int]:
+        """
+        The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        """
         return pulumi.get(self, "throughput")
 

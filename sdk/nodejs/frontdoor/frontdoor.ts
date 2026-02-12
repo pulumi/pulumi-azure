@@ -7,6 +7,24 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+ *
+ * Manages an Azure Front Door (classic) instance.
+ *
+ * Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(S) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
+ *
+ * Below are some of the key scenarios that Azure Front Door Service addresses:
+ *
+ * * Use Front Door to improve application scale and availability with instant multi-region failover
+ * * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
+ * * Use Front Door for application layer security and DDoS protection for your application.
+ *
+ * !> **Note:** The `customHttpsProvisioningEnabled` field and the `customHttpsConfiguration` block have been removed from the `azure.frontdoor.Frontdoor` resource in the `v2.58.0` provider due to changes made by the service team. If you wish to enable the custom HTTPS configuration functionality within your `azure.frontdoor.Frontdoor` resource moving forward you will need to define a separate `azure.frontdoor.CustomHttpsConfiguration` block in your configuration file.
+ *
+ * !> **Note:** With the release of the `v2.58.0` provider, if you run the `apply` command against an existing Front Door resource it **will not** apply the detected changes. Instead it will persist the `explicitResourceOrder` mapping structure to the state file. Once this operation has completed the resource will resume functioning normally.This change in behavior in Terraform is due to an issue where the underlying service teams API is now returning the response JSON out of order from the way it was sent to the resource via Terraform causing unexpected discrepancies in the `plan` after the resource has been provisioned. If your pre-existing Front Door instance contains `customHttpsConfiguration` blocks there are additional steps that will need to be completed to successfully migrate your Front Door onto the `v2.58.0` provider which can be found in this guide.
+ *
+ * !> **Note:** The creation of new Azure Front Door (classic) resources is no longer supported following its deprecation on `April 1, 2025`. However, modifications to existing Azure Front Door (classic) resources will continue to be supported until the API reaches full retirement on `March 31, 2027`.
+ *
  * ## Example Usage
  *
  * ```typescript

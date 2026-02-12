@@ -159,6 +159,9 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[_builtins.str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
@@ -920,6 +923,11 @@ class WindowsVirtualMachineScaleSetArgs:
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+
+        > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+        """
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
@@ -1134,6 +1142,9 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[_builtins.str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[_builtins.str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
@@ -1916,6 +1927,11 @@ class _WindowsVirtualMachineScaleSetState:
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+
+        > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+        """
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
@@ -2211,6 +2227,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[_builtins.str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
@@ -2616,6 +2635,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[_builtins.str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[_builtins.str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetWinrmListenerArgs', 'WindowsVirtualMachineScaleSetWinrmListenerArgsDict']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
@@ -3137,6 +3159,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+
+        > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+        """
         return pulumi.get(self, "upgrade_mode")
 
     @_builtins.property

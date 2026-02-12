@@ -171,6 +171,11 @@ export class MongoCluster extends pulumi.CustomResource {
      * The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+     */
     declare public readonly restore: pulumi.Output<outputs.mongocluster.MongoClusterRestore | undefined>;
     /**
      * The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -343,6 +348,11 @@ export interface MongoClusterState {
      * The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+     */
     restore?: pulumi.Input<inputs.mongocluster.MongoClusterRestore>;
     /**
      * The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -438,6 +448,11 @@ export interface MongoClusterArgs {
      * The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+     */
     restore?: pulumi.Input<inputs.mongocluster.MongoClusterRestore>;
     /**
      * The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.

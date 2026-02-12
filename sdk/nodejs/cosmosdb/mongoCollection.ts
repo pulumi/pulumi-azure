@@ -83,6 +83,11 @@ export class MongoCollection extends pulumi.CustomResource {
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     declare public readonly analyticalStorageTtl: pulumi.Output<number | undefined>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     declare public readonly autoscaleSettings: pulumi.Output<outputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -112,6 +117,9 @@ export class MongoCollection extends pulumi.CustomResource {
      * One or more `systemIndexes` blocks as defined below.
      */
     declare public /*out*/ readonly systemIndexes: pulumi.Output<outputs.cosmosdb.MongoCollectionSystemIndex[]>;
+    /**
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     */
     declare public readonly throughput: pulumi.Output<number>;
 
     /**
@@ -178,6 +186,11 @@ export interface MongoCollectionState {
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -207,6 +220,9 @@ export interface MongoCollectionState {
      * One or more `systemIndexes` blocks as defined below.
      */
     systemIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionSystemIndex>[]>;
+    /**
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     */
     throughput?: pulumi.Input<number>;
 }
 
@@ -222,6 +238,11 @@ export interface MongoCollectionArgs {
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -247,5 +268,8 @@ export interface MongoCollectionArgs {
      * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      */
     shardKey?: pulumi.Input<string>;
+    /**
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     */
     throughput?: pulumi.Input<number>;
 }

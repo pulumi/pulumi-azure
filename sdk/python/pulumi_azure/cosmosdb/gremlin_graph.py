@@ -43,6 +43,9 @@ class GremlinGraphArgs:
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
                
                > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        :param pulumi.Input['GremlinGraphAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         :param pulumi.Input['GremlinGraphIndexPolicyArgs'] index_policy: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
@@ -139,6 +142,11 @@ class GremlinGraphArgs:
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['GremlinGraphAutoscaleSettingsArgs']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -252,6 +260,9 @@ class _GremlinGraphState:
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
                
                > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        :param pulumi.Input['GremlinGraphAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input['GremlinGraphConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
@@ -319,6 +330,11 @@ class _GremlinGraphState:
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['GremlinGraphAutoscaleSettingsArgs']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -529,6 +545,9 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
                
                > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        :param pulumi.Input[Union['GremlinGraphAutoscaleSettingsArgs', 'GremlinGraphAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[Union['GremlinGraphConflictResolutionPolicyArgs', 'GremlinGraphConflictResolutionPolicyArgsDict']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
@@ -695,6 +714,9 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
                
                > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        :param pulumi.Input[Union['GremlinGraphAutoscaleSettingsArgs', 'GremlinGraphAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[Union['GremlinGraphConflictResolutionPolicyArgs', 'GremlinGraphConflictResolutionPolicyArgsDict']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
@@ -746,6 +768,11 @@ class GremlinGraph(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.GremlinGraphAutoscaleSettings']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        """
         return pulumi.get(self, "autoscale_settings")
 
     @_builtins.property

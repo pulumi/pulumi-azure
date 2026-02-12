@@ -22,6 +22,12 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * ## Disclaimers
+ * 
+ * &gt; **Note:** A Built-in Anomaly Alert Rule could not be deleted. delete a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
+ * 
+ * Manages a Built-in Anomaly Alert Rule.
+ * 
  * ## Example Usage
  * 
  * <pre>

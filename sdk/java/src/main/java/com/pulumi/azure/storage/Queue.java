@@ -80,13 +80,13 @@ import javax.annotation.Nullable;
  * 
  * Storage Queue&#39;s can be imported using the `resource id`, e.g.
  * 
- * If `storage_account_name` is used:
+ * If `storageAccountName` is used:
  * 
  * ```sh
  * $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
  * ```
  * 
- * If `storage_account_id` is used:
+ * If `storageAccountId` is used:
  * 
  * ```sh
  * $ pulumi import azure:storage/queue:Queue queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/queueServices/default/queues/queue1

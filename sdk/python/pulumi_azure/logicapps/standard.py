@@ -69,9 +69,19 @@ class StandardArgs:
                > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[_builtins.bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
+               
+               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+               
+               > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -342,6 +352,13 @@ class StandardArgs:
     @_builtins.property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
+
+        > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+
+        > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
         return pulumi.get(self, "storage_account_share_name")
 
     @storage_account_share_name.setter
@@ -387,6 +404,13 @@ class StandardArgs:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -469,9 +493,19 @@ class _StandardState:
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
+               
+               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+               
+               > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         if app_service_plan_id is not None:
@@ -830,6 +864,13 @@ class _StandardState:
     @_builtins.property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
+
+        > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+
+        > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
         return pulumi.get(self, "storage_account_share_name")
 
     @storage_account_share_name.setter
@@ -875,6 +916,13 @@ class _StandardState:
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -1045,9 +1093,19 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
+               
+               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+               
+               > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         ...
@@ -1315,9 +1373,19 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
+               
+               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+               
+               > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
+        :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+               
+               > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously.
+               
+               > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
         :param pulumi.Input[_builtins.bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1555,6 +1623,13 @@ class Standard(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
+
+        > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
+
+        > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
         return pulumi.get(self, "storage_account_share_name")
 
     @_builtins.property
@@ -1584,6 +1659,13 @@ class Standard(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+
+        > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource app_service_virtual_network_swift_connection and in-line within this resource using the `virtual_network_subnet_id` property. You cannot use both methods simultaneously.
+
+        > **Note:** Assigning the `virtual_network_subnet_id` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property

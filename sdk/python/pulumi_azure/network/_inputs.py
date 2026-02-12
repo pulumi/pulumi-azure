@@ -369,24 +369,19 @@ __all__ = [
     'VpnSiteO365PolicyTrafficCategoryArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationGatewayAuthenticationCertificateArgsDict(TypedDict):
-        data: pulumi.Input[_builtins.str]
-        """
-        The contents of the Authentication Certificate which should be used.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the Authentication Certificate to use.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayAuthenticationCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayAuthenticationCertificateArgsDict(TypedDict):
+    data: pulumi.Input[_builtins.str]
+    """
+    The contents of the Authentication Certificate which should be used.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Authentication Certificate to use.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayAuthenticationCertificateArgs:
@@ -441,18 +436,15 @@ class ApplicationGatewayAuthenticationCertificateArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayAutoscaleConfigurationArgsDict(TypedDict):
-        min_capacity: pulumi.Input[_builtins.int]
-        """
-        Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
-        """
-        max_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
-        """
-elif False:
-    ApplicationGatewayAutoscaleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayAutoscaleConfigurationArgsDict(TypedDict):
+    min_capacity: pulumi.Input[_builtins.int]
+    """
+    Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+    """
+    max_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayAutoscaleConfigurationArgs:
@@ -492,26 +484,23 @@ class ApplicationGatewayAutoscaleConfigurationArgs:
         pulumi.set(self, "max_capacity", value)
 
 
-if not MYPY:
-    class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Backend Address Pool.
-        """
-        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of FQDN's which should be part of the Backend Address Pool.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IP Addresses which should be part of the Backend Address Pool.
-        """
-elif False:
-    ApplicationGatewayBackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Backend Address Pool.
+    """
+    fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of FQDN's which should be part of the Backend Address Pool.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IP Addresses which should be part of the Backend Address Pool.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayBackendAddressPoolArgs:
@@ -583,74 +572,71 @@ class ApplicationGatewayBackendAddressPoolArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
-if not MYPY:
-    class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
-        cookie_based_affinity: pulumi.Input[_builtins.str]
-        """
-        Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Authentication Certificate.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port which should be used for this Backend HTTP Settings Collection.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The Protocol which should be used. Possible values are `Http` and `Https`.
-        """
-        affinity_cookie_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the affinity cookie.
-        """
-        authentication_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict']]]]
-        """
-        One or more `authentication_certificate_backend` blocks as defined below.
-        """
-        connection_draining: NotRequired[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict']]
-        """
-        A `connection_draining` block as defined below.
-        """
-        dedicated_backend_connection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use a dedicated backend connection. Defaults to `false`.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Path which should be used as a prefix for all HTTP requests.
-        """
-        pick_host_name_from_backend_address: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether host header should be picked from the host name of the backend server. Defaults to `false`.
-        """
-        probe_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Probe.
-        """
-        probe_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an associated HTTP Probe.
-        """
-        request_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
-        """
-        trusted_root_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of `trusted_root_certificate` names.
-        """
-elif False:
-    ApplicationGatewayBackendHttpSettingArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
+    cookie_based_affinity: pulumi.Input[_builtins.str]
+    """
+    Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Authentication Certificate.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port which should be used for this Backend HTTP Settings Collection.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol which should be used. Possible values are `Http` and `Https`.
+    """
+    affinity_cookie_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the affinity cookie.
+    """
+    authentication_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict']]]]
+    """
+    One or more `authentication_certificate_backend` blocks as defined below.
+    """
+    connection_draining: NotRequired[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict']]
+    """
+    A `connection_draining` block as defined below.
+    """
+    dedicated_backend_connection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use a dedicated backend connection. Defaults to `false`.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Path which should be used as a prefix for all HTTP requests.
+    """
+    pick_host_name_from_backend_address: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+    """
+    probe_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Probe.
+    """
+    probe_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an associated HTTP Probe.
+    """
+    request_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
+    """
+    trusted_root_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of `trusted_root_certificate` names.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayBackendHttpSettingArgs:
@@ -911,18 +897,15 @@ class ApplicationGatewayBackendHttpSettingArgs:
         pulumi.set(self, "trusted_root_certificate_names", value)
 
 
-if not MYPY:
-    class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the Authentication Certificate to use.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Authentication Certificate to use.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs:
@@ -962,18 +945,15 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict(TypedDict):
-        drain_timeout_sec: pulumi.Input[_builtins.int]
-        """
-        The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        If connection draining is enabled or not.
-        """
-elif False:
-    ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict(TypedDict):
+    drain_timeout_sec: pulumi.Input[_builtins.int]
+    """
+    The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    If connection draining is enabled or not.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayBackendHttpSettingConnectionDrainingArgs:
@@ -1012,22 +992,19 @@ class ApplicationGatewayBackendHttpSettingConnectionDrainingArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ApplicationGatewayCustomErrorConfigurationArgsDict(TypedDict):
-        custom_error_page_url: pulumi.Input[_builtins.str]
-        """
-        Error page URL of the application gateway customer error.
-        """
-        status_code: pulumi.Input[_builtins.str]
-        """
-        Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayCustomErrorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayCustomErrorConfigurationArgsDict(TypedDict):
+    custom_error_page_url: pulumi.Input[_builtins.str]
+    """
+    Error page URL of the application gateway customer error.
+    """
+    status_code: pulumi.Input[_builtins.str]
+    """
+    Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayCustomErrorConfigurationArgs:
@@ -1082,42 +1059,39 @@ class ApplicationGatewayCustomErrorConfigurationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayFrontendIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Frontend IP Configuration.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Private IP Address to use for the Application Gateway.
-        """
-        private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
-        """
-        private_link_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated private link configuration.
-        """
-        private_link_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the private link configuration to use for this frontend IP configuration.
-        """
-        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Subnet.
-        """
-elif False:
-    ApplicationGatewayFrontendIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayFrontendIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Frontend IP Configuration.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Private IP Address to use for the Application Gateway.
+    """
+    private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
+    """
+    private_link_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated private link configuration.
+    """
+    private_link_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the private link configuration to use for this frontend IP configuration.
+    """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Subnet.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayFrontendIpConfigurationArgs:
@@ -1253,22 +1227,19 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayFrontendPortArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Frontend Port.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port used for this Frontend Port.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayFrontendPortArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayFrontendPortArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Frontend Port.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port used for this Frontend Port.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayFrontendPortArgs:
@@ -1323,22 +1294,19 @@ class ApplicationGatewayFrontendPortArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayGatewayIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of this Gateway IP Configuration.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Subnet which the Application Gateway should be connected to.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayGatewayIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayGatewayIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of this Gateway IP Configuration.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Subnet which the Application Gateway should be connected to.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayGatewayIpConfigurationArgs:
@@ -1393,18 +1361,15 @@ class ApplicationGatewayGatewayIpConfigurationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayGlobalArgsDict(TypedDict):
-        request_buffering_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether Application Gateway's Request buffer is enabled.
-        """
-        response_buffering_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether Application Gateway's Response buffer is enabled.
-        """
-elif False:
-    ApplicationGatewayGlobalArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayGlobalArgsDict(TypedDict):
+    request_buffering_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether Application Gateway's Request buffer is enabled.
+    """
+    response_buffering_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether Application Gateway's Response buffer is enabled.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayGlobalArgs:
@@ -1443,76 +1408,73 @@ class ApplicationGatewayGlobalArgs:
         pulumi.set(self, "response_buffering_enabled", value)
 
 
-if not MYPY:
-    class ApplicationGatewayHttpListenerArgsDict(TypedDict):
-        frontend_ip_configuration_name: pulumi.Input[_builtins.str]
-        """
-        The Name of the Frontend IP Configuration used for this HTTP Listener.
-        """
-        frontend_port_name: pulumi.Input[_builtins.str]
-        """
-        The Name of the Frontend Port use for this HTTP Listener.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the HTTP Listener.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        """
-        custom_error_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict']]]]
-        """
-        One or more `custom_error_configuration` blocks as defined below.
-        """
-        firewall_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
-        """
-        frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Frontend Configuration.
-        """
-        frontend_port_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Frontend Port.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
-        """
-        host_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+class ApplicationGatewayHttpListenerArgsDict(TypedDict):
+    frontend_ip_configuration_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Frontend IP Configuration used for this HTTP Listener.
+    """
+    frontend_port_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Frontend Port use for this HTTP Listener.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the HTTP Listener.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+    """
+    custom_error_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict']]]]
+    """
+    One or more `custom_error_configuration` blocks as defined below.
+    """
+    firewall_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+    """
+    frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Frontend Configuration.
+    """
+    frontend_port_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Frontend Port.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
+    """
+    host_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 
-        > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        require_sni: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should Server Name Indication be Required? Defaults to `false`.
-        """
-        ssl_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated SSL Certificate.
-        """
-        ssl_certificate_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the associated SSL Certificate which should be used for this HTTP Listener.
-        """
-        ssl_profile_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated SSL Profile.
-        """
-        ssl_profile_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the associated SSL Profile which should be used for this HTTP Listener.
-        """
-elif False:
-    ApplicationGatewayHttpListenerArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    require_sni: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should Server Name Indication be Required? Defaults to `false`.
+    """
+    ssl_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated SSL Certificate.
+    """
+    ssl_certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the associated SSL Certificate which should be used for this HTTP Listener.
+    """
+    ssl_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated SSL Profile.
+    """
+    ssl_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the associated SSL Profile which should be used for this HTTP Listener.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayHttpListenerArgs:
@@ -1777,22 +1739,19 @@ class ApplicationGatewayHttpListenerArgs:
         pulumi.set(self, "ssl_profile_name", value)
 
 
-if not MYPY:
-    class ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict(TypedDict):
-        custom_error_page_url: pulumi.Input[_builtins.str]
-        """
-        Error page URL of the application gateway customer error.
-        """
-        status_code: pulumi.Input[_builtins.str]
-        """
-        Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict(TypedDict):
+    custom_error_page_url: pulumi.Input[_builtins.str]
+    """
+    Error page URL of the application gateway customer error.
+    """
+    status_code: pulumi.Input[_builtins.str]
+    """
+    Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs:
@@ -1847,20 +1806,17 @@ class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ApplicationGatewayIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ApplicationGatewayIdentityArgs:
@@ -1924,18 +1880,15 @@ class ApplicationGatewayIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayPrivateEndpointConnectionArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Application Gateway. Changing this forces a new resource to be created.
-        """
-elif False:
-    ApplicationGatewayPrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayPrivateEndpointConnectionArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Application Gateway. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayPrivateEndpointConnectionArgs:
@@ -1976,28 +1929,25 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ApplicationGatewayPrivateLinkConfigurationArgsDict(TypedDict):
-        ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgsDict']]]
-        """
-        One or more `ip_configuration` blocks as defined below.
+class ApplicationGatewayPrivateLinkConfigurationArgsDict(TypedDict):
+    ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgsDict']]]
+    """
+    One or more `ip_configuration` blocks as defined below.
 
-        > **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+    > **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 
-        ```bash
-        az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
-        ```
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the private link configuration.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayPrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    ```bash
+    az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
+    ```
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the private link configuration.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayPrivateLinkConfigurationArgs:
@@ -2064,30 +2014,27 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the IP configuration.
-        """
-        primary: pulumi.Input[_builtins.bool]
-        """
-        Is this the Primary IP Configuration?
-        """
-        private_ip_address_allocation: pulumi.Input[_builtins.str]
-        """
-        The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet the private link configuration should connect to.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Static IP Address which should be used.
-        """
-elif False:
-    ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the IP configuration.
+    """
+    primary: pulumi.Input[_builtins.bool]
+    """
+    Is this the Primary IP Configuration?
+    """
+    private_ip_address_allocation: pulumi.Input[_builtins.str]
+    """
+    The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet the private link configuration should connect to.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Static IP Address which should be used.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
@@ -2172,58 +2119,55 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-if not MYPY:
-    class ApplicationGatewayProbeArgsDict(TypedDict):
-        interval: pulumi.Input[_builtins.int]
-        """
-        The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the Probe.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The Path used for this Probe.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The Protocol used for this Probe. Possible values are `Http` and `Https`.
-        """
-        timeout: pulumi.Input[_builtins.int]
-        """
-        The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
-        """
-        unhealthy_threshold: pulumi.Input[_builtins.int]
-        """
-        The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        match: NotRequired[pulumi.Input['ApplicationGatewayProbeMatchArgsDict']]
-        """
-        A `match` block as defined above.
-        """
-        minimum_servers: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of servers that are always marked as healthy. Defaults to `0`.
-        """
-        pick_host_name_from_backend_http_settings: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
-        """
-elif False:
-    ApplicationGatewayProbeArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayProbeArgsDict(TypedDict):
+    interval: pulumi.Input[_builtins.int]
+    """
+    The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Probe.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The Path used for this Probe.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol used for this Probe. Possible values are `Http` and `Https`.
+    """
+    timeout: pulumi.Input[_builtins.int]
+    """
+    The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+    """
+    unhealthy_threshold: pulumi.Input[_builtins.int]
+    """
+    The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    match: NotRequired[pulumi.Input['ApplicationGatewayProbeMatchArgsDict']]
+    """
+    A `match` block as defined above.
+    """
+    minimum_servers: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of servers that are always marked as healthy. Defaults to `0`.
+    """
+    pick_host_name_from_backend_http_settings: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayProbeArgs:
@@ -2418,18 +2362,15 @@ class ApplicationGatewayProbeArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class ApplicationGatewayProbeMatchArgsDict(TypedDict):
-        status_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of allowed status codes for this Health Probe.
-        """
-        body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A snippet from the Response Body which must be present in the Response.
-        """
-elif False:
-    ApplicationGatewayProbeMatchArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayProbeMatchArgsDict(TypedDict):
+    status_codes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of allowed status codes for this Health Probe.
+    """
+    body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A snippet from the Response Body which must be present in the Response.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayProbeMatchArgs:
@@ -2469,39 +2410,36 @@ class ApplicationGatewayProbeMatchArgs:
         pulumi.set(self, "body", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRedirectConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Unique name of the redirect configuration block
-        """
-        redirect_type: pulumi.Input[_builtins.str]
-        """
-        The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        include_path: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to include the path in the redirected URL. Defaults to `false`
-        """
-        include_query_string: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to include the query string in the redirected URL. Default to `false`
-        """
-        target_listener_id: NotRequired[pulumi.Input[_builtins.str]]
-        target_listener_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the listener to redirect to. Cannot be set if `target_url` is set.
-        """
-        target_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
-        """
-elif False:
-    ApplicationGatewayRedirectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayRedirectConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Unique name of the redirect configuration block
+    """
+    redirect_type: pulumi.Input[_builtins.str]
+    """
+    The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    include_path: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to include the path in the redirected URL. Defaults to `false`
+    """
+    include_query_string: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to include the query string in the redirected URL. Default to `false`
+    """
+    target_listener_id: NotRequired[pulumi.Input[_builtins.str]]
+    target_listener_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the listener to redirect to. Cannot be set if `target_url` is set.
+    """
+    target_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRedirectConfigurationArgs:
@@ -2632,78 +2570,75 @@ class ApplicationGatewayRedirectConfigurationArgs:
         pulumi.set(self, "target_url", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRequestRoutingRuleArgsDict(TypedDict):
-        http_listener_name: pulumi.Input[_builtins.str]
-        """
-        The Name of the HTTP Listener which should be used for this Routing Rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of this Request Routing Rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
-        """
-        backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Backend Address Pool.
-        """
-        backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        """
-        backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Backend HTTP Settings Configuration.
-        """
-        backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        """
-        http_listener_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated HTTP Listener.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+class ApplicationGatewayRequestRoutingRuleArgsDict(TypedDict):
+    http_listener_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the HTTP Listener which should be used for this Routing Rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of this Request Routing Rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
+    """
+    backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Backend Address Pool.
+    """
+    backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+    """
+    backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Backend HTTP Settings Configuration.
+    """
+    backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+    """
+    http_listener_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated HTTP Listener.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 
-        > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
-        """
-        redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Redirect Configuration.
-        """
-        redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
-        """
-        rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Rewrite Rule Set.
-        """
-        rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+    > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+    """
+    redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Redirect Configuration.
+    """
+    redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+    """
+    rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Rewrite Rule Set.
+    """
+    rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
 
-        > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
-        """
-        url_path_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated URL Path Map.
-        """
-        url_path_map_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the URL Path Map which should be associated with this Routing Rule.
-        """
-elif False:
-    ApplicationGatewayRequestRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+    """
+    url_path_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated URL Path Map.
+    """
+    url_path_map_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the URL Path Map which should be associated with this Routing Rule.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRequestRoutingRuleArgs:
@@ -2973,22 +2908,19 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         pulumi.set(self, "url_path_map_name", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRewriteRuleSetArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Unique name of the rewrite rule set block
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        rewrite_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict']]]]
-        """
-        One or more `rewrite_rule` blocks as defined below.
-        """
-elif False:
-    ApplicationGatewayRewriteRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayRewriteRuleSetArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Unique name of the rewrite rule set block
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    rewrite_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict']]]]
+    """
+    One or more `rewrite_rule` blocks as defined below.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetArgs:
@@ -3044,34 +2976,31 @@ class ApplicationGatewayRewriteRuleSetArgs:
         pulumi.set(self, "rewrite_rules", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Unique name of the rewrite rule block
-        """
-        rule_sequence: pulumi.Input[_builtins.int]
-        """
-        Rule sequence of the rewrite rule that determines the order of execution in a set.
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict']]]]
-        """
-        One or more `condition` blocks as defined above.
-        """
-        request_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgsDict']]]]
-        """
-        One or more `request_header_configuration` blocks as defined above.
-        """
-        response_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict']]]]
-        """
-        One or more `response_header_configuration` blocks as defined above.
-        """
-        url: NotRequired[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict']]
-        """
-        One `url` block as defined below
-        """
-elif False:
-    ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Unique name of the rewrite rule block
+    """
+    rule_sequence: pulumi.Input[_builtins.int]
+    """
+    Rule sequence of the rewrite rule that determines the order of execution in a set.
+    """
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict']]]]
+    """
+    One or more `condition` blocks as defined above.
+    """
+    request_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgsDict']]]]
+    """
+    One or more `request_header_configuration` blocks as defined above.
+    """
+    response_header_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict']]]]
+    """
+    One or more `response_header_configuration` blocks as defined above.
+    """
+    url: NotRequired[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict']]
+    """
+    One `url` block as defined below
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
@@ -3174,26 +3103,23 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict(TypedDict):
-        pattern: pulumi.Input[_builtins.str]
-        """
-        The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
-        """
-        variable: pulumi.Input[_builtins.str]
-        """
-        The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
-        """
-        ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Perform a case in-sensitive comparison. Defaults to `false`
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Negate the result of the condition evaluation. Defaults to `false`
-        """
-elif False:
-    ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict(TypedDict):
+    pattern: pulumi.Input[_builtins.str]
+    """
+    The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+    """
+    variable: pulumi.Input[_builtins.str]
+    """
+    The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+    """
+    ignore_case: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Perform a case in-sensitive comparison. Defaults to `false`
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Negate the result of the condition evaluation. Defaults to `false`
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs:
@@ -3264,18 +3190,15 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs:
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgsDict(TypedDict):
-        header_name: pulumi.Input[_builtins.str]
-        """
-        Header name of the header configuration.
-        """
-        header_value: pulumi.Input[_builtins.str]
-        """
-        Header value of the header configuration. To delete a request header set this property to an empty string.
-        """
-elif False:
-    ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgsDict(TypedDict):
+    header_name: pulumi.Input[_builtins.str]
+    """
+    Header name of the header configuration.
+    """
+    header_value: pulumi.Input[_builtins.str]
+    """
+    Header value of the header configuration. To delete a request header set this property to an empty string.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs:
@@ -3314,18 +3237,15 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs:
         pulumi.set(self, "header_value", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict(TypedDict):
-        header_name: pulumi.Input[_builtins.str]
-        """
-        Header name of the header configuration.
-        """
-        header_value: pulumi.Input[_builtins.str]
-        """
-        Header value of the header configuration. To delete a response header set this property to an empty string.
-        """
-elif False:
-    ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict(TypedDict):
+    header_name: pulumi.Input[_builtins.str]
+    """
+    Header name of the header configuration.
+    """
+    header_value: pulumi.Input[_builtins.str]
+    """
+    Header value of the header configuration. To delete a response header set this property to an empty string.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs:
@@ -3364,28 +3284,25 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs
         pulumi.set(self, "header_value", value)
 
 
-if not MYPY:
-    class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict(TypedDict):
-        components: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict(TypedDict):
+    components: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
 
-        > **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL path to rewrite.
-        """
-        query_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The query string to rewrite.
-        """
-        reroute: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
-        """
-elif False:
-    ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL path to rewrite.
+    """
+    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The query string to rewrite.
+    """
+    reroute: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+    """
 
 @pulumi.input_type
 class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
@@ -3462,26 +3379,23 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
         pulumi.set(self, "reroute", value)
 
 
-if not MYPY:
-    class ApplicationGatewaySkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
+class ApplicationGatewaySkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Large`, `WAF_Medium` and `WAF_v2`.
 
-        > **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
-        """
-        tier: pulumi.Input[_builtins.str]
-        """
-        The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
+    > **Note:** `Standard_Small`, `Standard_Medium`, `Standard_Large`, `WAF_Medium`, and `WAF_Large` values are deprecated. `name` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
+    """
+    tier: pulumi.Input[_builtins.str]
+    """
+    The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF`, and `WAF_v2`.
 
-        > **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
-        """
-elif False:
-    ApplicationGatewaySkuArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `Standard` and `WAF` values are deprecated. `tier` can no longer be created with or updated to these values. Refer to <https://aka.ms/V1retirement>.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
+    """
 
 @pulumi.input_type
 class ApplicationGatewaySkuArgs:
@@ -3544,42 +3458,39 @@ class ApplicationGatewaySkuArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class ApplicationGatewaySslCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the SSL certificate that is unique within this Application Gateway
-        """
-        data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
+class ApplicationGatewaySslCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the SSL certificate that is unique within this Application Gateway
+    """
+    data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
 
-        > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+    > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
-        > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
+    > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
 
-        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+    > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for the pfx file specified in data. Required if `data` is set.
-        """
-        public_cert_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Public Certificate Data associated with the SSL Certificate.
-        """
-elif False:
-    ApplicationGatewaySslCertificateArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for the pfx file specified in data. Required if `data` is set.
+    """
+    public_cert_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Public Certificate Data associated with the SSL Certificate.
+    """
 
 @pulumi.input_type
 class ApplicationGatewaySslCertificateArgs:
@@ -3699,25 +3610,22 @@ class ApplicationGatewaySslCertificateArgs:
         pulumi.set(self, "public_cert_data", value)
 
 
-if not MYPY:
-    class ApplicationGatewaySslPolicyArgsDict(TypedDict):
-        cipher_suites: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        disabled_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+class ApplicationGatewaySslPolicyArgsDict(TypedDict):
+    cipher_suites: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
-        """
-        min_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
-        policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        policy_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+    > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+    """
+    min_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
+    policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    policy_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
-        """
-elif False:
-    ApplicationGatewaySslPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+    """
 
 @pulumi.input_type
 class ApplicationGatewaySslPolicyArgs:
@@ -3802,34 +3710,31 @@ class ApplicationGatewaySslPolicyArgs:
         pulumi.set(self, "policy_type", value)
 
 
-if not MYPY:
-    class ApplicationGatewaySslProfileArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SSL Profile that is unique within this Application Gateway.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        ssl_policy: NotRequired[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgsDict']]
-        """
-        a `ssl_policy` block as defined below.
-        """
-        trusted_client_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
-        """
-        verify_client_cert_issuer_dn: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should client certificate issuer DN be verified? Defaults to `false`.
-        """
-        verify_client_certificate_revocation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the method to check client certificate revocation status. Possible value is `OCSP`.
-        """
-elif False:
-    ApplicationGatewaySslProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewaySslProfileArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SSL Profile that is unique within this Application Gateway.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    ssl_policy: NotRequired[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgsDict']]
+    """
+    a `ssl_policy` block as defined below.
+    """
+    trusted_client_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+    """
+    verify_client_cert_issuer_dn: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should client certificate issuer DN be verified? Defaults to `false`.
+    """
+    verify_client_certificate_revocation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the method to check client certificate revocation status. Possible value is `OCSP`.
+    """
 
 @pulumi.input_type
 class ApplicationGatewaySslProfileArgs:
@@ -3933,25 +3838,22 @@ class ApplicationGatewaySslProfileArgs:
         pulumi.set(self, "verify_client_certificate_revocation", value)
 
 
-if not MYPY:
-    class ApplicationGatewaySslProfileSslPolicyArgsDict(TypedDict):
-        cipher_suites: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        disabled_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+class ApplicationGatewaySslProfileSslPolicyArgsDict(TypedDict):
+    cipher_suites: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
-        """
-        min_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
-        policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        policy_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+    > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+    """
+    min_protocol_version: NotRequired[pulumi.Input[_builtins.str]]
+    policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    policy_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
-        """
-elif False:
-    ApplicationGatewaySslProfileSslPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+    """
 
 @pulumi.input_type
 class ApplicationGatewaySslProfileSslPolicyArgs:
@@ -4036,22 +3938,19 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
         pulumi.set(self, "policy_type", value)
 
 
-if not MYPY:
-    class ApplicationGatewayTrustedClientCertificateArgsDict(TypedDict):
-        data: pulumi.Input[_builtins.str]
-        """
-        The base-64 encoded certificate.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Trusted Client Certificate that is unique within this Application Gateway.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayTrustedClientCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayTrustedClientCertificateArgsDict(TypedDict):
+    data: pulumi.Input[_builtins.str]
+    """
+    The base-64 encoded certificate.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Trusted Client Certificate that is unique within this Application Gateway.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayTrustedClientCertificateArgs:
@@ -4106,32 +4005,29 @@ class ApplicationGatewayTrustedClientCertificateArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayTrustedRootCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the Trusted Root Certificate to use.
-        """
-        data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+class ApplicationGatewayTrustedRootCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Trusted Root Certificate to use.
+    """
+    data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    key_vault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
 
-        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+    > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
-        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+    > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
-        """
-elif False:
-    ApplicationGatewayTrustedRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayTrustedRootCertificateArgs:
@@ -4215,53 +4111,50 @@ class ApplicationGatewayTrustedRootCertificateArgs:
         pulumi.set(self, "key_vault_secret_id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayUrlPathMapArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the URL Path Map.
-        """
-        path_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgsDict']]]
-        """
-        One or more `path_rule` blocks as defined above.
-        """
-        default_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Default Backend Address Pool.
-        """
-        default_backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        """
-        default_backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Default Backend HTTP Settings Collection.
-        """
-        default_backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        """
-        default_redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Default Redirect Configuration.
-        """
-        default_redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+class ApplicationGatewayUrlPathMapArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the URL Path Map.
+    """
+    path_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgsDict']]]
+    """
+    One or more `path_rule` blocks as defined above.
+    """
+    default_backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Default Backend Address Pool.
+    """
+    default_backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+    """
+    default_backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Default Backend HTTP Settings Collection.
+    """
+    default_backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+    """
+    default_redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Default Redirect Configuration.
+    """
+    default_redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
 
-        > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
-        """
-        default_rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        default_rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-elif False:
-    ApplicationGatewayUrlPathMapArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+    """
+    default_rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    default_rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
 
 @pulumi.input_type
 class ApplicationGatewayUrlPathMapArgs:
@@ -4444,58 +4337,55 @@ class ApplicationGatewayUrlPathMapArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApplicationGatewayUrlPathMapPathRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name of the Path Rule.
-        """
-        paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Paths used in this Path Rule.
-        """
-        backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Backend Address Pool.
-        """
-        backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        """
-        backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Backend HTTP Settings Configuration.
-        """
-        backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        """
-        firewall_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Rewrite Rule Set
-        """
-        redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Redirect Configuration.
-        """
-        redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
-        """
-        rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the associated Rewrite Rule Set.
-        """
-        rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        """
-elif False:
-    ApplicationGatewayUrlPathMapPathRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayUrlPathMapPathRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Path Rule.
+    """
+    paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Paths used in this Path Rule.
+    """
+    backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Backend Address Pool.
+    """
+    backend_address_pool_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+    """
+    backend_http_settings_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Backend HTTP Settings Configuration.
+    """
+    backend_http_settings_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+    """
+    firewall_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    redirect_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Redirect Configuration.
+    """
+    redirect_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
+    """
+    rewrite_rule_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Rewrite Rule Set.
+    """
+    rewrite_rule_set_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayUrlPathMapPathRuleArgs:
@@ -4694,46 +4584,43 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
         pulumi.set(self, "rewrite_rule_set_name", value)
 
 
-if not MYPY:
-    class ApplicationGatewayWafConfigurationArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Is the Web Application Firewall enabled?
-        """
-        firewall_mode: pulumi.Input[_builtins.str]
-        """
-        The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-        """
-        rule_set_version: pulumi.Input[_builtins.str]
-        """
-        The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
-        """
-        disabled_rule_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict']]]]
-        """
-        One or more `disabled_rule_group` blocks as defined below.
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgsDict']]]]
-        """
-        One or more `exclusion` blocks as defined below.
-        """
-        file_upload_limit_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
-        """
-        max_request_body_size_kb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
-        """
-        request_body_check: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Request Body Inspection enabled? Defaults to `true`.
-        """
-        rule_set_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
-        """
-elif False:
-    ApplicationGatewayWafConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayWafConfigurationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Is the Web Application Firewall enabled?
+    """
+    firewall_mode: pulumi.Input[_builtins.str]
+    """
+    The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
+    """
+    rule_set_version: pulumi.Input[_builtins.str]
+    """
+    The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+    """
+    disabled_rule_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict']]]]
+    """
+    One or more `disabled_rule_group` blocks as defined below.
+    """
+    exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgsDict']]]]
+    """
+    One or more `exclusion` blocks as defined below.
+    """
+    file_upload_limit_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
+    """
+    max_request_body_size_kb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
+    """
+    request_body_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Request Body Inspection enabled? Defaults to `true`.
+    """
+    rule_set_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayWafConfigurationArgs:
@@ -4883,18 +4770,15 @@ class ApplicationGatewayWafConfigurationArgs:
         pulumi.set(self, "rule_set_type", value)
 
 
-if not MYPY:
-    class ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict(TypedDict):
-        rule_group_name: pulumi.Input[_builtins.str]
-        """
-        The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
-        """
-elif False:
-    ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict(TypedDict):
+    rule_group_name: pulumi.Input[_builtins.str]
+    """
+    The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
+    """
 
 @pulumi.input_type
 class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
@@ -4934,22 +4818,19 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class ApplicationGatewayWafConfigurationExclusionArgsDict(TypedDict):
-        match_variable: pulumi.Input[_builtins.str]
-        """
-        Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
-        """
-        selector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
-        """
-        selector_match_operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
-        """
-elif False:
-    ApplicationGatewayWafConfigurationExclusionArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationGatewayWafConfigurationExclusionArgsDict(TypedDict):
+    match_variable: pulumi.Input[_builtins.str]
+    """
+    Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames` and `RequestHeaderValues`
+    """
+    selector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+    """
+    selector_match_operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+    """
 
 @pulumi.input_type
 class ApplicationGatewayWafConfigurationExclusionArgs:
@@ -5005,32 +4886,29 @@ class ApplicationGatewayWafConfigurationExclusionArgs:
         pulumi.set(self, "selector_match_operator", value)
 
 
-if not MYPY:
-    class ExpressRouteCircuitPeeringIpv6ArgsDict(TypedDict):
-        primary_peer_address_prefix: pulumi.Input[_builtins.str]
-        """
-        A subnet for the primary link.
-        """
-        secondary_peer_address_prefix: pulumi.Input[_builtins.str]
-        """
-        A subnet for the secondary link.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
-        """
-        microsoft_peering: NotRequired[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict']]
-        """
-        A `microsoft_peering` block as defined below.
-        """
-        route_filter_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+class ExpressRouteCircuitPeeringIpv6ArgsDict(TypedDict):
+    primary_peer_address_prefix: pulumi.Input[_builtins.str]
+    """
+    A subnet for the primary link.
+    """
+    secondary_peer_address_prefix: pulumi.Input[_builtins.str]
+    """
+    A subnet for the secondary link.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+    """
+    microsoft_peering: NotRequired[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict']]
+    """
+    A `microsoft_peering` block as defined below.
+    """
+    route_filter_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
 
-        > **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
-        """
-elif False:
-    ExpressRouteCircuitPeeringIpv6ArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+    """
 
 @pulumi.input_type
 class ExpressRouteCircuitPeeringIpv6Args:
@@ -5121,26 +4999,23 @@ class ExpressRouteCircuitPeeringIpv6Args:
         pulumi.set(self, "route_filter_id", value)
 
 
-if not MYPY:
-    class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict(TypedDict):
-        advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The communities of Bgp Peering specified for microsoft peering.
-        """
-        advertised_public_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Advertised Public Prefixes.
-        """
-        customer_asn: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The CustomerASN of the peering. Defaults to `0`.
-        """
-        routing_registry_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
-        """
-elif False:
-    ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict: TypeAlias = Mapping[str, Any]
+class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict(TypedDict):
+    advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The communities of Bgp Peering specified for microsoft peering.
+    """
+    advertised_public_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Advertised Public Prefixes.
+    """
+    customer_asn: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The CustomerASN of the peering. Defaults to `0`.
+    """
+    routing_registry_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+    """
 
 @pulumi.input_type
 class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
@@ -5213,26 +5088,23 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
         pulumi.set(self, "routing_registry_name", value)
 
 
-if not MYPY:
-    class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict(TypedDict):
-        advertised_public_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Advertised Public Prefixes.
-        """
-        advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The communities of Bgp Peering specified for microsoft peering.
-        """
-        customer_asn: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The CustomerASN of the peering. Defaults to `0`.
-        """
-        routing_registry_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
-        """
-elif False:
-    ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict(TypedDict):
+    advertised_public_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Advertised Public Prefixes.
+    """
+    advertised_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The communities of Bgp Peering specified for microsoft peering.
+    """
+    customer_asn: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The CustomerASN of the peering. Defaults to `0`.
+    """
+    routing_registry_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+    """
 
 @pulumi.input_type
 class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
@@ -5304,20 +5176,17 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
         pulumi.set(self, "routing_registry_name", value)
 
 
-if not MYPY:
-    class ExpressRouteCircuitSkuArgsDict(TypedDict):
-        family: pulumi.Input[_builtins.str]
-        """
-        The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+class ExpressRouteCircuitSkuArgsDict(TypedDict):
+    family: pulumi.Input[_builtins.str]
+    """
+    The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
 
-        > **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
-        """
-        tier: pulumi.Input[_builtins.str]
-        """
-        The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-        """
-elif False:
-    ExpressRouteCircuitSkuArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+    """
+    tier: pulumi.Input[_builtins.str]
+    """
+    The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
+    """
 
 @pulumi.input_type
 class ExpressRouteCircuitSkuArgs:
@@ -5360,26 +5229,23 @@ class ExpressRouteCircuitSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class ExpressRouteConnectionRoutingArgsDict(TypedDict):
-        associated_route_table_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Virtual Hub Route Table associated with this Express Route Connection.
-        """
-        inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Route Map associated with this Express Route Connection for inbound routes.
-        """
-        outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Route Map associated with this Express Route Connection for outbound routes.
-        """
-        propagated_route_table: NotRequired[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict']]
-        """
-        A `propagated_route_table` block as defined below.
-        """
-elif False:
-    ExpressRouteConnectionRoutingArgsDict: TypeAlias = Mapping[str, Any]
+class ExpressRouteConnectionRoutingArgsDict(TypedDict):
+    associated_route_table_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Virtual Hub Route Table associated with this Express Route Connection.
+    """
+    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Route Map associated with this Express Route Connection for inbound routes.
+    """
+    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Route Map associated with this Express Route Connection for outbound routes.
+    """
+    propagated_route_table: NotRequired[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict']]
+    """
+    A `propagated_route_table` block as defined below.
+    """
 
 @pulumi.input_type
 class ExpressRouteConnectionRoutingArgs:
@@ -5452,18 +5318,15 @@ class ExpressRouteConnectionRoutingArgs:
         pulumi.set(self, "propagated_route_table", value)
 
 
-if not MYPY:
-    class ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of labels to logically group route tables.
-        """
-        route_table_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
-        """
-elif False:
-    ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+class ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels to logically group route tables.
+    """
+    route_table_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
+    """
 
 @pulumi.input_type
 class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
@@ -5504,20 +5367,17 @@ class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
         pulumi.set(self, "route_table_ids", value)
 
 
-if not MYPY:
-    class ExpressRoutePortIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ExpressRoutePortIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ExpressRoutePortIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ExpressRoutePortIdentityArgs:
@@ -5581,56 +5441,53 @@ class ExpressRoutePortIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ExpressRoutePortLink1ArgsDict(TypedDict):
-        admin_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-        """
-        connector_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The connector type of the Express Route Port Link.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of this Express Route Port Link.
-        """
-        interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The interface name of the Azure router associated with the Express Route Port Link.
-        """
-        macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        """
-        macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-        """
-        macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-        """
-        macsec_sci_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+class ExpressRoutePortLink1ArgsDict(TypedDict):
+    admin_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+    """
+    connector_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connector type of the Express Route Port Link.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of this Express Route Port Link.
+    """
+    interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The interface name of the Azure router associated with the Express Route Port Link.
+    """
+    macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+    """
+    macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+    """
+    macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+    """
+    macsec_sci_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-        """
-        patch_panel_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID that maps from the Express Route Port Link to the patch panel port.
-        """
-        rack_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID that maps from the patch panel port to the rack.
-        """
-        router_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure router associated with the Express Route Port Link.
-        """
-elif False:
-    ExpressRoutePortLink1ArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+    """
+    patch_panel_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID that maps from the Express Route Port Link to the patch panel port.
+    """
+    rack_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID that maps from the patch panel port to the rack.
+    """
+    router_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure router associated with the Express Route Port Link.
+    """
 
 @pulumi.input_type
 class ExpressRoutePortLink1Args:
@@ -5819,56 +5676,53 @@ class ExpressRoutePortLink1Args:
         pulumi.set(self, "router_name", value)
 
 
-if not MYPY:
-    class ExpressRoutePortLink2ArgsDict(TypedDict):
-        admin_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
-        """
-        connector_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The connector type of the Express Route Port Link.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of this Express Route Port Link.
-        """
-        interface_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The interface name of the Azure router associated with the Express Route Port Link.
-        """
-        macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        """
-        macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
-        """
-        macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-        """
-        macsec_sci_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+class ExpressRoutePortLink2ArgsDict(TypedDict):
+    admin_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+    """
+    connector_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connector type of the Express Route Port Link.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of this Express Route Port Link.
+    """
+    interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The interface name of the Azure router associated with the Express Route Port Link.
+    """
+    macsec_cak_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+    """
+    macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+    """
+    macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+    """
+    macsec_sci_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
-        """
-        patch_panel_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID that maps from the Express Route Port Link to the patch panel port.
-        """
-        rack_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID that maps from the patch panel port to the rack.
-        """
-        router_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Azure router associated with the Express Route Port Link.
-        """
-elif False:
-    ExpressRoutePortLink2ArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+    """
+    patch_panel_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID that maps from the Express Route Port Link to the patch panel port.
+    """
+    rack_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID that maps from the patch panel port to the rack.
+    """
+    router_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Azure router associated with the Express Route Port Link.
+    """
 
 @pulumi.input_type
 class ExpressRoutePortLink2Args:
@@ -6057,40 +5911,37 @@ class ExpressRoutePortLink2Args:
         pulumi.set(self, "router_name", value)
 
 
-if not MYPY:
-    class FirewallApplicationRuleCollectionRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the rule.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a description for the rule.
-        """
-        fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
-        """
-        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgsDict']]]]
-        """
-        One or more `protocol` blocks as defined below.
-        """
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of source IP addresses and/or IP ranges.
-        """
-        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of source IP Group IDs for the rule.
+class FirewallApplicationRuleCollectionRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the rule.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a description for the rule.
+    """
+    fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgsDict']]]]
+    """
+    One or more `protocol` blocks as defined below.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of source IP addresses and/or IP ranges.
+    """
+    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of source IP Group IDs for the rule.
 
-        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
-        """
-        target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of FQDNs.
-        """
-elif False:
-    FirewallApplicationRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+    """
+    target_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of FQDNs.
+    """
 
 @pulumi.input_type
 class FirewallApplicationRuleCollectionRuleArgs:
@@ -6214,18 +6065,15 @@ class FirewallApplicationRuleCollectionRuleArgs:
         pulumi.set(self, "target_fqdns", value)
 
 
-if not MYPY:
-    class FirewallApplicationRuleCollectionRuleProtocolArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        Specify a port for the connection.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
-        """
-elif False:
-    FirewallApplicationRuleCollectionRuleProtocolArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallApplicationRuleCollectionRuleProtocolArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    Specify a port for the connection.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
+    """
 
 @pulumi.input_type
 class FirewallApplicationRuleCollectionRuleProtocolArgs:
@@ -6264,36 +6112,33 @@ class FirewallApplicationRuleCollectionRuleProtocolArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FirewallIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the IP Configuration.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IP address associated with the Firewall.
-        """
-        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Public IP Address associated with the firewall.
+class FirewallIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the IP Configuration.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IP address associated with the Firewall.
+    """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Public IP Address associated with the firewall.
 
-        > **Note:** A public ip address is required unless a `management_ip_configuration` block is specified.
+    > **Note:** A public ip address is required unless a `management_ip_configuration` block is specified.
 
-        > **Note:** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+    > **Note:** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
 
-        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+    > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **Note:** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+    > **Note:** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
 
-        > **Note:** At least one and only one `ip_configuration` block may contain a `subnet_id`.
-        """
-elif False:
-    FirewallIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** At least one and only one `ip_configuration` block may contain a `subnet_id`.
+    """
 
 @pulumi.input_type
 class FirewallIpConfigurationArgs:
@@ -6385,30 +6230,27 @@ class FirewallIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class FirewallManagementIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the IP Configuration.
-        """
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Public IP Address associated with the firewall.
+class FirewallManagementIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the IP Configuration.
+    """
+    public_ip_address_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Public IP Address associated with the firewall.
 
-        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+    > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IP address associated with the Firewall.
-        """
-elif False:
-    FirewallManagementIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IP address associated with the Firewall.
+    """
 
 @pulumi.input_type
 class FirewallManagementIpConfigurationArgs:
@@ -6486,48 +6328,45 @@ class FirewallManagementIpConfigurationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-if not MYPY:
-    class FirewallNatRuleCollectionRuleArgsDict(TypedDict):
-        destination_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of destination IP addresses and/or IP ranges.
-        """
-        destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of destination ports.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the rule.
-        """
-        protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
-        """
-        translated_address: pulumi.Input[_builtins.str]
-        """
-        The address of the service behind the Firewall.
-        """
-        translated_port: pulumi.Input[_builtins.str]
-        """
-        The port of the service behind the Firewall.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a description for the rule.
-        """
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of source IP addresses and/or IP ranges.
-        """
-        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of source IP Group IDs for the rule.
+class FirewallNatRuleCollectionRuleArgsDict(TypedDict):
+    destination_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of destination IP addresses and/or IP ranges.
+    """
+    destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of destination ports.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the rule.
+    """
+    protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`. If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+    """
+    translated_address: pulumi.Input[_builtins.str]
+    """
+    The address of the service behind the Firewall.
+    """
+    translated_port: pulumi.Input[_builtins.str]
+    """
+    The port of the service behind the Firewall.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a description for the rule.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of source IP addresses and/or IP ranges.
+    """
+    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of source IP Group IDs for the rule.
 
-        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
-        """
-elif False:
-    FirewallNatRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+    """
 
 @pulumi.input_type
 class FirewallNatRuleCollectionRuleArgs:
@@ -6678,52 +6517,49 @@ class FirewallNatRuleCollectionRuleArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
-if not MYPY:
-    class FirewallNetworkRuleCollectionRuleArgsDict(TypedDict):
-        destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of destination ports.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the rule.
-        """
-        protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a description for the rule.
-        """
-        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
-        """
-        destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of destination FQDNS for the rule.
+class FirewallNetworkRuleCollectionRuleArgsDict(TypedDict):
+    destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of destination ports.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the rule.
+    """
+    protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a description for the rule.
+    """
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
+    """
+    destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of destination FQDNS for the rule.
 
-        > **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+    > **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
 
-        > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
-        """
-        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of destination IP Group IDs for the rule.
-        """
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of source IP addresses and/or IP ranges.
-        """
-        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IP Group IDs for the rule.
+    > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+    """
+    destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of destination IP Group IDs for the rule.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of source IP addresses and/or IP ranges.
+    """
+    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IP Group IDs for the rule.
 
-        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
-        """
-elif False:
-    FirewallNetworkRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+    """
 
 @pulumi.input_type
 class FirewallNetworkRuleCollectionRuleArgs:
@@ -6885,18 +6721,15 @@ class FirewallNetworkRuleCollectionRuleArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
-if not MYPY:
-    class FirewallPolicyDnsArgsDict(TypedDict):
-        proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
-        """
-        servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of custom DNS servers' IP addresses.
-        """
-elif False:
-    FirewallPolicyDnsArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyDnsArgsDict(TypedDict):
+    proxy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+    """
+    servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of custom DNS servers' IP addresses.
+    """
 
 @pulumi.input_type
 class FirewallPolicyDnsArgs:
@@ -6937,34 +6770,31 @@ class FirewallPolicyDnsArgs:
         pulumi.set(self, "servers", value)
 
 
-if not MYPY:
-    class FirewallPolicyExplicitProxyArgsDict(TypedDict):
-        enable_pac_file: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the pac file port and url need to be provided.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the explicit proxy is enabled for this Firewall Policy.
-        """
-        http_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number for explicit http protocol.
-        """
-        https_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number for explicit proxy https protocol.
-        """
-        pac_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a SAS URL for PAC file.
-        """
-        pac_file_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies a port number for firewall to serve PAC file.
-        """
-elif False:
-    FirewallPolicyExplicitProxyArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyExplicitProxyArgsDict(TypedDict):
+    enable_pac_file: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the pac file port and url need to be provided.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the explicit proxy is enabled for this Firewall Policy.
+    """
+    http_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number for explicit http protocol.
+    """
+    https_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number for explicit proxy https protocol.
+    """
+    pac_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a SAS URL for PAC file.
+    """
+    pac_file_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies a port number for firewall to serve PAC file.
+    """
 
 @pulumi.input_type
 class FirewallPolicyExplicitProxyArgs:
@@ -7069,20 +6899,17 @@ class FirewallPolicyExplicitProxyArgs:
         pulumi.set(self, "pac_file_port", value)
 
 
-if not MYPY:
-    class FirewallPolicyIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FirewallPolicyIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FirewallPolicyIdentityArgs:
@@ -7146,26 +6973,23 @@ class FirewallPolicyIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class FirewallPolicyInsightsArgsDict(TypedDict):
-        default_log_analytics_workspace_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether the insights functionality is enabled for this Firewall Policy.
-        """
-        log_analytics_workspaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgsDict']]]]
-        """
-        A list of `log_analytics_workspace` block as defined below.
-        """
-        retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The log retention period in days.
-        """
-elif False:
-    FirewallPolicyInsightsArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyInsightsArgsDict(TypedDict):
+    default_log_analytics_workspace_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the insights functionality is enabled for this Firewall Policy.
+    """
+    log_analytics_workspaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgsDict']]]]
+    """
+    A list of `log_analytics_workspace` block as defined below.
+    """
+    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The log retention period in days.
+    """
 
 @pulumi.input_type
 class FirewallPolicyInsightsArgs:
@@ -7236,18 +7060,15 @@ class FirewallPolicyInsightsArgs:
         pulumi.set(self, "retention_in_days", value)
 
 
-if not MYPY:
-    class FirewallPolicyInsightsLogAnalyticsWorkspaceArgsDict(TypedDict):
-        firewall_location: pulumi.Input[_builtins.str]
-        """
-        The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
-        """
-elif False:
-    FirewallPolicyInsightsLogAnalyticsWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyInsightsLogAnalyticsWorkspaceArgsDict(TypedDict):
+    firewall_location: pulumi.Input[_builtins.str]
+    """
+    The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+    """
 
 @pulumi.input_type
 class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs:
@@ -7286,26 +7107,23 @@ class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FirewallPolicyIntrusionDetectionArgsDict(TypedDict):
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
-        """
-        private_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
-        """
-        signature_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict']]]]
-        """
-        One or more `signature_overrides` blocks as defined below.
-        """
-        traffic_bypasses: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgsDict']]]]
-        """
-        One or more `traffic_bypass` blocks as defined below.
-        """
-elif False:
-    FirewallPolicyIntrusionDetectionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyIntrusionDetectionArgsDict(TypedDict):
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
+    """
+    private_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+    """
+    signature_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict']]]]
+    """
+    One or more `signature_overrides` blocks as defined below.
+    """
+    traffic_bypasses: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgsDict']]]]
+    """
+    One or more `traffic_bypass` blocks as defined below.
+    """
 
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionArgs:
@@ -7378,18 +7196,15 @@ class FirewallPolicyIntrusionDetectionArgs:
         pulumi.set(self, "traffic_bypasses", value)
 
 
-if not MYPY:
-    class FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        12-digit number (id) which identifies your signature.
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        state can be any of `Off`, `Alert` or `Deny`.
-        """
-elif False:
-    FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    12-digit number (id) which identifies your signature.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    state can be any of `Off`, `Alert` or `Deny`.
+    """
 
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionSignatureOverrideArgs:
@@ -7430,42 +7245,39 @@ class FirewallPolicyIntrusionDetectionSignatureOverrideArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class FirewallPolicyIntrusionDetectionTrafficBypassArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this bypass traffic setting.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description for this bypass traffic setting.
-        """
-        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
-        """
-        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
-        """
-        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
-        """
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of source addresses that shall be bypassed by intrusion detection.
-        """
-        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of source IP groups that shall be bypassed by intrusion detection.
-        """
-elif False:
-    FirewallPolicyIntrusionDetectionTrafficBypassArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyIntrusionDetectionTrafficBypassArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this bypass traffic setting.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description for this bypass traffic setting.
+    """
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+    """
+    destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+    """
+    destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of source addresses that shall be bypassed by intrusion detection.
+    """
+    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of source IP groups that shall be bypassed by intrusion detection.
+    """
 
 @pulumi.input_type
 class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
@@ -7600,26 +7412,23 @@ class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this application rule collection.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        The priority of the application rule collection. The range is `100` - `65000`.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict']]]
-        """
-        One or more `application_rule` blocks as defined below.
-        """
-elif False:
-    FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this application rule collection.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority of the application rule collection. The range is `100` - `65000`.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict']]]
+    """
+    One or more `application_rule` blocks as defined below.
+    """
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
@@ -7688,40 +7497,37 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        destination_fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of destination FQDN tags.
-        """
-        destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        destination_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        """
-        http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgsDict']]]]
-        """
-        Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
-        """
-        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgsDict']]]]
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        terminate_tls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
-        """
-        web_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
-        """
-elif False:
-    FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_fqdn_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of destination FQDN tags.
+    """
+    destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+    """
+    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgsDict']]]]
+    """
+    Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgsDict']]]]
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    terminate_tls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+    """
+    web_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+    """
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
@@ -7897,18 +7703,15 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
         pulumi.set(self, "web_categories", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value of the value.
-        """
-elif False:
-    FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value of the value.
+    """
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs:
@@ -7947,18 +7750,15 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderAr
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        Port number of the protocol. Range is 0-64000.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Protocol type. Possible values are `Http` and `Https`.
-        """
-elif False:
-    FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    Port number of the protocol. Range is 0-64000.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Protocol type. Possible values are `Http` and `Https`.
+    """
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs:
@@ -7997,26 +7797,23 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this NAT rule collection.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        The priority of the NAT rule collection. The range is `100` - `65000`.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgsDict']]]
-        """
-        A `nat_rule` block as defined below.
-        """
-elif False:
-    FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this NAT rule collection.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority of the NAT rule collection. The range is `100` - `65000`.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgsDict']]]
+    """
+    A `nat_rule` block as defined below.
+    """
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
@@ -8085,37 +7882,34 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        """
-        protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        translated_port: pulumi.Input[_builtins.int]
-        """
-        Specifies the translated port.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        destination_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination IP address (including CIDR).
-        """
-        destination_ports: NotRequired[pulumi.Input[_builtins.str]]
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        translated_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the translated address.
-        """
-        translated_fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the translated FQDN.
+class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+    """
+    protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    translated_port: pulumi.Input[_builtins.int]
+    """
+    Specifies the translated port.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    destination_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination IP address (including CIDR).
+    """
+    destination_ports: NotRequired[pulumi.Input[_builtins.str]]
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    translated_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the translated address.
+    """
+    translated_fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the translated FQDN.
 
-        > **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
-        """
-elif False:
-    FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+    """
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
@@ -8265,26 +8059,23 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
         pulumi.set(self, "translated_fqdn", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this network rule collection.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        The priority of the network rule collection. The range is `100` - `65000`.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgsDict']]]
-        """
-        One or more `network_rule` blocks as defined below.
-        """
-elif False:
-    FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this network rule collection.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority of the network rule collection. The range is `100` - `65000`.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgsDict']]]
+    """
+    One or more `network_rule` blocks as defined below.
+    """
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs:
@@ -8353,25 +8144,22 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgsDict(TypedDict):
-        destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        """
-        protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of destination IP groups.
-        """
-        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgsDict(TypedDict):
+    destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+    """
+    protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    destination_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of destination IP groups.
+    """
+    source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    source_ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
@@ -8493,18 +8281,15 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
         pulumi.set(self, "source_ip_groups", value)
 
 
-if not MYPY:
-    class FirewallPolicyThreatIntelligenceAllowlistArgsDict(TypedDict):
-        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of FQDNs that will be skipped for threat detection.
-        """
-        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IP addresses or CIDR ranges that will be skipped for threat detection.
-        """
-elif False:
-    FirewallPolicyThreatIntelligenceAllowlistArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyThreatIntelligenceAllowlistArgsDict(TypedDict):
+    fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of FQDNs that will be skipped for threat detection.
+    """
+    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IP addresses or CIDR ranges that will be skipped for threat detection.
+    """
 
 @pulumi.input_type
 class FirewallPolicyThreatIntelligenceAllowlistArgs:
@@ -8545,18 +8330,15 @@ class FirewallPolicyThreatIntelligenceAllowlistArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
-if not MYPY:
-    class FirewallPolicyTlsCertificateArgsDict(TypedDict):
-        key_vault_secret_id: pulumi.Input[_builtins.str]
-        """
-        The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the certificate.
-        """
-elif False:
-    FirewallPolicyTlsCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallPolicyTlsCertificateArgsDict(TypedDict):
+    key_vault_secret_id: pulumi.Input[_builtins.str]
+    """
+    The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the certificate.
+    """
 
 @pulumi.input_type
 class FirewallPolicyTlsCertificateArgs:
@@ -8595,26 +8377,23 @@ class FirewallPolicyTlsCertificateArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class FirewallVirtualHubArgsDict(TypedDict):
-        virtual_hub_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the ID of the Virtual Hub where the Firewall resides in.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IP address associated with the Firewall.
-        """
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of public IP addresses associated with the Firewall.
-        """
-        public_ip_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
-        """
-elif False:
-    FirewallVirtualHubArgsDict: TypeAlias = Mapping[str, Any]
+class FirewallVirtualHubArgsDict(TypedDict):
+    virtual_hub_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the ID of the Virtual Hub where the Firewall resides in.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IP address associated with the Firewall.
+    """
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of public IP addresses associated with the Firewall.
+    """
+    public_ip_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class FirewallVirtualHubArgs:
@@ -8686,22 +8465,19 @@ class FirewallVirtualHubArgs:
         pulumi.set(self, "public_ip_count", value)
 
 
-if not MYPY:
-    class LocalNetworkGatewayBgpSettingsArgsDict(TypedDict):
-        asn: pulumi.Input[_builtins.int]
-        """
-        The BGP speaker's ASN.
-        """
-        bgp_peering_address: pulumi.Input[_builtins.str]
-        """
-        The BGP peering address and BGP identifier of this BGP speaker.
-        """
-        peer_weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight added to routes learned from this BGP speaker.
-        """
-elif False:
-    LocalNetworkGatewayBgpSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LocalNetworkGatewayBgpSettingsArgsDict(TypedDict):
+    asn: pulumi.Input[_builtins.int]
+    """
+    The BGP speaker's ASN.
+    """
+    bgp_peering_address: pulumi.Input[_builtins.str]
+    """
+    The BGP peering address and BGP identifier of this BGP speaker.
+    """
+    peer_weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The weight added to routes learned from this BGP speaker.
+    """
 
 @pulumi.input_type
 class LocalNetworkGatewayBgpSettingsArgs:
@@ -8756,42 +8532,39 @@ class LocalNetworkGatewayBgpSettingsArgs:
         pulumi.set(self, "peer_weight", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorEndpointArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the endpoint for the Network Connection Monitor .
-        """
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address or domain name of the Network Connection Monitor endpoint.
-        """
-        coverage_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
-        """
-        excluded_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
-        """
-        filter: NotRequired[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgsDict']]
-        """
-        A `filter` block as defined below.
-        """
-        included_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
-        """
-        target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID which is used as the endpoint by the Network Connection Monitor.
-        """
-        target_resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
-        """
-elif False:
-    NetworkConnectionMonitorEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorEndpointArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the endpoint for the Network Connection Monitor .
+    """
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address or domain name of the Network Connection Monitor endpoint.
+    """
+    coverage_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+    """
+    excluded_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+    """
+    filter: NotRequired[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgsDict']]
+    """
+    A `filter` block as defined below.
+    """
+    included_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+    """
+    target_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID which is used as the endpoint by the Network Connection Monitor.
+    """
+    target_resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint type of the Network Connection Monitor. Possible values are `AzureArcVM`, `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorEndpointArgs:
@@ -8927,18 +8700,15 @@ class NetworkConnectionMonitorEndpointArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorEndpointFilterArgsDict(TypedDict):
-        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgsDict']]]]
-        """
-        A `item` block as defined below.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
-        """
-elif False:
-    NetworkConnectionMonitorEndpointFilterArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorEndpointFilterArgsDict(TypedDict):
+    items: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgsDict']]]]
+    """
+    A `item` block as defined below.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorEndpointFilterArgs:
@@ -8979,18 +8749,15 @@ class NetworkConnectionMonitorEndpointFilterArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorEndpointFilterItemArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address of the filter item.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
-        """
-elif False:
-    NetworkConnectionMonitorEndpointFilterItemArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorEndpointFilterItemArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address of the filter item.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorEndpointFilterItemArgs:
@@ -9031,42 +8798,39 @@ class NetworkConnectionMonitorEndpointFilterItemArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorTestConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of test configuration for the Network Connection Monitor.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
-        """
-        http_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict']]
-        """
-        A `http_configuration` block as defined below.
-        """
-        icmp_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict']]
-        """
-        A `icmp_configuration` block as defined below.
-        """
-        preferred_ip_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
-        """
-        success_threshold: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict']]
-        """
-        A `success_threshold` block as defined below.
-        """
-        tcp_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict']]
-        """
-        A `tcp_configuration` block as defined below.
-        """
-        test_frequency_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
-        """
-elif False:
-    NetworkConnectionMonitorTestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorTestConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of test configuration for the Network Connection Monitor.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
+    """
+    http_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict']]
+    """
+    A `http_configuration` block as defined below.
+    """
+    icmp_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict']]
+    """
+    A `icmp_configuration` block as defined below.
+    """
+    preferred_ip_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
+    """
+    success_threshold: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict']]
+    """
+    A `success_threshold` block as defined below.
+    """
+    tcp_configuration: NotRequired[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict']]
+    """
+    A `tcp_configuration` block as defined below.
+    """
+    test_frequency_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationArgs:
@@ -9201,34 +8965,31 @@ class NetworkConnectionMonitorTestConfigurationArgs:
         pulumi.set(self, "test_frequency_in_seconds", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict(TypedDict):
-        method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path component of the URI. It only accepts the absolute path.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port for the HTTP connection.
-        """
-        prefer_https: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
-        """
-        request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgsDict']]]]
-        """
-        A `request_header` block as defined below.
-        """
-        valid_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
-        """
-elif False:
-    NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict(TypedDict):
+    method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path component of the URI. It only accepts the absolute path.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port for the HTTP connection.
+    """
+    prefer_https: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+    """
+    request_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgsDict']]]]
+    """
+    A `request_header` block as defined below.
+    """
+    valid_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs:
@@ -9333,18 +9094,15 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs:
         pulumi.set(self, "valid_status_code_ranges", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the HTTP header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the HTTP header.
-        """
-elif False:
-    NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the HTTP header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the HTTP header.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs:
@@ -9383,14 +9141,11 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArg
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict(TypedDict):
-        trace_route_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should path evaluation with trace route be enabled? Defaults to `true`.
-        """
-elif False:
-    NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict(TypedDict):
+    trace_route_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should path evaluation with trace route be enabled? Defaults to `true`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs:
@@ -9415,18 +9170,15 @@ class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs:
         pulumi.set(self, "trace_route_enabled", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict(TypedDict):
-        checks_failed_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum percentage of failed checks permitted for a test to be successful.
-        """
-        round_trip_time_ms: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The maximum round-trip time in milliseconds permitted for a test to be successful.
-        """
-elif False:
-    NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict(TypedDict):
+    checks_failed_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum percentage of failed checks permitted for a test to be successful.
+    """
+    round_trip_time_ms: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum round-trip time in milliseconds permitted for a test to be successful.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs:
@@ -9467,22 +9219,19 @@ class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs:
         pulumi.set(self, "round_trip_time_ms", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port for the TCP connection.
-        """
-        destination_port_behavior: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
-        """
-        trace_route_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should path evaluation with trace route be enabled? Defaults to `true`.
-        """
-elif False:
-    NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port for the TCP connection.
+    """
+    destination_port_behavior: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
+    """
+    trace_route_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should path evaluation with trace route be enabled? Defaults to `true`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
@@ -9538,30 +9287,27 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
         pulumi.set(self, "trace_route_enabled", value)
 
 
-if not MYPY:
-    class NetworkConnectionMonitorTestGroupArgsDict(TypedDict):
-        destination_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of destination endpoint names.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the test group for the Network Connection Monitor.
-        """
-        source_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of source endpoint names.
-        """
-        test_configuration_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of test configuration names.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the test group be enabled? Defaults to `true`.
-        """
-elif False:
-    NetworkConnectionMonitorTestGroupArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkConnectionMonitorTestGroupArgsDict(TypedDict):
+    destination_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of destination endpoint names.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the test group for the Network Connection Monitor.
+    """
+    source_endpoints: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of source endpoint names.
+    """
+    test_configuration_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of test configuration names.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the test group be enabled? Defaults to `true`.
+    """
 
 @pulumi.input_type
 class NetworkConnectionMonitorTestGroupArgs:
@@ -9646,46 +9392,43 @@ class NetworkConnectionMonitorTestGroupArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class NetworkInterfaceIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name used for this IP Configuration.
-        """
-        private_ip_address_allocation: pulumi.Input[_builtins.str]
-        """
-        The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+class NetworkInterfaceIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name used for this IP Configuration.
+    """
+    private_ip_address_allocation: pulumi.Input[_builtins.str]
+    """
+    The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
 
-        > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
-        """
-        gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
-        """
-        primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first private IP address of the network interface.
-        """
-        private_ip_address_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
-        """
-        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reference to a Public IP Address to associate with this NIC
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Subnet where this Network Interface should be located in.
+    > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
+    """
+    gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
+    """
+    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The first private IP address of the network interface.
+    """
+    private_ip_address_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+    """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reference to a Public IP Address to associate with this NIC
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Subnet where this Network Interface should be located in.
 
-        > **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
-        """
-elif False:
-    NetworkInterfaceIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+    """
 
 @pulumi.input_type
 class NetworkInterfaceIpConfigurationArgs:
@@ -9828,18 +9571,15 @@ class NetworkInterfaceIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class NetworkManagerAdminRuleDestinationArgsDict(TypedDict):
-        address_prefix: pulumi.Input[_builtins.str]
-        """
-        Specifies the address prefix.
-        """
-        address_prefix_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
-        """
-elif False:
-    NetworkManagerAdminRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkManagerAdminRuleDestinationArgsDict(TypedDict):
+    address_prefix: pulumi.Input[_builtins.str]
+    """
+    Specifies the address prefix.
+    """
+    address_prefix_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+    """
 
 @pulumi.input_type
 class NetworkManagerAdminRuleDestinationArgs:
@@ -9878,18 +9618,15 @@ class NetworkManagerAdminRuleDestinationArgs:
         pulumi.set(self, "address_prefix_type", value)
 
 
-if not MYPY:
-    class NetworkManagerAdminRuleSourceArgsDict(TypedDict):
-        address_prefix: pulumi.Input[_builtins.str]
-        """
-        Specifies the address prefix.
-        """
-        address_prefix_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
-        """
-elif False:
-    NetworkManagerAdminRuleSourceArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkManagerAdminRuleSourceArgsDict(TypedDict):
+    address_prefix: pulumi.Input[_builtins.str]
+    """
+    Specifies the address prefix.
+    """
+    address_prefix_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the address prefix type. Possible values are `IPPrefix` and `ServiceTag`. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+    """
 
 @pulumi.input_type
 class NetworkManagerAdminRuleSourceArgs:
@@ -9928,28 +9665,25 @@ class NetworkManagerAdminRuleSourceArgs:
         pulumi.set(self, "address_prefix_type", value)
 
 
-if not MYPY:
-    class NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict(TypedDict):
-        group_connectivity: pulumi.Input[_builtins.str]
-        """
-        Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
-        """
-        network_group_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the resource ID of Network Group which the configuration applies to.
-        """
-        global_mesh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+class NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict(TypedDict):
+    group_connectivity: pulumi.Input[_builtins.str]
+    """
+    Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
+    """
+    network_group_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the resource ID of Network Group which the configuration applies to.
+    """
+    global_mesh_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
 
-        > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
-        """
-        use_hub_gateway: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the hub gateway is used. Possible values are `true` and `false`.
-        """
-elif False:
-    NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+    """
+    use_hub_gateway: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the hub gateway is used. Possible values are `true` and `false`.
+    """
 
 @pulumi.input_type
 class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
@@ -10024,18 +9758,15 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
         pulumi.set(self, "use_hub_gateway", value)
 
 
-if not MYPY:
-    class NetworkManagerConnectivityConfigurationHubArgsDict(TypedDict):
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the resource ID used as hub in Hub And Spoke topology.
-        """
-        resource_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the resource Type used as hub in Hub And Spoke topology.
-        """
-elif False:
-    NetworkManagerConnectivityConfigurationHubArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkManagerConnectivityConfigurationHubArgsDict(TypedDict):
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the resource ID used as hub in Hub And Spoke topology.
+    """
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the resource Type used as hub in Hub And Spoke topology.
+    """
 
 @pulumi.input_type
 class NetworkManagerConnectivityConfigurationHubArgs:
@@ -10074,22 +9805,19 @@ class NetworkManagerConnectivityConfigurationHubArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class NetworkManagerCrossTenantScopeArgsDict(TypedDict):
-        management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of management groups.
-        """
-        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of subscriptions.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant ID.
-        """
-elif False:
-    NetworkManagerCrossTenantScopeArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkManagerCrossTenantScopeArgsDict(TypedDict):
+    management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of management groups.
+    """
+    subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of subscriptions.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant ID.
+    """
 
 @pulumi.input_type
 class NetworkManagerCrossTenantScopeArgs:
@@ -10146,18 +9874,15 @@ class NetworkManagerCrossTenantScopeArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class NetworkManagerRoutingRuleDestinationArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The destination address.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
-        """
-elif False:
-    NetworkManagerRoutingRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkManagerRoutingRuleDestinationArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The destination address.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of destination. Possible values are `AddressPrefix` and `ServiceTag`.
+    """
 
 @pulumi.input_type
 class NetworkManagerRoutingRuleDestinationArgs:
@@ -10196,18 +9921,15 @@ class NetworkManagerRoutingRuleDestinationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NetworkManagerRoutingRuleNextHopArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
-        """
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
-        """
-elif False:
-    NetworkManagerRoutingRuleNextHopArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkManagerRoutingRuleNextHopArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of next hop. Possible values are `Internet`, `NoNextHop`, `VirtualAppliance`, `VirtualNetworkGateway` and `VnetLocal`.
+    """
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address of the next hop. This is required if the next hop type is `VirtualAppliance`.
+    """
 
 @pulumi.input_type
 class NetworkManagerRoutingRuleNextHopArgs:
@@ -10247,20 +9969,17 @@ class NetworkManagerRoutingRuleNextHopArgs:
         pulumi.set(self, "address", value)
 
 
-if not MYPY:
-    class NetworkManagerScopeArgsDict(TypedDict):
-        management_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of management group IDs.
+class NetworkManagerScopeArgsDict(TypedDict):
+    management_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of management group IDs.
 
-        > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
-        """
-        subscription_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of subscription IDs.
-        """
-elif False:
-    NetworkManagerScopeArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+    """
+    subscription_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of subscription IDs.
+    """
 
 @pulumi.input_type
 class NetworkManagerScopeArgs:
@@ -10305,30 +10024,27 @@ class NetworkManagerScopeArgs:
         pulumi.set(self, "subscription_ids", value)
 
 
-if not MYPY:
-    class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict(TypedDict):
-        destination_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
-        """
-        destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
-        """
-        protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
-        """
-        source_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
-        """
-        source_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
-        """
-elif False:
-    NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict(TypedDict):
+    destination_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+    """
+    destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+    """
+    protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+    """
+    source_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+    """
+    source_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+    """
 
 @pulumi.input_type
 class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs:
@@ -10412,74 +10128,71 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs:
         pulumi.set(self, "source_ports", value)
 
 
-if not MYPY:
-    class NetworkSecurityGroupSecurityRuleArgsDict(TypedDict):
-        access: pulumi.Input[_builtins.str]
-        """
-        Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
-        """
-        direction: pulumi.Input[_builtins.str]
-        """
-        The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the security rule.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description for this rule. Restricted to 140 characters.
-        """
-        destination_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
-        """
-        destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        """
-        destination_application_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A List of destination Application Security Group IDs
-        """
-        destination_port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        """
-        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-        """
-        source_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
-        """
-        source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        """
-        source_application_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A List of source Application Security Group IDs
-        """
-        source_port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        """
-        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of source ports or port ranges. This is required if `source_port_range` is not specified.
-        """
-elif False:
-    NetworkSecurityGroupSecurityRuleArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkSecurityGroupSecurityRuleArgsDict(TypedDict):
+    access: pulumi.Input[_builtins.str]
+    """
+    Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+    """
+    direction: pulumi.Input[_builtins.str]
+    """
+    The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the security rule.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for this rule. Restricted to 140 characters.
+    """
+    destination_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+    """
+    destination_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+    """
+    destination_application_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A List of destination Application Security Group IDs
+    """
+    destination_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+    """
+    destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+    """
+    source_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+    """
+    source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+    """
+    source_application_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A List of source Application Security Group IDs
+    """
+    source_port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+    """
+    source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of source ports or port ranges. This is required if `source_port_range` is not specified.
+    """
 
 @pulumi.input_type
 class NetworkSecurityGroupSecurityRuleArgs:
@@ -10739,18 +10452,15 @@ class NetworkSecurityGroupSecurityRuleArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
-if not MYPY:
-    class NetworkWatcherFlowLogRetentionPolicyArgsDict(TypedDict):
-        days: pulumi.Input[_builtins.int]
-        """
-        The number of days to retain flow log records.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Boolean flag to enable/disable retention.
-        """
-elif False:
-    NetworkWatcherFlowLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkWatcherFlowLogRetentionPolicyArgsDict(TypedDict):
+    days: pulumi.Input[_builtins.int]
+    """
+    The number of days to retain flow log records.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean flag to enable/disable retention.
+    """
 
 @pulumi.input_type
 class NetworkWatcherFlowLogRetentionPolicyArgs:
@@ -10789,30 +10499,27 @@ class NetworkWatcherFlowLogRetentionPolicyArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class NetworkWatcherFlowLogTrafficAnalyticsArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Boolean flag to enable/disable traffic analytics.
-        """
-        workspace_id: pulumi.Input[_builtins.str]
-        """
-        The resource GUID of the attached workspace.
-        """
-        workspace_region: pulumi.Input[_builtins.str]
-        """
-        The location of the attached workspace.
-        """
-        workspace_resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the attached workspace.
-        """
-        interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How frequently service should do flow analytics in minutes. Defaults to `60`.
-        """
-elif False:
-    NetworkWatcherFlowLogTrafficAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkWatcherFlowLogTrafficAnalyticsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean flag to enable/disable traffic analytics.
+    """
+    workspace_id: pulumi.Input[_builtins.str]
+    """
+    The resource GUID of the attached workspace.
+    """
+    workspace_region: pulumi.Input[_builtins.str]
+    """
+    The location of the attached workspace.
+    """
+    workspace_resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the attached workspace.
+    """
+    interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How frequently service should do flow analytics in minutes. Defaults to `60`.
+    """
 
 @pulumi.input_type
 class NetworkWatcherFlowLogTrafficAnalyticsArgs:
@@ -10897,26 +10604,23 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgs:
         pulumi.set(self, "interval_in_minutes", value)
 
 
-if not MYPY:
-    class PointToPointVpnGatewayConnectionConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Name which should be used for this Connection Configuration.
-        """
-        vpn_client_address_pool: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgsDict']
-        """
-        A `vpn_client_address_pool` block as defined below.
-        """
-        internet_security_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
-        """
-        route: NotRequired[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgsDict']]
-        """
-        A `route` block as defined below.
-        """
-elif False:
-    PointToPointVpnGatewayConnectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PointToPointVpnGatewayConnectionConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name which should be used for this Connection Configuration.
+    """
+    vpn_client_address_pool: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgsDict']
+    """
+    A `vpn_client_address_pool` block as defined below.
+    """
+    internet_security_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+    """
+    route: NotRequired[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgsDict']]
+    """
+    A `route` block as defined below.
+    """
 
 @pulumi.input_type
 class PointToPointVpnGatewayConnectionConfigurationArgs:
@@ -10987,26 +10691,23 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
         pulumi.set(self, "route", value)
 
 
-if not MYPY:
-    class PointToPointVpnGatewayConnectionConfigurationRouteArgsDict(TypedDict):
-        associated_route_table_id: pulumi.Input[_builtins.str]
-        """
-        The Virtual Hub Route Table resource id associated with this Routing Configuration.
-        """
-        inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
-        """
-        outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        """
-        propagated_route_table: NotRequired[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgsDict']]
-        """
-        A `propagated_route_table` block as defined below.
-        """
-elif False:
-    PointToPointVpnGatewayConnectionConfigurationRouteArgsDict: TypeAlias = Mapping[str, Any]
+class PointToPointVpnGatewayConnectionConfigurationRouteArgsDict(TypedDict):
+    associated_route_table_id: pulumi.Input[_builtins.str]
+    """
+    The Virtual Hub Route Table resource id associated with this Routing Configuration.
+    """
+    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+    """
+    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+    """
+    propagated_route_table: NotRequired[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgsDict']]
+    """
+    A `propagated_route_table` block as defined below.
+    """
 
 @pulumi.input_type
 class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
@@ -11078,18 +10779,15 @@ class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
         pulumi.set(self, "propagated_route_table", value)
 
 
-if not MYPY:
-    class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgsDict(TypedDict):
-        ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of Virtual Hub Route Table resource id which the routes will be propagated to.
-        """
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
-        """
-elif False:
-    PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgsDict(TypedDict):
+    ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+    """
 
 @pulumi.input_type
 class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs:
@@ -11129,14 +10827,11 @@ class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs
         pulumi.set(self, "labels", value)
 
 
-if not MYPY:
-    class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgsDict(TypedDict):
-        address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of CIDR Ranges which should be used as Address Prefixes.
-        """
-elif False:
-    PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgsDict(TypedDict):
+    address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of CIDR Ranges which should be used as Address Prefixes.
+    """
 
 @pulumi.input_type
 class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs:
@@ -11160,18 +10855,15 @@ class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs:
         pulumi.set(self, "address_prefixes", value)
 
 
-if not MYPY:
-    class ProfileContainerNetworkInterfaceArgsDict(TypedDict):
-        ip_configurations: pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArgsDict']]]
-        """
-        One or more `ip_configuration` blocks as documented below.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the IP Configuration.
-        """
-elif False:
-    ProfileContainerNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileContainerNetworkInterfaceArgsDict(TypedDict):
+    ip_configurations: pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArgsDict']]]
+    """
+    One or more `ip_configuration` blocks as documented below.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the IP Configuration.
+    """
 
 @pulumi.input_type
 class ProfileContainerNetworkInterfaceArgs:
@@ -11210,18 +10902,15 @@ class ProfileContainerNetworkInterfaceArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ProfileContainerNetworkInterfaceIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the IP Configuration.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        Reference to the subnet associated with the IP Configuration.
-        """
-elif False:
-    ProfileContainerNetworkInterfaceIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileContainerNetworkInterfaceIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the IP Configuration.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    Reference to the subnet associated with the IP Configuration.
+    """
 
 @pulumi.input_type
 class ProfileContainerNetworkInterfaceIpConfigurationArgs:
@@ -11260,26 +10949,23 @@ class ProfileContainerNetworkInterfaceIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class RouteFilterRuleArgsDict(TypedDict):
-        access: pulumi.Input[_builtins.str]
-        """
-        The access type of the rule. The only possible value is `Allow`.
-        """
-        communities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the route filter rule.
-        """
-        rule_type: pulumi.Input[_builtins.str]
-        """
-        The rule type of the rule. The only possible value is `Community`.
-        """
-elif False:
-    RouteFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RouteFilterRuleArgsDict(TypedDict):
+    access: pulumi.Input[_builtins.str]
+    """
+    The access type of the rule. The only possible value is `Allow`.
+    """
+    communities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the route filter rule.
+    """
+    rule_type: pulumi.Input[_builtins.str]
+    """
+    The rule type of the rule. The only possible value is `Community`.
+    """
 
 @pulumi.input_type
 class RouteFilterRuleArgs:
@@ -11348,26 +11034,23 @@ class RouteFilterRuleArgs:
         pulumi.set(self, "rule_type", value)
 
 
-if not MYPY:
-    class RouteMapRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name for the rule.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgsDict']]]]
-        """
-        An `action` block as defined below.
-        """
-        match_criterions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgsDict']]]]
-        """
-        A `match_criterion` block as defined below.
-        """
-        next_step_if_matched: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
-        """
-elif False:
-    RouteMapRuleArgsDict: TypeAlias = Mapping[str, Any]
+class RouteMapRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name for the rule.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgsDict']]]]
+    """
+    An `action` block as defined below.
+    """
+    match_criterions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgsDict']]]]
+    """
+    A `match_criterion` block as defined below.
+    """
+    next_step_if_matched: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+    """
 
 @pulumi.input_type
 class RouteMapRuleArgs:
@@ -11439,18 +11122,15 @@ class RouteMapRuleArgs:
         pulumi.set(self, "next_step_if_matched", value)
 
 
-if not MYPY:
-    class RouteMapRuleActionArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgsDict']]]]
-        """
-        A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
-        """
-elif False:
-    RouteMapRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class RouteMapRuleActionArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgsDict']]]]
+    """
+    A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
+    """
 
 @pulumi.input_type
 class RouteMapRuleActionArgs:
@@ -11490,22 +11170,19 @@ class RouteMapRuleActionArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class RouteMapRuleActionParameterArgsDict(TypedDict):
-        as_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of AS paths.
-        """
-        communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of BGP communities.
-        """
-        route_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of route prefixes.
-        """
-elif False:
-    RouteMapRuleActionParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RouteMapRuleActionParameterArgsDict(TypedDict):
+    as_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of AS paths.
+    """
+    communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of BGP communities.
+    """
+    route_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of route prefixes.
+    """
 
 @pulumi.input_type
 class RouteMapRuleActionParameterArgs:
@@ -11562,26 +11239,23 @@ class RouteMapRuleActionParameterArgs:
         pulumi.set(self, "route_prefixes", value)
 
 
-if not MYPY:
-    class RouteMapRuleMatchCriterionArgsDict(TypedDict):
-        match_condition: pulumi.Input[_builtins.str]
-        """
-        The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
-        """
-        as_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of AS paths which this criterion matches.
-        """
-        communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of BGP communities which this criterion matches.
-        """
-        route_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of route prefixes which this criterion matches.
-        """
-elif False:
-    RouteMapRuleMatchCriterionArgsDict: TypeAlias = Mapping[str, Any]
+class RouteMapRuleMatchCriterionArgsDict(TypedDict):
+    match_condition: pulumi.Input[_builtins.str]
+    """
+    The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+    """
+    as_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of AS paths which this criterion matches.
+    """
+    communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of BGP communities which this criterion matches.
+    """
+    route_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of route prefixes which this criterion matches.
+    """
 
 @pulumi.input_type
 class RouteMapRuleMatchCriterionArgs:
@@ -11653,26 +11327,23 @@ class RouteMapRuleMatchCriterionArgs:
         pulumi.set(self, "route_prefixes", value)
 
 
-if not MYPY:
-    class RouteTableRouteArgsDict(TypedDict):
-        address_prefix: pulumi.Input[_builtins.str]
-        """
-        The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the route.
-        """
-        next_hop_type: pulumi.Input[_builtins.str]
-        """
-        The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-        """
-        next_hop_in_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-        """
-elif False:
-    RouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
+class RouteTableRouteArgsDict(TypedDict):
+    address_prefix: pulumi.Input[_builtins.str]
+    """
+    The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the route.
+    """
+    next_hop_type: pulumi.Input[_builtins.str]
+    """
+    The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
+    """
+    next_hop_in_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+    """
 
 @pulumi.input_type
 class RouteTableRouteArgs:
@@ -11742,22 +11413,19 @@ class RouteTableRouteArgs:
         pulumi.set(self, "next_hop_in_ip_address", value)
 
 
-if not MYPY:
-    class RoutingIntentRoutingPolicyArgsDict(TypedDict):
-        destinations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique name for the routing policy.
-        """
-        next_hop: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the next hop on which this routing policy is applicable to.
-        """
-elif False:
-    RoutingIntentRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingIntentRoutingPolicyArgsDict(TypedDict):
+    destinations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of destinations which this routing policy is applicable to. Possible values are `Internet` and `PrivateTraffic`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name for the routing policy.
+    """
+    next_hop: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the next hop on which this routing policy is applicable to.
+    """
 
 @pulumi.input_type
 class RoutingIntentRoutingPolicyArgs:
@@ -11811,18 +11479,15 @@ class RoutingIntentRoutingPolicyArgs:
         pulumi.set(self, "next_hop", value)
 
 
-if not MYPY:
-    class SubnetDelegationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name for this delegation.
-        """
-        service_delegation: pulumi.Input['SubnetDelegationServiceDelegationArgsDict']
-        """
-        A `service_delegation` block as defined below.
-        """
-elif False:
-    SubnetDelegationArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetDelegationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name for this delegation.
+    """
+    service_delegation: pulumi.Input['SubnetDelegationServiceDelegationArgsDict']
+    """
+    A `service_delegation` block as defined below.
+    """
 
 @pulumi.input_type
 class SubnetDelegationArgs:
@@ -11861,20 +11526,17 @@ class SubnetDelegationArgs:
         pulumi.set(self, "service_delegation", value)
 
 
-if not MYPY:
-    class SubnetDelegationServiceDelegationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+class SubnetDelegationServiceDelegationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
-        > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
-        """
-elif False:
-    SubnetDelegationServiceDelegationArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+    """
 
 @pulumi.input_type
 class SubnetDelegationServiceDelegationArgs:
@@ -11918,24 +11580,21 @@ class SubnetDelegationServiceDelegationArgs:
         pulumi.set(self, "actions", value)
 
 
-if not MYPY:
-    class SubnetIpAddressPoolArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network Manager IP Address Management (IPAM) Pool.
-        """
-        number_of_ip_addresses: pulumi.Input[_builtins.str]
-        """
-        The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+class SubnetIpAddressPoolArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network Manager IP Address Management (IPAM) Pool.
+    """
+    number_of_ip_addresses: pulumi.Input[_builtins.str]
+    """
+    The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
 
-        > **Note:** `number_of_ip_addresses` cannot be decreased.
-        """
-        allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of IP address prefixes allocated to the subnet.
-        """
-elif False:
-    SubnetIpAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `number_of_ip_addresses` cannot be decreased.
+    """
+    allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of IP address prefixes allocated to the subnet.
+    """
 
 @pulumi.input_type
 class SubnetIpAddressPoolArgs:
@@ -11994,28 +11653,25 @@ class SubnetIpAddressPoolArgs:
         pulumi.set(self, "allocated_ip_address_prefixes", value)
 
 
-if not MYPY:
-    class SubnetServiceEndpointStoragePolicyDefinitionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
-        """
-        service_resources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
+class SubnetServiceEndpointStoragePolicyDefinitionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
+    """
+    service_resources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
 
-        > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of this Subnet Service Endpoint Storage Policy Definition.
-        """
-        service: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
-        """
-elif False:
-    SubnetServiceEndpointStoragePolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of this Subnet Service Endpoint Storage Policy Definition.
+    """
+    service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+    """
 
 @pulumi.input_type
 class SubnetServiceEndpointStoragePolicyDefinitionArgs:
@@ -12090,18 +11746,15 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgs:
         pulumi.set(self, "service", value)
 
 
-if not MYPY:
-    class TrafficManagerAzureEndpointCustomHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the custom header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of custom header. Applicable for HTTP and HTTPS protocol.
-        """
-elif False:
-    TrafficManagerAzureEndpointCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerAzureEndpointCustomHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the custom header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of custom header. Applicable for HTTP and HTTPS protocol.
+    """
 
 @pulumi.input_type
 class TrafficManagerAzureEndpointCustomHeaderArgs:
@@ -12140,22 +11793,19 @@ class TrafficManagerAzureEndpointCustomHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TrafficManagerAzureEndpointSubnetArgsDict(TypedDict):
-        first: pulumi.Input[_builtins.str]
-        """
-        The first IP Address in this subnet.
-        """
-        last: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The last IP Address in this subnet.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The block size (number of leading bits in the subnet mask).
-        """
-elif False:
-    TrafficManagerAzureEndpointSubnetArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerAzureEndpointSubnetArgsDict(TypedDict):
+    first: pulumi.Input[_builtins.str]
+    """
+    The first IP Address in this subnet.
+    """
+    last: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The last IP Address in this subnet.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The block size (number of leading bits in the subnet mask).
+    """
 
 @pulumi.input_type
 class TrafficManagerAzureEndpointSubnetArgs:
@@ -12211,18 +11861,15 @@ class TrafficManagerAzureEndpointSubnetArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class TrafficManagerExternalEndpointCustomHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the custom header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of custom header. Applicable for HTTP and HTTPS protocol.
-        """
-elif False:
-    TrafficManagerExternalEndpointCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerExternalEndpointCustomHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the custom header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of custom header. Applicable for HTTP and HTTPS protocol.
+    """
 
 @pulumi.input_type
 class TrafficManagerExternalEndpointCustomHeaderArgs:
@@ -12261,22 +11908,19 @@ class TrafficManagerExternalEndpointCustomHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TrafficManagerExternalEndpointSubnetArgsDict(TypedDict):
-        first: pulumi.Input[_builtins.str]
-        """
-        The first IP Address in this subnet.
-        """
-        last: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The last IP Address in this subnet.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The block size (number of leading bits in the subnet mask).
-        """
-elif False:
-    TrafficManagerExternalEndpointSubnetArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerExternalEndpointSubnetArgsDict(TypedDict):
+    first: pulumi.Input[_builtins.str]
+    """
+    The first IP Address in this subnet.
+    """
+    last: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The last IP Address in this subnet.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The block size (number of leading bits in the subnet mask).
+    """
 
 @pulumi.input_type
 class TrafficManagerExternalEndpointSubnetArgs:
@@ -12332,18 +11976,15 @@ class TrafficManagerExternalEndpointSubnetArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class TrafficManagerNestedEndpointCustomHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the custom header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of custom header. Applicable for HTTP and HTTPS protocol.
-        """
-elif False:
-    TrafficManagerNestedEndpointCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerNestedEndpointCustomHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the custom header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of custom header. Applicable for HTTP and HTTPS protocol.
+    """
 
 @pulumi.input_type
 class TrafficManagerNestedEndpointCustomHeaderArgs:
@@ -12382,22 +12023,19 @@ class TrafficManagerNestedEndpointCustomHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TrafficManagerNestedEndpointSubnetArgsDict(TypedDict):
-        first: pulumi.Input[_builtins.str]
-        """
-        The first IP Address in this subnet.
-        """
-        last: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The last IP Address in this subnet.
-        """
-        scope: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The block size (number of leading bits in the subnet mask).
-        """
-elif False:
-    TrafficManagerNestedEndpointSubnetArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerNestedEndpointSubnetArgsDict(TypedDict):
+    first: pulumi.Input[_builtins.str]
+    """
+    The first IP Address in this subnet.
+    """
+    last: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The last IP Address in this subnet.
+    """
+    scope: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The block size (number of leading bits in the subnet mask).
+    """
 
 @pulumi.input_type
 class TrafficManagerNestedEndpointSubnetArgs:
@@ -12453,18 +12091,15 @@ class TrafficManagerNestedEndpointSubnetArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class TrafficManagerProfileDnsConfigArgsDict(TypedDict):
-        relative_name: pulumi.Input[_builtins.str]
-        """
-        The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
-        """
-        ttl: pulumi.Input[_builtins.int]
-        """
-        The TTL value of the Profile used by Local DNS resolvers and clients.
-        """
-elif False:
-    TrafficManagerProfileDnsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerProfileDnsConfigArgsDict(TypedDict):
+    relative_name: pulumi.Input[_builtins.str]
+    """
+    The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
+    """
+    ttl: pulumi.Input[_builtins.int]
+    """
+    The TTL value of the Profile used by Local DNS resolvers and clients.
+    """
 
 @pulumi.input_type
 class TrafficManagerProfileDnsConfigArgs:
@@ -12503,42 +12138,39 @@ class TrafficManagerProfileDnsConfigArgs:
         pulumi.set(self, "ttl", value)
 
 
-if not MYPY:
-    class TrafficManagerProfileMonitorConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number used by the monitoring checks.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-        """
-        custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgsDict']]]]
-        """
-        One or more `custom_header` blocks as defined below.
-        """
-        expected_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of status code ranges in the format of `100-101`.
-        """
-        interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
-        """
-        tolerated_number_of_failures: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
-        """
-elif False:
-    TrafficManagerProfileMonitorConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerProfileMonitorConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number used by the monitoring checks.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+    """
+    custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgsDict']]]]
+    """
+    One or more `custom_header` blocks as defined below.
+    """
+    expected_status_code_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of status code ranges in the format of `100-101`.
+    """
+    interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+    """
+    tolerated_number_of_failures: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+    """
 
 @pulumi.input_type
 class TrafficManagerProfileMonitorConfigArgs:
@@ -12673,18 +12305,15 @@ class TrafficManagerProfileMonitorConfigArgs:
         pulumi.set(self, "tolerated_number_of_failures", value)
 
 
-if not MYPY:
-    class TrafficManagerProfileMonitorConfigCustomHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the custom header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of custom header. Applicable for HTTP and HTTPS protocol.
-        """
-elif False:
-    TrafficManagerProfileMonitorConfigCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TrafficManagerProfileMonitorConfigCustomHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the custom header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of custom header. Applicable for HTTP and HTTPS protocol.
+    """
 
 @pulumi.input_type
 class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
@@ -12723,38 +12352,35 @@ class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualHubConnectionRoutingArgsDict(TypedDict):
-        associated_route_table_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the route table associated with this Virtual Hub connection.
-        """
-        inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
-        """
-        outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        """
-        propagated_route_table: NotRequired[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgsDict']]
-        """
-        A `propagated_route_table` block as defined below.
-        """
-        static_vnet_local_route_override_criteria: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
-        """
-        static_vnet_propagate_static_routes_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
-        """
-        static_vnet_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgsDict']]]]
-        """
-        A `static_vnet_route` block as defined below.
-        """
-elif False:
-    VirtualHubConnectionRoutingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualHubConnectionRoutingArgsDict(TypedDict):
+    associated_route_table_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the route table associated with this Virtual Hub connection.
+    """
+    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+    """
+    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+    """
+    propagated_route_table: NotRequired[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgsDict']]
+    """
+    A `propagated_route_table` block as defined below.
+    """
+    static_vnet_local_route_override_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+    """
+    static_vnet_propagate_static_routes_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+    """
+    static_vnet_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgsDict']]]]
+    """
+    A `static_vnet_route` block as defined below.
+    """
 
 @pulumi.input_type
 class VirtualHubConnectionRoutingArgs:
@@ -12875,18 +12501,15 @@ class VirtualHubConnectionRoutingArgs:
         pulumi.set(self, "static_vnet_routes", value)
 
 
-if not MYPY:
-    class VirtualHubConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of labels to assign to this route table.
-        """
-        route_table_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Route Table IDs to associated with this Virtual Hub Connection.
-        """
-elif False:
-    VirtualHubConnectionRoutingPropagatedRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualHubConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of labels to assign to this route table.
+    """
+    route_table_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Route Table IDs to associated with this Virtual Hub Connection.
+    """
 
 @pulumi.input_type
 class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
@@ -12927,22 +12550,19 @@ class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
         pulumi.set(self, "route_table_ids", value)
 
 
-if not MYPY:
-    class VirtualHubConnectionRoutingStaticVnetRouteArgsDict(TypedDict):
-        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of CIDR Ranges which should be used as Address Prefixes.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for this Static Route.
-        """
-        next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP Address which should be used for the Next Hop.
-        """
-elif False:
-    VirtualHubConnectionRoutingStaticVnetRouteArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualHubConnectionRoutingStaticVnetRouteArgsDict(TypedDict):
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of CIDR Ranges which should be used as Address Prefixes.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for this Static Route.
+    """
+    next_hop_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP Address which should be used for the Next Hop.
+    """
 
 @pulumi.input_type
 class VirtualHubConnectionRoutingStaticVnetRouteArgs:
@@ -12999,18 +12619,15 @@ class VirtualHubConnectionRoutingStaticVnetRouteArgs:
         pulumi.set(self, "next_hop_ip_address", value)
 
 
-if not MYPY:
-    class VirtualHubRouteArgsDict(TypedDict):
-        address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Address Prefixes.
-        """
-        next_hop_ip_address: pulumi.Input[_builtins.str]
-        """
-        The IP Address that Packets should be forwarded to as the Next Hop.
-        """
-elif False:
-    VirtualHubRouteArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualHubRouteArgsDict(TypedDict):
+    address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Address Prefixes.
+    """
+    next_hop_ip_address: pulumi.Input[_builtins.str]
+    """
+    The IP Address that Packets should be forwarded to as the Next Hop.
+    """
 
 @pulumi.input_type
 class VirtualHubRouteArgs:
@@ -13049,32 +12666,29 @@ class VirtualHubRouteArgs:
         pulumi.set(self, "next_hop_ip_address", value)
 
 
-if not MYPY:
-    class VirtualHubRouteTableRouteArgsDict(TypedDict):
-        destinations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of destination addresses for this route.
-        """
-        destinations_type: pulumi.Input[_builtins.str]
-        """
-        The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this route.
-        """
-        next_hop: pulumi.Input[_builtins.str]
-        """
-        The next hop's resource ID.
-        """
-        next_hop_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+class VirtualHubRouteTableRouteArgsDict(TypedDict):
+    destinations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of destination addresses for this route.
+    """
+    destinations_type: pulumi.Input[_builtins.str]
+    """
+    The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this route.
+    """
+    next_hop: pulumi.Input[_builtins.str]
+    """
+    The next hop's resource ID.
+    """
+    next_hop_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
 
-        > **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
-        """
-elif False:
-    VirtualHubRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
+    """
 
 @pulumi.input_type
 class VirtualHubRouteTableRouteArgs:
@@ -13163,18 +12777,15 @@ class VirtualHubRouteTableRouteArgs:
         pulumi.set(self, "next_hop_type", value)
 
 
-if not MYPY:
-    class VirtualNetworkDdosProtectionPlanArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        Enable/disable DDoS Protection Plan on Virtual Network.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of DDoS Protection Plan.
-        """
-elif False:
-    VirtualNetworkDdosProtectionPlanArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkDdosProtectionPlanArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    Enable/disable DDoS Protection Plan on Virtual Network.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of DDoS Protection Plan.
+    """
 
 @pulumi.input_type
 class VirtualNetworkDdosProtectionPlanArgs:
@@ -13213,16 +12824,13 @@ class VirtualNetworkDdosProtectionPlanArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class VirtualNetworkEncryptionArgsDict(TypedDict):
-        enforcement: pulumi.Input[_builtins.str]
-        """
-        Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
+class VirtualNetworkEncryptionArgsDict(TypedDict):
+    enforcement: pulumi.Input[_builtins.str]
+    """
+    Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 
-        > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
-        """
-elif False:
-    VirtualNetworkEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+    """
 
 @pulumi.input_type
 class VirtualNetworkEncryptionArgs:
@@ -13250,22 +12858,19 @@ class VirtualNetworkEncryptionArgs:
         pulumi.set(self, "enforcement", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayBgpSettingsArgsDict(TypedDict):
-        asn: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Autonomous System Number (ASN) to use as part of the BGP.
-        """
-        peer_weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
-        """
-        peering_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict']]]]
-        """
-        A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
-        """
-elif False:
-    VirtualNetworkGatewayBgpSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayBgpSettingsArgsDict(TypedDict):
+    asn: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Autonomous System Number (ASN) to use as part of the BGP.
+    """
+    peer_weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
+    """
+    peering_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict']]]]
+    """
+    A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayBgpSettingsArgs:
@@ -13322,28 +12927,25 @@ class VirtualNetworkGatewayBgpSettingsArgs:
         pulumi.set(self, "peering_addresses", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict(TypedDict):
-        apipa_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+class VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict(TypedDict):
+    apipa_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
 
-        > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
-        """
-        default_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
-        """
-        ip_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
-        """
-        tunnel_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
-        """
-elif False:
-    VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
+    """
+    default_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
+    """
+    ip_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+    """
+    tunnel_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
@@ -13420,18 +13022,15 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
         pulumi.set(self, "tunnel_ip_addresses", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict(TypedDict):
-        primary: pulumi.Input[_builtins.str]
-        """
-        single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
-        """
-        secondary: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
-        """
-elif False:
-    VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict(TypedDict):
+    primary: pulumi.Input[_builtins.str]
+    """
+    single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (first one)
+    """
+    secondary: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    single IP address that is part of the `network.VirtualNetworkGateway` ip_configuration (second one)
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs:
@@ -13471,44 +13070,41 @@ class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs:
         pulumi.set(self, "secondary", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayConnectionIpsecPolicyArgsDict(TypedDict):
-        dh_group: pulumi.Input[_builtins.str]
-        """
-        The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
-        """
-        ike_encryption: pulumi.Input[_builtins.str]
-        """
-        The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
-        """
-        ike_integrity: pulumi.Input[_builtins.str]
-        """
-        The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
-        """
-        ipsec_encryption: pulumi.Input[_builtins.str]
-        """
-        The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
-        """
-        ipsec_integrity: pulumi.Input[_builtins.str]
-        """
-        The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
-        """
-        pfs_group: pulumi.Input[_builtins.str]
-        """
-        The DH group used in IKE phase 2 for new child SA.
-        Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
-        or `None`.
-        """
-        sa_datasize: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
-        """
-        sa_lifetime: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
-        """
-elif False:
-    VirtualNetworkGatewayConnectionIpsecPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayConnectionIpsecPolicyArgsDict(TypedDict):
+    dh_group: pulumi.Input[_builtins.str]
+    """
+    The DH group used in IKE phase 1 for initial SA. Valid options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`, `ECP256`, `ECP384`, or `None`.
+    """
+    ike_encryption: pulumi.Input[_builtins.str]
+    """
+    The IKE encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
+    """
+    ike_integrity: pulumi.Input[_builtins.str]
+    """
+    The IKE integrity algorithm. Valid options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+    """
+    ipsec_encryption: pulumi.Input[_builtins.str]
+    """
+    The IPSec encryption algorithm. Valid options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+    """
+    ipsec_integrity: pulumi.Input[_builtins.str]
+    """
+    The IPSec integrity algorithm. Valid options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+    """
+    pfs_group: pulumi.Input[_builtins.str]
+    """
+    The DH group used in IKE phase 2 for new child SA.
+    Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
+    or `None`.
+    """
+    sa_datasize: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The IPSec SA payload size in KB. Must be at least `1024` KB. Defaults to `102400000` KB.
+    """
+    sa_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The IPSec SA lifetime in seconds. Must be at least `300` seconds. Defaults to `27000` seconds.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
@@ -13643,18 +13239,15 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
         pulumi.set(self, "sa_lifetime", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgsDict(TypedDict):
-        local_address_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of local CIDRs.
-        """
-        remote_address_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of remote CIDRs.
-        """
-elif False:
-    VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgsDict(TypedDict):
+    local_address_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of local CIDRs.
+    """
+    remote_address_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of remote CIDRs.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
@@ -13693,14 +13286,11 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
         pulumi.set(self, "remote_address_cidrs", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayCustomRouteArgsDict(TypedDict):
-        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of address blocks reserved for this virtual network in CIDR notation.
-        """
-elif False:
-    VirtualNetworkGatewayCustomRouteArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayCustomRouteArgsDict(TypedDict):
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of address blocks reserved for this virtual network in CIDR notation.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayCustomRouteArgs:
@@ -13725,26 +13315,23 @@ class VirtualNetworkGatewayCustomRouteArgs:
         pulumi.set(self, "address_prefixes", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayIpConfigurationArgsDict(TypedDict):
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
-        """
-        private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
-        """
-        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the public IP address to associate with the Virtual Network Gateway.
-        """
-elif False:
-    VirtualNetworkGatewayIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayIpConfigurationArgsDict(TypedDict):
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
+    """
+    private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
+    """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the public IP address to associate with the Virtual Network Gateway.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayIpConfigurationArgs:
@@ -13816,18 +13403,15 @@ class VirtualNetworkGatewayIpConfigurationArgs:
         pulumi.set(self, "public_ip_address_id", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayNatRuleExternalMappingArgsDict(TypedDict):
-        address_space: pulumi.Input[_builtins.str]
-        """
-        The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
-        """
-        port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The single port range for the Virtual Network Gateway Nat Rule external mapping.
-        """
-elif False:
-    VirtualNetworkGatewayNatRuleExternalMappingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayNatRuleExternalMappingArgsDict(TypedDict):
+    address_space: pulumi.Input[_builtins.str]
+    """
+    The string CIDR representing the address space for the Virtual Network Gateway Nat Rule external mapping.
+    """
+    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The single port range for the Virtual Network Gateway Nat Rule external mapping.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayNatRuleExternalMappingArgs:
@@ -13867,18 +13451,15 @@ class VirtualNetworkGatewayNatRuleExternalMappingArgs:
         pulumi.set(self, "port_range", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayNatRuleInternalMappingArgsDict(TypedDict):
-        address_space: pulumi.Input[_builtins.str]
-        """
-        The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
-        """
-        port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The single port range for the Virtual Network Gateway Nat Rule internal mapping.
-        """
-elif False:
-    VirtualNetworkGatewayNatRuleInternalMappingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayNatRuleInternalMappingArgsDict(TypedDict):
+    address_space: pulumi.Input[_builtins.str]
+    """
+    The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
+    """
+    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The single port range for the Virtual Network Gateway Nat Rule internal mapping.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayNatRuleInternalMappingArgs:
@@ -13918,26 +13499,23 @@ class VirtualNetworkGatewayNatRuleInternalMappingArgs:
         pulumi.set(self, "port_range", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayPolicyGroupArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Virtual Network Gateway Policy Group.
-        """
-        policy_members: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupPolicyMemberArgsDict']]]
-        """
-        One or more `policy_member` blocks as defined below.
-        """
-        is_default: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
-        """
-elif False:
-    VirtualNetworkGatewayPolicyGroupArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayPolicyGroupArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Virtual Network Gateway Policy Group.
+    """
+    policy_members: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupPolicyMemberArgsDict']]]
+    """
+    One or more `policy_member` blocks as defined below.
+    """
+    is_default: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayPolicyGroupArgs:
@@ -14008,22 +13586,19 @@ class VirtualNetworkGatewayPolicyGroupArgs:
         pulumi.set(self, "priority", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayPolicyGroupPolicyMemberArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Virtual Network Gateway Policy Group Member.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
-        """
-elif False:
-    VirtualNetworkGatewayPolicyGroupPolicyMemberArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayPolicyGroupPolicyMemberArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Virtual Network Gateway Policy Group Member.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayPolicyGroupPolicyMemberArgs:
@@ -14077,69 +13652,66 @@ class VirtualNetworkGatewayPolicyGroupPolicyMemberArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayVpnClientConfigurationArgsDict(TypedDict):
-        address_spaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
-        """
-        aad_audience: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client id of the Azure VPN application.
-        See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
-        """
-        aad_issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The STS url for your tenant
-        """
-        aad_tenant: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AzureAD Tenant URL
-        """
-        ipsec_policy: NotRequired[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgsDict']]
-        """
-        An `ipsec_policy` block as defined below.
-        """
-        radius_server_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address of the Radius server.
-        """
-        radius_server_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret used by the Radius server.
-        """
-        radius_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgsDict']]]]
-        """
-        One or more `radius_server` blocks as defined below.
-        """
-        revoked_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgsDict']]]]
-        """
-        One or more `revoked_certificate` blocks which are defined below.
-        """
-        root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgsDict']]]]
-        """
-        One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
-        """
-        virtual_network_gateway_client_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgsDict']]]]
-        """
-        One or more `virtual_network_gateway_client_connection` blocks as defined below.
-        """
-        vpn_auth_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the vpn authentication types for the virtual network gateway.
-        The supported values are `AAD`, `Radius` and `Certificate`.
+class VirtualNetworkGatewayVpnClientConfigurationArgsDict(TypedDict):
+    address_spaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
+    """
+    aad_audience: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client id of the Azure VPN application.
+    See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+    """
+    aad_issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The STS url for your tenant
+    """
+    aad_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AzureAD Tenant URL
+    """
+    ipsec_policy: NotRequired[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgsDict']]
+    """
+    An `ipsec_policy` block as defined below.
+    """
+    radius_server_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address of the Radius server.
+    """
+    radius_server_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret used by the Radius server.
+    """
+    radius_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgsDict']]]]
+    """
+    One or more `radius_server` blocks as defined below.
+    """
+    revoked_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgsDict']]]]
+    """
+    One or more `revoked_certificate` blocks which are defined below.
+    """
+    root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgsDict']]]]
+    """
+    One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+    """
+    virtual_network_gateway_client_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgsDict']]]]
+    """
+    One or more `virtual_network_gateway_client_connection` blocks as defined below.
+    """
+    vpn_auth_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the vpn authentication types for the virtual network gateway.
+    The supported values are `AAD`, `Radius` and `Certificate`.
 
-        > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
-        """
-        vpn_client_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the protocols supported by the vpn client.
-        The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
-        Values `SSTP` and `IkeV2` are incompatible with the use of
-        `aad_tenant`, `aad_audience` and `aad_issuer`.
-        """
-elif False:
-    VirtualNetworkGatewayVpnClientConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+    """
+    vpn_client_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the protocols supported by the vpn client.
+    The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+    Values `SSTP` and `IkeV2` are incompatible with the use of
+    `aad_tenant`, `aad_audience` and `aad_issuer`.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayVpnClientConfigurationArgs:
@@ -14369,42 +13941,39 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         pulumi.set(self, "vpn_client_protocols", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgsDict(TypedDict):
-        dh_group: pulumi.Input[_builtins.str]
-        """
-        The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-        """
-        ike_encryption: pulumi.Input[_builtins.str]
-        """
-        The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-        """
-        ike_integrity: pulumi.Input[_builtins.str]
-        """
-        The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-        """
-        ipsec_encryption: pulumi.Input[_builtins.str]
-        """
-        The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-        """
-        ipsec_integrity: pulumi.Input[_builtins.str]
-        """
-        The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-        """
-        pfs_group: pulumi.Input[_builtins.str]
-        """
-        The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-        """
-        sa_data_size_in_kilobytes: pulumi.Input[_builtins.int]
-        """
-        The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
-        """
-        sa_lifetime_in_seconds: pulumi.Input[_builtins.int]
-        """
-        The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
-        """
-elif False:
-    VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgsDict(TypedDict):
+    dh_group: pulumi.Input[_builtins.str]
+    """
+    The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+    """
+    ike_encryption: pulumi.Input[_builtins.str]
+    """
+    The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+    """
+    ike_integrity: pulumi.Input[_builtins.str]
+    """
+    The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+    """
+    ipsec_encryption: pulumi.Input[_builtins.str]
+    """
+    The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+    """
+    ipsec_integrity: pulumi.Input[_builtins.str]
+    """
+    The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+    """
+    pfs_group: pulumi.Input[_builtins.str]
+    """
+    The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+    """
+    sa_data_size_in_kilobytes: pulumi.Input[_builtins.int]
+    """
+    The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+    """
+    sa_lifetime_in_seconds: pulumi.Input[_builtins.int]
+    """
+    The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs:
@@ -14533,22 +14102,19 @@ class VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs:
         pulumi.set(self, "sa_lifetime_in_seconds", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The address of the Radius Server.
-        """
-        score: pulumi.Input[_builtins.int]
-        """
-        The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The secret that is used to communicate with the Radius Server.
-        """
-elif False:
-    VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The address of the Radius Server.
+    """
+    score: pulumi.Input[_builtins.int]
+    """
+    The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The secret that is used to communicate with the Radius Server.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs:
@@ -14602,18 +14168,15 @@ class VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the certificate resource.
-        """
-        thumbprint: pulumi.Input[_builtins.str]
-        """
-        Specifies the public data of the certificate.
-        """
-elif False:
-    VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the certificate resource.
+    """
+    thumbprint: pulumi.Input[_builtins.str]
+    """
+    Specifies the public data of the certificate.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
@@ -14652,18 +14215,15 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A user-defined name of the root certificate.
-        """
-        public_cert_data: pulumi.Input[_builtins.str]
-        """
-        The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
-        """
-elif False:
-    VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A user-defined name of the root certificate.
+    """
+    public_cert_data: pulumi.Input[_builtins.str]
+    """
+    The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
@@ -14702,22 +14262,19 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
         pulumi.set(self, "public_cert_data", value)
 
 
-if not MYPY:
-    class VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgsDict(TypedDict):
-        address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of address prefixes for P2S VPN Client.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Virtual Network Gateway Client Connection.
-        """
-        policy_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of names of Virtual Network Gateway Policy Groups.
-        """
-elif False:
-    VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgsDict(TypedDict):
+    address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of address prefixes for P2S VPN Client.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Virtual Network Gateway Client Connection.
+    """
+    policy_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of names of Virtual Network Gateway Policy Groups.
+    """
 
 @pulumi.input_type
 class VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs:
@@ -14771,24 +14328,21 @@ class VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConn
         pulumi.set(self, "policy_group_names", value)
 
 
-if not MYPY:
-    class VirtualNetworkIpAddressPoolArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network Manager IP Address Management (IPAM) Pool.
-        """
-        number_of_ip_addresses: pulumi.Input[_builtins.str]
-        """
-        The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+class VirtualNetworkIpAddressPoolArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network Manager IP Address Management (IPAM) Pool.
+    """
+    number_of_ip_addresses: pulumi.Input[_builtins.str]
+    """
+    The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
 
-        > **Note:** `number_of_ip_addresses` cannot be decreased.
-        """
-        allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of IP address prefixes allocated to the Virtual Network.
-        """
-elif False:
-    VirtualNetworkIpAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `number_of_ip_addresses` cannot be decreased.
+    """
+    allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of IP address prefixes allocated to the Virtual Network.
+    """
 
 @pulumi.input_type
 class VirtualNetworkIpAddressPoolArgs:
@@ -14847,64 +14401,61 @@ class VirtualNetworkIpAddressPoolArgs:
         pulumi.set(self, "allocated_ip_address_prefixes", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetArgsDict(TypedDict):
-        address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The address prefixes to use for the subnet.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the subnet.
-        """
-        default_outbound_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable default outbound access to the internet for the subnet. Defaults to `true`.
-        """
-        delegation: NotRequired[pulumi.Input['VirtualNetworkSubnetDelegationArgsDict']]
-        """
-        One or more `delegation` blocks as defined below.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of this subnet.
-        """
-        private_endpoint_network_policies: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+class VirtualNetworkSubnetArgsDict(TypedDict):
+    address_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The address prefixes to use for the subnet.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the subnet.
+    """
+    default_outbound_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable default outbound access to the internet for the subnet. Defaults to `true`.
+    """
+    delegation: NotRequired[pulumi.Input['VirtualNetworkSubnetDelegationArgsDict']]
+    """
+    One or more `delegation` blocks as defined below.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of this subnet.
+    """
+    private_endpoint_network_policies: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 
-        > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+    > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 
-        > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+    > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 
-        > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
-        """
-        private_link_service_network_policies_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+    > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+    """
+    private_link_service_network_policies_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
-        > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
-        """
-        route_table_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Route Table that should be associated with this subnet.
+    > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+    """
+    route_table_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Route Table that should be associated with this subnet.
 
-        > **Note:** If you declare the subnet inline inside `network.VirtualNetwork`, set `route_table_id` in that `subnet` block — do not also create an `network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `network.Subnet` resource.
-        """
-        security_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
-        """
-        service_endpoint_policy_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of IDs of Service Endpoint Policies to associate with the subnet.
-        """
-        service_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-        """
-elif False:
-    VirtualNetworkSubnetArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If you declare the subnet inline inside `network.VirtualNetwork`, set `route_table_id` in that `subnet` block — do not also create an `network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `network.Subnet` resource.
+    """
+    security_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+    """
+    service_endpoint_policy_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of IDs of Service Endpoint Policies to associate with the subnet.
+    """
+    service_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetArgs:
@@ -15107,18 +14658,15 @@ class VirtualNetworkSubnetArgs:
         pulumi.set(self, "service_endpoints", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetDelegationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name for this delegation.
-        """
-        service_delegation: pulumi.Input['VirtualNetworkSubnetDelegationServiceDelegationArgsDict']
-        """
-        A `service_delegation` block as defined below.
-        """
-elif False:
-    VirtualNetworkSubnetDelegationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkSubnetDelegationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name for this delegation.
+    """
+    service_delegation: pulumi.Input['VirtualNetworkSubnetDelegationServiceDelegationArgsDict']
+    """
+    A `service_delegation` block as defined below.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetDelegationArgs:
@@ -15157,20 +14705,17 @@ class VirtualNetworkSubnetDelegationArgs:
         pulumi.set(self, "service_delegation", value)
 
 
-if not MYPY:
-    class VirtualNetworkSubnetDelegationServiceDelegationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+class VirtualNetworkSubnetDelegationServiceDelegationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
-        > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
-        """
-elif False:
-    VirtualNetworkSubnetDelegationServiceDelegationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
+    """
 
 @pulumi.input_type
 class VirtualNetworkSubnetDelegationServiceDelegationArgs:
@@ -15214,18 +14759,15 @@ class VirtualNetworkSubnetDelegationServiceDelegationArgs:
         pulumi.set(self, "actions", value)
 
 
-if not MYPY:
-    class VnpGatewayNatRuleExternalMappingArgsDict(TypedDict):
-        address_space: pulumi.Input[_builtins.str]
-        """
-        The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
-        """
-        port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The single port range for the VPN Gateway Nat Rule external mapping.
-        """
-elif False:
-    VnpGatewayNatRuleExternalMappingArgsDict: TypeAlias = Mapping[str, Any]
+class VnpGatewayNatRuleExternalMappingArgsDict(TypedDict):
+    address_space: pulumi.Input[_builtins.str]
+    """
+    The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
+    """
+    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The single port range for the VPN Gateway Nat Rule external mapping.
+    """
 
 @pulumi.input_type
 class VnpGatewayNatRuleExternalMappingArgs:
@@ -15265,18 +14807,15 @@ class VnpGatewayNatRuleExternalMappingArgs:
         pulumi.set(self, "port_range", value)
 
 
-if not MYPY:
-    class VnpGatewayNatRuleInternalMappingArgsDict(TypedDict):
-        address_space: pulumi.Input[_builtins.str]
-        """
-        The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
-        """
-        port_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The single port range for the VPN Gateway Nat Rule internal mapping.
-        """
-elif False:
-    VnpGatewayNatRuleInternalMappingArgsDict: TypeAlias = Mapping[str, Any]
+class VnpGatewayNatRuleInternalMappingArgsDict(TypedDict):
+    address_space: pulumi.Input[_builtins.str]
+    """
+    The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping.
+    """
+    port_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The single port range for the VPN Gateway Nat Rule internal mapping.
+    """
 
 @pulumi.input_type
 class VnpGatewayNatRuleInternalMappingArgs:
@@ -15316,30 +14855,27 @@ class VnpGatewayNatRuleInternalMappingArgs:
         pulumi.set(self, "port_range", value)
 
 
-if not MYPY:
-    class VpnGatewayBgpSettingsArgsDict(TypedDict):
-        asn: pulumi.Input[_builtins.int]
-        """
-        The ASN of the BGP Speaker. Changing this forces a new resource to be created.
-        """
-        peer_weight: pulumi.Input[_builtins.int]
-        """
-        The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
-        """
-        bgp_peering_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Address which should be used for the BGP Peering.
-        """
-        instance0_bgp_peering_address: NotRequired[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict']]
-        """
-        An `instance_bgp_peering_address` block as defined below.
-        """
-        instance1_bgp_peering_address: NotRequired[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict']]
-        """
-        An `instance_bgp_peering_address` block as defined below.
-        """
-elif False:
-    VpnGatewayBgpSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayBgpSettingsArgsDict(TypedDict):
+    asn: pulumi.Input[_builtins.int]
+    """
+    The ASN of the BGP Speaker. Changing this forces a new resource to be created.
+    """
+    peer_weight: pulumi.Input[_builtins.int]
+    """
+    The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
+    """
+    bgp_peering_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Address which should be used for the BGP Peering.
+    """
+    instance0_bgp_peering_address: NotRequired[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict']]
+    """
+    An `instance_bgp_peering_address` block as defined below.
+    """
+    instance1_bgp_peering_address: NotRequired[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict']]
+    """
+    An `instance_bgp_peering_address` block as defined below.
+    """
 
 @pulumi.input_type
 class VpnGatewayBgpSettingsArgs:
@@ -15426,26 +14962,23 @@ class VpnGatewayBgpSettingsArgs:
         pulumi.set(self, "instance1_bgp_peering_address", value)
 
 
-if not MYPY:
-    class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict(TypedDict):
-        custom_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of custom BGP peering addresses to assign to this instance.
-        """
-        default_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        """
-        ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pre-defined id of VPN Gateway IP Configuration.
-        """
-        tunnel_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
-        """
-elif False:
-    VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict(TypedDict):
+    custom_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of custom BGP peering addresses to assign to this instance.
+    """
+    default_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+    """
+    ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pre-defined id of VPN Gateway IP Configuration.
+    """
+    tunnel_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+    """
 
 @pulumi.input_type
 class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
@@ -15517,26 +15050,23 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
         pulumi.set(self, "tunnel_ips", value)
 
 
-if not MYPY:
-    class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict(TypedDict):
-        custom_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of custom BGP peering addresses to assign to this instance.
-        """
-        default_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
-        """
-        ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The pre-defined id of VPN Gateway IP Configuration.
-        """
-        tunnel_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
-        """
-elif False:
-    VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict(TypedDict):
+    custom_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of custom BGP peering addresses to assign to this instance.
+    """
+    default_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+    """
+    ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The pre-defined id of VPN Gateway IP Configuration.
+    """
+    tunnel_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+    """
 
 @pulumi.input_type
 class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
@@ -15608,26 +15138,23 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
         pulumi.set(self, "tunnel_ips", value)
 
 
-if not MYPY:
-    class VpnGatewayConnectionRoutingArgsDict(TypedDict):
-        associated_route_table: pulumi.Input[_builtins.str]
-        """
-        The ID of the Route Table associated with this VPN Connection.
-        """
-        inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
-        """
-        outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        """
-        propagated_route_table: NotRequired[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict']]
-        """
-        A `propagated_route_table` block as defined below.
-        """
-elif False:
-    VpnGatewayConnectionRoutingArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayConnectionRoutingArgsDict(TypedDict):
+    associated_route_table: pulumi.Input[_builtins.str]
+    """
+    The ID of the Route Table associated with this VPN Connection.
+    """
+    inbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+    """
+    outbound_route_map_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+    """
+    propagated_route_table: NotRequired[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict']]
+    """
+    A `propagated_route_table` block as defined below.
+    """
 
 @pulumi.input_type
 class VpnGatewayConnectionRoutingArgs:
@@ -15699,18 +15226,15 @@ class VpnGatewayConnectionRoutingArgs:
         pulumi.set(self, "propagated_route_table", value)
 
 
-if not MYPY:
-    class VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
-        route_table_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Route Table IDs to associated with this VPN Gateway Connection.
-        """
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of labels to assign to this route table.
-        """
-elif False:
-    VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict(TypedDict):
+    route_table_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Route Table IDs to associated with this VPN Gateway Connection.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of labels to assign to this route table.
+    """
 
 @pulumi.input_type
 class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
@@ -15750,18 +15274,15 @@ class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
         pulumi.set(self, "labels", value)
 
 
-if not MYPY:
-    class VpnGatewayConnectionTrafficSelectorPolicyArgsDict(TypedDict):
-        local_address_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of local address spaces in CIDR format for this VPN Gateway Connection.
-        """
-        remote_address_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of remote address spaces in CIDR format for this VPN Gateway Connection.
-        """
-elif False:
-    VpnGatewayConnectionTrafficSelectorPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayConnectionTrafficSelectorPolicyArgsDict(TypedDict):
+    local_address_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of local address spaces in CIDR format for this VPN Gateway Connection.
+    """
+    remote_address_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of remote address spaces in CIDR format for this VPN Gateway Connection.
+    """
 
 @pulumi.input_type
 class VpnGatewayConnectionTrafficSelectorPolicyArgs:
@@ -15800,74 +15321,71 @@ class VpnGatewayConnectionTrafficSelectorPolicyArgs:
         pulumi.set(self, "remote_address_ranges", value)
 
 
-if not MYPY:
-    class VpnGatewayConnectionVpnLinkArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this VPN Link Connection.
-        """
-        vpn_site_link_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
-        """
-        bandwidth_mbps: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expected connection bandwidth in MBPS. Defaults to `10`.
-        """
-        bgp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
-        """
-        connection_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        """
-        custom_bgp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgsDict']]]]
-        """
-        One or more `custom_bgp_address` blocks as defined below.
-        """
-        dpd_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
-        """
-        egress_nat_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of the egress NAT Rule Ids.
-        """
-        ingress_nat_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of the ingress NAT Rule Ids.
-        """
-        ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgsDict']]]]
-        """
-        One or more `ipsec_policy` blocks as defined above.
-        """
-        local_azure_ip_address_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use local Azure IP to initiate connection? Defaults to `false`.
-        """
-        policy_based_traffic_selector_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable policy-based traffic selectors? Defaults to `false`.
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-        """
-        ratelimit_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the rate limit be enabled? Defaults to `false`.
-        """
-        route_weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Routing weight for this VPN Link Connection. Defaults to `0`.
-        """
-        shared_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SharedKey for this VPN Link Connection.
-        """
-elif False:
-    VpnGatewayConnectionVpnLinkArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayConnectionVpnLinkArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this VPN Link Connection.
+    """
+    vpn_site_link_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
+    """
+    bandwidth_mbps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expected connection bandwidth in MBPS. Defaults to `10`.
+    """
+    bgp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+    """
+    connection_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+    """
+    custom_bgp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgsDict']]]]
+    """
+    One or more `custom_bgp_address` blocks as defined below.
+    """
+    dpd_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+    """
+    egress_nat_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of the egress NAT Rule Ids.
+    """
+    ingress_nat_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of the ingress NAT Rule Ids.
+    """
+    ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgsDict']]]]
+    """
+    One or more `ipsec_policy` blocks as defined above.
+    """
+    local_azure_ip_address_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use local Azure IP to initiate connection? Defaults to `false`.
+    """
+    policy_based_traffic_selector_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable policy-based traffic selectors? Defaults to `false`.
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+    """
+    ratelimit_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the rate limit be enabled? Defaults to `false`.
+    """
+    route_weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Routing weight for this VPN Link Connection. Defaults to `0`.
+    """
+    shared_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SharedKey for this VPN Link Connection.
+    """
 
 @pulumi.input_type
 class VpnGatewayConnectionVpnLinkArgs:
@@ -16130,18 +15648,15 @@ class VpnGatewayConnectionVpnLinkArgs:
         pulumi.set(self, "shared_key", value)
 
 
-if not MYPY:
-    class VpnGatewayConnectionVpnLinkCustomBgpAddressArgsDict(TypedDict):
-        ip_address: pulumi.Input[_builtins.str]
-        """
-        The custom bgp ip address which belongs to the IP Configuration.
-        """
-        ip_configuration_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the IP Configuration which belongs to the VPN Gateway.
-        """
-elif False:
-    VpnGatewayConnectionVpnLinkCustomBgpAddressArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayConnectionVpnLinkCustomBgpAddressArgsDict(TypedDict):
+    ip_address: pulumi.Input[_builtins.str]
+    """
+    The custom bgp ip address which belongs to the IP Configuration.
+    """
+    ip_configuration_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the IP Configuration which belongs to the VPN Gateway.
+    """
 
 @pulumi.input_type
 class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs:
@@ -16180,42 +15695,39 @@ class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs:
         pulumi.set(self, "ip_configuration_id", value)
 
 
-if not MYPY:
-    class VpnGatewayConnectionVpnLinkIpsecPolicyArgsDict(TypedDict):
-        dh_group: pulumi.Input[_builtins.str]
-        """
-        The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
-        """
-        encryption_algorithm: pulumi.Input[_builtins.str]
-        """
-        The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
-        """
-        ike_encryption_algorithm: pulumi.Input[_builtins.str]
-        """
-        The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
-        """
-        ike_integrity_algorithm: pulumi.Input[_builtins.str]
-        """
-        The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
-        """
-        integrity_algorithm: pulumi.Input[_builtins.str]
-        """
-        The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
-        """
-        pfs_group: pulumi.Input[_builtins.str]
-        """
-        The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
-        """
-        sa_data_size_kb: pulumi.Input[_builtins.int]
-        """
-        The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
-        """
-        sa_lifetime_sec: pulumi.Input[_builtins.int]
-        """
-        The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
-        """
-elif False:
-    VpnGatewayConnectionVpnLinkIpsecPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayConnectionVpnLinkIpsecPolicyArgsDict(TypedDict):
+    dh_group: pulumi.Input[_builtins.str]
+    """
+    The DH Group used in IKE Phase 1 for initial SA. Possible values are `None`, `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384`.
+    """
+    encryption_algorithm: pulumi.Input[_builtins.str]
+    """
+    The IPSec encryption algorithm (IKE phase 1). Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, `None`.
+    """
+    ike_encryption_algorithm: pulumi.Input[_builtins.str]
+    """
+    The IKE encryption algorithm (IKE phase 2). Possible values are `DES`, `DES3`, `AES128`, `AES192`, `AES256`, `GCMAES128`, `GCMAES256`.
+    """
+    ike_integrity_algorithm: pulumi.Input[_builtins.str]
+    """
+    The IKE integrity algorithm (IKE phase 2). Possible values are `MD5`, `SHA1`, `SHA256`, `SHA384`, `GCMAES128`, `GCMAES256`.
+    """
+    integrity_algorithm: pulumi.Input[_builtins.str]
+    """
+    The IPSec integrity algorithm (IKE phase 1). Possible values are `MD5`, `SHA1`, `SHA256`, `GCMAES128`, `GCMAES192`, `GCMAES256`.
+    """
+    pfs_group: pulumi.Input[_builtins.str]
+    """
+    The Pfs Group used in IKE Phase 2 for the new child SA. Possible values are `None`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM`, `ECP256`, `ECP384`.
+    """
+    sa_data_size_kb: pulumi.Input[_builtins.int]
+    """
+    The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for the site to site VPN tunnel.
+    """
+    sa_lifetime_sec: pulumi.Input[_builtins.int]
+    """
+    The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for the site to site VPN tunnel.
+    """
 
 @pulumi.input_type
 class VpnGatewayConnectionVpnLinkIpsecPolicyArgs:
@@ -16344,22 +15856,19 @@ class VpnGatewayConnectionVpnLinkIpsecPolicyArgs:
         pulumi.set(self, "sa_lifetime_sec", value)
 
 
-if not MYPY:
-    class VpnGatewayIpConfigurationArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the IP configuration for the VPN Gateway.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IP address of this IP configuration.
-        """
-        public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public IP address of this IP configuration.
-        """
-elif False:
-    VpnGatewayIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VpnGatewayIpConfigurationArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the IP configuration for the VPN Gateway.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IP address of this IP configuration.
+    """
+    public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public IP address of this IP configuration.
+    """
 
 @pulumi.input_type
 class VpnGatewayIpConfigurationArgs:
@@ -16416,22 +15925,19 @@ class VpnGatewayIpConfigurationArgs:
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationAzureActiveDirectoryAuthenticationArgsDict(TypedDict):
-        audience: pulumi.Input[_builtins.str]
-        """
-        The Audience which should be used for authentication.
-        """
-        issuer: pulumi.Input[_builtins.str]
-        """
-        The Issuer which should be used for authentication.
-        """
-        tenant: pulumi.Input[_builtins.str]
-        """
-        The Tenant which should be used for authentication.
-        """
-elif False:
-    VpnServerConfigurationAzureActiveDirectoryAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationAzureActiveDirectoryAuthenticationArgsDict(TypedDict):
+    audience: pulumi.Input[_builtins.str]
+    """
+    The Audience which should be used for authentication.
+    """
+    issuer: pulumi.Input[_builtins.str]
+    """
+    The Issuer which should be used for authentication.
+    """
+    tenant: pulumi.Input[_builtins.str]
+    """
+    The Tenant which should be used for authentication.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs:
@@ -16485,18 +15991,15 @@ class VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs:
         pulumi.set(self, "tenant", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationClientRevokedCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name used to uniquely identify this certificate.
-        """
-        thumbprint: pulumi.Input[_builtins.str]
-        """
-        The Thumbprint of the Certificate.
-        """
-elif False:
-    VpnServerConfigurationClientRevokedCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationClientRevokedCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name used to uniquely identify this certificate.
+    """
+    thumbprint: pulumi.Input[_builtins.str]
+    """
+    The Thumbprint of the Certificate.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationClientRevokedCertificateArgs:
@@ -16535,18 +16038,15 @@ class VpnServerConfigurationClientRevokedCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationClientRootCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name used to uniquely identify this certificate.
-        """
-        public_cert_data: pulumi.Input[_builtins.str]
-        """
-        The Public Key Data associated with the Certificate.
-        """
-elif False:
-    VpnServerConfigurationClientRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationClientRootCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name used to uniquely identify this certificate.
+    """
+    public_cert_data: pulumi.Input[_builtins.str]
+    """
+    The Public Key Data associated with the Certificate.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationClientRootCertificateArgs:
@@ -16585,42 +16085,39 @@ class VpnServerConfigurationClientRootCertificateArgs:
         pulumi.set(self, "public_cert_data", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationIpsecPolicyArgsDict(TypedDict):
-        dh_group: pulumi.Input[_builtins.str]
-        """
-        The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-        """
-        ike_encryption: pulumi.Input[_builtins.str]
-        """
-        The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-        """
-        ike_integrity: pulumi.Input[_builtins.str]
-        """
-        The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-        """
-        ipsec_encryption: pulumi.Input[_builtins.str]
-        """
-        The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-        """
-        ipsec_integrity: pulumi.Input[_builtins.str]
-        """
-        The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-        """
-        pfs_group: pulumi.Input[_builtins.str]
-        """
-        The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-        """
-        sa_data_size_kilobytes: pulumi.Input[_builtins.int]
-        """
-        The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-        """
-        sa_lifetime_seconds: pulumi.Input[_builtins.int]
-        """
-        The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-        """
-elif False:
-    VpnServerConfigurationIpsecPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationIpsecPolicyArgsDict(TypedDict):
+    dh_group: pulumi.Input[_builtins.str]
+    """
+    The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+    """
+    ike_encryption: pulumi.Input[_builtins.str]
+    """
+    The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+    """
+    ike_integrity: pulumi.Input[_builtins.str]
+    """
+    The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+    """
+    ipsec_encryption: pulumi.Input[_builtins.str]
+    """
+    The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+    """
+    ipsec_integrity: pulumi.Input[_builtins.str]
+    """
+    The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+    """
+    pfs_group: pulumi.Input[_builtins.str]
+    """
+    The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+    """
+    sa_data_size_kilobytes: pulumi.Input[_builtins.int]
+    """
+    The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+    """
+    sa_lifetime_seconds: pulumi.Input[_builtins.int]
+    """
+    The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationIpsecPolicyArgs:
@@ -16749,22 +16246,19 @@ class VpnServerConfigurationIpsecPolicyArgs:
         pulumi.set(self, "sa_lifetime_seconds", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationPolicyGroupPolicyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the VPN Server Configuration Policy member.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the attribute that is used for the VPN Server Configuration Policy member.
-        """
-elif False:
-    VpnServerConfigurationPolicyGroupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationPolicyGroupPolicyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the VPN Server Configuration Policy member.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the attribute that is used for the VPN Server Configuration Policy member.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationPolicyGroupPolicyArgs:
@@ -16818,22 +16312,19 @@ class VpnServerConfigurationPolicyGroupPolicyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationRadiusArgsDict(TypedDict):
-        client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgsDict']]]]
-        """
-        One or more `client_root_certificate` blocks as defined below.
-        """
-        server_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgsDict']]]]
-        """
-        One or more `server_root_certificate` blocks as defined below.
-        """
-        servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgsDict']]]]
-        """
-        One or more `server` blocks as defined below.
-        """
-elif False:
-    VpnServerConfigurationRadiusArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationRadiusArgsDict(TypedDict):
+    client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgsDict']]]]
+    """
+    One or more `client_root_certificate` blocks as defined below.
+    """
+    server_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgsDict']]]]
+    """
+    One or more `server_root_certificate` blocks as defined below.
+    """
+    servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgsDict']]]]
+    """
+    One or more `server` blocks as defined below.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationRadiusArgs:
@@ -16890,18 +16381,15 @@ class VpnServerConfigurationRadiusArgs:
         pulumi.set(self, "servers", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationRadiusClientRootCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name used to uniquely identify this certificate.
-        """
-        thumbprint: pulumi.Input[_builtins.str]
-        """
-        The Thumbprint of the Certificate.
-        """
-elif False:
-    VpnServerConfigurationRadiusClientRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationRadiusClientRootCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name used to uniquely identify this certificate.
+    """
+    thumbprint: pulumi.Input[_builtins.str]
+    """
+    The Thumbprint of the Certificate.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationRadiusClientRootCertificateArgs:
@@ -16940,22 +16428,19 @@ class VpnServerConfigurationRadiusClientRootCertificateArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationRadiusServerArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The Address of the Radius Server.
-        """
-        score: pulumi.Input[_builtins.int]
-        """
-        The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Secret used to communicate with the Radius Server.
-        """
-elif False:
-    VpnServerConfigurationRadiusServerArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationRadiusServerArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The Address of the Radius Server.
+    """
+    score: pulumi.Input[_builtins.int]
+    """
+    The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Secret used to communicate with the Radius Server.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationRadiusServerArgs:
@@ -17009,18 +16494,15 @@ class VpnServerConfigurationRadiusServerArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class VpnServerConfigurationRadiusServerRootCertificateArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A name used to uniquely identify this certificate.
-        """
-        public_cert_data: pulumi.Input[_builtins.str]
-        """
-        The Public Key Data associated with the Certificate.
-        """
-elif False:
-    VpnServerConfigurationRadiusServerRootCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VpnServerConfigurationRadiusServerRootCertificateArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name used to uniquely identify this certificate.
+    """
+    public_cert_data: pulumi.Input[_builtins.str]
+    """
+    The Public Key Data associated with the Certificate.
+    """
 
 @pulumi.input_type
 class VpnServerConfigurationRadiusServerRootCertificateArgs:
@@ -17059,42 +16541,39 @@ class VpnServerConfigurationRadiusServerRootCertificateArgs:
         pulumi.set(self, "public_cert_data", value)
 
 
-if not MYPY:
-    class VpnSiteLinkArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this VPN Site Link.
-        """
-        bgp: NotRequired[pulumi.Input['VpnSiteLinkBgpArgsDict']]
-        """
-        A `bgp` block as defined above.
+class VpnSiteLinkArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this VPN Site Link.
+    """
+    bgp: NotRequired[pulumi.Input['VpnSiteLinkBgpArgsDict']]
+    """
+    A `bgp` block as defined above.
 
-        > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
-        """
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The FQDN of this VPN Site Link.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the VPN Site Link.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address of this VPN Site Link.
+    > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
+    """
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The FQDN of this VPN Site Link.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the VPN Site Link.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address of this VPN Site Link.
 
-        > **Note:** Either `fqdn` or `ip_address` should be specified.
-        """
-        provider_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
-        """
-        speed_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
-        """
-elif False:
-    VpnSiteLinkArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Either `fqdn` or `ip_address` should be specified.
+    """
+    provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+    """
+    speed_in_mbps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
+    """
 
 @pulumi.input_type
 class VpnSiteLinkArgs:
@@ -17222,18 +16701,15 @@ class VpnSiteLinkArgs:
         pulumi.set(self, "speed_in_mbps", value)
 
 
-if not MYPY:
-    class VpnSiteLinkBgpArgsDict(TypedDict):
-        asn: pulumi.Input[_builtins.int]
-        """
-        The BGP speaker's ASN.
-        """
-        peering_address: pulumi.Input[_builtins.str]
-        """
-        The BGP peering IP address.
-        """
-elif False:
-    VpnSiteLinkBgpArgsDict: TypeAlias = Mapping[str, Any]
+class VpnSiteLinkBgpArgsDict(TypedDict):
+    asn: pulumi.Input[_builtins.int]
+    """
+    The BGP speaker's ASN.
+    """
+    peering_address: pulumi.Input[_builtins.str]
+    """
+    The BGP peering IP address.
+    """
 
 @pulumi.input_type
 class VpnSiteLinkBgpArgs:
@@ -17272,14 +16748,11 @@ class VpnSiteLinkBgpArgs:
         pulumi.set(self, "peering_address", value)
 
 
-if not MYPY:
-    class VpnSiteO365PolicyArgsDict(TypedDict):
-        traffic_category: NotRequired[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgsDict']]
-        """
-        A `traffic_category` block as defined above.
-        """
-elif False:
-    VpnSiteO365PolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VpnSiteO365PolicyArgsDict(TypedDict):
+    traffic_category: NotRequired[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgsDict']]
+    """
+    A `traffic_category` block as defined above.
+    """
 
 @pulumi.input_type
 class VpnSiteO365PolicyArgs:
@@ -17304,22 +16777,19 @@ class VpnSiteO365PolicyArgs:
         pulumi.set(self, "traffic_category", value)
 
 
-if not MYPY:
-    class VpnSiteO365PolicyTrafficCategoryArgsDict(TypedDict):
-        allow_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
-        """
-        default_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
-        """
-        optimize_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
-        """
-elif False:
-    VpnSiteO365PolicyTrafficCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class VpnSiteO365PolicyTrafficCategoryArgsDict(TypedDict):
+    allow_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+    """
+    default_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+    """
+    optimize_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class VpnSiteO365PolicyTrafficCategoryArgs:

@@ -99,9 +99,7 @@ import (
 // ## Import
 //
 // IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.
-//
 // g
-//
 // ```sh
 // $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1
 // ```

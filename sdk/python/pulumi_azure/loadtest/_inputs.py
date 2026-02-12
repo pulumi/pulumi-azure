@@ -23,20 +23,15 @@ __all__ = [
     'LoadTestIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LoadTestEncryptionArgsDict(TypedDict):
-        identity: pulumi.Input['LoadTestEncryptionIdentityArgsDict']
-        """
-        An `identity` block as defined below. Changing this forces a new Load Test to be created.
-        """
-        key_url: pulumi.Input[_builtins.str]
-        """
-        The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
-        """
-elif False:
-    LoadTestEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class LoadTestEncryptionArgsDict(TypedDict):
+    identity: pulumi.Input['LoadTestEncryptionIdentityArgsDict']
+    """
+    An `identity` block as defined below. Changing this forces a new Load Test to be created.
+    """
+    key_url: pulumi.Input[_builtins.str]
+    """
+    The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
+    """
 
 @pulumi.input_type
 class LoadTestEncryptionArgs:
@@ -75,20 +70,17 @@ class LoadTestEncryptionArgs:
         pulumi.set(self, "key_url", value)
 
 
-if not MYPY:
-    class LoadTestEncryptionIdentityArgsDict(TypedDict):
-        identity_id: pulumi.Input[_builtins.str]
-        """
-        The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+class LoadTestEncryptionIdentityArgsDict(TypedDict):
+    identity_id: pulumi.Input[_builtins.str]
+    """
+    The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
 
-        > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
-        """
-elif False:
-    LoadTestEncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+    """
 
 @pulumi.input_type
 class LoadTestEncryptionIdentityArgs:
@@ -131,26 +123,23 @@ class LoadTestEncryptionIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class LoadTestIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of the User Assigned Identity IDs that should be assigned to this Load Test.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
-        """
-elif False:
-    LoadTestIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class LoadTestIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+    """
 
 @pulumi.input_type
 class LoadTestIdentityArgs:

@@ -80,6 +80,10 @@ public final class Config {
     public Optional<Boolean> disableCorrelationRequestId() {
         return Codegen.booleanProp("disableCorrelationRequestId").config(config).get();
     }
+/**
+ * This will disable the Terraform Partner ID which is used if a custom `partnerId` isn&#39;t specified.
+ * 
+ */
     public Optional<Boolean> disableTerraformPartnerId() {
         return Codegen.booleanProp("disableTerraformPartnerId").config(config).get();
     }

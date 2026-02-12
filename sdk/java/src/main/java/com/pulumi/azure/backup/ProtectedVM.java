@@ -113,9 +113,25 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:backup/protectedVM:ProtectedVM")
 public class ProtectedVM extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies the ID of the backup policy to use.
+     * 
+     * &gt; **Note:** `backupPolicyId` is required during initial creation of this resource.
+     * 
+     * &gt; **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform&#39;s ignoreChanges argument.
+     * 
+     */
     @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupPolicyId;
 
+    /**
+     * @return Specifies the ID of the backup policy to use.
+     * 
+     * &gt; **Note:** `backupPolicyId` is required during initial creation of this resource.
+     * 
+     * &gt; **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform&#39;s ignoreChanges argument.
+     * 
+     */
     public Output<Optional<String>> backupPolicyId() {
         return Codegen.optional(this.backupPolicyId);
     }

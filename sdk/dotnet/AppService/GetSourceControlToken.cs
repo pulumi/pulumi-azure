@@ -12,6 +12,10 @@ namespace Pulumi.Azure.AppService
     public static class GetSourceControlToken
     {
         /// <summary>
+        /// Use this data source to access information about an existing App Service Source Control Token.
+        /// 
+        /// &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -45,6 +49,10 @@ namespace Pulumi.Azure.AppService
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing App Service Source Control Token.
+        /// 
+        /// &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -78,6 +86,10 @@ namespace Pulumi.Azure.AppService
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing App Service Source Control Token.
+        /// 
+        /// &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

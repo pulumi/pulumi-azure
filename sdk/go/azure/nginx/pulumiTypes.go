@@ -235,6 +235,9 @@ func (o ConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput) Configur
 }
 
 type DeploymentAutoScaleProfile struct {
+	// Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+	//
+	// > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 	MaxCapacity int `pulumi:"maxCapacity"`
 	// Specify the minimum number of NGINX capacity units for this NGINX Deployment.
 	MinCapacity int `pulumi:"minCapacity"`
@@ -254,6 +257,9 @@ type DeploymentAutoScaleProfileInput interface {
 }
 
 type DeploymentAutoScaleProfileArgs struct {
+	// Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+	//
+	// > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
 	// Specify the minimum number of NGINX capacity units for this NGINX Deployment.
 	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
@@ -312,6 +318,9 @@ func (o DeploymentAutoScaleProfileOutput) ToDeploymentAutoScaleProfileOutputWith
 	return o
 }
 
+// Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+//
+// > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 func (o DeploymentAutoScaleProfileOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v DeploymentAutoScaleProfile) int { return v.MaxCapacity }).(pulumi.IntOutput)
 }

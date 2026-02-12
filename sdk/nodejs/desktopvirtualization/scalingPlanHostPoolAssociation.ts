@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostPools/myhostpool"
  * ```
+ *
+ * > **Note:** This ID is specific to Terraform - and is of the format `{virtualDesktopScalingPlanID}|{virtualDesktopHostPoolID}`.
  */
 export class ScalingPlanHostPoolAssociation extends pulumi.CustomResource {
     /**

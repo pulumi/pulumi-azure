@@ -96,6 +96,11 @@ export class ApiConnection extends pulumi.CustomResource {
      * The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * A map of parameter values associated with this API Connection.
+     *
+     * > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignoreChanges` functionality on this field as shown in the Example Usage above.
+     */
     declare public readonly parameterValues: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
@@ -161,6 +166,11 @@ export interface ApiConnectionState {
      * The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A map of parameter values associated with this API Connection.
+     *
+     * > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignoreChanges` functionality on this field as shown in the Example Usage above.
+     */
     parameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
@@ -188,6 +198,11 @@ export interface ApiConnectionArgs {
      * The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A map of parameter values associated with this API Connection.
+     *
+     * > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignoreChanges` functionality on this field as shown in the Example Usage above.
+     */
     parameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.

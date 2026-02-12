@@ -158,6 +158,11 @@ export class LinuxWebApp extends pulumi.CustomResource {
      * A `logs` block as defined below.
      */
     declare public readonly logs: pulumi.Output<outputs.appservice.LinuxWebAppLogs | undefined>;
+    /**
+     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     *
+     * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+     */
     declare public readonly name: pulumi.Output<string>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
@@ -211,6 +216,13 @@ export class LinuxWebApp extends pulumi.CustomResource {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -423,6 +435,11 @@ export interface LinuxWebAppState {
      * A `logs` block as defined below.
      */
     logs?: pulumi.Input<inputs.appservice.LinuxWebAppLogs>;
+    /**
+     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     *
+     * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+     */
     name?: pulumi.Input<string>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
@@ -476,6 +493,13 @@ export interface LinuxWebAppState {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
@@ -565,6 +589,11 @@ export interface LinuxWebAppArgs {
      * A `logs` block as defined below.
      */
     logs?: pulumi.Input<inputs.appservice.LinuxWebAppLogs>;
+    /**
+     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     *
+     * > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+     */
     name?: pulumi.Input<string>;
     /**
      * Should public network access be enabled for the Web App. Defaults to `true`.
@@ -598,6 +627,13 @@ export interface LinuxWebAppArgs {
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
     virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     *
+     * > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+     *
+     * > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     */
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.

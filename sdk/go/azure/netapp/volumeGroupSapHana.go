@@ -12,14 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Application Volume Group for SAP HANA application.
+//
+// > **Note:** This feature is intended to be used for SAP-HANA workloads only, with several requirements, please refer to [Understand Azure NetApp Files application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-introduction) document as the starting point to understand this feature before using it with Terraform.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"

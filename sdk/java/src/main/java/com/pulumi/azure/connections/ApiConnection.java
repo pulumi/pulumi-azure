@@ -139,9 +139,21 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A map of parameter values associated with this API Connection.
+     * 
+     * &gt; **Note:** The Azure API doesn&#39;t return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform&#39;s `ignoreChanges` functionality on this field as shown in the Example Usage above.
+     * 
+     */
     @Export(name="parameterValues", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameterValues;
 
+    /**
+     * @return A map of parameter values associated with this API Connection.
+     * 
+     * &gt; **Note:** The Azure API doesn&#39;t return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform&#39;s `ignoreChanges` functionality on this field as shown in the Example Usage above.
+     * 
+     */
     public Output<Optional<Map<String,String>>> parameterValues() {
         return Codegen.optional(this.parameterValues);
     }

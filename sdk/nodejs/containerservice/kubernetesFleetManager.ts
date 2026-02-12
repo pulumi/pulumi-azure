@@ -42,9 +42,7 @@ import * as utilities from "../utilities";
  * ```
  *
  * * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
- *
  * * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
- *
  * * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
  */
 export class KubernetesFleetManager extends pulumi.CustomResource {

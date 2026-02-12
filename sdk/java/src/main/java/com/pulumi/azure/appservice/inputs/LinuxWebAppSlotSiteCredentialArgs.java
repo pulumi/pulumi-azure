@@ -16,14 +16,18 @@ public final class LinuxWebAppSlotSiteCredentialArgs extends com.pulumi.resource
     public static final LinuxWebAppSlotSiteCredentialArgs Empty = new LinuxWebAppSlotSiteCredentialArgs();
 
     /**
-     * The Site Credentials Username used for publishing.
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Site Credentials Username used for publishing.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +75,9 @@ public final class LinuxWebAppSlotSiteCredentialArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The Site Credentials Username used for publishing.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+         * 
+         * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
          * 
          * @return builder
          * 
@@ -82,7 +88,9 @@ public final class LinuxWebAppSlotSiteCredentialArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The Site Credentials Username used for publishing.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+         * 
+         * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
          * 
          * @return builder
          * 

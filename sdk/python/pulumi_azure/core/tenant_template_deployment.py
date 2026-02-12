@@ -287,6 +287,14 @@ class TenantTemplateDeployment(pulumi.CustomResource):
                  template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a Template Deployment at the Tenant Scope.
+
+        > **Note:** Deleting a Deployment at the Tenant Scope will not delete any resources created by the deployment.
+
+        > **Note:** Deployments to a Tenant are always Incrementally applied. Existing resources that are not part of the template will not be removed.
+
+        > **Note:** Tenant Template Deployments are always targeted at the Tenant in which the current User, Managed Identity, or Service Principal being used by Terraform is homed.
+
         ## Example Usage
 
         ```python
@@ -327,6 +335,14 @@ class TenantTemplateDeployment(pulumi.CustomResource):
                  args: Optional[TenantTemplateDeploymentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Template Deployment at the Tenant Scope.
+
+        > **Note:** Deleting a Deployment at the Tenant Scope will not delete any resources created by the deployment.
+
+        > **Note:** Deployments to a Tenant are always Incrementally applied. Existing resources that are not part of the template will not be removed.
+
+        > **Note:** Tenant Template Deployments are always targeted at the Tenant in which the current User, Managed Identity, or Service Principal being used by Terraform is homed.
+
         ## Example Usage
 
         ```python

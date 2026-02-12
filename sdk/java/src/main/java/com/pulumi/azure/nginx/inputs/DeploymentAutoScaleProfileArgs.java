@@ -15,9 +15,21 @@ public final class DeploymentAutoScaleProfileArgs extends com.pulumi.resources.R
 
     public static final DeploymentAutoScaleProfileArgs Empty = new DeploymentAutoScaleProfileArgs();
 
+    /**
+     * Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+     * 
+     * &gt; **Note:** If you&#39;re using autoscaling with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     @Import(name="maxCapacity", required=true)
     private Output<Integer> maxCapacity;
 
+    /**
+     * @return Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+     * 
+     * &gt; **Note:** If you&#39;re using autoscaling with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     * 
+     */
     public Output<Integer> maxCapacity() {
         return this.maxCapacity;
     }
@@ -78,11 +90,27 @@ public final class DeploymentAutoScaleProfileArgs extends com.pulumi.resources.R
             $ = new DeploymentAutoScaleProfileArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxCapacity Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+         * 
+         * &gt; **Note:** If you&#39;re using autoscaling with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxCapacity(Output<Integer> maxCapacity) {
             $.maxCapacity = maxCapacity;
             return this;
         }
 
+        /**
+         * @param maxCapacity Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+         * 
+         * &gt; **Note:** If you&#39;re using autoscaling with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxCapacity(Integer maxCapacity) {
             return maxCapacity(Output.of(maxCapacity));
         }

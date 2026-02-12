@@ -75,6 +75,9 @@ import (
 type IPGroup struct {
 	pulumi.CustomResourceState
 
+	// A list of CIDRs or IP addresses.
+	//
+	// > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
 	Cidrs pulumi.StringArrayOutput `pulumi:"cidrs"`
 	// A list of ID of Firewall.
 	FirewallIds pulumi.StringArrayOutput `pulumi:"firewallIds"`
@@ -123,6 +126,9 @@ func GetIPGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IPGroup resources.
 type ipgroupState struct {
+	// A list of CIDRs or IP addresses.
+	//
+	// > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
 	Cidrs []string `pulumi:"cidrs"`
 	// A list of ID of Firewall.
 	FirewallIds []string `pulumi:"firewallIds"`
@@ -139,6 +145,9 @@ type ipgroupState struct {
 }
 
 type IPGroupState struct {
+	// A list of CIDRs or IP addresses.
+	//
+	// > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
 	Cidrs pulumi.StringArrayInput
 	// A list of ID of Firewall.
 	FirewallIds pulumi.StringArrayInput
@@ -159,6 +168,9 @@ func (IPGroupState) ElementType() reflect.Type {
 }
 
 type ipgroupArgs struct {
+	// A list of CIDRs or IP addresses.
+	//
+	// > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
 	Cidrs []string `pulumi:"cidrs"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -172,6 +184,9 @@ type ipgroupArgs struct {
 
 // The set of arguments for constructing a IPGroup resource.
 type IPGroupArgs struct {
+	// A list of CIDRs or IP addresses.
+	//
+	// > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
 	Cidrs pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -270,6 +285,9 @@ func (o IPGroupOutput) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOu
 	return o
 }
 
+// A list of CIDRs or IP addresses.
+//
+// > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
 func (o IPGroupOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.Cidrs }).(pulumi.StringArrayOutput)
 }

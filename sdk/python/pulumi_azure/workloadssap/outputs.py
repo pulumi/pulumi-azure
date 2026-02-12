@@ -188,6 +188,9 @@ class SingleNodeVirtualInstanceSingleServerConfiguration(dict):
                  secondary_ip_enabled: Optional[_builtins.bool] = None,
                  virtual_machine_resource_names: Optional['outputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNames'] = None):
         """
+        :param _builtins.str app_resource_group_name: The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+               
+               > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
         :param _builtins.str subnet_id: The resource ID of the Subnet for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         :param 'SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs' virtual_machine_configuration: A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
         :param _builtins.str database_type: The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
@@ -210,6 +213,11 @@ class SingleNodeVirtualInstanceSingleServerConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="appResourceGroupName")
     def app_resource_group_name(self) -> _builtins.str:
+        """
+        The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+
+        > **Note:** While creating an SAP Single Node Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Single Node Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configuration and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Single Node Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+        """
         return pulumi.get(self, "app_resource_group_name")
 
     @_builtins.property
@@ -733,6 +741,9 @@ class ThreeTierVirtualInstanceThreeTierConfiguration(dict):
                  secondary_ip_enabled: Optional[_builtins.bool] = None,
                  transport_create_and_mount: Optional['outputs.ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMount'] = None):
         """
+        :param _builtins.str app_resource_group_name: The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+               
+               > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
         :param 'ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs' application_server_configuration: An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
         :param 'ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs' central_server_configuration: A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
         :param 'ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs' database_server_configuration: A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
@@ -761,6 +772,11 @@ class ThreeTierVirtualInstanceThreeTierConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="appResourceGroupName")
     def app_resource_group_name(self) -> _builtins.str:
+        """
+        The name of the application Resource Group where SAP system resources will be deployed. Changing this forces a new resource to be created.
+
+        > **Note:** While creating an SAP Three Tier Virtual Instance, the service will provision the extra SAP systems/components in the `app_resource_group_name` that are not defined in the HCL Configuration. At this time, if the `app_resource_group_name` is different from the Resource Group where SAP Three Tier Virtual Instance exists, you can set `prevent_deletion_if_contains_resources` to `false` to delete all resources defined in the HCL Configurations and the resources created in the `app_resource_group_name` with `terraform destroy`. However, if the `app_resource_group_name` is the same with the Resource Group where SAP Three Tier Virtual Instance exists, some resources, such as the subnet defined in the HCL Configuration, cannot be deleted with `terraform destroy` since the resources defined in the HCL Configuration are being referenced by the SAP system/component. In this case, you have to manually delete the SAP system/component before deleting the resources in the HCL Configuration.
+        """
         return pulumi.get(self, "app_resource_group_name")
 
     @_builtins.property

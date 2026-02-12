@@ -16,6 +16,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages the DNS servers associated with a virtual network.
+ * 
+ * &gt; **Note:** Terraform currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
+ * At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
+ * 
  * ## Example Usage
  * 
  * <pre>

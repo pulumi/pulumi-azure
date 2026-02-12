@@ -111,6 +111,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
  * ```
+ *
+ * > **Note:** This is a Terraform Unique ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
  */
 export class ImplicitDataDiskFromSource extends pulumi.CustomResource {
     /**
@@ -148,6 +150,17 @@ export class ImplicitDataDiskFromSource extends pulumi.CustomResource {
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
     declare public readonly createOption: pulumi.Output<string>;
+    /**
+     * Specifies the size of the Data Disk in gigabytes.
+     *
+     * > **Note:** Updating `diskSizeGb` to shrink the disk size is not supported on Azure and forces a new Data Disk to be created.
+     *
+     * > **Note:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+     *
+     * > **Note:** If the VM does not meet the requirements to expand the disk without downtime, changing this value is disruptive. The VM will be shut down and deallocated as required by Azure to action the change. Terraform will attempt to start the VM again after the update if it was in a `running` state prior to the change.
+     *
+     * > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+     */
     declare public readonly diskSizeGb: pulumi.Output<number>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
@@ -234,6 +247,17 @@ export interface ImplicitDataDiskFromSourceState {
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
     createOption?: pulumi.Input<string>;
+    /**
+     * Specifies the size of the Data Disk in gigabytes.
+     *
+     * > **Note:** Updating `diskSizeGb` to shrink the disk size is not supported on Azure and forces a new Data Disk to be created.
+     *
+     * > **Note:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+     *
+     * > **Note:** If the VM does not meet the requirements to expand the disk without downtime, changing this value is disruptive. The VM will be shut down and deallocated as required by Azure to action the change. Terraform will attempt to start the VM again after the update if it was in a `running` state prior to the change.
+     *
+     * > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+     */
     diskSizeGb?: pulumi.Input<number>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
@@ -269,6 +293,17 @@ export interface ImplicitDataDiskFromSourceArgs {
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
     createOption: pulumi.Input<string>;
+    /**
+     * Specifies the size of the Data Disk in gigabytes.
+     *
+     * > **Note:** Updating `diskSizeGb` to shrink the disk size is not supported on Azure and forces a new Data Disk to be created.
+     *
+     * > **Note:** In certain conditions the Data Disk size can be updated without shutting down the Virtual Machine, however only a subset of Virtual Machine SKUs/Disk combinations support this. More information can be found [for Linux Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks?tabs=azure-cli%2Cubuntu#expand-without-downtime) and [Windows Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-without-downtime) respectively.
+     *
+     * > **Note:** If the VM does not meet the requirements to expand the disk without downtime, changing this value is disruptive. The VM will be shut down and deallocated as required by Azure to action the change. Terraform will attempt to start the VM again after the update if it was in a `running` state prior to the change.
+     *
+     * > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
+     */
     diskSizeGb: pulumi.Input<number>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.

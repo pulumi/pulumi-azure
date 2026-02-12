@@ -43,20 +43,15 @@ __all__ = [
     'WorkspaceVulnerabilityAssessmentRecurringScansArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LinkedServiceIntegrationRuntimeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The integration runtime reference to associate with the Synapse Linked Service.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A map of parameters to associate with the integration runtime.
-        """
-elif False:
-    LinkedServiceIntegrationRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+class LinkedServiceIntegrationRuntimeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The integration runtime reference to associate with the Synapse Linked Service.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A map of parameters to associate with the integration runtime.
+    """
 
 @pulumi.input_type
 class LinkedServiceIntegrationRuntimeArgs:
@@ -96,14 +91,11 @@ class LinkedServiceIntegrationRuntimeArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class SparkPoolAutoPauseArgsDict(TypedDict):
-        delay_in_minutes: pulumi.Input[_builtins.int]
-        """
-        Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
-        """
-elif False:
-    SparkPoolAutoPauseArgsDict: TypeAlias = Mapping[str, Any]
+class SparkPoolAutoPauseArgsDict(TypedDict):
+    delay_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
+    """
 
 @pulumi.input_type
 class SparkPoolAutoPauseArgs:
@@ -127,18 +119,15 @@ class SparkPoolAutoPauseArgs:
         pulumi.set(self, "delay_in_minutes", value)
 
 
-if not MYPY:
-    class SparkPoolAutoScaleArgsDict(TypedDict):
-        max_node_count: pulumi.Input[_builtins.int]
-        """
-        The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-        """
-        min_node_count: pulumi.Input[_builtins.int]
-        """
-        The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-        """
-elif False:
-    SparkPoolAutoScaleArgsDict: TypeAlias = Mapping[str, Any]
+class SparkPoolAutoScaleArgsDict(TypedDict):
+    max_node_count: pulumi.Input[_builtins.int]
+    """
+    The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+    """
+    min_node_count: pulumi.Input[_builtins.int]
+    """
+    The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+    """
 
 @pulumi.input_type
 class SparkPoolAutoScaleArgs:
@@ -177,18 +166,15 @@ class SparkPoolAutoScaleArgs:
         pulumi.set(self, "min_node_count", value)
 
 
-if not MYPY:
-    class SparkPoolLibraryRequirementArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        The content of library requirements.
-        """
-        filename: pulumi.Input[_builtins.str]
-        """
-        The name of the library requirements file.
-        """
-elif False:
-    SparkPoolLibraryRequirementArgsDict: TypeAlias = Mapping[str, Any]
+class SparkPoolLibraryRequirementArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    The content of library requirements.
+    """
+    filename: pulumi.Input[_builtins.str]
+    """
+    The name of the library requirements file.
+    """
 
 @pulumi.input_type
 class SparkPoolLibraryRequirementArgs:
@@ -227,18 +213,15 @@ class SparkPoolLibraryRequirementArgs:
         pulumi.set(self, "filename", value)
 
 
-if not MYPY:
-    class SparkPoolSparkConfigArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        The contents of a spark configuration.
-        """
-        filename: pulumi.Input[_builtins.str]
-        """
-        The name of the file where the spark configuration `content` will be stored.
-        """
-elif False:
-    SparkPoolSparkConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SparkPoolSparkConfigArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    The contents of a spark configuration.
+    """
+    filename: pulumi.Input[_builtins.str]
+    """
+    The name of the file where the spark configuration `content` will be stored.
+    """
 
 @pulumi.input_type
 class SparkPoolSparkConfigArgs:
@@ -277,18 +260,15 @@ class SparkPoolSparkConfigArgs:
         pulumi.set(self, "filename", value)
 
 
-if not MYPY:
-    class SqlPoolRestoreArgsDict(TypedDict):
-        point_in_time: pulumi.Input[_builtins.str]
-        """
-        Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
-        """
-        source_database_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
-        """
-elif False:
-    SqlPoolRestoreArgsDict: TypeAlias = Mapping[str, Any]
+class SqlPoolRestoreArgsDict(TypedDict):
+    point_in_time: pulumi.Input[_builtins.str]
+    """
+    Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
+    """
+    source_database_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
+    """
 
 @pulumi.input_type
 class SqlPoolRestoreArgs:
@@ -327,14 +307,11 @@ class SqlPoolRestoreArgs:
         pulumi.set(self, "source_database_id", value)
 
 
-if not MYPY:
-    class SqlPoolVulnerabilityAssessmentBaselineBaselineArgsDict(TypedDict):
-        results: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of rule baseline result.
-        """
-elif False:
-    SqlPoolVulnerabilityAssessmentBaselineBaselineArgsDict: TypeAlias = Mapping[str, Any]
+class SqlPoolVulnerabilityAssessmentBaselineBaselineArgsDict(TypedDict):
+    results: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of rule baseline result.
+    """
 
 @pulumi.input_type
 class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
@@ -358,22 +335,19 @@ class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
         pulumi.set(self, "results", value)
 
 
-if not MYPY:
-    class SqlPoolVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
-        email_subscription_admins_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
-        """
-        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies an array of email addresses to which the scan notification is sent.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
-        """
-elif False:
-    SqlPoolVulnerabilityAssessmentRecurringScansArgsDict: TypeAlias = Mapping[str, Any]
+class SqlPoolVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
+    email_subscription_admins_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+    """
+    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies an array of email addresses to which the scan notification is sent.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
@@ -430,38 +404,35 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class WorkspaceAzureDevopsRepoArgsDict(TypedDict):
-        account_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the Azure DevOps account name.
-        """
-        branch_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the collaboration branch of the repository to get code from.
-        """
-        project_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the Azure DevOps project.
-        """
-        repository_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the git repository.
-        """
-        root_folder: pulumi.Input[_builtins.str]
-        """
-        Specifies the root folder within the repository. Set to `/` for the top level.
-        """
-        last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The last commit ID.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the ID of the tenant for the Azure DevOps account.
-        """
-elif False:
-    WorkspaceAzureDevopsRepoArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceAzureDevopsRepoArgsDict(TypedDict):
+    account_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the Azure DevOps account name.
+    """
+    branch_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the collaboration branch of the repository to get code from.
+    """
+    project_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the Azure DevOps project.
+    """
+    repository_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the git repository.
+    """
+    root_folder: pulumi.Input[_builtins.str]
+    """
+    Specifies the root folder within the repository. Set to `/` for the top level.
+    """
+    last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The last commit ID.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the ID of the tenant for the Azure DevOps account.
+    """
 
 @pulumi.input_type
 class WorkspaceAzureDevopsRepoArgs:
@@ -577,22 +548,19 @@ class WorkspaceAzureDevopsRepoArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class WorkspaceCustomerManagedKeyArgsDict(TypedDict):
-        key_versionless_id: pulumi.Input[_builtins.str]
-        """
-        The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
-        """
-        user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
-        """
-elif False:
-    WorkspaceCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceCustomerManagedKeyArgsDict(TypedDict):
+    key_versionless_id: pulumi.Input[_builtins.str]
+    """
+    The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
+    """
+    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
+    """
 
 @pulumi.input_type
 class WorkspaceCustomerManagedKeyArgs:
@@ -648,36 +616,33 @@ class WorkspaceCustomerManagedKeyArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class WorkspaceGithubRepoArgsDict(TypedDict):
-        account_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the GitHub account name.
-        """
-        branch_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the collaboration branch of the repository to get code from.
-        """
-        repository_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the git repository.
-        """
-        root_folder: pulumi.Input[_builtins.str]
-        """
-        Specifies the root folder within the repository. Set to `/` for the top level.
-        """
-        git_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+class WorkspaceGithubRepoArgsDict(TypedDict):
+    account_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the GitHub account name.
+    """
+    branch_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the collaboration branch of the repository to get code from.
+    """
+    repository_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the git repository.
+    """
+    root_folder: pulumi.Input[_builtins.str]
+    """
+    Specifies the root folder within the repository. Set to `/` for the top level.
+    """
+    git_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 
-        > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
-        """
-        last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The last commit ID.
-        """
-elif False:
-    WorkspaceGithubRepoArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
+    """
+    last_commit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The last commit ID.
+    """
 
 @pulumi.input_type
 class WorkspaceGithubRepoArgs:
@@ -782,28 +747,25 @@ class WorkspaceGithubRepoArgs:
         pulumi.set(self, "last_commit_id", value)
 
 
-if not MYPY:
-    class WorkspaceIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+class WorkspaceIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-        """
-elif False:
-    WorkspaceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+    """
 
 @pulumi.input_type
 class WorkspaceIdentityArgs:
@@ -879,22 +841,19 @@ class WorkspaceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class WorkspaceVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
-        email_subscription_admins_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
-        """
-        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies an array of email addresses to which the scan notification is sent.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
-        """
-elif False:
-    WorkspaceVulnerabilityAssessmentRecurringScansArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
+    email_subscription_admins_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+    """
+    emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies an array of email addresses to which the scan notification is sent.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class WorkspaceVulnerabilityAssessmentRecurringScansArgs:

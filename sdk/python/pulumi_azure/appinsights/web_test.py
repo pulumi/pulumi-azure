@@ -484,6 +484,10 @@ class WebTest(pulumi.CustomResource):
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
+        Manages an Application Insights WebTest.
+
+        > **Note:** Despite the discrepancy in its name, this Terraform resource corresponds to the Azure resource 'Application Insights Classic Web Test'. Azure changed the name, but we retained the original name in Terraform to avoid disruption and ensure backward compatibility.
+
         ## Example Usage
 
         ```python
@@ -561,6 +565,10 @@ class WebTest(pulumi.CustomResource):
                  args: WebTestArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an Application Insights WebTest.
+
+        > **Note:** Despite the discrepancy in its name, this Terraform resource corresponds to the Azure resource 'Application Insights Classic Web Test'. Azure changed the name, but we retained the original name in Terraform to avoid disruption and ensure backward compatibility.
+
         ## Example Usage
 
         ```python

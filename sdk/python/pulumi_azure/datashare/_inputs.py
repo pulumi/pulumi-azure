@@ -23,26 +23,21 @@ __all__ = [
     'ShareSnapshotScheduleArgsDict',
 ]
 
-MYPY = False
+class AccountIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 
-if not MYPY:
-    class AccountIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
-
-        > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
-        """
-elif False:
-    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
+    """
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -102,22 +97,19 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class DatasetBlobStorageStorageAccountArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        """
-        resource_group_name: pulumi.Input[_builtins.str]
-        """
-        The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        """
-        subscription_id: pulumi.Input[_builtins.str]
-        """
-        The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        """
-elif False:
-    DatasetBlobStorageStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetBlobStorageStorageAccountArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+    """
+    resource_group_name: pulumi.Input[_builtins.str]
+    """
+    The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+    """
+    subscription_id: pulumi.Input[_builtins.str]
+    """
+    The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+    """
 
 @pulumi.input_type
 class DatasetBlobStorageStorageAccountArgs:
@@ -171,22 +163,19 @@ class DatasetBlobStorageStorageAccountArgs:
         pulumi.set(self, "subscription_id", value)
 
 
-if not MYPY:
-    class ShareSnapshotScheduleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the snapshot schedule.
-        """
-        recurrence: pulumi.Input[_builtins.str]
-        """
-        The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        The synchronization with the source data's start time.
-        """
-elif False:
-    ShareSnapshotScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ShareSnapshotScheduleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the snapshot schedule.
+    """
+    recurrence: pulumi.Input[_builtins.str]
+    """
+    The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    The synchronization with the source data's start time.
+    """
 
 @pulumi.input_type
 class ShareSnapshotScheduleArgs:

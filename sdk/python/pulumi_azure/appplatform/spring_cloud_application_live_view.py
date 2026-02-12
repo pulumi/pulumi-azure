@@ -134,12 +134,6 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
 
         Spring Cloud Application Live Views can be imported using the `resource id`, e.g.
 
-        g
-
-        ```sh
-        $ pulumi import azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/applicationLiveViews/default
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
@@ -180,12 +174,6 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
         ## Import
 
         Spring Cloud Application Live Views can be imported using the `resource id`, e.g.
-
-        g
-
-        ```sh
-        $ pulumi import azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/applicationLiveViews/default
-        ```
 
         :param str resource_name: The name of the resource.
         :param SpringCloudApplicationLiveViewArgs args: The arguments to use to populate this resource's properties.

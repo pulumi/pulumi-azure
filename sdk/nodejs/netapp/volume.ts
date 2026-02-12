@@ -90,7 +90,9 @@ export class Volume extends pulumi.CustomResource {
      */
     declare public readonly exportPolicyRules: pulumi.Output<outputs.netapp.VolumeExportPolicyRule[] | undefined>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `kerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
      */
     declare public readonly kerberosEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -137,6 +139,13 @@ export class Volume extends pulumi.CustomResource {
      * Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
      */
     declare public readonly securityStyle: pulumi.Output<string>;
+    /**
+     * The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+     *
+     * > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+     *
+     * > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+     */
     declare public readonly serviceLevel: pulumi.Output<string>;
     /**
      * Enable SMB encryption. Changing this forces a new resource to be created.
@@ -340,7 +349,9 @@ export interface VolumeState {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `kerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
@@ -387,6 +398,13 @@ export interface VolumeState {
      * Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
      */
     securityStyle?: pulumi.Input<string>;
+    /**
+     * The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+     *
+     * > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+     *
+     * > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+     */
     serviceLevel?: pulumi.Input<string>;
     /**
      * Enable SMB encryption. Changing this forces a new resource to be created.
@@ -483,7 +501,9 @@ export interface VolumeArgs {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `kerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
@@ -526,6 +546,13 @@ export interface VolumeArgs {
      * Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
      */
     securityStyle?: pulumi.Input<string>;
+    /**
+     * The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+     *
+     * > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+     *
+     * > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+     */
     serviceLevel: pulumi.Input<string>;
     /**
      * Enable SMB encryption. Changing this forces a new resource to be created.

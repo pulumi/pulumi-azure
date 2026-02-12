@@ -43,14 +43,30 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * 
+     * &gt; **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+     * 
+     * &gt; **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+     * 
+     * &gt; **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+     * 
+     * &gt; **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
      * 
      */
     @Import(name="appSettings")
     private @Nullable Output<Map<String,String>> appSettings;
 
     /**
-     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * 
+     * &gt; **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+     * 
+     * &gt; **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+     * 
+     * &gt; **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+     * 
+     * &gt; **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -609,9 +625,25 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource azure.appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
+    /**
+     * @return The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource azure.appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     public Optional<Output<String>> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
@@ -750,7 +782,15 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+         * 
+         * &gt; **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+         * 
+         * &gt; **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+         * 
+         * &gt; **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+         * 
+         * &gt; **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
          * 
          * @return builder
          * 
@@ -761,7 +801,15 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+         * 
+         * &gt; **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+         * 
+         * &gt; **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+         * 
+         * &gt; **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+         * 
+         * &gt; **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
          * 
          * @return builder
          * 
@@ -1578,11 +1626,31 @@ public final class AppFlexConsumptionState extends com.pulumi.resources.Resource
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource azure.appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+         * 
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
 
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource azure.appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+         * 
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }

@@ -84,9 +84,21 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/iPGroup:IPGroup")
 public class IPGroup extends com.pulumi.resources.CustomResource {
+    /**
+     * A list of CIDRs or IP addresses.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+     * 
+     */
     @Export(name="cidrs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cidrs;
 
+    /**
+     * @return A list of CIDRs or IP addresses.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+     * 
+     */
     public Output<Optional<List<String>>> cidrs() {
         return Codegen.optional(this.cidrs);
     }

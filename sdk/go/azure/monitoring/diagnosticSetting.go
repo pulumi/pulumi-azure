@@ -102,6 +102,8 @@ import (
 // ```sh
 // $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
 // ```
+//
+// > **Note:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
 

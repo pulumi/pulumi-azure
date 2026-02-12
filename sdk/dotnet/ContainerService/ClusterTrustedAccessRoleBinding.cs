@@ -126,11 +126,8 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// 
     /// * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Cluster Trusted Access Role Binding exists. For example `12345678-1234-9876-4563-123456789012`.
-    /// 
     /// * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Cluster Trusted Access Role Binding exists. For example `example-resource-group`.
-    /// 
     /// * Where `{managedClusterName}` is the name of the Managed Cluster. For example `managedClusterValue`.
-    /// 
     /// * Where `{trustedAccessRoleBindingName}` is the name of the Trusted Access Role Binding. For example `trustedAccessRoleBindingValue`.
     /// </summary>
     [AzureResourceType("azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding")]

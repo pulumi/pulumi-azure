@@ -225,6 +225,15 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DiskEncryptionSet.__pulumiType;
     }
 
+    /**
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+     *
+     * > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+     *
+     * > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+     */
     declare public readonly autoKeyRotationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
@@ -325,6 +334,15 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DiskEncryptionSet resources.
  */
 export interface DiskEncryptionSetState {
+    /**
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+     *
+     * > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+     *
+     * > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+     */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
@@ -377,6 +395,15 @@ export interface DiskEncryptionSetState {
  * The set of arguments for constructing a DiskEncryptionSet resource.
  */
 export interface DiskEncryptionSetArgs {
+    /**
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+     *
+     * > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+     *
+     * > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+     */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.

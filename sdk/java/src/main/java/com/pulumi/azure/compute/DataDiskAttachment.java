@@ -162,6 +162,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
  * ```
  * 
+ * &gt; **Note:** This is provider-specific ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
+ * 
  */
 @ResourceType(type="azure:compute/dataDiskAttachment:DataDiskAttachment")
 public class DataDiskAttachment extends com.pulumi.resources.CustomResource {

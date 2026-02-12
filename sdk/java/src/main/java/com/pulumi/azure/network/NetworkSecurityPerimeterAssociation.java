@@ -142,9 +142,23 @@ public class NetworkSecurityPerimeterAssociation extends com.pulumi.resources.Cu
     public Output<String> networkSecurityPerimeterProfileId() {
         return this.networkSecurityPerimeterProfileId;
     }
+    /**
+     * The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+     * 
+     * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+     * 
+     * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }

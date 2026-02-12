@@ -204,6 +204,8 @@ import (
 //
 // ## Import
 //
+// > **Note:** This resource does not need to be imported to manage it, however the import will work.
+//
 // SQL Server Transparent Data Encryption can be imported using the resource id, e.g.
 //
 // ```sh

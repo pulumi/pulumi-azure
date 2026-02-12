@@ -5,6 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Databricks Workspace
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleWorkspace = new azure.databricks.Workspace("example", {
+ *     name: "databricks-test",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "standard",
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
+ *
+ * > **Note:** You can use the Databricks Terraform Provider to manage resources within the Databricks Workspace.
+ *
+ * ## Example HCL Configurations
+ *
+ * * Databricks Workspace Secure Connectivity Cluster with Load Balancer
+ * * Databricks Workspace Secure Connectivity Cluster without Load Balancer
+ * * Databricks Workspace with Private Endpoint
+ * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
+ * * Databricks Workspace with Customer Managed Keys for Managed Services
+ * * Databricks Workspace with Customer Managed Keys for Managed Services with Key Vault and Key in a Different Subscription
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Databricks` - 2024-05-01, 2022-10-01-preview
+ *
+ * * `Microsoft.Network` - 2025-01-01, 2023-09-01
+ *
  * ## Import
  *
  * Databrick Workspaces can be imported using the `resource id`, e.g.

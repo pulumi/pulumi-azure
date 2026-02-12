@@ -35,28 +35,23 @@ __all__ = [
     'SocketioSkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class HubEventHandlerArgsDict(TypedDict):
-        url_template: pulumi.Input[_builtins.str]
-        """
-        The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
-        """
-        auth: NotRequired[pulumi.Input['HubEventHandlerAuthArgsDict']]
-        """
-        An `auth` block as defined below.
-        """
-        system_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
-        """
-        user_event_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
-        """
-elif False:
-    HubEventHandlerArgsDict: TypeAlias = Mapping[str, Any]
+class HubEventHandlerArgsDict(TypedDict):
+    url_template: pulumi.Input[_builtins.str]
+    """
+    The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
+    """
+    auth: NotRequired[pulumi.Input['HubEventHandlerAuthArgsDict']]
+    """
+    An `auth` block as defined below.
+    """
+    system_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+    """
+    user_event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+    """
 
 @pulumi.input_type
 class HubEventHandlerArgs:
@@ -128,16 +123,13 @@ class HubEventHandlerArgs:
         pulumi.set(self, "user_event_pattern", value)
 
 
-if not MYPY:
-    class HubEventHandlerAuthArgsDict(TypedDict):
-        managed_identity_id: pulumi.Input[_builtins.str]
-        """
-        Specify the identity ID of the target resource.
+class HubEventHandlerAuthArgsDict(TypedDict):
+    managed_identity_id: pulumi.Input[_builtins.str]
+    """
+    Specify the identity ID of the target resource.
 
-        > **Note:** `managed_identity_id` is required if the auth block is defined
-        """
-elif False:
-    HubEventHandlerAuthArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `managed_identity_id` is required if the auth block is defined
+    """
 
 @pulumi.input_type
 class HubEventHandlerAuthArgs:
@@ -165,26 +157,23 @@ class HubEventHandlerAuthArgs:
         pulumi.set(self, "managed_identity_id", value)
 
 
-if not MYPY:
-    class HubEventListenerArgsDict(TypedDict):
-        eventhub_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the event hub name to receive the events.
-        """
-        eventhub_namespace_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the event hub namespace name to receive the events.
-        """
-        system_event_name_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of system events. Supported values are `connected` and `disconnected`.
-        """
-        user_event_name_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of matching user event names. `["*"]` can be used to match all events.
-        """
-elif False:
-    HubEventListenerArgsDict: TypeAlias = Mapping[str, Any]
+class HubEventListenerArgsDict(TypedDict):
+    eventhub_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the event hub name to receive the events.
+    """
+    eventhub_namespace_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the event hub namespace name to receive the events.
+    """
+    system_event_name_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of system events. Supported values are `connected` and `disconnected`.
+    """
+    user_event_name_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of matching user event names. `["*"]` can be used to match all events.
+    """
 
 @pulumi.input_type
 class HubEventListenerArgs:
@@ -255,24 +244,21 @@ class HubEventListenerArgs:
         pulumi.set(self, "user_event_name_filters", value)
 
 
-if not MYPY:
-    class NetworkAclPrivateEndpointArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Private Endpoint which is based on the Web Pubsub service.
-        """
-        allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
-        """
-        denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+class NetworkAclPrivateEndpointArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Private Endpoint which is based on the Web Pubsub service.
+    """
+    allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+    """
+    denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
-        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
-        """
-elif False:
-    NetworkAclPrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+    """
 
 @pulumi.input_type
 class NetworkAclPrivateEndpointArgs:
@@ -332,20 +318,17 @@ class NetworkAclPrivateEndpointArgs:
         pulumi.set(self, "denied_request_types", value)
 
 
-if not MYPY:
-    class NetworkAclPublicNetworkArgsDict(TypedDict):
-        allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
-        """
-        denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+class NetworkAclPublicNetworkArgsDict(TypedDict):
+    allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+    """
+    denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
-        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
-        """
-elif False:
-    NetworkAclPublicNetworkArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+    """
 
 @pulumi.input_type
 class NetworkAclPublicNetworkArgs:
@@ -390,28 +373,25 @@ class NetworkAclPublicNetworkArgs:
         pulumi.set(self, "denied_request_types", value)
 
 
-if not MYPY:
-    class ServiceIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+class ServiceIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are `SystemAssigned`, `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ServiceIdentityArgs:
@@ -487,26 +467,23 @@ class ServiceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ServiceLiveTraceArgsDict(TypedDict):
-        connectivity_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the live trace is enabled? Defaults to `true`.
-        """
-        http_request_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
-        """
-        messaging_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the log category `MessagingLogs` is enabled? Defaults to `true`
-        """
-elif False:
-    ServiceLiveTraceArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceLiveTraceArgsDict(TypedDict):
+    connectivity_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the live trace is enabled? Defaults to `true`.
+    """
+    http_request_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+    """
+    messaging_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+    """
 
 @pulumi.input_type
 class ServiceLiveTraceArgs:
@@ -579,22 +556,19 @@ class ServiceLiveTraceArgs:
         pulumi.set(self, "messaging_logs_enabled", value)
 
 
-if not MYPY:
-    class SocketioIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+class SocketioIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
 
-        > **Note:** `identity_ids` is required when `type` is `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SocketioIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SocketioIdentityArgs:
@@ -662,20 +636,17 @@ class SocketioIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class SocketioSkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+class SocketioSkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The SKU to use for this Web PubSub Service. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1`, and `Premium_P2`.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
-        > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
-        """
-elif False:
-    SocketioSkuArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+    """
 
 @pulumi.input_type
 class SocketioSkuArgs:

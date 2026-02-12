@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
+    /// Manages an App Service Source Control Token.
+    /// 
+    /// &gt; **Note:** This resource can only manage the token for the user currently running Terraform. Managing tokens for another user is not supported by the service.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

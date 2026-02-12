@@ -150,6 +150,11 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
+        /// <summary>
+        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `False`.
+        /// 
+        /// &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `AppSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+        /// </summary>
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 

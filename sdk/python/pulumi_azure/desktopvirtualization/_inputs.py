@@ -25,30 +25,25 @@ __all__ = [
     'ScalingPlanScheduleArgsDict',
 ]
 
-MYPY = False
+class HostPoolScheduledAgentUpdatesArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
 
-if not MYPY:
-    class HostPoolScheduledAgentUpdatesArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
-
-        > **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
-        """
-        schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgsDict']]]]
-        """
-        A `schedule` block as defined below. A maximum of two blocks can be added.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
-        """
-        use_session_host_timezone: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
-        """
-elif False:
-    HostPoolScheduledAgentUpdatesArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
+    """
+    schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgsDict']]]]
+    """
+    A `schedule` block as defined below. A maximum of two blocks can be added.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
+    """
+    use_session_host_timezone: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+    """
 
 @pulumi.input_type
 class HostPoolScheduledAgentUpdatesArgs:
@@ -125,18 +120,15 @@ class HostPoolScheduledAgentUpdatesArgs:
         pulumi.set(self, "use_session_host_timezone", value)
 
 
-if not MYPY:
-    class HostPoolScheduledAgentUpdatesScheduleArgsDict(TypedDict):
-        day_of_week: pulumi.Input[_builtins.str]
-        """
-        The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
-        """
-        hour_of_day: pulumi.Input[_builtins.int]
-        """
-        The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
-        """
-elif False:
-    HostPoolScheduledAgentUpdatesScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class HostPoolScheduledAgentUpdatesScheduleArgsDict(TypedDict):
+    day_of_week: pulumi.Input[_builtins.str]
+    """
+    The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+    """
+    hour_of_day: pulumi.Input[_builtins.int]
+    """
+    The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+    """
 
 @pulumi.input_type
 class HostPoolScheduledAgentUpdatesScheduleArgs:
@@ -175,18 +167,15 @@ class HostPoolScheduledAgentUpdatesScheduleArgs:
         pulumi.set(self, "hour_of_day", value)
 
 
-if not MYPY:
-    class ScalingPlanHostPoolArgsDict(TypedDict):
-        hostpool_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the HostPool to assign the Scaling Plan to.
-        """
-        scaling_plan_enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies if the scaling plan is enabled or disabled for the HostPool.
-        """
-elif False:
-    ScalingPlanHostPoolArgsDict: TypeAlias = Mapping[str, Any]
+class ScalingPlanHostPoolArgsDict(TypedDict):
+    hostpool_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the HostPool to assign the Scaling Plan to.
+    """
+    scaling_plan_enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies if the scaling plan is enabled or disabled for the HostPool.
+    """
 
 @pulumi.input_type
 class ScalingPlanHostPoolArgs:
@@ -225,82 +214,79 @@ class ScalingPlanHostPoolArgs:
         pulumi.set(self, "scaling_plan_enabled", value)
 
 
-if not MYPY:
-    class ScalingPlanScheduleArgsDict(TypedDict):
-        days_of_weeks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the schedule.
-        """
-        off_peak_load_balancing_algorithm: pulumi.Input[_builtins.str]
-        """
-        The load Balancing Algorithm to use during Off-Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
-        """
-        off_peak_start_time: pulumi.Input[_builtins.str]
-        """
-        The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in "HH:MM" format.
-        """
-        peak_load_balancing_algorithm: pulumi.Input[_builtins.str]
-        """
-        The load Balancing Algorithm to use during Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
-        """
-        peak_start_time: pulumi.Input[_builtins.str]
-        """
-        The time at which Peak scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
-        """
-        ramp_down_capacity_threshold_percent: pulumi.Input[_builtins.int]
-        """
-        This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
-        """
-        ramp_down_force_logoff_users: pulumi.Input[_builtins.bool]
-        """
-        Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
-        """
-        ramp_down_load_balancing_algorithm: pulumi.Input[_builtins.str]
-        """
-        The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
-        """
-        ramp_down_minimum_hosts_percent: pulumi.Input[_builtins.int]
-        """
-        The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
-        """
-        ramp_down_notification_message: pulumi.Input[_builtins.str]
-        """
-        The notification message to send to users during Ramp-Down period when they are required to log-off.
-        """
-        ramp_down_start_time: pulumi.Input[_builtins.str]
-        """
-        The time at which Ramp-Down scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
-        """
-        ramp_down_stop_hosts_when: pulumi.Input[_builtins.str]
-        """
-        Controls Session Host shutdown behaviour during Ramp-Down period. Session Hosts can either be shutdown when all sessions on the Session Host have ended, or when there are no Active sessions left on the Session Host. Possible values are `ZeroSessions` and `ZeroActiveSessions`.
-        """
-        ramp_down_wait_time_minutes: pulumi.Input[_builtins.int]
-        """
-        The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM.
-        """
-        ramp_up_load_balancing_algorithm: pulumi.Input[_builtins.str]
-        """
-        The load Balancing Algorithm to use during the Ramp-Up period. Possible values are `DepthFirst` and `BreadthFirst`.
-        """
-        ramp_up_start_time: pulumi.Input[_builtins.str]
-        """
-        The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
-        """
-        ramp_up_capacity_threshold_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
-        """
-        ramp_up_minimum_hosts_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
-        """
-elif False:
-    ScalingPlanScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ScalingPlanScheduleArgsDict(TypedDict):
+    days_of_weeks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the schedule.
+    """
+    off_peak_load_balancing_algorithm: pulumi.Input[_builtins.str]
+    """
+    The load Balancing Algorithm to use during Off-Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+    """
+    off_peak_start_time: pulumi.Input[_builtins.str]
+    """
+    The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in "HH:MM" format.
+    """
+    peak_load_balancing_algorithm: pulumi.Input[_builtins.str]
+    """
+    The load Balancing Algorithm to use during Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+    """
+    peak_start_time: pulumi.Input[_builtins.str]
+    """
+    The time at which Peak scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+    """
+    ramp_down_capacity_threshold_percent: pulumi.Input[_builtins.int]
+    """
+    This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+    """
+    ramp_down_force_logoff_users: pulumi.Input[_builtins.bool]
+    """
+    Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+    """
+    ramp_down_load_balancing_algorithm: pulumi.Input[_builtins.str]
+    """
+    The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
+    """
+    ramp_down_minimum_hosts_percent: pulumi.Input[_builtins.int]
+    """
+    The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+    """
+    ramp_down_notification_message: pulumi.Input[_builtins.str]
+    """
+    The notification message to send to users during Ramp-Down period when they are required to log-off.
+    """
+    ramp_down_start_time: pulumi.Input[_builtins.str]
+    """
+    The time at which Ramp-Down scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+    """
+    ramp_down_stop_hosts_when: pulumi.Input[_builtins.str]
+    """
+    Controls Session Host shutdown behaviour during Ramp-Down period. Session Hosts can either be shutdown when all sessions on the Session Host have ended, or when there are no Active sessions left on the Session Host. Possible values are `ZeroSessions` and `ZeroActiveSessions`.
+    """
+    ramp_down_wait_time_minutes: pulumi.Input[_builtins.int]
+    """
+    The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM.
+    """
+    ramp_up_load_balancing_algorithm: pulumi.Input[_builtins.str]
+    """
+    The load Balancing Algorithm to use during the Ramp-Up period. Possible values are `DepthFirst` and `BreadthFirst`.
+    """
+    ramp_up_start_time: pulumi.Input[_builtins.str]
+    """
+    The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+    """
+    ramp_up_capacity_threshold_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+    """
+    ramp_up_minimum_hosts_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
+    """
 
 @pulumi.input_type
 class ScalingPlanScheduleArgs:
