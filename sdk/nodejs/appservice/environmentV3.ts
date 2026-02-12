@@ -187,6 +187,11 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      * > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
     declare public readonly subnetId: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
@@ -336,6 +341,11 @@ export interface EnvironmentV3State {
      * > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
     subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
@@ -389,6 +399,11 @@ export interface EnvironmentV3Args {
      * > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
     subnetId: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `ignoreChanges` lifecycle meta-argument is used.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.

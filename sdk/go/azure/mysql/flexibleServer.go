@@ -200,7 +200,12 @@ type FlexibleServer struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version pulumi.StringOutput `pulumi:"version"`
-	Zone    pulumi.StringOutput `pulumi:"zone"`
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+	//
+	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+	//
+	// > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+	Zone pulumi.StringOutput `pulumi:"zone"`
 }
 
 // NewFlexibleServer registers a new resource with the given unique name, arguments, and options.
@@ -314,7 +319,12 @@ type flexibleServerState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version *string `pulumi:"version"`
-	Zone    *string `pulumi:"zone"`
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+	//
+	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+	//
+	// > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+	Zone *string `pulumi:"zone"`
 }
 
 type FlexibleServerState struct {
@@ -389,7 +399,12 @@ type FlexibleServerState struct {
 	Tags pulumi.StringMapInput
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version pulumi.StringPtrInput
-	Zone    pulumi.StringPtrInput
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+	//
+	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+	//
+	// > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+	Zone pulumi.StringPtrInput
 }
 
 func (FlexibleServerState) ElementType() reflect.Type {
@@ -463,7 +478,12 @@ type flexibleServerArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version *string `pulumi:"version"`
-	Zone    *string `pulumi:"zone"`
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+	//
+	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+	//
+	// > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a FlexibleServer resource.
@@ -534,7 +554,12 @@ type FlexibleServerArgs struct {
 	Tags pulumi.StringMapInput
 	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
 	Version pulumi.StringPtrInput
-	Zone    pulumi.StringPtrInput
+	// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+	//
+	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+	//
+	// > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+	Zone pulumi.StringPtrInput
 }
 
 func (FlexibleServerArgs) ElementType() reflect.Type {
@@ -773,6 +798,11 @@ func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
+// Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+//
+// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+//
+// > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
 func (o FlexibleServerOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Zone }).(pulumi.StringOutput)
 }

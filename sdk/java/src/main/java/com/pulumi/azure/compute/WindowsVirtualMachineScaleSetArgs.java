@@ -861,9 +861,21 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         return Optional.ofNullable(this.timezone);
     }
 
+    /**
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+     * 
+     */
     @Import(name="upgradeMode")
     private @Nullable Output<String> upgradeMode;
 
+    /**
+     * @return Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+     * 
+     */
     public Optional<Output<String>> upgradeMode() {
         return Optional.ofNullable(this.upgradeMode);
     }
@@ -2218,11 +2230,27 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
             return timezone(Output.of(timezone));
         }
 
+        /**
+         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder upgradeMode(@Nullable Output<String> upgradeMode) {
             $.upgradeMode = upgradeMode;
             return this;
         }
 
+        /**
+         * @param upgradeMode Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder upgradeMode(String upgradeMode) {
             return upgradeMode(Output.of(upgradeMode));
         }

@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// ## Import
     /// 
-    /// Healthcare Service can be imported using the resource`id`, e.g.
+    /// Healthcare Service can be imported using the resource`Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:healthcare/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource_group/providers/Microsoft.HealthcareApis/services/service_name
@@ -91,6 +91,9 @@ namespace Pulumi.Azure.Healthcare
     [AzureResourceType("azure:healthcare/service:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+        /// </summary>
         [Output("accessPolicyObjectIds")]
         public Output<ImmutableArray<string>> AccessPolicyObjectIds { get; private set; } = null!;
 
@@ -218,6 +221,10 @@ namespace Pulumi.Azure.Healthcare
     {
         [Input("accessPolicyObjectIds")]
         private InputList<string>? _accessPolicyObjectIds;
+
+        /// <summary>
+        /// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+        /// </summary>
         public InputList<string> AccessPolicyObjectIds
         {
             get => _accessPolicyObjectIds ?? (_accessPolicyObjectIds = new InputList<string>());
@@ -316,6 +323,10 @@ namespace Pulumi.Azure.Healthcare
     {
         [Input("accessPolicyObjectIds")]
         private InputList<string>? _accessPolicyObjectIds;
+
+        /// <summary>
+        /// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+        /// </summary>
         public InputList<string> AccessPolicyObjectIds
         {
             get => _accessPolicyObjectIds ?? (_accessPolicyObjectIds = new InputList<string>());

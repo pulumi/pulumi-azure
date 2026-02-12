@@ -111,6 +111,11 @@ namespace Pulumi.Azure.CosmosDB
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `PartitionKeyPath` to be set.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.GremlinGraphAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -234,6 +239,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `PartitionKeyPath` to be set.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -325,6 +335,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `PartitionKeyPath` to be set.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 

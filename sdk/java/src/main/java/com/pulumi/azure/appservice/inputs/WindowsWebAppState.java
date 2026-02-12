@@ -561,9 +561,25 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.virtualNetworkImagePullEnabled);
     }
 
+    /**
+     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
+    /**
+     * @return The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     public Optional<Output<String>> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
@@ -1462,11 +1478,31 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
             return virtualNetworkImagePullEnabled(Output.of(virtualNetworkImagePullEnabled));
         }
 
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+         * 
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
 
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
+         * 
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }

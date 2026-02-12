@@ -22,6 +22,74 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Databricks Workspace
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.databricks.Workspace;
+ * import com.pulumi.azure.databricks.WorkspaceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .name("databricks-test")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("standard")
+ *             .tags(Map.of("Environment", "Production"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note:** You can use the Databricks Terraform Provider to manage resources within the Databricks Workspace.
+ * 
+ * ## Example HCL Configurations
+ * 
+ * * Databricks Workspace Secure Connectivity Cluster with Load Balancer
+ * * Databricks Workspace Secure Connectivity Cluster without Load Balancer
+ * * Databricks Workspace with Private Endpoint
+ * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
+ * * Databricks Workspace with Customer Managed Keys for Managed Services
+ * * Databricks Workspace with Customer Managed Keys for Managed Services with Key Vault and Key in a Different Subscription
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Databricks` - 2024-05-01, 2022-10-01-preview
+ * 
+ * * `Microsoft.Network` - 2025-01-01, 2023-09-01
+ * 
  * ## Import
  * 
  * Databrick Workspaces can be imported using the `resource id`, e.g.
@@ -163,9 +231,25 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     public Output<String> location() {
         return this.location;
     }
+    /**
+     * Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     @Export(name="managedDiskCmkKeyVaultId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedDiskCmkKeyVaultId;
 
+    /**
+     * @return Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     public Output<Optional<String>> managedDiskCmkKeyVaultId() {
         return Codegen.optional(this.managedDiskCmkKeyVaultId);
     }
@@ -243,9 +327,25 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     public Output<String> managedResourceGroupName() {
         return this.managedResourceGroupName;
     }
+    /**
+     * Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     @Export(name="managedServicesCmkKeyVaultId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedServicesCmkKeyVaultId;
 
+    /**
+     * @return Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
+     * 
+     * &gt; **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     public Output<Optional<String>> managedServicesCmkKeyVaultId() {
         return Codegen.optional(this.managedServicesCmkKeyVaultId);
     }

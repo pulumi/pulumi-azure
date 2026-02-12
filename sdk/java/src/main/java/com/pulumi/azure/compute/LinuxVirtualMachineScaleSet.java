@@ -932,9 +932,21 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     public Output<String> uniqueId() {
         return this.uniqueId;
     }
+    /**
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+     * 
+     */
     @Export(name="upgradeMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> upgradeMode;
 
+    /**
+     * @return Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+     * 
+     */
     public Output<Optional<String>> upgradeMode() {
         return Codegen.optional(this.upgradeMode);
     }

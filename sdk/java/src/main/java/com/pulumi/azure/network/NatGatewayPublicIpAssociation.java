@@ -91,6 +91,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1&#34;
  * ```
  * 
+ * &gt; **Note:** This is a provider-specific ID in the format `{natGatewayID}|{publicIPAddressID}`
+ * 
  */
 @ResourceType(type="azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation")
 public class NatGatewayPublicIpAssociation extends com.pulumi.resources.CustomResource {

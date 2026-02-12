@@ -2315,6 +2315,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invokeAsync("azure:appservice/getServicePlan:getServicePlan", TypeShape.of(GetServicePlanResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing App Service Source Control Token.
+     * 
+     * &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2361,6 +2365,10 @@ public final class AppserviceFunctions {
         return getSourceControlToken(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing App Service Source Control Token.
+     * 
+     * &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2407,6 +2415,10 @@ public final class AppserviceFunctions {
         return getSourceControlTokenPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing App Service Source Control Token.
+     * 
+     * &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2453,6 +2465,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invoke("azure:appservice/getSourceControlToken:getSourceControlToken", TypeShape.of(GetSourceControlTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing App Service Source Control Token.
+     * 
+     * &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2499,6 +2515,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invoke("azure:appservice/getSourceControlToken:getSourceControlToken", TypeShape.of(GetSourceControlTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing App Service Source Control Token.
+     * 
+     * &gt; **Note:** This value can only be queried for the user or service principal that is executing Terraform. It is not possible to retrieve for another user.
+     * 
      * ## Example Usage
      * 
      * <pre>

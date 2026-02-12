@@ -404,6 +404,12 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        ## Disclaimers
+
+        > **Note:** A Built-in Anomaly Alert Rule could not be deleted. delete a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
+
+        Manages a Built-in Anomaly Alert Rule.
+
         ## Example Usage
 
         ```python
@@ -455,6 +461,12 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
                  args: AlertRuleAnomalyBuiltInArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Disclaimers
+
+        > **Note:** A Built-in Anomaly Alert Rule could not be deleted. delete a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
+
+        Manages a Built-in Anomaly Alert Rule.
+
         ## Example Usage
 
         ```python

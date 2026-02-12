@@ -13,6 +13,11 @@ namespace Pulumi.Azure.Nginx.Outputs
     [OutputType]
     public sealed class DeploymentAutoScaleProfile
     {
+        /// <summary>
+        /// Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+        /// 
+        /// &gt; **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `IgnoreChanges` functionality to ignore changes to the `Capacity` field.
+        /// </summary>
         public readonly int MaxCapacity;
         /// <summary>
         /// Specify the minimum number of NGINX capacity units for this NGINX Deployment.

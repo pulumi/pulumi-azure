@@ -151,6 +151,8 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         $ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
         ```
 
+        > **Note:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
@@ -209,6 +211,8 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
         ```
+
+        > **Note:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApplicationGroupAssociationArgs args: The arguments to use to populate this resource's properties.

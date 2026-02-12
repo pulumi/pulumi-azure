@@ -79,7 +79,6 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * IP Group CIDRs can be imported using the `resource id` of the IP Group and
- * 
  * the CIDR value (`/` characters have to be replaced by `_`), e.g.
  * 
  * ```sh
@@ -89,9 +88,23 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/iPGroupCIDR:IPGroupCIDR")
 public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
+    /**
+     * The `CIDR` that should be added to the IP Group.
+     * Changing this forces a new IP Group CIDR to be created.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+     * 
+     */
     @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
+    /**
+     * @return The `CIDR` that should be added to the IP Group.
+     * Changing this forces a new IP Group CIDR to be created.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+     * 
+     */
     public Output<String> cidr() {
         return this.cidr;
     }

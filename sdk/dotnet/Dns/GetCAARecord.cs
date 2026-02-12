@@ -12,6 +12,10 @@ namespace Pulumi.Azure.Dns
     public static class GetCAARecord
     {
         /// <summary>
+        /// Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+        /// 
+        /// &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we'd generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -47,6 +51,10 @@ namespace Pulumi.Azure.Dns
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+        /// 
+        /// &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we'd generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -82,6 +90,10 @@ namespace Pulumi.Azure.Dns
             => global::Pulumi.Deployment.Instance.Invoke<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+        /// 
+        /// &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we'd generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

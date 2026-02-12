@@ -32,9 +32,19 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
         return this.audience;
     }
 
+    /**
+     * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+     * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+     * 
+     */
     @Import(name="authority", required=true)
     private Output<String> authority;
 
+    /**
+     * @return The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+     * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+     * 
+     */
     public Output<String> authority() {
         return this.authority;
     }
@@ -101,11 +111,25 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
             return audience(Output.of(audience));
         }
 
+        /**
+         * @param authority The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authority(Output<String> authority) {
             $.authority = authority;
             return this;
         }
 
+        /**
+         * @param authority The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authority(String authority) {
             return authority(Output.of(authority));
         }

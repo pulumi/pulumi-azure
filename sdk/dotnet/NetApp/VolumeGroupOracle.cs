@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp
 {
     /// <summary>
+    /// Manages a Application Volume Group for Oracle application.
+    /// 
+    /// &gt; **Note:** This feature is intended to be used for Oracle workloads only, with several requirements, please refer to [Understand Azure NetApp Files application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-oracle-introduction) document as the starting point to understand this feature before using it with Terraform.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

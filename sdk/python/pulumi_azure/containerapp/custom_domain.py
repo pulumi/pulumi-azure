@@ -26,7 +26,9 @@ class CustomDomainArgs:
         """
         The set of arguments for constructing a CustomDomain resource.
         :param pulumi.Input[_builtins.str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        :param pulumi.Input[_builtins.str] certificate_binding_type: The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+               
+               !> **Note:** If using an Azure Managed Certificate `container_app_environment_certificate_id` and `certificate_binding_type` should be added to `ignore_changes` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         :param pulumi.Input[_builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
                > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
@@ -58,7 +60,9 @@ class CustomDomainArgs:
     @pulumi.getter(name="certificateBindingType")
     def certificate_binding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+
+        !> **Note:** If using an Azure Managed Certificate `container_app_environment_certificate_id` and `certificate_binding_type` should be added to `ignore_changes` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         """
         return pulumi.get(self, "certificate_binding_type")
 
@@ -105,7 +109,9 @@ class _CustomDomainState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
-        :param pulumi.Input[_builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        :param pulumi.Input[_builtins.str] certificate_binding_type: The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+               
+               !> **Note:** If using an Azure Managed Certificate `container_app_environment_certificate_id` and `certificate_binding_type` should be added to `ignore_changes` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         :param pulumi.Input[_builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
                > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
@@ -130,7 +136,9 @@ class _CustomDomainState:
     @pulumi.getter(name="certificateBindingType")
     def certificate_binding_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+
+        !> **Note:** If using an Azure Managed Certificate `container_app_environment_certificate_id` and `certificate_binding_type` should be added to `ignore_changes` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         """
         return pulumi.get(self, "certificate_binding_type")
 
@@ -305,7 +313,9 @@ class CustomDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        :param pulumi.Input[_builtins.str] certificate_binding_type: The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+               
+               !> **Note:** If using an Azure Managed Certificate `container_app_environment_certificate_id` and `certificate_binding_type` should be added to `ignore_changes` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         :param pulumi.Input[_builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
                > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
@@ -478,7 +488,9 @@ class CustomDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        :param pulumi.Input[_builtins.str] certificate_binding_type: The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+               
+               !> **Note:** If using an Azure Managed Certificate `container_app_environment_certificate_id` and `certificate_binding_type` should be added to `ignore_changes` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         :param pulumi.Input[_builtins.str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
                > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
@@ -503,7 +515,9 @@ class CustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="certificateBindingType")
     def certificate_binding_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Binding type. Possible values include `Disabled` and `SniEnabled`.
+        The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+
+        !> **Note:** If using an Azure Managed Certificate `container_app_environment_certificate_id` and `certificate_binding_type` should be added to `ignore_changes` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
         """
         return pulumi.get(self, "certificate_binding_type")
 

@@ -1921,6 +1921,8 @@ class AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -2009,6 +2011,8 @@ class AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -5338,6 +5342,9 @@ class AppServiceSiteConfig(dict):
         :param _builtins.bool use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
                
                > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        :param _builtins.bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+               
+               > **NOTE:** This setting supersedes the previous mechanism of setting the `app_settings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
         :param _builtins.bool websockets_enabled: Should WebSockets be enabled?
         :param _builtins.str windows_fx_version: The Windows Docker container image (`DOCKER|<user/image:tag>`)
         """
@@ -5647,6 +5654,11 @@ class AppServiceSiteConfig(dict):
     @_builtins.property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+
+        > **NOTE:** This setting supersedes the previous mechanism of setting the `app_settings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @_builtins.property
@@ -7399,6 +7411,9 @@ class FunctionAppSiteConfig(dict):
         :param _builtins.bool use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
                
                > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        :param _builtins.bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+               
+               > **NOTE:** This setting supersedes the previous mechanism of setting the `app_settings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
         :param _builtins.bool websockets_enabled: Should WebSockets be enabled?
         """
         if always_on is not None:
@@ -7611,6 +7626,11 @@ class FunctionAppSiteConfig(dict):
     @_builtins.property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+
+        > **NOTE:** This setting supersedes the previous mechanism of setting the `app_settings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @_builtins.property
@@ -10681,6 +10701,8 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -10769,6 +10791,8 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -14353,6 +14377,8 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -14441,6 +14467,8 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -18271,6 +18299,8 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -18359,6 +18389,8 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -19986,6 +20018,9 @@ class LinuxWebAppSiteConfig(dict):
         :param _builtins.bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'LinuxWebAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[_builtins.str] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param _builtins.str ftps_state: The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+               
+               > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
         :param _builtins.int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param _builtins.str health_check_path: The path to the Health Check.
         :param _builtins.bool http2_enabled: Should the HTTP2 be enabled?
@@ -20163,6 +20198,11 @@ class LinuxWebAppSiteConfig(dict):
     @_builtins.property
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[_builtins.str]:
+        """
+        The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+
+        > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+        """
         return pulumi.get(self, "ftps_state")
 
     @_builtins.property
@@ -21432,7 +21472,9 @@ class LinuxWebAppSiteCredential(dict):
                  name: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The Site Credentials Username used for publishing.
+        :param _builtins.str name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param _builtins.str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -21444,7 +21486,9 @@ class LinuxWebAppSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         """
         return pulumi.get(self, "name")
 
@@ -22539,6 +22583,8 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -22627,6 +22673,8 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -24258,6 +24306,9 @@ class LinuxWebAppSlotSiteConfig(dict):
         :param _builtins.bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'LinuxWebAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[_builtins.str] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param _builtins.str ftps_state: The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+               
+               > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
         :param _builtins.int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param _builtins.str health_check_path: The path to the Health Check.
         :param _builtins.bool http2_enabled: Should the HTTP2 be enabled?
@@ -24445,6 +24496,11 @@ class LinuxWebAppSlotSiteConfig(dict):
     @_builtins.property
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[_builtins.str]:
+        """
+        The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+
+        > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+        """
         return pulumi.get(self, "ftps_state")
 
     @_builtins.property
@@ -25710,7 +25766,9 @@ class LinuxWebAppSlotSiteCredential(dict):
                  name: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The Site Credentials Username used for publishing.
+        :param _builtins.str name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param _builtins.str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -25722,7 +25780,9 @@ class LinuxWebAppSlotSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         """
         return pulumi.get(self, "name")
 
@@ -27140,6 +27200,9 @@ class SlotSiteConfig(dict):
         :param _builtins.bool use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
                
                > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        :param _builtins.bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+               
+               > **NOTE:** This setting supersedes the previous mechanism of setting the `app_settings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
         :param _builtins.bool websockets_enabled: Should WebSockets be enabled?
         :param _builtins.str windows_fx_version: The Windows Docker container image (`DOCKER|<user/image:tag>`)
                
@@ -27451,6 +27514,11 @@ class SlotSiteConfig(dict):
     @_builtins.property
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+
+        > **NOTE:** This setting supersedes the previous mechanism of setting the `app_settings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+        """
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @_builtins.property
@@ -29690,6 +29758,8 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -29778,6 +29848,8 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -33211,6 +33283,8 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -33299,6 +33373,8 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -36978,6 +37054,8 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -37066,6 +37144,8 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -38702,6 +38782,9 @@ class WindowsWebAppSiteConfig(dict):
         :param _builtins.bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'WindowsWebAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[_builtins.str] default_documents: Specifies a list of Default Documents for the Windows Web App.
+        :param _builtins.str ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+               
+               > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
         :param Sequence['WindowsWebAppSiteConfigHandlerMappingArgs'] handler_mappings: One or more `handler_mapping` blocks as defined below.
         :param _builtins.int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param _builtins.str health_check_path: The path to the Health Check.
@@ -38887,6 +38970,11 @@ class WindowsWebAppSiteConfig(dict):
     @_builtins.property
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[_builtins.str]:
+        """
+        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+
+        > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+        """
         return pulumi.get(self, "ftps_state")
 
     @_builtins.property
@@ -41567,6 +41655,8 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[_builtins.str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[_builtins.str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
         :param _builtins.str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+               
+               !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         :param _builtins.str client_secret_setting_name: The App Setting name that contains the client secret of the Client.
                
                !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
@@ -41655,6 +41745,8 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     def client_secret_certificate_thumbprint(self) -> Optional[_builtins.str]:
         """
         The thumbprint of the certificate used for signing purposes.
+
+        !> **Note:** If one `client_secret_setting_name` or `client_secret_certificate_thumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `app_setting`, so make sure they are existed in `app_settings` to function correctly.
         """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
@@ -43292,6 +43384,9 @@ class WindowsWebAppSlotSiteConfig(dict):
         :param _builtins.bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'WindowsWebAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[_builtins.str] default_documents: Specifies a list of Default Documents for the Windows Web App Slot.
+        :param _builtins.str ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+               
+               > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
         :param Sequence['WindowsWebAppSlotSiteConfigHandlerMappingArgs'] handler_mappings: One or more `handler_mapping` blocks as defined below.
         :param _builtins.int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param _builtins.str health_check_path: The path to the Health Check.
@@ -43485,6 +43580,11 @@ class WindowsWebAppSlotSiteConfig(dict):
     @_builtins.property
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[_builtins.str]:
+        """
+        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+
+        > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+        """
         return pulumi.get(self, "ftps_state")
 
     @_builtins.property
@@ -45027,7 +45127,9 @@ class WindowsWebAppSlotSiteCredential(dict):
                  name: Optional[_builtins.str] = None,
                  password: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: The Site Credentials Username used for publishing.
+        :param _builtins.str name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+               
+               > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
         :param _builtins.str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -45039,7 +45141,9 @@ class WindowsWebAppSlotSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The Site Credentials Username used for publishing.
+        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+
+        > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
         """
         return pulumi.get(self, "name")
 

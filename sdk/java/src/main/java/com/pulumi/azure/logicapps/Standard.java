@@ -536,9 +536,25 @@ public class Standard extends com.pulumi.resources.CustomResource {
     public Output<String> storageAccountName() {
         return this.storageAccountName;
     }
+    /**
+     * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don&#39;t specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `azure.storage.Share`.
+     * 
+     * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or Python, etc.), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
+     * 
+     * &gt; **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
+     * 
+     */
     @Export(name="storageAccountShareName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountShareName;
 
+    /**
+     * @return The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don&#39;t specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `azure.storage.Share`.
+     * 
+     * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or Python, etc.), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
+     * 
+     * &gt; **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
+     * 
+     */
     public Output<String> storageAccountShareName() {
         return this.storageAccountShareName;
     }
@@ -584,9 +600,25 @@ public class Standard extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> version() {
         return Codegen.optional(this.version);
     }
+    /**
+     * The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
+    /**
+     * @return The subnet ID which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }

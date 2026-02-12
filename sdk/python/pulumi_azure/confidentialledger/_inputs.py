@@ -21,24 +21,19 @@ __all__ = [
     'LedgerCertificateBasedSecurityPrincipalArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LedgerAzureadBasedServicePrincipalArgsDict(TypedDict):
-        ledger_role_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
-        """
-        principal_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the Principal ID of the AzureAD Service Principal.
-        """
-        tenant_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the Tenant ID for this AzureAD Service Principal.
-        """
-elif False:
-    LedgerAzureadBasedServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class LedgerAzureadBasedServicePrincipalArgsDict(TypedDict):
+    ledger_role_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+    """
+    principal_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the Principal ID of the AzureAD Service Principal.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the Tenant ID for this AzureAD Service Principal.
+    """
 
 @pulumi.input_type
 class LedgerAzureadBasedServicePrincipalArgs:
@@ -92,18 +87,15 @@ class LedgerAzureadBasedServicePrincipalArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class LedgerCertificateBasedSecurityPrincipalArgsDict(TypedDict):
-        ledger_role_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
-        """
-        pem_public_key: pulumi.Input[_builtins.str]
-        """
-        The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
-        """
-elif False:
-    LedgerCertificateBasedSecurityPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class LedgerCertificateBasedSecurityPrincipalArgsDict(TypedDict):
+    ledger_role_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+    """
+    pem_public_key: pulumi.Input[_builtins.str]
+    """
+    The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+    """
 
 @pulumi.input_type
 class LedgerCertificateBasedSecurityPrincipalArgs:

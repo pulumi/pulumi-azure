@@ -47,24 +47,19 @@ __all__ = [
     'DeploymentSkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AIServicesCustomerManagedKeyArgsDict(TypedDict):
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
-        """
-        key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-        """
-        managed_hsm_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-        """
-elif False:
-    AIServicesCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+class AIServicesCustomerManagedKeyArgsDict(TypedDict):
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
+    """
+    key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+    """
+    managed_hsm_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+    """
 
 @pulumi.input_type
 class AIServicesCustomerManagedKeyArgs:
@@ -121,28 +116,25 @@ class AIServicesCustomerManagedKeyArgs:
         pulumi.set(self, "managed_hsm_key_id", value)
 
 
-if not MYPY:
-    class AIServicesIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
+class AIServicesIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    AIServicesIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class AIServicesIdentityArgs:
@@ -218,26 +210,23 @@ class AIServicesIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AIServicesNetworkAclsArgsDict(TypedDict):
-        default_action: pulumi.Input[_builtins.str]
-        """
-        The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
-        """
-        bypass: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        """
-        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
-        """
-        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgsDict']]]]
-        """
-        A `virtual_network_rules` block as defined below.
-        """
-elif False:
-    AIServicesNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
+class AIServicesNetworkAclsArgsDict(TypedDict):
+    default_action: pulumi.Input[_builtins.str]
+    """
+    The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+    """
+    bypass: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+    """
+    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
+    """
+    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgsDict']]]]
+    """
+    A `virtual_network_rules` block as defined below.
+    """
 
 @pulumi.input_type
 class AIServicesNetworkAclsArgs:
@@ -309,18 +298,15 @@ class AIServicesNetworkAclsArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
-if not MYPY:
-    class AIServicesNetworkAclsVirtualNetworkRuleArgsDict(TypedDict):
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet which should be able to access this AI Services Account.
-        """
-        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
-        """
-elif False:
-    AIServicesNetworkAclsVirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AIServicesNetworkAclsVirtualNetworkRuleArgsDict(TypedDict):
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet which should be able to access this AI Services Account.
+    """
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
+    """
 
 @pulumi.input_type
 class AIServicesNetworkAclsVirtualNetworkRuleArgs:
@@ -360,18 +346,15 @@ class AIServicesNetworkAclsVirtualNetworkRuleArgs:
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 
-if not MYPY:
-    class AIServicesStorageArgsDict(TypedDict):
-        storage_account_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Storage Account.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client ID of the Managed Identity associated with the Storage Account.
-        """
-elif False:
-    AIServicesStorageArgsDict: TypeAlias = Mapping[str, Any]
+class AIServicesStorageArgsDict(TypedDict):
+    storage_account_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Storage Account.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client ID of the Managed Identity associated with the Storage Account.
+    """
 
 @pulumi.input_type
 class AIServicesStorageArgs:
@@ -411,20 +394,17 @@ class AIServicesStorageArgs:
         pulumi.set(self, "identity_client_id", value)
 
 
-if not MYPY:
-    class AccountCustomerManagedKeyArgsDict(TypedDict):
-        key_vault_key_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+class AccountCustomerManagedKeyArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
 
-        > **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
-        """
-elif False:
-    AccountCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class AccountCustomerManagedKeyArgs:
@@ -468,28 +448,25 @@ class AccountCustomerManagedKeyArgs:
         pulumi.set(self, "identity_client_id", value)
 
 
-if not MYPY:
-    class AccountIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+class AccountIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -565,28 +542,25 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AccountNetworkAclsArgsDict(TypedDict):
-        default_action: pulumi.Input[_builtins.str]
-        """
-        The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
-        """
-        bypass: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+class AccountNetworkAclsArgsDict(TypedDict):
+    default_action: pulumi.Input[_builtins.str]
+    """
+    The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+    """
+    bypass: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
-        """
-        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
-        """
-        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgsDict']]]]
-        """
-        A `virtual_network_rules` block as defined below.
-        """
-elif False:
-    AccountNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`, `AIServices`, or `TextAnalytics`.
+    """
+    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
+    """
+    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgsDict']]]]
+    """
+    A `virtual_network_rules` block as defined below.
+    """
 
 @pulumi.input_type
 class AccountNetworkAclsArgs:
@@ -662,18 +636,15 @@ class AccountNetworkAclsArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
-if not MYPY:
-    class AccountNetworkAclsVirtualNetworkRuleArgsDict(TypedDict):
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet which should be able to access this Cognitive Account.
-        """
-        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether ignore missing vnet service endpoint or not. Defaults to `false`.
-        """
-elif False:
-    AccountNetworkAclsVirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AccountNetworkAclsVirtualNetworkRuleArgsDict(TypedDict):
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet which should be able to access this Cognitive Account.
+    """
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether ignore missing vnet service endpoint or not. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class AccountNetworkAclsVirtualNetworkRuleArgs:
@@ -713,20 +684,17 @@ class AccountNetworkAclsVirtualNetworkRuleArgs:
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 
-if not MYPY:
-    class AccountNetworkInjectionArgsDict(TypedDict):
-        scenario: pulumi.Input[_builtins.str]
-        """
-        Specifies what features network injection applies to. The only possible value is `agent`.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the subnet which the Agent Client is injected into.
+class AccountNetworkInjectionArgsDict(TypedDict):
+    scenario: pulumi.Input[_builtins.str]
+    """
+    Specifies what features network injection applies to. The only possible value is `agent`.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the subnet which the Agent Client is injected into.
 
-        > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
-        """
-elif False:
-    AccountNetworkInjectionArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+    """
 
 @pulumi.input_type
 class AccountNetworkInjectionArgs:
@@ -769,26 +737,23 @@ class AccountNetworkInjectionArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class AccountProjectIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    AccountProjectIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AccountProjectIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Cognitive Account Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account Project.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class AccountProjectIdentityArgs:
@@ -860,30 +825,27 @@ class AccountProjectIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AccountRaiPolicyContentFilterArgsDict(TypedDict):
-        block_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether the filter should block content. Possible values are `true` or `false`.
-        """
-        filter_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether the filter is enabled. Possible values are `true` or `false`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the content filter.
-        """
-        severity_threshold: pulumi.Input[_builtins.str]
-        """
-        The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
-        """
-elif False:
-    AccountRaiPolicyContentFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AccountRaiPolicyContentFilterArgsDict(TypedDict):
+    block_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the filter should block content. Possible values are `true` or `false`.
+    """
+    filter_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the filter is enabled. Possible values are `true` or `false`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the content filter.
+    """
+    severity_threshold: pulumi.Input[_builtins.str]
+    """
+    The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+    """
 
 @pulumi.input_type
 class AccountRaiPolicyContentFilterArgs:
@@ -967,20 +929,17 @@ class AccountRaiPolicyContentFilterArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class AccountStorageArgsDict(TypedDict):
-        storage_account_id: pulumi.Input[_builtins.str]
-        """
-        Full resource id of a Microsoft.Storage resource.
-        """
-        identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client ID of the managed identity associated with the storage resource.
+class AccountStorageArgsDict(TypedDict):
+    storage_account_id: pulumi.Input[_builtins.str]
+    """
+    Full resource id of a Microsoft.Storage resource.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client ID of the managed identity associated with the storage resource.
 
-        > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
-        """
-elif False:
-    AccountStorageArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+    """
 
 @pulumi.input_type
 class AccountStorageArgs:
@@ -1024,24 +983,21 @@ class AccountStorageArgs:
         pulumi.set(self, "identity_client_id", value)
 
 
-if not MYPY:
-    class DeploymentModelArgsDict(TypedDict):
-        format: pulumi.Input[_builtins.str]
-        """
-        The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+class DeploymentModelArgsDict(TypedDict):
+    format: pulumi.Input[_builtins.str]
+    """
+    The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 
-        > **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
-        """
-elif False:
-    DeploymentModelArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
+    """
 
 @pulumi.input_type
 class DeploymentModelArgs:
@@ -1100,27 +1056,29 @@ class DeploymentModelArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DeploymentSkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
-        """
-elif False:
-    DeploymentSkuArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentSkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Possible values include `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`, `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, and `ProvisionedManaged`. Changing this forces a new resource to be created.
+
+    > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class DeploymentSkuArgs:
@@ -1131,6 +1089,9 @@ class DeploymentSkuArgs:
                  size: Optional[pulumi.Input[_builtins.str]] = None,
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.str] name: The name of the SKU. Possible values include `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`, `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, and `ProvisionedManaged`. Changing this forces a new resource to be created.
+               
+               > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
         :param pulumi.Input[_builtins.int] capacity: Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
@@ -1149,6 +1110,11 @@ class DeploymentSkuArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SKU. Possible values include `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`, `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, and `ProvisionedManaged`. Changing this forces a new resource to be created.
+
+        > **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
+        """
         return pulumi.get(self, "name")
 
     @name.setter

@@ -16,14 +16,18 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
     public static final CustomDomainState Empty = new CustomDomainState();
 
     /**
-     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
+     * The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      * 
      */
     @Import(name="certificateBindingType")
     private @Nullable Output<String> certificateBindingType;
 
     /**
-     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`.
+     * @return The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      * 
      */
     public Optional<Output<String>> certificateBindingType() {
@@ -127,7 +131,9 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`.
+         * @param certificateBindingType The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+         * 
+         * !&gt; **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
          * 
          * @return builder
          * 
@@ -138,7 +144,9 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`.
+         * @param certificateBindingType The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+         * 
+         * !&gt; **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
          * 
          * @return builder
          * 

@@ -13,6 +13,11 @@ namespace Pulumi.Azure.Core.Outputs
     [OutputType]
     public sealed class ResourceProviderRegistrationFeature
     {
+        /// <summary>
+        /// Specifies the name of the feature to register.
+        /// 
+        /// &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Should this feature be Registered or Unregistered?

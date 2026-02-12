@@ -47,20 +47,15 @@ __all__ = [
     'BudgetSubscriptionTimePeriodArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BudgetManagementGroupFilterArgsDict(TypedDict):
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgsDict']]]]
-        """
-        One or more `dimension` blocks as defined below to filter the budget on.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgsDict']]]]
-        """
-        One or more `tag` blocks as defined below to filter the budget on.
-        """
-elif False:
-    BudgetManagementGroupFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetManagementGroupFilterArgsDict(TypedDict):
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgsDict']]]]
+    """
+    One or more `dimension` blocks as defined below to filter the budget on.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgsDict']]]]
+    """
+    One or more `tag` blocks as defined below to filter the budget on.
+    """
 
 @pulumi.input_type
 class BudgetManagementGroupFilterArgs:
@@ -101,22 +96,19 @@ class BudgetManagementGroupFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class BudgetManagementGroupFilterDimensionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of values for the column.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetManagementGroupFilterDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetManagementGroupFilterDimensionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of values for the column.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
+    """
 
 @pulumi.input_type
 class BudgetManagementGroupFilterDimensionArgs:
@@ -171,22 +163,19 @@ class BudgetManagementGroupFilterDimensionArgs:
         pulumi.set(self, "operator", value)
 
 
-if not MYPY:
-    class BudgetManagementGroupFilterTagArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the tag to use for the filter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of values for the tag.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetManagementGroupFilterTagArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetManagementGroupFilterTagArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the tag to use for the filter.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of values for the tag.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
+    """
 
 @pulumi.input_type
 class BudgetManagementGroupFilterTagArgs:
@@ -241,30 +230,27 @@ class BudgetManagementGroupFilterTagArgs:
         pulumi.set(self, "operator", value)
 
 
-if not MYPY:
-    class BudgetManagementGroupNotificationArgsDict(TypedDict):
-        contact_emails: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
-        """
-        operator: pulumi.Input[_builtins.str]
-        """
-        The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
-        """
-        threshold: pulumi.Input[_builtins.int]
-        """
-        Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the notification be enabled? Defaults to `true`.
-        """
-        threshold_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
-        """
-elif False:
-    BudgetManagementGroupNotificationArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetManagementGroupNotificationArgsDict(TypedDict):
+    contact_emails: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+    """
+    threshold: pulumi.Input[_builtins.int]
+    """
+    Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the notification be enabled? Defaults to `true`.
+    """
+    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+    """
 
 @pulumi.input_type
 class BudgetManagementGroupNotificationArgs:
@@ -350,18 +336,15 @@ class BudgetManagementGroupNotificationArgs:
         pulumi.set(self, "threshold_type", value)
 
 
-if not MYPY:
-    class BudgetManagementGroupTimePeriodArgsDict(TypedDict):
-        start_date: pulumi.Input[_builtins.str]
-        """
-        The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
-        """
-        end_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end date for the budget. If not set this will be 10 years after the start date.
-        """
-elif False:
-    BudgetManagementGroupTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetManagementGroupTimePeriodArgsDict(TypedDict):
+    start_date: pulumi.Input[_builtins.str]
+    """
+    The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
+    """
+    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end date for the budget. If not set this will be 10 years after the start date.
+    """
 
 @pulumi.input_type
 class BudgetManagementGroupTimePeriodArgs:
@@ -401,18 +384,15 @@ class BudgetManagementGroupTimePeriodArgs:
         pulumi.set(self, "end_date", value)
 
 
-if not MYPY:
-    class BudgetResourceGroupFilterArgsDict(TypedDict):
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgsDict']]]]
-        """
-        One or more `dimension` blocks as defined below to filter the budget on.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgsDict']]]]
-        """
-        One or more `tag` blocks as defined below to filter the budget on.
-        """
-elif False:
-    BudgetResourceGroupFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetResourceGroupFilterArgsDict(TypedDict):
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgsDict']]]]
+    """
+    One or more `dimension` blocks as defined below to filter the budget on.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgsDict']]]]
+    """
+    One or more `tag` blocks as defined below to filter the budget on.
+    """
 
 @pulumi.input_type
 class BudgetResourceGroupFilterArgs:
@@ -453,22 +433,19 @@ class BudgetResourceGroupFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class BudgetResourceGroupFilterDimensionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of values for the column.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetResourceGroupFilterDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetResourceGroupFilterDimensionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of values for the column.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
+    """
 
 @pulumi.input_type
 class BudgetResourceGroupFilterDimensionArgs:
@@ -523,22 +500,19 @@ class BudgetResourceGroupFilterDimensionArgs:
         pulumi.set(self, "operator", value)
 
 
-if not MYPY:
-    class BudgetResourceGroupFilterTagArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the tag to use for the filter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of values for the tag.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetResourceGroupFilterTagArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetResourceGroupFilterTagArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the tag to use for the filter.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of values for the tag.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
+    """
 
 @pulumi.input_type
 class BudgetResourceGroupFilterTagArgs:
@@ -593,40 +567,37 @@ class BudgetResourceGroupFilterTagArgs:
         pulumi.set(self, "operator", value)
 
 
-if not MYPY:
-    class BudgetResourceGroupNotificationArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
-        """
-        threshold: pulumi.Input[_builtins.int]
-        """
-        Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        """
-        contact_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
-        """
-        contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
-        """
-        contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the notification be enabled? Defaults to `true`.
+class BudgetResourceGroupNotificationArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+    """
+    threshold: pulumi.Input[_builtins.int]
+    """
+    Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+    """
+    contact_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+    """
+    contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+    """
+    contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the notification be enabled? Defaults to `true`.
 
-        > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
-        """
-        threshold_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
-        """
-elif False:
-    BudgetResourceGroupNotificationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+    """
+    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+    """
 
 @pulumi.input_type
 class BudgetResourceGroupNotificationArgs:
@@ -749,18 +720,15 @@ class BudgetResourceGroupNotificationArgs:
         pulumi.set(self, "threshold_type", value)
 
 
-if not MYPY:
-    class BudgetResourceGroupTimePeriodArgsDict(TypedDict):
-        start_date: pulumi.Input[_builtins.str]
-        """
-        The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
-        """
-        end_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end date for the budget. If not set this will be 10 years after the start date.
-        """
-elif False:
-    BudgetResourceGroupTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetResourceGroupTimePeriodArgsDict(TypedDict):
+    start_date: pulumi.Input[_builtins.str]
+    """
+    The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
+    """
+    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end date for the budget. If not set this will be 10 years after the start date.
+    """
 
 @pulumi.input_type
 class BudgetResourceGroupTimePeriodArgs:
@@ -800,18 +768,15 @@ class BudgetResourceGroupTimePeriodArgs:
         pulumi.set(self, "end_date", value)
 
 
-if not MYPY:
-    class BudgetSubscriptionFilterArgsDict(TypedDict):
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgsDict']]]]
-        """
-        One or more `dimension` blocks as defined below to filter the budget on.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgsDict']]]]
-        """
-        One or more `tag` blocks as defined below to filter the budget on.
-        """
-elif False:
-    BudgetSubscriptionFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetSubscriptionFilterArgsDict(TypedDict):
+    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgsDict']]]]
+    """
+    One or more `dimension` blocks as defined below to filter the budget on.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgsDict']]]]
+    """
+    One or more `tag` blocks as defined below to filter the budget on.
+    """
 
 @pulumi.input_type
 class BudgetSubscriptionFilterArgs:
@@ -852,22 +817,19 @@ class BudgetSubscriptionFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class BudgetSubscriptionFilterDimensionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of values for the column.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetSubscriptionFilterDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetSubscriptionFilterDimensionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of values for the column.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
+    """
 
 @pulumi.input_type
 class BudgetSubscriptionFilterDimensionArgs:
@@ -922,22 +884,19 @@ class BudgetSubscriptionFilterDimensionArgs:
         pulumi.set(self, "operator", value)
 
 
-if not MYPY:
-    class BudgetSubscriptionFilterTagArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the tag to use for the filter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of values for the tag.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetSubscriptionFilterTagArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetSubscriptionFilterTagArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the tag to use for the filter.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of values for the tag.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
+    """
 
 @pulumi.input_type
 class BudgetSubscriptionFilterTagArgs:
@@ -992,40 +951,37 @@ class BudgetSubscriptionFilterTagArgs:
         pulumi.set(self, "operator", value)
 
 
-if not MYPY:
-    class BudgetSubscriptionNotificationArgsDict(TypedDict):
-        operator: pulumi.Input[_builtins.str]
-        """
-        The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
-        """
-        threshold: pulumi.Input[_builtins.int]
-        """
-        Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        """
-        contact_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
-        """
-        contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
-        """
-        contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the notification be enabled? Defaults to `true`.
+class BudgetSubscriptionNotificationArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+    """
+    threshold: pulumi.Input[_builtins.int]
+    """
+    Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+    """
+    contact_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+    """
+    contact_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+    """
+    contact_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the notification be enabled? Defaults to `true`.
 
-        > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
-        """
-        threshold_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
-        """
-elif False:
-    BudgetSubscriptionNotificationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+    """
+    threshold_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+    """
 
 @pulumi.input_type
 class BudgetSubscriptionNotificationArgs:
@@ -1148,18 +1104,15 @@ class BudgetSubscriptionNotificationArgs:
         pulumi.set(self, "threshold_type", value)
 
 
-if not MYPY:
-    class BudgetSubscriptionTimePeriodArgsDict(TypedDict):
-        start_date: pulumi.Input[_builtins.str]
-        """
-        The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
-        """
-        end_date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end date for the budget. If not set this will be 10 years after the start date.
-        """
-elif False:
-    BudgetSubscriptionTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetSubscriptionTimePeriodArgsDict(TypedDict):
+    start_date: pulumi.Input[_builtins.str]
+    """
+    The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
+    """
+    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end date for the budget. If not set this will be 10 years after the start date.
+    """
 
 @pulumi.input_type
 class BudgetSubscriptionTimePeriodArgs:

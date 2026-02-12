@@ -68,6 +68,8 @@ namespace Pulumi.Azure.Network
     /// ```sh
     /// $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1"
     /// ```
+    /// 
+    /// &gt; **Note:** This is a provider-specific ID in the format `{natGatewayID}|{publicIPAddressID}`
     /// </summary>
     [AzureResourceType("azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation")]
     public partial class NatGatewayPublicIpAssociation : global::Pulumi.CustomResource

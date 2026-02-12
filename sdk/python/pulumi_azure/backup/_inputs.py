@@ -61,28 +61,23 @@ __all__ = [
     'PolicyVMWorkloadSettingsArgsDict',
 ]
 
-MYPY = False
+class PolicyFileShareBackupArgsDict(TypedDict):
+    frequency: pulumi.Input[_builtins.str]
+    """
+    Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
 
-if not MYPY:
-    class PolicyFileShareBackupArgsDict(TypedDict):
-        frequency: pulumi.Input[_builtins.str]
-        """
-        Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+    > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+    """
+    hourly: NotRequired[pulumi.Input['PolicyFileShareBackupHourlyArgsDict']]
+    """
+    A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+    """
+    time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 
-        > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
-        """
-        hourly: NotRequired[pulumi.Input['PolicyFileShareBackupHourlyArgsDict']]
-        """
-        A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
-        """
-        time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
-
-        > **Note:** `time` is required when `frequency` is set to `Daily`.
-        """
-elif False:
-    PolicyFileShareBackupArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `time` is required when `frequency` is set to `Daily`.
+    """
 
 @pulumi.input_type
 class PolicyFileShareBackupArgs:
@@ -146,22 +141,19 @@ class PolicyFileShareBackupArgs:
         pulumi.set(self, "time", value)
 
 
-if not MYPY:
-    class PolicyFileShareBackupHourlyArgsDict(TypedDict):
-        interval: pulumi.Input[_builtins.int]
-        """
-        Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
-        """
-        window_duration: pulumi.Input[_builtins.int]
-        """
-        Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
-        """
-elif False:
-    PolicyFileShareBackupHourlyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyFileShareBackupHourlyArgsDict(TypedDict):
+    interval: pulumi.Input[_builtins.int]
+    """
+    Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
+    """
+    window_duration: pulumi.Input[_builtins.int]
+    """
+    Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
+    """
 
 @pulumi.input_type
 class PolicyFileShareBackupHourlyArgs:
@@ -215,14 +207,11 @@ class PolicyFileShareBackupHourlyArgs:
         pulumi.set(self, "window_duration", value)
 
 
-if not MYPY:
-    class PolicyFileShareRetentionDailyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of daily backups to keep. Must be between `1` and `200` (inclusive)
-        """
-elif False:
-    PolicyFileShareRetentionDailyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyFileShareRetentionDailyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of daily backups to keep. Must be between `1` and `200` (inclusive)
+    """
 
 @pulumi.input_type
 class PolicyFileShareRetentionDailyArgs:
@@ -246,32 +235,29 @@ class PolicyFileShareRetentionDailyArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class PolicyFileShareRetentionMonthlyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of monthly backups to keep. Must be between `1` and `120`
-        """
-        days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The days of the month to retain backups of. Must be between `1` and `31`.
-        """
-        include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Including the last day of the month, default to `false`.
+class PolicyFileShareRetentionMonthlyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of monthly backups to keep. Must be between `1` and `120`
+    """
+    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The days of the month to retain backups of. Must be between `1` and `31`.
+    """
+    include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Including the last day of the month, default to `false`.
 
-        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-        weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-        """
-elif False:
-    PolicyFileShareRetentionMonthlyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
+    weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+    """
 
 @pulumi.input_type
 class PolicyFileShareRetentionMonthlyArgs:
@@ -363,18 +349,15 @@ class PolicyFileShareRetentionMonthlyArgs:
         pulumi.set(self, "weeks", value)
 
 
-if not MYPY:
-    class PolicyFileShareRetentionWeeklyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of daily backups to keep. Must be between `1` and `200` (inclusive)
-        """
-        weekdays: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-elif False:
-    PolicyFileShareRetentionWeeklyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyFileShareRetentionWeeklyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of daily backups to keep. Must be between `1` and `200` (inclusive)
+    """
+    weekdays: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
 
 @pulumi.input_type
 class PolicyFileShareRetentionWeeklyArgs:
@@ -413,36 +396,33 @@ class PolicyFileShareRetentionWeeklyArgs:
         pulumi.set(self, "weekdays", value)
 
 
-if not MYPY:
-    class PolicyFileShareRetentionYearlyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of yearly backups to keep. Must be between `1` and `10`
-        """
-        months: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
-        """
-        days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The days of the month to retain backups of. Must be between `1` and `31`.
-        """
-        include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Including the last day of the month, default to `false`.
+class PolicyFileShareRetentionYearlyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of yearly backups to keep. Must be between `1` and `10`
+    """
+    months: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+    """
+    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The days of the month to retain backups of. Must be between `1` and `31`.
+    """
+    include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Including the last day of the month, default to `false`.
 
-        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-        weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-        """
-elif False:
-    PolicyFileShareRetentionYearlyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
+    weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+    """
 
 @pulumi.input_type
 class PolicyFileShareRetentionYearlyArgs:
@@ -549,32 +529,29 @@ class PolicyFileShareRetentionYearlyArgs:
         pulumi.set(self, "weeks", value)
 
 
-if not MYPY:
-    class PolicyVMBackupArgsDict(TypedDict):
-        frequency: pulumi.Input[_builtins.str]
-        """
-        Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
-        """
-        time: pulumi.Input[_builtins.str]
-        """
-        The time of day to perform the backup in 24hour format.
-        """
-        hour_duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+class PolicyVMBackupArgsDict(TypedDict):
+    frequency: pulumi.Input[_builtins.str]
+    """
+    Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day to perform the backup in 24hour format.
+    """
+    hour_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 
-        > **Note:** `hour_duration` must be multiplier of `hour_interval`
-        """
-        hour_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
-        """
-elif False:
-    PolicyVMBackupArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `hour_duration` must be multiplier of `hour_interval`
+    """
+    hour_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+    """
 
 @pulumi.input_type
 class PolicyVMBackupArgs:
@@ -665,18 +642,15 @@ class PolicyVMBackupArgs:
         pulumi.set(self, "weekdays", value)
 
 
-if not MYPY:
-    class PolicyVMInstantRestoreResourceGroupArgsDict(TypedDict):
-        prefix: pulumi.Input[_builtins.str]
-        """
-        The prefix for the `instant_restore_resource_group` name.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The suffix for the `instant_restore_resource_group` name.
-        """
-elif False:
-    PolicyVMInstantRestoreResourceGroupArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMInstantRestoreResourceGroupArgsDict(TypedDict):
+    prefix: pulumi.Input[_builtins.str]
+    """
+    The prefix for the `instant_restore_resource_group` name.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The suffix for the `instant_restore_resource_group` name.
+    """
 
 @pulumi.input_type
 class PolicyVMInstantRestoreResourceGroupArgs:
@@ -716,16 +690,13 @@ class PolicyVMInstantRestoreResourceGroupArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class PolicyVMRetentionDailyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of daily backups to keep. Must be between `7` and `9999`.
+class PolicyVMRetentionDailyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of daily backups to keep. Must be between `7` and `9999`.
 
-        > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
-        """
-elif False:
-    PolicyVMRetentionDailyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
+    """
 
 @pulumi.input_type
 class PolicyVMRetentionDailyArgs:
@@ -753,32 +724,29 @@ class PolicyVMRetentionDailyArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class PolicyVMRetentionMonthlyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of monthly backups to keep. Must be between `1` and `9999`
-        """
-        days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The days of the month to retain backups of. Must be between `1` and `31`.
-        """
-        include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Including the last day of the month, default to `false`.
+class PolicyVMRetentionMonthlyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of monthly backups to keep. Must be between `1` and `9999`
+    """
+    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The days of the month to retain backups of. Must be between `1` and `31`.
+    """
+    include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Including the last day of the month, default to `false`.
 
-        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-        weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-        """
-elif False:
-    PolicyVMRetentionMonthlyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
+    weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+    """
 
 @pulumi.input_type
 class PolicyVMRetentionMonthlyArgs:
@@ -870,18 +838,15 @@ class PolicyVMRetentionMonthlyArgs:
         pulumi.set(self, "weeks", value)
 
 
-if not MYPY:
-    class PolicyVMRetentionWeeklyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of weekly backups to keep. Must be between `1` and `9999`
-        """
-        weekdays: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-elif False:
-    PolicyVMRetentionWeeklyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMRetentionWeeklyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of weekly backups to keep. Must be between `1` and `9999`
+    """
+    weekdays: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
 
 @pulumi.input_type
 class PolicyVMRetentionWeeklyArgs:
@@ -920,36 +885,33 @@ class PolicyVMRetentionWeeklyArgs:
         pulumi.set(self, "weekdays", value)
 
 
-if not MYPY:
-    class PolicyVMRetentionYearlyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of yearly backups to keep. Must be between `1` and `9999`
-        """
-        months: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
-        """
-        days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The days of the month to retain backups of. Must be between `1` and `31`.
-        """
-        include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Including the last day of the month, default to `false`.
+class PolicyVMRetentionYearlyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of yearly backups to keep. Must be between `1` and `9999`
+    """
+    months: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+    """
+    days: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The days of the month to retain backups of. Must be between `1` and `31`.
+    """
+    include_last_days: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Including the last day of the month, default to `false`.
 
-        > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-        weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-        """
-elif False:
-    PolicyVMRetentionYearlyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
+    weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+    """
 
 @pulumi.input_type
 class PolicyVMRetentionYearlyArgs:
@@ -1056,14 +1018,11 @@ class PolicyVMRetentionYearlyArgs:
         pulumi.set(self, "weeks", value)
 
 
-if not MYPY:
-    class PolicyVMTieringPolicyArgsDict(TypedDict):
-        archived_restore_point: pulumi.Input['PolicyVMTieringPolicyArchivedRestorePointArgsDict']
-        """
-        An `archived_restore_point` block as defined below.
-        """
-elif False:
-    PolicyVMTieringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMTieringPolicyArgsDict(TypedDict):
+    archived_restore_point: pulumi.Input['PolicyVMTieringPolicyArchivedRestorePointArgsDict']
+    """
+    An `archived_restore_point` block as defined below.
+    """
 
 @pulumi.input_type
 class PolicyVMTieringPolicyArgs:
@@ -1087,22 +1046,19 @@ class PolicyVMTieringPolicyArgs:
         pulumi.set(self, "archived_restore_point", value)
 
 
-if not MYPY:
-    class PolicyVMTieringPolicyArchivedRestorePointArgsDict(TypedDict):
-        mode: pulumi.Input[_builtins.str]
-        """
-        The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days/weeks/months/years to retain backups in current tier before tiering.
-        """
-        duration_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
-        """
-elif False:
-    PolicyVMTieringPolicyArchivedRestorePointArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMTieringPolicyArchivedRestorePointArgsDict(TypedDict):
+    mode: pulumi.Input[_builtins.str]
+    """
+    The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days/weeks/months/years to retain backups in current tier before tiering.
+    """
+    duration_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+    """
 
 @pulumi.input_type
 class PolicyVMTieringPolicyArchivedRestorePointArgs:
@@ -1158,38 +1114,35 @@ class PolicyVMTieringPolicyArchivedRestorePointArgs:
         pulumi.set(self, "duration_type", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadProtectionPolicyArgsDict(TypedDict):
-        backup: pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArgsDict']
-        """
-        A `backup` block as defined below.
-        """
-        policy_type: pulumi.Input[_builtins.str]
-        """
-        The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
-        """
-        retention_daily: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArgsDict']]
-        """
-        A `retention_daily` block as defined below.
-        """
-        retention_monthly: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgsDict']]
-        """
-        A `retention_monthly` block as defined below.
-        """
-        retention_weekly: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgsDict']]
-        """
-        A `retention_weekly` block as defined below.
-        """
-        retention_yearly: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgsDict']]
-        """
-        A `retention_yearly` block as defined below.
-        """
-        simple_retention: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgsDict']]
-        """
-        A `simple_retention` block as defined below.
-        """
-elif False:
-    PolicyVMWorkloadProtectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadProtectionPolicyArgsDict(TypedDict):
+    backup: pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArgsDict']
+    """
+    A `backup` block as defined below.
+    """
+    policy_type: pulumi.Input[_builtins.str]
+    """
+    The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
+    """
+    retention_daily: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArgsDict']]
+    """
+    A `retention_daily` block as defined below.
+    """
+    retention_monthly: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgsDict']]
+    """
+    A `retention_monthly` block as defined below.
+    """
+    retention_weekly: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgsDict']]
+    """
+    A `retention_weekly` block as defined below.
+    """
+    retention_yearly: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgsDict']]
+    """
+    A `retention_yearly` block as defined below.
+    """
+    simple_retention: NotRequired[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgsDict']]
+    """
+    A `simple_retention` block as defined below.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadProtectionPolicyArgs:
@@ -1308,26 +1261,23 @@ class PolicyVMWorkloadProtectionPolicyArgs:
         pulumi.set(self, "simple_retention", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadProtectionPolicyBackupArgsDict(TypedDict):
-        frequency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
-        """
-        frequency_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The backup frequency in minutes for the VM Workload Backup Policy. Possible values are `15`, `30`, `60`, `120`, `240`, `480`, `720` and `1440`.
-        """
-        time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time of day to perform the backup in 24hour format.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
-        """
-elif False:
-    PolicyVMWorkloadProtectionPolicyBackupArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadProtectionPolicyBackupArgsDict(TypedDict):
+    frequency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
+    """
+    frequency_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The backup frequency in minutes for the VM Workload Backup Policy. Possible values are `15`, `30`, `60`, `120`, `240`, `480`, `720` and `1440`.
+    """
+    time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time of day to perform the backup in 24hour format.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadProtectionPolicyBackupArgs:
@@ -1400,14 +1350,11 @@ class PolicyVMWorkloadProtectionPolicyBackupArgs:
         pulumi.set(self, "weekdays", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadProtectionPolicyRetentionDailyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of daily backups to keep. Possible values are between `7` and `9999`.
-        """
-elif False:
-    PolicyVMWorkloadProtectionPolicyRetentionDailyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadProtectionPolicyRetentionDailyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of daily backups to keep. Possible values are between `7` and `9999`.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadProtectionPolicyRetentionDailyArgs:
@@ -1431,30 +1378,27 @@ class PolicyVMWorkloadProtectionPolicyRetentionDailyArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of monthly backups to keep. Must be between `1` and `1188`.
-        """
-        format_type: pulumi.Input[_builtins.str]
-        """
-        The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
-        """
-        monthdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The monthday backups to retain. Possible values are between `0` and `28`.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-        weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
-        """
-elif False:
-    PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of monthly backups to keep. Must be between `1` and `1188`.
+    """
+    format_type: pulumi.Input[_builtins.str]
+    """
+    The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
+    """
+    monthdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The monthday backups to retain. Possible values are between `0` and `28`.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
+    weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs:
@@ -1541,18 +1485,15 @@ class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs:
         pulumi.set(self, "weeks", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of weekly backups to keep. Possible values are between `1` and `5163`.
-        """
-        weekdays: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-elif False:
-    PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of weekly backups to keep. Possible values are between `1` and `5163`.
+    """
+    weekdays: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs:
@@ -1591,34 +1532,31 @@ class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs:
         pulumi.set(self, "weekdays", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The number of yearly backups to keep. Possible values are between `1` and `99`
-        """
-        format_type: pulumi.Input[_builtins.str]
-        """
-        The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
-        """
-        months: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
-        """
-        monthdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        The monthday backups to retain. Possible values are between `0` and `28`.
-        """
-        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-        """
-        weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
-        """
-elif False:
-    PolicyVMWorkloadProtectionPolicyRetentionYearlyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of yearly backups to keep. Possible values are between `1` and `99`
+    """
+    format_type: pulumi.Input[_builtins.str]
+    """
+    The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
+    """
+    months: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+    """
+    monthdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    The monthday backups to retain. Possible values are between `0` and `28`.
+    """
+    weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+    """
+    weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs:
@@ -1720,14 +1658,11 @@ class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs:
         pulumi.set(self, "weeks", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadProtectionPolicySimpleRetentionArgsDict(TypedDict):
-        count: pulumi.Input[_builtins.int]
-        """
-        The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
-        """
-elif False:
-    PolicyVMWorkloadProtectionPolicySimpleRetentionArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadProtectionPolicySimpleRetentionArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadProtectionPolicySimpleRetentionArgs:
@@ -1751,18 +1686,15 @@ class PolicyVMWorkloadProtectionPolicySimpleRetentionArgs:
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class PolicyVMWorkloadSettingsArgsDict(TypedDict):
-        time_zone: pulumi.Input[_builtins.str]
-        """
-        The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        """
-        compression_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The compression setting for the VM Workload Backup Policy. Defaults to `false`.
-        """
-elif False:
-    PolicyVMWorkloadSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyVMWorkloadSettingsArgsDict(TypedDict):
+    time_zone: pulumi.Input[_builtins.str]
+    """
+    The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+    """
+    compression_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class PolicyVMWorkloadSettingsArgs:

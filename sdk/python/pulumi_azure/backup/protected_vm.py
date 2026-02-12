@@ -30,6 +30,11 @@ class ProtectedVMArgs:
         The set of arguments for constructing a ProtectedVM resource.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use.
+               
+               > **Note:** `backup_policy_id` is required during initial creation of this resource.
+               
+               > **Note:** When `protection_state` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backup_policy_id`. To avoid a perpetual diff, use Terraform's ignore_changes argument.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] include_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
         :param pulumi.Input[_builtins.str] protection_state: Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
@@ -79,6 +84,13 @@ class ProtectedVMArgs:
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the ID of the backup policy to use.
+
+        > **Note:** `backup_policy_id` is required during initial creation of this resource.
+
+        > **Note:** When `protection_state` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backup_policy_id`. To avoid a perpetual diff, use Terraform's ignore_changes argument.
+        """
         return pulumi.get(self, "backup_policy_id")
 
     @backup_policy_id.setter
@@ -150,6 +162,11 @@ class _ProtectedVMState:
                  source_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectedVM resources.
+        :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use.
+               
+               > **Note:** `backup_policy_id` is required during initial creation of this resource.
+               
+               > **Note:** When `protection_state` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backup_policy_id`. To avoid a perpetual diff, use Terraform's ignore_changes argument.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] include_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
         :param pulumi.Input[_builtins.str] protection_state: Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
@@ -179,6 +196,13 @@ class _ProtectedVMState:
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the ID of the backup policy to use.
+
+        > **Note:** `backup_policy_id` is required during initial creation of this resource.
+
+        > **Note:** When `protection_state` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backup_policy_id`. To avoid a perpetual diff, use Terraform's ignore_changes argument.
+        """
         return pulumi.get(self, "backup_policy_id")
 
     @backup_policy_id.setter
@@ -330,6 +354,11 @@ class ProtectedVM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use.
+               
+               > **Note:** `backup_policy_id` is required during initial creation of this resource.
+               
+               > **Note:** When `protection_state` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backup_policy_id`. To avoid a perpetual diff, use Terraform's ignore_changes argument.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] include_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
         :param pulumi.Input[_builtins.str] protection_state: Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
@@ -465,6 +494,11 @@ class ProtectedVM(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use.
+               
+               > **Note:** `backup_policy_id` is required during initial creation of this resource.
+               
+               > **Note:** When `protection_state` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backup_policy_id`. To avoid a perpetual diff, use Terraform's ignore_changes argument.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] exclude_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] include_disk_luns: A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
         :param pulumi.Input[_builtins.str] protection_state: Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
@@ -492,6 +526,13 @@ class ProtectedVM(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the ID of the backup policy to use.
+
+        > **Note:** `backup_policy_id` is required during initial creation of this resource.
+
+        > **Note:** When `protection_state` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backup_policy_id`. To avoid a perpetual diff, use Terraform's ignore_changes argument.
+        """
         return pulumi.get(self, "backup_policy_id")
 
     @_builtins.property

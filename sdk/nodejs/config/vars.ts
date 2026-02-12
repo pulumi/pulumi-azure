@@ -116,6 +116,9 @@ Object.defineProperty(exports, "disableCorrelationRequestId", {
     enumerable: true,
 });
 
+/**
+ * This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
+ */
 export declare const disableTerraformPartnerId: boolean | undefined;
 Object.defineProperty(exports, "disableTerraformPartnerId", {
     get() {

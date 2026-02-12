@@ -79,6 +79,12 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable List<String> defaultDocuments;
     private @Nullable Boolean detailedErrorLoggingEnabled;
+    /**
+     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+     * 
+     * &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+     * 
+     */
     private @Nullable String ftpsState;
     /**
      * @return One or more `handlerMapping` blocks as defined below.
@@ -271,6 +277,12 @@ public final class WindowsWebAppSlotSiteConfig {
     public Optional<Boolean> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
+    /**
+     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`. Defaults to `Disabled`.
+     * 
+     * &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+     * 
+     */
     public Optional<String> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }

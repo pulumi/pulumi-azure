@@ -16,7 +16,9 @@ var _ = internal.GetEnvOrDefault
 type DicomServiceAuthentication struct {
 	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences []string `pulumi:"audiences"`
-	Authority *string  `pulumi:"authority"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+	Authority *string `pulumi:"authority"`
 }
 
 // DicomServiceAuthenticationInput is an input type that accepts DicomServiceAuthenticationArgs and DicomServiceAuthenticationOutput values.
@@ -33,7 +35,9 @@ type DicomServiceAuthenticationInput interface {
 type DicomServiceAuthenticationArgs struct {
 	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
-	Authority pulumi.StringPtrInput   `pulumi:"authority"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+	Authority pulumi.StringPtrInput `pulumi:"authority"`
 }
 
 func (DicomServiceAuthenticationArgs) ElementType() reflect.Type {
@@ -92,6 +96,8 @@ func (o DicomServiceAuthenticationOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DicomServiceAuthentication) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
+// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 func (o DicomServiceAuthenticationOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DicomServiceAuthentication) *string { return v.Authority }).(pulumi.StringPtrOutput)
 }
@@ -787,7 +793,9 @@ func (o DicomServiceStoragePtrOutput) StorageAccountId() pulumi.StringPtrOutput 
 
 type FhirServiceAuthentication struct {
 	// The intended audience to receive authentication tokens for the service.
-	Audience  string `pulumi:"audience"`
+	Audience string `pulumi:"audience"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 	Authority string `pulumi:"authority"`
 	// Whether smart proxy is enabled.
 	SmartProxyEnabled *bool `pulumi:"smartProxyEnabled"`
@@ -806,7 +814,9 @@ type FhirServiceAuthenticationInput interface {
 
 type FhirServiceAuthenticationArgs struct {
 	// The intended audience to receive authentication tokens for the service.
-	Audience  pulumi.StringInput `pulumi:"audience"`
+	Audience pulumi.StringInput `pulumi:"audience"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 	Authority pulumi.StringInput `pulumi:"authority"`
 	// Whether smart proxy is enabled.
 	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
@@ -894,6 +904,8 @@ func (o FhirServiceAuthenticationOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v FhirServiceAuthentication) string { return v.Audience }).(pulumi.StringOutput)
 }
 
+// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 func (o FhirServiceAuthenticationOutput) Authority() pulumi.StringOutput {
 	return o.ApplyT(func(v FhirServiceAuthentication) string { return v.Authority }).(pulumi.StringOutput)
 }
@@ -937,6 +949,8 @@ func (o FhirServiceAuthenticationPtrOutput) Audience() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 func (o FhirServiceAuthenticationPtrOutput) Authority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FhirServiceAuthentication) *string {
 		if v == nil {
@@ -2332,7 +2346,9 @@ func (o WorkspacePrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) 
 type GetDicomServiceAuthentication struct {
 	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences []string `pulumi:"audiences"`
-	Authority string   `pulumi:"authority"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+	Authority string `pulumi:"authority"`
 }
 
 // GetDicomServiceAuthenticationInput is an input type that accepts GetDicomServiceAuthenticationArgs and GetDicomServiceAuthenticationOutput values.
@@ -2349,7 +2365,9 @@ type GetDicomServiceAuthenticationInput interface {
 type GetDicomServiceAuthenticationArgs struct {
 	// The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
-	Authority pulumi.StringInput      `pulumi:"authority"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+	Authority pulumi.StringInput `pulumi:"authority"`
 }
 
 func (GetDicomServiceAuthenticationArgs) ElementType() reflect.Type {
@@ -2408,6 +2426,8 @@ func (o GetDicomServiceAuthenticationOutput) Audiences() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v GetDicomServiceAuthentication) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
+// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 func (o GetDicomServiceAuthenticationOutput) Authority() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDicomServiceAuthentication) string { return v.Authority }).(pulumi.StringOutput)
 }
@@ -2891,7 +2911,9 @@ func (o GetDicomServiceStorageArrayOutput) Index(i pulumi.IntInput) GetDicomServ
 
 type GetFhirServiceAuthentication struct {
 	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
-	Audience          string `pulumi:"audience"`
+	Audience string `pulumi:"audience"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 	Authority         string `pulumi:"authority"`
 	SmartProxyEnabled bool   `pulumi:"smartProxyEnabled"`
 }
@@ -2909,7 +2931,9 @@ type GetFhirServiceAuthenticationInput interface {
 
 type GetFhirServiceAuthenticationArgs struct {
 	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
-	Audience          pulumi.StringInput `pulumi:"audience"`
+	Audience pulumi.StringInput `pulumi:"audience"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+	// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 	Authority         pulumi.StringInput `pulumi:"authority"`
 	SmartProxyEnabled pulumi.BoolInput   `pulumi:"smartProxyEnabled"`
 }
@@ -2970,6 +2994,8 @@ func (o GetFhirServiceAuthenticationOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFhirServiceAuthentication) string { return v.Audience }).(pulumi.StringOutput)
 }
 
+// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+// Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
 func (o GetFhirServiceAuthenticationOutput) Authority() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFhirServiceAuthentication) string { return v.Authority }).(pulumi.StringOutput)
 }

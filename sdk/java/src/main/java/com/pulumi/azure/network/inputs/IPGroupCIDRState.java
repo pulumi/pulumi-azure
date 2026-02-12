@@ -15,9 +15,23 @@ public final class IPGroupCIDRState extends com.pulumi.resources.ResourceArgs {
 
     public static final IPGroupCIDRState Empty = new IPGroupCIDRState();
 
+    /**
+     * The `CIDR` that should be added to the IP Group.
+     * Changing this forces a new IP Group CIDR to be created.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+     * 
+     */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
+    /**
+     * @return The `CIDR` that should be added to the IP Group.
+     * Changing this forces a new IP Group CIDR to be created.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+     * 
+     */
     public Optional<Output<String>> cidr() {
         return Optional.ofNullable(this.cidr);
     }
@@ -64,11 +78,29 @@ public final class IPGroupCIDRState extends com.pulumi.resources.ResourceArgs {
             $ = new IPGroupCIDRState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cidr The `CIDR` that should be added to the IP Group.
+         * Changing this forces a new IP Group CIDR to be created.
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidr(@Nullable Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
+        /**
+         * @param cidr The `CIDR` that should be added to the IP Group.
+         * Changing this forces a new IP Group CIDR to be created.
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides cidr support via this standalone resource and in-line within azure.network.IPGroup using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via this resource then `ignoreChanges` should be used in the resource `azure.network.IPGroupCIDR` configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }

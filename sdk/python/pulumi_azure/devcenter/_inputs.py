@@ -29,28 +29,23 @@ __all__ = [
     'ProjectIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CatalogCatalogAdogitArgsDict(TypedDict):
-        branch: pulumi.Input[_builtins.str]
-        """
-        The Git branch of the Dev Center Catalog.
-        """
-        key_vault_key_url: pulumi.Input[_builtins.str]
-        """
-        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The folder where the catalog items can be found inside the repository.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The Git URI of the Dev Center Catalog.
-        """
-elif False:
-    CatalogCatalogAdogitArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogCatalogAdogitArgsDict(TypedDict):
+    branch: pulumi.Input[_builtins.str]
+    """
+    The Git branch of the Dev Center Catalog.
+    """
+    key_vault_key_url: pulumi.Input[_builtins.str]
+    """
+    A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The folder where the catalog items can be found inside the repository.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The Git URI of the Dev Center Catalog.
+    """
 
 @pulumi.input_type
 class CatalogCatalogAdogitArgs:
@@ -119,26 +114,23 @@ class CatalogCatalogAdogitArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class CatalogCatalogGithubArgsDict(TypedDict):
-        branch: pulumi.Input[_builtins.str]
-        """
-        The Git branch of the Dev Center Catalog.
-        """
-        key_vault_key_url: pulumi.Input[_builtins.str]
-        """
-        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The folder where the catalog items can be found inside the repository.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The Git URI of the Dev Center Catalog.
-        """
-elif False:
-    CatalogCatalogGithubArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogCatalogGithubArgsDict(TypedDict):
+    branch: pulumi.Input[_builtins.str]
+    """
+    The Git branch of the Dev Center Catalog.
+    """
+    key_vault_key_url: pulumi.Input[_builtins.str]
+    """
+    A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The folder where the catalog items can be found inside the repository.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The Git URI of the Dev Center Catalog.
+    """
 
 @pulumi.input_type
 class CatalogCatalogGithubArgs:
@@ -207,14 +199,11 @@ class CatalogCatalogGithubArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class DevCenterIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DevCenterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class DevCenterIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DevCenterIdentityArgs:
@@ -268,22 +257,19 @@ class DevCenterIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ProjectEnvironmentTypeIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+class ProjectEnvironmentTypeIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
 
-        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ProjectEnvironmentTypeIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ProjectEnvironmentTypeIdentityArgs:
@@ -351,18 +337,15 @@ class ProjectEnvironmentTypeIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ProjectEnvironmentTypeUserRoleAssignmentArgsDict(TypedDict):
-        roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of roles to assign to the `user_id`.
-        """
-        user_id: pulumi.Input[_builtins.str]
-        """
-        The user object ID that is assigned roles.
-        """
-elif False:
-    ProjectEnvironmentTypeUserRoleAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectEnvironmentTypeUserRoleAssignmentArgsDict(TypedDict):
+    roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of roles to assign to the `user_id`.
+    """
+    user_id: pulumi.Input[_builtins.str]
+    """
+    The user object ID that is assigned roles.
+    """
 
 @pulumi.input_type
 class ProjectEnvironmentTypeUserRoleAssignmentArgs:
@@ -401,28 +384,25 @@ class ProjectEnvironmentTypeUserRoleAssignmentArgs:
         pulumi.set(self, "user_id", value)
 
 
-if not MYPY:
-    class ProjectIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+class ProjectIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
 
-        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
-        """
-elif False:
-    ProjectIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+    """
 
 @pulumi.input_type
 class ProjectIdentityArgs:

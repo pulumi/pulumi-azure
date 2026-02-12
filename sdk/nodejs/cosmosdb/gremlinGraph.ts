@@ -105,6 +105,11 @@ export class GremlinGraph extends pulumi.CustomResource {
      * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
      */
     declare public readonly analyticalStorageTtl: pulumi.Output<number | undefined>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     declare public readonly autoscaleSettings: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
@@ -220,6 +225,11 @@ export interface GremlinGraphState {
      * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
@@ -277,6 +287,11 @@ export interface GremlinGraphArgs {
      * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.

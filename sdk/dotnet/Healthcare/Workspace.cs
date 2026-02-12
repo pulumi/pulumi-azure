@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// ## Import
     /// 
-    /// Healthcare Workspaces can be imported using the resource`id`, e.g.
+    /// Healthcare Workspaces can be imported using the resource`Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:healthcare/workspace:Workspace example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1

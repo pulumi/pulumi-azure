@@ -263,17 +263,14 @@ namespace Pulumi.Azure.Role
     /// $ pulumi import azure:role/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
     /// ```
     /// 
+    /// &gt; **Note:** The format of `resource id` could be different for different kinds of `Scope`:
+    /// 
     /// * for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
-    /// 
     /// * for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
-    /// 
     /// * for scope `Key Vault`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
-    /// 
     /// * for scope `Storage Account`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
     /// 
-    /// text
-    /// 
-    /// /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+    /// &gt; **Note:** for cross tenant scenarios, the format of `resource id` is composed of Azure resource ID and tenantId. for example:
     /// </summary>
     [Obsolete(@"azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment")]
     [AzureResourceType("azure:role/assignment:Assignment")]

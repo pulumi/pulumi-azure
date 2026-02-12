@@ -323,6 +323,9 @@ namespace Pulumi.Azure
         [Input("disableCorrelationRequestId", json: true)]
         public Input<bool>? DisableCorrelationRequestId { get; set; }
 
+        /// <summary>
+        /// This will disable the Terraform Partner ID which is used if a custom `PartnerId` isn't specified.
+        /// </summary>
         [Input("disableTerraformPartnerId", json: true)]
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 

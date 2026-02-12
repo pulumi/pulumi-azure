@@ -84,6 +84,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
  * ```
  * 
+ * &gt; **NOTE:** This ID is unique to this provider and doesn&#39;t directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
+ * 
  */
 @ResourceType(type="azure:logicapps/triggerHttpRequest:TriggerHttpRequest")
 public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {

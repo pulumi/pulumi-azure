@@ -66,6 +66,11 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/iPGroup:IPGroup")]
     public partial class IPGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of CIDRs or IP addresses.
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `Cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `IgnoreChanges` should be used in the ip group configuration.
+        /// </summary>
         [Output("cidrs")]
         public Output<ImmutableArray<string>> Cidrs { get; private set; } = null!;
 
@@ -153,6 +158,12 @@ namespace Pulumi.Azure.Network
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
+
+        /// <summary>
+        /// A list of CIDRs or IP addresses.
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `Cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `IgnoreChanges` should be used in the ip group configuration.
+        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());
@@ -199,6 +210,12 @@ namespace Pulumi.Azure.Network
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
+
+        /// <summary>
+        /// A list of CIDRs or IP addresses.
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `Cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `IgnoreChanges` should be used in the ip group configuration.
+        /// </summary>
         public InputList<string> Cidrs
         {
             get => _cidrs ?? (_cidrs = new InputList<string>());

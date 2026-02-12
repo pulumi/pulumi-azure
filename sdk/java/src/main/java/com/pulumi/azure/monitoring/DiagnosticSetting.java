@@ -111,6 +111,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1&#34;
  * ```
  * 
+ * &gt; **Note:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
+ * 
  */
 @ResourceType(type="azure:monitoring/diagnosticSetting:DiagnosticSetting")
 public class DiagnosticSetting extends com.pulumi.resources.CustomResource {

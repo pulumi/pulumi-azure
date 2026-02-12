@@ -97,20 +97,15 @@ __all__ = [
     'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class LocalRulestackRuleCategoryArgsDict(TypedDict):
-        custom_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of URL categories to match. Possible values include `abortion`, `abused-drugs`, `adult`, `alcohol-and-tobacco`, `auctions`, `business-and-economy`, `command-and-control`, `computer-and-internet-info`, `content-delivery-networks`, `copyright-infringement`, `cryptocurrency`, `dating`, `dynamic-dns`, `educational-institutions`, `entertainment-and-arts`, `extremism`, `financial-services`, `gambling`, `games`, `government`, `grayware`, `hacking`, `health-and-medicine`, `high-risk`, `home-and-garden`, `hunting-and-fishing`, `insufficient-content`, `internet-communications-and-telephony`, `internet-portals`, `job-search`, `legal`, `low-risk`, `malware`, `medium-risk`, `military`, `motor-vehicles`, `music`, `newly-registered-domain`, `news`, `not-resolved`, `nudity`, `online-storage-and-backup`, `parked`, `peer-to-peer`, `personal-sites-and-blogs`, `philosophy-and-political-advocacy`, `phishing`, `private-ip-addresses`, `proxy-avoidance-and-anonymizers`, `questionable`, `real-estate`, `real-time-detection`, `recreation-and-hobbies`, `reference-and-research`, `religion`, `search-engines`, `sex-education`, `shareware-and-freeware`, `shopping`, `social-networking`, `society`, `sports`, `stock-advice-and-tools`, `streaming-media`, `swimsuits-and-intimate-apparel`, `training-and-tools`, `translation`, `travel`, `unknown`, `weapons`, `web-advertisements`, `web-based-email`, and `web-hosting`.
-        """
-        feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of feeds to match.
-        """
-elif False:
-    LocalRulestackRuleCategoryArgsDict: TypeAlias = Mapping[str, Any]
+class LocalRulestackRuleCategoryArgsDict(TypedDict):
+    custom_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of URL categories to match. Possible values include `abortion`, `abused-drugs`, `adult`, `alcohol-and-tobacco`, `auctions`, `business-and-economy`, `command-and-control`, `computer-and-internet-info`, `content-delivery-networks`, `copyright-infringement`, `cryptocurrency`, `dating`, `dynamic-dns`, `educational-institutions`, `entertainment-and-arts`, `extremism`, `financial-services`, `gambling`, `games`, `government`, `grayware`, `hacking`, `health-and-medicine`, `high-risk`, `home-and-garden`, `hunting-and-fishing`, `insufficient-content`, `internet-communications-and-telephony`, `internet-portals`, `job-search`, `legal`, `low-risk`, `malware`, `medium-risk`, `military`, `motor-vehicles`, `music`, `newly-registered-domain`, `news`, `not-resolved`, `nudity`, `online-storage-and-backup`, `parked`, `peer-to-peer`, `personal-sites-and-blogs`, `philosophy-and-political-advocacy`, `phishing`, `private-ip-addresses`, `proxy-avoidance-and-anonymizers`, `questionable`, `real-estate`, `real-time-detection`, `recreation-and-hobbies`, `reference-and-research`, `religion`, `search-engines`, `sex-education`, `shareware-and-freeware`, `shopping`, `social-networking`, `society`, `sports`, `stock-advice-and-tools`, `streaming-media`, `swimsuits-and-intimate-apparel`, `training-and-tools`, `translation`, `travel`, `unknown`, `weapons`, `web-advertisements`, `web-based-email`, and `web-hosting`.
+    """
+    feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of feeds to match.
+    """
 
 @pulumi.input_type
 class LocalRulestackRuleCategoryArgs:
@@ -150,34 +145,31 @@ class LocalRulestackRuleCategoryArgs:
         pulumi.set(self, "feeds", value)
 
 
-if not MYPY:
-    class LocalRulestackRuleDestinationArgsDict(TypedDict):
-        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of CIDR's.
-        """
-        countries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
-        """
-        feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Feeds.
-        """
-        local_rulestack_fqdn_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of FQDN lists.
+class LocalRulestackRuleDestinationArgsDict(TypedDict):
+    cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of CIDR's.
+    """
+    countries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
+    """
+    feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Feeds.
+    """
+    local_rulestack_fqdn_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of FQDN lists.
 
-        > **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
-        """
-        local_rulestack_prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Prefix Lists.
+    > **Note:** This is a list of names of FQDN Lists configured on the same Local Rulestack as this Rule is being created.
+    """
+    local_rulestack_prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Prefix Lists.
 
-        > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
-        """
-elif False:
-    LocalRulestackRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+    """
 
 @pulumi.input_type
 class LocalRulestackRuleDestinationArgs:
@@ -274,28 +266,25 @@ class LocalRulestackRuleDestinationArgs:
         pulumi.set(self, "local_rulestack_prefix_list_ids", value)
 
 
-if not MYPY:
-    class LocalRulestackRuleSourceArgsDict(TypedDict):
-        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of CIDRs.
-        """
-        countries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
-        """
-        feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Feeds.
-        """
-        local_rulestack_prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Prefix Lists.
+class LocalRulestackRuleSourceArgsDict(TypedDict):
+    cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of CIDRs.
+    """
+    countries: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of ISO3361-1 Alpha-2 Country codes. Possible values include `AF`, `AX`, `AL`, `DZ`, `AS`, `AD`, `AO`, `AI`, `AQ`, `AG`, `AR`, `AM`, `AW`, `AU`, `AT`, `AZ`, `BS`, `BH`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BM`, `BT`, `BO`, `BQ`, `BA`, `BW`, `BV`, `BR`, `IO`, `BN`, `BG`, `BF`, `BI`, `KH`, `CM`, `CA`, `CV`, `KY`, `CF`, `TD`, `CL`, `CN`, `CX`, `CC`, `CO`, `KM`, `CG`, `CD`, `CK`, `CR`, `CI`, `HR`, `CU`, `CW`, `CY`, `CZ`, `DK`, `DJ`, `DM`, `DO`, `EC`, `EG`, `SV`, `GQ`, `ER`, `EE`, `ET`, `FK`, `FO`, `FJ`, `FI`, `FR`, `GF`, `PF`, `TF`, `GA`, `GM`, `GE`, `DE`, `GH`, `GI`, `GR`, `GL`, `GD`, `GP`, `GU`, `GT`, `GG`, `GN`, `GW`, `GY`, `HT`, `HM`, `VA`, `HN`, `HK`, `HU`, `IS`, `IN`, `ID`, `IR`, `IQ`, `IE`, `IM`, `IL`, `IT`, `JM`, `JP`, `JE`, `JO`, `KZ`, `KE`, `KI`, `KP`, `KR`, `KW`, `KG`, `LA`, `LV`, `LB`, `LS`, `LR`, `LY`, `LI`, `LT`, `LU`, `MO`, `MK`, `MG`, `MW`, `MY`, `MV`, `ML`, `MT`, `MH`, `MQ`, `MR`, `MU`, `YT`, `MX`, `FM`, `MD`, `MC`, `MN`, `ME`, `MS`, `MA`, `MZ`, `MM`, `NA`, `NR`, `NP`, `NL`, `NC`, `NZ`, `NI`, `NE`, `NG`, `NU`, `NF`, `MP`, `NO`, `OM`, `PK`, `PW`, `PS`, `PA`, `PG`, `PY`, `PE`, `PH`, `PN`, `PL`, `PT`, `PR`, `QA`, `RE`, `RO`, `RU`, `RW`, `BL`, `SH`, `KN`, `LC`, `MF`, `PM`, `VC`, `WS`, `SM`, `ST`, `SA`, `SN`, `RS`, `SC`, `SL`, `SG`, `SX`, `SK`, `SI`, `SB`, `SO`, `ZA`, `GS`, `SS`, `ES`, `LK`, `SD`, `SR`, `SJ`, `SZ`, `SE`, `CH`, `SY`, `TW`, `TJ`, `TZ`, `TH`, `TL`, `TG`, `TK`, `TO`, `TT`, `TN`, `TR`, `TM`, `TC`, `TV`, `UG`, `UA`, `AE`, `GB`, `US`, `UM`, `UY`, `UZ`, `VU`, `VE`, `VN`, `VG`, `VI`, `WF`, `EH`, `YE`, `ZM`, `ZW`
+    """
+    feeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Feeds.
+    """
+    local_rulestack_prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Prefix Lists.
 
-        > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
-        """
-elif False:
-    LocalRulestackRuleSourceArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
+    """
 
 @pulumi.input_type
 class LocalRulestackRuleSourceArgs:
@@ -372,26 +361,23 @@ class LocalRulestackRuleSourceArgs:
         pulumi.set(self, "local_rulestack_prefix_list_ids", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this NAT.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
-        """
-        backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict']]
-        """
-        A `backend_config` block as defined above.
-        """
-        frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict']]
-        """
-        A `frontend_config` block as defined below.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this NAT.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+    """
+    backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict']]
+    """
+    A `backend_config` block as defined above.
+    """
+    frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict']]
+    """
+    A `frontend_config` block as defined below.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
@@ -462,18 +448,15 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
         pulumi.set(self, "frontend_config", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number to send traffic to.
-        """
-        public_ip_address: pulumi.Input[_builtins.str]
-        """
-        The Public IP Address to send the traffic to.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to send traffic to.
+    """
+    public_ip_address: pulumi.Input[_builtins.str]
+    """
+    The Public IP Address to send the traffic to.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs:
@@ -512,18 +495,15 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigA
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port on which traffic will be receiveed.
-        """
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Public IP Address resource the traffic will be received on.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port on which traffic will be receiveed.
+    """
+    public_ip_address_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Public IP Address resource the traffic will be received on.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs:
@@ -562,19 +542,16 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
         pulumi.set(self, "public_ip_address_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgsDict(TypedDict):
-        azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
-        """
-        use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgsDict(TypedDict):
+    azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+    """
+    use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
@@ -627,35 +604,32 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
         pulumi.set(self, "use_azure_dns", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgsDict(TypedDict):
-        network_virtual_appliance_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
-        """
-        public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of Public IP IDs to use for this Next Generation Firewall.
-        """
-        virtual_hub_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
-        """
-        egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Public IP IDs to use for Egress NAT.
-        """
-        egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of trusted ranges to use for the Network.
-        """
-        trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgsDict(TypedDict):
+    network_virtual_appliance_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+    """
+    public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+    """
+    virtual_hub_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+    """
+    egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Public IP IDs to use for Egress NAT.
+    """
+    egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of trusted ranges to use for the Network.
+    """
+    trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
@@ -801,26 +775,23 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
         pulumi.set(self, "untrusted_subnet_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this NAT.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
-        """
-        backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict']]
-        """
-        A `backend_config` block as defined above.
-        """
-        frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict']]
-        """
-        A `frontend_config` block as defined below.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this NAT.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+    """
+    backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict']]
+    """
+    A `backend_config` block as defined above.
+    """
+    frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict']]
+    """
+    A `frontend_config` block as defined below.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
@@ -891,18 +862,15 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
         pulumi.set(self, "frontend_config", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number to send traffic to.
-        """
-        public_ip_address: pulumi.Input[_builtins.str]
-        """
-        The Public IP Address to send the traffic to.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to send traffic to.
+    """
+    public_ip_address: pulumi.Input[_builtins.str]
+    """
+    The Public IP Address to send the traffic to.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
@@ -941,18 +909,15 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port on which traffic will be receiveed.
-        """
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Public IP Address resource the traffic will be received on.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port on which traffic will be receiveed.
+    """
+    public_ip_address_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Public IP Address resource the traffic will be received on.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs:
@@ -991,19 +956,16 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs:
         pulumi.set(self, "public_ip_address_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict(TypedDict):
-        azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
-        """
-        use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict(TypedDict):
+    azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+    """
+    use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
@@ -1056,35 +1018,32 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
         pulumi.set(self, "use_azure_dns", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict(TypedDict):
-        network_virtual_appliance_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
-        """
-        public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of Public IP IDs to use for this Next Generation Firewall.
-        """
-        virtual_hub_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
-        """
-        egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Public IP IDs to use for Egress NAT.
-        """
-        egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of trusted ranges to use for the Network.
-        """
-        trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict(TypedDict):
+    network_virtual_appliance_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+    """
+    public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+    """
+    virtual_hub_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+    """
+    egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Public IP IDs to use for Egress NAT.
+    """
+    egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of trusted ranges to use for the Network.
+    """
+    trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
@@ -1230,20 +1189,17 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
         pulumi.set(self, "untrusted_subnet_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubPanoramaPanoramaArgsDict(TypedDict):
-        device_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
-        """
-        panorama_server1: NotRequired[pulumi.Input[_builtins.str]]
-        panorama_server2: NotRequired[pulumi.Input[_builtins.str]]
-        template_name: NotRequired[pulumi.Input[_builtins.str]]
-        virtual_machine_ssh_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    NextGenerationFirewallVirtualHubPanoramaPanoramaArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubPanoramaPanoramaArgsDict(TypedDict):
+    device_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+    """
+    panorama_server1: NotRequired[pulumi.Input[_builtins.str]]
+    panorama_server2: NotRequired[pulumi.Input[_builtins.str]]
+    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    virtual_machine_ssh_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubPanoramaPanoramaArgs:
@@ -1340,26 +1296,23 @@ class NextGenerationFirewallVirtualHubPanoramaPanoramaArgs:
         pulumi.set(self, "virtual_machine_ssh_key", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Destination NAT rule.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
-        """
-        backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgsDict']]
-        """
-        One or more `backend_config` block as defined below.
-        """
-        frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgsDict']]
-        """
-        One or more `frontend_config` block as defined below.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Destination NAT rule.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+    """
+    backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgsDict']]
+    """
+    One or more `backend_config` block as defined below.
+    """
+    frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgsDict']]
+    """
+    One or more `frontend_config` block as defined below.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs:
@@ -1430,18 +1383,15 @@ class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgs:
         pulumi.set(self, "frontend_config", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number to send traffic to.
-        """
-        public_ip_address: pulumi.Input[_builtins.str]
-        """
-        The public IP Address to send the traffic to.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to send traffic to.
+    """
+    public_ip_address: pulumi.Input[_builtins.str]
+    """
+    The public IP Address to send the traffic to.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs:
@@ -1480,18 +1430,15 @@ class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendCon
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port on which traffic will be received.
-        """
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Public IP Address resource the traffic will be received on.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port on which traffic will be received.
+    """
+    public_ip_address_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Public IP Address resource the traffic will be received on.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs:
@@ -1530,19 +1477,16 @@ class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendCo
         pulumi.set(self, "public_ip_address_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgsDict(TypedDict):
-        azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
-        """
-        use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgsDict(TypedDict):
+    azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+    """
+    use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs:
@@ -1595,18 +1539,15 @@ class NextGenerationFirewallVirtualHubStrataCloudManagerDnsSettingsArgs:
         pulumi.set(self, "use_azure_dns", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs:
@@ -1645,50 +1586,47 @@ class NextGenerationFirewallVirtualHubStrataCloudManagerIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgsDict(TypedDict):
-        network_virtual_appliance_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
-        """
-        public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Public IP IDs to use for this Next Generation Firewall.
-        """
-        virtual_hub_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
-        """
-        egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Public IP IDs to use for Egress NAT.
-        """
-        egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Egress NAT IP addresses.
-        """
-        ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP of trusted subnet for UDR.
-        """
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of public IPs associated with this Next Generation Firewall.
-        """
-        trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of trusted ranges to use for the Network.
-        """
-        trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of trusted subnet.
-        """
-        untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of untrusted subnet.
-        """
-elif False:
-    NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgsDict(TypedDict):
+    network_virtual_appliance_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+    """
+    public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Public IP IDs to use for this Next Generation Firewall.
+    """
+    virtual_hub_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Virtual Hub this Next Generation Firewall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall Virtual Hub Strata Cloud Manager to be created.
+    """
+    egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Public IP IDs to use for Egress NAT.
+    """
+    egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Egress NAT IP addresses.
+    """
+    ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP of trusted subnet for UDR.
+    """
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of public IPs associated with this Next Generation Firewall.
+    """
+    trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of trusted ranges to use for the Network.
+    """
+    trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of trusted subnet.
+    """
+    untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of untrusted subnet.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs:
@@ -1854,26 +1792,23 @@ class NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs:
         pulumi.set(self, "untrusted_subnet_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Destination NAT.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
-        """
-        backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgsDict']]
-        """
-        A `backend_config` block as defined above.
-        """
-        frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgsDict']]
-        """
-        A `frontend_config` block as defined below.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Destination NAT.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
+    """
+    backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgsDict']]
+    """
+    A `backend_config` block as defined above.
+    """
+    frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgsDict']]
+    """
+    A `frontend_config` block as defined below.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs:
@@ -1944,18 +1879,15 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs:
         pulumi.set(self, "frontend_config", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number to send traffic to.
-        """
-        public_ip_address: pulumi.Input[_builtins.str]
-        """
-        The IP Address to send the traffic to.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to send traffic to.
+    """
+    public_ip_address: pulumi.Input[_builtins.str]
+    """
+    The IP Address to send the traffic to.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs:
@@ -1994,20 +1926,17 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendCon
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port on which to receive traffic.
-        """
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Public IP Address on which to receive traffic. 
+class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port on which to receive traffic.
+    """
+    public_ip_address_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Public IP Address on which to receive traffic. 
 
-        > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs:
@@ -2050,19 +1979,16 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendCo
         pulumi.set(self, "public_ip_address_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict(TypedDict):
-        azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
-        """
-        use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict(TypedDict):
+    azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+    """
+    use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs:
@@ -2115,28 +2041,25 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs:
         pulumi.set(self, "use_azure_dns", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict(TypedDict):
-        public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of Azure Public IP Address IDs.
-        """
-        vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgsDict']
-        """
-        A `vnet_configuration` block as defined below.
-        """
-        egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
-        """
-        egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of trusted ranges to use for the Network.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict(TypedDict):
+    public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of Azure Public IP Address IDs.
+    """
+    vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgsDict']
+    """
+    A `vnet_configuration` block as defined below.
+    """
+    egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+    """
+    egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of trusted ranges to use for the Network.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs:
@@ -2231,23 +2154,20 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs:
         pulumi.set(self, "trusted_address_ranges", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgsDict(TypedDict):
-        virtual_network_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Virtual Network.
-        """
-        ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
-        trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Trust subnet.
-        """
-        untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the UnTrust subnet.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgsDict(TypedDict):
+    virtual_network_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Virtual Network.
+    """
+    ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
+    trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Trust subnet.
+    """
+    untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the UnTrust subnet.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs:
@@ -2315,26 +2235,23 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfig
         pulumi.set(self, "untrusted_subnet_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Destination NAT.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
-        """
-        backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgsDict']]
-        """
-        A `backend_config` block as defined above.
-        """
-        frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgsDict']]
-        """
-        A `frontend_config` block as defined below.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Destination NAT.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
+    """
+    backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgsDict']]
+    """
+    A `backend_config` block as defined above.
+    """
+    frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgsDict']]
+    """
+    A `frontend_config` block as defined below.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs:
@@ -2405,18 +2322,15 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs:
         pulumi.set(self, "frontend_config", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number to send traffic to.
-        """
-        public_ip_address: pulumi.Input[_builtins.str]
-        """
-        The IP Address to send the traffic to.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to send traffic to.
+    """
+    public_ip_address: pulumi.Input[_builtins.str]
+    """
+    The IP Address to send the traffic to.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs:
@@ -2455,20 +2369,17 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArg
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port on which to receive traffic.
-        """
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Public IP Address on which to receive traffic.
+class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port on which to receive traffic.
+    """
+    public_ip_address_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Public IP Address on which to receive traffic.
 
-        > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs:
@@ -2511,19 +2422,16 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigAr
         pulumi.set(self, "public_ip_address_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict(TypedDict):
-        azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
-        """
-        use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict(TypedDict):
+    azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+    """
+    use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs:
@@ -2576,28 +2484,25 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs:
         pulumi.set(self, "use_azure_dns", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict(TypedDict):
-        public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of Azure Public IP Address IDs.
-        """
-        vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgsDict']
-        """
-        A `vnet_configuration` block as defined below.
-        """
-        egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
-        """
-        egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of trusted ranges to use for the Network.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict(TypedDict):
+    public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of Azure Public IP Address IDs.
+    """
+    vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgsDict']
+    """
+    A `vnet_configuration` block as defined below.
+    """
+    egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+    """
+    egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of trusted ranges to use for the Network.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs:
@@ -2692,23 +2597,20 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs:
         pulumi.set(self, "trusted_address_ranges", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgsDict(TypedDict):
-        virtual_network_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Virtual Network.
-        """
-        ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
-        trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Trust subnet.
-        """
-        untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the UnTrust subnet.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgsDict(TypedDict):
+    virtual_network_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Virtual Network.
+    """
+    ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
+    trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Trust subnet.
+    """
+    untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the UnTrust subnet.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs:
@@ -2776,38 +2678,35 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguratio
         pulumi.set(self, "untrusted_subnet_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict(TypedDict):
-        device_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Device Group Name to which this Firewall Resource is registered.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Host Name of this Firewall Resource.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
-        """
-        panorama_server1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the First Panorana server.
-        """
-        panorama_server2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Second Panorana server.
-        """
-        template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Panorama Template applied to this Firewall Resource.
-        """
-        virtual_machine_ssh_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SSH Key to connect to the Firewall Resource.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict(TypedDict):
+    device_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Device Group Name to which this Firewall Resource is registered.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Host Name of this Firewall Resource.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
+    """
+    panorama_server1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the First Panorana server.
+    """
+    panorama_server2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Second Panorana server.
+    """
+    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Panorama Template applied to this Firewall Resource.
+    """
+    virtual_machine_ssh_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SSH Key to connect to the Firewall Resource.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs:
@@ -2928,26 +2827,23 @@ class NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs:
         pulumi.set(self, "virtual_machine_ssh_key", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this NAT.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
-        """
-        backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgsDict']]
-        """
-        One or more `backend_config` block as defined below.
-        """
-        frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgsDict']]
-        """
-        One or more `frontend_config` block as defined below.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this NAT.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+    """
+    backend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgsDict']]
+    """
+    One or more `backend_config` block as defined below.
+    """
+    frontend_config: NotRequired[pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgsDict']]
+    """
+    One or more `frontend_config` block as defined below.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs:
@@ -3018,18 +2914,15 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs:
         pulumi.set(self, "frontend_config", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number to send traffic to.
-        """
-        public_ip_address: pulumi.Input[_builtins.str]
-        """
-        The public IP Address to send the traffic to.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number to send traffic to.
+    """
+    public_ip_address: pulumi.Input[_builtins.str]
+    """
+    The public IP Address to send the traffic to.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs:
@@ -3068,18 +2961,15 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBacken
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        The port on which traffic will be received.
-        """
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Public IP Address resource the traffic will be received on.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    The port on which traffic will be received.
+    """
+    public_ip_address_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Public IP Address resource the traffic will be received on.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs:
@@ -3118,19 +3008,16 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFronte
         pulumi.set(self, "public_ip_address_id", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict(TypedDict):
-        azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
-        """
-        use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict(TypedDict):
+    azure_dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of DNS servers to use. Conflicts with `dns_settings[0].use_azure_dns`.
+    """
+    use_azure_dns: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs:
@@ -3183,18 +3070,15 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs:
         pulumi.set(self, "use_azure_dns", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity that should be configured on this App Configuration. The only possible value is `UserAssigned`.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs:
@@ -3233,34 +3117,31 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict(TypedDict):
-        public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of Azure Public IP Address IDs.
-        """
-        vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgsDict']
-        """
-        A `vnet_configuration` block as defined below.
-        """
-        egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
-        """
-        egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Egress NAT IP addresses.
-        """
-        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of public IPs associated with this Next Generation Firewall.
-        """
-        trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of trusted ranges to use for the Network.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict(TypedDict):
+    public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of Azure Public IP Address IDs.
+    """
+    vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgsDict']
+    """
+    A `vnet_configuration` block as defined below.
+    """
+    egress_nat_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+    """
+    egress_nat_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Egress NAT IP addresses.
+    """
+    public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of public IPs associated with this Next Generation Firewall.
+    """
+    trusted_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of trusted ranges to use for the Network.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs:
@@ -3363,26 +3244,23 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs:
         pulumi.set(self, "trusted_address_ranges", value)
 
 
-if not MYPY:
-    class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgsDict(TypedDict):
-        virtual_network_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Virtual Network.
-        """
-        ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP of trusted subnet for UDR.
-        """
-        trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Trust subnet.
-        """
-        untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the UnTrust subnet.
-        """
-elif False:
-    NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgsDict(TypedDict):
+    virtual_network_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Virtual Network.
+    """
+    ip_of_trust_for_user_defined_routes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP of trusted subnet for UDR.
+    """
+    trusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Trust subnet.
+    """
+    untrusted_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the UnTrust subnet.
+    """
 
 @pulumi.input_type
 class NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs:

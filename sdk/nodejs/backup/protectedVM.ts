@@ -90,6 +90,13 @@ export class ProtectedVM extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProtectedVM.__pulumiType;
     }
 
+    /**
+     * Specifies the ID of the backup policy to use.
+     *
+     * > **Note:** `backupPolicyId` is required during initial creation of this resource.
+     *
+     * > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
+     */
     declare public readonly backupPolicyId: pulumi.Output<string | undefined>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
@@ -165,6 +172,13 @@ export class ProtectedVM extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProtectedVM resources.
  */
 export interface ProtectedVMState {
+    /**
+     * Specifies the ID of the backup policy to use.
+     *
+     * > **Note:** `backupPolicyId` is required during initial creation of this resource.
+     *
+     * > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
+     */
     backupPolicyId?: pulumi.Input<string>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
@@ -200,6 +214,13 @@ export interface ProtectedVMState {
  * The set of arguments for constructing a ProtectedVM resource.
  */
 export interface ProtectedVMArgs {
+    /**
+     * Specifies the ID of the backup policy to use.
+     *
+     * > **Note:** `backupPolicyId` is required during initial creation of this resource.
+     *
+     * > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
+     */
     backupPolicyId?: pulumi.Input<string>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.

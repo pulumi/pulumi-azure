@@ -153,7 +153,9 @@ export class CustomDomain extends pulumi.CustomResource {
     }
 
     /**
-     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
+     * The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+     *
+     * !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      */
     declare public readonly certificateBindingType: pulumi.Output<string | undefined>;
     /**
@@ -216,7 +218,9 @@ export class CustomDomain extends pulumi.CustomResource {
  */
 export interface CustomDomainState {
     /**
-     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
+     * The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+     *
+     * !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      */
     certificateBindingType?: pulumi.Input<string>;
     /**
@@ -246,7 +250,9 @@ export interface CustomDomainState {
  */
 export interface CustomDomainArgs {
     /**
-     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
+     * The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+     *
+     * !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      */
     certificateBindingType?: pulumi.Input<string>;
     /**

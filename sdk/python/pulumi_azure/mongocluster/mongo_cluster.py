@@ -63,6 +63,9 @@ class MongoClusterArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_features: The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
+        :param pulumi.Input['MongoClusterRestoreArgs'] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
         :param pulumi.Input[_builtins.int] shard_count: The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -290,6 +293,11 @@ class MongoClusterArgs:
     @_builtins.property
     @pulumi.getter
     def restore(self) -> Optional[pulumi.Input['MongoClusterRestoreArgs']]:
+        """
+        A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+
+        > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
+        """
         return pulumi.get(self, "restore")
 
     @restore.setter
@@ -428,6 +436,9 @@ class _MongoClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_features: The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['MongoClusterRestoreArgs'] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
         :param pulumi.Input[_builtins.int] shard_count: The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -670,6 +681,11 @@ class _MongoClusterState:
     @_builtins.property
     @pulumi.getter
     def restore(self) -> Optional[pulumi.Input['MongoClusterRestoreArgs']]:
+        """
+        A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+
+        > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
+        """
         return pulumi.get(self, "restore")
 
     @restore.setter
@@ -878,6 +894,9 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_features: The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
         :param pulumi.Input[_builtins.int] shard_count: The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -1094,6 +1113,9 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_features: The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
         :param pulumi.Input[_builtins.int] shard_count: The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_location: The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_server_id: The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -1258,6 +1280,11 @@ class MongoCluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def restore(self) -> pulumi.Output[Optional['outputs.MongoClusterRestore']]:
+        """
+        A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+
+        > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
+        """
         return pulumi.get(self, "restore")
 
     @_builtins.property

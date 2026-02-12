@@ -252,6 +252,10 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  tls: Optional[pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']]] = None,
                  __props__=None):
         """
+        Manages a Front Door (standard/premium) Custom Domain.
+
+        !> **Note:** If you are using Terraform to manage your DNS Auth and DNS CNAME records for your Custom Domain you will need to add configuration blocks for both the `dns.TxtRecord`(see the `Example DNS Auth TXT Record Usage` below) and the `dns.CNameRecord`(see the `Example CNAME Record Usage` below) to your configuration file.
+
         ## Example Usage
 
         ```python
@@ -349,6 +353,10 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  args: FrontdoorCustomDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Front Door (standard/premium) Custom Domain.
+
+        !> **Note:** If you are using Terraform to manage your DNS Auth and DNS CNAME records for your Custom Domain you will need to add configuration blocks for both the `dns.TxtRecord`(see the `Example DNS Auth TXT Record Usage` below) and the `dns.CNameRecord`(see the `Example CNAME Record Usage` below) to your configuration file.
+
         ## Example Usage
 
         ```python

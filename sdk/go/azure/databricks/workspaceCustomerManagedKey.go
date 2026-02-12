@@ -12,6 +12,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Databricks Workspace
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/databricks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = databricks.NewWorkspace(ctx, "example", &databricks.WorkspaceArgs{
+//				Name:              pulumi.String("databricks-test"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("standard"),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note:** You can use the Databricks Terraform Provider to manage resources within the Databricks Workspace.
+//
+// ## Example HCL Configurations
+//
+// * Databricks Workspace Secure Connectivity Cluster with Load Balancer
+// * Databricks Workspace Secure Connectivity Cluster without Load Balancer
+// * Databricks Workspace with Private Endpoint
+// * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Databricks File System Customer Managed Keys
+// * Databricks Workspace with Root Databricks File System Customer Managed Keys
+// * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
+// * Databricks Workspace with Customer Managed Keys for Managed Services
+// * Databricks Workspace with Customer Managed Keys for Managed Services with Key Vault and Key in a Different Subscription
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Databricks` - 2024-05-01, 2022-10-01-preview
+//
+// * `Microsoft.Network` - 2025-01-01, 2023-09-01
+//
 // ## Import
 //
 // Databrick Workspaces can be imported using the `resource id`, e.g.

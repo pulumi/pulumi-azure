@@ -31,28 +31,23 @@ __all__ = [
     'ServerThreatDetectionPolicyArgsDict',
 ]
 
-MYPY = False
+class FlexibleServerAuthenticationArgsDict(TypedDict):
+    active_directory_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+    """
+    password_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
 
-if not MYPY:
-    class FlexibleServerAuthenticationArgsDict(TypedDict):
-        active_directory_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
-        """
-        password_auth_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+    > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
 
-        > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
-
-        > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
-        """
-elif False:
-    FlexibleServerAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
+    """
 
 @pulumi.input_type
 class FlexibleServerAuthenticationArgs:
@@ -117,32 +112,29 @@ class FlexibleServerAuthenticationArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
-        key_vault_key_id: pulumi.Input[_builtins.str]
-        """
-        The versioned/versionless ID of the Key Vault Key.
-        """
-        geo_backup_key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The versioned/versionless ID of the geo backup Key Vault Key.
+class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The versioned/versionless ID of the Key Vault Key.
+    """
+    geo_backup_key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The versioned/versionless ID of the geo backup Key Vault Key.
 
-        > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
-        """
-        geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+    > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
+    """
+    geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 
-        > **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
+    > **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
 
-        > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
-        """
-        primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
-        """
-elif False:
-    FlexibleServerCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+    """
+    primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+    """
 
 @pulumi.input_type
 class FlexibleServerCustomerManagedKeyArgs:
@@ -226,15 +218,19 @@ class FlexibleServerCustomerManagedKeyArgs:
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class FlexibleServerHighAvailabilityArgsDict(TypedDict):
-        mode: pulumi.Input[_builtins.str]
-        """
-        The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
-        """
-        standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FlexibleServerHighAvailabilityArgsDict: TypeAlias = Mapping[str, Any]
+class FlexibleServerHighAvailabilityArgsDict(TypedDict):
+    mode: pulumi.Input[_builtins.str]
+    """
+    The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
+    """
+    standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the Availability Zone in which the standby Flexible Server should be located.
+
+    > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+
+    > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+    """
 
 @pulumi.input_type
 class FlexibleServerHighAvailabilityArgs:
@@ -243,6 +239,11 @@ class FlexibleServerHighAvailabilityArgs:
                  standby_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
+        :param pulumi.Input[_builtins.str] standby_availability_zone: Specifies the Availability Zone in which the standby Flexible Server should be located.
+               
+               > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+               
+               > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
         """
         pulumi.set(__self__, "mode", mode)
         if standby_availability_zone is not None:
@@ -263,6 +264,13 @@ class FlexibleServerHighAvailabilityArgs:
     @_builtins.property
     @pulumi.getter(name="standbyAvailabilityZone")
     def standby_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Availability Zone in which the standby Flexible Server should be located.
+
+        > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+
+        > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+        """
         return pulumi.get(self, "standby_availability_zone")
 
     @standby_availability_zone.setter
@@ -270,30 +278,27 @@ class FlexibleServerHighAvailabilityArgs:
         pulumi.set(self, "standby_availability_zone", value)
 
 
-if not MYPY:
-    class FlexibleServerIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+class FlexibleServerIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
 
-        > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+    > **Note:** Once `UserAssigned` has been added, removing it forces a new resource to be created.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
 
-        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    FlexibleServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class FlexibleServerIdentityArgs:
@@ -373,24 +378,21 @@ class FlexibleServerIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
-        day_of_week: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
-        """
-        start_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The start hour for maintenance window. Defaults to `0`.
-        """
-        start_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The start minute for maintenance window. Defaults to `0`.
+class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
+    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+    """
+    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The start hour for maintenance window. Defaults to `0`.
+    """
+    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The start minute for maintenance window. Defaults to `0`.
 
-        > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
-        """
-elif False:
-    FlexibleServerMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+    """
 
 @pulumi.input_type
 class FlexibleServerMaintenanceWindowArgs:
@@ -451,22 +453,19 @@ class FlexibleServerMaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
-if not MYPY:
-    class ServerIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ServerIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ServerIdentityArgs:
@@ -522,38 +521,35 @@ class ServerIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ServerThreatDetectionPolicyArgsDict(TypedDict):
-        disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
-        """
-        email_account_admins: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should the account administrators be emailed when this alert is triggered?
-        """
-        email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of email addresses which alerts should be sent to.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the policy enabled?
-        """
-        retention_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of days to keep in the Threat Detection audit logs.
-        """
-        storage_account_access_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the identifier key of the Threat Detection audit storage account.
-        """
-        storage_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-        """
-elif False:
-    ServerThreatDetectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ServerThreatDetectionPolicyArgsDict(TypedDict):
+    disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
+    """
+    email_account_admins: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the account administrators be emailed when this alert is triggered?
+    """
+    email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of email addresses which alerts should be sent to.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the policy enabled?
+    """
+    retention_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of days to keep in the Threat Detection audit logs.
+    """
+    storage_account_access_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the identifier key of the Threat Detection audit storage account.
+    """
+    storage_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
+    """
 
 @pulumi.input_type
 class ServerThreatDetectionPolicyArgs:

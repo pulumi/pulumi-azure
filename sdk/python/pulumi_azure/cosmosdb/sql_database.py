@@ -34,6 +34,9 @@ class SqlDatabaseArgs:
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+               
+               > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -97,6 +100,11 @@ class SqlDatabaseArgs:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+
+        > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -120,6 +128,9 @@ class _SqlDatabaseState:
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+               
+               > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -185,6 +196,11 @@ class _SqlDatabaseState:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+
+        > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -238,6 +254,9 @@ class SqlDatabase(pulumi.CustomResource):
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+               
+               > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         ...
     @overload
@@ -337,6 +356,9 @@ class SqlDatabase(pulumi.CustomResource):
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] throughput: The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+               
+               > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -386,5 +408,10 @@ class SqlDatabase(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[_builtins.int]:
+        """
+        The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `cosmosdb.Account` is configured with `EnableServerless` capability.
+
+        > **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        """
         return pulumi.get(self, "throughput")
 

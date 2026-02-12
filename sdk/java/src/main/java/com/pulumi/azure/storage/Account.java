@@ -1725,9 +1725,21 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<AccountShareProperties> shareProperties() {
         return this.shareProperties;
     }
+    /**
+     * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+     * 
+     * &gt; **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+     * 
+     */
     @Export(name="sharedAccessKeyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sharedAccessKeyEnabled;
 
+    /**
+     * @return Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+     * 
+     * &gt; **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+     * 
+     */
     public Output<Optional<Boolean>> sharedAccessKeyEnabled() {
         return Codegen.optional(this.sharedAccessKeyEnabled);
     }

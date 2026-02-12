@@ -25,28 +25,23 @@ __all__ = [
     'GetElasticsearchLogFilteringTagArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ElasticsearchLogsArgsDict(TypedDict):
-        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgsDict']]]]
-        """
-        A list of `filtering_tag` blocks as defined above.
-        """
-        send_activity_logs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
-        """
-        send_azuread_logs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
-        """
-        send_subscription_logs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
-        """
-elif False:
-    ElasticsearchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticsearchLogsArgsDict(TypedDict):
+    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgsDict']]]]
+    """
+    A list of `filtering_tag` blocks as defined above.
+    """
+    send_activity_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+    """
+    send_azuread_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+    """
+    send_subscription_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ElasticsearchLogsArgs:
@@ -119,22 +114,19 @@ class ElasticsearchLogsArgs:
         pulumi.set(self, "send_subscription_logs", value)
 
 
-if not MYPY:
-    class ElasticsearchLogsFilteringTagArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name (key) of the Tag which should be filtered.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value of the Tag which should be filtered.
-        """
-elif False:
-    ElasticsearchLogsFilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticsearchLogsFilteringTagArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name (key) of the Tag which should be filtered.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value of the Tag which should be filtered.
+    """
 
 @pulumi.input_type
 class ElasticsearchLogsFilteringTagArgs:
@@ -188,26 +180,23 @@ class ElasticsearchLogsFilteringTagArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetElasticsearchLogArgsDict(TypedDict):
-        filtering_tags: Sequence['GetElasticsearchLogFilteringTagArgsDict']
-        """
-        A list of `filtering_tag` blocks as defined above.
-        """
-        send_activity_logs: _builtins.bool
-        """
-        Should the Azure Activity Logs should be sent to the Elasticsearch cluster?
-        """
-        send_azuread_logs: _builtins.bool
-        """
-        Should the AzureAD Logs should be sent to the Elasticsearch cluster?
-        """
-        send_subscription_logs: _builtins.bool
-        """
-        Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
-        """
-elif False:
-    GetElasticsearchLogArgsDict: TypeAlias = Mapping[str, Any]
+class GetElasticsearchLogArgsDict(TypedDict):
+    filtering_tags: Sequence['GetElasticsearchLogFilteringTagArgsDict']
+    """
+    A list of `filtering_tag` blocks as defined above.
+    """
+    send_activity_logs: _builtins.bool
+    """
+    Should the Azure Activity Logs should be sent to the Elasticsearch cluster?
+    """
+    send_azuread_logs: _builtins.bool
+    """
+    Should the AzureAD Logs should be sent to the Elasticsearch cluster?
+    """
+    send_subscription_logs: _builtins.bool
+    """
+    Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
+    """
 
 @pulumi.input_type
 class GetElasticsearchLogArgs:
@@ -276,22 +265,19 @@ class GetElasticsearchLogArgs:
         pulumi.set(self, "send_subscription_logs", value)
 
 
-if not MYPY:
-    class GetElasticsearchLogFilteringTagArgsDict(TypedDict):
-        action: _builtins.str
-        """
-        The type of action which is taken when the Tag matches the `name` and `value`.
-        """
-        name: _builtins.str
-        """
-        The name of the Elasticsearch resource.
-        """
-        value: _builtins.str
-        """
-        The value of the Tag which should be filtered.
-        """
-elif False:
-    GetElasticsearchLogFilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+class GetElasticsearchLogFilteringTagArgsDict(TypedDict):
+    action: _builtins.str
+    """
+    The type of action which is taken when the Tag matches the `name` and `value`.
+    """
+    name: _builtins.str
+    """
+    The name of the Elasticsearch resource.
+    """
+    value: _builtins.str
+    """
+    The value of the Tag which should be filtered.
+    """
 
 @pulumi.input_type
 class GetElasticsearchLogFilteringTagArgs:

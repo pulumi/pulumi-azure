@@ -231,6 +231,11 @@ namespace Pulumi.Azure.AppService
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `IgnoreChanges` lifecycle meta-argument is used.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -354,6 +359,12 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `IgnoreChanges` lifecycle meta-argument is used.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -508,6 +519,12 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** The underlying API does not currently support changing Tags on this resource. Making changes in the portal for tags will cause Terraform to detect a change that will force a recreation of the ASEV3 unless `IgnoreChanges` lifecycle meta-argument is used.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

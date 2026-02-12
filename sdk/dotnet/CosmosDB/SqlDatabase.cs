@@ -76,6 +76,11 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
+        /// 
+        /// &gt; **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
@@ -151,6 +156,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
+        /// 
+        /// &gt; **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
@@ -188,6 +198,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azure.cosmosdb.Account` is configured with `EnableServerless` capability.
+        /// 
+        /// &gt; **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 

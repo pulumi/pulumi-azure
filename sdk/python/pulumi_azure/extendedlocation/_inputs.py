@@ -19,20 +19,15 @@ __all__ = [
     'CustomLocationAuthenticationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomLocationAuthenticationArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value of authentication.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of authentication.
-        """
-elif False:
-    CustomLocationAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class CustomLocationAuthenticationArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value of authentication.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of authentication.
+    """
 
 @pulumi.input_type
 class CustomLocationAuthenticationArgs:

@@ -803,6 +803,11 @@ namespace Pulumi.Azure.Storage
         [Output("shareProperties")]
         public Output<Outputs.AccountShareProperties> ShareProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `True`.
+        /// 
+        /// &gt; **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `StorageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+        /// </summary>
         [Output("sharedAccessKeyEnabled")]
         public Output<bool?> SharedAccessKeyEnabled { get; private set; } = null!;
 
@@ -1123,6 +1128,11 @@ namespace Pulumi.Azure.Storage
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesArgs>? ShareProperties { get; set; }
 
+        /// <summary>
+        /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `True`.
+        /// 
+        /// &gt; **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `StorageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+        /// </summary>
         [Input("sharedAccessKeyEnabled")]
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
 
@@ -1894,6 +1904,11 @@ namespace Pulumi.Azure.Storage
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesGetArgs>? ShareProperties { get; set; }
 
+        /// <summary>
+        /// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `True`.
+        /// 
+        /// &gt; **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `StorageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+        /// </summary>
         [Input("sharedAccessKeyEnabled")]
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
 

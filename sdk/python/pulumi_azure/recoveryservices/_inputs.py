@@ -23,32 +23,27 @@ __all__ = [
     'VaultMonitoringArgsDict',
 ]
 
-MYPY = False
+class VaultEncryptionArgsDict(TypedDict):
+    infrastructure_encryption_enabled: pulumi.Input[_builtins.bool]
+    """
+    Enabling/Disabling the Double Encryption state.
+    """
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+    """
+    use_system_assigned_identity: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
-if not MYPY:
-    class VaultEncryptionArgsDict(TypedDict):
-        infrastructure_encryption_enabled: pulumi.Input[_builtins.bool]
-        """
-        Enabling/Disabling the Double Encryption state.
-        """
-        key_id: pulumi.Input[_builtins.str]
-        """
-        The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
-        """
-        use_system_assigned_identity: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
+    !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 
-        !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
-
-        !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
-        """
-        user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the user assigned identity ID to be used.
-        """
-elif False:
-    VaultEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+    !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
+    """
+    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the user assigned identity ID to be used.
+    """
 
 @pulumi.input_type
 class VaultEncryptionArgs:
@@ -127,28 +122,25 @@ class VaultEncryptionArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class VaultIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+class VaultIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 
-        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    VaultIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class VaultIdentityArgs:
@@ -224,18 +216,15 @@ class VaultIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class VaultMonitoringArgsDict(TypedDict):
-        alerts_for_all_job_failures_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
-        """
-        alerts_for_critical_operation_failures_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
-        """
-elif False:
-    VaultMonitoringArgsDict: TypeAlias = Mapping[str, Any]
+class VaultMonitoringArgsDict(TypedDict):
+    alerts_for_all_job_failures_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+    """
+    alerts_for_critical_operation_failures_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+    """
 
 @pulumi.input_type
 class VaultMonitoringArgs:

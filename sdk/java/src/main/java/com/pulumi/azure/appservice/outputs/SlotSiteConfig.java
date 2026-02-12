@@ -173,6 +173,12 @@ public final class SlotSiteConfig {
      * 
      */
     private @Nullable Boolean use32BitWorkerProcess;
+    /**
+     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+     * 
+     */
     private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should WebSockets be enabled?
@@ -400,6 +406,12 @@ public final class SlotSiteConfig {
     public Optional<Boolean> use32BitWorkerProcess() {
         return Optional.ofNullable(this.use32BitWorkerProcess);
     }
+    /**
+     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This setting supersedes the previous mechanism of setting the `appSettings` value of `WEBSITE_VNET_ROUTE_ALL`. However, to prevent older configurations breaking Terraform will update this value if it not explicitly set to the value in `app_settings.WEBSITE_VNET_ROUTE_ALL`.
+     * 
+     */
     public Optional<Boolean> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }

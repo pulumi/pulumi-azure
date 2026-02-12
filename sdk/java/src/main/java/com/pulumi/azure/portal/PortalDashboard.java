@@ -18,6 +18,184 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a shared dashboard in the Azure Portal.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.portal.PortalDashboard;
+ * import com.pulumi.azure.portal.PortalDashboardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var mdContent = config.get("mdContent").orElse("# Hello all :)");
+ *         final var videoLink = config.get("videoLink").orElse("https://www.youtube.com/watch?v=......");
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("mygroup")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var my_board = new PortalDashboard("my-board", PortalDashboardArgs.builder()
+ *             .name("my-cool-dashboard")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .tags(Map.of("source", "terraform"))
+ *             .dashboardProperties("""
+ * {
+ *    \"lenses\": {
+ *         \"0\": {
+ *             \"order\": 0,
+ *             \"parts\": {
+ *                 \"0\": {
+ *                     \"position\": {
+ *                         \"x\": 0,
+ *                         \"y\": 0,
+ *                         \"rowSpan\": 2,
+ *                         \"colSpan\": 3
+ *                     },
+ *                     \"metadata\": {
+ *                         \"inputs\": [],
+ *                         \"type\": \"Extension/HubsExtension/PartType/MarkdownPart\",
+ *                         \"settings\": {
+ *                             \"content\": {
+ *                                 \"settings\": {
+ *                                     \"content\": \"%s\",
+ *                                     \"subtitle\": \"\",
+ *                                     \"title\": \"\"
+ *                                 }
+ *                             }
+ *                         }
+ *                     }
+ *                 },               
+ *                 \"1\": {
+ *                     \"position\": {
+ *                         \"x\": 5,
+ *                         \"y\": 0,
+ *                         \"rowSpan\": 4,
+ *                         \"colSpan\": 6
+ *                     },
+ *                     \"metadata\": {
+ *                         \"inputs\": [],
+ *                         \"type\": \"Extension/HubsExtension/PartType/VideoPart\",
+ *                         \"settings\": {
+ *                             \"content\": {
+ *                                 \"settings\": {
+ *                                     \"title\": \"Important Information\",
+ *                                     \"subtitle\": \"\",
+ *                                     \"src\": \"%s\",
+ *                                     \"autoplay\": true
+ *                                 }
+ *                             }
+ *                         }
+ *                     }
+ *                 },
+ *                 \"2\": {
+ *                     \"position\": {
+ *                         \"x\": 0,
+ *                         \"y\": 4,
+ *                         \"rowSpan\": 4,
+ *                         \"colSpan\": 6
+ *                     },
+ *                     \"metadata\": {
+ *                         \"inputs\": [
+ *                             {
+ *                                 \"name\": \"ComponentId\",
+ *                                 \"value\": \"/subscriptions/%s/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp\"
+ *                             }
+ *                         ],
+ *                         \"type\": \"Extension/AppInsightsExtension/PartType/AppMapGalPt\",
+ *                         \"settings\": {},
+ *                         \"asset\": {
+ *                             \"idInputName\": \"ComponentId\",
+ *                             \"type\": \"ApplicationInsights\"
+ *                         }
+ *                     }
+ *                 }              
+ *             }
+ *         }
+ *     },
+ *     \"metadata\": {
+ *         \"model\": {
+ *             \"timeRange\": {
+ *                 \"value\": {
+ *                     \"relative\": {
+ *                         \"duration\": 24,
+ *                         \"timeUnit\": 1
+ *                     }
+ *                 },
+ *                 \"type\": \"MsPortalFx.Composition.Configuration.ValueTypes.TimeRange\"
+ *             },
+ *             \"filterLocale\": {
+ *                 \"value\": \"en-us\"
+ *             },
+ *             \"filters\": {
+ *                 \"value\": {
+ *                     \"MsPortalFx_TimeRange\": {
+ *                         \"model\": {
+ *                             \"format\": \"utc\",
+ *                             \"granularity\": \"auto\",
+ *                             \"relative\": \"24h\"
+ *                         },
+ *                         \"displayCache\": {
+ *                             \"name\": \"UTC Time\",
+ *                             \"value\": \"Past 24 hours\"
+ *                         },
+ *                         \"filteredPartIds\": [
+ *                             \"StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7\"
+ *                         ]
+ *                     }
+ *                 }
+ *             }
+ *         }
+ *     }
+ * }
+ * ", mdContent,videoLink,current.subscriptionId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * It is recommended to follow the steps outlined
+ * [here](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+ * 
+ * ### Using a `templateFile` data source or the `templatefile` function
+ * 
+ * Since the contents of the dashboard JSON can be quite lengthy, use a template file to improve readability:
+ * 
+ * `dash.tpl`:
+ * 
+ * This is then referenced in the `.tf` file by using a `templateFile` data source (terraform 0.11 or earlier), or the `templatefile` function (terraform 0.12+).
+ * 
+ * `main.tf` (terraform 0.11 or earlier):
+ * 
+ * `main.tf` (terraform 0.12+)
+ * 
  * ## Import
  * 
  * Dashboards can be imported using the `resource id`, e.g.

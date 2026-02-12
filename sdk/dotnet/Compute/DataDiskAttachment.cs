@@ -145,6 +145,8 @@ namespace Pulumi.Azure.Compute
     /// ```sh
     /// $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
     /// ```
+    /// 
+    /// &gt; **Note:** This is provider-specific ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
     /// </summary>
     [AzureResourceType("azure:compute/dataDiskAttachment:DataDiskAttachment")]
     public partial class DataDiskAttachment : global::Pulumi.CustomResource

@@ -3975,6 +3975,9 @@ func (o ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pul
 }
 
 type ResourceProviderRegistrationFeature struct {
+	// Specifies the name of the feature to register.
+	//
+	// > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
 	Name string `pulumi:"name"`
 	// Should this feature be Registered or Unregistered?
 	Registered bool `pulumi:"registered"`
@@ -3992,6 +3995,9 @@ type ResourceProviderRegistrationFeatureInput interface {
 }
 
 type ResourceProviderRegistrationFeatureArgs struct {
+	// Specifies the name of the feature to register.
+	//
+	// > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
 	Name pulumi.StringInput `pulumi:"name"`
 	// Should this feature be Registered or Unregistered?
 	Registered pulumi.BoolInput `pulumi:"registered"`
@@ -4048,6 +4054,9 @@ func (o ResourceProviderRegistrationFeatureOutput) ToResourceProviderRegistratio
 	return o
 }
 
+// Specifies the name of the feature to register.
+//
+// > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
 func (o ResourceProviderRegistrationFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceProviderRegistrationFeature) string { return v.Name }).(pulumi.StringOutput)
 }

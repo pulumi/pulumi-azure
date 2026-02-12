@@ -17,6 +17,13 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         /// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
         /// </summary>
         public readonly string Mode;
+        /// <summary>
+        /// Specifies the Availability Zone in which the standby Flexible Server should be located.
+        /// 
+        /// &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `Zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `IgnoreChanges` functionality to ignore changes to the `Zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+        /// 
+        /// &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+        /// </summary>
         public readonly string? StandbyAvailabilityZone;
 
         [OutputConstructor]

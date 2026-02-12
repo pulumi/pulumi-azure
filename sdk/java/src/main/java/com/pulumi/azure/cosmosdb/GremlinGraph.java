@@ -146,9 +146,21 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> analyticalStorageTtl() {
         return Codegen.optional(this.analyticalStorageTtl);
     }
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     @Export(name="autoscaleSettings", refs={GremlinGraphAutoscaleSettings.class}, tree="[0]")
     private Output</* @Nullable */ GremlinGraphAutoscaleSettings> autoscaleSettings;
 
+    /**
+     * @return An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partitionKeyPath` to be set.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     public Output<Optional<GremlinGraphAutoscaleSettings>> autoscaleSettings() {
         return Codegen.optional(this.autoscaleSettings);
     }

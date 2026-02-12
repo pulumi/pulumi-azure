@@ -228,6 +228,13 @@ export class FlexibleServer extends pulumi.CustomResource {
      * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      */
     declare public readonly version: pulumi.Output<string>;
+    /**
+     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+     *
+     * > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+     *
+     * > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+     */
     declare public readonly zone: pulumi.Output<string>;
 
     /**
@@ -435,6 +442,13 @@ export interface FlexibleServerState {
      * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      */
     version?: pulumi.Input<string>;
+    /**
+     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+     *
+     * > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+     *
+     * > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+     */
     zone?: pulumi.Input<string>;
 }
 
@@ -554,5 +568,12 @@ export interface FlexibleServerArgs {
      * The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
      */
     version?: pulumi.Input<string>;
+    /**
+     * Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+     *
+     * > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+     *
+     * > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+     */
     zone?: pulumi.Input<string>;
 }

@@ -65,20 +65,15 @@ __all__ = [
     'RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ActiveRoleAssignmentScheduleArgsDict(TypedDict):
-        expiration: NotRequired[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArgsDict']]
-        """
-        An `expiration` block as defined above.
-        """
-        start_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The start date/time of the role assignment. Changing this forces a new resource to be created.
-        """
-elif False:
-    ActiveRoleAssignmentScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ActiveRoleAssignmentScheduleArgsDict(TypedDict):
+    expiration: NotRequired[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArgsDict']]
+    """
+    An `expiration` block as defined above.
+    """
+    start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The start date/time of the role assignment. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ActiveRoleAssignmentScheduleArgs:
@@ -119,24 +114,21 @@ class ActiveRoleAssignmentScheduleArgs:
         pulumi.set(self, "start_date_time", value)
 
 
-if not MYPY:
-    class ActiveRoleAssignmentScheduleExpirationArgsDict(TypedDict):
-        duration_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The duration of the role assignment in days. Changing this forces a new resource to be created.
-        """
-        duration_hours: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The duration of the role assignment in hours. Changing this forces a new resource to be created.
-        """
-        end_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end date/time of the role assignment. Changing this forces a new resource to be created.
+class ActiveRoleAssignmentScheduleExpirationArgsDict(TypedDict):
+    duration_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration of the role assignment in days. Changing this forces a new resource to be created.
+    """
+    duration_hours: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration of the role assignment in hours. Changing this forces a new resource to be created.
+    """
+    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
-        """
-elif False:
-    ActiveRoleAssignmentScheduleExpirationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+    """
 
 @pulumi.input_type
 class ActiveRoleAssignmentScheduleExpirationArgs:
@@ -197,18 +189,15 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
         pulumi.set(self, "end_date_time", value)
 
 
-if not MYPY:
-    class ActiveRoleAssignmentTicketArgsDict(TypedDict):
-        number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
-        """
-        system: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
-        """
-elif False:
-    ActiveRoleAssignmentTicketArgsDict: TypeAlias = Mapping[str, Any]
+class ActiveRoleAssignmentTicketArgsDict(TypedDict):
+    number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
+    """
+    system: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ActiveRoleAssignmentTicketArgs:
@@ -249,18 +238,15 @@ class ActiveRoleAssignmentTicketArgs:
         pulumi.set(self, "system", value)
 
 
-if not MYPY:
-    class EligibleRoleAssignmentScheduleArgsDict(TypedDict):
-        expiration: NotRequired[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArgsDict']]
-        """
-        An `expiration` block as defined above.
-        """
-        start_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The start date/time of the role assignment. Changing this forces a new resource to be created.
-        """
-elif False:
-    EligibleRoleAssignmentScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class EligibleRoleAssignmentScheduleArgsDict(TypedDict):
+    expiration: NotRequired[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArgsDict']]
+    """
+    An `expiration` block as defined above.
+    """
+    start_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The start date/time of the role assignment. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class EligibleRoleAssignmentScheduleArgs:
@@ -301,24 +287,21 @@ class EligibleRoleAssignmentScheduleArgs:
         pulumi.set(self, "start_date_time", value)
 
 
-if not MYPY:
-    class EligibleRoleAssignmentScheduleExpirationArgsDict(TypedDict):
-        duration_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The duration of the role assignment in days. Changing this forces a new resource to be created.
-        """
-        duration_hours: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The duration of the role assignment in hours. Changing this forces a new resource to be created.
-        """
-        end_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The end date/time of the role assignment. Changing this forces a new resource to be created.
+class EligibleRoleAssignmentScheduleExpirationArgsDict(TypedDict):
+    duration_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration of the role assignment in days. Changing this forces a new resource to be created.
+    """
+    duration_hours: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration of the role assignment in hours. Changing this forces a new resource to be created.
+    """
+    end_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
-        """
-elif False:
-    EligibleRoleAssignmentScheduleExpirationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+    """
 
 @pulumi.input_type
 class EligibleRoleAssignmentScheduleExpirationArgs:
@@ -379,18 +362,15 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
         pulumi.set(self, "end_date_time", value)
 
 
-if not MYPY:
-    class EligibleRoleAssignmentTicketArgsDict(TypedDict):
-        number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
-        """
-        system: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
-        """
-elif False:
-    EligibleRoleAssignmentTicketArgsDict: TypeAlias = Mapping[str, Any]
+class EligibleRoleAssignmentTicketArgsDict(TypedDict):
+    number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
+    """
+    system: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class EligibleRoleAssignmentTicketArgs:
@@ -431,38 +411,35 @@ class EligibleRoleAssignmentTicketArgs:
         pulumi.set(self, "system", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyActivationRulesArgsDict(TypedDict):
-        approval_stage: NotRequired[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStageArgsDict']]
-        """
-        An `approval_stage` block as defined below.
-        """
-        maximum_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
-        """
-        require_approval: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is approval required for activation. If `true` an `approval_stage` block must be provided.
-        """
-        require_justification: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is a justification required during activation of the role.
-        """
-        require_multifactor_authentication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
-        """
-        require_ticket_info: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is ticket information requrired during activation of the role.
-        """
-        required_conditional_access_authentication_context: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
-        """
-elif False:
-    RoleManagementPolicyActivationRulesArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyActivationRulesArgsDict(TypedDict):
+    approval_stage: NotRequired[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStageArgsDict']]
+    """
+    An `approval_stage` block as defined below.
+    """
+    maximum_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`. Possible values are `PT30M`, `PT1H`, `PT1H30M`, `PT2H`, `PT2H30M`, `PT3H`, `PT3H30M`, `PT4H`, `PT4H30M`, `PT5H`, `PT5H30M`, `PT6H`, `PT6H30M`, `PT7H`, `PT7H30M`, `PT8H`, `PT8H30M`, `PT9H`, `PT9H30M`, `PT10H`, `PT10H30M`, `PT11H`, `PT11H30M`, `PT12H`, `PT12H30M`, `PT13H`, `PT13H30M`, `PT14H`, `PT14H30M`, `PT15H`, `PT15H30M`, `PT16H`, `PT16H30M`, `PT17H`, `PT17H30M`, `PT18H`, `PT18H30M`, `PT19H`, `PT19H30M`, `PT20H`, `PT20H30M`, `PT21H`, `PT21H30M`, `PT22H`, `PT22H30M`, `PT23H`, `PT23H30M` and `P1D`.
+    """
+    require_approval: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is approval required for activation. If `true` an `approval_stage` block must be provided.
+    """
+    require_justification: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is a justification required during activation of the role.
+    """
+    require_multifactor_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+    """
+    require_ticket_info: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is ticket information requrired during activation of the role.
+    """
+    required_conditional_access_authentication_context: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyActivationRulesArgs:
@@ -583,14 +560,11 @@ class RoleManagementPolicyActivationRulesArgs:
         pulumi.set(self, "required_conditional_access_authentication_context", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyActivationRulesApprovalStageArgsDict(TypedDict):
-        primary_approvers: pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgsDict']]]
-        """
-        One or more `primary_approver` blocks as defined below.
-        """
-elif False:
-    RoleManagementPolicyActivationRulesApprovalStageArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyActivationRulesApprovalStageArgsDict(TypedDict):
+    primary_approvers: pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgsDict']]]
+    """
+    One or more `primary_approver` blocks as defined below.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyActivationRulesApprovalStageArgs:
@@ -614,18 +588,15 @@ class RoleManagementPolicyActivationRulesApprovalStageArgs:
         pulumi.set(self, "primary_approvers", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgsDict(TypedDict):
-        object_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the object which will act as an approver.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of object acting as an approver. Possible options are `User` and `Group`.
-        """
-elif False:
-    RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgsDict(TypedDict):
+    object_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the object which will act as an approver.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of object acting as an approver. Possible options are `User` and `Group`.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs:
@@ -664,32 +635,29 @@ class RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyActiveAssignmentRulesArgsDict(TypedDict):
-        expiration_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Must an assignment have an expiry date. `false` allows permanent assignment.
-        """
-        expire_after: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
-        """
-        require_justification: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is a justification required to create new assignments.
-        """
-        require_multifactor_authentication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is multi-factor authentication required to create new assignments.
-        """
-        require_ticket_info: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is ticket information required to create new assignments.
+class RoleManagementPolicyActiveAssignmentRulesArgsDict(TypedDict):
+    expiration_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Must an assignment have an expiry date. `false` allows permanent assignment.
+    """
+    expire_after: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+    """
+    require_justification: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is a justification required to create new assignments.
+    """
+    require_multifactor_authentication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is multi-factor authentication required to create new assignments.
+    """
+    require_ticket_info: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is ticket information required to create new assignments.
 
-        One of `expiration_required` or `expire_after` must be provided.
-        """
-elif False:
-    RoleManagementPolicyActiveAssignmentRulesArgsDict: TypeAlias = Mapping[str, Any]
+    One of `expiration_required` or `expire_after` must be provided.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyActiveAssignmentRulesArgs:
@@ -782,20 +750,17 @@ class RoleManagementPolicyActiveAssignmentRulesArgs:
         pulumi.set(self, "require_ticket_info", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyEligibleAssignmentRulesArgsDict(TypedDict):
-        expiration_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Must an assignment have an expiry date. `false` allows permanent assignment.
-        """
-        expire_after: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+class RoleManagementPolicyEligibleAssignmentRulesArgsDict(TypedDict):
+    expiration_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Must an assignment have an expiry date. `false` allows permanent assignment.
+    """
+    expire_after: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
 
-        One of `expiration_required` or `expire_after` must be provided.
-        """
-elif False:
-    RoleManagementPolicyEligibleAssignmentRulesArgsDict: TypeAlias = Mapping[str, Any]
+    One of `expiration_required` or `expire_after` must be provided.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyEligibleAssignmentRulesArgs:
@@ -840,22 +805,19 @@ class RoleManagementPolicyEligibleAssignmentRulesArgs:
         pulumi.set(self, "expire_after", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesArgsDict(TypedDict):
-        active_assignments: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict']]
-        """
-        A `notification_target` block as defined below to configure notfications on active role assignments.
-        """
-        eligible_activations: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict']]
-        """
-        A `notification_target` block as defined below for configuring notifications on activation of eligible role.
-        """
-        eligible_assignments: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict']]
-        """
-        A `notification_target` block as defined below to configure notification on eligible role assignments.
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesArgsDict(TypedDict):
+    active_assignments: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict']]
+    """
+    A `notification_target` block as defined below to configure notfications on active role assignments.
+    """
+    eligible_activations: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict']]
+    """
+    A `notification_target` block as defined below for configuring notifications on activation of eligible role.
+    """
+    eligible_assignments: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict']]
+    """
+    A `notification_target` block as defined below to configure notification on eligible role assignments.
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesArgs:
@@ -912,22 +874,19 @@ class RoleManagementPolicyNotificationRulesArgs:
         pulumi.set(self, "eligible_assignments", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict(TypedDict):
-        admin_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgsDict']]
-        """
-        Admin notification settings
-        """
-        approver_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgsDict']]
-        """
-        Approver notification settings
-        """
-        assignee_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgsDict']]
-        """
-        Assignee notification settings
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict(TypedDict):
+    admin_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgsDict']]
+    """
+    Admin notification settings
+    """
+    approver_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgsDict']]
+    """
+    Approver notification settings
+    """
+    assignee_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgsDict']]
+    """
+    Assignee notification settings
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesActiveAssignmentsArgs:
@@ -984,22 +943,19 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsArgs:
         pulumi.set(self, "assignee_notifications", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs:
@@ -1054,22 +1010,19 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsAr
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs:
@@ -1124,22 +1077,19 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotification
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs:
@@ -1194,22 +1144,19 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotification
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict(TypedDict):
-        admin_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgsDict']]
-        """
-        Admin notification settings
-        """
-        approver_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgsDict']]
-        """
-        Approver notification settings
-        """
-        assignee_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgsDict']]
-        """
-        Assignee notification settings
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict(TypedDict):
+    admin_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgsDict']]
+    """
+    Admin notification settings
+    """
+    approver_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgsDict']]
+    """
+    Approver notification settings
+    """
+    assignee_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgsDict']]
+    """
+    Assignee notification settings
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleActivationsArgs:
@@ -1266,22 +1213,19 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsArgs:
         pulumi.set(self, "assignee_notifications", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs:
@@ -1336,22 +1280,19 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs:
@@ -1406,22 +1347,19 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificati
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs:
@@ -1476,22 +1414,19 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificati
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict(TypedDict):
-        admin_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgsDict']]
-        """
-        Admin notification settings
-        """
-        approver_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgsDict']]
-        """
-        Approver notification settings
-        """
-        assignee_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgsDict']]
-        """
-        Assignee notification settings
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict(TypedDict):
+    admin_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgsDict']]
+    """
+    Admin notification settings
+    """
+    approver_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgsDict']]
+    """
+    Approver notification settings
+    """
+    assignee_notifications: NotRequired[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgsDict']]
+    """
+    Assignee notification settings
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs:
@@ -1548,22 +1483,19 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs:
         pulumi.set(self, "assignee_notifications", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs:
@@ -1618,22 +1550,19 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs:
@@ -1688,22 +1617,19 @@ class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificati
         pulumi.set(self, "additional_recipients", value)
 
 
-if not MYPY:
-    class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgsDict(TypedDict):
-        default_recipients: pulumi.Input[_builtins.bool]
-        """
-        Whether the default recipients are notified
-        """
-        notification_level: pulumi.Input[_builtins.str]
-        """
-        What level of notifications are sent
-        """
-        additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The additional recipients to notify
-        """
-elif False:
-    RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgsDict: TypeAlias = Mapping[str, Any]
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgsDict(TypedDict):
+    default_recipients: pulumi.Input[_builtins.bool]
+    """
+    Whether the default recipients are notified
+    """
+    notification_level: pulumi.Input[_builtins.str]
+    """
+    What level of notifications are sent
+    """
+    additional_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The additional recipients to notify
+    """
 
 @pulumi.input_type
 class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs:

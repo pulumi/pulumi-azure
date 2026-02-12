@@ -31,9 +31,19 @@ public final class DicomServiceAuthenticationArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.audiences);
     }
 
+    /**
+     * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+     * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+     * 
+     */
     @Import(name="authority")
     private @Nullable Output<String> authority;
 
+    /**
+     * @return The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+     * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+     * 
+     */
     public Optional<Output<String>> authority() {
         return Optional.ofNullable(this.authority);
     }
@@ -94,11 +104,25 @@ public final class DicomServiceAuthenticationArgs extends com.pulumi.resources.R
             return audiences(List.of(audiences));
         }
 
+        /**
+         * @param authority The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authority(@Nullable Output<String> authority) {
             $.authority = authority;
             return this;
         }
 
+        /**
+         * @param authority The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+         * Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authority(String authority) {
             return authority(Output.of(authority));
         }

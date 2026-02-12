@@ -17,6 +17,10 @@ namespace Pulumi.Azure.Healthcare.Outputs
         /// The intended audience to receive authentication tokens for the service.
         /// </summary>
         public readonly string Audience;
+        /// <summary>
+        /// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+        /// Authority must be registered to Azure AD and in the following format: &lt;https://{Azure-AD-endpoint}/{tenant-id&gt;}.
+        /// </summary>
         public readonly string Authority;
         /// <summary>
         /// Whether smart proxy is enabled.

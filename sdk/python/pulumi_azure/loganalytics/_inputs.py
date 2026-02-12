@@ -23,32 +23,27 @@ __all__ = [
     'WorkspaceTableCustomLogStandardColumnArgsDict',
 ]
 
-MYPY = False
+class ClusterIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
 
-if not MYPY:
-    class ClusterIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and `UserAssigned`. Changing this forces a new resource to be created.
+    > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
 
-        > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. Changing this forces a new resource to be created.
-
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ClusterIdentityArgs:
@@ -128,26 +123,23 @@ class ClusterIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class WorkspaceTableCustomLogColumnArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the column.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the column.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of the column.
-        """
-elif False:
-    WorkspaceTableCustomLogColumnArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceTableCustomLogColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the column.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the column.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of the column.
+    """
 
 @pulumi.input_type
 class WorkspaceTableCustomLogColumnArgs:
@@ -218,28 +210,25 @@ class WorkspaceTableCustomLogColumnArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class WorkspaceTableCustomLogStandardColumnArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the table.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of the table.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
+class WorkspaceTableCustomLogStandardColumnArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the table.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of the table.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
 
-        > **Note:** `name` must end with `_CL`.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data type of the standard column.
-        """
-elif False:
-    WorkspaceTableCustomLogStandardColumnArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `name` must end with `_CL`.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data type of the standard column.
+    """
 
 @pulumi.input_type
 class WorkspaceTableCustomLogStandardColumnArgs:

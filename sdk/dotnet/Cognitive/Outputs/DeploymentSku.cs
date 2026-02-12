@@ -21,6 +21,11 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Family;
+        /// <summary>
+        /// The name of the SKU. Possible values include `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`, `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, and `ProvisionedManaged`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `DataZoneProvisionedManaged`, `GlobalProvisionedManaged`, and `ProvisionedManaged` are purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations. Currently, this step cannot be completed using Terraform. For more details, please refer to the [provisioned throughput onboarding documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.

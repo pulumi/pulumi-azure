@@ -21,8 +21,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"

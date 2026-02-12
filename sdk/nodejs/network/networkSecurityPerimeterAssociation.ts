@@ -94,6 +94,12 @@ export class NetworkSecurityPerimeterAssociation extends pulumi.CustomResource {
      * The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
      */
     declare public readonly networkSecurityPerimeterProfileId: pulumi.Output<string>;
+    /**
+     * The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+     *
+     * > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     */
     declare public readonly resourceId: pulumi.Output<string>;
 
     /**
@@ -150,6 +156,12 @@ export interface NetworkSecurityPerimeterAssociationState {
      * The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
      */
     networkSecurityPerimeterProfileId?: pulumi.Input<string>;
+    /**
+     * The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+     *
+     * > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     */
     resourceId?: pulumi.Input<string>;
 }
 
@@ -169,5 +181,11 @@ export interface NetworkSecurityPerimeterAssociationArgs {
      * The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
      */
     networkSecurityPerimeterProfileId: pulumi.Input<string>;
+    /**
+     * The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+     *
+     * > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     */
     resourceId: pulumi.Input<string>;
 }

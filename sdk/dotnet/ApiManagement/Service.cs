@@ -10,6 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
+    /// Manages an API Management Service.
+    /// 
+    /// ## Disclaimers
+    /// 
+    /// &gt; **Note:** When creating a new API Management resource in version 3.0 of the AzureRM Provider and later, please be aware that the AzureRM Provider will now clean up any sample APIs and Products created by the Azure API during the creation of the API Management resource.
+    /// 
+    /// &gt; **Note:** Version 2.77 and later of the Azure Provider include a Feature Toggle which will purge an API Management resource on destroy, rather than the default soft-delete. See the Features block documentation for more information on Feature Toggles within Terraform.
+    /// 
+    /// &gt; **Note:** It's possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `HostnameConfigurations` block and by using the `azure.apimanagement.CustomDomain` resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

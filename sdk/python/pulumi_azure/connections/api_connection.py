@@ -31,6 +31,9 @@ class ApiConnectionArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[_builtins.str] display_name: A display name for this API Connection.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameter_values: A map of parameter values associated with this API Connection.
+               
+               > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignore_changes` functionality on this field as shown in the Example Usage above.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
         pulumi.set(__self__, "managed_api_id", managed_api_id)
@@ -95,6 +98,11 @@ class ApiConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of parameter values associated with this API Connection.
+
+        > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignore_changes` functionality on this field as shown in the Example Usage above.
+        """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
@@ -128,6 +136,9 @@ class _ApiConnectionState:
         :param pulumi.Input[_builtins.str] display_name: A display name for this API Connection.
         :param pulumi.Input[_builtins.str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameter_values: A map of parameter values associated with this API Connection.
+               
+               > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignore_changes` functionality on this field as shown in the Example Usage above.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
@@ -183,6 +194,11 @@ class _ApiConnectionState:
     @_builtins.property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of parameter values associated with this API Connection.
+
+        > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignore_changes` functionality on this field as shown in the Example Usage above.
+        """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
@@ -279,6 +295,9 @@ class ApiConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: A display name for this API Connection.
         :param pulumi.Input[_builtins.str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameter_values: A map of parameter values associated with this API Connection.
+               
+               > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignore_changes` functionality on this field as shown in the Example Usage above.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
@@ -401,6 +420,9 @@ class ApiConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: A display name for this API Connection.
         :param pulumi.Input[_builtins.str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameter_values: A map of parameter values associated with this API Connection.
+               
+               > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignore_changes` functionality on this field as shown in the Example Usage above.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
@@ -443,6 +465,11 @@ class ApiConnection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        A map of parameter values associated with this API Connection.
+
+        > **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `ignore_changes` functionality on this field as shown in the Example Usage above.
+        """
         return pulumi.get(self, "parameter_values")
 
     @_builtins.property

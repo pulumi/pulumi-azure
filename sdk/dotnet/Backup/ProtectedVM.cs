@@ -87,6 +87,13 @@ namespace Pulumi.Azure.Backup
     [AzureResourceType("azure:backup/protectedVM:ProtectedVM")]
     public partial class ProtectedVM : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the ID of the backup policy to use.
+        /// 
+        /// &gt; **Note:** `BackupPolicyId` is required during initial creation of this resource.
+        /// 
+        /// &gt; **Note:** When `ProtectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `BackupPolicyId`. To avoid a perpetual diff, use Terraform's IgnoreChanges argument.
+        /// </summary>
         [Output("backupPolicyId")]
         public Output<string?> BackupPolicyId { get; private set; } = null!;
 
@@ -176,6 +183,13 @@ namespace Pulumi.Azure.Backup
 
     public sealed class ProtectedVMArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ID of the backup policy to use.
+        /// 
+        /// &gt; **Note:** `BackupPolicyId` is required during initial creation of this resource.
+        /// 
+        /// &gt; **Note:** When `ProtectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `BackupPolicyId`. To avoid a perpetual diff, use Terraform's IgnoreChanges argument.
+        /// </summary>
         [Input("backupPolicyId")]
         public Input<string>? BackupPolicyId { get; set; }
 
@@ -239,6 +253,13 @@ namespace Pulumi.Azure.Backup
 
     public sealed class ProtectedVMState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ID of the backup policy to use.
+        /// 
+        /// &gt; **Note:** `BackupPolicyId` is required during initial creation of this resource.
+        /// 
+        /// &gt; **Note:** When `ProtectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `BackupPolicyId`. To avoid a perpetual diff, use Terraform's IgnoreChanges argument.
+        /// </summary>
         [Input("backupPolicyId")]
         public Input<string>? BackupPolicyId { get; set; }
 

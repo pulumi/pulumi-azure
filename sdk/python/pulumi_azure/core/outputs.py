@@ -1374,6 +1374,9 @@ class ResourceProviderRegistrationFeature(dict):
                  name: _builtins.str,
                  registered: _builtins.bool):
         """
+        :param _builtins.str name: Specifies the name of the feature to register.
+               
+               > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
         :param _builtins.bool registered: Should this feature be Registered or Unregistered?
         """
         pulumi.set(__self__, "name", name)
@@ -1382,6 +1385,11 @@ class ResourceProviderRegistrationFeature(dict):
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Specifies the name of the feature to register.
+
+        > **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property

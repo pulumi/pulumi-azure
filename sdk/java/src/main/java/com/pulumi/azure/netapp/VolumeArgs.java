@@ -181,14 +181,18 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `kerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
      * 
      */
     @Import(name="kerberosEnabled")
     private @Nullable Output<Boolean> kerberosEnabled;
 
     /**
-     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `kerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
      * 
      */
     public Optional<Output<Boolean>> kerberosEnabled() {
@@ -338,9 +342,25 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.securityStyle);
     }
 
+    /**
+     * The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+     * 
+     * &gt; **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+     * 
+     * &gt; **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+     * 
+     */
     @Import(name="serviceLevel", required=true)
     private Output<String> serviceLevel;
 
+    /**
+     * @return The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+     * 
+     * &gt; **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+     * 
+     * &gt; **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+     * 
+     */
     public Output<String> serviceLevel() {
         return this.serviceLevel;
     }
@@ -794,7 +814,9 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `kerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
          * 
          * @return builder
          * 
@@ -805,7 +827,9 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
+         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `kerberosEnabled` requires that the parent `azure.netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
          * 
          * @return builder
          * 
@@ -1023,11 +1047,31 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
             return securityStyle(Output.of(securityStyle));
         }
 
+        /**
+         * @param serviceLevel The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+         * 
+         * &gt; **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+         * 
+         * &gt; **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceLevel(Output<String> serviceLevel) {
             $.serviceLevel = serviceLevel;
             return this;
         }
 
+        /**
+         * @param serviceLevel The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+         * 
+         * &gt; **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+         * 
+         * &gt; **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceLevel(String serviceLevel) {
             return serviceLevel(Output.of(serviceLevel));
         }

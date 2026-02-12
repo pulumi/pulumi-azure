@@ -97,6 +97,11 @@ namespace Pulumi.Azure.Connections
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of parameter values associated with this API Connection.
+        /// 
+        /// &gt; **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `IgnoreChanges` functionality on this field as shown in the Example Usage above.
+        /// </summary>
         [Output("parameterValues")]
         public Output<ImmutableDictionary<string, string>?> ParameterValues { get; private set; } = null!;
 
@@ -178,6 +183,12 @@ namespace Pulumi.Azure.Connections
 
         [Input("parameterValues")]
         private InputMap<string>? _parameterValues;
+
+        /// <summary>
+        /// A map of parameter values associated with this API Connection.
+        /// 
+        /// &gt; **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `IgnoreChanges` functionality on this field as shown in the Example Usage above.
+        /// </summary>
         public InputMap<string> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputMap<string>());
@@ -230,6 +241,12 @@ namespace Pulumi.Azure.Connections
 
         [Input("parameterValues")]
         private InputMap<string>? _parameterValues;
+
+        /// <summary>
+        /// A map of parameter values associated with this API Connection.
+        /// 
+        /// &gt; **Note:** The Azure API doesn't return sensitive parameters in the API response which can lead to a diff, as such you may need to use Terraform's `IgnoreChanges` functionality on this field as shown in the Example Usage above.
+        /// </summary>
         public InputMap<string> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputMap<string>());

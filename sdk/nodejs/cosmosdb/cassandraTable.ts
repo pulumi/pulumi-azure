@@ -104,6 +104,11 @@ export class CassandraTable extends pulumi.CustomResource {
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
     declare public readonly analyticalStorageTtl: pulumi.Output<number | undefined>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     declare public readonly autoscaleSettings: pulumi.Output<outputs.cosmosdb.CassandraTableAutoscaleSettings | undefined>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -121,6 +126,9 @@ export class CassandraTable extends pulumi.CustomResource {
      * A `schema` block as defined below.
      */
     declare public readonly schema: pulumi.Output<outputs.cosmosdb.CassandraTableSchema>;
+    /**
+     * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     */
     declare public readonly throughput: pulumi.Output<number>;
 
     /**
@@ -174,6 +182,11 @@ export interface CassandraTableState {
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
     analyticalStorageTtl?: pulumi.Input<number>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -191,6 +204,9 @@ export interface CassandraTableState {
      * A `schema` block as defined below.
      */
     schema?: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
+    /**
+     * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     */
     throughput?: pulumi.Input<number>;
 }
 
@@ -204,6 +220,11 @@ export interface CassandraTableArgs {
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
     analyticalStorageTtl?: pulumi.Input<number>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
@@ -221,5 +242,8 @@ export interface CassandraTableArgs {
      * A `schema` block as defined below.
      */
     schema: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
+    /**
+     * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     */
     throughput?: pulumi.Input<number>;
 }

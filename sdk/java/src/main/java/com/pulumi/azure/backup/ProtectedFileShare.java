@@ -120,6 +120,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:backup/protectedFileShare:ProtectedFileShare item1 &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;group2;example-storage-account/protectedItems/AzureFileShare;3f6e3108a45793581bcbd1c61c87a3b2ceeb4ff4bc02a95ce9d1022b23722935&#34;
  * ```
  * 
+ * &gt; **Note:** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
+ * 
  */
 @ResourceType(type="azure:backup/protectedFileShare:ProtectedFileShare")
 public class ProtectedFileShare extends com.pulumi.resources.CustomResource {

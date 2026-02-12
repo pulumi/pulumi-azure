@@ -428,9 +428,7 @@ class RoleAssignment(pulumi.CustomResource):
         $ pulumi import azure:marketplace/roleAssignment:RoleAssignment example /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
         ```
 
-        text
-
-        /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+        > **Note:** For cross tenant scenarios, the format of the `resource id` consists of the Azure resource ID and the tenant ID, for example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -503,9 +501,7 @@ class RoleAssignment(pulumi.CustomResource):
         $ pulumi import azure:marketplace/roleAssignment:RoleAssignment example /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
         ```
 
-        text
-
-        /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+        > **Note:** For cross tenant scenarios, the format of the `resource id` consists of the Azure resource ID and the tenant ID, for example:
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.

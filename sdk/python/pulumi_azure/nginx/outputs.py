@@ -178,6 +178,9 @@ class DeploymentAutoScaleProfile(dict):
                  min_capacity: _builtins.int,
                  name: _builtins.str):
         """
+        :param _builtins.int max_capacity: Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+               
+               > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param _builtins.int min_capacity: Specify the minimum number of NGINX capacity units for this NGINX Deployment.
         :param _builtins.str name: Specify the name of the autoscaling profile.
         """
@@ -188,6 +191,11 @@ class DeploymentAutoScaleProfile(dict):
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> _builtins.int:
+        """
+        Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+
+        > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
+        """
         return pulumi.get(self, "max_capacity")
 
     @_builtins.property

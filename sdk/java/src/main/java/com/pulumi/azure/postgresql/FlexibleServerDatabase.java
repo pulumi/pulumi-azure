@@ -15,6 +15,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a PostgreSQL Flexible Server Database.
+ * 
+ * !&gt; **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `preventDestroy` lifecycle argument in your configuration file for this resource. For more information on the `preventDestroy` lifecycle argument please see the terraform documentation.
+ * 
  * ## Example Usage
  * 
  * <pre>

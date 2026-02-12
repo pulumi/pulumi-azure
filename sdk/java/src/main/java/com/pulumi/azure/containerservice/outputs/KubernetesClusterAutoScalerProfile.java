@@ -104,6 +104,11 @@ public final class KubernetesClusterAutoScalerProfile {
      * 
      */
     private @Nullable String scanInterval;
+    /**
+     * @return If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+     * &lt;!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. --&gt;
+     * 
+     */
     private @Nullable Boolean skipNodesWithLocalStorage;
     /**
      * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
@@ -238,6 +243,11 @@ public final class KubernetesClusterAutoScalerProfile {
     public Optional<String> scanInterval() {
         return Optional.ofNullable(this.scanInterval);
     }
+    /**
+     * @return If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+     * &lt;!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. --&gt;
+     * 
+     */
     public Optional<Boolean> skipNodesWithLocalStorage() {
         return Optional.ofNullable(this.skipNodesWithLocalStorage);
     }

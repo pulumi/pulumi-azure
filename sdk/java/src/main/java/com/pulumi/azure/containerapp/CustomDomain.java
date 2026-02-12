@@ -211,14 +211,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerapp/customDomain:CustomDomain")
 public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
-     * The Binding type. Possible values include `Disabled` and `SniEnabled`.
+     * The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      * 
      */
     @Export(name="certificateBindingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateBindingType;
 
     /**
-     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`.
+     * @return The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
      * 
      */
     public Output<Optional<String>> certificateBindingType() {

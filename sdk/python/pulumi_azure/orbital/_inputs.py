@@ -25,28 +25,23 @@ __all__ = [
     'SpacecraftLinkArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ContactProfileLinkArgsDict(TypedDict):
-        channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgsDict']]]
-        """
-        A list of contact profile link channels. A `channels` block as defined below.
-        """
-        direction: pulumi.Input[_builtins.str]
-        """
-        Direction of the link. Possible values are `Uplink` and `Downlink`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the link.
-        """
-        polarization: pulumi.Input[_builtins.str]
-        """
-        Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
-        """
-elif False:
-    ContactProfileLinkArgsDict: TypeAlias = Mapping[str, Any]
+class ContactProfileLinkArgsDict(TypedDict):
+    channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgsDict']]]
+    """
+    A list of contact profile link channels. A `channels` block as defined below.
+    """
+    direction: pulumi.Input[_builtins.str]
+    """
+    Direction of the link. Possible values are `Uplink` and `Downlink`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the link.
+    """
+    polarization: pulumi.Input[_builtins.str]
+    """
+    Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
+    """
 
 @pulumi.input_type
 class ContactProfileLinkArgs:
@@ -115,34 +110,31 @@ class ContactProfileLinkArgs:
         pulumi.set(self, "polarization", value)
 
 
-if not MYPY:
-    class ContactProfileLinkChannelArgsDict(TypedDict):
-        bandwidth_mhz: pulumi.Input[_builtins.float]
-        """
-        Bandwidth in MHz.
-        """
-        center_frequency_mhz: pulumi.Input[_builtins.float]
-        """
-        Center frequency in MHz.
-        """
-        end_points: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArgsDict']]]
-        """
-        Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the channel.
-        """
-        demodulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
-        """
-        modulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
-        """
-elif False:
-    ContactProfileLinkChannelArgsDict: TypeAlias = Mapping[str, Any]
+class ContactProfileLinkChannelArgsDict(TypedDict):
+    bandwidth_mhz: pulumi.Input[_builtins.float]
+    """
+    Bandwidth in MHz.
+    """
+    center_frequency_mhz: pulumi.Input[_builtins.float]
+    """
+    Center frequency in MHz.
+    """
+    end_points: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArgsDict']]]
+    """
+    Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the channel.
+    """
+    demodulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+    """
+    modulation_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+    """
 
 @pulumi.input_type
 class ContactProfileLinkChannelArgs:
@@ -243,26 +235,23 @@ class ContactProfileLinkChannelArgs:
         pulumi.set(self, "modulation_configuration", value)
 
 
-if not MYPY:
-    class ContactProfileLinkChannelEndPointArgsDict(TypedDict):
-        end_point_name: pulumi.Input[_builtins.str]
-        """
-        Name of an end point.
-        """
-        port: pulumi.Input[_builtins.str]
-        """
-        TCP port to listen on to receive data.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol of an end point. Possible values are `TCP` and `UDP`.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP address of an end point.
-        """
-elif False:
-    ContactProfileLinkChannelEndPointArgsDict: TypeAlias = Mapping[str, Any]
+class ContactProfileLinkChannelEndPointArgsDict(TypedDict):
+    end_point_name: pulumi.Input[_builtins.str]
+    """
+    Name of an end point.
+    """
+    port: pulumi.Input[_builtins.str]
+    """
+    TCP port to listen on to receive data.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol of an end point. Possible values are `TCP` and `UDP`.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP address of an end point.
+    """
 
 @pulumi.input_type
 class ContactProfileLinkChannelEndPointArgs:
@@ -332,32 +321,29 @@ class ContactProfileLinkChannelEndPointArgs:
         pulumi.set(self, "ip_address", value)
 
 
-if not MYPY:
-    class SpacecraftLinkArgsDict(TypedDict):
-        bandwidth_mhz: pulumi.Input[_builtins.float]
-        """
-        Bandwidth in Mhz.
-        """
-        center_frequency_mhz: pulumi.Input[_builtins.float]
-        """
-        Center frequency in Mhz.
+class SpacecraftLinkArgsDict(TypedDict):
+    bandwidth_mhz: pulumi.Input[_builtins.float]
+    """
+    Bandwidth in Mhz.
+    """
+    center_frequency_mhz: pulumi.Input[_builtins.float]
+    """
+    Center frequency in Mhz.
 
-        > **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
-        """
-        direction: pulumi.Input[_builtins.str]
-        """
-        Direction if the communication. Possible values are `Uplink` and `Downlink`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the link.
-        """
-        polarization: pulumi.Input[_builtins.str]
-        """
-        Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
-        """
-elif False:
-    SpacecraftLinkArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
+    """
+    direction: pulumi.Input[_builtins.str]
+    """
+    Direction if the communication. Possible values are `Uplink` and `Downlink`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the link.
+    """
+    polarization: pulumi.Input[_builtins.str]
+    """
+    Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
+    """
 
 @pulumi.input_type
 class SpacecraftLinkArgs:

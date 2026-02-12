@@ -6475,8 +6475,10 @@ type KubernetesClusterAutoScalerProfile struct {
 	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-	ScanInterval              *string `pulumi:"scanInterval"`
-	SkipNodesWithLocalStorage *bool   `pulumi:"skipNodesWithLocalStorage"`
+	ScanInterval *string `pulumi:"scanInterval"`
+	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+	// <!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. -->
+	SkipNodesWithLocalStorage *bool `pulumi:"skipNodesWithLocalStorage"`
 	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 	SkipNodesWithSystemPods *bool `pulumi:"skipNodesWithSystemPods"`
 }
@@ -6528,8 +6530,10 @@ type KubernetesClusterAutoScalerProfileArgs struct {
 	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-	ScanInterval              pulumi.StringPtrInput `pulumi:"scanInterval"`
-	SkipNodesWithLocalStorage pulumi.BoolPtrInput   `pulumi:"skipNodesWithLocalStorage"`
+	ScanInterval pulumi.StringPtrInput `pulumi:"scanInterval"`
+	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+	// <!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. -->
+	SkipNodesWithLocalStorage pulumi.BoolPtrInput `pulumi:"skipNodesWithLocalStorage"`
 	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 	SkipNodesWithSystemPods pulumi.BoolPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
@@ -6701,6 +6705,8 @@ func (o KubernetesClusterAutoScalerProfileOutput) ScanInterval() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
 }
 
+// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+// <!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. -->
 func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithLocalStorage }).(pulumi.BoolPtrOutput)
 }
@@ -6914,6 +6920,8 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) ScanInterval() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+// <!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `autoScalerProfile` block is present but this field isn’t set. -->
 func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
 		if v == nil {
@@ -10374,8 +10382,13 @@ type KubernetesClusterHttpProxyConfig struct {
 	// The proxy address to be used when communicating over HTTP.
 	HttpProxy *string `pulumi:"httpProxy"`
 	// The proxy address to be used when communicating over HTTPS.
-	HttpsProxy *string  `pulumi:"httpsProxy"`
-	NoProxies  []string `pulumi:"noProxies"`
+	HttpsProxy *string `pulumi:"httpsProxy"`
+	// The list of domains that will not use the proxy for communication.
+	//
+	// > **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+	//
+	// > **Note:** You may wish to use Terraform's `ignoreChanges` functionality to ignore the changes to this field.
+	NoProxies []string `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
 	TrustedCa *string `pulumi:"trustedCa"`
 }
@@ -10395,8 +10408,13 @@ type KubernetesClusterHttpProxyConfigArgs struct {
 	// The proxy address to be used when communicating over HTTP.
 	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
 	// The proxy address to be used when communicating over HTTPS.
-	HttpsProxy pulumi.StringPtrInput   `pulumi:"httpsProxy"`
-	NoProxies  pulumi.StringArrayInput `pulumi:"noProxies"`
+	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
+	// The list of domains that will not use the proxy for communication.
+	//
+	// > **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+	//
+	// > **Note:** You may wish to use Terraform's `ignoreChanges` functionality to ignore the changes to this field.
+	NoProxies pulumi.StringArrayInput `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
 	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
 }
@@ -10488,6 +10506,11 @@ func (o KubernetesClusterHttpProxyConfigOutput) HttpsProxy() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
 }
 
+// The list of domains that will not use the proxy for communication.
+//
+// > **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+//
+// > **Note:** You may wish to use Terraform's `ignoreChanges` functionality to ignore the changes to this field.
 func (o KubernetesClusterHttpProxyConfigOutput) NoProxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) []string { return v.NoProxies }).(pulumi.StringArrayOutput)
 }
@@ -10541,6 +10564,11 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of domains that will not use the proxy for communication.
+//
+// > **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `noProxy` list.
+//
+// > **Note:** You may wish to use Terraform's `ignoreChanges` functionality to ignore the changes to this field.
 func (o KubernetesClusterHttpProxyConfigPtrOutput) NoProxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) []string {
 		if v == nil {

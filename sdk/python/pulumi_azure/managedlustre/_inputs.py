@@ -27,20 +27,15 @@ __all__ = [
     'FileSystemRootSquashArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class FileSystemEncryptionKeyArgsDict(TypedDict):
-        key_url: pulumi.Input[_builtins.str]
-        """
-        The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
-        """
-        source_vault_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
-        """
-elif False:
-    FileSystemEncryptionKeyArgsDict: TypeAlias = Mapping[str, Any]
+class FileSystemEncryptionKeyArgsDict(TypedDict):
+    key_url: pulumi.Input[_builtins.str]
+    """
+    The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+    """
+    source_vault_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+    """
 
 @pulumi.input_type
 class FileSystemEncryptionKeyArgs:
@@ -79,24 +74,21 @@ class FileSystemEncryptionKeyArgs:
         pulumi.set(self, "source_vault_id", value)
 
 
-if not MYPY:
-    class FileSystemHsmSettingArgsDict(TypedDict):
-        container_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created.
-        """
-        logging_container_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
-        """
-        import_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
+class FileSystemHsmSettingArgsDict(TypedDict):
+    container_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created.
+    """
+    logging_container_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
+    """
+    import_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
 
-        > **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
-        """
-elif False:
-    FileSystemHsmSettingArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+    """
 
 @pulumi.input_type
 class FileSystemHsmSettingArgs:
@@ -155,18 +147,15 @@ class FileSystemHsmSettingArgs:
         pulumi.set(self, "import_prefix", value)
 
 
-if not MYPY:
-    class FileSystemIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
-        """
-elif False:
-    FileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class FileSystemIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class FileSystemIdentityArgs:
@@ -205,18 +194,15 @@ class FileSystemIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FileSystemMaintenanceWindowArgsDict(TypedDict):
-        day_of_week: pulumi.Input[_builtins.str]
-        """
-        The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        """
-        time_of_day_in_utc: pulumi.Input[_builtins.str]
-        """
-        The time of day (in UTC) to start the maintenance window.
-        """
-elif False:
-    FileSystemMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class FileSystemMaintenanceWindowArgsDict(TypedDict):
+    day_of_week: pulumi.Input[_builtins.str]
+    """
+    The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+    """
+    time_of_day_in_utc: pulumi.Input[_builtins.str]
+    """
+    The time of day (in UTC) to start the maintenance window.
+    """
 
 @pulumi.input_type
 class FileSystemMaintenanceWindowArgs:
@@ -255,26 +241,23 @@ class FileSystemMaintenanceWindowArgs:
         pulumi.set(self, "time_of_day_in_utc", value)
 
 
-if not MYPY:
-    class FileSystemRootSquashArgsDict(TypedDict):
-        mode: pulumi.Input[_builtins.str]
-        """
-        Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
-        """
-        no_squash_nids: pulumi.Input[_builtins.str]
-        """
-        NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
-        """
-        squash_gid: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The GID to be used for the root squash. Defaults to `0`.
-        """
-        squash_uid: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The UID to be used for the root squash. Defaults to `0`.
-        """
-elif False:
-    FileSystemRootSquashArgsDict: TypeAlias = Mapping[str, Any]
+class FileSystemRootSquashArgsDict(TypedDict):
+    mode: pulumi.Input[_builtins.str]
+    """
+    Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+    """
+    no_squash_nids: pulumi.Input[_builtins.str]
+    """
+    NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+    """
+    squash_gid: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The GID to be used for the root squash. Defaults to `0`.
+    """
+    squash_uid: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The UID to be used for the root squash. Defaults to `0`.
+    """
 
 @pulumi.input_type
 class FileSystemRootSquashArgs:

@@ -45,20 +45,15 @@ __all__ = [
     'DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationConfigFileArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        Specifies the base-64 encoded contents of this config file.
-        """
-        virtual_path: pulumi.Input[_builtins.str]
-        """
-        Specifies the path of this config file.
-        """
-elif False:
-    ConfigurationConfigFileArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationConfigFileArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    Specifies the base-64 encoded contents of this config file.
+    """
+    virtual_path: pulumi.Input[_builtins.str]
+    """
+    Specifies the path of this config file.
+    """
 
 @pulumi.input_type
 class ConfigurationConfigFileArgs:
@@ -97,22 +92,19 @@ class ConfigurationConfigFileArgs:
         pulumi.set(self, "virtual_path", value)
 
 
-if not MYPY:
-    class ConfigurationProtectedFileArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        Specifies the base-64 encoded contents of this config file (Sensitive).
-        """
-        virtual_path: pulumi.Input[_builtins.str]
-        """
-        Specifies the path of this config file.
-        """
-        content_hash: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hash of the contents of this configuration file prefixed by the algorithm used.
-        """
-elif False:
-    ConfigurationProtectedFileArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProtectedFileArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    Specifies the base-64 encoded contents of this config file (Sensitive).
+    """
+    virtual_path: pulumi.Input[_builtins.str]
+    """
+    Specifies the path of this config file.
+    """
+    content_hash: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hash of the contents of this configuration file prefixed by the algorithm used.
+    """
 
 @pulumi.input_type
 class ConfigurationProtectedFileArgs:
@@ -167,19 +159,21 @@ class ConfigurationProtectedFileArgs:
         pulumi.set(self, "content_hash", value)
 
 
-if not MYPY:
-    class DeploymentAutoScaleProfileArgsDict(TypedDict):
-        max_capacity: pulumi.Input[_builtins.int]
-        min_capacity: pulumi.Input[_builtins.int]
-        """
-        Specify the minimum number of NGINX capacity units for this NGINX Deployment.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specify the name of the autoscaling profile.
-        """
-elif False:
-    DeploymentAutoScaleProfileArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentAutoScaleProfileArgsDict(TypedDict):
+    max_capacity: pulumi.Input[_builtins.int]
+    """
+    Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+
+    > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
+    """
+    min_capacity: pulumi.Input[_builtins.int]
+    """
+    Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specify the name of the autoscaling profile.
+    """
 
 @pulumi.input_type
 class DeploymentAutoScaleProfileArgs:
@@ -188,6 +182,9 @@ class DeploymentAutoScaleProfileArgs:
                  min_capacity: pulumi.Input[_builtins.int],
                  name: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.int] max_capacity: Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+               
+               > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param pulumi.Input[_builtins.int] min_capacity: Specify the minimum number of NGINX capacity units for this NGINX Deployment.
         :param pulumi.Input[_builtins.str] name: Specify the name of the autoscaling profile.
         """
@@ -198,6 +195,11 @@ class DeploymentAutoScaleProfileArgs:
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Input[_builtins.int]:
+        """
+        Specify the maximum number of NGINX capacity units for this NGINX Deployment.
+
+        > **Note:** If you're using autoscaling with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
+        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -229,22 +231,19 @@ class DeploymentAutoScaleProfileArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DeploymentFrontendPrivateArgsDict(TypedDict):
-        allocation_method: pulumi.Input[_builtins.str]
-        """
-        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
-        """
-        ip_address: pulumi.Input[_builtins.str]
-        """
-        Specify the private IP Address.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        Specify the Subnet Resource ID for this NGINX Deployment.
-        """
-elif False:
-    DeploymentFrontendPrivateArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentFrontendPrivateArgsDict(TypedDict):
+    allocation_method: pulumi.Input[_builtins.str]
+    """
+    Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+    """
+    ip_address: pulumi.Input[_builtins.str]
+    """
+    Specify the private IP Address.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    Specify the Subnet Resource ID for this NGINX Deployment.
+    """
 
 @pulumi.input_type
 class DeploymentFrontendPrivateArgs:
@@ -298,14 +297,11 @@ class DeploymentFrontendPrivateArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class DeploymentFrontendPublicArgsDict(TypedDict):
-        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Public IP Resource ID to this NGINX Deployment.
-        """
-elif False:
-    DeploymentFrontendPublicArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentFrontendPublicArgsDict(TypedDict):
+    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Public IP Resource ID to this NGINX Deployment.
+    """
 
 @pulumi.input_type
 class DeploymentFrontendPublicArgs:
@@ -330,22 +326,19 @@ class DeploymentFrontendPublicArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
-if not MYPY:
-    class DeploymentIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of user managed identity ids to be assigned.
+class DeploymentIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of user managed identity ids to be assigned.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DeploymentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DeploymentIdentityArgs:
@@ -413,15 +406,12 @@ class DeploymentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class DeploymentLoggingStorageAccountArgsDict(TypedDict):
-        container_name: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        """
-elif False:
-    DeploymentLoggingStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentLoggingStorageAccountArgsDict(TypedDict):
+    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+    """
 
 @pulumi.input_type
 class DeploymentLoggingStorageAccountArgs:
@@ -458,14 +448,11 @@ class DeploymentLoggingStorageAccountArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DeploymentNetworkInterfaceArgsDict(TypedDict):
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        Specify The Subnet Resource ID for this NGINX Deployment.
-        """
-elif False:
-    DeploymentNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentNetworkInterfaceArgsDict(TypedDict):
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    Specify The Subnet Resource ID for this NGINX Deployment.
+    """
 
 @pulumi.input_type
 class DeploymentNetworkInterfaceArgs:
@@ -489,18 +476,15 @@ class DeploymentNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class DeploymentWebApplicationFirewallArgsDict(TypedDict):
-        activation_state_enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether WAF is enabled/disabled for this NGINX Deployment.
-        """
-        statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgsDict']]]]
-        """
-        A `status` block as defined below.
-        """
-elif False:
-    DeploymentWebApplicationFirewallArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentWebApplicationFirewallArgsDict(TypedDict):
+    activation_state_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether WAF is enabled/disabled for this NGINX Deployment.
+    """
+    statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgsDict']]]]
+    """
+    A `status` block as defined below.
+    """
 
 @pulumi.input_type
 class DeploymentWebApplicationFirewallArgs:
@@ -540,26 +524,23 @@ class DeploymentWebApplicationFirewallArgs:
         pulumi.set(self, "statuses", value)
 
 
-if not MYPY:
-    class DeploymentWebApplicationFirewallStatusArgsDict(TypedDict):
-        attack_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict']]]]
-        """
-        One or more `attack_signatures_package` blocks as defined below.
-        """
-        bot_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict']]]]
-        """
-        One or more `bot_signatures_package` blocks as defined below.
-        """
-        component_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgsDict']]]]
-        """
-        One or more `component_versions` blocks as defined below.
-        """
-        threat_campaigns_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict']]]]
-        """
-        One or more `threat_campaigns_package` blocks as defined below.
-        """
-elif False:
-    DeploymentWebApplicationFirewallStatusArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentWebApplicationFirewallStatusArgsDict(TypedDict):
+    attack_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict']]]]
+    """
+    One or more `attack_signatures_package` blocks as defined below.
+    """
+    bot_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict']]]]
+    """
+    One or more `bot_signatures_package` blocks as defined below.
+    """
+    component_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgsDict']]]]
+    """
+    One or more `component_versions` blocks as defined below.
+    """
+    threat_campaigns_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict']]]]
+    """
+    One or more `threat_campaigns_package` blocks as defined below.
+    """
 
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusArgs:
@@ -632,18 +613,15 @@ class DeploymentWebApplicationFirewallStatusArgs:
         pulumi.set(self, "threat_campaigns_packages", value)
 
 
-if not MYPY:
-    class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict(TypedDict):
-        revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The revision date and time of the threat campaigns package.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the threat campaigns package.
-        """
-elif False:
-    DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict(TypedDict):
+    revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The revision date and time of the threat campaigns package.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the threat campaigns package.
+    """
 
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
@@ -684,18 +662,15 @@ class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict(TypedDict):
-        revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The revision date and time of the threat campaigns package.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the threat campaigns package.
-        """
-elif False:
-    DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict(TypedDict):
+    revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The revision date and time of the threat campaigns package.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the threat campaigns package.
+    """
 
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
@@ -736,18 +711,15 @@ class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DeploymentWebApplicationFirewallStatusComponentVersionArgsDict(TypedDict):
-        waf_engine_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the WAF Engine.
-        """
-        waf_nginx_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the WAF Nginx module.
-        """
-elif False:
-    DeploymentWebApplicationFirewallStatusComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentWebApplicationFirewallStatusComponentVersionArgsDict(TypedDict):
+    waf_engine_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the WAF Engine.
+    """
+    waf_nginx_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the WAF Nginx module.
+    """
 
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
@@ -788,18 +760,15 @@ class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
         pulumi.set(self, "waf_nginx_version", value)
 
 
-if not MYPY:
-    class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict(TypedDict):
-        revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The revision date and time of the threat campaigns package.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the threat campaigns package.
-        """
-elif False:
-    DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict(TypedDict):
+    revision_datetime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The revision date and time of the threat campaigns package.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the threat campaigns package.
+    """
 
 @pulumi.input_type
 class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs:

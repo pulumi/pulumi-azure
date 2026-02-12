@@ -346,6 +346,8 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** This resource does not need to be imported to manage it, however the import will work.
+
         SQL Managed Instance Transparent Data Encryption can be imported using the resource id, e.g.
 
         ```sh
@@ -528,6 +530,8 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         * `Microsoft.Sql` - 2023-08-01-preview
 
         ## Import
+
+        > **Note:** This resource does not need to be imported to manage it, however the import will work.
 
         SQL Managed Instance Transparent Data Encryption can be imported using the resource id, e.g.
 

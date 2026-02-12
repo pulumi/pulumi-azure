@@ -27,6 +27,9 @@ class IPGroupArgs:
         """
         The set of arguments for constructing a IPGroup resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: A list of CIDRs or IP addresses.
+               
+               > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -56,6 +59,11 @@ class IPGroupArgs:
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of CIDRs or IP addresses.
+
+        > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
+        """
         return pulumi.get(self, "cidrs")
 
     @cidrs.setter
@@ -111,6 +119,9 @@ class _IPGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IPGroup resources.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: A list of CIDRs or IP addresses.
+               
+               > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] firewall_ids: A list of ID of Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] firewall_policy_ids: A list of ID of Firewall Policy`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -136,6 +147,11 @@ class _IPGroupState:
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of CIDRs or IP addresses.
+
+        > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
+        """
         return pulumi.get(self, "cidrs")
 
     @cidrs.setter
@@ -270,6 +286,9 @@ class IPGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: A list of CIDRs or IP addresses.
+               
+               > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
@@ -384,6 +403,9 @@ class IPGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: A list of CIDRs or IP addresses.
+               
+               > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] firewall_ids: A list of ID of Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] firewall_policy_ids: A list of ID of Firewall Policy`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -407,6 +429,11 @@ class IPGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def cidrs(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A list of CIDRs or IP addresses.
+
+        > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
+        """
         return pulumi.get(self, "cidrs")
 
     @_builtins.property

@@ -64,6 +64,8 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// Api Management Policy Fragments can be imported using the `resource id`, e.g.
     /// 
+    /// &gt; **Note:** Due to the behaviour of the API, Api Management Policy Fragments can only be imported as `Xml`, but can be updated to the desired format after importing.
+    /// 
     /// ```sh
     /// $ pulumi import azure:apimanagement/policyFragment:PolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policyFragments/policyFragment1
     /// ```

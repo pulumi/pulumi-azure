@@ -179,6 +179,11 @@ export class Deployment extends pulumi.CustomResource {
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     *
+     * > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     */
     declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
@@ -330,6 +335,11 @@ export interface DeploymentState {
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     *
+     * > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     */
     sku?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
@@ -403,6 +413,11 @@ export interface DeploymentArgs {
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     *
+     * > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
+     */
     sku: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.

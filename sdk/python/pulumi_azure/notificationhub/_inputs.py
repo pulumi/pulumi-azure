@@ -23,32 +23,27 @@ __all__ = [
     'HubGcmCredentialArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class HubApnsCredentialArgsDict(TypedDict):
-        application_mode: pulumi.Input[_builtins.str]
-        """
-        The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-        """
-        bundle_id: pulumi.Input[_builtins.str]
-        """
-        The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        """
-        key_id: pulumi.Input[_builtins.str]
-        """
-        The Apple Push Notifications Service (APNS) Key.
-        """
-        team_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the team the Token.
-        """
-        token: pulumi.Input[_builtins.str]
-        """
-        The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
-        """
-elif False:
-    HubApnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class HubApnsCredentialArgsDict(TypedDict):
+    application_mode: pulumi.Input[_builtins.str]
+    """
+    The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+    """
+    bundle_id: pulumi.Input[_builtins.str]
+    """
+    The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+    """
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The Apple Push Notifications Service (APNS) Key.
+    """
+    team_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the team the Token.
+    """
+    token: pulumi.Input[_builtins.str]
+    """
+    The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+    """
 
 @pulumi.input_type
 class HubApnsCredentialArgs:
@@ -132,22 +127,19 @@ class HubApnsCredentialArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class HubBrowserCredentialArgsDict(TypedDict):
-        subject: pulumi.Input[_builtins.str]
-        """
-        The subject name of web push.
-        """
-        vapid_private_key: pulumi.Input[_builtins.str]
-        """
-        The Voluntary Application Server Identification (VAPID) private key.
-        """
-        vapid_public_key: pulumi.Input[_builtins.str]
-        """
-        The Voluntary Application Server Identification (VAPID) public key.
-        """
-elif False:
-    HubBrowserCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class HubBrowserCredentialArgsDict(TypedDict):
+    subject: pulumi.Input[_builtins.str]
+    """
+    The subject name of web push.
+    """
+    vapid_private_key: pulumi.Input[_builtins.str]
+    """
+    The Voluntary Application Server Identification (VAPID) private key.
+    """
+    vapid_public_key: pulumi.Input[_builtins.str]
+    """
+    The Voluntary Application Server Identification (VAPID) public key.
+    """
 
 @pulumi.input_type
 class HubBrowserCredentialArgs:
@@ -201,14 +193,11 @@ class HubBrowserCredentialArgs:
         pulumi.set(self, "vapid_public_key", value)
 
 
-if not MYPY:
-    class HubGcmCredentialArgsDict(TypedDict):
-        api_key: pulumi.Input[_builtins.str]
-        """
-        The API Key associated with the Google Cloud Messaging service.
-        """
-elif False:
-    HubGcmCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class HubGcmCredentialArgsDict(TypedDict):
+    api_key: pulumi.Input[_builtins.str]
+    """
+    The API Key associated with the Google Cloud Messaging service.
+    """
 
 @pulumi.input_type
 class HubGcmCredentialArgs:

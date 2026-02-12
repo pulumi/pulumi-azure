@@ -113,6 +113,8 @@ namespace Pulumi.Azure.AppInsights
     /// ```sh
     /// $ pulumi import azure:appinsights/apiKey:ApiKey my_key /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1/apiKeys/00000000-0000-0000-0000-000000000000
     /// ```
+    /// 
+    /// &gt; **Note:** The secret `ApiKey` cannot be retrieved during an import. You will need to edit the state by hand to set the secret value if you happen to have it backed up somewhere.
     /// </summary>
     [AzureResourceType("azure:appinsights/apiKey:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource

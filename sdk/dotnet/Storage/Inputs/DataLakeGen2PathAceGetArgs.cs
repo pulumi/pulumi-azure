@@ -18,6 +18,15 @@ namespace Pulumi.Azure.Storage.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the permissions for the entry in `Rwx` form. For example, `Rwx` gives full permissions but `r--` only gives read permissions.
+        /// 
+        /// More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
+        /// 
+        /// &gt; **Note:** Using the service's ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+        /// 
+        /// &gt; **Note:** The Storage Account requires `AccountKind` to be either `StorageV2` or `BlobStorage`. In addition, `IsHnsEnabled` has to be set to `True`.
+        /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
 

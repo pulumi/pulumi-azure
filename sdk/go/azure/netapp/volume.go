@@ -48,7 +48,9 @@ type Volume struct {
 	EncryptionKeySource pulumi.StringOutput `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `kerberosEnabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
 	KerberosEnabled pulumi.BoolPtrOutput `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringOutput `pulumi:"keyVaultPrivateEndpointId"`
@@ -74,7 +76,12 @@ type Volume struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
-	ServiceLevel  pulumi.StringOutput `pulumi:"serviceLevel"`
+	// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+	//
+	// > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+	//
+	// > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -174,7 +181,9 @@ type volumeState struct {
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `kerberosEnabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
@@ -200,7 +209,12 @@ type volumeState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	ServiceLevel  *string `pulumi:"serviceLevel"`
+	// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+	//
+	// > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+	//
+	// > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled *bool `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -250,7 +264,9 @@ type VolumeState struct {
 	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `kerberosEnabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
 	KerberosEnabled pulumi.BoolPtrInput
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
@@ -276,7 +292,12 @@ type VolumeState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
-	ServiceLevel  pulumi.StringPtrInput
+	// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+	//
+	// > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+	//
+	// > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+	ServiceLevel pulumi.StringPtrInput
 	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrInput
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -330,7 +351,9 @@ type volumeArgs struct {
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `kerberosEnabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
@@ -354,7 +377,12 @@ type volumeArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	ServiceLevel  string  `pulumi:"serviceLevel"`
+	// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+	//
+	// > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+	//
+	// > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+	ServiceLevel string `pulumi:"serviceLevel"`
 	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled *bool `pulumi:"smb3ProtocolEncryptionEnabled"`
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -405,7 +433,9 @@ type VolumeArgs struct {
 	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `kerberosEnabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
 	KerberosEnabled pulumi.BoolPtrInput
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
@@ -429,7 +459,12 @@ type VolumeArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
-	ServiceLevel  pulumi.StringInput
+	// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+	//
+	// > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+	//
+	// > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
+	ServiceLevel pulumi.StringInput
 	// Enable SMB encryption. Changing this forces a new resource to be created.
 	Smb3ProtocolEncryptionEnabled pulumi.BoolPtrInput
 	// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
@@ -595,7 +630,9 @@ func (o VolumeOutput) ExportPolicyRules() VolumeExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *Volume) VolumeExportPolicyRuleArrayOutput { return v.ExportPolicyRules }).(VolumeExportPolicyRuleArrayOutput)
 }
 
-// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
+// Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
+//
+// > **Note:** `kerberosEnabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
 func (o VolumeOutput) KerberosEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.KerberosEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -654,6 +691,11 @@ func (o VolumeOutput) SecurityStyle() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.SecurityStyle }).(pulumi.StringOutput)
 }
 
+// The target performance of the file system. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`.
+//
+// > **Note:** When updating `serviceLevel` by migrating it to another Capacity Pool, both `serviceLevel` and `poolName` must be changed, otherwise the volume will be recreated with the specified `serviceLevel`.
+//
+// > **Note:** After updating `serviceLevel` the `id` for the volume will change to include the new Capacity Pool so any resources referencing the Volume will be silently removed from state. They will still exist in Azure but need to reimported into Terraform.
 func (o VolumeOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }

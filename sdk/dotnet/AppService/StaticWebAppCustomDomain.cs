@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
+    /// Manages a Static Web App Custom Domain.
+    /// 
+    /// !&gt; **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+    /// 
     /// ## Example Usage
     /// 
     /// ### CNAME validation
@@ -143,6 +147,13 @@ namespace Pulumi.Azure.AppService
         [Output("validationToken")]
         public Output<string> ValidationToken { get; private set; } = null!;
 
+        /// <summary>
+        /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+        /// 
+        /// &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+        /// 
+        /// &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `ValidationToken` value for this to complete out of band.
+        /// </summary>
         [Output("validationType")]
         public Output<string> ValidationType { get; private set; } = null!;
 
@@ -208,6 +219,13 @@ namespace Pulumi.Azure.AppService
         [Input("staticWebAppId", required: true)]
         public Input<string> StaticWebAppId { get; set; } = null!;
 
+        /// <summary>
+        /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+        /// 
+        /// &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+        /// 
+        /// &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `ValidationToken` value for this to complete out of band.
+        /// </summary>
         [Input("validationType", required: true)]
         public Input<string> ValidationType { get; set; } = null!;
 
@@ -247,6 +265,13 @@ namespace Pulumi.Azure.AppService
             }
         }
 
+        /// <summary>
+        /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+        /// 
+        /// &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+        /// 
+        /// &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `ValidationToken` value for this to complete out of band.
+        /// </summary>
         [Input("validationType")]
         public Input<string>? ValidationType { get; set; }
 

@@ -83,6 +83,11 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("detailedErrorLoggingEnabled")]
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }
 
+        /// <summary>
+        /// The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`. Defaults to `Disabled`.
+        /// 
+        /// &gt; **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
+        /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 

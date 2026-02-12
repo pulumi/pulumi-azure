@@ -18,9 +18,29 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
 
     public static final DiskEncryptionSetState Empty = new DiskEncryptionSetState();
 
+    /**
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     * &gt; **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+     * 
+     * &gt; **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+     * 
+     * &gt; **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+     * 
+     */
     @Import(name="autoKeyRotationEnabled")
     private @Nullable Output<Boolean> autoKeyRotationEnabled;
 
+    /**
+     * @return Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     * &gt; **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+     * 
+     * &gt; **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+     * 
+     * &gt; **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+     * 
+     */
     public Optional<Output<Boolean>> autoKeyRotationEnabled() {
         return Optional.ofNullable(this.autoKeyRotationEnabled);
     }
@@ -219,11 +239,35 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
             $ = new DiskEncryptionSetState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * &gt; **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+         * 
+         * &gt; **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+         * 
+         * &gt; **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoKeyRotationEnabled(@Nullable Output<Boolean> autoKeyRotationEnabled) {
             $.autoKeyRotationEnabled = autoKeyRotationEnabled;
             return this;
         }
 
+        /**
+         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * &gt; **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+         * 
+         * &gt; **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `azure.compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+         * 
+         * &gt; **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoKeyRotationEnabled(Boolean autoKeyRotationEnabled) {
             return autoKeyRotationEnabled(Output.of(autoKeyRotationEnabled));
         }

@@ -164,6 +164,9 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs'] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -906,6 +909,11 @@ class LinuxVirtualMachineScaleSetArgs:
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+
+        > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+        """
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
@@ -1113,6 +1121,9 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[_builtins.str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -1874,6 +1885,11 @@ class _LinuxVirtualMachineScaleSetState:
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+
+        > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+        """
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
@@ -2159,6 +2175,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -2555,6 +2574,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[_builtins.str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
+        :param pulumi.Input[_builtins.str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+               
+               > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
         :param pulumi.Input[_builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -3066,6 +3088,11 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="upgradeMode")
     def upgrade_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+
+        > **Note:** If rolling upgrades are configured and running on a Linux Virtual Machine Scale Set, they will be cancelled when Terraform tries to destroy the resource.
+        """
         return pulumi.get(self, "upgrade_mode")
 
     @_builtins.property

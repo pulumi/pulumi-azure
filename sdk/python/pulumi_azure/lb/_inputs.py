@@ -25,24 +25,19 @@ __all__ = [
     'OutboundRuleFrontendIpConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BackendAddressPoolAddressInboundNatRulePortMappingArgsDict(TypedDict):
-        backend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
-        """
-        frontend_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
-        """
-        inbound_nat_rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
-        """
-elif False:
-    BackendAddressPoolAddressInboundNatRulePortMappingArgsDict: TypeAlias = Mapping[str, Any]
+class BackendAddressPoolAddressInboundNatRulePortMappingArgsDict(TypedDict):
+    backend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+    """
+    frontend_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+    """
+    inbound_nat_rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
+    """
 
 @pulumi.input_type
 class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
@@ -99,26 +94,23 @@ class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
         pulumi.set(self, "inbound_nat_rule_name", value)
 
 
-if not MYPY:
-    class BackendAddressPoolTunnelInterfaceArgsDict(TypedDict):
-        identifier: pulumi.Input[_builtins.int]
-        """
-        The unique identifier of this Gateway Load Balancer Tunnel Interface.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number that this Gateway Load Balancer Tunnel Interface listens to.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
-        """
-elif False:
-    BackendAddressPoolTunnelInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class BackendAddressPoolTunnelInterfaceArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.int]
+    """
+    The unique identifier of this Gateway Load Balancer Tunnel Interface.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number that this Gateway Load Balancer Tunnel Interface listens to.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Native` and `VXLAN`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are `None`, `Internal` and `External`.
+    """
 
 @pulumi.input_type
 class BackendAddressPoolTunnelInterfaceArgs:
@@ -187,64 +179,61 @@ class BackendAddressPoolTunnelInterfaceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class LoadBalancerFrontendIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the frontend IP configuration.
-        """
-        gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The id of the Frontend IP Configuration.
-        """
-        inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of IDs of inbound rules that use this frontend IP.
-        """
-        load_balancer_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of IDs of load balancing rules that use this frontend IP.
-        """
-        outbound_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of IDs outbound rules that use this frontend IP.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
-        """
-        private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
-        """
-        private_ip_address_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
-        """
-        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a Public IP Address which should be associated with the Load Balancer.
-        """
-        public_ip_prefix_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Subnet which should be associated with the IP Configuration.
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+class LoadBalancerFrontendIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the frontend IP configuration.
+    """
+    gateway_load_balancer_frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The id of the Frontend IP Configuration.
+    """
+    inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of IDs of inbound rules that use this frontend IP.
+    """
+    load_balancer_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of IDs of load balancing rules that use this frontend IP.
+    """
+    outbound_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of IDs outbound rules that use this frontend IP.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+    """
+    private_ip_address_allocation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+    """
+    private_ip_address_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
+    """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a Public IP Address which should be associated with the Load Balancer.
+    """
+    public_ip_prefix_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Subnet which should be associated with the IP Configuration.
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
 
-        > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
-        """
-elif False:
-    LoadBalancerFrontendIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+    """
 
 @pulumi.input_type
 class LoadBalancerFrontendIpConfigurationArgs:
@@ -464,18 +453,15 @@ class LoadBalancerFrontendIpConfigurationArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class OutboundRuleFrontendIpConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Frontend IP Configuration.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Load Balancer Outbound Rule.
-        """
-elif False:
-    OutboundRuleFrontendIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OutboundRuleFrontendIpConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Frontend IP Configuration.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Load Balancer Outbound Rule.
+    """
 
 @pulumi.input_type
 class OutboundRuleFrontendIpConfigurationArgs:

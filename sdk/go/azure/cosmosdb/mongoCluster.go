@@ -164,8 +164,11 @@ type MongoCluster struct {
 	// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput          `pulumi:"resourceGroupName"`
-	Restore           MongoClusterRestorePtrOutput `pulumi:"restore"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+	Restore MongoClusterRestorePtrOutput `pulumi:"restore"`
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -262,8 +265,11 @@ type mongoClusterState struct {
 	// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-	ResourceGroupName *string              `pulumi:"resourceGroupName"`
-	Restore           *MongoClusterRestore `pulumi:"restore"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+	Restore *MongoClusterRestore `pulumi:"restore"`
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount *int `pulumi:"shardCount"`
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -315,7 +321,10 @@ type MongoClusterState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Restore           MongoClusterRestorePtrInput
+	// A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+	Restore MongoClusterRestorePtrInput
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount pulumi.IntPtrInput
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -368,8 +377,11 @@ type mongoClusterArgs struct {
 	// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-	ResourceGroupName string               `pulumi:"resourceGroupName"`
-	Restore           *MongoClusterRestore `pulumi:"restore"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+	Restore *MongoClusterRestore `pulumi:"restore"`
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount *int `pulumi:"shardCount"`
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -420,7 +432,10 @@ type MongoClusterArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Restore           MongoClusterRestorePtrInput
+	// A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+	Restore MongoClusterRestorePtrInput
 	// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
 	ShardCount pulumi.IntPtrInput
 	// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
@@ -603,6 +618,9 @@ func (o MongoClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
 func (o MongoClusterOutput) Restore() MongoClusterRestorePtrOutput {
 	return o.ApplyT(func(v *MongoCluster) MongoClusterRestorePtrOutput { return v.Restore }).(MongoClusterRestorePtrOutput)
 }

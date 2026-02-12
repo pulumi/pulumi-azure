@@ -12,7 +12,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSiteCredential {
     /**
-     * @return The Site Credentials Username used for publishing.
+     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
      * 
      */
     private @Nullable String name;
@@ -24,7 +26,9 @@ public final class LinuxWebAppSiteCredential {
 
     private LinuxWebAppSiteCredential() {}
     /**
-     * @return The Site Credentials Username used for publishing.
+     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
      * 
      */
     public Optional<String> name() {

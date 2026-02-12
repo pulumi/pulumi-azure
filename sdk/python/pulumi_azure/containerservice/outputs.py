@@ -3171,6 +3171,8 @@ class KubernetesClusterAutoScalerProfile(dict):
         :param _builtins.str scale_down_unready: How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
         :param _builtins.str scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
         :param _builtins.str scan_interval: How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+        :param _builtins.bool skip_nodes_with_local_storage: If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+               <!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `auto_scaler_profile` block is present but this field isn’t set. -->
         :param _builtins.bool skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         if balance_similar_node_groups is not None:
@@ -3361,6 +3363,10 @@ class KubernetesClusterAutoScalerProfile(dict):
     @_builtins.property
     @pulumi.getter(name="skipNodesWithLocalStorage")
     def skip_nodes_with_local_storage(self) -> Optional[_builtins.bool]:
+        """
+        If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `false`.
+        <!-- Note: Although Azure’s API default is `true`, Terraform sends the zero-value (`false`) whenever an `auto_scaler_profile` block is present but this field isn’t set. -->
+        """
         return pulumi.get(self, "skip_nodes_with_local_storage")
 
     @_builtins.property
@@ -5154,6 +5160,11 @@ class KubernetesClusterHttpProxyConfig(dict):
         """
         :param _builtins.str http_proxy: The proxy address to be used when communicating over HTTP.
         :param _builtins.str https_proxy: The proxy address to be used when communicating over HTTPS.
+        :param Sequence[_builtins.str] no_proxies: The list of domains that will not use the proxy for communication.
+               
+               > **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `no_proxy` list.
+               
+               > **Note:** You may wish to use Terraform's `ignore_changes` functionality to ignore the changes to this field.
         :param _builtins.str trusted_ca: The base64 encoded alternative CA certificate content in PEM format.
         """
         if http_proxy is not None:
@@ -5184,6 +5195,13 @@ class KubernetesClusterHttpProxyConfig(dict):
     @_builtins.property
     @pulumi.getter(name="noProxies")
     def no_proxies(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of domains that will not use the proxy for communication.
+
+        > **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `no_proxy` list.
+
+        > **Note:** You may wish to use Terraform's `ignore_changes` functionality to ignore the changes to this field.
+        """
         return pulumi.get(self, "no_proxies")
 
     @_builtins.property

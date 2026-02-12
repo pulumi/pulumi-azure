@@ -262,6 +262,8 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import azure:appinsights/apiKey:ApiKey my_key /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1/apiKeys/00000000-0000-0000-0000-000000000000
         ```
 
+        > **Note:** The secret `api_key` cannot be retrieved during an import. You will need to edit the state by hand to set the secret value if you happen to have it backed up somewhere.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
@@ -344,6 +346,8 @@ class ApiKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appinsights/apiKey:ApiKey my_key /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1/apiKeys/00000000-0000-0000-0000-000000000000
         ```
+
+        > **Note:** The secret `api_key` cannot be retrieved during an import. You will need to edit the state by hand to set the secret value if you happen to have it backed up somewhere.
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

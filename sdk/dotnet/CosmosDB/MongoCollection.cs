@@ -83,6 +83,11 @@ namespace Pulumi.Azure.CosmosDB
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.MongoCollectionAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -128,6 +133,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("systemIndexes")]
         public Output<ImmutableArray<Outputs.MongoCollectionSystemIndex>> SystemIndexes { get; private set; } = null!;
 
+        /// <summary>
+        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
@@ -189,6 +197,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.MongoCollectionAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -234,6 +247,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("shardKey")]
         public Input<string>? ShardKey { get; set; }
 
+        /// <summary>
+        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
@@ -257,6 +273,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
+        /// <summary>
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.MongoCollectionAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
@@ -314,6 +335,9 @@ namespace Pulumi.Azure.CosmosDB
             set => _systemIndexes = value;
         }
 
+        /// <summary>
+        /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 

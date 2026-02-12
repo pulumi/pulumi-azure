@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an App Service Source Control Token.
+//
+// > **Note:** This resource can only manage the token for the user currently running Terraform. Managing tokens for another user is not supported by the service.
+//
 // ## Example Usage
 //
 // ```go

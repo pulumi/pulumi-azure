@@ -392,8 +392,11 @@ type Account struct {
 	// A `shareProperties` block as defined below.
 	//
 	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
-	ShareProperties        AccountSharePropertiesOutput `pulumi:"shareProperties"`
-	SharedAccessKeyEnabled pulumi.BoolPtrOutput         `pulumi:"sharedAccessKeyEnabled"`
+	ShareProperties AccountSharePropertiesOutput `pulumi:"shareProperties"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+	//
+	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+	SharedAccessKeyEnabled pulumi.BoolPtrOutput `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
@@ -701,8 +704,11 @@ type accountState struct {
 	// A `shareProperties` block as defined below.
 	//
 	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
-	ShareProperties        *AccountShareProperties `pulumi:"shareProperties"`
-	SharedAccessKeyEnabled *bool                   `pulumi:"sharedAccessKeyEnabled"`
+	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+	//
+	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
@@ -963,7 +969,10 @@ type AccountState struct {
 	// A `shareProperties` block as defined below.
 	//
 	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
-	ShareProperties        AccountSharePropertiesPtrInput
+	ShareProperties AccountSharePropertiesPtrInput
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+	//
+	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	//
@@ -1085,8 +1094,11 @@ type accountArgs struct {
 	// A `shareProperties` block as defined below.
 	//
 	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
-	ShareProperties        *AccountShareProperties `pulumi:"shareProperties"`
-	SharedAccessKeyEnabled *bool                   `pulumi:"sharedAccessKeyEnabled"`
+	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+	//
+	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
+	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
@@ -1204,7 +1216,10 @@ type AccountArgs struct {
 	// A `shareProperties` block as defined below.
 	//
 	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
-	ShareProperties        AccountSharePropertiesPtrInput
+	ShareProperties AccountSharePropertiesPtrInput
+	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+	//
+	// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	//
@@ -1874,6 +1889,9 @@ func (o AccountOutput) ShareProperties() AccountSharePropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountSharePropertiesOutput { return v.ShareProperties }).(AccountSharePropertiesOutput)
 }
 
+// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
+//
+// > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storageUseAzuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
 func (o AccountOutput) SharedAccessKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.SharedAccessKeyEnabled }).(pulumi.BoolPtrOutput)
 }

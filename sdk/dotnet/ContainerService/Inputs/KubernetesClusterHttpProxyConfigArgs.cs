@@ -26,6 +26,14 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("noProxies")]
         private InputList<string>? _noProxies;
+
+        /// <summary>
+        /// The list of domains that will not use the proxy for communication.
+        /// 
+        /// &gt; **Note:** If you specify the `default_node_pool[0].vnet_subnet_id`, be sure to include the Subnet CIDR in the `NoProxy` list.
+        /// 
+        /// &gt; **Note:** You may wish to use Terraform's `IgnoreChanges` functionality to ignore the changes to this field.
+        /// </summary>
         public InputList<string> NoProxies
         {
             get => _noProxies ?? (_noProxies = new InputList<string>());

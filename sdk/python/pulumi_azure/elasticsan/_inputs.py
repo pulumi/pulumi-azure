@@ -27,22 +27,17 @@ __all__ = [
     'VolumeGroupNetworkRuleArgsDict',
 ]
 
-MYPY = False
+class ElasticSanSkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 
-if not MYPY:
-    class ElasticSanSkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-
-        > **Note:** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
-        """
-elif False:
-    ElasticSanSkuArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
+    """
 
 @pulumi.input_type
 class ElasticSanSkuArgs:
@@ -86,18 +81,15 @@ class ElasticSanSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class VolumeCreateSourceArgsDict(TypedDict):
-        source_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
-        """
-        source_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
-        """
-elif False:
-    VolumeCreateSourceArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeCreateSourceArgsDict(TypedDict):
+    source_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the ID of the source to create the Elastic SAN Volume from. Changing this forces a new resource to be created.
+    """
+    source_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of the source to create the Elastic SAN Volume from. Possible values are `Disk`, `DiskRestorePoint`, `DiskSnapshot` and `VolumeSnapshot`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class VolumeCreateSourceArgs:
@@ -136,30 +128,27 @@ class VolumeCreateSourceArgs:
         pulumi.set(self, "source_type", value)
 
 
-if not MYPY:
-    class VolumeGroupEncryptionArgsDict(TypedDict):
-        key_vault_key_id: pulumi.Input[_builtins.str]
-        """
-        The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
-        """
-        current_versioned_key_expiration_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp of the expiration time for the current version of the customer managed key.
-        """
-        current_versioned_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the current versioned Key Vault Key in use.
-        """
-        last_key_rotation_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp of the last rotation of the Key Vault Key.
-        """
-        user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
-        """
-elif False:
-    VolumeGroupEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupEncryptionArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+    """
+    current_versioned_key_expiration_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp of the expiration time for the current version of the customer managed key.
+    """
+    current_versioned_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the current versioned Key Vault Key in use.
+    """
+    last_key_rotation_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp of the last rotation of the Key Vault Key.
+    """
+    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+    """
 
 @pulumi.input_type
 class VolumeGroupEncryptionArgs:
@@ -247,26 +236,23 @@ class VolumeGroupEncryptionArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class VolumeGroupIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
-        """
-elif False:
-    VolumeGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+    """
 
 @pulumi.input_type
 class VolumeGroupIdentityArgs:
@@ -338,18 +324,15 @@ class VolumeGroupIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class VolumeGroupNetworkRuleArgsDict(TypedDict):
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
-        """
-        action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
-        """
-elif False:
-    VolumeGroupNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupNetworkRuleArgsDict(TypedDict):
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
+    """
+    action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
+    """
 
 @pulumi.input_type
 class VolumeGroupNetworkRuleArgs:

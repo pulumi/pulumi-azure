@@ -33,30 +33,25 @@ __all__ = [
     'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict',
 ]
 
-MYPY = False
+class GroupPolicyAssignmentIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 
-if not MYPY:
-    class GroupPolicyAssignmentIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
-
-        > **Note:** This is required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID of the Policy Assignment for this Management Group.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the Policy Assignment for this Management Group.
-        """
-elif False:
-    GroupPolicyAssignmentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID of the Policy Assignment for this Management Group.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the Policy Assignment for this Management Group.
+    """
 
 @pulumi.input_type
 class GroupPolicyAssignmentIdentityArgs:
@@ -132,18 +127,15 @@ class GroupPolicyAssignmentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class GroupPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
-        content: pulumi.Input[_builtins.str]
-        """
-        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
-        """
-        policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
-        """
-elif False:
-    GroupPolicyAssignmentNonComplianceMessageArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
+    content: pulumi.Input[_builtins.str]
+    """
+    The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+    """
+    policy_definition_reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+    """
 
 @pulumi.input_type
 class GroupPolicyAssignmentNonComplianceMessageArgs:
@@ -183,18 +175,15 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
-if not MYPY:
-    class GroupPolicyAssignmentOverrideArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        """
-        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgsDict']]]]
-        """
-        One or more `override_selector` block as defined below.
-        """
-elif False:
-    GroupPolicyAssignmentOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicyAssignmentOverrideArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+    """
+    selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgsDict']]]]
+    """
+    One or more `override_selector` block as defined below.
+    """
 
 @pulumi.input_type
 class GroupPolicyAssignmentOverrideArgs:
@@ -234,13 +223,10 @@ class GroupPolicyAssignmentOverrideArgs:
         pulumi.set(self, "selectors", value)
 
 
-if not MYPY:
-    class GroupPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        kind: NotRequired[pulumi.Input[_builtins.str]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GroupPolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kind: NotRequired[pulumi.Input[_builtins.str]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GroupPolicyAssignmentOverrideSelectorArgs:
@@ -283,18 +269,15 @@ class GroupPolicyAssignmentOverrideSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
-if not MYPY:
-    class GroupPolicyAssignmentResourceSelectorArgsDict(TypedDict):
-        selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgsDict']]]
-        """
-        One or more `resource_selector` block as defined below.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a name for the resource selector.
-        """
-elif False:
-    GroupPolicyAssignmentResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicyAssignmentResourceSelectorArgsDict(TypedDict):
+    selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgsDict']]]
+    """
+    One or more `resource_selector` block as defined below.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a name for the resource selector.
+    """
 
 @pulumi.input_type
 class GroupPolicyAssignmentResourceSelectorArgs:
@@ -334,13 +317,10 @@ class GroupPolicyAssignmentResourceSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GroupPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
-        kind: pulumi.Input[_builtins.str]
-        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GroupPolicyAssignmentResourceSelectorSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GroupPolicyAssignmentResourceSelectorSelectorArgs:
@@ -382,30 +362,27 @@ class GroupPolicyAssignmentResourceSelectorSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
-if not MYPY:
-    class GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this Policy Definition Group.
-        """
-        additional_metadata_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a resource that contains additional metadata for this Policy Definition Group.
-        """
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The category of this Policy Definition Group.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of this Policy Definition Group.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of this Policy Definition Group.
-        """
-elif False:
-    GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Policy Definition Group.
+    """
+    additional_metadata_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a resource that contains additional metadata for this Policy Definition Group.
+    """
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The category of this Policy Definition Group.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of this Policy Definition Group.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of this Policy Definition Group.
+    """
 
 @pulumi.input_type
 class GroupPolicySetDefinitionPolicyDefinitionGroupArgs:
@@ -493,30 +470,27 @@ class GroupPolicySetDefinitionPolicyDefinitionGroupArgs:
         pulumi.set(self, "display_name", value)
 
 
-if not MYPY:
-    class GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict(TypedDict):
-        policy_definition_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Policy Definition to include in this Policy Set Definition.
-        """
-        parameter_values: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Parameter values for the references Policy Definition in JSON format.
-        """
-        policy_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
-        """
-        reference_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique ID within this Policy Set Definition for this Policy Definition Reference.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the Policy Definition to use.
-        """
-elif False:
-    GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict(TypedDict):
+    policy_definition_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Policy Definition to include in this Policy Set Definition.
+    """
+    parameter_values: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Parameter values for the references Policy Definition in JSON format.
+    """
+    policy_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+    """
+    reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique ID within this Policy Set Definition for this Policy Definition Reference.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the Policy Definition to use.
+    """
 
 @pulumi.input_type
 class GroupPolicySetDefinitionPolicyDefinitionReferenceArgs:

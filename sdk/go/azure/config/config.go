@@ -58,6 +58,8 @@ func GetClientSecretFilePath(ctx *pulumi.Context) string {
 func GetDisableCorrelationRequestId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableCorrelationRequestId")
 }
+
+// This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
 func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableTerraformPartnerId")
 }

@@ -71,6 +71,8 @@ namespace Pulumi.Azure.Network
     /// ```sh
     /// $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
     /// ```
+    /// 
+    /// &gt; **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
     /// </summary>
     [AzureResourceType("azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation")]
     public partial class NatGatewayPublicIpPrefixAssociation : global::Pulumi.CustomResource

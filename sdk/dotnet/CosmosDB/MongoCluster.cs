@@ -203,6 +203,11 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A `Restore` block as defined below. Required when `CreateMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `SourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `IgnoreChanges`.
+        /// </summary>
         [Output("restore")]
         public Output<Outputs.MongoClusterRestore?> Restore { get; private set; } = null!;
 
@@ -413,6 +418,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `Restore` block as defined below. Required when `CreateMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `SourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `IgnoreChanges`.
+        /// </summary>
         [Input("restore")]
         public Input<Inputs.MongoClusterRestoreArgs>? Restore { get; set; }
 
@@ -598,6 +608,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// A `Restore` block as defined below. Required when `CreateMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `SourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `IgnoreChanges`.
+        /// </summary>
         [Input("restore")]
         public Input<Inputs.MongoClusterRestoreGetArgs>? Restore { get; set; }
 

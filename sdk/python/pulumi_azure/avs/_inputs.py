@@ -21,28 +21,23 @@ __all__ = [
     'PrivateCloudManagementClusterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PrivateCloudCircuitArgsDict(TypedDict):
-        express_route_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the ExpressRoute Circuit.
-        """
-        express_route_private_peering_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the ExpressRoute Circuit private peering.
-        """
-        primary_subnet_cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CIDR of the primary subnet.
-        """
-        secondary_subnet_cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CIDR of the secondary subnet.
-        """
-elif False:
-    PrivateCloudCircuitArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateCloudCircuitArgsDict(TypedDict):
+    express_route_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the ExpressRoute Circuit.
+    """
+    express_route_private_peering_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the ExpressRoute Circuit private peering.
+    """
+    primary_subnet_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CIDR of the primary subnet.
+    """
+    secondary_subnet_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CIDR of the secondary subnet.
+    """
 
 @pulumi.input_type
 class PrivateCloudCircuitArgs:
@@ -115,22 +110,19 @@ class PrivateCloudCircuitArgs:
         pulumi.set(self, "secondary_subnet_cidr", value)
 
 
-if not MYPY:
-    class PrivateCloudManagementClusterArgsDict(TypedDict):
-        size: pulumi.Input[_builtins.int]
-        """
-        The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
-        """
-        hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of hosts in the management cluster.
-        """
-        id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ID of the management cluster.
-        """
-elif False:
-    PrivateCloudManagementClusterArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateCloudManagementClusterArgsDict(TypedDict):
+    size: pulumi.Input[_builtins.int]
+    """
+    The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+    """
+    hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of hosts in the management cluster.
+    """
+    id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ID of the management cluster.
+    """
 
 @pulumi.input_type
 class PrivateCloudManagementClusterArgs:

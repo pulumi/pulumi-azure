@@ -153,6 +153,12 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  validation_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a Static Site Custom Domain.
+
+        !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+
+        > **Note:** The `appservice.StaticSiteCustomDomain` resource is deprecated in favour of `appservice.StaticWebAppCustomDomain` and will be removed in a future major release.
+
         ## Example Usage
 
         ### CNAME validation
@@ -232,6 +238,12 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  args: StaticSiteCustomDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Static Site Custom Domain.
+
+        !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+
+        > **Note:** The `appservice.StaticSiteCustomDomain` resource is deprecated in favour of `appservice.StaticWebAppCustomDomain` and will be removed in a future major release.
+
         ## Example Usage
 
         ### CNAME validation

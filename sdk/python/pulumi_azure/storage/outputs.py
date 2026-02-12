@@ -2133,6 +2133,13 @@ class DataLakeGen2PathAce(dict):
                  id: Optional[_builtins.str] = None,
                  scope: Optional[_builtins.str] = None):
         """
+        :param _builtins.str permissions: Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+               
+               More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
+               
+               > **Note:** Using the service's ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+               
+               > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         :param _builtins.str type: Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
         :param _builtins.str id: Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         :param _builtins.str scope: Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
@@ -2147,6 +2154,15 @@ class DataLakeGen2PathAce(dict):
     @_builtins.property
     @pulumi.getter
     def permissions(self) -> _builtins.str:
+        """
+        Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+
+        More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
+
+        > **Note:** Using the service's ACE inheritance features will not work well with terraform since we cannot handle changes that are taking place out-of-band. Setting the path to inherit its permissions from its parent will result in terraform trying to revert them in the next apply operation.
+
+        > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+        """
         return pulumi.get(self, "permissions")
 
     @_builtins.property

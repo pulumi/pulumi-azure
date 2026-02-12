@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PostgreSql
 {
     /// <summary>
+    /// Manages a PostgreSQL Database within a PostgreSQL Server
+    /// 
+    /// &gt; **Note:** The `azure.postgresql.Database` resource is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `azure.postgresql.FlexibleServerDatabase` resource instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+    /// 
+    /// !&gt; **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `PreventDestroy` lifecycle argument in your configuration file for this resource. For more information on the `PreventDestroy` lifecycle argument please see the terraform documentation.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

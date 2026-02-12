@@ -588,9 +588,25 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     public Output<String> version() {
         return this.version;
     }
+    /**
+     * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
+     * 
+     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
+     * 
+     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+     * 
+     */
     @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
+    /**
+     * @return Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
+     * 
+     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
+     * 
+     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+     * 
+     */
     public Output<Optional<String>> zone() {
         return Codegen.optional(this.zone);
     }

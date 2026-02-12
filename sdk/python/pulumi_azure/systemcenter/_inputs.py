@@ -27,32 +27,27 @@ __all__ = [
     'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict(TypedDict):
-        cpu_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
-        """
-        dynamic_memory_max_in_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
-        """
-        dynamic_memory_min_in_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
-        """
-        limit_cpu_for_migration_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether processor compatibility mode for live migration of Virtual Machines is enabled.
-        """
-        memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
-        """
-elif False:
-    VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict(TypedDict):
+    cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
+    """
+    dynamic_memory_max_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+    """
+    dynamic_memory_min_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+    """
+    limit_cpu_for_migration_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether processor compatibility mode for live migration of Virtual Machines is enabled.
+    """
+    memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
+    """
 
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceHardwareArgs:
@@ -141,30 +136,27 @@ class VirtualMachineManagerVirtualMachineInstanceHardwareArgs:
         pulumi.set(self, "memory_in_mb", value)
 
 
-if not MYPY:
-    class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict(TypedDict):
-        checkpoint_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
-        """
-        system_center_virtual_machine_manager_cloud_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        system_center_virtual_machine_manager_inventory_item_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
-        """
-        system_center_virtual_machine_manager_template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        system_center_virtual_machine_manager_virtual_machine_server_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict(TypedDict):
+    checkpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
+    """
+    system_center_virtual_machine_manager_cloud_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    system_center_virtual_machine_manager_inventory_item_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
+    """
+    system_center_virtual_machine_manager_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    system_center_virtual_machine_manager_virtual_machine_server_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs:
@@ -253,30 +245,27 @@ class VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs:
         pulumi.set(self, "system_center_virtual_machine_manager_virtual_machine_server_id", value)
 
 
-if not MYPY:
-    class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
-        """
-        ipv4_address_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address type. Possible values are `Dynamic` and `Static`.
-        """
-        ipv6_address_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv6 address type. Possible values are `Dynamic` and `Static`.
-        """
-        mac_address_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MAC address type. Possible values are `Dynamic` and `Static`.
-        """
-        virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
-        """
-elif False:
-    VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
+    """
+    ipv4_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address type. Possible values are `Dynamic` and `Static`.
+    """
+    ipv6_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv6 address type. Possible values are `Dynamic` and `Static`.
+    """
+    mac_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MAC address type. Possible values are `Dynamic` and `Static`.
+    """
+    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
+    """
 
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs:
@@ -364,18 +353,15 @@ class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
-if not MYPY:
-    class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict(TypedDict):
-        admin_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The admin password of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        computer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The computer name of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-elif False:
-    VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict(TypedDict):
+    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+    """
+    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs:
@@ -416,42 +402,39 @@ class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs:
         pulumi.set(self, "computer_name", value)
 
 
-if not MYPY:
-    class VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict(TypedDict):
-        bus: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The disk bus. Possible values are between `0` and `3`.
-        """
-        bus_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The disk bus type. Possible values are `IDE` and `SCSI`.
-        """
-        disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The disk total size.
-        """
-        lun: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The disk lun. Possible values are between `0` and `63`.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the disk.
-        """
-        storage_qos_policy_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Storage QoS policy.
-        """
-        template_disk_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
-        """
-        vhd_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The disk vhd type. Possible values are `Dynamic` and `Fixed`.
-        """
-elif False:
-    VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict(TypedDict):
+    bus: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The disk bus. Possible values are between `0` and `3`.
+    """
+    bus_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The disk bus type. Possible values are `IDE` and `SCSI`.
+    """
+    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The disk total size.
+    """
+    lun: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The disk lun. Possible values are between `0` and `63`.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the disk.
+    """
+    storage_qos_policy_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Storage QoS policy.
+    """
+    template_disk_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
+    """
+    vhd_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The disk vhd type. Possible values are `Dynamic` and `Fixed`.
+    """
 
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs:

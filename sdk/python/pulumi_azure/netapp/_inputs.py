@@ -57,70 +57,65 @@ __all__ = [
     'GetAccountIdentityArgsDict',
 ]
 
-MYPY = False
+class AccountActiveDirectoryArgsDict(TypedDict):
+    dns_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+    """
+    domain: pulumi.Input[_builtins.str]
+    """
+    The name of the Active Directory domain.
+    """
+    password: pulumi.Input[_builtins.str]
+    """
+    The password associated with the `username`.
+    """
+    smb_server_name: pulumi.Input[_builtins.str]
+    """
+    The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The Username of Active Directory Domain Administrator.
+    """
+    aes_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+    """
+    kerberos_ad_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the active directory machine.
+    """
+    kerberos_kdc_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    kdc server IP addresses for the active directory machine.
 
-if not MYPY:
-    class AccountActiveDirectoryArgsDict(TypedDict):
-        dns_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
-        """
-        domain: pulumi.Input[_builtins.str]
-        """
-        The name of the Active Directory domain.
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        The password associated with the `username`.
-        """
-        smb_server_name: pulumi.Input[_builtins.str]
-        """
-        The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The Username of Active Directory Domain Administrator.
-        """
-        aes_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
-        """
-        kerberos_ad_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the active directory machine.
-        """
-        kerberos_kdc_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        kdc server IP addresses for the active directory machine.
-
-        > **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
-        """
-        ldap_over_tls_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
-        """
-        ldap_signing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
-        """
-        local_nfs_users_with_ldap_allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
-        """
-        organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
-        """
-        server_root_ca_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
-        """
-        site_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
-        """
-elif False:
-    AccountActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+    """
+    ldap_over_tls_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+    """
+    ldap_signing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+    """
+    local_nfs_users_with_ldap_allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+    """
+    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
+    """
+    server_root_ca_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+    """
+    site_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+    """
 
 @pulumi.input_type
 class AccountActiveDirectoryArgs:
@@ -352,20 +347,17 @@ class AccountActiveDirectoryArgs:
         pulumi.set(self, "site_name", value)
 
 
-if not MYPY:
-    class AccountIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The identity id of the user assigned identity to use when type is `UserAssigned`
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AccountIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The identity id of the user assigned identity to use when type is `UserAssigned`
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -429,22 +421,19 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class SnapshotPolicyDailyScheduleArgsDict(TypedDict):
-        hour: pulumi.Input[_builtins.int]
-        """
-        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
-        """
-        minute: pulumi.Input[_builtins.int]
-        """
-        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
-        """
-        snapshots_to_keep: pulumi.Input[_builtins.int]
-        """
-        How many hourly snapshots to keep, valid range is from 0 to 255.
-        """
-elif False:
-    SnapshotPolicyDailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotPolicyDailyScheduleArgsDict(TypedDict):
+    hour: pulumi.Input[_builtins.int]
+    """
+    Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+    """
+    minute: pulumi.Input[_builtins.int]
+    """
+    Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+    """
+    snapshots_to_keep: pulumi.Input[_builtins.int]
+    """
+    How many hourly snapshots to keep, valid range is from 0 to 255.
+    """
 
 @pulumi.input_type
 class SnapshotPolicyDailyScheduleArgs:
@@ -498,18 +487,15 @@ class SnapshotPolicyDailyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class SnapshotPolicyHourlyScheduleArgsDict(TypedDict):
-        minute: pulumi.Input[_builtins.int]
-        """
-        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
-        """
-        snapshots_to_keep: pulumi.Input[_builtins.int]
-        """
-        How many hourly snapshots to keep, valid range is from 0 to 255.
-        """
-elif False:
-    SnapshotPolicyHourlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotPolicyHourlyScheduleArgsDict(TypedDict):
+    minute: pulumi.Input[_builtins.int]
+    """
+    Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+    """
+    snapshots_to_keep: pulumi.Input[_builtins.int]
+    """
+    How many hourly snapshots to keep, valid range is from 0 to 255.
+    """
 
 @pulumi.input_type
 class SnapshotPolicyHourlyScheduleArgs:
@@ -548,26 +534,23 @@ class SnapshotPolicyHourlyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class SnapshotPolicyMonthlyScheduleArgsDict(TypedDict):
-        days_of_months: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
-        """
-        hour: pulumi.Input[_builtins.int]
-        """
-        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
-        """
-        minute: pulumi.Input[_builtins.int]
-        """
-        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
-        """
-        snapshots_to_keep: pulumi.Input[_builtins.int]
-        """
-        How many hourly snapshots to keep, valid range is from 0 to 255.
-        """
-elif False:
-    SnapshotPolicyMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotPolicyMonthlyScheduleArgsDict(TypedDict):
+    days_of_months: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+    """
+    hour: pulumi.Input[_builtins.int]
+    """
+    Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+    """
+    minute: pulumi.Input[_builtins.int]
+    """
+    Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+    """
+    snapshots_to_keep: pulumi.Input[_builtins.int]
+    """
+    How many hourly snapshots to keep, valid range is from 0 to 255.
+    """
 
 @pulumi.input_type
 class SnapshotPolicyMonthlyScheduleArgs:
@@ -636,26 +619,23 @@ class SnapshotPolicyMonthlyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class SnapshotPolicyWeeklyScheduleArgsDict(TypedDict):
-        days_of_weeks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of the week days using English names when the snapshots will be created.
-        """
-        hour: pulumi.Input[_builtins.int]
-        """
-        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
-        """
-        minute: pulumi.Input[_builtins.int]
-        """
-        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
-        """
-        snapshots_to_keep: pulumi.Input[_builtins.int]
-        """
-        How many hourly snapshots to keep, valid range is from 0 to 255.
-        """
-elif False:
-    SnapshotPolicyWeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotPolicyWeeklyScheduleArgsDict(TypedDict):
+    days_of_weeks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of the week days using English names when the snapshots will be created.
+    """
+    hour: pulumi.Input[_builtins.int]
+    """
+    Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+    """
+    minute: pulumi.Input[_builtins.int]
+    """
+    Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+    """
+    snapshots_to_keep: pulumi.Input[_builtins.int]
+    """
+    How many hourly snapshots to keep, valid range is from 0 to 255.
+    """
 
 @pulumi.input_type
 class SnapshotPolicyWeeklyScheduleArgs:
@@ -724,22 +704,19 @@ class SnapshotPolicyWeeklyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
-if not MYPY:
-    class VolumeCoolAccessArgsDict(TypedDict):
-        coolness_period_in_days: pulumi.Input[_builtins.int]
-        """
-        The coolness period in days for the volume. Possible vales are between `2` and `183`.
-        """
-        retrieval_policy: pulumi.Input[_builtins.str]
-        """
-        The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
-        """
-        tiering_policy: pulumi.Input[_builtins.str]
-        """
-        The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
-        """
-elif False:
-    VolumeCoolAccessArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeCoolAccessArgsDict(TypedDict):
+    coolness_period_in_days: pulumi.Input[_builtins.int]
+    """
+    The coolness period in days for the volume. Possible vales are between `2` and `183`.
+    """
+    retrieval_policy: pulumi.Input[_builtins.str]
+    """
+    The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+    """
+    tiering_policy: pulumi.Input[_builtins.str]
+    """
+    The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+    """
 
 @pulumi.input_type
 class VolumeCoolAccessArgs:
@@ -793,24 +770,21 @@ class VolumeCoolAccessArgs:
         pulumi.set(self, "tiering_policy", value)
 
 
-if not MYPY:
-    class VolumeDataProtectionBackupPolicyArgsDict(TypedDict):
-        backup_policy_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the backup policy to apply to the volume.
-        """
-        backup_vault_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the backup backup vault to associate this volume to.
-        """
-        policy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables the backup policy on the volume, defaults to `true`.
+class VolumeDataProtectionBackupPolicyArgsDict(TypedDict):
+    backup_policy_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the backup policy to apply to the volume.
+    """
+    backup_vault_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the backup backup vault to associate this volume to.
+    """
+    policy_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables the backup policy on the volume, defaults to `true`.
 
-        For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
-        """
-elif False:
-    VolumeDataProtectionBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+    """
 
 @pulumi.input_type
 class VolumeDataProtectionBackupPolicyArgs:
@@ -869,32 +843,29 @@ class VolumeDataProtectionBackupPolicyArgs:
         pulumi.set(self, "policy_enabled", value)
 
 
-if not MYPY:
-    class VolumeDataProtectionReplicationArgsDict(TypedDict):
-        remote_volume_location: pulumi.Input[_builtins.str]
-        """
-        Location of the primary volume. Changing this forces a new resource to be created.
-        """
-        remote_volume_resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the primary volume.
-        """
-        replication_frequency: pulumi.Input[_builtins.str]
-        """
-        Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+class VolumeDataProtectionReplicationArgsDict(TypedDict):
+    remote_volume_location: pulumi.Input[_builtins.str]
+    """
+    Location of the primary volume. Changing this forces a new resource to be created.
+    """
+    remote_volume_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the primary volume.
+    """
+    replication_frequency: pulumi.Input[_builtins.str]
+    """
+    Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
 
-        A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+    A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
 
-        > **Note:** Each destination volume can have only one `data_protection_replication` block configured. However, a source volume can have up to 2 destination volumes replicating from it (fan-out deployment). For more information on fan-out replication topologies, see [Understand data protection in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/data-protection-disaster-recovery-options#supported-replication-topologies).
+    > **Note:** Each destination volume can have only one `data_protection_replication` block configured. However, a source volume can have up to 2 destination volumes replicating from it (fan-out deployment). For more information on fan-out replication topologies, see [Understand data protection in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/data-protection-disaster-recovery-options#supported-replication-topologies).
 
-        > **Note:** For cross-zone replication (when `remote_volume_location` is the same as the volume's `location`), both the source and destination volumes must have a `zone` assigned. For a complete example of cross-zone-region replication with fan-out deployment, see the `./examples/netapp/cross_zone_region_replication` directory within the GitHub Repository. For more information, see [Manage cross-zone-region replication for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/cross-zone-region-replication-configure).
-        """
-        endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint type, default value is `dst` for destination.
-        """
-elif False:
-    VolumeDataProtectionReplicationArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** For cross-zone replication (when `remote_volume_location` is the same as the volume's `location`), both the source and destination volumes must have a `zone` assigned. For a complete example of cross-zone-region replication with fan-out deployment, see the `./examples/netapp/cross_zone_region_replication` directory within the GitHub Repository. For more information, see [Manage cross-zone-region replication for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/cross-zone-region-replication-configure).
+    """
+    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint type, default value is `dst` for destination.
+    """
 
 @pulumi.input_type
 class VolumeDataProtectionReplicationArgs:
@@ -976,18 +947,15 @@ class VolumeDataProtectionReplicationArgs:
         pulumi.set(self, "endpoint_type", value)
 
 
-if not MYPY:
-    class VolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
-        snapshot_policy_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the snapshot policy to apply to the volume.
+class VolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
+    snapshot_policy_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the snapshot policy to apply to the volume.
 
-        A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+    A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
 
-        > **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
-        """
-elif False:
-    VolumeDataProtectionSnapshotPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+    """
 
 @pulumi.input_type
 class VolumeDataProtectionSnapshotPolicyArgs:
@@ -1019,59 +987,56 @@ class VolumeDataProtectionSnapshotPolicyArgs:
         pulumi.set(self, "snapshot_policy_id", value)
 
 
-if not MYPY:
-    class VolumeExportPolicyRuleArgsDict(TypedDict):
-        allowed_clients: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of allowed clients IPv4 addresses.
-        """
-        rule_index: pulumi.Input[_builtins.int]
-        """
-        The index number of the rule.
-        """
-        kerberos5_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Kerberos 5 read-only access permitted to this volume?
-        """
-        kerberos5_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Kerberos 5 read/write permitted to this volume?
-        """
-        kerberos5i_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Kerberos 5i read-only permitted to this volume?
-        """
-        kerberos5i_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Kerberos 5i read/write permitted to this volume?
-        """
-        kerberos5p_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Kerberos 5p read-only permitted to this volume?
-        """
-        kerberos5p_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is Kerberos 5p read/write permitted to this volume?
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-        """
-        protocols_enabled: NotRequired[pulumi.Input[_builtins.str]]
-        root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is root access permitted to this volume?
-        """
-        unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the file system on unix read only?
-        """
-        unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the file system on unix read and write?
-        """
-elif False:
-    VolumeExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeExportPolicyRuleArgsDict(TypedDict):
+    allowed_clients: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of allowed clients IPv4 addresses.
+    """
+    rule_index: pulumi.Input[_builtins.int]
+    """
+    The index number of the rule.
+    """
+    kerberos5_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Kerberos 5 read-only access permitted to this volume?
+    """
+    kerberos5_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Kerberos 5 read/write permitted to this volume?
+    """
+    kerberos5i_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Kerberos 5i read-only permitted to this volume?
+    """
+    kerberos5i_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Kerberos 5i read/write permitted to this volume?
+    """
+    kerberos5p_read_only_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Kerberos 5p read-only permitted to this volume?
+    """
+    kerberos5p_read_write_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is Kerberos 5p read/write permitted to this volume?
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+    """
+    protocols_enabled: NotRequired[pulumi.Input[_builtins.str]]
+    root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is root access permitted to this volume?
+    """
+    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the file system on unix read only?
+    """
+    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the file system on unix read and write?
+    """
 
 @pulumi.input_type
 class VolumeExportPolicyRuleArgs:
@@ -1286,99 +1251,96 @@ class VolumeExportPolicyRuleArgs:
         pulumi.set(self, "unix_read_write", value)
 
 
-if not MYPY:
-    class VolumeGroupOracleVolumeArgsDict(TypedDict):
-        capacity_pool_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeExportPolicyRuleArgsDict']]]
-        """
-        One or more `export_policy_rule` blocks as defined below.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        protocols: pulumi.Input[_builtins.str]
-        """
-        The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+class VolumeGroupOracleVolumeArgsDict(TypedDict):
+    capacity_pool_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeExportPolicyRuleArgsDict']]]
+    """
+    One or more `export_policy_rule` blocks as defined below.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    protocols: pulumi.Input[_builtins.str]
+    """
+    The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
 
-        > **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
-        """
-        security_style: pulumi.Input[_builtins.str]
-        """
-        Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        service_level: pulumi.Input[_builtins.str]
-        """
-        Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        snapshot_directory_visible: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        storage_quota_in_gb: pulumi.Input[_builtins.int]
-        """
-        The maximum Storage Quota allowed for a file system in Gigabytes.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        throughput_in_mibps: pulumi.Input[_builtins.float]
-        """
-        Throughput of this volume in Mibps.
-        """
-        volume_path: pulumi.Input[_builtins.str]
-        """
-        A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        volume_spec_name: pulumi.Input[_builtins.str]
-        """
-        Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        data_protection_replication: NotRequired[pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgsDict']]
-        """
-        A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        data_protection_snapshot_policy: NotRequired[pulumi.Input['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgsDict']]
-        """
-        A `data_protection_snapshot_policy` block as defined below.
-        """
-        encryption_key_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Application Volume Group.
-        """
-        key_vault_private_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
-        """
-        mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        network_features: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
-        """
-        proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+    > **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+    """
+    security_style: pulumi.Input[_builtins.str]
+    """
+    Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    service_level: pulumi.Input[_builtins.str]
+    """
+    Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    snapshot_directory_visible: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    storage_quota_in_gb: pulumi.Input[_builtins.int]
+    """
+    The maximum Storage Quota allowed for a file system in Gigabytes.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    throughput_in_mibps: pulumi.Input[_builtins.float]
+    """
+    Throughput of this volume in Mibps.
+    """
+    volume_path: pulumi.Input[_builtins.str]
+    """
+    A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    volume_spec_name: pulumi.Input[_builtins.str]
+    """
+    Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    data_protection_replication: NotRequired[pulumi.Input['VolumeGroupOracleVolumeDataProtectionReplicationArgsDict']]
+    """
+    A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    data_protection_snapshot_policy: NotRequired[pulumi.Input['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgsDict']]
+    """
+    A `data_protection_snapshot_policy` block as defined below.
+    """
+    encryption_key_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Application Volume Group.
+    """
+    key_vault_private_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+    """
+    mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_features: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+    """
+    proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
 
-        > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A mapping of tags which should be assigned to the Application Volume Group.
-        """
-        zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
-        """
-elif False:
-    VolumeGroupOracleVolumeArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A mapping of tags which should be assigned to the Application Volume Group.
+    """
+    zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+    """
 
 @pulumi.input_type
 class VolumeGroupOracleVolumeArgs:
@@ -1731,26 +1693,23 @@ class VolumeGroupOracleVolumeArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class VolumeGroupOracleVolumeDataProtectionReplicationArgsDict(TypedDict):
-        remote_volume_location: pulumi.Input[_builtins.str]
-        """
-        Location of the primary volume.
-        """
-        remote_volume_resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        replication_frequency: pulumi.Input[_builtins.str]
-        """
-        Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-elif False:
-    VolumeGroupOracleVolumeDataProtectionReplicationArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupOracleVolumeDataProtectionReplicationArgsDict(TypedDict):
+    remote_volume_location: pulumi.Input[_builtins.str]
+    """
+    Location of the primary volume.
+    """
+    remote_volume_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    replication_frequency: pulumi.Input[_builtins.str]
+    """
+    Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
 
 @pulumi.input_type
 class VolumeGroupOracleVolumeDataProtectionReplicationArgs:
@@ -1820,14 +1779,11 @@ class VolumeGroupOracleVolumeDataProtectionReplicationArgs:
         pulumi.set(self, "endpoint_type", value)
 
 
-if not MYPY:
-    class VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
-        snapshot_policy_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the snapshot policy to apply to the volume.
-        """
-elif False:
-    VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
+    snapshot_policy_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the snapshot policy to apply to the volume.
+    """
 
 @pulumi.input_type
 class VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs:
@@ -1851,38 +1807,35 @@ class VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs:
         pulumi.set(self, "snapshot_policy_id", value)
 
 
-if not MYPY:
-    class VolumeGroupOracleVolumeExportPolicyRuleArgsDict(TypedDict):
-        allowed_clients: pulumi.Input[_builtins.str]
-        """
-        A comma-sperated list of allowed client IPv4 addresses.
-        """
-        nfsv3_enabled: pulumi.Input[_builtins.bool]
-        """
-        Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
-        """
-        nfsv41_enabled: pulumi.Input[_builtins.bool]
-        """
-        Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
-        """
-        rule_index: pulumi.Input[_builtins.int]
-        """
-        The index number of the rule, must start at 1 and maximum 5.
-        """
-        root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is root access permitted to this volume? Defaults to `true`.
-        """
-        unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the file system on unix read only? Defaults to `false.
-        """
-        unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the file system on unix read and write? Defaults to `true`.
-        """
-elif False:
-    VolumeGroupOracleVolumeExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupOracleVolumeExportPolicyRuleArgsDict(TypedDict):
+    allowed_clients: pulumi.Input[_builtins.str]
+    """
+    A comma-sperated list of allowed client IPv4 addresses.
+    """
+    nfsv3_enabled: pulumi.Input[_builtins.bool]
+    """
+    Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+    """
+    nfsv41_enabled: pulumi.Input[_builtins.bool]
+    """
+    Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+    """
+    rule_index: pulumi.Input[_builtins.int]
+    """
+    The index number of the rule, must start at 1 and maximum 5.
+    """
+    root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is root access permitted to this volume? Defaults to `true`.
+    """
+    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the file system on unix read only? Defaults to `false.
+    """
+    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the file system on unix read and write? Defaults to `true`.
+    """
 
 @pulumi.input_type
 class VolumeGroupOracleVolumeExportPolicyRuleArgs:
@@ -1999,81 +1952,78 @@ class VolumeGroupOracleVolumeExportPolicyRuleArgs:
         pulumi.set(self, "unix_read_write", value)
 
 
-if not MYPY:
-    class VolumeGroupSapHanaVolumeArgsDict(TypedDict):
-        capacity_pool_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict']]]
-        """
-        One or more `export_policy_rule` blocks as defined below.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        protocols: pulumi.Input[_builtins.str]
-        """
-        The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+class VolumeGroupSapHanaVolumeArgsDict(TypedDict):
+    capacity_pool_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict']]]
+    """
+    One or more `export_policy_rule` blocks as defined below.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    protocols: pulumi.Input[_builtins.str]
+    """
+    The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 
-        > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
-        """
-        security_style: pulumi.Input[_builtins.str]
-        """
-        Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        service_level: pulumi.Input[_builtins.str]
-        """
-        Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        snapshot_directory_visible: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        storage_quota_in_gb: pulumi.Input[_builtins.int]
-        """
-        The maximum Storage Quota allowed for a file system in Gigabytes.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        throughput_in_mibps: pulumi.Input[_builtins.float]
-        """
-        Throughput of this volume in Mibps.
-        """
-        volume_path: pulumi.Input[_builtins.str]
-        """
-        A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        volume_spec_name: pulumi.Input[_builtins.str]
-        """
-        Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        data_protection_replication: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict']]
-        """
-        A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        data_protection_snapshot_policy: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict']]
-        """
-        A `data_protection_snapshot_policy` block as defined below.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the Application Volume Group.
-        """
-        mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A mapping of tags which should be assigned to the Application Volume Group.
-        """
-elif False:
-    VolumeGroupSapHanaVolumeArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
+    """
+    security_style: pulumi.Input[_builtins.str]
+    """
+    Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    service_level: pulumi.Input[_builtins.str]
+    """
+    Volume security style. Possible values are `Premium`, `Standard`, `Ultra` and `Flexible`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    snapshot_directory_visible: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    storage_quota_in_gb: pulumi.Input[_builtins.int]
+    """
+    The maximum Storage Quota allowed for a file system in Gigabytes.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    throughput_in_mibps: pulumi.Input[_builtins.float]
+    """
+    Throughput of this volume in Mibps.
+    """
+    volume_path: pulumi.Input[_builtins.str]
+    """
+    A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    volume_spec_name: pulumi.Input[_builtins.str]
+    """
+    Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    data_protection_replication: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict']]
+    """
+    A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    data_protection_snapshot_policy: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict']]
+    """
+    A `data_protection_snapshot_policy` block as defined below.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Application Volume Group.
+    """
+    mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A mapping of tags which should be assigned to the Application Volume Group.
+    """
 
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeArgs:
@@ -2358,26 +2308,23 @@ class VolumeGroupSapHanaVolumeArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict(TypedDict):
-        remote_volume_location: pulumi.Input[_builtins.str]
-        """
-        Location of the primary volume.
-        """
-        remote_volume_resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        replication_frequency: pulumi.Input[_builtins.str]
-        """
-        eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-        endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        """
-elif False:
-    VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict(TypedDict):
+    remote_volume_location: pulumi.Input[_builtins.str]
+    """
+    Location of the primary volume.
+    """
+    remote_volume_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    replication_frequency: pulumi.Input[_builtins.str]
+    """
+    eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
+    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
 
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
@@ -2447,14 +2394,11 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
         pulumi.set(self, "endpoint_type", value)
 
 
-if not MYPY:
-    class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
-        snapshot_policy_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the snapshot policy to apply to the volume.
-        """
-elif False:
-    VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
+    snapshot_policy_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the snapshot policy to apply to the volume.
+    """
 
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
@@ -2478,38 +2422,35 @@ class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
         pulumi.set(self, "snapshot_policy_id", value)
 
 
-if not MYPY:
-    class VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict(TypedDict):
-        allowed_clients: pulumi.Input[_builtins.str]
-        """
-        A comma-sperated list of allowed client IPv4 addresses.
-        """
-        nfsv3_enabled: pulumi.Input[_builtins.bool]
-        """
-        Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
-        """
-        nfsv41_enabled: pulumi.Input[_builtins.bool]
-        """
-        Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
-        """
-        rule_index: pulumi.Input[_builtins.int]
-        """
-        The index number of the rule, must start at 1 and maximum 5.
-        """
-        root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is root access permitted to this volume? Defaults to `true`.
-        """
-        unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the file system on unix read only? Defaults to `false.
-        """
-        unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the file system on unix read and write? Defaults to `true`.
-        """
-elif False:
-    VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict(TypedDict):
+    allowed_clients: pulumi.Input[_builtins.str]
+    """
+    A comma-sperated list of allowed client IPv4 addresses.
+    """
+    nfsv3_enabled: pulumi.Input[_builtins.bool]
+    """
+    Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+    """
+    nfsv41_enabled: pulumi.Input[_builtins.bool]
+    """
+    Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+    """
+    rule_index: pulumi.Input[_builtins.int]
+    """
+    The index number of the rule, must start at 1 and maximum 5.
+    """
+    root_access_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is root access permitted to this volume? Defaults to `true`.
+    """
+    unix_read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the file system on unix read only? Defaults to `false.
+    """
+    unix_read_write: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the file system on unix read and write? Defaults to `true`.
+    """
 
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
@@ -2626,14 +2567,11 @@ class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
         pulumi.set(self, "unix_read_write", value)
 
 
-if not MYPY:
-    class GetAccountIdentityArgsDict(TypedDict):
-        principal_id: _builtins.str
-        tenant_id: _builtins.str
-        type: _builtins.str
-        identity_ids: NotRequired[Sequence[_builtins.str]]
-elif False:
-    GetAccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class GetAccountIdentityArgsDict(TypedDict):
+    principal_id: _builtins.str
+    tenant_id: _builtins.str
+    type: _builtins.str
+    identity_ids: NotRequired[Sequence[_builtins.str]]
 
 @pulumi.input_type
 class GetAccountIdentityArgs:

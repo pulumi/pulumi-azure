@@ -172,6 +172,10 @@ class ShareDirectory(pulumi.CustomResource):
                  storage_share_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a Directory within an Azure Storage File Share.
+
+        > **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `storage_use_azuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create directories. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+
         ## Example Usage
 
         ```python
@@ -217,6 +221,10 @@ class ShareDirectory(pulumi.CustomResource):
                  args: Optional[ShareDirectoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Directory within an Azure Storage File Share.
+
+        > **Note:** When using Azure Active Directory Authentication (i.e. setting the provider property `storage_use_azuread = true`), the principal running Terraform must have the *Storage File Data Privileged Contributor* IAM role assigned. The *Storage File Data SMB Share Contributor* does not have sufficient permissions to create directories. Refer to [official documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-file-service-operations) for more details.
+
         ## Example Usage
 
         ```python

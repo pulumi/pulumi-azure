@@ -27,24 +27,19 @@ __all__ = [
     'UserRoleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MongoClusterConnectionStringArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the connection string.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
-        """
-elif False:
-    MongoClusterConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterConnectionStringArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the connection string.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+    """
 
 @pulumi.input_type
 class MongoClusterConnectionStringArgs:
@@ -101,18 +96,15 @@ class MongoClusterConnectionStringArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class MongoClusterCustomerManagedKeyArgsDict(TypedDict):
-        key_vault_key_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
-        """
-        user_assigned_identity_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the User Assigned Identity that has access to the Key Vault Key.
-        """
-elif False:
-    MongoClusterCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterCustomerManagedKeyArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+    """
+    user_assigned_identity_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the User Assigned Identity that has access to the Key Vault Key.
+    """
 
 @pulumi.input_type
 class MongoClusterCustomerManagedKeyArgs:
@@ -151,20 +143,17 @@ class MongoClusterCustomerManagedKeyArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class MongoClusterIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of one or more Resource IDs for User Assigned Managed identities to assign.
+class MongoClusterIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of one or more Resource IDs for User Assigned Managed identities to assign.
 
-        > **Note:** Required when `type` is set to `UserAssigned`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of managed identity to assign. Possible value is `UserAssigned`.
-        """
-elif False:
-    MongoClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Required when `type` is set to `UserAssigned`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of managed identity to assign. Possible value is `UserAssigned`.
+    """
 
 @pulumi.input_type
 class MongoClusterIdentityArgs:
@@ -207,18 +196,15 @@ class MongoClusterIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class MongoClusterRestoreArgsDict(TypedDict):
-        point_in_time_utc: pulumi.Input[_builtins.str]
-        """
-        The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
-        """
-        source_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
-        """
-elif False:
-    MongoClusterRestoreArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterRestoreArgsDict(TypedDict):
+    point_in_time_utc: pulumi.Input[_builtins.str]
+    """
+    The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+    """
+    source_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class MongoClusterRestoreArgs:
@@ -257,18 +243,15 @@ class MongoClusterRestoreArgs:
         pulumi.set(self, "source_id", value)
 
 
-if not MYPY:
-    class UserRoleArgsDict(TypedDict):
-        database: pulumi.Input[_builtins.str]
-        """
-        The name of the database to which the role will be applied. Changing this forces a new resource to be created.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The role name. The only possible value is `root`. Changing this forces a new resource to be created.
-        """
-elif False:
-    UserRoleArgsDict: TypeAlias = Mapping[str, Any]
+class UserRoleArgsDict(TypedDict):
+    database: pulumi.Input[_builtins.str]
+    """
+    The name of the database to which the role will be applied. Changing this forces a new resource to be created.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The role name. The only possible value is `root`. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class UserRoleArgs:

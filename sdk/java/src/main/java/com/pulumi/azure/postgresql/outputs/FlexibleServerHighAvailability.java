@@ -17,6 +17,14 @@ public final class FlexibleServerHighAvailability {
      * 
      */
     private String mode;
+    /**
+     * @return Specifies the Availability Zone in which the standby Flexible Server should be located.
+     * 
+     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
+     * 
+     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+     * 
+     */
     private @Nullable String standbyAvailabilityZone;
 
     private FlexibleServerHighAvailability() {}
@@ -27,6 +35,14 @@ public final class FlexibleServerHighAvailability {
     public String mode() {
         return this.mode;
     }
+    /**
+     * @return Specifies the Availability Zone in which the standby Flexible Server should be located.
+     * 
+     * &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it&#39;s primary Availability Zone after a fail-over.
+     * 
+     * &gt; **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+     * 
+     */
     public Optional<String> standbyAvailabilityZone() {
         return Optional.ofNullable(this.standbyAvailabilityZone);
     }

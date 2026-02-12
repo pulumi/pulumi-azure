@@ -11,6 +11,12 @@ import java.util.Objects;
 
 @CustomType
 public final class ResourceProviderRegistrationFeature {
+    /**
+     * @return Specifies the name of the feature to register.
+     * 
+     * &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+     * 
+     */
     private String name;
     /**
      * @return Should this feature be Registered or Unregistered?
@@ -19,6 +25,12 @@ public final class ResourceProviderRegistrationFeature {
     private Boolean registered;
 
     private ResourceProviderRegistrationFeature() {}
+    /**
+     * @return Specifies the name of the feature to register.
+     * 
+     * &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+     * 
+     */
     public String name() {
         return this.name;
     }

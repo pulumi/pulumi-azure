@@ -103,7 +103,15 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.AppFlexConsumptionAlwaysReady>> AlwaysReadies { get; private set; } = null!;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **Note:** For storage related settings, please use related properties that are available such as `StorageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+        /// 
+        /// &gt; **Note:** For application insight related settings, please use `ApplicationInsightsConnectionString` and `ApplicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+        /// 
+        /// &gt; **Note:** For health check related settings, please use `HealthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+        /// 
+        /// &gt; **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
@@ -330,6 +338,13 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource azure.appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the function app configuration.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -416,7 +431,15 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **Note:** For storage related settings, please use related properties that are available such as `StorageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+        /// 
+        /// &gt; **Note:** For application insight related settings, please use `ApplicationInsightsConnectionString` and `ApplicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+        /// 
+        /// &gt; **Note:** For health check related settings, please use `HealthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+        /// 
+        /// &gt; **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -604,6 +627,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource azure.appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the function app configuration.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -647,7 +677,15 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// 
+        /// &gt; **Note:** For storage related settings, please use related properties that are available such as `StorageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+        /// 
+        /// &gt; **Note:** For application insight related settings, please use `ApplicationInsightsConnectionString` and `ApplicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+        /// 
+        /// &gt; **Note:** For health check related settings, please use `HealthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+        /// 
+        /// &gt; **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -921,6 +959,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// 
+        /// &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource azure.appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `VirtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `AppServiceVirtualNetworkSwiftConnection` then `IgnoreChanges` should be used in the function app configuration.
+        /// 
+        /// &gt; **Note:** Assigning the `VirtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 

@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * Site Recovery Network Mapping can be imported using the `resource id`, e.g.
  *
  * ```sh
- * $ pulumi import azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping  azurerm_site_recovery_hyperv_network_mapping.mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/primary-fabric-name/replicationNetworks/azureNetwork/replicationNetworkMappings/mapping-name
+ * $ pulumi import azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/primary-fabric-name/replicationNetworks/azureNetwork/replicationNetworkMappings/mapping-name
  * ```
  */
 export class HypervNetworkMapping extends pulumi.CustomResource {

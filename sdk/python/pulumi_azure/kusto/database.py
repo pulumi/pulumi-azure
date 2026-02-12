@@ -252,6 +252,10 @@ class Database(pulumi.CustomResource):
                  soft_delete_period: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a Kusto (also known as Azure Data Explorer) Database
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python
@@ -309,6 +313,10 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Kusto (also known as Azure Data Explorer) Database
+
+        !> **Note:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the terraform documentation.
+
         ## Example Usage
 
         ```python

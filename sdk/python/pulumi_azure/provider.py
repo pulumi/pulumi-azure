@@ -62,6 +62,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[_builtins.str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[_builtins.bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
+        :param pulumi.Input[_builtins.bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[_builtins.str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
         :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
@@ -278,6 +279,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="disableTerraformPartnerId")
     def disable_terraform_partner_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+        """
         return pulumi.get(self, "disable_terraform_partner_id")
 
     @disable_terraform_partner_id.setter
@@ -578,6 +582,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[_builtins.str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[_builtins.bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
+        :param pulumi.Input[_builtins.bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[_builtins.str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
         :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.

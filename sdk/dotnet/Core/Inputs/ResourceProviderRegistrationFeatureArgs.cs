@@ -12,6 +12,11 @@ namespace Pulumi.Azure.Core.Inputs
 
     public sealed class ResourceProviderRegistrationFeatureArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the feature to register.
+        /// 
+        /// &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

@@ -20,6 +20,13 @@ namespace Pulumi.Azure.MySql.Inputs
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+        /// 
+        /// &gt; **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `Zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `IgnoreChanges` functionality to ignore changes to the `Zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+        /// 
+        /// &gt; **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+        /// </summary>
         [Input("standbyAvailabilityZone")]
         public Input<string>? StandbyAvailabilityZone { get; set; }
 

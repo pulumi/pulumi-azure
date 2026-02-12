@@ -15,9 +15,25 @@ public final class WorkspaceRootDbfsCustomerManagedKeyState extends com.pulumi.r
 
     public static final WorkspaceRootDbfsCustomerManagedKeyState Empty = new WorkspaceRootDbfsCustomerManagedKeyState();
 
+    /**
+     * Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+     * 
+     * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
+    /**
+     * @return Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+     * 
+     * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+     * 
+     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * 
+     */
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -78,11 +94,31 @@ public final class WorkspaceRootDbfsCustomerManagedKeyState extends com.pulumi.r
             $ = new WorkspaceRootDbfsCustomerManagedKeyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param keyVaultId Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+         * 
+         * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+         * 
+         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
         }
 
+        /**
+         * @param keyVaultId Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
+         * 
+         * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
+         * 
+         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }

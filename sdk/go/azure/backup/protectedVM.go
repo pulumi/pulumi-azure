@@ -100,6 +100,11 @@ import (
 type ProtectedVM struct {
 	pulumi.CustomResourceState
 
+	// Specifies the ID of the backup policy to use.
+	//
+	// > **Note:** `backupPolicyId` is required during initial creation of this resource.
+	//
+	// > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
 	BackupPolicyId pulumi.StringPtrOutput `pulumi:"backupPolicyId"`
 	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayOutput `pulumi:"excludeDiskLuns"`
@@ -155,6 +160,11 @@ func GetProtectedVM(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectedVM resources.
 type protectedVMState struct {
+	// Specifies the ID of the backup policy to use.
+	//
+	// > **Note:** `backupPolicyId` is required during initial creation of this resource.
+	//
+	// > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
 	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns []int `pulumi:"excludeDiskLuns"`
@@ -175,6 +185,11 @@ type protectedVMState struct {
 }
 
 type ProtectedVMState struct {
+	// Specifies the ID of the backup policy to use.
+	//
+	// > **Note:** `backupPolicyId` is required during initial creation of this resource.
+	//
+	// > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
 	BackupPolicyId pulumi.StringPtrInput
 	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayInput
@@ -199,6 +214,11 @@ func (ProtectedVMState) ElementType() reflect.Type {
 }
 
 type protectedVMArgs struct {
+	// Specifies the ID of the backup policy to use.
+	//
+	// > **Note:** `backupPolicyId` is required during initial creation of this resource.
+	//
+	// > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
 	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns []int `pulumi:"excludeDiskLuns"`
@@ -220,6 +240,11 @@ type protectedVMArgs struct {
 
 // The set of arguments for constructing a ProtectedVM resource.
 type ProtectedVMArgs struct {
+	// Specifies the ID of the backup policy to use.
+	//
+	// > **Note:** `backupPolicyId` is required during initial creation of this resource.
+	//
+	// > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
 	BackupPolicyId pulumi.StringPtrInput
 	// A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
 	ExcludeDiskLuns pulumi.IntArrayInput
@@ -326,6 +351,11 @@ func (o ProtectedVMOutput) ToProtectedVMOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// Specifies the ID of the backup policy to use.
+//
+// > **Note:** `backupPolicyId` is required during initial creation of this resource.
+//
+// > **Note:** When `protectionState` is set to `BackupsSuspended` or `ProtectionStopped`, the Azure API may not return `backupPolicyId`. To avoid a perpetual diff, use Terraform's ignoreChanges argument.
 func (o ProtectedVMOutput) BackupPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectedVM) pulumi.StringPtrOutput { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
 }

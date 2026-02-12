@@ -90,6 +90,11 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+               
+               > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+               
+               > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
@@ -438,6 +443,13 @@ class FlexibleServerArgs:
     @_builtins.property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+
+        > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+
+        > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+        """
         return pulumi.get(self, "zone")
 
     @zone.setter
@@ -522,6 +534,11 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+               
+               > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+               
+               > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -910,6 +927,13 @@ class _FlexibleServerState:
     @_builtins.property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+
+        > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+
+        > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+        """
         return pulumi.get(self, "zone")
 
     @zone.setter
@@ -1059,6 +1083,11 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+               
+               > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+               
+               > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
         """
         ...
     @overload
@@ -1300,6 +1329,11 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+               
+               > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+               
+               > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1562,5 +1596,12 @@ class FlexibleServer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def zone(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
+
+        > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over.
+
+        > **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
+        """
         return pulumi.get(self, "zone")
 

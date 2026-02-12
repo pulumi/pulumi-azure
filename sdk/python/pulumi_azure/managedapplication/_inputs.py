@@ -21,34 +21,29 @@ __all__ = [
     'DefinitionAuthorizationArgsDict',
 ]
 
-MYPY = False
+class ApplicationPlanArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+    """
+    product: pulumi.Input[_builtins.str]
+    """
+    Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    Specifies the publisher of the plan. Changing this forces a new resource to be created.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
+    """
+    promotion_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
 
-if not MYPY:
-    class ApplicationPlanArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
-        """
-        product: pulumi.Input[_builtins.str]
-        """
-        Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        Specifies the publisher of the plan. Changing this forces a new resource to be created.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
-        """
-        promotion_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
-
-        > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
-        """
-elif False:
-    ApplicationPlanArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+    """
 
 @pulumi.input_type
 class ApplicationPlanArgs:
@@ -137,18 +132,15 @@ class ApplicationPlanArgs:
         pulumi.set(self, "promotion_code", value)
 
 
-if not MYPY:
-    class DefinitionAuthorizationArgsDict(TypedDict):
-        role_definition_id: pulumi.Input[_builtins.str]
-        """
-        Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-        """
-        service_principal_id: pulumi.Input[_builtins.str]
-        """
-        Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        """
-elif False:
-    DefinitionAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+class DefinitionAuthorizationArgsDict(TypedDict):
+    role_definition_id: pulumi.Input[_builtins.str]
+    """
+    Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+    """
+    service_principal_id: pulumi.Input[_builtins.str]
+    """
+    Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
+    """
 
 @pulumi.input_type
 class DefinitionAuthorizationArgs:

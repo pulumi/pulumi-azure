@@ -129,7 +129,10 @@ type LinuxWebAppSlot struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrOutput `pulumi:"logs"`
-	Name pulumi.StringOutput          `pulumi:"name"`
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	//
+	// > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -153,8 +156,13 @@ type LinuxWebAppSlot struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -252,7 +260,10 @@ type linuxWebAppSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	Name *string              `pulumi:"name"`
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	//
+	// > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+	Name *string `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -276,8 +287,13 @@ type linuxWebAppSlotState struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -335,6 +351,9 @@ type LinuxWebAppSlotState struct {
 	Kind pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	//
+	// > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -360,7 +379,12 @@ type LinuxWebAppSlotState struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -412,7 +436,10 @@ type linuxWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	Name *string              `pulumi:"name"`
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	//
+	// > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
+	Name *string `pulumi:"name"`
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
@@ -426,8 +453,13 @@ type linuxWebAppSlotArgs struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -476,6 +508,9 @@ type LinuxWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+	//
+	// > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
 	Name pulumi.StringPtrInput
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -491,7 +526,12 @@ type LinuxWebAppSlotArgs struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -698,6 +738,9 @@ func (o LinuxWebAppSlotOutput) Logs() LinuxWebAppSlotLogsPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotLogsPtrOutput { return v.Logs }).(LinuxWebAppSlotLogsPtrOutput)
 }
 
+// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+//
+// > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
 func (o LinuxWebAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -759,6 +802,11 @@ func (o LinuxWebAppSlotOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolP
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+//
+// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+//
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
 func (o LinuxWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

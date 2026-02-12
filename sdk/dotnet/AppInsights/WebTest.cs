@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppInsights
 {
     /// <summary>
+    /// Manages an Application Insights WebTest.
+    /// 
+    /// &gt; **Note:** Despite the discrepancy in its name, this Terraform resource corresponds to the Azure resource 'Application Insights Classic Web Test'. Azure changed the name, but we retained the original name in Terraform to avoid disruption and ensure backward compatibility.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -145,6 +145,10 @@ class SourceControlToken(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages an App Service Source Control Token.
+
+        > **Note:** This resource can only manage the token for the user currently running Terraform. Managing tokens for another user is not supported by the service.
+
         ## Example Usage
 
         ```python
@@ -186,6 +190,10 @@ class SourceControlToken(pulumi.CustomResource):
                  args: SourceControlTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an App Service Source Control Token.
+
+        > **Note:** This resource can only manage the token for the user currently running Terraform. Managing tokens for another user is not supported by the service.
+
         ## Example Usage
 
         ```python

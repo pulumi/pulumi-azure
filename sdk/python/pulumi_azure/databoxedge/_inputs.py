@@ -19,56 +19,51 @@ __all__ = [
     'DeviceDevicePropertyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DeviceDevicePropertyArgsDict(TypedDict):
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Data Box Edge/Gateway device local capacity in MB.
-        """
-        configured_role_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Type of compute roles configured.
-        """
-        culture: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Data Box Edge/Gateway device culture.
-        """
-        hcs_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The device software version number of the device (e.g. 1.2.18105.6).
-        """
-        model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Data Box Edge/Gateway device model.
-        """
-        node_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of nodes in the cluster.
-        """
-        serial_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Serial Number of Data Box Edge/Gateway device.
-        """
-        software_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Data Box Edge/Gateway device software version.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the Data Box Edge/Gateway device.
-        """
-        time_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Data Box Edge/Gateway device timezone.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the Data Box Edge/Gateway device.
-        """
-elif False:
-    DeviceDevicePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceDevicePropertyArgsDict(TypedDict):
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Data Box Edge/Gateway device local capacity in MB.
+    """
+    configured_role_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Type of compute roles configured.
+    """
+    culture: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Data Box Edge/Gateway device culture.
+    """
+    hcs_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The device software version number of the device (e.g. 1.2.18105.6).
+    """
+    model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Data Box Edge/Gateway device model.
+    """
+    node_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of nodes in the cluster.
+    """
+    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Serial Number of Data Box Edge/Gateway device.
+    """
+    software_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Data Box Edge/Gateway device software version.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the Data Box Edge/Gateway device.
+    """
+    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Data Box Edge/Gateway device timezone.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the Data Box Edge/Gateway device.
+    """
 
 @pulumi.input_type
 class DeviceDevicePropertyArgs:

@@ -327,9 +327,21 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.logs);
     }
 
+    /**
+     * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * 
+     * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -526,9 +538,25 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.virtualNetworkImagePullEnabled);
     }
 
+    /**
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
+    /**
+     * @return The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+     * 
+     * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+     * 
+     */
     public Optional<Output<String>> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
@@ -1056,11 +1084,27 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
             return logs(Output.of(logs));
         }
 
+        /**
+         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * 
+         * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * 
+         * &gt; **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -1371,11 +1415,31 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
             return virtualNetworkImagePullEnabled(Output.of(virtualNetworkImagePullEnabled));
         }
 
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+         * 
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
 
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app slot configuration.
+         * 
+         * &gt; **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }

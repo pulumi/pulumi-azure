@@ -74,6 +74,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:iot/fallbackRoute:FallbackRoute route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/fallbackRoute/default
  * ```
+ *
+ * > **Note:** As there may only be a single fallback route per IoTHub, the id always ends with `/fallbackRoute/default`.
  */
 export class FallbackRoute extends pulumi.CustomResource {
     /**

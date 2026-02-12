@@ -328,6 +328,8 @@ class DataDiskAttachment(pulumi.CustomResource):
         $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
         ```
 
+        > **Note:** This is provider-specific ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -437,6 +439,8 @@ class DataDiskAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
         ```
+
+        > **Note:** This is provider-specific ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 
         :param str resource_name: The name of the resource.
         :param DataDiskAttachmentArgs args: The arguments to use to populate this resource's properties.

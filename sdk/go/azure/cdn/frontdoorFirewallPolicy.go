@@ -197,6 +197,11 @@ import (
 type FrontdoorFirewallPolicy struct {
 	pulumi.CustomResourceState
 
+	// Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+	//
+	// > **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+	//
+	// > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 	CaptchaCookieExpirationInMinutes pulumi.IntOutput `pulumi:"captchaCookieExpirationInMinutes"`
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody pulumi.StringPtrOutput `pulumi:"customBlockResponseBody"`
@@ -207,8 +212,13 @@ type FrontdoorFirewallPolicy struct {
 	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
-	FrontendEndpointIds                  pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
-	JsChallengeCookieExpirationInMinutes pulumi.IntOutput         `pulumi:"jsChallengeCookieExpirationInMinutes"`
+	FrontendEndpointIds pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
+	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+	//
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
+	JsChallengeCookieExpirationInMinutes pulumi.IntOutput `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// A `logScrubbing` block as defined below.
 	//
 	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -274,6 +284,11 @@ func GetFrontdoorFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorFirewallPolicy resources.
 type frontdoorFirewallPolicyState struct {
+	// Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+	//
+	// > **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+	//
+	// > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 	CaptchaCookieExpirationInMinutes *int `pulumi:"captchaCookieExpirationInMinutes"`
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody *string `pulumi:"customBlockResponseBody"`
@@ -284,8 +299,13 @@ type frontdoorFirewallPolicyState struct {
 	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
-	FrontendEndpointIds                  []string `pulumi:"frontendEndpointIds"`
-	JsChallengeCookieExpirationInMinutes *int     `pulumi:"jsChallengeCookieExpirationInMinutes"`
+	FrontendEndpointIds []string `pulumi:"frontendEndpointIds"`
+	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+	//
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
+	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// A `logScrubbing` block as defined below.
 	//
 	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -313,6 +333,11 @@ type frontdoorFirewallPolicyState struct {
 }
 
 type FrontdoorFirewallPolicyState struct {
+	// Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+	//
+	// > **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+	//
+	// > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 	CaptchaCookieExpirationInMinutes pulumi.IntPtrInput
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody pulumi.StringPtrInput
@@ -323,7 +348,12 @@ type FrontdoorFirewallPolicyState struct {
 	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
-	FrontendEndpointIds                  pulumi.StringArrayInput
+	FrontendEndpointIds pulumi.StringArrayInput
+	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+	//
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
 	// A `logScrubbing` block as defined below.
 	//
@@ -356,6 +386,11 @@ func (FrontdoorFirewallPolicyState) ElementType() reflect.Type {
 }
 
 type frontdoorFirewallPolicyArgs struct {
+	// Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+	//
+	// > **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+	//
+	// > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 	CaptchaCookieExpirationInMinutes *int `pulumi:"captchaCookieExpirationInMinutes"`
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody *string `pulumi:"customBlockResponseBody"`
@@ -364,8 +399,13 @@ type frontdoorFirewallPolicyArgs struct {
 	// One or more `customRule` blocks as defined below.
 	CustomRules []FrontdoorFirewallPolicyCustomRule `pulumi:"customRules"`
 	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
-	Enabled                              *bool `pulumi:"enabled"`
-	JsChallengeCookieExpirationInMinutes *int  `pulumi:"jsChallengeCookieExpirationInMinutes"`
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+	//
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
+	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// A `logScrubbing` block as defined below.
 	//
 	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -394,6 +434,11 @@ type frontdoorFirewallPolicyArgs struct {
 
 // The set of arguments for constructing a FrontdoorFirewallPolicy resource.
 type FrontdoorFirewallPolicyArgs struct {
+	// Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+	//
+	// > **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+	//
+	// > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 	CaptchaCookieExpirationInMinutes pulumi.IntPtrInput
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody pulumi.StringPtrInput
@@ -402,7 +447,12 @@ type FrontdoorFirewallPolicyArgs struct {
 	// One or more `customRule` blocks as defined below.
 	CustomRules FrontdoorFirewallPolicyCustomRuleArrayInput
 	// Is the Front Door Firewall Policy enabled? Defaults to `true`.
-	Enabled                              pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+	//
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
 	// A `logScrubbing` block as defined below.
 	//
@@ -517,6 +567,11 @@ func (o FrontdoorFirewallPolicyOutput) ToFrontdoorFirewallPolicyOutputWithContex
 	return o
 }
 
+// Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
+//
+// > **Note:** The `captchaCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
+//
+// > **Note:** When you remove the `captchaCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 func (o FrontdoorFirewallPolicyOutput) CaptchaCookieExpirationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.IntOutput { return v.CaptchaCookieExpirationInMinutes }).(pulumi.IntOutput)
 }
@@ -546,6 +601,11 @@ func (o FrontdoorFirewallPolicyOutput) FrontendEndpointIds() pulumi.StringArrayO
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringArrayOutput { return v.FrontendEndpointIds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+//
+// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+//
+// > **Note:** When you remove the `jsChallengeCookieExpirationInMinutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
 func (o FrontdoorFirewallPolicyOutput) JsChallengeCookieExpirationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.IntOutput { return v.JsChallengeCookieExpirationInMinutes }).(pulumi.IntOutput)
 }

@@ -17,9 +17,21 @@ public final class ResourceProviderRegistrationState extends com.pulumi.resource
 
     public static final ResourceProviderRegistrationState Empty = new ResourceProviderRegistrationState();
 
+    /**
+     * A list of `feature` blocks as defined below.
+     * 
+     * &gt; **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it&#39;s not possible to reset this to the default, unspecified, state).
+     * 
+     */
     @Import(name="features")
     private @Nullable Output<List<ResourceProviderRegistrationFeatureArgs>> features;
 
+    /**
+     * @return A list of `feature` blocks as defined below.
+     * 
+     * &gt; **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it&#39;s not possible to reset this to the default, unspecified, state).
+     * 
+     */
     public Optional<Output<List<ResourceProviderRegistrationFeatureArgs>>> features() {
         return Optional.ofNullable(this.features);
     }
@@ -64,15 +76,39 @@ public final class ResourceProviderRegistrationState extends com.pulumi.resource
             $ = new ResourceProviderRegistrationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param features A list of `feature` blocks as defined below.
+         * 
+         * &gt; **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it&#39;s not possible to reset this to the default, unspecified, state).
+         * 
+         * @return builder
+         * 
+         */
         public Builder features(@Nullable Output<List<ResourceProviderRegistrationFeatureArgs>> features) {
             $.features = features;
             return this;
         }
 
+        /**
+         * @param features A list of `feature` blocks as defined below.
+         * 
+         * &gt; **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it&#39;s not possible to reset this to the default, unspecified, state).
+         * 
+         * @return builder
+         * 
+         */
         public Builder features(List<ResourceProviderRegistrationFeatureArgs> features) {
             return features(Output.of(features));
         }
 
+        /**
+         * @param features A list of `feature` blocks as defined below.
+         * 
+         * &gt; **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it&#39;s not possible to reset this to the default, unspecified, state).
+         * 
+         * @return builder
+         * 
+         */
         public Builder features(ResourceProviderRegistrationFeatureArgs... features) {
             return features(List.of(features));
         }

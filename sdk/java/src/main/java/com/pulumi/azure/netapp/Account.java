@@ -104,6 +104,8 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:netapp/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1
  * ```
  * 
+ * &gt; **Note:** When importing a NetApp account, the `active_directory.password` and `active_directory.server_root_ca_certificate` values *cannot* be retrieved from the Azure API and will need to be redeclared within the resource.
+ * 
  */
 @ResourceType(type="azure:netapp/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {

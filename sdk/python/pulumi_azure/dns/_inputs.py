@@ -27,24 +27,19 @@ __all__ = [
     'ZoneSoaRecordArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CaaRecordRecordArgsDict(TypedDict):
-        flags: pulumi.Input[_builtins.int]
-        """
-        Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        """
-        tag: pulumi.Input[_builtins.str]
-        """
-        A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        A property value such as a registrar domain.
-        """
-elif False:
-    CaaRecordRecordArgsDict: TypeAlias = Mapping[str, Any]
+class CaaRecordRecordArgsDict(TypedDict):
+    flags: pulumi.Input[_builtins.int]
+    """
+    Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+    """
+    tag: pulumi.Input[_builtins.str]
+    """
+    A property tag, options are `issue`, `issuewild`, `iodef`, and `contactemail`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    A property value such as a registrar domain.
+    """
 
 @pulumi.input_type
 class CaaRecordRecordArgs:
@@ -98,18 +93,15 @@ class CaaRecordRecordArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class MxRecordRecordArgsDict(TypedDict):
-        exchange: pulumi.Input[_builtins.str]
-        """
-        The mail server responsible for the domain covered by the MX record.
-        """
-        preference: pulumi.Input[_builtins.str]
-        """
-        String representing the "preference” value of the MX records. Records with lower preference value take priority.
-        """
-elif False:
-    MxRecordRecordArgsDict: TypeAlias = Mapping[str, Any]
+class MxRecordRecordArgsDict(TypedDict):
+    exchange: pulumi.Input[_builtins.str]
+    """
+    The mail server responsible for the domain covered by the MX record.
+    """
+    preference: pulumi.Input[_builtins.str]
+    """
+    String representing the "preference” value of the MX records. Records with lower preference value take priority.
+    """
 
 @pulumi.input_type
 class MxRecordRecordArgs:
@@ -148,26 +140,23 @@ class MxRecordRecordArgs:
         pulumi.set(self, "preference", value)
 
 
-if not MYPY:
-    class SrvRecordRecordArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        Port the service is listening on.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        Priority of the SRV record.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        FQDN of the service.
-        """
-        weight: pulumi.Input[_builtins.int]
-        """
-        Weight of the SRV record.
-        """
-elif False:
-    SrvRecordRecordArgsDict: TypeAlias = Mapping[str, Any]
+class SrvRecordRecordArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    Port the service is listening on.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    Priority of the SRV record.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    FQDN of the service.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Weight of the SRV record.
+    """
 
 @pulumi.input_type
 class SrvRecordRecordArgs:
@@ -236,14 +225,11 @@ class SrvRecordRecordArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class TxtRecordRecordArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the record. Max length: 4096 characters
-        """
-elif False:
-    TxtRecordRecordArgsDict: TypeAlias = Mapping[str, Any]
+class TxtRecordRecordArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the record. Max length: 4096 characters
+    """
 
 @pulumi.input_type
 class TxtRecordRecordArgs:
@@ -267,50 +253,47 @@ class TxtRecordRecordArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ZoneSoaRecordArgsDict(TypedDict):
-        email: pulumi.Input[_builtins.str]
-        """
-        The email contact for the SOA record.
-        """
-        expire_time: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The expire time for the SOA record. Defaults to `2419200`.
-        """
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fully qualified domain name.
-        """
-        host_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain name of the authoritative name server for the SOA record.
-        """
-        minimum_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
-        """
-        refresh_time: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The refresh time for the SOA record. Defaults to `3600`.
-        """
-        retry_time: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The retry time for the SOA record. Defaults to `300`.
-        """
-        serial_number: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The serial number for the SOA record. Defaults to `1`.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A mapping of tags to assign to the Record Set.
-        """
-        ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Time To Live of the SOA Record in seconds. Defaults to `3600`.
-        """
-elif False:
-    ZoneSoaRecordArgsDict: TypeAlias = Mapping[str, Any]
+class ZoneSoaRecordArgsDict(TypedDict):
+    email: pulumi.Input[_builtins.str]
+    """
+    The email contact for the SOA record.
+    """
+    expire_time: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The expire time for the SOA record. Defaults to `2419200`.
+    """
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fully qualified domain name.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The domain name of the authoritative name server for the SOA record.
+    """
+    minimum_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
+    """
+    refresh_time: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The refresh time for the SOA record. Defaults to `3600`.
+    """
+    retry_time: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The retry time for the SOA record. Defaults to `300`.
+    """
+    serial_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The serial number for the SOA record. Defaults to `1`.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A mapping of tags to assign to the Record Set.
+    """
+    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+    """
 
 @pulumi.input_type
 class ZoneSoaRecordArgs:

@@ -56,9 +56,7 @@ namespace Pulumi.Azure.Authorization
     /// ```
     /// 
     /// * Where `{subscriptionId}` is the ID of the Azure Subscription where the User Assigned Identity exists. For example `12345678-1234-9876-4563-123456789012`.
-    /// 
     /// * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`.
-    /// 
     /// * Where `{userAssignedIdentityName}` is the name of the User Assigned Identity. For example `userAssignedIdentityValue`.
     /// </summary>
     [AzureResourceType("azure:authorization/userAssignedIdentity:UserAssignedIdentity")]

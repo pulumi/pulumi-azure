@@ -298,6 +298,8 @@ class FallbackRoute(pulumi.CustomResource):
         $ pulumi import azure:iot/fallbackRoute:FallbackRoute route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/fallbackRoute/default
         ```
 
+        > **Note:** As there may only be a single fallback route per IoTHub, the id always ends with `/fallbackRoute/default`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
@@ -377,6 +379,8 @@ class FallbackRoute(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/fallbackRoute:FallbackRoute route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/fallbackRoute/default
         ```
+
+        > **Note:** As there may only be a single fallback route per IoTHub, the id always ends with `/fallbackRoute/default`.
 
         :param str resource_name: The name of the resource.
         :param FallbackRouteArgs args: The arguments to use to populate this resource's properties.

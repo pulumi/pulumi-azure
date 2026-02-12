@@ -26,6 +26,11 @@ class StaticWebAppCustomDomainArgs:
         The set of arguments for constructing a StaticWebAppCustomDomain resource.
         :param pulumi.Input[_builtins.str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] static_web_app_id: The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
+        :param pulumi.Input[_builtins.str] validation_type: One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+               
+               > **Note:** Apex domains must use `dns-txt-token` validation.
+               
+               > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validation_token` value for this to complete out of band.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "static_web_app_id", static_web_app_id)
@@ -58,6 +63,13 @@ class StaticWebAppCustomDomainArgs:
     @_builtins.property
     @pulumi.getter(name="validationType")
     def validation_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+
+        > **Note:** Apex domains must use `dns-txt-token` validation.
+
+        > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validation_token` value for this to complete out of band.
+        """
         return pulumi.get(self, "validation_type")
 
     @validation_type.setter
@@ -77,6 +89,11 @@ class _StaticWebAppCustomDomainState:
         :param pulumi.Input[_builtins.str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] static_web_app_id: The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] validation_token: Token to be used with `dns-txt-token` validation.
+        :param pulumi.Input[_builtins.str] validation_type: One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+               
+               > **Note:** Apex domains must use `dns-txt-token` validation.
+               
+               > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validation_token` value for this to complete out of band.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -126,6 +143,13 @@ class _StaticWebAppCustomDomainState:
     @_builtins.property
     @pulumi.getter(name="validationType")
     def validation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+
+        > **Note:** Apex domains must use `dns-txt-token` validation.
+
+        > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validation_token` value for this to complete out of band.
+        """
         return pulumi.get(self, "validation_type")
 
     @validation_type.setter
@@ -144,6 +168,10 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
                  validation_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages a Static Web App Custom Domain.
+
+        !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+
         ## Example Usage
 
         ### CNAME validation
@@ -221,6 +249,11 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] static_web_app_id: The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
+        :param pulumi.Input[_builtins.str] validation_type: One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+               
+               > **Note:** Apex domains must use `dns-txt-token` validation.
+               
+               > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validation_token` value for this to complete out of band.
         """
         ...
     @overload
@@ -229,6 +262,10 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
                  args: StaticWebAppCustomDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Static Web App Custom Domain.
+
+        !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+
         ## Example Usage
 
         ### CNAME validation
@@ -365,6 +402,11 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] static_web_app_id: The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] validation_token: Token to be used with `dns-txt-token` validation.
+        :param pulumi.Input[_builtins.str] validation_type: One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+               
+               > **Note:** Apex domains must use `dns-txt-token` validation.
+               
+               > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validation_token` value for this to complete out of band.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -403,5 +445,12 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="validationType")
     def validation_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+
+        > **Note:** Apex domains must use `dns-txt-token` validation.
+
+        > **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validation_token` value for this to complete out of band.
+        """
         return pulumi.get(self, "validation_type")
 

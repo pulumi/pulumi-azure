@@ -75,6 +75,11 @@ export class IPGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPGroup.__pulumiType;
     }
 
+    /**
+     * A list of CIDRs or IP addresses.
+     *
+     * > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+     */
     declare public readonly cidrs: pulumi.Output<string[] | undefined>;
     /**
      * A list of ID of Firewall.
@@ -143,6 +148,11 @@ export class IPGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IPGroup resources.
  */
 export interface IPGroupState {
+    /**
+     * A list of CIDRs or IP addresses.
+     *
+     * > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+     */
     cidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of ID of Firewall.
@@ -174,6 +184,11 @@ export interface IPGroupState {
  * The set of arguments for constructing a IPGroup resource.
  */
 export interface IPGroupArgs {
+    /**
+     * A list of CIDRs or IP addresses.
+     *
+     * > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+     */
     cidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

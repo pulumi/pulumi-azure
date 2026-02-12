@@ -188,6 +188,8 @@ class ActionCustom(pulumi.CustomResource):
         $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
         ```
 
+        > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Action.
@@ -245,6 +247,8 @@ class ActionCustom(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
         ```
+
+        > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 
         :param str resource_name: The name of the resource.
         :param ActionCustomArgs args: The arguments to use to populate this resource's properties.

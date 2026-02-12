@@ -85,6 +85,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
         /// </summary>
         public readonly string? ScanInterval;
+        /// <summary>
+        /// If `True` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `False`.
+        /// &lt;!-- Note: Although Azure’s API default is `True`, Terraform sends the zero-value (`False`) whenever an `AutoScalerProfile` block is present but this field isn’t set. --&gt;
+        /// </summary>
         public readonly bool? SkipNodesWithLocalStorage;
         /// <summary>
         /// If `True` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `True`.

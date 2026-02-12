@@ -120,6 +120,10 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("scanInterval")]
         public Input<string>? ScanInterval { get; set; }
 
+        /// <summary>
+        /// If `True` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `False`.
+        /// &lt;!-- Note: Although Azure’s API default is `True`, Terraform sends the zero-value (`False`) whenever an `AutoScalerProfile` block is present but this field isn’t set. --&gt;
+        /// </summary>
         [Input("skipNodesWithLocalStorage")]
         public Input<bool>? SkipNodesWithLocalStorage { get; set; }
 

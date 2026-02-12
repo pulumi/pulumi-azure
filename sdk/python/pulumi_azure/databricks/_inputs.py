@@ -27,30 +27,25 @@ __all__ = [
     'WorkspaceStorageAccountIdentityArgsDict',
 ]
 
-MYPY = False
+class AccessConnectorIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
 
-if not MYPY:
-    class AccessConnectorIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
-
-        > **Note:** `identity_ids` are required when `type` is set to `UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
-        """
-elif False:
-    AccessConnectorIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `identity_ids` are required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
+    """
 
 @pulumi.input_type
 class AccessConnectorIdentityArgs:
@@ -126,64 +121,61 @@ class AccessConnectorIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class WorkspaceCustomParametersArgsDict(TypedDict):
-        machine_learning_workspace_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
-        """
-        nat_gateway_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
-        """
-        no_public_ip: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
+class WorkspaceCustomParametersArgsDict(TypedDict):
+    machine_learning_workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
+    """
+    nat_gateway_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+    """
+    no_public_ip: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
 
-        > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+    > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
 
-        > **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
-        """
-        private_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
-        """
-        private_subnet_network_security_group_association_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
-        """
-        public_ip_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
-        """
-        public_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
-        """
-        public_subnet_network_security_group_association_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
-        """
-        storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
-        """
-        storage_account_sku_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
-        """
-        virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
-        """
-        vnet_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+    > **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+    """
+    private_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+    """
+    private_subnet_network_security_group_association_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+    """
+    public_ip_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+    """
+    public_subnet_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+    """
+    public_subnet_network_security_group_association_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+    """
+    storage_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+    """
+    storage_account_sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
+    """
+    virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
+    """
+    vnet_address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
 
-        > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
-        """
-elif False:
-    WorkspaceCustomParametersArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+    """
 
 @pulumi.input_type
 class WorkspaceCustomParametersArgs:
@@ -396,34 +388,31 @@ class WorkspaceCustomParametersArgs:
         pulumi.set(self, "vnet_address_prefix", value)
 
 
-if not MYPY:
-    class WorkspaceEnhancedSecurityComplianceArgsDict(TypedDict):
-        automatic_cluster_update_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables automatic cluster updates for this workspace. Defaults to `false`.
-        """
-        compliance_security_profile_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables compliance security profile for this workspace. Defaults to `false`.
+class WorkspaceEnhancedSecurityComplianceArgsDict(TypedDict):
+    automatic_cluster_update_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables automatic cluster updates for this workspace. Defaults to `false`.
+    """
+    compliance_security_profile_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables compliance security profile for this workspace. Defaults to `false`.
 
-        > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+    > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
 
-        > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
-        """
-        compliance_security_profile_standards: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+    > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+    """
+    compliance_security_profile_standards: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
 
-        > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+    > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
 
-        > **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
-        """
-        enhanced_security_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables enhanced security monitoring for this workspace. Defaults to `false`.
-        """
-elif False:
-    WorkspaceEnhancedSecurityComplianceArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+    """
+    enhanced_security_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables enhanced security monitoring for this workspace. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class WorkspaceEnhancedSecurityComplianceArgs:
@@ -512,22 +501,19 @@ class WorkspaceEnhancedSecurityComplianceArgs:
         pulumi.set(self, "enhanced_security_monitoring_enabled", value)
 
 
-if not MYPY:
-    class WorkspaceManagedDiskIdentityArgsDict(TypedDict):
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The UUID of the tenant where the internal databricks storage account was created.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the internal databricks storage account.
-        """
-elif False:
-    WorkspaceManagedDiskIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceManagedDiskIdentityArgsDict(TypedDict):
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The UUID of the tenant where the internal databricks storage account was created.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the internal databricks storage account.
+    """
 
 @pulumi.input_type
 class WorkspaceManagedDiskIdentityArgs:
@@ -584,22 +570,19 @@ class WorkspaceManagedDiskIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WorkspaceStorageAccountIdentityArgsDict(TypedDict):
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The UUID of the tenant where the internal databricks storage account was created.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the internal databricks storage account.
-        """
-elif False:
-    WorkspaceStorageAccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceStorageAccountIdentityArgsDict(TypedDict):
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The UUID of the tenant where the internal databricks storage account was created.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the internal databricks storage account.
+    """
 
 @pulumi.input_type
 class WorkspaceStorageAccountIdentityArgs:

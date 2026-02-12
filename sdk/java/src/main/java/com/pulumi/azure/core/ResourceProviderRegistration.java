@@ -114,9 +114,21 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:core/resourceProviderRegistration:ResourceProviderRegistration")
 public class ResourceProviderRegistration extends com.pulumi.resources.CustomResource {
+    /**
+     * A list of `feature` blocks as defined below.
+     * 
+     * &gt; **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it&#39;s not possible to reset this to the default, unspecified, state).
+     * 
+     */
     @Export(name="features", refs={List.class,ResourceProviderRegistrationFeature.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceProviderRegistrationFeature>> features;
 
+    /**
+     * @return A list of `feature` blocks as defined below.
+     * 
+     * &gt; **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it&#39;s not possible to reset this to the default, unspecified, state).
+     * 
+     */
     public Output<Optional<List<ResourceProviderRegistrationFeature>>> features() {
         return Codegen.optional(this.features);
     }

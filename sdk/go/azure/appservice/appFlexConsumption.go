@@ -114,7 +114,15 @@ type AppFlexConsumption struct {
 
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayOutput `pulumi:"alwaysReadies"`
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	//
+	// > **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+	//
+	// > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+	//
+	// > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+	//
+	// > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings AppFlexConsumptionAuthSettingsPtrOutput `pulumi:"authSettings"`
@@ -193,7 +201,12 @@ type AppFlexConsumption struct {
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"storageUserAssignedIdentityId"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -266,7 +279,15 @@ func GetAppFlexConsumption(ctx *pulumi.Context,
 type appFlexConsumptionState struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies []AppFlexConsumptionAlwaysReady `pulumi:"alwaysReadies"`
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	//
+	// > **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+	//
+	// > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+	//
+	// > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+	//
+	// > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *AppFlexConsumptionAuthSettings `pulumi:"authSettings"`
@@ -345,8 +366,13 @@ type appFlexConsumptionState struct {
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId *string `pulumi:"storageUserAssignedIdentityId"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -360,7 +386,15 @@ type appFlexConsumptionState struct {
 type AppFlexConsumptionState struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayInput
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	//
+	// > **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+	//
+	// > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+	//
+	// > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+	//
+	// > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings AppFlexConsumptionAuthSettingsPtrInput
@@ -439,7 +473,12 @@ type AppFlexConsumptionState struct {
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -458,7 +497,15 @@ func (AppFlexConsumptionState) ElementType() reflect.Type {
 type appFlexConsumptionArgs struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies []AppFlexConsumptionAlwaysReady `pulumi:"alwaysReadies"`
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	//
+	// > **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+	//
+	// > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+	//
+	// > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+	//
+	// > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *AppFlexConsumptionAuthSettings `pulumi:"authSettings"`
@@ -519,8 +566,13 @@ type appFlexConsumptionArgs struct {
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId *string `pulumi:"storageUserAssignedIdentityId"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -535,7 +587,15 @@ type appFlexConsumptionArgs struct {
 type AppFlexConsumptionArgs struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayInput
-	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	//
+	// > **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+	//
+	// > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+	//
+	// > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+	//
+	// > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings AppFlexConsumptionAuthSettingsPtrInput
@@ -596,7 +656,12 @@ type AppFlexConsumptionArgs struct {
 	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	//
+	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+	//
+	// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -700,7 +765,15 @@ func (o AppFlexConsumptionOutput) AlwaysReadies() AppFlexConsumptionAlwaysReadyA
 	return o.ApplyT(func(v *AppFlexConsumption) AppFlexConsumptionAlwaysReadyArrayOutput { return v.AlwaysReadies }).(AppFlexConsumptionAlwaysReadyArrayOutput)
 }
 
-// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+//
+// > **Note:** For storage related settings, please use related properties that are available such as `storageAccessKey`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
+//
+// > **Note:** For application insight related settings, please use `applicationInsightsConnectionString` and `applicationInsightsKey`, terraform will assign the value to the key `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` in app setting.
+//
+// > **Note:** For health check related settings, please use `healthCheckEvictionTimeInMin`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
+//
+// > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
 func (o AppFlexConsumptionOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
@@ -891,6 +964,11 @@ func (o AppFlexConsumptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+//
+// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appservice.VirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the function app configuration.
+//
+// > **Note:** Assigning the `virtualNetworkSubnetId` property requires [RBAC permissions on the subnet](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#permissions)
 func (o AppFlexConsumptionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

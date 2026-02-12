@@ -46,6 +46,10 @@ import java.util.concurrent.CompletableFuture;
 
 public final class DnsFunctions {
     /**
+     * Use this data source to access information about an existing DNS AAAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -94,6 +98,10 @@ public final class DnsFunctions {
         return getAAAARecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS AAAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -142,6 +150,10 @@ public final class DnsFunctions {
         return getAAAARecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS AAAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -190,6 +202,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS AAAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -238,6 +254,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS AAAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -286,6 +306,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS A Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -334,6 +358,10 @@ public final class DnsFunctions {
         return getARecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS A Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -382,6 +410,10 @@ public final class DnsFunctions {
         return getARecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS A Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -430,6 +462,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS A Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -478,6 +514,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS A Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -526,6 +566,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -574,6 +618,10 @@ public final class DnsFunctions {
         return getCAARecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -622,6 +670,10 @@ public final class DnsFunctions {
         return getCAARecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -670,6 +722,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getCAARecord:getCAARecord", TypeShape.of(GetCAARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -718,6 +774,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getCAARecord:getCAARecord", TypeShape.of(GetCAARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS CAA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -766,6 +826,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getCAARecord:getCAARecord", TypeShape.of(GetCAARecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS CNAME Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -814,6 +878,10 @@ public final class DnsFunctions {
         return getCnameRecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS CNAME Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -862,6 +930,10 @@ public final class DnsFunctions {
         return getCnameRecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS CNAME Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -910,6 +982,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS CNAME Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -958,6 +1034,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS CNAME Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1006,6 +1086,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS MX Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1054,6 +1138,10 @@ public final class DnsFunctions {
         return getMxRecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS MX Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1102,6 +1190,10 @@ public final class DnsFunctions {
         return getMxRecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS MX Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1150,6 +1242,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS MX Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1198,6 +1294,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS MX Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1246,6 +1346,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS NS Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1294,6 +1398,10 @@ public final class DnsFunctions {
         return getNsRecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS NS Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1342,6 +1450,10 @@ public final class DnsFunctions {
         return getNsRecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS NS Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1390,6 +1502,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getNsRecord:getNsRecord", TypeShape.of(GetNsRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS NS Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1438,6 +1554,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getNsRecord:getNsRecord", TypeShape.of(GetNsRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS NS Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1486,6 +1606,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getNsRecord:getNsRecord", TypeShape.of(GetNsRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS PTR Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1534,6 +1658,10 @@ public final class DnsFunctions {
         return getPtrRecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS PTR Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1582,6 +1710,10 @@ public final class DnsFunctions {
         return getPtrRecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS PTR Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1630,6 +1762,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS PTR Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1678,6 +1814,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS PTR Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1726,6 +1866,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS SOA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1773,6 +1917,10 @@ public final class DnsFunctions {
         return getSoaRecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS SOA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1820,6 +1968,10 @@ public final class DnsFunctions {
         return getSoaRecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS SOA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1867,6 +2019,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS SOA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1914,6 +2070,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS SOA Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1961,6 +2121,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS SRV Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2009,6 +2173,10 @@ public final class DnsFunctions {
         return getSrvRecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS SRV Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2057,6 +2225,10 @@ public final class DnsFunctions {
         return getSrvRecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS SRV Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2105,6 +2277,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS SRV Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2153,6 +2329,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS SRV Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2201,6 +2381,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invokeAsync("azure:dns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS TXT Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2249,6 +2433,10 @@ public final class DnsFunctions {
         return getTxtRecord(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS TXT Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2297,6 +2485,10 @@ public final class DnsFunctions {
         return getTxtRecordPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing DNS TXT Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2345,6 +2537,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS TXT Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -2393,6 +2589,10 @@ public final class DnsFunctions {
         return Deployment.getInstance().invoke("azure:dns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing DNS TXT Record within Azure DNS.
+     * 
+     * &gt; **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger read timeout then the default 5min. Although, we&#39;d generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
+     * 
      * ## Example Usage
      * 
      * <pre>

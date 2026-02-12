@@ -49,6 +49,8 @@ class DicomServiceAuthentication(dict):
                  authority: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] audiences: The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
+        :param _builtins.str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+               Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
         """
         if audiences is not None:
             pulumi.set(__self__, "audiences", audiences)
@@ -66,6 +68,10 @@ class DicomServiceAuthentication(dict):
     @_builtins.property
     @pulumi.getter
     def authority(self) -> Optional[_builtins.str]:
+        """
+        The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+        Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+        """
         return pulumi.get(self, "authority")
 
 
@@ -336,6 +342,8 @@ class FhirServiceAuthentication(dict):
                  smart_proxy_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str audience: The intended audience to receive authentication tokens for the service.
+        :param _builtins.str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+               Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
         :param _builtins.bool smart_proxy_enabled: Whether smart proxy is enabled.
         """
         pulumi.set(__self__, "audience", audience)
@@ -354,6 +362,10 @@ class FhirServiceAuthentication(dict):
     @_builtins.property
     @pulumi.getter
     def authority(self) -> _builtins.str:
+        """
+        The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+        Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+        """
         return pulumi.get(self, "authority")
 
     @_builtins.property
@@ -902,6 +914,8 @@ class GetDicomServiceAuthenticationResult(dict):
                  authority: _builtins.str):
         """
         :param Sequence[_builtins.str] audiences: The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
+        :param _builtins.str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+               Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
         """
         pulumi.set(__self__, "audiences", audiences)
         pulumi.set(__self__, "authority", authority)
@@ -917,6 +931,10 @@ class GetDicomServiceAuthenticationResult(dict):
     @_builtins.property
     @pulumi.getter
     def authority(self) -> _builtins.str:
+        """
+        The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+        Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+        """
         return pulumi.get(self, "authority")
 
 
@@ -1081,6 +1099,8 @@ class GetFhirServiceAuthenticationResult(dict):
                  smart_proxy_enabled: _builtins.bool):
         """
         :param _builtins.str audience: The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+        :param _builtins.str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+               Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "authority", authority)
@@ -1097,6 +1117,10 @@ class GetFhirServiceAuthenticationResult(dict):
     @_builtins.property
     @pulumi.getter
     def authority(self) -> _builtins.str:
+        """
+        The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform.
+        Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.
+        """
         return pulumi.get(self, "authority")
 
     @_builtins.property

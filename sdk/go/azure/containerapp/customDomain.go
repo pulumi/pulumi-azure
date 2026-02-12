@@ -205,7 +205,9 @@ import (
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
 	CertificateBindingType pulumi.StringPtrOutput `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 	//
@@ -254,7 +256,9 @@ func GetCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
 	CertificateBindingType *string `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 	//
@@ -271,7 +275,9 @@ type customDomainState struct {
 }
 
 type CustomDomainState struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
 	CertificateBindingType pulumi.StringPtrInput
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 	//
@@ -292,7 +298,9 @@ func (CustomDomainState) ElementType() reflect.Type {
 }
 
 type customDomainArgs struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
 	CertificateBindingType *string `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 	//
@@ -308,7 +316,9 @@ type customDomainArgs struct {
 
 // The set of arguments for constructing a CustomDomain resource.
 type CustomDomainArgs struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+	// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
 	CertificateBindingType pulumi.StringPtrInput
 	// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
 	//
@@ -409,7 +419,9 @@ func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Binding type. Possible values include `Disabled` and `SniEnabled`.
+// The Certificate Binding type. Possible values are `Auto`, `Disabled` and `SniEnabled`. Required with `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
+//
+// !> **Note:** If using an Azure Managed Certificate `containerAppEnvironmentCertificateId` and `certificateBindingType` should be added to `ignoreChanges` to prevent resource recreation due to these values being modified asynchronously outside of Terraform.
 func (o CustomDomainOutput) CertificateBindingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) pulumi.StringPtrOutput { return v.CertificateBindingType }).(pulumi.StringPtrOutput)
 }

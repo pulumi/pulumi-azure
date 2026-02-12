@@ -55,26 +55,21 @@ __all__ = [
     'HciNetworkInterfaceIpConfigurationArgsDict',
 ]
 
-MYPY = False
+class HciClusterIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is `SystemAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
 
-if not MYPY:
-    class HciClusterIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is `SystemAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
-
-        > **Note:** If unspecified the Tenant ID of the Provider will be used.
-        """
-elif False:
-    HciClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If unspecified the Tenant ID of the Provider will be used.
+    """
 
 @pulumi.input_type
 class HciClusterIdentityArgs:
@@ -134,102 +129,99 @@ class HciClusterIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitArgsDict(TypedDict):
-        active_directory_organizational_unit_path: pulumi.Input[_builtins.str]
-        """
-        Specify the full name of the Active Directory Organizational Unit container object prepared for the deployment, including the domain components. For example:`OU=HCI01,DC=contoso,DC=com`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        cluster: pulumi.Input['HciDeploymentSettingScaleUnitClusterArgsDict']
-        """
-        A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        domain_fqdn: pulumi.Input[_builtins.str]
-        """
-        Specifies the FQDN for deploying cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        host_network: pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkArgsDict']
-        """
-        A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        infrastructure_networks: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitInfrastructureNetworkArgsDict']]]
-        """
-        One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        name_prefix: pulumi.Input[_builtins.str]
-        """
-        Specifies the name prefix to deploy cluster. It must be 1-8 characters long and contain only letters, numbers and hyphens Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        optional_service: pulumi.Input['HciDeploymentSettingScaleUnitOptionalServiceArgsDict']
-        """
-        A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        physical_nodes: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitPhysicalNodeArgsDict']]]
-        """
-        One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        secrets_location: pulumi.Input[_builtins.str]
-        """
-        The URI to the Key Vault or secret store. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        storage: pulumi.Input['HciDeploymentSettingScaleUnitStorageArgsDict']
-        """
-        A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        bitlocker_boot_volume_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        bitlocker_data_volume_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        credential_guard_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        drift_control_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        drtm_protection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        episodic_data_upload_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        eu_location_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        hvci_protection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        side_channel_mitigation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        smb_cluster_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        smb_signing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        streaming_data_client_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        wdac_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitArgsDict(TypedDict):
+    active_directory_organizational_unit_path: pulumi.Input[_builtins.str]
+    """
+    Specify the full name of the Active Directory Organizational Unit container object prepared for the deployment, including the domain components. For example:`OU=HCI01,DC=contoso,DC=com`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    cluster: pulumi.Input['HciDeploymentSettingScaleUnitClusterArgsDict']
+    """
+    A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    domain_fqdn: pulumi.Input[_builtins.str]
+    """
+    Specifies the FQDN for deploying cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    host_network: pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkArgsDict']
+    """
+    A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    infrastructure_networks: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitInfrastructureNetworkArgsDict']]]
+    """
+    One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    name_prefix: pulumi.Input[_builtins.str]
+    """
+    Specifies the name prefix to deploy cluster. It must be 1-8 characters long and contain only letters, numbers and hyphens Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    optional_service: pulumi.Input['HciDeploymentSettingScaleUnitOptionalServiceArgsDict']
+    """
+    A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    physical_nodes: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitPhysicalNodeArgsDict']]]
+    """
+    One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    secrets_location: pulumi.Input[_builtins.str]
+    """
+    The URI to the Key Vault or secret store. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    storage: pulumi.Input['HciDeploymentSettingScaleUnitStorageArgsDict']
+    """
+    A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    bitlocker_boot_volume_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    bitlocker_data_volume_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    credential_guard_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    drift_control_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    drtm_protection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    episodic_data_upload_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    eu_location_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    hvci_protection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    side_channel_mitigation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    smb_cluster_encryption_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    smb_signing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    streaming_data_client_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    wdac_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitArgs:
@@ -596,30 +588,27 @@ class HciDeploymentSettingScaleUnitArgs:
         pulumi.set(self, "wdac_enabled", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitClusterArgsDict(TypedDict):
-        azure_service_endpoint: pulumi.Input[_builtins.str]
-        """
-        Specifies the Azure blob service endpoint, for example, `core.windows.net`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        cloud_account_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the Azure Storage account name of the cloud witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the cluster. It must be 3-15 characters long and contain only letters, numbers and hyphens. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        witness_path: pulumi.Input[_builtins.str]
-        """
-        Specifies the fileshare path of the local witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        witness_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of the witness. Possible values are `Cloud`, `FileShare`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitClusterArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitClusterArgsDict(TypedDict):
+    azure_service_endpoint: pulumi.Input[_builtins.str]
+    """
+    Specifies the Azure blob service endpoint, for example, `core.windows.net`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    cloud_account_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the Azure Storage account name of the cloud witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the cluster. It must be 3-15 characters long and contain only letters, numbers and hyphens. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    witness_path: pulumi.Input[_builtins.str]
+    """
+    Specifies the fileshare path of the local witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    witness_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of the witness. Possible values are `Cloud`, `FileShare`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitClusterArgs:
@@ -703,26 +692,23 @@ class HciDeploymentSettingScaleUnitClusterArgs:
         pulumi.set(self, "witness_type", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitHostNetworkArgsDict(TypedDict):
-        intents: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict']]]
-        """
-        One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        storage_networks: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgsDict']]]
-        """
-        One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        storage_auto_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        storage_connectivity_switchless_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitHostNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitHostNetworkArgsDict(TypedDict):
+    intents: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict']]]
+    """
+    One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    storage_networks: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgsDict']]]
+    """
+    One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    storage_auto_ip_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    storage_connectivity_switchless_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitHostNetworkArgs:
@@ -793,46 +779,43 @@ class HciDeploymentSettingScaleUnitHostNetworkArgs:
         pulumi.set(self, "storage_connectivity_switchless_enabled", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict(TypedDict):
-        adapters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of ID of network interfaces used for the network intent. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the intent. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        traffic_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        adapter_property_override: NotRequired[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgsDict']]
-        """
-        A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        adapter_property_override_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        qos_policy_override: NotRequired[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgsDict']]
-        """
-        A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        qos_policy_override_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        virtual_switch_configuration_override: NotRequired[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgsDict']]
-        """
-        A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        virtual_switch_configuration_override_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict(TypedDict):
+    adapters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of ID of network interfaces used for the network intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    traffic_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    adapter_property_override: NotRequired[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgsDict']]
+    """
+    A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    adapter_property_override_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    qos_policy_override: NotRequired[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgsDict']]
+    """
+    A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    qos_policy_override_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    virtual_switch_configuration_override: NotRequired[pulumi.Input['HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgsDict']]
+    """
+    A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    virtual_switch_configuration_override_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitHostNetworkIntentArgs:
@@ -982,22 +965,19 @@ class HciDeploymentSettingScaleUnitHostNetworkIntentArgs:
         pulumi.set(self, "virtual_switch_configuration_override_enabled", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgsDict(TypedDict):
-        jumbo_packet: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        network_direct: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        network_direct_technology: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgsDict(TypedDict):
+    jumbo_packet: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    network_direct: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    network_direct_technology: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs:
@@ -1054,22 +1034,19 @@ class HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs:
         pulumi.set(self, "network_direct_technology", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgsDict(TypedDict):
-        bandwidth_percentage_smb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        priority_value8021_action_cluster: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        priority_value8021_action_smb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgsDict(TypedDict):
+    bandwidth_percentage_smb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    priority_value8021_action_cluster: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    priority_value8021_action_smb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs:
@@ -1126,18 +1103,15 @@ class HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs:
         pulumi.set(self, "priority_value8021_action_smb", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgsDict(TypedDict):
-        enable_iov: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        load_balancing_algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgsDict(TypedDict):
+    enable_iov: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    load_balancing_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs:
@@ -1178,22 +1152,19 @@ class HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOv
         pulumi.set(self, "load_balancing_algorithm", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the storage network. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        network_adapter_name: pulumi.Input[_builtins.str]
-        """
-        The name of the network adapter. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        vlan_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the storage network. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    network_adapter_name: pulumi.Input[_builtins.str]
+    """
+    The name of the network adapter. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    vlan_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs:
@@ -1247,32 +1218,29 @@ class HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs:
         pulumi.set(self, "vlan_id", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitInfrastructureNetworkArgsDict(TypedDict):
-        dns_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        gateway: pulumi.Input[_builtins.str]
-        """
-        Specifies the default gateway that should be used for the provided IP address space. It should be in the format of an IPv4 IP address. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        ip_pools: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgsDict']]]
-        """
-        One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        subnet_mask: pulumi.Input[_builtins.str]
-        """
-        Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        dhcp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+class HciDeploymentSettingScaleUnitInfrastructureNetworkArgsDict(TypedDict):
+    dns_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    gateway: pulumi.Input[_builtins.str]
+    """
+    Specifies the default gateway that should be used for the provided IP address space. It should be in the format of an IPv4 IP address. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    ip_pools: pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgsDict']]]
+    """
+    One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    subnet_mask: pulumi.Input[_builtins.str]
+    """
+    Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    dhcp_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
 
-        > **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitInfrastructureNetworkArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs:
@@ -1361,18 +1329,15 @@ class HciDeploymentSettingScaleUnitInfrastructureNetworkArgs:
         pulumi.set(self, "dhcp_enabled", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgsDict(TypedDict):
-        ending_address: pulumi.Input[_builtins.str]
-        """
-        Specifies starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        starting_address: pulumi.Input[_builtins.str]
-        """
-        Specifies ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgsDict(TypedDict):
+    ending_address: pulumi.Input[_builtins.str]
+    """
+    Specifies starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    starting_address: pulumi.Input[_builtins.str]
+    """
+    Specifies ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs:
@@ -1411,14 +1376,11 @@ class HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs:
         pulumi.set(self, "starting_address", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitOptionalServiceArgsDict(TypedDict):
-        custom_location: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of custom location. A custom location will be created after the deployment is completed. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitOptionalServiceArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitOptionalServiceArgsDict(TypedDict):
+    custom_location: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of custom location. A custom location will be created after the deployment is completed. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitOptionalServiceArgs:
@@ -1442,18 +1404,15 @@ class HciDeploymentSettingScaleUnitOptionalServiceArgs:
         pulumi.set(self, "custom_location", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitPhysicalNodeArgsDict(TypedDict):
-        ipv4_address: pulumi.Input[_builtins.str]
-        """
-        Specifies the IPv4 address assigned to each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The NETBIOS name of each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitPhysicalNodeArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitPhysicalNodeArgsDict(TypedDict):
+    ipv4_address: pulumi.Input[_builtins.str]
+    """
+    Specifies the IPv4 address assigned to each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The NETBIOS name of each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitPhysicalNodeArgs:
@@ -1492,14 +1451,11 @@ class HciDeploymentSettingScaleUnitPhysicalNodeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class HciDeploymentSettingScaleUnitStorageArgsDict(TypedDict):
-        configuration_mode: pulumi.Input[_builtins.str]
-        """
-        The configuration mode of storage. If set to `Express` and your storage is configured as per best practices based on the number of nodes in the cluster. Possible values are `Express`, `InfraOnly` and `KeepStorage`. Changing this forces a new Stack HCI Deployment Setting to be created.
-        """
-elif False:
-    HciDeploymentSettingScaleUnitStorageArgsDict: TypeAlias = Mapping[str, Any]
+class HciDeploymentSettingScaleUnitStorageArgsDict(TypedDict):
+    configuration_mode: pulumi.Input[_builtins.str]
+    """
+    The configuration mode of storage. If set to `Express` and your storage is configured as per best practices based on the number of nodes in the cluster. Possible values are `Express`, `InfraOnly` and `KeepStorage`. Changing this forces a new Stack HCI Deployment Setting to be created.
+    """
 
 @pulumi.input_type
 class HciDeploymentSettingScaleUnitStorageArgs:
@@ -1523,32 +1479,29 @@ class HciDeploymentSettingScaleUnitStorageArgs:
         pulumi.set(self, "configuration_mode", value)
 
 
-if not MYPY:
-    class HciLogicalNetworkSubnetArgsDict(TypedDict):
-        ip_allocation_method: pulumi.Input[_builtins.str]
-        """
-        The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
-        """
-        address_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address prefix in CIDR notation. Changing this forces a new resource to be created.
-        """
-        ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgsDict']]]]
-        """
-        One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+class HciLogicalNetworkSubnetArgsDict(TypedDict):
+    ip_allocation_method: pulumi.Input[_builtins.str]
+    """
+    The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
+    """
+    address_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address prefix in CIDR notation. Changing this forces a new resource to be created.
+    """
+    ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgsDict']]]]
+    """
+    One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
 
-        > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
-        """
-        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgsDict']]]]
-        """
-        A `route` block as defined above. Changing this forces a new resource to be created.
-        """
-        vlan_id: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
-        """
-elif False:
-    HciLogicalNetworkSubnetArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+    """
+    routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgsDict']]]]
+    """
+    A `route` block as defined above. Changing this forces a new resource to be created.
+    """
+    vlan_id: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class HciLogicalNetworkSubnetArgs:
@@ -1640,18 +1593,15 @@ class HciLogicalNetworkSubnetArgs:
         pulumi.set(self, "vlan_id", value)
 
 
-if not MYPY:
-    class HciLogicalNetworkSubnetIpPoolArgsDict(TypedDict):
-        end: pulumi.Input[_builtins.str]
-        """
-        The IPv4 address of the end of the IP address pool. Changing this forces a new resource to be created.
-        """
-        start: pulumi.Input[_builtins.str]
-        """
-        The IPv4 address of the start of the IP address pool. Changing this forces a new resource to be created.
-        """
-elif False:
-    HciLogicalNetworkSubnetIpPoolArgsDict: TypeAlias = Mapping[str, Any]
+class HciLogicalNetworkSubnetIpPoolArgsDict(TypedDict):
+    end: pulumi.Input[_builtins.str]
+    """
+    The IPv4 address of the end of the IP address pool. Changing this forces a new resource to be created.
+    """
+    start: pulumi.Input[_builtins.str]
+    """
+    The IPv4 address of the start of the IP address pool. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class HciLogicalNetworkSubnetIpPoolArgs:
@@ -1690,22 +1640,19 @@ class HciLogicalNetworkSubnetIpPoolArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class HciLogicalNetworkSubnetRouteArgsDict(TypedDict):
-        address_prefix: pulumi.Input[_builtins.str]
-        """
-        The Address in CIDR notation. Changing this forces a new resource to be created.
-        """
-        next_hop_ip_address: pulumi.Input[_builtins.str]
-        """
-        The IPv4 address of the next hop. Changing this forces a new resource to be created.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the route. Changing this forces a new resource to be created.
-        """
-elif False:
-    HciLogicalNetworkSubnetRouteArgsDict: TypeAlias = Mapping[str, Any]
+class HciLogicalNetworkSubnetRouteArgsDict(TypedDict):
+    address_prefix: pulumi.Input[_builtins.str]
+    """
+    The Address in CIDR notation. Changing this forces a new resource to be created.
+    """
+    next_hop_ip_address: pulumi.Input[_builtins.str]
+    """
+    The IPv4 address of the next hop. Changing this forces a new resource to be created.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the route. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class HciLogicalNetworkSubnetRouteArgs:
@@ -1760,22 +1707,19 @@ class HciLogicalNetworkSubnetRouteArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class HciMarketplaceGalleryImageIdentifierArgsDict(TypedDict):
-        offer: pulumi.Input[_builtins.str]
-        """
-        The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        """
-        publisher: pulumi.Input[_builtins.str]
-        """
-        The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        """
-        sku: pulumi.Input[_builtins.str]
-        """
-        The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        """
-elif False:
-    HciMarketplaceGalleryImageIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class HciMarketplaceGalleryImageIdentifierArgsDict(TypedDict):
+    offer: pulumi.Input[_builtins.str]
+    """
+    The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+    """
+    publisher: pulumi.Input[_builtins.str]
+    """
+    The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+    """
+    sku: pulumi.Input[_builtins.str]
+    """
+    The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+    """
 
 @pulumi.input_type
 class HciMarketplaceGalleryImageIdentifierArgs:
@@ -1829,26 +1773,23 @@ class HciMarketplaceGalleryImageIdentifierArgs:
         pulumi.set(self, "sku", value)
 
 
-if not MYPY:
-    class HciNetworkInterfaceIpConfigurationArgsDict(TypedDict):
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
-        """
-        gateway: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of the gateway for the Network Interface.
-        """
-        prefix_length: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix length for the address of the Network Interface.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
-        """
-elif False:
-    HciNetworkInterfaceIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class HciNetworkInterfaceIpConfigurationArgsDict(TypedDict):
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+    """
+    gateway: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address of the gateway for the Network Interface.
+    """
+    prefix_length: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix length for the address of the Network Interface.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class HciNetworkInterfaceIpConfigurationArgs:

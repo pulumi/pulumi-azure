@@ -98,6 +98,9 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    /**
+     * A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+     */
     declare public readonly accessPolicyObjectIds: pulumi.Output<string[] | undefined>;
     /**
      * An `authenticationConfiguration` block as defined below.
@@ -206,6 +209,9 @@ export class Service extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Service resources.
  */
 export interface ServiceState {
+    /**
+     * A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+     */
     accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `authenticationConfiguration` block as defined below.
@@ -265,6 +271,9 @@ export interface ServiceState {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
+     */
     accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `authenticationConfiguration` block as defined below.

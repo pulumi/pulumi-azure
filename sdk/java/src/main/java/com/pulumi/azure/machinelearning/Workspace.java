@@ -22,6 +22,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Azure Machine Learning Workspace
+ * 
+ * &gt; **Note:** For examples on how to set up the Azure Machine Learning workspace, together with compute and integrated services, see Terraform Quickstart
+ * 
  * ## Example Usage
  * 
  * <pre>

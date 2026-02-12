@@ -241,9 +241,21 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+     * 
+     */
     @Import(name="restore")
     private @Nullable Output<MongoClusterRestoreArgs> restore;
 
+    /**
+     * @return A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+     * 
+     */
     public Optional<Output<MongoClusterRestoreArgs>> restore() {
         return Optional.ofNullable(this.restore);
     }
@@ -720,11 +732,27 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param restore A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restore(@Nullable Output<MongoClusterRestoreArgs> restore) {
             $.restore = restore;
             return this;
         }
 
+        /**
+         * @param restore A `restore` block as defined below. Required when `createMode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `sourceServerId`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignoreChanges`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restore(MongoClusterRestoreArgs restore) {
             return restore(Output.of(restore));
         }

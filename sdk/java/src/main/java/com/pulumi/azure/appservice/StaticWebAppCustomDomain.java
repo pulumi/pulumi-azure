@@ -15,6 +15,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Static Web App Custom Domain.
+ * 
+ * !&gt; **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+ * 
  * ## Example Usage
  * 
  * ### CNAME validation
@@ -204,9 +208,25 @@ public class StaticWebAppCustomDomain extends com.pulumi.resources.CustomResourc
     public Output<String> validationToken() {
         return this.validationToken;
     }
+    /**
+     * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+     * 
+     * &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+     * 
+     * &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+     * 
+     */
     @Export(name="validationType", refs={String.class}, tree="[0]")
     private Output<String> validationType;
 
+    /**
+     * @return One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
+     * 
+     * &gt; **Note:** Apex domains must use `dns-txt-token` validation.
+     * 
+     * &gt; **Note:** Validation using `dns-txt-token` is performed asynchronously and Terraform does not wait for the validation process to be successful before marking the resource as created successfully. Please ensure that the appropriate TXT record is created using the `validationToken` value for this to complete out of band.
+     * 
+     */
     public Output<String> validationType() {
         return this.validationType;
     }

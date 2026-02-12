@@ -119,16 +119,11 @@ __all__ = [
     'TableAutoscaleSettingsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountAnalyticalStorageArgsDict(TypedDict):
-        schema_type: pulumi.Input[_builtins.str]
-        """
-        The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
-        """
-elif False:
-    AccountAnalyticalStorageArgsDict: TypeAlias = Mapping[str, Any]
+class AccountAnalyticalStorageArgsDict(TypedDict):
+    schema_type: pulumi.Input[_builtins.str]
+    """
+    The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+    """
 
 @pulumi.input_type
 class AccountAnalyticalStorageArgs:
@@ -152,34 +147,31 @@ class AccountAnalyticalStorageArgs:
         pulumi.set(self, "schema_type", value)
 
 
-if not MYPY:
-    class AccountBackupArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+class AccountBackupArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the `backup`. Possible values are `Continuous` and `Periodic`.
 
-        > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
-        """
-        interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
-        """
-        retention_in_hours: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
-        """
-        storage_redundancy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+    > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+    """
+    interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
+    """
+    retention_in_hours: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
+    """
+    storage_redundancy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 
-        > **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
-        """
-elif False:
-    AccountBackupArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The continuous backup tier. Possible values are `Continuous7Days` and `Continuous30Days`.
+    """
 
 @pulumi.input_type
 class AccountBackupArgs:
@@ -275,14 +267,11 @@ class AccountBackupArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class AccountCapabilityArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        """
-elif False:
-    AccountCapabilityArgsDict: TypeAlias = Mapping[str, Any]
+class AccountCapabilityArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class AccountCapabilityArgs:
@@ -306,14 +295,11 @@ class AccountCapabilityArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AccountCapacityArgsDict(TypedDict):
-        total_throughput_limit: pulumi.Input[_builtins.int]
-        """
-        The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
-        """
-elif False:
-    AccountCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class AccountCapacityArgsDict(TypedDict):
+    total_throughput_limit: pulumi.Input[_builtins.int]
+    """
+    The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+    """
 
 @pulumi.input_type
 class AccountCapacityArgs:
@@ -337,24 +323,21 @@ class AccountCapacityArgs:
         pulumi.set(self, "total_throughput_limit", value)
 
 
-if not MYPY:
-    class AccountConsistencyPolicyArgsDict(TypedDict):
-        consistency_level: pulumi.Input[_builtins.str]
-        """
-        The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
-        """
-        max_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
-        """
-        max_staleness_prefix: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
+class AccountConsistencyPolicyArgsDict(TypedDict):
+    consistency_level: pulumi.Input[_builtins.str]
+    """
+    The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
+    """
+    max_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
+    """
+    max_staleness_prefix: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
 
-        > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
-        """
-elif False:
-    AccountConsistencyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
+    """
 
 @pulumi.input_type
 class AccountConsistencyPolicyArgs:
@@ -414,30 +397,27 @@ class AccountConsistencyPolicyArgs:
         pulumi.set(self, "max_staleness_prefix", value)
 
 
-if not MYPY:
-    class AccountCorsRuleArgsDict(TypedDict):
-        allowed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of headers that are allowed to be a part of the cross-origin request.
-        """
-        allowed_methods: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
-        """
-        allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of origin domains that will be allowed by CORS.
-        """
-        exposed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of response headers that are exposed to CORS clients.
-        """
-        max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
-        """
-elif False:
-    AccountCorsRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AccountCorsRuleArgsDict(TypedDict):
+    allowed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of headers that are allowed to be a part of the cross-origin request.
+    """
+    allowed_methods: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of HTTP headers that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+    """
+    allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of origin domains that will be allowed by CORS.
+    """
+    exposed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of response headers that are exposed to CORS clients.
+    """
+    max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds the client should cache a preflight response. Possible values are between `1` and `2147483647`.
+    """
 
 @pulumi.input_type
 class AccountCorsRuleArgs:
@@ -522,26 +502,23 @@ class AccountCorsRuleArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
-if not MYPY:
-    class AccountGeoLocationArgsDict(TypedDict):
-        failover_priority: pulumi.Input[_builtins.int]
-        """
-        The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
-        """
-        location: pulumi.Input[_builtins.str]
-        """
-        The name of the Azure region to host replicated data.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The CosmosDB Account ID.
-        """
-        zone_redundant: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Should zone redundancy be enabled for this region? Defaults to `false`.
-        """
-elif False:
-    AccountGeoLocationArgsDict: TypeAlias = Mapping[str, Any]
+class AccountGeoLocationArgsDict(TypedDict):
+    failover_priority: pulumi.Input[_builtins.int]
+    """
+    The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure region to host replicated data.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The CosmosDB Account ID.
+    """
+    zone_redundant: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should zone redundancy be enabled for this region? Defaults to `false`.
+    """
 
 @pulumi.input_type
 class AccountGeoLocationArgs:
@@ -612,26 +589,23 @@ class AccountGeoLocationArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
-if not MYPY:
-    class AccountIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class AccountIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -703,32 +677,29 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class AccountRestoreArgsDict(TypedDict):
-        restore_timestamp_in_utc: pulumi.Input[_builtins.str]
-        """
-        The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
-        """
-        source_cosmosdb_account_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+class AccountRestoreArgsDict(TypedDict):
+    restore_timestamp_in_utc: pulumi.Input[_builtins.str]
+    """
+    The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+    """
+    source_cosmosdb_account_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 
-        > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
-        """
-        databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgsDict']]]]
-        """
-        A `database` block as defined below. Changing this forces a new resource to be created.
-        """
-        gremlin_databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgsDict']]]]
-        """
-        One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
-        """
-        tables_to_restores: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of specific tables available for restore. Changing this forces a new resource to be created.
-        """
-elif False:
-    AccountRestoreArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
+    """
+    databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgsDict']]]]
+    """
+    A `database` block as defined below. Changing this forces a new resource to be created.
+    """
+    gremlin_databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgsDict']]]]
+    """
+    One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+    """
+    tables_to_restores: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of specific tables available for restore. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class AccountRestoreArgs:
@@ -819,18 +790,15 @@ class AccountRestoreArgs:
         pulumi.set(self, "tables_to_restores", value)
 
 
-if not MYPY:
-    class AccountRestoreDatabaseArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The database name for the restore request. Changing this forces a new resource to be created.
-        """
-        collection_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of the collection names for the restore request. Changing this forces a new resource to be created.
-        """
-elif False:
-    AccountRestoreDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+class AccountRestoreDatabaseArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The database name for the restore request. Changing this forces a new resource to be created.
+    """
+    collection_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of the collection names for the restore request. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class AccountRestoreDatabaseArgs:
@@ -870,18 +838,15 @@ class AccountRestoreDatabaseArgs:
         pulumi.set(self, "collection_names", value)
 
 
-if not MYPY:
-    class AccountRestoreGremlinDatabaseArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
-        """
-        graph_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of the Graph names for the restore request. Changing this forces a new resource to be created.
-        """
-elif False:
-    AccountRestoreGremlinDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+class AccountRestoreGremlinDatabaseArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
+    """
+    graph_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class AccountRestoreGremlinDatabaseArgs:
@@ -921,18 +886,15 @@ class AccountRestoreGremlinDatabaseArgs:
         pulumi.set(self, "graph_names", value)
 
 
-if not MYPY:
-    class AccountVirtualNetworkRuleArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the virtual network subnet.
-        """
-        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
-        """
-elif False:
-    AccountVirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AccountVirtualNetworkRuleArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the virtual network subnet.
+    """
+    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class AccountVirtualNetworkRuleArgs:
@@ -972,16 +934,13 @@ class AccountVirtualNetworkRuleArgs:
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
 
-if not MYPY:
-    class CassandraClusterIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CassandraClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class CassandraClusterIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Cassandra Cluster. The only possible value is `SystemAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CassandraClusterIdentityArgs:
@@ -1029,14 +988,11 @@ class CassandraClusterIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class CassandraKeyspaceAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    CassandraKeyspaceAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CassandraKeyspaceAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class CassandraKeyspaceAutoscaleSettingsArgs:
@@ -1061,14 +1017,11 @@ class CassandraKeyspaceAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class CassandraTableAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    CassandraTableAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CassandraTableAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class CassandraTableAutoscaleSettingsArgs:
@@ -1093,22 +1046,19 @@ class CassandraTableAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class CassandraTableSchemaArgsDict(TypedDict):
-        columns: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgsDict']]]
-        """
-        One or more `column` blocks as defined below.
-        """
-        partition_keys: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgsDict']]]
-        """
-        One or more `partition_key` blocks as defined below.
-        """
-        cluster_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgsDict']]]]
-        """
-        One or more `cluster_key` blocks as defined below.
-        """
-elif False:
-    CassandraTableSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class CassandraTableSchemaArgsDict(TypedDict):
+    columns: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgsDict']]]
+    """
+    One or more `column` blocks as defined below.
+    """
+    partition_keys: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgsDict']]]
+    """
+    One or more `partition_key` blocks as defined below.
+    """
+    cluster_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgsDict']]]]
+    """
+    One or more `cluster_key` blocks as defined below.
+    """
 
 @pulumi.input_type
 class CassandraTableSchemaArgs:
@@ -1163,18 +1113,15 @@ class CassandraTableSchemaArgs:
         pulumi.set(self, "cluster_keys", value)
 
 
-if not MYPY:
-    class CassandraTableSchemaClusterKeyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the cluster key to be created.
-        """
-        order_by: pulumi.Input[_builtins.str]
-        """
-        Order of the key. Currently supported values are `Asc` and `Desc`.
-        """
-elif False:
-    CassandraTableSchemaClusterKeyArgsDict: TypeAlias = Mapping[str, Any]
+class CassandraTableSchemaClusterKeyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the cluster key to be created.
+    """
+    order_by: pulumi.Input[_builtins.str]
+    """
+    Order of the key. Currently supported values are `Asc` and `Desc`.
+    """
 
 @pulumi.input_type
 class CassandraTableSchemaClusterKeyArgs:
@@ -1213,18 +1160,15 @@ class CassandraTableSchemaClusterKeyArgs:
         pulumi.set(self, "order_by", value)
 
 
-if not MYPY:
-    class CassandraTableSchemaColumnArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the column to be created.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the column to be created.
-        """
-elif False:
-    CassandraTableSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+class CassandraTableSchemaColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the column to be created.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the column to be created.
+    """
 
 @pulumi.input_type
 class CassandraTableSchemaColumnArgs:
@@ -1263,14 +1207,11 @@ class CassandraTableSchemaColumnArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CassandraTableSchemaPartitionKeyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the column to partition by.
-        """
-elif False:
-    CassandraTableSchemaPartitionKeyArgsDict: TypeAlias = Mapping[str, Any]
+class CassandraTableSchemaPartitionKeyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the column to partition by.
+    """
 
 @pulumi.input_type
 class CassandraTableSchemaPartitionKeyArgs:
@@ -1294,14 +1235,11 @@ class CassandraTableSchemaPartitionKeyArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GremlinDatabaseAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    GremlinDatabaseAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinDatabaseAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class GremlinDatabaseAutoscaleSettingsArgs:
@@ -1326,14 +1264,11 @@ class GremlinDatabaseAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class GremlinGraphAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    GremlinGraphAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinGraphAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class GremlinGraphAutoscaleSettingsArgs:
@@ -1358,22 +1293,19 @@ class GremlinGraphAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class GremlinGraphConflictResolutionPolicyArgsDict(TypedDict):
-        mode: pulumi.Input[_builtins.str]
-        """
-        Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
-        """
-        conflict_resolution_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The conflict resolution path in the case of LastWriterWins mode.
-        """
-        conflict_resolution_procedure: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The procedure to resolve conflicts in the case of custom mode.
-        """
-elif False:
-    GremlinGraphConflictResolutionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinGraphConflictResolutionPolicyArgsDict(TypedDict):
+    mode: pulumi.Input[_builtins.str]
+    """
+    Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+    """
+    conflict_resolution_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The conflict resolution path in the case of LastWriterWins mode.
+    """
+    conflict_resolution_procedure: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The procedure to resolve conflicts in the case of custom mode.
+    """
 
 @pulumi.input_type
 class GremlinGraphConflictResolutionPolicyArgs:
@@ -1429,34 +1361,31 @@ class GremlinGraphConflictResolutionPolicyArgs:
         pulumi.set(self, "conflict_resolution_procedure", value)
 
 
-if not MYPY:
-    class GremlinGraphIndexPolicyArgsDict(TypedDict):
-        indexing_mode: pulumi.Input[_builtins.str]
-        """
-        Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
-        """
-        automatic: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if the indexing policy is automatic. Defaults to `true`.
-        """
-        composite_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgsDict']]]]
-        """
-        One or more `composite_index` blocks as defined below.
-        """
-        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        """
-        included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        """
-        spatial_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgsDict']]]]
-        """
-        One or more `spatial_index` blocks as defined below.
-        """
-elif False:
-    GremlinGraphIndexPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinGraphIndexPolicyArgsDict(TypedDict):
+    indexing_mode: pulumi.Input[_builtins.str]
+    """
+    Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+    """
+    automatic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if the indexing policy is automatic. Defaults to `true`.
+    """
+    composite_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgsDict']]]]
+    """
+    One or more `composite_index` blocks as defined below.
+    """
+    excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+    """
+    included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+    """
+    spatial_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgsDict']]]]
+    """
+    One or more `spatial_index` blocks as defined below.
+    """
 
 @pulumi.input_type
 class GremlinGraphIndexPolicyArgs:
@@ -1560,14 +1489,11 @@ class GremlinGraphIndexPolicyArgs:
         pulumi.set(self, "spatial_indices", value)
 
 
-if not MYPY:
-    class GremlinGraphIndexPolicyCompositeIndexArgsDict(TypedDict):
-        indices: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgsDict']]]
-        """
-        One or more `index` blocks as defined below.
-        """
-elif False:
-    GremlinGraphIndexPolicyCompositeIndexArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinGraphIndexPolicyCompositeIndexArgsDict(TypedDict):
+    indices: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgsDict']]]
+    """
+    One or more `index` blocks as defined below.
+    """
 
 @pulumi.input_type
 class GremlinGraphIndexPolicyCompositeIndexArgs:
@@ -1591,18 +1517,15 @@ class GremlinGraphIndexPolicyCompositeIndexArgs:
         pulumi.set(self, "indices", value)
 
 
-if not MYPY:
-    class GremlinGraphIndexPolicyCompositeIndexIndexArgsDict(TypedDict):
-        order: pulumi.Input[_builtins.str]
-        """
-        Order of the index. Possible values are `Ascending` or `Descending`.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        Path for which the indexing behaviour applies to.
-        """
-elif False:
-    GremlinGraphIndexPolicyCompositeIndexIndexArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinGraphIndexPolicyCompositeIndexIndexArgsDict(TypedDict):
+    order: pulumi.Input[_builtins.str]
+    """
+    Order of the index. Possible values are `Ascending` or `Descending`.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    Path for which the indexing behaviour applies to.
+    """
 
 @pulumi.input_type
 class GremlinGraphIndexPolicyCompositeIndexIndexArgs:
@@ -1641,15 +1564,12 @@ class GremlinGraphIndexPolicyCompositeIndexIndexArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class GremlinGraphIndexPolicySpatialIndexArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GremlinGraphIndexPolicySpatialIndexArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinGraphIndexPolicySpatialIndexArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GremlinGraphIndexPolicySpatialIndexArgs:
@@ -1685,14 +1605,11 @@ class GremlinGraphIndexPolicySpatialIndexArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class GremlinGraphUniqueKeyArgsDict(TypedDict):
-        paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of paths to use for this unique key. Changing this forces a new resource to be created.
-        """
-elif False:
-    GremlinGraphUniqueKeyArgsDict: TypeAlias = Mapping[str, Any]
+class GremlinGraphUniqueKeyArgsDict(TypedDict):
+    paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of paths to use for this unique key. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class GremlinGraphUniqueKeyArgs:
@@ -1716,22 +1633,19 @@ class GremlinGraphUniqueKeyArgs:
         pulumi.set(self, "paths", value)
 
 
-if not MYPY:
-    class MongoClusterConnectionStringArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the connection string.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
-        """
-elif False:
-    MongoClusterConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterConnectionStringArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the connection string.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+    """
 
 @pulumi.input_type
 class MongoClusterConnectionStringArgs:
@@ -1788,18 +1702,15 @@ class MongoClusterConnectionStringArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class MongoClusterCustomerManagedKeyArgsDict(TypedDict):
-        key_vault_key_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
-        """
-        user_assigned_identity_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the User Assigned Identity that has access to the Key Vault Key.
-        """
-elif False:
-    MongoClusterCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterCustomerManagedKeyArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the key vault key used for encryption. For example: `https://example-vault-name.vault.azure.net/keys/example-key-name`.
+    """
+    user_assigned_identity_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the User Assigned Identity that has access to the Key Vault Key.
+    """
 
 @pulumi.input_type
 class MongoClusterCustomerManagedKeyArgs:
@@ -1838,20 +1749,17 @@ class MongoClusterCustomerManagedKeyArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-if not MYPY:
-    class MongoClusterIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of one or more Resource IDs for User Assigned Managed identities to assign.
+class MongoClusterIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of one or more Resource IDs for User Assigned Managed identities to assign.
 
-        > **Note:** Required when `type` is set to `UserAssigned`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of managed identity to assign. Possible value is `UserAssigned`.
-        """
-elif False:
-    MongoClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Required when `type` is set to `UserAssigned`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of managed identity to assign. Possible value is `UserAssigned`.
+    """
 
 @pulumi.input_type
 class MongoClusterIdentityArgs:
@@ -1894,18 +1802,15 @@ class MongoClusterIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class MongoClusterRestoreArgsDict(TypedDict):
-        point_in_time_utc: pulumi.Input[_builtins.str]
-        """
-        The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
-        """
-        source_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
-        """
-elif False:
-    MongoClusterRestoreArgsDict: TypeAlias = Mapping[str, Any]
+class MongoClusterRestoreArgsDict(TypedDict):
+    point_in_time_utc: pulumi.Input[_builtins.str]
+    """
+    The point in time (in UTC) to restore from, in ISO 8601 format (e.g., `2024-01-01T00:00:00Z`). Changing this forces a new resource to be created.
+    """
+    source_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the source MongoDB Cluster to restore from. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class MongoClusterRestoreArgs:
@@ -1944,14 +1849,11 @@ class MongoClusterRestoreArgs:
         pulumi.set(self, "source_id", value)
 
 
-if not MYPY:
-    class MongoCollectionAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    MongoCollectionAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class MongoCollectionAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class MongoCollectionAutoscaleSettingsArgs:
@@ -1976,20 +1878,17 @@ class MongoCollectionAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class MongoCollectionIndexArgsDict(TypedDict):
-        keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-        """
-        unique: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Is the index unique or not? Defaults to `false`.
+class MongoCollectionIndexArgsDict(TypedDict):
+    keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+    """
+    unique: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Is the index unique or not? Defaults to `false`.
 
-        > **Note:** An index with an "_id" key must be specified.
-        """
-elif False:
-    MongoCollectionIndexArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** An index with an "_id" key must be specified.
+    """
 
 @pulumi.input_type
 class MongoCollectionIndexArgs:
@@ -2033,18 +1932,15 @@ class MongoCollectionIndexArgs:
         pulumi.set(self, "unique", value)
 
 
-if not MYPY:
-    class MongoCollectionSystemIndexArgsDict(TypedDict):
-        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of system keys which are not settable for each Cosmos DB Mongo Collection.
-        """
-        unique: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Identifies whether the table contains no duplicate values.
-        """
-elif False:
-    MongoCollectionSystemIndexArgsDict: TypeAlias = Mapping[str, Any]
+class MongoCollectionSystemIndexArgsDict(TypedDict):
+    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of system keys which are not settable for each Cosmos DB Mongo Collection.
+    """
+    unique: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Identifies whether the table contains no duplicate values.
+    """
 
 @pulumi.input_type
 class MongoCollectionSystemIndexArgs:
@@ -2085,14 +1981,11 @@ class MongoCollectionSystemIndexArgs:
         pulumi.set(self, "unique", value)
 
 
-if not MYPY:
-    class MongoDatabaseAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    MongoDatabaseAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class MongoDatabaseAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class MongoDatabaseAutoscaleSettingsArgs:
@@ -2117,18 +2010,15 @@ class MongoDatabaseAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class MongoRoleDefinitionPrivilegeArgsDict(TypedDict):
-        actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of actions that are allowed.
-        """
-        resource: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgsDict']
-        """
-        A `resource` block as defined below.
-        """
-elif False:
-    MongoRoleDefinitionPrivilegeArgsDict: TypeAlias = Mapping[str, Any]
+class MongoRoleDefinitionPrivilegeArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of actions that are allowed.
+    """
+    resource: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgsDict']
+    """
+    A `resource` block as defined below.
+    """
 
 @pulumi.input_type
 class MongoRoleDefinitionPrivilegeArgs:
@@ -2167,18 +2057,15 @@ class MongoRoleDefinitionPrivilegeArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class MongoRoleDefinitionPrivilegeResourceArgsDict(TypedDict):
-        collection_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Mongo DB Collection that the Role Definition is applied.
-        """
-        db_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Mongo DB that the Role Definition is applied.
-        """
-elif False:
-    MongoRoleDefinitionPrivilegeResourceArgsDict: TypeAlias = Mapping[str, Any]
+class MongoRoleDefinitionPrivilegeResourceArgsDict(TypedDict):
+    collection_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Mongo DB Collection that the Role Definition is applied.
+    """
+    db_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Mongo DB that the Role Definition is applied.
+    """
 
 @pulumi.input_type
 class MongoRoleDefinitionPrivilegeResourceArgs:
@@ -2219,22 +2106,19 @@ class MongoRoleDefinitionPrivilegeResourceArgs:
         pulumi.set(self, "db_name", value)
 
 
-if not MYPY:
-    class PostgresqlClusterMaintenanceWindowArgsDict(TypedDict):
-        day_of_week: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
-        """
-        start_hour: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The start hour for maintenance window. Defaults to `0`.
-        """
-        start_minute: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The start minute for maintenance window. Defaults to `0`.
-        """
-elif False:
-    PostgresqlClusterMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+class PostgresqlClusterMaintenanceWindowArgsDict(TypedDict):
+    day_of_week: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+    """
+    start_hour: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The start hour for maintenance window. Defaults to `0`.
+    """
+    start_minute: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The start minute for maintenance window. Defaults to `0`.
+    """
 
 @pulumi.input_type
 class PostgresqlClusterMaintenanceWindowArgs:
@@ -2291,18 +2175,15 @@ class PostgresqlClusterMaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
-if not MYPY:
-    class PostgresqlClusterServerArgsDict(TypedDict):
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Fully Qualified Domain Name of the server.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
-        """
-elif False:
-    PostgresqlClusterServerArgsDict: TypeAlias = Mapping[str, Any]
+class PostgresqlClusterServerArgsDict(TypedDict):
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Fully Qualified Domain Name of the server.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class PostgresqlClusterServerArgs:
@@ -2343,14 +2224,11 @@ class PostgresqlClusterServerArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SqlContainerAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    SqlContainerAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class SqlContainerAutoscaleSettingsArgs:
@@ -2375,22 +2253,19 @@ class SqlContainerAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class SqlContainerConflictResolutionPolicyArgsDict(TypedDict):
-        mode: pulumi.Input[_builtins.str]
-        """
-        Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
-        """
-        conflict_resolution_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The conflict resolution path in the case of `LastWriterWins` mode.
-        """
-        conflict_resolution_procedure: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The procedure to resolve conflicts in the case of `Custom` mode.
-        """
-elif False:
-    SqlContainerConflictResolutionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerConflictResolutionPolicyArgsDict(TypedDict):
+    mode: pulumi.Input[_builtins.str]
+    """
+    Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+    """
+    conflict_resolution_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The conflict resolution path in the case of `LastWriterWins` mode.
+    """
+    conflict_resolution_procedure: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The procedure to resolve conflicts in the case of `Custom` mode.
+    """
 
 @pulumi.input_type
 class SqlContainerConflictResolutionPolicyArgs:
@@ -2446,30 +2321,27 @@ class SqlContainerConflictResolutionPolicyArgs:
         pulumi.set(self, "conflict_resolution_procedure", value)
 
 
-if not MYPY:
-    class SqlContainerIndexingPolicyArgsDict(TypedDict):
-        composite_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgsDict']]]]
-        """
-        One or more `composite_index` blocks as defined below.
-        """
-        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgsDict']]]]
-        """
-        One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
-        """
-        included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgsDict']]]]
-        """
-        One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
-        """
-        indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
-        """
-        spatial_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgsDict']]]]
-        """
-        One or more `spatial_index` blocks as defined below.
-        """
-elif False:
-    SqlContainerIndexingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerIndexingPolicyArgsDict(TypedDict):
+    composite_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgsDict']]]]
+    """
+    One or more `composite_index` blocks as defined below.
+    """
+    excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgsDict']]]]
+    """
+    One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+    """
+    included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgsDict']]]]
+    """
+    One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+    """
+    indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
+    """
+    spatial_indices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgsDict']]]]
+    """
+    One or more `spatial_index` blocks as defined below.
+    """
 
 @pulumi.input_type
 class SqlContainerIndexingPolicyArgs:
@@ -2558,14 +2430,11 @@ class SqlContainerIndexingPolicyArgs:
         pulumi.set(self, "spatial_indices", value)
 
 
-if not MYPY:
-    class SqlContainerIndexingPolicyCompositeIndexArgsDict(TypedDict):
-        indices: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgsDict']]]
-        """
-        One or more `index` blocks as defined below.
-        """
-elif False:
-    SqlContainerIndexingPolicyCompositeIndexArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerIndexingPolicyCompositeIndexArgsDict(TypedDict):
+    indices: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgsDict']]]
+    """
+    One or more `index` blocks as defined below.
+    """
 
 @pulumi.input_type
 class SqlContainerIndexingPolicyCompositeIndexArgs:
@@ -2589,18 +2458,15 @@ class SqlContainerIndexingPolicyCompositeIndexArgs:
         pulumi.set(self, "indices", value)
 
 
-if not MYPY:
-    class SqlContainerIndexingPolicyCompositeIndexIndexArgsDict(TypedDict):
-        order: pulumi.Input[_builtins.str]
-        """
-        Order of the index. Possible values are `Ascending` or `Descending`.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        Path for which the indexing behaviour applies to.
-        """
-elif False:
-    SqlContainerIndexingPolicyCompositeIndexIndexArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerIndexingPolicyCompositeIndexIndexArgsDict(TypedDict):
+    order: pulumi.Input[_builtins.str]
+    """
+    Order of the index. Possible values are `Ascending` or `Descending`.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    Path for which the indexing behaviour applies to.
+    """
 
 @pulumi.input_type
 class SqlContainerIndexingPolicyCompositeIndexIndexArgs:
@@ -2639,14 +2505,11 @@ class SqlContainerIndexingPolicyCompositeIndexIndexArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class SqlContainerIndexingPolicyExcludedPathArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        Path that is excluded from indexing.
-        """
-elif False:
-    SqlContainerIndexingPolicyExcludedPathArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerIndexingPolicyExcludedPathArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    Path that is excluded from indexing.
+    """
 
 @pulumi.input_type
 class SqlContainerIndexingPolicyExcludedPathArgs:
@@ -2670,14 +2533,11 @@ class SqlContainerIndexingPolicyExcludedPathArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class SqlContainerIndexingPolicyIncludedPathArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        Path for which the indexing behaviour applies to.
-        """
-elif False:
-    SqlContainerIndexingPolicyIncludedPathArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerIndexingPolicyIncludedPathArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    Path for which the indexing behaviour applies to.
+    """
 
 @pulumi.input_type
 class SqlContainerIndexingPolicyIncludedPathArgs:
@@ -2701,18 +2561,15 @@ class SqlContainerIndexingPolicyIncludedPathArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class SqlContainerIndexingPolicySpatialIndexArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
-        """
-        types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A set of spatial types of the path.
-        """
-elif False:
-    SqlContainerIndexingPolicySpatialIndexArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerIndexingPolicySpatialIndexArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+    """
+    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A set of spatial types of the path.
+    """
 
 @pulumi.input_type
 class SqlContainerIndexingPolicySpatialIndexArgs:
@@ -2752,14 +2609,11 @@ class SqlContainerIndexingPolicySpatialIndexArgs:
         pulumi.set(self, "types", value)
 
 
-if not MYPY:
-    class SqlContainerUniqueKeyArgsDict(TypedDict):
-        paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of paths to use for this unique key. Changing this forces a new resource to be created.
-        """
-elif False:
-    SqlContainerUniqueKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SqlContainerUniqueKeyArgsDict(TypedDict):
+    paths: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of paths to use for this unique key. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class SqlContainerUniqueKeyArgs:
@@ -2783,14 +2637,11 @@ class SqlContainerUniqueKeyArgs:
         pulumi.set(self, "paths", value)
 
 
-if not MYPY:
-    class SqlDatabaseAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    SqlDatabaseAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SqlDatabaseAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class SqlDatabaseAutoscaleSettingsArgs:
@@ -2815,14 +2666,11 @@ class SqlDatabaseAutoscaleSettingsArgs:
         pulumi.set(self, "max_throughput", value)
 
 
-if not MYPY:
-    class SqlRoleDefinitionPermissionArgsDict(TypedDict):
-        data_actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
-        """
-elif False:
-    SqlRoleDefinitionPermissionArgsDict: TypeAlias = Mapping[str, Any]
+class SqlRoleDefinitionPermissionArgsDict(TypedDict):
+    data_actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+    """
 
 @pulumi.input_type
 class SqlRoleDefinitionPermissionArgs:
@@ -2846,14 +2694,11 @@ class SqlRoleDefinitionPermissionArgs:
         pulumi.set(self, "data_actions", value)
 
 
-if not MYPY:
-    class TableAutoscaleSettingsArgsDict(TypedDict):
-        max_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
-        """
-elif False:
-    TableAutoscaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class TableAutoscaleSettingsArgsDict(TypedDict):
+    max_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+    """
 
 @pulumi.input_type
 class TableAutoscaleSettingsArgs:

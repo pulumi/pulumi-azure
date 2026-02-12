@@ -21,28 +21,23 @@ __all__ = [
     'ServiceQueryKeyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ServiceIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that should be configured on this Search Service. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Search Service.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-elif False:
-    ServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Search Service. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Search Service.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ServiceIdentityArgs:
@@ -114,18 +109,15 @@ class ServiceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ServiceQueryKeyArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of this Query Key.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
-        """
-elif False:
-    ServiceQueryKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceQueryKeyArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of this Query Key.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+    """
 
 @pulumi.input_type
 class ServiceQueryKeyArgs:

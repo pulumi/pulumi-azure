@@ -648,18 +648,18 @@ class RunCommand(pulumi.CustomResource):
             error_blob_uri=pulumi.Output.all(
                 id=example3.id,
                 example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{resolved_outputs['example']}")
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
             output_blob_uri=pulumi.Output.all(
                 id=example2.id,
                 example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{resolved_outputs['example']}")
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
             source={
                 "script_uri": pulumi.Output.all(
                     id=example1.id,
                     example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{resolved_outputs['example']}")
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
             },
             parameters=[{
@@ -877,18 +877,18 @@ class RunCommand(pulumi.CustomResource):
             error_blob_uri=pulumi.Output.all(
                 id=example3.id,
                 example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{resolved_outputs['example']}")
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
             output_blob_uri=pulumi.Output.all(
                 id=example2.id,
                 example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{resolved_outputs['example']}")
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
             source={
                 "script_uri": pulumi.Output.all(
                     id=example1.id,
                     example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{resolved_outputs['example']}")
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
             },
             parameters=[{

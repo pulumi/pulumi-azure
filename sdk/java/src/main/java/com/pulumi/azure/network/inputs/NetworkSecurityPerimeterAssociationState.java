@@ -60,9 +60,23 @@ public final class NetworkSecurityPerimeterAssociationState extends com.pulumi.r
         return Optional.ofNullable(this.networkSecurityPerimeterProfileId);
     }
 
+    /**
+     * The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+     * 
+     * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     * 
+     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
+    /**
+     * @return The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+     * 
+     * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+     * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+     * 
+     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
@@ -157,11 +171,29 @@ public final class NetworkSecurityPerimeterAssociationState extends com.pulumi.r
             return networkSecurityPerimeterProfileId(Output.of(networkSecurityPerimeterProfileId));
         }
 
+        /**
+         * @param resourceId The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+         * 
+         * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+         * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
+        /**
+         * @param resourceId The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+         * 
+         * &gt; **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+         * If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

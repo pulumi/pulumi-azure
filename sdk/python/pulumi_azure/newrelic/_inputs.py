@@ -27,24 +27,19 @@ __all__ = [
     'TagRuleMetricTagFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MonitorIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
-        """
-elif False:
-    MonitorIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the identity type of the Azure Native New Relic Monitor. The only possible value is `SystemAssigned`. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID for the Service Principal associated with the Identity of this Azure Native New Relic Monitor.
+    """
 
 @pulumi.input_type
 class MonitorIdentityArgs:
@@ -100,26 +95,23 @@ class MonitorIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class MonitorPlanArgsDict(TypedDict):
-        effective_date: pulumi.Input[_builtins.str]
-        """
-        Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-        billing_cycle: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`. Defaults to `MONTHLY`. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-        plan_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the plan id published by NewRelic. The only possible value is `newrelic-pay-as-you-go-free-live`. Defaults to `newrelic-pay-as-you-go-free-live`. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-        usage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the usage type. Possible values are `COMMITTED` and `PAYG`. Defaults to `PAYG`. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-elif False:
-    MonitorPlanArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorPlanArgsDict(TypedDict):
+    effective_date: pulumi.Input[_builtins.str]
+    """
+    Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
+    billing_cycle: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`. Defaults to `MONTHLY`. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
+    plan_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the plan id published by NewRelic. The only possible value is `newrelic-pay-as-you-go-free-live`. Defaults to `newrelic-pay-as-you-go-free-live`. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
+    usage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the usage type. Possible values are `COMMITTED` and `PAYG`. Defaults to `PAYG`. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
 
 @pulumi.input_type
 class MonitorPlanArgs:
@@ -191,26 +183,23 @@ class MonitorPlanArgs:
         pulumi.set(self, "usage_type", value)
 
 
-if not MYPY:
-    class MonitorUserArgsDict(TypedDict):
-        email: pulumi.Input[_builtins.str]
-        """
-        Specifies the user Email. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-        first_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the first name. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-        last_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-        phone_number: pulumi.Input[_builtins.str]
-        """
-        Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
-        """
-elif False:
-    MonitorUserArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorUserArgsDict(TypedDict):
+    email: pulumi.Input[_builtins.str]
+    """
+    Specifies the user Email. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
+    first_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the first name. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
+    last_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
+    phone_number: pulumi.Input[_builtins.str]
+    """
+    Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
+    """
 
 @pulumi.input_type
 class MonitorUserArgs:
@@ -279,22 +268,19 @@ class MonitorUserArgs:
         pulumi.set(self, "phone_number", value)
 
 
-if not MYPY:
-    class TagRuleLogTagFilterArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name (also known as the key) of the tag.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value of the tag.
-        """
-elif False:
-    TagRuleLogTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class TagRuleLogTagFilterArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name (also known as the key) of the tag.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value of the tag.
+    """
 
 @pulumi.input_type
 class TagRuleLogTagFilterArgs:
@@ -348,22 +334,19 @@ class TagRuleLogTagFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TagRuleMetricTagFilterArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name (also known as the key) of the tag.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value of the tag.
-        """
-elif False:
-    TagRuleMetricTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class TagRuleMetricTagFilterArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name (also known as the key) of the tag.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value of the tag.
+    """
 
 @pulumi.input_type
 class TagRuleMetricTagFilterArgs:

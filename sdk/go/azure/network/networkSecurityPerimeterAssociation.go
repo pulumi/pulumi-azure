@@ -98,7 +98,11 @@ type NetworkSecurityPerimeterAssociation struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
 	NetworkSecurityPerimeterProfileId pulumi.StringOutput `pulumi:"networkSecurityPerimeterProfileId"`
-	ResourceId                        pulumi.StringOutput `pulumi:"resourceId"`
+	// The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+	//
+	// > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+	// If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewNetworkSecurityPerimeterAssociation registers a new resource with the given unique name, arguments, and options.
@@ -146,7 +150,11 @@ type networkSecurityPerimeterAssociationState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
 	NetworkSecurityPerimeterProfileId *string `pulumi:"networkSecurityPerimeterProfileId"`
-	ResourceId                        *string `pulumi:"resourceId"`
+	// The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+	//
+	// > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+	// If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 type NetworkSecurityPerimeterAssociationState struct {
@@ -156,7 +164,11 @@ type NetworkSecurityPerimeterAssociationState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
 	NetworkSecurityPerimeterProfileId pulumi.StringPtrInput
-	ResourceId                        pulumi.StringPtrInput
+	// The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+	//
+	// > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+	// If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+	ResourceId pulumi.StringPtrInput
 }
 
 func (NetworkSecurityPerimeterAssociationState) ElementType() reflect.Type {
@@ -170,7 +182,11 @@ type networkSecurityPerimeterAssociationArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
 	NetworkSecurityPerimeterProfileId string `pulumi:"networkSecurityPerimeterProfileId"`
-	ResourceId                        string `pulumi:"resourceId"`
+	// The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+	//
+	// > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+	// If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+	ResourceId string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a NetworkSecurityPerimeterAssociation resource.
@@ -181,7 +197,11 @@ type NetworkSecurityPerimeterAssociationArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
 	NetworkSecurityPerimeterProfileId pulumi.StringInput
-	ResourceId                        pulumi.StringInput
+	// The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+	//
+	// > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+	// If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
+	ResourceId pulumi.StringInput
 }
 
 func (NetworkSecurityPerimeterAssociationArgs) ElementType() reflect.Type {
@@ -288,6 +308,10 @@ func (o NetworkSecurityPerimeterAssociationOutput) NetworkSecurityPerimeterProfi
 	}).(pulumi.StringOutput)
 }
 
+// The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
+//
+// > **Note:** A resource can only be associated with one Network Security Perimeter at a time.
+// If the target resource is already associated with another Network Security Perimeter, the creation of this association may appear to succeed in Terraform but will not be reflected in Azure. In such cases, the association will not actually exist and subsequent Terraform operations may show unexpected behavior.
 func (o NetworkSecurityPerimeterAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityPerimeterAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

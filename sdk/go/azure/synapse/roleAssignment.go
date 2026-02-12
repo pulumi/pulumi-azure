@@ -106,6 +106,8 @@ import (
 // ```sh
 // $ pulumi import azure:synapse/roleAssignment:RoleAssignment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1|000000000000"
 // ```
+//
+// > **NOTE:** This ID is specific to this provider - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 

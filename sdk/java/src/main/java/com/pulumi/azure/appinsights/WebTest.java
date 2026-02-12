@@ -19,6 +19,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an Application Insights WebTest.
+ * 
+ * &gt; **Note:** Despite the discrepancy in its name, this Terraform resource corresponds to the Azure resource &#39;Application Insights Classic Web Test&#39;. Azure changed the name, but we retained the original name in Terraform to avoid disruption and ensure backward compatibility.
+ * 
  * ## Example Usage
  * 
  * <pre>

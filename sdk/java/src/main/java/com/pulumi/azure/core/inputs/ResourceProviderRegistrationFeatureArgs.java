@@ -15,9 +15,21 @@ public final class ResourceProviderRegistrationFeatureArgs extends com.pulumi.re
 
     public static final ResourceProviderRegistrationFeatureArgs Empty = new ResourceProviderRegistrationFeatureArgs();
 
+    /**
+     * Specifies the name of the feature to register.
+     * 
+     * &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Specifies the name of the feature to register.
+     * 
+     * &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -62,11 +74,27 @@ public final class ResourceProviderRegistrationFeatureArgs extends com.pulumi.re
             $ = new ResourceProviderRegistrationFeatureArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Specifies the name of the feature to register.
+         * 
+         * &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Specifies the name of the feature to register.
+         * 
+         * &gt; **Note:** Only Preview Features which have an `ApprovalType` of `AutoApproval` can be managed in Terraform, features which require manual approval by Service Teams are unsupported. [More information on Resource Provider Preview Features can be found in this document](https://docs.microsoft.com/rest/api/resources/features)
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

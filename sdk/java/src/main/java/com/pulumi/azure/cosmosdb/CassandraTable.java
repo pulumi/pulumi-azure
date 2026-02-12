@@ -136,9 +136,21 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> analyticalStorageTtl() {
         return Codegen.optional(this.analyticalStorageTtl);
     }
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     @Export(name="autoscaleSettings", refs={CassandraTableAutoscaleSettings.class}, tree="[0]")
     private Output</* @Nullable */ CassandraTableAutoscaleSettings> autoscaleSettings;
 
+    /**
+     * @return An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
+     */
     public Output<Optional<CassandraTableAutoscaleSettings>> autoscaleSettings() {
         return Codegen.optional(this.autoscaleSettings);
     }
@@ -198,9 +210,17 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
     public Output<CassandraTableSchema> schema() {
         return this.schema;
     }
+    /**
+     * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     */
     @Export(name="throughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughput;
 
+    /**
+     * @return The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
+     * 
+     */
     public Output<Integer> throughput() {
         return this.throughput;
     }

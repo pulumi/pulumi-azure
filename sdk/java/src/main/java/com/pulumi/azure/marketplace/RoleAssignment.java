@@ -115,9 +115,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:marketplace/roleAssignment:RoleAssignment example /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
  * ```
  * 
- * text
- * 
- * /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+ * &gt; **Note:** For cross tenant scenarios, the format of the `resource id` consists of the Azure resource ID and the tenant ID, for example:
  * 
  */
 @ResourceType(type="azure:marketplace/roleAssignment:RoleAssignment")

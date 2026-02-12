@@ -223,6 +223,11 @@ namespace Pulumi.Azure.Nginx
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+        /// 
+        /// &gt; **Note:** If you are setting the `Sku` to `basic_Monthly`, you cannot specify a `Capacity` or `AutoScaleProfile`; basic plans do not support scaling. Other `Sku`s require either `Capacity` or `AutoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `IgnoreChanges` functionality to ignore changes to the `Capacity` field.
+        /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
 
@@ -388,6 +393,11 @@ namespace Pulumi.Azure.Nginx
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+        /// 
+        /// &gt; **Note:** If you are setting the `Sku` to `basic_Monthly`, you cannot specify a `Capacity` or `AutoScaleProfile`; basic plans do not support scaling. Other `Sku`s require either `Capacity` or `AutoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `IgnoreChanges` functionality to ignore changes to the `Capacity` field.
+        /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
@@ -539,6 +549,11 @@ namespace Pulumi.Azure.Nginx
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+        /// 
+        /// &gt; **Note:** If you are setting the `Sku` to `basic_Monthly`, you cannot specify a `Capacity` or `AutoScaleProfile`; basic plans do not support scaling. Other `Sku`s require either `Capacity` or `AutoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `IgnoreChanges` functionality to ignore changes to the `Capacity` field.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 

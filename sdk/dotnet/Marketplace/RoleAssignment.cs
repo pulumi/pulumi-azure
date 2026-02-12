@@ -76,9 +76,7 @@ namespace Pulumi.Azure.Marketplace
     /// $ pulumi import azure:marketplace/roleAssignment:RoleAssignment example /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
     /// ```
     /// 
-    /// text
-    /// 
-    /// /providers/Microsoft.Marketplace/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
+    /// &gt; **Note:** For cross tenant scenarios, the format of the `resource id` consists of the Azure resource ID and the tenant ID, for example:
     /// </summary>
     [AzureResourceType("azure:marketplace/roleAssignment:RoleAssignment")]
     public partial class RoleAssignment : global::Pulumi.CustomResource

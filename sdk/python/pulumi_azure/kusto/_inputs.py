@@ -29,36 +29,31 @@ __all__ = [
     'ClusterVirtualNetworkConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AttachedDatabaseConfigurationSharingArgsDict(TypedDict):
-        external_tables_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of external tables exclude from the follower database.
-        """
-        external_tables_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of external tables to include in the follower database.
-        """
-        materialized_views_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of materialized views exclude from the follower database.
-        """
-        materialized_views_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of materialized views to include in the follower database.
-        """
-        tables_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of tables to exclude from the follower database.
-        """
-        tables_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of tables to include in the follower database.
-        """
-elif False:
-    AttachedDatabaseConfigurationSharingArgsDict: TypeAlias = Mapping[str, Any]
+class AttachedDatabaseConfigurationSharingArgsDict(TypedDict):
+    external_tables_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of external tables exclude from the follower database.
+    """
+    external_tables_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of external tables to include in the follower database.
+    """
+    materialized_views_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of materialized views exclude from the follower database.
+    """
+    materialized_views_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of materialized views to include in the follower database.
+    """
+    tables_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of tables to exclude from the follower database.
+    """
+    tables_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of tables to include in the follower database.
+    """
 
 @pulumi.input_type
 class AttachedDatabaseConfigurationSharingArgs:
@@ -163,28 +158,25 @@ class AttachedDatabaseConfigurationSharingArgs:
         pulumi.set(self, "tables_to_includes", value)
 
 
-if not MYPY:
-    class ClusterIdentityArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        """
-        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+class ClusterIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+    """
+    identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Principal ID associated with this System Assigned Managed Service Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Tenant ID associated with this System Assigned Managed Service Identity.
-        """
-elif False:
-    ClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Principal ID associated with this System Assigned Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Tenant ID associated with this System Assigned Managed Service Identity.
+    """
 
 @pulumi.input_type
 class ClusterIdentityArgs:
@@ -260,18 +252,15 @@ class ClusterIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class ClusterLanguageExtensionArgsDict(TypedDict):
-        image: pulumi.Input[_builtins.str]
-        """
-        The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
-        """
-elif False:
-    ClusterLanguageExtensionArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLanguageExtensionArgsDict(TypedDict):
+    image: pulumi.Input[_builtins.str]
+    """
+    The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+    """
 
 @pulumi.input_type
 class ClusterLanguageExtensionArgs:
@@ -310,18 +299,15 @@ class ClusterLanguageExtensionArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ClusterOptimizedAutoScaleArgsDict(TypedDict):
-        maximum_instances: pulumi.Input[_builtins.int]
-        """
-        The maximum number of allowed instances. Possible values range between `0` and `1000`.
-        """
-        minimum_instances: pulumi.Input[_builtins.int]
-        """
-        The minimum number of allowed instances. Possible values range between `0` and `1000`.
-        """
-elif False:
-    ClusterOptimizedAutoScaleArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterOptimizedAutoScaleArgsDict(TypedDict):
+    maximum_instances: pulumi.Input[_builtins.int]
+    """
+    The maximum number of allowed instances. Possible values range between `0` and `1000`.
+    """
+    minimum_instances: pulumi.Input[_builtins.int]
+    """
+    The minimum number of allowed instances. Possible values range between `0` and `1000`.
+    """
 
 @pulumi.input_type
 class ClusterOptimizedAutoScaleArgs:
@@ -360,22 +346,19 @@ class ClusterOptimizedAutoScaleArgs:
         pulumi.set(self, "minimum_instances", value)
 
 
-if not MYPY:
-    class ClusterSkuArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU. Possible values are `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D14_v2`, `Standard_D11_v2`, `Standard_D16d_v5`, `Standard_D13_v2`, `Standard_D12_v2`, `Standard_DS14_v2+4TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_D32d_v5`, `Standard_D32d_v4`, `Standard_EC8ads_v5`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16ads_v5`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8d_v5`, `Standard_E8d_v4`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E4d_v5`, `Standard_E4d_v4`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v5+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16d_v5`, `Standard_E16d_v4`, `Standard_E16s_v5+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E64i_v3`, `Standard_E2a_v4`, `Standard_E2ads_v5`, `Standard_E2d_v5`, `Standard_E2d_v4`, `Standard_L8as_v3`, `Standard_L8s`, `Standard_L8s_v3`, `Standard_L8s_v2`, `Standard_L4s`, `Standard_L16as_v3`, `Standard_L16s`, `Standard_L16s_v3`, `Standard_L16s_v2`, `Standard_L32as_v3` and `Standard_L32s_v3`.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the node count for the cluster. Boundaries depend on the SKU name.
+class ClusterSkuArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU. Possible values are `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D14_v2`, `Standard_D11_v2`, `Standard_D16d_v5`, `Standard_D13_v2`, `Standard_D12_v2`, `Standard_DS14_v2+4TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_D32d_v5`, `Standard_D32d_v4`, `Standard_EC8ads_v5`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16ads_v5`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8d_v5`, `Standard_E8d_v4`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E4d_v5`, `Standard_E4d_v4`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v5+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16d_v5`, `Standard_E16d_v4`, `Standard_E16s_v5+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E64i_v3`, `Standard_E2a_v4`, `Standard_E2ads_v5`, `Standard_E2d_v5`, `Standard_E2d_v4`, `Standard_L8as_v3`, `Standard_L8s`, `Standard_L8s_v3`, `Standard_L8s_v2`, `Standard_L4s`, `Standard_L16as_v3`, `Standard_L16s`, `Standard_L16s_v3`, `Standard_L16s_v2`, `Standard_L32as_v3` and `Standard_L32s_v3`.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the node count for the cluster. Boundaries depend on the SKU name.
 
-        > **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+    > **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
 
-        > **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
-        """
-elif False:
-    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
+    """
 
 @pulumi.input_type
 class ClusterSkuArgs:
@@ -423,13 +406,10 @@ class ClusterSkuArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class ClusterVirtualNetworkConfigurationArgsDict(TypedDict):
-        data_management_public_ip_id: pulumi.Input[_builtins.str]
-        engine_public_ip_id: pulumi.Input[_builtins.str]
-        subnet_id: pulumi.Input[_builtins.str]
-elif False:
-    ClusterVirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterVirtualNetworkConfigurationArgsDict(TypedDict):
+    data_management_public_ip_id: pulumi.Input[_builtins.str]
+    engine_public_ip_id: pulumi.Input[_builtins.str]
+    subnet_id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ClusterVirtualNetworkConfigurationArgs:

@@ -17,9 +17,21 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final IPGroupState Empty = new IPGroupState();
 
+    /**
+     * A list of CIDRs or IP addresses.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+     * 
+     */
     @Import(name="cidrs")
     private @Nullable Output<List<String>> cidrs;
 
+    /**
+     * @return A list of CIDRs or IP addresses.
+     * 
+     * &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+     * 
+     */
     public Optional<Output<List<String>>> cidrs() {
         return Optional.ofNullable(this.cidrs);
     }
@@ -144,15 +156,39 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
             $ = new IPGroupState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cidrs A list of CIDRs or IP addresses.
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrs(@Nullable Output<List<String>> cidrs) {
             $.cidrs = cidrs;
             return this;
         }
 
+        /**
+         * @param cidrs A list of CIDRs or IP addresses.
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrs(List<String> cidrs) {
             return cidrs(Output.of(cidrs));
         }
 
+        /**
+         * @param cidrs A list of CIDRs or IP addresses.
+         * 
+         * &gt; **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource azure.network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `azure.network.IPGroupCIDR` then `ignoreChanges` should be used in the ip group configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }

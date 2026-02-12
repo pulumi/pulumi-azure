@@ -96,6 +96,7 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
+	// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
 	AccessPolicyObjectIds pulumi.StringArrayOutput `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationOutput `pulumi:"authenticationConfiguration"`
@@ -160,6 +161,7 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
+	// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
 	AccessPolicyObjectIds []string `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
@@ -192,6 +194,7 @@ type serviceState struct {
 }
 
 type ServiceState struct {
+	// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
 	AccessPolicyObjectIds pulumi.StringArrayInput
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput
@@ -228,6 +231,7 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
 	AccessPolicyObjectIds []string `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
@@ -261,6 +265,7 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
 	AccessPolicyObjectIds pulumi.StringArrayInput
 	// An `authenticationConfiguration` block as defined below.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput
@@ -379,6 +384,7 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform.
 func (o ServiceOutput) AccessPolicyObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringArrayOutput { return v.AccessPolicyObjectIds }).(pulumi.StringArrayOutput)
 }

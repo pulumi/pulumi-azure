@@ -424,7 +424,12 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) PrimaryUserAssignedIdentityId
 
 type FlexibleServerHighAvailability struct {
 	// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
-	Mode                    string  `pulumi:"mode"`
+	Mode string `pulumi:"mode"`
+	// Specifies the Availability Zone in which the standby Flexible Server should be located.
+	//
+	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+	//
+	// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -441,7 +446,12 @@ type FlexibleServerHighAvailabilityInput interface {
 
 type FlexibleServerHighAvailabilityArgs struct {
 	// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
-	Mode                    pulumi.StringInput    `pulumi:"mode"`
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Specifies the Availability Zone in which the standby Flexible Server should be located.
+	//
+	// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+	//
+	// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
@@ -527,6 +537,11 @@ func (o FlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
 }
 
+// Specifies the Availability Zone in which the standby Flexible Server should be located.
+//
+// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+//
+// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
 func (o FlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerHighAvailability) *string { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -565,6 +580,11 @@ func (o FlexibleServerHighAvailabilityPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the Availability Zone in which the standby Flexible Server should be located.
+//
+// > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignoreChanges` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
+//
+// > **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
 func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerHighAvailability) *string {
 		if v == nil {

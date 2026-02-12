@@ -29,36 +29,31 @@ __all__ = [
     'ConfigurationWindowArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssignmentDynamicScopeFilterArgsDict(TypedDict):
-        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of locations to scope the query to.
-        """
-        os_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
-        """
-        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of allowed resource groups.
-        """
-        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
-        """
-        tag_filter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgsDict']]]]
-        """
-        One or more `tags` blocks as defined below.
-        """
-elif False:
-    AssignmentDynamicScopeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class AssignmentDynamicScopeFilterArgsDict(TypedDict):
+    locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of locations to scope the query to.
+    """
+    os_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of allowed operating systems. Possible values are `Linux` and `Windows`.
+    """
+    resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of allowed resource groups.
+    """
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of allowed resources. Possible values are `Microsoft.Compute/virtualMachines` and `Microsoft.HybridCompute/machines`.
+    """
+    tag_filter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgsDict']]]]
+    """
+    One or more `tags` blocks as defined below.
+    """
 
 @pulumi.input_type
 class AssignmentDynamicScopeFilterArgs:
@@ -163,18 +158,15 @@ class AssignmentDynamicScopeFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class AssignmentDynamicScopeFilterTagArgsDict(TypedDict):
-        tag: pulumi.Input[_builtins.str]
-        """
-        Specifies the tag to filter by.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies a list of values the defined tag can have.
-        """
-elif False:
-    AssignmentDynamicScopeFilterTagArgsDict: TypeAlias = Mapping[str, Any]
+class AssignmentDynamicScopeFilterTagArgsDict(TypedDict):
+    tag: pulumi.Input[_builtins.str]
+    """
+    Specifies the tag to filter by.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of values the defined tag can have.
+    """
 
 @pulumi.input_type
 class AssignmentDynamicScopeFilterTagArgs:
@@ -213,22 +205,19 @@ class AssignmentDynamicScopeFilterTagArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ConfigurationInstallPatchesArgsDict(TypedDict):
-        linuxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgsDict']]]]
-        """
-        A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
-        """
-        reboot: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
-        """
-        windows: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgsDict']]]]
-        """
-        A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
-        """
-elif False:
-    ConfigurationInstallPatchesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationInstallPatchesArgsDict(TypedDict):
+    linuxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgsDict']]]]
+    """
+    A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+    """
+    reboot: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+    """
+    windows: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgsDict']]]]
+    """
+    A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+    """
 
 @pulumi.input_type
 class ConfigurationInstallPatchesArgs:
@@ -285,22 +274,19 @@ class ConfigurationInstallPatchesArgs:
         pulumi.set(self, "windows", value)
 
 
-if not MYPY:
-    class ConfigurationInstallPatchesLinuxArgsDict(TypedDict):
-        classifications_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
-        """
-        package_names_mask_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of package names to be excluded from patching.
-        """
-        package_names_mask_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of package names to be included for patching.
-        """
-elif False:
-    ConfigurationInstallPatchesLinuxArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationInstallPatchesLinuxArgsDict(TypedDict):
+    classifications_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
+    """
+    package_names_mask_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of package names to be excluded from patching.
+    """
+    package_names_mask_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of package names to be included for patching.
+    """
 
 @pulumi.input_type
 class ConfigurationInstallPatchesLinuxArgs:
@@ -357,22 +343,19 @@ class ConfigurationInstallPatchesLinuxArgs:
         pulumi.set(self, "package_names_mask_to_includes", value)
 
 
-if not MYPY:
-    class ConfigurationInstallPatchesWindowArgsDict(TypedDict):
-        classifications_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-        """
-        kb_numbers_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of KB numbers to be excluded from patching.
-        """
-        kb_numbers_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of KB numbers to be included for patching.
-        """
-elif False:
-    ConfigurationInstallPatchesWindowArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationInstallPatchesWindowArgsDict(TypedDict):
+    classifications_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+    """
+    kb_numbers_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of KB numbers to be excluded from patching.
+    """
+    kb_numbers_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of KB numbers to be included for patching.
+    """
 
 @pulumi.input_type
 class ConfigurationInstallPatchesWindowArgs:
@@ -429,30 +412,27 @@ class ConfigurationInstallPatchesWindowArgs:
         pulumi.set(self, "kb_numbers_to_includes", value)
 
 
-if not MYPY:
-    class ConfigurationWindowArgsDict(TypedDict):
-        start_date_time: pulumi.Input[_builtins.str]
-        """
-        Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.
-        """
-        time_zone: pulumi.Input[_builtins.str]
-        """
-        The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration of the maintenance window in HH:mm format.
-        """
-        expiration_date_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
-        """
-        recur_every: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
-        """
-elif False:
-    ConfigurationWindowArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationWindowArgsDict(TypedDict):
+    start_date_time: pulumi.Input[_builtins.str]
+    """
+    Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.
+    """
+    time_zone: pulumi.Input[_builtins.str]
+    """
+    The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration of the maintenance window in HH:mm format.
+    """
+    expiration_date_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
+    """
+    recur_every: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
+    """
 
 @pulumi.input_type
 class ConfigurationWindowArgs:
