@@ -32,6 +32,7 @@ export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerapp/getApp:getApp", {
         "name": args.name,
+        "readSecrets": args.readSecrets,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -44,6 +45,10 @@ export interface GetAppArgs {
      * The name of the Container App.
      */
     name: string;
+    /**
+     * Should the data source read the secrets from the Container App? Defaults to `true`.
+     */
+    readSecrets?: boolean;
     /**
      * The name of the Resource Group where this Container App exists.
      */
@@ -87,6 +92,7 @@ export interface GetAppResult {
      */
     readonly name: string;
     readonly outboundIpAddresses: string[];
+    readonly readSecrets?: boolean;
     /**
      * A `registry` block as detailed below.
      */
@@ -139,6 +145,7 @@ export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerapp/getApp:getApp", {
         "name": args.name,
+        "readSecrets": args.readSecrets,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -151,6 +158,10 @@ export interface GetAppOutputArgs {
      * The name of the Container App.
      */
     name: pulumi.Input<string>;
+    /**
+     * Should the data source read the secrets from the Container App? Defaults to `true`.
+     */
+    readSecrets?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where this Container App exists.
      */

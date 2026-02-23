@@ -34,11 +34,11 @@ __all__ = [
 class LinkServiceNatIpConfigurationArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+    Specifies the name which should be used for the NAT IP Configuration.
     """
     primary: pulumi.Input[_builtins.bool]
     """
-    Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+    Is this is the Primary IP Configuration?
     """
     subnet_id: pulumi.Input[_builtins.str]
     """
@@ -64,8 +64,8 @@ class LinkServiceNatIpConfigurationArgs:
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_address_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] primary: Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for the NAT IP Configuration.
+        :param pulumi.Input[_builtins.bool] primary: Is this is the Primary IP Configuration?
         :param pulumi.Input[_builtins.str] subnet_id: Specifies the ID of the Subnet which should be used for the Private Link Service.
                
                > **Note:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
@@ -84,7 +84,7 @@ class LinkServiceNatIpConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+        Specifies the name which should be used for the NAT IP Configuration.
         """
         return pulumi.get(self, "name")
 
@@ -96,7 +96,7 @@ class LinkServiceNatIpConfigurationArgs:
     @pulumi.getter
     def primary(self) -> pulumi.Input[_builtins.bool]:
         """
-        Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        Is this is the Primary IP Configuration?
         """
         return pulumi.get(self, "primary")
 

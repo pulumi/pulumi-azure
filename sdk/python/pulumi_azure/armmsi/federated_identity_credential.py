@@ -22,25 +22,28 @@ class FederatedIdentityCredentialArgs:
                  audience: pulumi.Input[_builtins.str],
                  issuer: pulumi.Input[_builtins.str],
                  parent_id: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
                  subject: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FederatedIdentityCredential resource.
         :param pulumi.Input[_builtins.str] audience: Specifies the audience for this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] issuer: Specifies the issuer of this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[_builtins.str] subject: Specifies the subject for this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "parent_id", parent_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "subject", subject)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @_builtins.property
     @pulumi.getter
@@ -79,18 +82,6 @@ class FederatedIdentityCredentialArgs:
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def subject(self) -> pulumi.Input[_builtins.str]:
         """
@@ -114,6 +105,16 @@ class FederatedIdentityCredentialArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
+    def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_group_name", value)
+
 
 @pulumi.input_type
 class _FederatedIdentityCredentialState:
@@ -130,7 +131,6 @@ class _FederatedIdentityCredentialState:
         :param pulumi.Input[_builtins.str] issuer: Specifies the issuer of this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[_builtins.str] subject: Specifies the subject for this Federated Identity Credential.
         """
         if audience is not None:
@@ -141,6 +141,9 @@ class _FederatedIdentityCredentialState:
             pulumi.set(__self__, "name", name)
         if parent_id is not None:
             pulumi.set(__self__, "parent_id", parent_id)
+        if resource_group_name is not None:
+            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if subject is not None:
@@ -196,10 +199,8 @@ class _FederatedIdentityCredentialState:
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
     def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -250,7 +251,6 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             resource_group_name=example.name)
         example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
             name="example",
-            resource_group_name=example.name,
             audience="foo",
             issuer="https://foo",
             parent_id=example_user_assigned_identity.id,
@@ -278,7 +278,6 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] issuer: Specifies the issuer of this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[_builtins.str] subject: Specifies the subject for this Federated Identity Credential.
         """
         ...
@@ -305,7 +304,6 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             resource_group_name=example.name)
         example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
             name="example",
-            resource_group_name=example.name,
             audience="foo",
             issuer="https://foo",
             parent_id=example_user_assigned_identity.id,
@@ -367,8 +365,6 @@ class FederatedIdentityCredential(pulumi.CustomResource):
             if parent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_id'")
             __props__.__dict__["parent_id"] = parent_id
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if subject is None and not opts.urn:
                 raise TypeError("Missing required property 'subject'")
@@ -400,7 +396,6 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] issuer: Specifies the issuer of this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[_builtins.str] subject: Specifies the subject for this Federated Identity Credential.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -449,10 +444,8 @@ class FederatedIdentityCredential(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
+    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
     def resource_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @_builtins.property

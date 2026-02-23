@@ -212,18 +212,37 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="runbookType", required=true)
     private Output<String> runbookType;
 
     /**
-     * @return The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+     * @return The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> runbookType() {
         return this.runbookType;
+    }
+
+    /**
+     * The runtime environment name for the runbook.
+     * 
+     * &gt; **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+     * 
+     */
+    @Import(name="runtimeEnvironmentName")
+    private @Nullable Output<String> runtimeEnvironmentName;
+
+    /**
+     * @return The runtime environment name for the runbook.
+     * 
+     * &gt; **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+     * 
+     */
+    public Optional<Output<String>> runtimeEnvironmentName() {
+        return Optional.ofNullable(this.runtimeEnvironmentName);
     }
 
     /**
@@ -257,6 +276,7 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         this.publishContentLink = $.publishContentLink;
         this.resourceGroupName = $.resourceGroupName;
         this.runbookType = $.runbookType;
+        this.runtimeEnvironmentName = $.runtimeEnvironmentName;
         this.tags = $.tags;
     }
 
@@ -551,7 +571,7 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runbookType The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+         * @param runbookType The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -562,13 +582,38 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runbookType The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+         * @param runbookType The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
         public Builder runbookType(String runbookType) {
             return runbookType(Output.of(runbookType));
+        }
+
+        /**
+         * @param runtimeEnvironmentName The runtime environment name for the runbook.
+         * 
+         * &gt; **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeEnvironmentName(@Nullable Output<String> runtimeEnvironmentName) {
+            $.runtimeEnvironmentName = runtimeEnvironmentName;
+            return this;
+        }
+
+        /**
+         * @param runtimeEnvironmentName The runtime environment name for the runbook.
+         * 
+         * &gt; **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeEnvironmentName(String runtimeEnvironmentName) {
+            return runtimeEnvironmentName(Output.of(runtimeEnvironmentName));
         }
 
         /**

@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
  *             .name("example-nginx")
  *             .resourceGroupName(example.name())
- *             .sku("standardv2_Monthly")
+ *             .sku("standardv3_Monthly")
  *             .location(example.location())
  *             .diagnoseSupportEnabled(true)
  *             .automaticUpgradeChannel("stable")
@@ -378,7 +378,9 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     * Specifies the NGINX Deployment SKU.
+     * 
+     * &gt; **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
      * 
      * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
      * 
@@ -387,7 +389,9 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     private Output<String> sku;
 
     /**
-     * @return Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+     * @return Specifies the NGINX Deployment SKU.
+     * 
+     * &gt; **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
      * 
      * &gt; **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you&#39;re using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform&#39;s `ignoreChanges` functionality to ignore changes to the `capacity` field.
      * 

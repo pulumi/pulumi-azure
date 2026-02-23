@@ -532,14 +532,18 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.runtimeName;
     }
     /**
-     * The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+     * The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+     * 
+     * &gt; **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
      * 
      */
     @Export(name="runtimeVersion", refs={String.class}, tree="[0]")
     private Output<String> runtimeVersion;
 
     /**
-     * @return The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+     * @return The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+     * 
+     * &gt; **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
      * 
      */
     public Output<String> runtimeVersion() {

@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'FlexibleServerAuthenticationArgs',
     'FlexibleServerAuthenticationArgsDict',
+    'FlexibleServerClusterArgs',
+    'FlexibleServerClusterArgsDict',
     'FlexibleServerCustomerManagedKeyArgs',
     'FlexibleServerCustomerManagedKeyArgsDict',
     'FlexibleServerHighAvailabilityArgs',
@@ -110,6 +112,72 @@ class FlexibleServerAuthenticationArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+class FlexibleServerClusterArgsDict(TypedDict):
+    size: pulumi.Input[_builtins.int]
+    """
+    The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+
+    > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+
+    > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `create_mode` is set to anything other than `Default`.
+
+    > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+    """
+    default_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+    """
+
+@pulumi.input_type
+class FlexibleServerClusterArgs:
+    def __init__(__self__, *,
+                 size: pulumi.Input[_builtins.int],
+                 default_database_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] size: The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+               
+               > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+               
+               > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `create_mode` is set to anything other than `Default`.
+               
+               > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+        :param pulumi.Input[_builtins.str] default_database_name: The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        pulumi.set(__self__, "size", size)
+        if default_database_name is not None:
+            pulumi.set(__self__, "default_database_name", default_database_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+
+        > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+
+        > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `create_mode` is set to anything other than `Default`.
+
+        > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDatabaseName")
+    def default_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        return pulumi.get(self, "default_database_name")
+
+    @default_database_name.setter
+    def default_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_database_name", value)
 
 
 class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):

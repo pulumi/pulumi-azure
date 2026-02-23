@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? MacsecCakKeyvaultSecretId;
         /// <summary>
-        /// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        /// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
         /// </summary>
         public readonly string? MacsecCipher;
         /// <summary>

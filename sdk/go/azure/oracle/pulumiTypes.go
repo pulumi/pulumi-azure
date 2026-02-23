@@ -2049,6 +2049,130 @@ func (o GetCloudVmClusterIormConfigCacheDbPlanArrayOutput) Index(i pulumi.IntInp
 	}).(GetCloudVmClusterIormConfigCacheDbPlanOutput)
 }
 
+type GetDatabaseSystemVersionsVersion struct {
+	// Indicates if this version of the Oracle Database software is the latest version for a release.
+	LatestVersion bool `pulumi:"latestVersion"`
+	// The name of the Oracle Database version.
+	Name string `pulumi:"name"`
+	// Indicates if this version of the Oracle Database software supports pluggable databases.
+	PluggableDatabaseSupported bool `pulumi:"pluggableDatabaseSupported"`
+	// The value of the Oracle Database version.
+	Version string `pulumi:"version"`
+}
+
+// GetDatabaseSystemVersionsVersionInput is an input type that accepts GetDatabaseSystemVersionsVersionArgs and GetDatabaseSystemVersionsVersionOutput values.
+// You can construct a concrete instance of `GetDatabaseSystemVersionsVersionInput` via:
+//
+//	GetDatabaseSystemVersionsVersionArgs{...}
+type GetDatabaseSystemVersionsVersionInput interface {
+	pulumi.Input
+
+	ToGetDatabaseSystemVersionsVersionOutput() GetDatabaseSystemVersionsVersionOutput
+	ToGetDatabaseSystemVersionsVersionOutputWithContext(context.Context) GetDatabaseSystemVersionsVersionOutput
+}
+
+type GetDatabaseSystemVersionsVersionArgs struct {
+	// Indicates if this version of the Oracle Database software is the latest version for a release.
+	LatestVersion pulumi.BoolInput `pulumi:"latestVersion"`
+	// The name of the Oracle Database version.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates if this version of the Oracle Database software supports pluggable databases.
+	PluggableDatabaseSupported pulumi.BoolInput `pulumi:"pluggableDatabaseSupported"`
+	// The value of the Oracle Database version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetDatabaseSystemVersionsVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabaseSystemVersionsVersion)(nil)).Elem()
+}
+
+func (i GetDatabaseSystemVersionsVersionArgs) ToGetDatabaseSystemVersionsVersionOutput() GetDatabaseSystemVersionsVersionOutput {
+	return i.ToGetDatabaseSystemVersionsVersionOutputWithContext(context.Background())
+}
+
+func (i GetDatabaseSystemVersionsVersionArgs) ToGetDatabaseSystemVersionsVersionOutputWithContext(ctx context.Context) GetDatabaseSystemVersionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseSystemVersionsVersionOutput)
+}
+
+// GetDatabaseSystemVersionsVersionArrayInput is an input type that accepts GetDatabaseSystemVersionsVersionArray and GetDatabaseSystemVersionsVersionArrayOutput values.
+// You can construct a concrete instance of `GetDatabaseSystemVersionsVersionArrayInput` via:
+//
+//	GetDatabaseSystemVersionsVersionArray{ GetDatabaseSystemVersionsVersionArgs{...} }
+type GetDatabaseSystemVersionsVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabaseSystemVersionsVersionArrayOutput() GetDatabaseSystemVersionsVersionArrayOutput
+	ToGetDatabaseSystemVersionsVersionArrayOutputWithContext(context.Context) GetDatabaseSystemVersionsVersionArrayOutput
+}
+
+type GetDatabaseSystemVersionsVersionArray []GetDatabaseSystemVersionsVersionInput
+
+func (GetDatabaseSystemVersionsVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabaseSystemVersionsVersion)(nil)).Elem()
+}
+
+func (i GetDatabaseSystemVersionsVersionArray) ToGetDatabaseSystemVersionsVersionArrayOutput() GetDatabaseSystemVersionsVersionArrayOutput {
+	return i.ToGetDatabaseSystemVersionsVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabaseSystemVersionsVersionArray) ToGetDatabaseSystemVersionsVersionArrayOutputWithContext(ctx context.Context) GetDatabaseSystemVersionsVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseSystemVersionsVersionArrayOutput)
+}
+
+type GetDatabaseSystemVersionsVersionOutput struct{ *pulumi.OutputState }
+
+func (GetDatabaseSystemVersionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabaseSystemVersionsVersion)(nil)).Elem()
+}
+
+func (o GetDatabaseSystemVersionsVersionOutput) ToGetDatabaseSystemVersionsVersionOutput() GetDatabaseSystemVersionsVersionOutput {
+	return o
+}
+
+func (o GetDatabaseSystemVersionsVersionOutput) ToGetDatabaseSystemVersionsVersionOutputWithContext(ctx context.Context) GetDatabaseSystemVersionsVersionOutput {
+	return o
+}
+
+// Indicates if this version of the Oracle Database software is the latest version for a release.
+func (o GetDatabaseSystemVersionsVersionOutput) LatestVersion() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDatabaseSystemVersionsVersion) bool { return v.LatestVersion }).(pulumi.BoolOutput)
+}
+
+// The name of the Oracle Database version.
+func (o GetDatabaseSystemVersionsVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabaseSystemVersionsVersion) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates if this version of the Oracle Database software supports pluggable databases.
+func (o GetDatabaseSystemVersionsVersionOutput) PluggableDatabaseSupported() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDatabaseSystemVersionsVersion) bool { return v.PluggableDatabaseSupported }).(pulumi.BoolOutput)
+}
+
+// The value of the Oracle Database version.
+func (o GetDatabaseSystemVersionsVersionOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabaseSystemVersionsVersion) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetDatabaseSystemVersionsVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabaseSystemVersionsVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabaseSystemVersionsVersion)(nil)).Elem()
+}
+
+func (o GetDatabaseSystemVersionsVersionArrayOutput) ToGetDatabaseSystemVersionsVersionArrayOutput() GetDatabaseSystemVersionsVersionArrayOutput {
+	return o
+}
+
+func (o GetDatabaseSystemVersionsVersionArrayOutput) ToGetDatabaseSystemVersionsVersionArrayOutputWithContext(ctx context.Context) GetDatabaseSystemVersionsVersionArrayOutput {
+	return o
+}
+
+func (o GetDatabaseSystemVersionsVersionArrayOutput) Index(i pulumi.IntInput) GetDatabaseSystemVersionsVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabaseSystemVersionsVersion {
+		return vs[0].([]GetDatabaseSystemVersionsVersion)[vs[1].(int)]
+	}).(GetDatabaseSystemVersionsVersionOutput)
+}
+
 type GetDbNodesDbNode struct {
 	// Additional information about the planned maintenance.
 	AdditionalDetails string `pulumi:"additionalDetails"`
@@ -3442,6 +3566,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCacheArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCacheArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCacheDbPlanInput)(nil)).Elem(), GetCloudVmClusterIormConfigCacheDbPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCacheDbPlanArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCacheDbPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseSystemVersionsVersionInput)(nil)).Elem(), GetDatabaseSystemVersionsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseSystemVersionsVersionArrayInput)(nil)).Elem(), GetDatabaseSystemVersionsVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeInput)(nil)).Elem(), GetDbNodesDbNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeArrayInput)(nil)).Elem(), GetDbNodesDbNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerInput)(nil)).Elem(), GetDbServersDbServerArgs{})
@@ -3486,6 +3612,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCacheArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCacheDbPlanOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCacheDbPlanArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabaseSystemVersionsVersionOutput{})
+	pulumi.RegisterOutputType(GetDatabaseSystemVersionsVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetDbNodesDbNodeOutput{})
 	pulumi.RegisterOutputType(GetDbNodesDbNodeArrayOutput{})
 	pulumi.RegisterOutputType(GetDbServersDbServerOutput{})

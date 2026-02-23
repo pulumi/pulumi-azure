@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs;
+import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs;
 import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -134,16 +135,20 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
     }
 
     /**
-     * A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     * @deprecated
+     * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="keyVaultSasToken")
     private @Nullable Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs> keyVaultSasToken;
 
     /**
-     * @return A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     * @deprecated
+     * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>> keyVaultSasToken() {
         return Optional.ofNullable(this.keyVaultSasToken);
     }
@@ -176,6 +181,21 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
      */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
+    }
+
+    /**
+     * A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     * 
+     */
+    @Import(name="sasTokenLinkedKeyVaultKey")
+    private @Nullable Output<LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs> sasTokenLinkedKeyVaultKey;
+
+    /**
+     * @return A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     * 
+     */
+    public Optional<Output<LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs>> sasTokenLinkedKeyVaultKey() {
+        return Optional.ofNullable(this.sasTokenLinkedKeyVaultKey);
     }
 
     /**
@@ -255,6 +275,7 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         this.keyVaultSasToken = $.keyVaultSasToken;
         this.name = $.name;
         this.parameters = $.parameters;
+        this.sasTokenLinkedKeyVaultKey = $.sasTokenLinkedKeyVaultKey;
         this.sasUri = $.sasUri;
         this.serviceEndpoint = $.serviceEndpoint;
         this.servicePrincipalId = $.servicePrincipalId;
@@ -449,22 +470,26 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultSasToken A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder keyVaultSasToken(@Nullable Output<LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs> keyVaultSasToken) {
             $.keyVaultSasToken = keyVaultSasToken;
             return this;
         }
 
         /**
-         * @param keyVaultSasToken A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder keyVaultSasToken(LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs keyVaultSasToken) {
             return keyVaultSasToken(Output.of(keyVaultSasToken));
         }
@@ -509,6 +534,27 @@ public final class LinkedServiceAzureBlobStorageState extends com.pulumi.resourc
          */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param sasTokenLinkedKeyVaultKey A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sasTokenLinkedKeyVaultKey(@Nullable Output<LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs> sasTokenLinkedKeyVaultKey) {
+            $.sasTokenLinkedKeyVaultKey = sasTokenLinkedKeyVaultKey;
+            return this;
+        }
+
+        /**
+         * @param sasTokenLinkedKeyVaultKey A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sasTokenLinkedKeyVaultKey(LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs sasTokenLinkedKeyVaultKey) {
+            return sasTokenLinkedKeyVaultKey(Output.of(sasTokenLinkedKeyVaultKey));
         }
 
         /**

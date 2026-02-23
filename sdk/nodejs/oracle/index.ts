@@ -80,6 +80,11 @@ export const getCloudVmCluster: typeof import("./getCloudVmCluster").getCloudVmC
 export const getCloudVmClusterOutput: typeof import("./getCloudVmCluster").getCloudVmClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudVmCluster","getCloudVmClusterOutput"], () => require("./getCloudVmCluster"));
 
+export { GetDatabaseSystemVersionsArgs, GetDatabaseSystemVersionsResult, GetDatabaseSystemVersionsOutputArgs } from "./getDatabaseSystemVersions";
+export const getDatabaseSystemVersions: typeof import("./getDatabaseSystemVersions").getDatabaseSystemVersions = null as any;
+export const getDatabaseSystemVersionsOutput: typeof import("./getDatabaseSystemVersions").getDatabaseSystemVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseSystemVersions","getDatabaseSystemVersionsOutput"], () => require("./getDatabaseSystemVersions"));
+
 export { GetDbNodesArgs, GetDbNodesResult, GetDbNodesOutputArgs } from "./getDbNodes";
 export const getDbNodes: typeof import("./getDbNodes").getDbNodes = null as any;
 export const getDbNodesOutput: typeof import("./getDbNodes").getDbNodesOutput = null as any;

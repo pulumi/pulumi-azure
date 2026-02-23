@@ -129,9 +129,15 @@ export class RunBook extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
      */
     declare public readonly runbookType: pulumi.Output<string>;
+    /**
+     * The runtime environment name for the runbook.
+     *
+     * > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+     */
+    declare public readonly runtimeEnvironmentName: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -163,6 +169,7 @@ export class RunBook extends pulumi.CustomResource {
             resourceInputs["publishContentLink"] = state?.publishContentLink;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["runbookType"] = state?.runbookType;
+            resourceInputs["runtimeEnvironmentName"] = state?.runtimeEnvironmentName;
             resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as RunBookArgs | undefined;
@@ -194,6 +201,7 @@ export class RunBook extends pulumi.CustomResource {
             resourceInputs["publishContentLink"] = args?.publishContentLink;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["runbookType"] = args?.runbookType;
+            resourceInputs["runtimeEnvironmentName"] = args?.runtimeEnvironmentName;
             resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -258,9 +266,15 @@ export interface RunBookState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
      */
     runbookType?: pulumi.Input<string>;
+    /**
+     * The runtime environment name for the runbook.
+     *
+     * > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+     */
+    runtimeEnvironmentName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -324,9 +338,15 @@ export interface RunBookArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+     * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
      */
     runbookType: pulumi.Input<string>;
+    /**
+     * The runtime environment name for the runbook.
+     *
+     * > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+     */
+    runtimeEnvironmentName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

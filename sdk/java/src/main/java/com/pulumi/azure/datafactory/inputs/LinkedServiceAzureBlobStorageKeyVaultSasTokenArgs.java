@@ -14,32 +14,16 @@ public final class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs extends com
 
     public static final LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs Empty = new LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs();
 
-    /**
-     * Specifies the name of an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     @Import(name="linkedServiceName", required=true)
     private Output<String> linkedServiceName;
 
-    /**
-     * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     public Output<String> linkedServiceName() {
         return this.linkedServiceName;
     }
 
-    /**
-     * Specifies the secret name in Azure Key Vault that stores the SAS token.
-     * 
-     */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
-    /**
-     * @return Specifies the secret name in Azure Key Vault that stores the SAS token.
-     * 
-     */
     public Output<String> secretName() {
         return this.secretName;
     }
@@ -69,44 +53,20 @@ public final class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs extends com
             $ = new LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param linkedServiceName Specifies the name of an existing Key Vault Data Factory Linked Service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkedServiceName(Output<String> linkedServiceName) {
             $.linkedServiceName = linkedServiceName;
             return this;
         }
 
-        /**
-         * @param linkedServiceName Specifies the name of an existing Key Vault Data Factory Linked Service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkedServiceName(String linkedServiceName) {
             return linkedServiceName(Output.of(linkedServiceName));
         }
 
-        /**
-         * @param secretName Specifies the secret name in Azure Key Vault that stores the SAS token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(Output<String> secretName) {
             $.secretName = secretName;
             return this;
         }
 
-        /**
-         * @param secretName Specifies the secret name in Azure Key Vault that stores the SAS token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretName(String secretName) {
             return secretName(Output.of(secretName));
         }

@@ -378,7 +378,7 @@ namespace Pulumi.Azure.MSSql
         /// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
         /// </summary>
         [Output("proxyOverride")]
-        public Output<string?> ProxyOverride { get; private set; } = null!;
+        public Output<string> ProxyOverride { get; private set; } = null!;
 
         /// <summary>
         /// Is the public data endpoint enabled? Defaults to `False`.

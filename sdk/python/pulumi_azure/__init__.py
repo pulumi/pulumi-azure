@@ -871,6 +871,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/workspaceNamedValue",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/workspaceNamedValue:WorkspaceNamedValue": "WorkspaceNamedValue"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/workspacePolicy",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -3855,6 +3863,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/linkedServiceSqlManagedInstance",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceSqlManagedInstance:LinkedServiceSqlManagedInstance": "LinkedServiceSqlManagedInstance"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/linkedServiceSqlServer",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -5803,6 +5819,14 @@ _utilities.register(
   "fqn": "pulumi_azure.managedlustre",
   "classes": {
    "azure:managedlustre/fileSystem:FileSystem": "FileSystem"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "managedredis/accessPolicyAssignment",
+  "fqn": "pulumi_azure.managedredis",
+  "classes": {
+   "azure:managedredis/accessPolicyAssignment:AccessPolicyAssignment": "AccessPolicyAssignment"
   }
  },
  {

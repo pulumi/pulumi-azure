@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinkServiceNatIpConfiguration {
     /**
-     * @return Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+     * @return Specifies the name which should be used for the NAT IP Configuration.
      * 
      */
     private String name;
     /**
-     * @return Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+     * @return Is this is the Primary IP Configuration?
      * 
      */
     private Boolean primary;
@@ -43,14 +43,14 @@ public final class LinkServiceNatIpConfiguration {
 
     private LinkServiceNatIpConfiguration() {}
     /**
-     * @return Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+     * @return Specifies the name which should be used for the NAT IP Configuration.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+     * @return Is this is the Primary IP Configuration?
      * 
      */
     public Boolean primary() {

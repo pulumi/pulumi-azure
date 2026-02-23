@@ -38,7 +38,7 @@ public final class ExpressRoutePortLink2 {
      */
     private @Nullable String macsecCakKeyvaultSecretId;
     /**
-     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
      * 
      */
     private @Nullable String macsecCipher;
@@ -107,7 +107,7 @@ public final class ExpressRoutePortLink2 {
         return Optional.ofNullable(this.macsecCakKeyvaultSecretId);
     }
     /**
-     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
      * 
      */
     public Optional<String> macsecCipher() {

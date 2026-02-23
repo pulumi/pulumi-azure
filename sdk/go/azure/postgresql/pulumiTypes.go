@@ -204,6 +204,186 @@ func (o FlexibleServerAuthenticationPtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlexibleServerCluster struct {
+	// The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+	DefaultDatabaseName *string `pulumi:"defaultDatabaseName"`
+	// The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+	//
+	// > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+	//
+	// > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `createMode` is set to anything other than `Default`.
+	//
+	// > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+	Size int `pulumi:"size"`
+}
+
+// FlexibleServerClusterInput is an input type that accepts FlexibleServerClusterArgs and FlexibleServerClusterOutput values.
+// You can construct a concrete instance of `FlexibleServerClusterInput` via:
+//
+//	FlexibleServerClusterArgs{...}
+type FlexibleServerClusterInput interface {
+	pulumi.Input
+
+	ToFlexibleServerClusterOutput() FlexibleServerClusterOutput
+	ToFlexibleServerClusterOutputWithContext(context.Context) FlexibleServerClusterOutput
+}
+
+type FlexibleServerClusterArgs struct {
+	// The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+	DefaultDatabaseName pulumi.StringPtrInput `pulumi:"defaultDatabaseName"`
+	// The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+	//
+	// > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+	//
+	// > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `createMode` is set to anything other than `Default`.
+	//
+	// > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+	Size pulumi.IntInput `pulumi:"size"`
+}
+
+func (FlexibleServerClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerCluster)(nil)).Elem()
+}
+
+func (i FlexibleServerClusterArgs) ToFlexibleServerClusterOutput() FlexibleServerClusterOutput {
+	return i.ToFlexibleServerClusterOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerClusterArgs) ToFlexibleServerClusterOutputWithContext(ctx context.Context) FlexibleServerClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerClusterOutput)
+}
+
+func (i FlexibleServerClusterArgs) ToFlexibleServerClusterPtrOutput() FlexibleServerClusterPtrOutput {
+	return i.ToFlexibleServerClusterPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerClusterArgs) ToFlexibleServerClusterPtrOutputWithContext(ctx context.Context) FlexibleServerClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerClusterOutput).ToFlexibleServerClusterPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerClusterPtrInput is an input type that accepts FlexibleServerClusterArgs, FlexibleServerClusterPtr and FlexibleServerClusterPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerClusterPtrInput` via:
+//
+//	        FlexibleServerClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlexibleServerClusterPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerClusterPtrOutput() FlexibleServerClusterPtrOutput
+	ToFlexibleServerClusterPtrOutputWithContext(context.Context) FlexibleServerClusterPtrOutput
+}
+
+type flexibleServerClusterPtrType FlexibleServerClusterArgs
+
+func FlexibleServerClusterPtr(v *FlexibleServerClusterArgs) FlexibleServerClusterPtrInput {
+	return (*flexibleServerClusterPtrType)(v)
+}
+
+func (*flexibleServerClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerCluster)(nil)).Elem()
+}
+
+func (i *flexibleServerClusterPtrType) ToFlexibleServerClusterPtrOutput() FlexibleServerClusterPtrOutput {
+	return i.ToFlexibleServerClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerClusterPtrType) ToFlexibleServerClusterPtrOutputWithContext(ctx context.Context) FlexibleServerClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerClusterPtrOutput)
+}
+
+type FlexibleServerClusterOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerCluster)(nil)).Elem()
+}
+
+func (o FlexibleServerClusterOutput) ToFlexibleServerClusterOutput() FlexibleServerClusterOutput {
+	return o
+}
+
+func (o FlexibleServerClusterOutput) ToFlexibleServerClusterOutputWithContext(ctx context.Context) FlexibleServerClusterOutput {
+	return o
+}
+
+func (o FlexibleServerClusterOutput) ToFlexibleServerClusterPtrOutput() FlexibleServerClusterPtrOutput {
+	return o.ToFlexibleServerClusterPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerClusterOutput) ToFlexibleServerClusterPtrOutputWithContext(ctx context.Context) FlexibleServerClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerCluster) *FlexibleServerCluster {
+		return &v
+	}).(FlexibleServerClusterPtrOutput)
+}
+
+// The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+func (o FlexibleServerClusterOutput) DefaultDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerCluster) *string { return v.DefaultDatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+//
+// > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+//
+// > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `createMode` is set to anything other than `Default`.
+//
+// > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+func (o FlexibleServerClusterOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v FlexibleServerCluster) int { return v.Size }).(pulumi.IntOutput)
+}
+
+type FlexibleServerClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerCluster)(nil)).Elem()
+}
+
+func (o FlexibleServerClusterPtrOutput) ToFlexibleServerClusterPtrOutput() FlexibleServerClusterPtrOutput {
+	return o
+}
+
+func (o FlexibleServerClusterPtrOutput) ToFlexibleServerClusterPtrOutputWithContext(ctx context.Context) FlexibleServerClusterPtrOutput {
+	return o
+}
+
+func (o FlexibleServerClusterPtrOutput) Elem() FlexibleServerClusterOutput {
+	return o.ApplyT(func(v *FlexibleServerCluster) FlexibleServerCluster {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerCluster
+		return ret
+	}).(FlexibleServerClusterOutput)
+}
+
+// The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+func (o FlexibleServerClusterPtrOutput) DefaultDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+//
+// > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+//
+// > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `createMode` is set to anything other than `Default`.
+//
+// > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+func (o FlexibleServerClusterPtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerCluster) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
 type FlexibleServerCustomerManagedKey struct {
 	// The versioned/versionless ID of the geo backup Key Vault Key.
 	//
@@ -1637,6 +1817,8 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerAuthenticationInput)(nil)).Elem(), FlexibleServerAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerAuthenticationPtrInput)(nil)).Elem(), FlexibleServerAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerClusterInput)(nil)).Elem(), FlexibleServerClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerClusterPtrInput)(nil)).Elem(), FlexibleServerClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerCustomerManagedKeyInput)(nil)).Elem(), FlexibleServerCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerCustomerManagedKeyPtrInput)(nil)).Elem(), FlexibleServerCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
@@ -1655,6 +1837,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterOutputType(FlexibleServerAuthenticationOutput{})
 	pulumi.RegisterOutputType(FlexibleServerAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(FlexibleServerClusterOutput{})
+	pulumi.RegisterOutputType(FlexibleServerClusterPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerCustomerManagedKeyOutput{})
 	pulumi.RegisterOutputType(FlexibleServerCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityOutput{})

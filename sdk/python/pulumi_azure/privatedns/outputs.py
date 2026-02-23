@@ -59,8 +59,8 @@ class LinkServiceNatIpConfiguration(dict):
                  private_ip_address: Optional[_builtins.str] = None,
                  private_ip_address_version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
-        :param _builtins.bool primary: Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        :param _builtins.str name: Specifies the name which should be used for the NAT IP Configuration.
+        :param _builtins.bool primary: Is this is the Primary IP Configuration?
         :param _builtins.str subnet_id: Specifies the ID of the Subnet which should be used for the Private Link Service.
                
                > **Note:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
@@ -79,7 +79,7 @@ class LinkServiceNatIpConfiguration(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+        Specifies the name which should be used for the NAT IP Configuration.
         """
         return pulumi.get(self, "name")
 
@@ -87,7 +87,7 @@ class LinkServiceNatIpConfiguration(dict):
     @pulumi.getter
     def primary(self) -> _builtins.bool:
         """
-        Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        Is this is the Primary IP Configuration?
         """
         return pulumi.get(self, "primary")
 

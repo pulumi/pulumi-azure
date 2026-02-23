@@ -272,6 +272,276 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Example with Availability Zone and Customer-Managed Keys
+ * 
+ * This example demonstrates using availability zones instead of proximity placement groups, with customer-managed key encryption and Standard network features.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.netapp.Account;
+ * import com.pulumi.azure.netapp.AccountArgs;
+ * import com.pulumi.azure.netapp.inputs.AccountIdentityArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Key;
+ * import com.pulumi.azure.keyvault.KeyArgs;
+ * import com.pulumi.azure.netapp.AccountEncryption;
+ * import com.pulumi.azure.netapp.AccountEncryptionArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.netapp.Pool;
+ * import com.pulumi.azure.netapp.PoolArgs;
+ * import com.pulumi.azure.netapp.VolumeGroupSapHana;
+ * import com.pulumi.azure.netapp.VolumeGroupSapHanaArgs;
+ * import com.pulumi.azure.netapp.inputs.VolumeGroupSapHanaVolumeArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name(String.format("%s-resources", prefix))
+ *             .location(location)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name(String.format("%s-vnet", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .addressSpaces("10.88.0.0/16")
+ *             .build());
+ * 
+ *         var exampleDelegated = new Subnet("exampleDelegated", SubnetArgs.builder()
+ *             .name(String.format("%s-delegated-subnet", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.88.1.0/24")
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name("netapp")
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name("Microsoft.Netapp/volumes")
+ *                     .actions(                    
+ *                         "Microsoft.Network/networkinterfaces/*",
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var examplePrivateEndpoint = new Subnet("examplePrivateEndpoint", SubnetArgs.builder()
+ *             .name(String.format("%s-pe-subnet", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.88.2.0/24")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name(String.format("%s-netapp-account", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
+ *             .name(String.format("%skv", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .purgeProtectionEnabled(true)
+ *             .softDeleteRetentionDays(7)
+ *             .enabledForDiskEncryption(true)
+ *             .enabledForDeployment(true)
+ *             .enabledForTemplateDeployment(true)
+ *             .accessPolicies(            
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
+ *                     .keyPermissions(                    
+ *                         "Get",
+ *                         "Create",
+ *                         "Delete",
+ *                         "WrapKey",
+ *                         "UnwrapKey",
+ *                         "GetRotationPolicy",
+ *                         "SetRotationPolicy")
+ *                     .build(),
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(exampleAccount.identity().applyValue(_identity -> _identity.tenantId()))
+ *                     .objectId(exampleAccount.identity().applyValue(_identity -> _identity.principalId()))
+ *                     .keyPermissions(                    
+ *                         "Get",
+ *                         "Encrypt",
+ *                         "Decrypt")
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
+ *             .name(String.format("%s-key", prefix))
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType("RSA")
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 "decrypt",
+ *                 "encrypt",
+ *                 "sign",
+ *                 "unwrapKey",
+ *                 "verify",
+ *                 "wrapKey")
+ *             .build());
+ * 
+ *         var exampleAccountEncryption = new AccountEncryption("exampleAccountEncryption", AccountEncryptionArgs.builder()
+ *             .netappAccountId(exampleAccount.id())
+ *             .systemAssignedIdentityPrincipalId(exampleAccount.identity().applyValue(_identity -> _identity.principalId()))
+ *             .encryptionKey(exampleKey.versionlessId())
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
+ *             .name(String.format("%s-pe-kv", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(examplePrivateEndpoint.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name(String.format("%s-pe-sc-kv", prefix))
+ *                 .privateConnectionResourceId(exampleKeyVault.id())
+ *                 .isManualConnection(false)
+ *                 .subresourceNames("Vault")
+ *                 .build())
+ *             .build());
+ * 
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
+ *             .name(String.format("%s-netapp-pool", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount.name())
+ *             .serviceLevel("Standard")
+ *             .sizeInTb(8)
+ *             .qosType("Manual")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAccountEncryption)
+ *                 .build());
+ * 
+ *         var exampleVolumeGroupSapHana = new VolumeGroupSapHana("exampleVolumeGroupSapHana", VolumeGroupSapHanaArgs.builder()
+ *             .name(String.format("%s-netapp-volumegroup", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount.name())
+ *             .groupDescription("Test volume group with zone and CMK")
+ *             .applicationIdentifier("TST")
+ *             .volumes(            
+ *                 VolumeGroupSapHanaVolumeArgs.builder()
+ *                     .name(String.format("%s-netapp-volume-data", prefix))
+ *                     .volumePath("my-unique-file-path-data")
+ *                     .serviceLevel("Standard")
+ *                     .capacityPoolId(examplePool.id())
+ *                     .subnetId(exampleDelegated.id())
+ *                     .zone("1")
+ *                     .volumeSpecName("data")
+ *                     .storageQuotaInGb(1024)
+ *                     .throughputInMibps(24.0)
+ *                     .protocols("NFSv4.1")
+ *                     .securityStyle("unix")
+ *                     .snapshotDirectoryVisible(false)
+ *                     .networkFeatures("Standard")
+ *                     .encryptionKeySource("Microsoft.KeyVault")
+ *                     .keyVaultPrivateEndpointId(exampleEndpoint.id())
+ *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
+ *                         .ruleIndex(1)
+ *                         .allowedClients("0.0.0.0/0")
+ *                         .nfsv3Enabled(false)
+ *                         .nfsv41Enabled(true)
+ *                         .unixReadOnly(false)
+ *                         .unixReadWrite(true)
+ *                         .rootAccessEnabled(false)
+ *                         .build())
+ *                     .build(),
+ *                 VolumeGroupSapHanaVolumeArgs.builder()
+ *                     .name(String.format("%s-netapp-volume-log", prefix))
+ *                     .volumePath("my-unique-file-path-log")
+ *                     .serviceLevel("Standard")
+ *                     .capacityPoolId(examplePool.id())
+ *                     .subnetId(exampleDelegated.id())
+ *                     .zone("1")
+ *                     .volumeSpecName("log")
+ *                     .storageQuotaInGb(1024)
+ *                     .throughputInMibps(24.0)
+ *                     .protocols("NFSv4.1")
+ *                     .securityStyle("unix")
+ *                     .snapshotDirectoryVisible(false)
+ *                     .networkFeatures("Standard")
+ *                     .encryptionKeySource("Microsoft.KeyVault")
+ *                     .keyVaultPrivateEndpointId(exampleEndpoint.id())
+ *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
+ *                         .ruleIndex(1)
+ *                         .allowedClients("0.0.0.0/0")
+ *                         .nfsv3Enabled(false)
+ *                         .nfsv41Enabled(true)
+ *                         .unixReadOnly(false)
+ *                         .unixReadWrite(true)
+ *                         .rootAccessEnabled(false)
+ *                         .build())
+ *                     .build(),
+ *                 VolumeGroupSapHanaVolumeArgs.builder()
+ *                     .name(String.format("%s-netapp-volume-shared", prefix))
+ *                     .volumePath("my-unique-file-path-shared")
+ *                     .serviceLevel("Standard")
+ *                     .capacityPoolId(examplePool.id())
+ *                     .subnetId(exampleDelegated.id())
+ *                     .zone("1")
+ *                     .volumeSpecName("shared")
+ *                     .storageQuotaInGb(1024)
+ *                     .throughputInMibps(24.0)
+ *                     .protocols("NFSv4.1")
+ *                     .securityStyle("unix")
+ *                     .snapshotDirectoryVisible(false)
+ *                     .networkFeatures("Standard")
+ *                     .encryptionKeySource("Microsoft.KeyVault")
+ *                     .keyVaultPrivateEndpointId(exampleEndpoint.id())
+ *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
+ *                         .ruleIndex(1)
+ *                         .allowedClients("0.0.0.0/0")
+ *                         .nfsv3Enabled(false)
+ *                         .nfsv41Enabled(true)
+ *                         .unixReadOnly(false)
+ *                         .unixReadWrite(true)
+ *                         .rootAccessEnabled(false)
+ *                         .build())
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;

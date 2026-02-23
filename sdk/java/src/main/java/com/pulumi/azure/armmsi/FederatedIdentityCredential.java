@@ -57,7 +57,6 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential("exampleFederatedIdentityCredential", FederatedIdentityCredentialArgs.builder()
  *             .name("example")
- *             .resourceGroupName(example.name())
  *             .audience("foo")
  *             .issuer("https://foo")
  *             .parentId(exampleUserAssignedIdentity.id())
@@ -144,16 +143,14 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
         return this.parentId;
     }
     /**
-     * Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated
+     * This field is no longer used and will be removed in the next major version of the Azure Provider
      * 
      */
+    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
-    /**
-     * @return Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-     * 
-     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }

@@ -217,7 +217,9 @@ export class AppFlexConsumption extends pulumi.CustomResource {
      */
     declare public readonly runtimeName: pulumi.Output<string>;
     /**
-     * The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+     * The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+     *
+     * > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
      */
     declare public readonly runtimeVersion: pulumi.Output<string>;
     /**
@@ -537,7 +539,9 @@ export interface AppFlexConsumptionState {
      */
     runtimeName?: pulumi.Input<string>;
     /**
-     * The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+     * The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+     *
+     * > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
      */
     runtimeVersion?: pulumi.Input<string>;
     /**
@@ -697,7 +701,9 @@ export interface AppFlexConsumptionArgs {
      */
     runtimeName: pulumi.Input<string>;
     /**
-     * The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+     * The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+     *
+     * > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
      */
     runtimeVersion: pulumi.Input<string>;
     /**

@@ -86,7 +86,7 @@ import (
 //			exampleDeployment, err := nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
 //				Name:                    pulumi.String("example-nginx"),
 //				ResourceGroupName:       example.Name,
-//				Sku:                     pulumi.String("standardv2_Monthly"),
+//				Sku:                     pulumi.String("standardv3_Monthly"),
 //				Location:                example.Location,
 //				AutomaticUpgradeChannel: pulumi.String("stable"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{

@@ -205,6 +205,8 @@ __all__ = [
     'ServiceVirtualNetworkConfigurationArgsDict',
     'StandaloneGatewaySkuArgs',
     'StandaloneGatewaySkuArgsDict',
+    'WorkspaceNamedValueValueFromKeyVaultArgs',
+    'WorkspaceNamedValueValueFromKeyVaultArgsDict',
 ]
 
 class ApiContactArgsDict(TypedDict):
@@ -9679,5 +9681,53 @@ class StandaloneGatewaySkuArgs:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "capacity", value)
+
+
+class WorkspaceNamedValueValueFromKeyVaultArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Key Vault Secret.
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+    """
+
+@pulumi.input_type
+class WorkspaceNamedValueValueFromKeyVaultArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: The resource ID of the Key Vault Secret.
+        :param pulumi.Input[_builtins.str] identity_client_id: The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_client_id", value)
 
 

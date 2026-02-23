@@ -57,7 +57,9 @@ class AppFlexConsumptionArgs:
         The set of arguments for constructing a AppFlexConsumption resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
-        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
+               
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input['AppFlexConsumptionSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[_builtins.str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
@@ -195,7 +197,9 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Input[_builtins.str]:
         """
-        The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
+
+        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         """
         return pulumi.get(self, "runtime_version")
 
@@ -657,7 +661,9 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
-        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
+               
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input['AppFlexConsumptionSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
@@ -1105,7 +1111,9 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
+
+        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         """
         return pulumi.get(self, "runtime_version")
 
@@ -1415,7 +1423,9 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
-        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
+               
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
@@ -1720,7 +1730,9 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
-        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
+               
+               > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
@@ -2024,7 +2036,9 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
+
+        > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         """
         return pulumi.get(self, "runtime_version")
 

@@ -512,14 +512,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="proxyOverride", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> proxyOverride;
+    private Output<String> proxyOverride;
 
     /**
      * @return Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      * 
      */
-    public Output<Optional<String>> proxyOverride() {
-        return Codegen.optional(this.proxyOverride);
+    public Output<String> proxyOverride() {
+        return this.proxyOverride;
     }
     /**
      * Is the public data endpoint enabled? Defaults to `false`.

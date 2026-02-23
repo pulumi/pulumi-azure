@@ -6,8 +6,11 @@ package com.pulumi.azure.containerapp.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
@@ -30,6 +33,21 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Should the data source read the secrets from the Container App? Defaults to `true`.
+     * 
+     */
+    @Import(name="readSecrets")
+    private @Nullable Output<Boolean> readSecrets;
+
+    /**
+     * @return Should the data source read the secrets from the Container App? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> readSecrets() {
+        return Optional.ofNullable(this.readSecrets);
+    }
+
+    /**
      * The name of the Resource Group where this Container App exists.
      * 
      */
@@ -48,6 +66,7 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetAppArgs(GetAppArgs $) {
         this.name = $.name;
+        this.readSecrets = $.readSecrets;
         this.resourceGroupName = $.resourceGroupName;
     }
 
@@ -88,6 +107,27 @@ public final class GetAppArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param readSecrets Should the data source read the secrets from the Container App? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readSecrets(@Nullable Output<Boolean> readSecrets) {
+            $.readSecrets = readSecrets;
+            return this;
+        }
+
+        /**
+         * @param readSecrets Should the data source read the secrets from the Container App? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readSecrets(Boolean readSecrets) {
+            return readSecrets(Output.of(readSecrets));
         }
 
         /**

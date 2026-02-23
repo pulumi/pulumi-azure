@@ -27,7 +27,7 @@ class GetAppResult:
     """
     A collection of values returned by getApp.
     """
-    def __init__(__self__, container_app_environment_id=None, custom_domain_verification_id=None, daprs=None, id=None, identities=None, ingresses=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, max_inactive_revisions=None, name=None, outbound_ip_addresses=None, registries=None, resource_group_name=None, revision_mode=None, secrets=None, tags=None, templates=None, workload_profile_name=None):
+    def __init__(__self__, container_app_environment_id=None, custom_domain_verification_id=None, daprs=None, id=None, identities=None, ingresses=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, max_inactive_revisions=None, name=None, outbound_ip_addresses=None, read_secrets=None, registries=None, resource_group_name=None, revision_mode=None, secrets=None, tags=None, templates=None, workload_profile_name=None):
         if container_app_environment_id and not isinstance(container_app_environment_id, str):
             raise TypeError("Expected argument 'container_app_environment_id' to be a str")
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -64,6 +64,9 @@ class GetAppResult:
         if outbound_ip_addresses and not isinstance(outbound_ip_addresses, list):
             raise TypeError("Expected argument 'outbound_ip_addresses' to be a list")
         pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+        if read_secrets and not isinstance(read_secrets, bool):
+            raise TypeError("Expected argument 'read_secrets' to be a bool")
+        pulumi.set(__self__, "read_secrets", read_secrets)
         if registries and not isinstance(registries, list):
             raise TypeError("Expected argument 'registries' to be a list")
         pulumi.set(__self__, "registries", registries)
@@ -168,6 +171,11 @@ class GetAppResult:
         return pulumi.get(self, "outbound_ip_addresses")
 
     @_builtins.property
+    @pulumi.getter(name="readSecrets")
+    def read_secrets(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "read_secrets")
+
+    @_builtins.property
     @pulumi.getter
     def registries(self) -> Sequence['outputs.GetAppRegistryResult']:
         """
@@ -239,6 +247,7 @@ class AwaitableGetAppResult(GetAppResult):
             max_inactive_revisions=self.max_inactive_revisions,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
+            read_secrets=self.read_secrets,
             registries=self.registries,
             resource_group_name=self.resource_group_name,
             revision_mode=self.revision_mode,
@@ -249,6 +258,7 @@ class AwaitableGetAppResult(GetAppResult):
 
 
 def get_app(name: Optional[_builtins.str] = None,
+            read_secrets: Optional[_builtins.bool] = None,
             resource_group_name: Optional[_builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
@@ -273,10 +283,12 @@ def get_app(name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str name: The name of the Container App.
+    :param _builtins.bool read_secrets: Should the data source read the secrets from the Container App? Defaults to `true`.
     :param _builtins.str resource_group_name: The name of the Resource Group where this Container App exists.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['readSecrets'] = read_secrets
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:containerapp/getApp:getApp', __args__, opts=opts, typ=GetAppResult).value
@@ -294,6 +306,7 @@ def get_app(name: Optional[_builtins.str] = None,
         max_inactive_revisions=pulumi.get(__ret__, 'max_inactive_revisions'),
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        read_secrets=pulumi.get(__ret__, 'read_secrets'),
         registries=pulumi.get(__ret__, 'registries'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         revision_mode=pulumi.get(__ret__, 'revision_mode'),
@@ -302,6 +315,7 @@ def get_app(name: Optional[_builtins.str] = None,
         templates=pulumi.get(__ret__, 'templates'),
         workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
 def get_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                   read_secrets: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
@@ -326,10 +340,12 @@ def get_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
 
 
     :param _builtins.str name: The name of the Container App.
+    :param _builtins.bool read_secrets: Should the data source read the secrets from the Container App? Defaults to `true`.
     :param _builtins.str resource_group_name: The name of the Resource Group where this Container App exists.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['readSecrets'] = read_secrets
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:containerapp/getApp:getApp', __args__, opts=opts, typ=GetAppResult)
@@ -346,6 +362,7 @@ def get_app_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         max_inactive_revisions=pulumi.get(__response__, 'max_inactive_revisions'),
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        read_secrets=pulumi.get(__response__, 'read_secrets'),
         registries=pulumi.get(__response__, 'registries'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         revision_mode=pulumi.get(__response__, 'revision_mode'),

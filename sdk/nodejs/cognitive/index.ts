@@ -45,6 +45,11 @@ export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
+export { GetAccountProjectArgs, GetAccountProjectResult, GetAccountProjectOutputArgs } from "./getAccountProject";
+export const getAccountProject: typeof import("./getAccountProject").getAccountProject = null as any;
+export const getAccountProjectOutput: typeof import("./getAccountProject").getAccountProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountProject","getAccountProjectOutput"], () => require("./getAccountProject"));
+
 
 const _module = {
     version: utilities.getVersion(),

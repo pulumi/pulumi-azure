@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.
  * 
- * !&gt; **Note:** The API for this resource does not support service principal authentication. This resource can only be used with Azure CLI authentication.
+ * &gt; **Note:** When using Service Principal authentication, the Service Principal must be assigned the _Contributor_ role at the scope `/providers/Microsoft.aadiam`. You can assign this role using the `az` CLI command: `az role assignment create --assignee-principal-type ServicePrincipal --assignee-object-id &#34;&lt;sp-object-id&gt;&#34; --scope &#34;/providers/Microsoft.aadiam&#34; --role &#34;Contributor&#34;`. The assigning user must be a User Access Administrator at the root level. Refer to the [Azure elevation guide](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) for details.
  * 
  * ## Example Usage
  * 

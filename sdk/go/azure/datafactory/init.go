@@ -103,6 +103,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedServiceSftp{}
 	case "azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake":
 		r = &LinkedServiceSnowflake{}
+	case "azure:datafactory/linkedServiceSqlManagedInstance:LinkedServiceSqlManagedInstance":
+		r = &LinkedServiceSqlManagedInstance{}
 	case "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer":
 		r = &LinkedServiceSqlServer{}
 	case "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse":
@@ -337,6 +339,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/linkedServiceSnowflake",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/linkedServiceSqlManagedInstance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

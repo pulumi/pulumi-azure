@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * const exampleDeployment = new azure.nginx.Deployment("example", {
  *     name: "example-nginx",
  *     resourceGroupName: example.name,
- *     sku: "standardv2_Monthly",
+ *     sku: "standardv3_Monthly",
  *     location: example.location,
  *     automaticUpgradeChannel: "stable",
  *     frontendPublic: {

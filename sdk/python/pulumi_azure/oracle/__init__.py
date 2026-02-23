@@ -21,6 +21,7 @@ from .get_autonomous_database_backups import *
 from .get_autonomous_database_clone_from_backup import *
 from .get_autonomous_database_clone_from_database import *
 from .get_cloud_vm_cluster import *
+from .get_database_system_versions import *
 from .get_db_nodes import *
 from .get_db_servers import *
 from .get_db_system_shapes import *

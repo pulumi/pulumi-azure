@@ -36,6 +36,7 @@ __all__ = [
     'GetAccountNetworkAclResult',
     'GetAccountNetworkAclVirtualNetworkRuleResult',
     'GetAccountNetworkInjectionResult',
+    'GetAccountProjectIdentityResult',
     'GetAccountStorageResult',
 ]
 
@@ -1178,6 +1179,57 @@ class GetAccountNetworkInjectionResult(dict):
         The ID of the subnet which is able to access this Cognitive Services Account.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetAccountProjectIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account Project.
+        :param _builtins.str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+        :param _builtins.str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+        :param _builtins.str type: The type of Managed Service Identity that is configured on this Cognitive Services Account Project.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account Project.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of Managed Service Identity that is configured on this Cognitive Services Account Project.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

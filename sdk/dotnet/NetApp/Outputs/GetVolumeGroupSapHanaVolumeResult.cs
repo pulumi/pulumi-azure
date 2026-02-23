@@ -26,6 +26,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult> DataProtectionSnapshotPolicies;
         /// <summary>
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys.
+        /// </summary>
+        public readonly string EncryptionKeySource;
+        /// <summary>
         /// A `ExportPolicyRule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeExportPolicyRuleResult> ExportPolicyRules;
@@ -34,6 +38,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys.
+        /// </summary>
+        public readonly string KeyVaultPrivateEndpointId;
+        /// <summary>
         /// A `MountIpAddresses` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> MountIpAddresses;
@@ -41,6 +49,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// The name of this Application Volume Group for SAP HANA application.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Network features of the volume.
+        /// </summary>
+        public readonly string NetworkFeatures;
         /// <summary>
         /// A `Protocols` block as defined below.
         /// </summary>
@@ -85,6 +97,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// Volume spec name.
         /// </summary>
         public readonly string VolumeSpecName;
+        /// <summary>
+        /// Specifies the Availability Zone in which the Volume is located.
+        /// </summary>
+        public readonly string Zone;
 
         [OutputConstructor]
         private GetVolumeGroupSapHanaVolumeResult(
@@ -94,13 +110,19 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult> dataProtectionSnapshotPolicies,
 
+            string encryptionKeySource,
+
             ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeExportPolicyRuleResult> exportPolicyRules,
 
             string id,
 
+            string keyVaultPrivateEndpointId,
+
             ImmutableArray<string> mountIpAddresses,
 
             string name,
+
+            string networkFeatures,
 
             ImmutableArray<string> protocols,
 
@@ -122,15 +144,20 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             string volumePath,
 
-            string volumeSpecName)
+            string volumeSpecName,
+
+            string zone)
         {
             CapacityPoolId = capacityPoolId;
             DataProtectionReplications = dataProtectionReplications;
             DataProtectionSnapshotPolicies = dataProtectionSnapshotPolicies;
+            EncryptionKeySource = encryptionKeySource;
             ExportPolicyRules = exportPolicyRules;
             Id = id;
+            KeyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             MountIpAddresses = mountIpAddresses;
             Name = name;
+            NetworkFeatures = networkFeatures;
             Protocols = protocols;
             ProximityPlacementGroupId = proximityPlacementGroupId;
             SecurityStyle = securityStyle;
@@ -142,6 +169,7 @@ namespace Pulumi.Azure.NetApp.Outputs
             ThroughputInMibps = throughputInMibps;
             VolumePath = volumePath;
             VolumeSpecName = volumeSpecName;
+            Zone = zone;
         }
     }
 }

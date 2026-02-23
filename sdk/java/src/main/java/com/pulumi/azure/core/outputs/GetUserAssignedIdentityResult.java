@@ -22,6 +22,11 @@ public final class GetUserAssignedIdentityResult {
      */
     private String id;
     /**
+     * @return The isolation scope for the User Assigned Identity.
+     * 
+     */
+    private String isolationScope;
+    /**
      * @return The Azure location where the User Assigned Identity exists.
      * 
      */
@@ -58,6 +63,13 @@ public final class GetUserAssignedIdentityResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The isolation scope for the User Assigned Identity.
+     * 
+     */
+    public String isolationScope() {
+        return this.isolationScope;
     }
     /**
      * @return The Azure location where the User Assigned Identity exists.
@@ -105,6 +117,7 @@ public final class GetUserAssignedIdentityResult {
     public static final class Builder {
         private String clientId;
         private String id;
+        private String isolationScope;
         private String location;
         private String name;
         private String principalId;
@@ -116,6 +129,7 @@ public final class GetUserAssignedIdentityResult {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
     	      this.id = defaults.id;
+    	      this.isolationScope = defaults.isolationScope;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.principalId = defaults.principalId;
@@ -138,6 +152,14 @@ public final class GetUserAssignedIdentityResult {
               throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isolationScope(String isolationScope) {
+            if (isolationScope == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "isolationScope");
+            }
+            this.isolationScope = isolationScope;
             return this;
         }
         @CustomType.Setter
@@ -192,6 +214,7 @@ public final class GetUserAssignedIdentityResult {
             final var _resultValue = new GetUserAssignedIdentityResult();
             _resultValue.clientId = clientId;
             _resultValue.id = id;
+            _resultValue.isolationScope = isolationScope;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.principalId = principalId;

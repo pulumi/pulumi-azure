@@ -31,6 +31,7 @@ class LinkedServiceAzureBlobStorageArgs:
                  key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
                  sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -52,9 +53,9 @@ class LinkedServiceAzureBlobStorageArgs:
                > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs'] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs'] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -71,11 +72,16 @@ class LinkedServiceAzureBlobStorageArgs:
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if key_vault_sas_token is not None:
+            warnings.warn("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""key_vault_sas_token is deprecated: the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
+        if key_vault_sas_token is not None:
             pulumi.set(__self__, "key_vault_sas_token", key_vault_sas_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if sas_token_linked_key_vault_key is not None:
+            pulumi.set(__self__, "sas_token_linked_key_vault_key", sas_token_linked_key_vault_key)
         if sas_uri is not None:
             pulumi.set(__self__, "sas_uri", sas_uri)
         if service_endpoint is not None:
@@ -183,10 +189,8 @@ class LinkedServiceAzureBlobStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSasToken")
+    @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
     def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
-        """
-        A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
-        """
         return pulumi.get(self, "key_vault_sas_token")
 
     @key_vault_sas_token.setter
@@ -216,6 +220,18 @@ class LinkedServiceAzureBlobStorageArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sasTokenLinkedKeyVaultKey")
+    def sas_token_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]:
+        """
+        A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        """
+        return pulumi.get(self, "sas_token_linked_key_vault_key")
+
+    @sas_token_linked_key_vault_key.setter
+    def sas_token_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]):
+        pulumi.set(self, "sas_token_linked_key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sasUri")
@@ -306,6 +322,7 @@ class _LinkedServiceAzureBlobStorageState:
                  key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
                  sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -327,9 +344,9 @@ class _LinkedServiceAzureBlobStorageState:
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs'] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs'] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         if additional_properties is not None:
@@ -347,11 +364,16 @@ class _LinkedServiceAzureBlobStorageState:
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if key_vault_sas_token is not None:
+            warnings.warn("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""key_vault_sas_token is deprecated: the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
+        if key_vault_sas_token is not None:
             pulumi.set(__self__, "key_vault_sas_token", key_vault_sas_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if sas_token_linked_key_vault_key is not None:
+            pulumi.set(__self__, "sas_token_linked_key_vault_key", sas_token_linked_key_vault_key)
         if sas_uri is not None:
             pulumi.set(__self__, "sas_uri", sas_uri)
         if service_endpoint is not None:
@@ -459,10 +481,8 @@ class _LinkedServiceAzureBlobStorageState:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSasToken")
+    @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
     def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
-        """
-        A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
-        """
         return pulumi.get(self, "key_vault_sas_token")
 
     @key_vault_sas_token.setter
@@ -492,6 +512,18 @@ class _LinkedServiceAzureBlobStorageState:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sasTokenLinkedKeyVaultKey")
+    def sas_token_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]:
+        """
+        A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        """
+        return pulumi.get(self, "sas_token_linked_key_vault_key")
+
+    @sas_token_linked_key_vault_key.setter
+    def sas_token_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']]):
+        pulumi.set(self, "sas_token_linked_key_vault_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sasUri")
@@ -585,6 +617,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  key_vault_sas_token: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
                  sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -639,9 +672,9 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         ...
@@ -707,6 +740,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  key_vault_sas_token: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 sas_token_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
                  sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -736,6 +770,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             __props__.__dict__["key_vault_sas_token"] = key_vault_sas_token
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["sas_token_linked_key_vault_key"] = sas_token_linked_key_vault_key
             __props__.__dict__["sas_uri"] = None if sas_uri is None else pulumi.Output.secret(sas_uri)
             __props__.__dict__["service_endpoint"] = None if service_endpoint is None else pulumi.Output.secret(service_endpoint)
             __props__.__dict__["service_principal_id"] = service_principal_id
@@ -766,6 +801,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             key_vault_sas_token: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            sas_token_linked_key_vault_key: Optional[pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
             sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
             service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             service_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -792,9 +828,9 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']] sas_token_linked_key_vault_key: A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[_builtins.str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -811,6 +847,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         __props__.__dict__["key_vault_sas_token"] = key_vault_sas_token
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["sas_token_linked_key_vault_key"] = sas_token_linked_key_vault_key
         __props__.__dict__["sas_uri"] = sas_uri
         __props__.__dict__["service_endpoint"] = service_endpoint
         __props__.__dict__["service_principal_id"] = service_principal_id
@@ -883,10 +920,8 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSasToken")
-    def key_vault_sas_token(self) -> pulumi.Output[Optional['outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken']]:
-        """
-        A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
-        """
+    @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
+    def key_vault_sas_token(self) -> pulumi.Output['outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken']:
         return pulumi.get(self, "key_vault_sas_token")
 
     @_builtins.property
@@ -904,6 +939,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         A map of parameters to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="sasTokenLinkedKeyVaultKey")
+    def sas_token_linked_key_vault_key(self) -> pulumi.Output['outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']:
+        """
+        A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        """
+        return pulumi.get(self, "sas_token_linked_key_vault_key")
 
     @_builtins.property
     @pulumi.getter(name="sasUri")

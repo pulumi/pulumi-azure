@@ -23,6 +23,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? PrivateIpAddressAllocation;
         /// <summary>
         /// The ID of the public IP address to associate with the Virtual Network Gateway.
+        /// 
+        /// &gt; **Note:** `PublicIpAddressId` should not be specified when `Type` is set to `ExpressRoute`.
         /// </summary>
         public readonly string? PublicIpAddressId;
         /// <summary>

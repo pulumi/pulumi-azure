@@ -91,7 +91,7 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
      * 
-     * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+     * &gt; **Note:** Upgrading `networkPolicy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
      * 
      */
     private @Nullable String networkPolicy;
@@ -221,7 +221,7 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
      * 
-     * &gt; **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+     * &gt; **Note:** Upgrading `networkPolicy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
      * 
      */
     public Optional<String> networkPolicy() {

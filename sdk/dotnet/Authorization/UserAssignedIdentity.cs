@@ -69,6 +69,12 @@ namespace Pulumi.Azure.Authorization
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+        /// </summary>
+        [Output("isolationScope")]
+        public Output<string?> IsolationScope { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Output("location")]
@@ -155,6 +161,12 @@ namespace Pulumi.Azure.Authorization
     public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+        /// </summary>
+        [Input("isolationScope")]
+        public Input<string>? IsolationScope { get; set; }
+
+        /// <summary>
         /// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         /// </summary>
         [Input("location")]
@@ -197,6 +209,12 @@ namespace Pulumi.Azure.Authorization
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+        /// </summary>
+        [Input("isolationScope")]
+        public Input<string>? IsolationScope { get; set; }
 
         /// <summary>
         /// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.

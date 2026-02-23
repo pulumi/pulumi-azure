@@ -25,7 +25,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A list of IP Addresses
+        /// The ID of the Private DNS Zone that the config belongs to.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }

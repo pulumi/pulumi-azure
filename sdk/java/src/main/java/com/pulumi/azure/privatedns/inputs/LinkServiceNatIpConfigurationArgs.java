@@ -18,14 +18,14 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
     public static final LinkServiceNatIpConfigurationArgs Empty = new LinkServiceNatIpConfigurationArgs();
 
     /**
-     * Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+     * Specifies the name which should be used for the NAT IP Configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+     * @return Specifies the name which should be used for the NAT IP Configuration.
      * 
      */
     public Output<String> name() {
@@ -33,14 +33,14 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+     * Is this is the Primary IP Configuration?
      * 
      */
     @Import(name="primary", required=true)
     private Output<Boolean> primary;
 
     /**
-     * @return Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+     * @return Is this is the Primary IP Configuration?
      * 
      */
     public Output<Boolean> primary() {
@@ -125,7 +125,7 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+         * @param name Specifies the name which should be used for the NAT IP Configuration.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+         * @param name Specifies the name which should be used for the NAT IP Configuration.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param primary Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+         * @param primary Is this is the Primary IP Configuration?
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param primary Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+         * @param primary Is this is the Primary IP Configuration?
          * 
          * @return builder
          * 

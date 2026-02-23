@@ -169,6 +169,8 @@ __all__ = [
     'LinkedCustomServiceIntegrationRuntimeArgsDict',
     'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs',
     'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict',
+    'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs',
+    'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict',
     'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs',
     'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict',
     'LinkedServiceAzureDatabricksInstancePoolArgs',
@@ -197,6 +199,10 @@ __all__ = [
     'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict',
     'LinkedServiceSnowflakeKeyVaultPasswordArgs',
     'LinkedServiceSnowflakeKeyVaultPasswordArgsDict',
+    'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs',
+    'LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict',
+    'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs',
+    'LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict',
     'LinkedServiceSqlServerKeyVaultConnectionStringArgs',
     'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
@@ -6078,6 +6084,37 @@ class LinkedCustomServiceIntegrationRuntimeArgs:
 
 class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict(TypedDict):
     linked_service_name: pulumi.Input[_builtins.str]
+    secret_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[_builtins.str],
+                 secret_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_name", value)
+
+
+class LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict(TypedDict):
+    linked_service_name: pulumi.Input[_builtins.str]
     """
     Specifies the name of an existing Key Vault Data Factory Linked Service.
     """
@@ -6087,7 +6124,7 @@ class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
+class LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[_builtins.str],
                  secret_name: pulumi.Input[_builtins.str]):
@@ -6973,6 +7010,100 @@ class LinkedServiceSnowflakeKeyVaultPasswordArgs:
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
         Specifies the secret name in Azure Key Vault that stores Snowflake password.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_name", value)
+
+
+class LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgsDict(TypedDict):
+    linked_service_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of an existing Key Vault Data Factory Linked Service.
+    """
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the secret name in Azure Key Vault that stores SQL Managed Instance connection string.
+    """
+
+@pulumi.input_type
+class LinkedServiceSqlManagedInstanceKeyVaultConnectionStringArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[_builtins.str],
+                 secret_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[_builtins.str] secret_name: Specifies the secret name in Azure Key Vault that stores SQL Managed Instance connection string.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Managed Instance connection string.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_name", value)
+
+
+class LinkedServiceSqlManagedInstanceKeyVaultPasswordArgsDict(TypedDict):
+    linked_service_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of an existing Key Vault Data Factory Linked Service.
+    """
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the secret name in Azure Key Vault that stores SQL Managed Instance password.
+    """
+
+@pulumi.input_type
+class LinkedServiceSqlManagedInstanceKeyVaultPasswordArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[_builtins.str],
+                 secret_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[_builtins.str] secret_name: Specifies the secret name in Azure Key Vault that stores SQL Managed Instance password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Managed Instance password.
         """
         return pulumi.get(self, "secret_name")
 

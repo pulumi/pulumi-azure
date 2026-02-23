@@ -14,5 +14,6 @@ from .account_rai_policy import *
 from .ai_services import *
 from .deployment import *
 from .get_account import *
+from .get_account_project import *
 from ._inputs import *
 from . import outputs

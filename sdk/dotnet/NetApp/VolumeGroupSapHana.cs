@@ -290,6 +290,297 @@ namespace Pulumi.Azure.NetApp
     /// });
     /// ```
     /// 
+    /// ### Example with Availability Zone and Customer-Managed Keys
+    /// 
+    /// This example demonstrates using availability zones instead of proximity placement groups, with customer-managed key encryption and Standard network features.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = $"{prefix}-resources",
+    ///         Location = location,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = $"{prefix}-vnet",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.88.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDelegated = new Azure.Network.Subnet("example_delegated", new()
+    ///     {
+    ///         Name = $"{prefix}-delegated-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.88.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "netapp",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Netapp/volumes",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePrivateEndpoint = new Azure.Network.Subnet("example_private_endpoint", new()
+    ///     {
+    ///         Name = $"{prefix}-pe-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.88.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
+    ///     {
+    ///         Name = $"{prefix}-netapp-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Identity = new Azure.NetApp.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     {
+    ///         Name = $"{prefix}kv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///         SoftDeleteRetentionDays = 7,
+    ///         EnabledForDiskEncryption = true,
+    ///         EnabledForDeployment = true,
+    ///         EnabledForTemplateDeployment = true,
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "WrapKey",
+    ///                     "UnwrapKey",
+    ///                     "GetRotationPolicy",
+    ///                     "SetRotationPolicy",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleAccount.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///                 ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Encrypt",
+    ///                     "Decrypt",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
+    ///     {
+    ///         Name = $"{prefix}-key",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccountEncryption = new Azure.NetApp.AccountEncryption("example", new()
+    ///     {
+    ///         NetappAccountId = exampleAccount.Id,
+    ///         SystemAssignedIdentityPrincipalId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         EncryptionKey = exampleKey.VersionlessId,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     {
+    ///         Name = $"{prefix}-pe-kv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SubnetId = examplePrivateEndpoint.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = $"{prefix}-pe-sc-kv",
+    ///             PrivateConnectionResourceId = exampleKeyVault.Id,
+    ///             IsManualConnection = false,
+    ///             SubresourceNames = new[]
+    ///             {
+    ///                 "Vault",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.NetApp.Pool("example", new()
+    ///     {
+    ///         Name = $"{prefix}-netapp-pool",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         ServiceLevel = "Standard",
+    ///         SizeInTb = 8,
+    ///         QosType = "Manual",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAccountEncryption,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVolumeGroupSapHana = new Azure.NetApp.VolumeGroupSapHana("example", new()
+    ///     {
+    ///         Name = $"{prefix}-netapp-volumegroup",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         GroupDescription = "Test volume group with zone and CMK",
+    ///         ApplicationIdentifier = "TST",
+    ///         Volumes = new[]
+    ///         {
+    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             {
+    ///                 Name = $"{prefix}-netapp-volume-data",
+    ///                 VolumePath = "my-unique-file-path-data",
+    ///                 ServiceLevel = "Standard",
+    ///                 CapacityPoolId = examplePool.Id,
+    ///                 SubnetId = exampleDelegated.Id,
+    ///                 Zone = "1",
+    ///                 VolumeSpecName = "data",
+    ///                 StorageQuotaInGb = 1024,
+    ///                 ThroughputInMibps = 24,
+    ///                 Protocols = "NFSv4.1",
+    ///                 SecurityStyle = "unix",
+    ///                 SnapshotDirectoryVisible = false,
+    ///                 NetworkFeatures = "Standard",
+    ///                 EncryptionKeySource = "Microsoft.KeyVault",
+    ///                 KeyVaultPrivateEndpointId = exampleEndpoint.Id,
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             {
+    ///                 Name = $"{prefix}-netapp-volume-log",
+    ///                 VolumePath = "my-unique-file-path-log",
+    ///                 ServiceLevel = "Standard",
+    ///                 CapacityPoolId = examplePool.Id,
+    ///                 SubnetId = exampleDelegated.Id,
+    ///                 Zone = "1",
+    ///                 VolumeSpecName = "log",
+    ///                 StorageQuotaInGb = 1024,
+    ///                 ThroughputInMibps = 24,
+    ///                 Protocols = "NFSv4.1",
+    ///                 SecurityStyle = "unix",
+    ///                 SnapshotDirectoryVisible = false,
+    ///                 NetworkFeatures = "Standard",
+    ///                 EncryptionKeySource = "Microsoft.KeyVault",
+    ///                 KeyVaultPrivateEndpointId = exampleEndpoint.Id,
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             {
+    ///                 Name = $"{prefix}-netapp-volume-shared",
+    ///                 VolumePath = "my-unique-file-path-shared",
+    ///                 ServiceLevel = "Standard",
+    ///                 CapacityPoolId = examplePool.Id,
+    ///                 SubnetId = exampleDelegated.Id,
+    ///                 Zone = "1",
+    ///                 VolumeSpecName = "shared",
+    ///                 StorageQuotaInGb = 1024,
+    ///                 ThroughputInMibps = 24,
+    ///                 Protocols = "NFSv4.1",
+    ///                 SecurityStyle = "unix",
+    ///                 SnapshotDirectoryVisible = false,
+    ///                 NetworkFeatures = "Standard",
+    ///                 EncryptionKeySource = "Microsoft.KeyVault",
+    ///                 KeyVaultPrivateEndpointId = exampleEndpoint.Id,
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;

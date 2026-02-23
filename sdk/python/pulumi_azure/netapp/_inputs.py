@@ -2011,11 +2011,23 @@ class VolumeGroupSapHanaVolumeArgsDict(TypedDict):
     """
     A `data_protection_snapshot_policy` block as defined below.
     """
+    encryption_key_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
     id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The ID of the Application Volume Group.
     """
+    key_vault_private_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
     mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_features: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+    """
     proximity_placement_group_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
@@ -2023,6 +2035,10 @@ class VolumeGroupSapHanaVolumeArgsDict(TypedDict):
     tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     A mapping of tags which should be assigned to the Application Volume Group.
+    """
+    zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
     """
 
 @pulumi.input_type
@@ -2042,10 +2058,14 @@ class VolumeGroupSapHanaVolumeArgs:
                  volume_spec_name: pulumi.Input[_builtins.str],
                  data_protection_replication: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']] = None,
+                 encryption_key_source: Optional[pulumi.Input[_builtins.str]] = None,
                  id: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                  mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_features: Optional[pulumi.Input[_builtins.str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] capacity_pool_id: The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
@@ -2063,9 +2083,13 @@ class VolumeGroupSapHanaVolumeArgs:
         :param pulumi.Input[_builtins.str] volume_spec_name: Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] id: The ID of the Application Volume Group.
+        :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] network_features: Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Application Volume Group.
+        :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         pulumi.set(__self__, "capacity_pool_id", capacity_pool_id)
         pulumi.set(__self__, "export_policy_rules", export_policy_rules)
@@ -2083,14 +2107,22 @@ class VolumeGroupSapHanaVolumeArgs:
             pulumi.set(__self__, "data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
             pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
+        if encryption_key_source is not None:
+            pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if key_vault_private_endpoint_id is not None:
+            pulumi.set(__self__, "key_vault_private_endpoint_id", key_vault_private_endpoint_id)
         if mount_ip_addresses is not None:
             pulumi.set(__self__, "mount_ip_addresses", mount_ip_addresses)
+        if network_features is not None:
+            pulumi.set(__self__, "network_features", network_features)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
 
     @_builtins.property
     @pulumi.getter(name="capacityPoolId")
@@ -2263,6 +2295,18 @@ class VolumeGroupSapHanaVolumeArgs:
         pulumi.set(self, "data_protection_snapshot_policy", value)
 
     @_builtins.property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "encryption_key_source")
+
+    @encryption_key_source.setter
+    def encryption_key_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_key_source", value)
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -2275,6 +2319,18 @@ class VolumeGroupSapHanaVolumeArgs:
         pulumi.set(self, "id", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyVaultPrivateEndpointId")
+    def key_vault_private_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_id")
+
+    @key_vault_private_endpoint_id.setter
+    def key_vault_private_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_vault_private_endpoint_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="mountIpAddresses")
     def mount_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "mount_ip_addresses")
@@ -2282,6 +2338,18 @@ class VolumeGroupSapHanaVolumeArgs:
     @mount_ip_addresses.setter
     def mount_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mount_ip_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkFeatures")
+    def network_features(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "network_features")
+
+    @network_features.setter
+    def network_features(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_features", value)
 
     @_builtins.property
     @pulumi.getter(name="proximityPlacementGroupId")
@@ -2306,6 +2374,18 @@ class VolumeGroupSapHanaVolumeArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "zone", value)
 
 
 class VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict(TypedDict):

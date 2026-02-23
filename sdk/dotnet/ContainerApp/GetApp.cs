@@ -118,6 +118,12 @@ namespace Pulumi.Azure.ContainerApp
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Should the data source read the secrets from the Container App? Defaults to `True`.
+        /// </summary>
+        [Input("readSecrets")]
+        public bool? ReadSecrets { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where this Container App exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -136,6 +142,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Should the data source read the secrets from the Container App? Defaults to `True`.
+        /// </summary>
+        [Input("readSecrets")]
+        public Input<bool>? ReadSecrets { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where this Container App exists.
@@ -186,6 +198,7 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> OutboundIpAddresses;
+        public readonly bool? ReadSecrets;
         /// <summary>
         /// A `Registry` block as detailed below.
         /// </summary>
@@ -238,6 +251,8 @@ namespace Pulumi.Azure.ContainerApp
 
             ImmutableArray<string> outboundIpAddresses,
 
+            bool? readSecrets,
+
             ImmutableArray<Outputs.GetAppRegistryResult> registries,
 
             string resourceGroupName,
@@ -264,6 +279,7 @@ namespace Pulumi.Azure.ContainerApp
             MaxInactiveRevisions = maxInactiveRevisions;
             Name = name;
             OutboundIpAddresses = outboundIpAddresses;
+            ReadSecrets = readSecrets;
             Registries = registries;
             ResourceGroupName = resourceGroupName;
             RevisionMode = revisionMode;

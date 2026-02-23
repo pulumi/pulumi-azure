@@ -176,7 +176,9 @@ type AppFlexConsumption struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName pulumi.StringOutput `pulumi:"runtimeName"`
-	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+	// The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+	//
+	// > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
 	RuntimeVersion pulumi.StringOutput `pulumi:"runtimeVersion"`
 	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId pulumi.StringOutput `pulumi:"servicePlanId"`
@@ -341,7 +343,9 @@ type appFlexConsumptionState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName *string `pulumi:"runtimeName"`
-	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+	// The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+	//
+	// > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId *string `pulumi:"servicePlanId"`
@@ -448,7 +452,9 @@ type AppFlexConsumptionState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName pulumi.StringPtrInput
-	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+	// The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+	//
+	// > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
 	RuntimeVersion pulumi.StringPtrInput
 	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId pulumi.StringPtrInput
@@ -543,7 +549,9 @@ type appFlexConsumptionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName string `pulumi:"runtimeName"`
-	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+	// The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+	//
+	// > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId string `pulumi:"servicePlanId"`
@@ -633,7 +641,9 @@ type AppFlexConsumptionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
 	RuntimeName pulumi.StringInput
-	// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+	// The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+	//
+	// > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
 	RuntimeVersion pulumi.StringInput
 	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
 	ServicePlanId pulumi.StringInput
@@ -905,7 +915,9 @@ func (o AppFlexConsumptionOutput) RuntimeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.RuntimeName }).(pulumi.StringOutput)
 }
 
-// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+// The Runtime version of the Linux Function App. Accepted values varies with the value of `runtimeName`.
+//
+// > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
 func (o AppFlexConsumptionOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.RuntimeVersion }).(pulumi.StringOutput)
 }

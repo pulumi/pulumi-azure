@@ -13,13 +13,13 @@ namespace Pulumi.Azure.PrivateDns.Inputs
     public sealed class LinkServiceNatIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+        /// Specifies the name which should be used for the NAT IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        /// Is this is the Primary IP Configuration?
         /// </summary>
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;

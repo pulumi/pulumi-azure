@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
  *             .name("example-nginx")
  *             .resourceGroupName(example.name())
- *             .sku("standardv2_Monthly")
+ *             .sku("standardv3_Monthly")
  *             .location(example.location())
  *             .automaticUpgradeChannel("stable")
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()

@@ -103,7 +103,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// 
         /// &gt; **Note:** When `NetworkPolicy` is set to `Cilium`, the `NetworkDataPlane` field must be set to `Cilium`.
         /// 
-        /// &gt; **Note:** Upgrading `NetworkPolicy` from `Azure` to `Cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+        /// &gt; **Note:** Upgrading `NetworkPolicy` from `Azure` or `Calico` to `Cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }

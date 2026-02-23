@@ -86,7 +86,7 @@ import (
 //			_, err = nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
 //				Name:                    pulumi.String("example-nginx"),
 //				ResourceGroupName:       example.Name,
-//				Sku:                     pulumi.String("standardv2_Monthly"),
+//				Sku:                     pulumi.String("standardv3_Monthly"),
 //				Location:                example.Location,
 //				DiagnoseSupportEnabled:  pulumi.Bool(true),
 //				AutomaticUpgradeChannel: pulumi.String("stable"),
@@ -165,7 +165,9 @@ type Deployment struct {
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	// Specifies the NGINX Deployment SKU.
+	//
+	// > **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
 	//
 	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 	Sku pulumi.StringOutput `pulumi:"sku"`
@@ -247,7 +249,9 @@ type deploymentState struct {
 	NginxVersion *string `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	// Specifies the NGINX Deployment SKU.
+	//
+	// > **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
 	//
 	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 	Sku *string `pulumi:"sku"`
@@ -294,7 +298,9 @@ type DeploymentState struct {
 	NginxVersion pulumi.StringPtrInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	// Specifies the NGINX Deployment SKU.
+	//
+	// > **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
 	//
 	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 	Sku pulumi.StringPtrInput
@@ -339,7 +345,9 @@ type deploymentArgs struct {
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	// Specifies the NGINX Deployment SKU.
+	//
+	// > **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
 	//
 	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 	Sku string `pulumi:"sku"`
@@ -381,7 +389,9 @@ type DeploymentArgs struct {
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+	// Specifies the NGINX Deployment SKU.
+	//
+	// > **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
 	//
 	// > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 	Sku pulumi.StringInput
@@ -565,7 +575,9 @@ func (o DeploymentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the NGINX Deployment SKU. Possible values are `standardv2_Monthly`, `basic_Monthly`.
+// Specifies the NGINX Deployment SKU.
+//
+// > **Note:** For a list of available SKUs, please reference the [NGINXaaS for Azure documentation](https://docs.nginx.com/nginxaas/azure/billing/overview)
 //
 // > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `autoScaleProfile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `autoScaleProfile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignoreChanges` functionality to ignore changes to the `capacity` field.
 func (o DeploymentOutput) Sku() pulumi.StringOutput {

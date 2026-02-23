@@ -15514,6 +15514,162 @@ func (o StandaloneGatewaySkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceNamedValueValueFromKeyVault struct {
+	// The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// The resource ID of the Key Vault Secret.
+	SecretId string `pulumi:"secretId"`
+}
+
+// WorkspaceNamedValueValueFromKeyVaultInput is an input type that accepts WorkspaceNamedValueValueFromKeyVaultArgs and WorkspaceNamedValueValueFromKeyVaultOutput values.
+// You can construct a concrete instance of `WorkspaceNamedValueValueFromKeyVaultInput` via:
+//
+//	WorkspaceNamedValueValueFromKeyVaultArgs{...}
+type WorkspaceNamedValueValueFromKeyVaultInput interface {
+	pulumi.Input
+
+	ToWorkspaceNamedValueValueFromKeyVaultOutput() WorkspaceNamedValueValueFromKeyVaultOutput
+	ToWorkspaceNamedValueValueFromKeyVaultOutputWithContext(context.Context) WorkspaceNamedValueValueFromKeyVaultOutput
+}
+
+type WorkspaceNamedValueValueFromKeyVaultArgs struct {
+	// The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
+	// The resource ID of the Key Vault Secret.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+}
+
+func (WorkspaceNamedValueValueFromKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceNamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (i WorkspaceNamedValueValueFromKeyVaultArgs) ToWorkspaceNamedValueValueFromKeyVaultOutput() WorkspaceNamedValueValueFromKeyVaultOutput {
+	return i.ToWorkspaceNamedValueValueFromKeyVaultOutputWithContext(context.Background())
+}
+
+func (i WorkspaceNamedValueValueFromKeyVaultArgs) ToWorkspaceNamedValueValueFromKeyVaultOutputWithContext(ctx context.Context) WorkspaceNamedValueValueFromKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNamedValueValueFromKeyVaultOutput)
+}
+
+func (i WorkspaceNamedValueValueFromKeyVaultArgs) ToWorkspaceNamedValueValueFromKeyVaultPtrOutput() WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return i.ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceNamedValueValueFromKeyVaultArgs) ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNamedValueValueFromKeyVaultOutput).ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(ctx)
+}
+
+// WorkspaceNamedValueValueFromKeyVaultPtrInput is an input type that accepts WorkspaceNamedValueValueFromKeyVaultArgs, WorkspaceNamedValueValueFromKeyVaultPtr and WorkspaceNamedValueValueFromKeyVaultPtrOutput values.
+// You can construct a concrete instance of `WorkspaceNamedValueValueFromKeyVaultPtrInput` via:
+//
+//	        WorkspaceNamedValueValueFromKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceNamedValueValueFromKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceNamedValueValueFromKeyVaultPtrOutput() WorkspaceNamedValueValueFromKeyVaultPtrOutput
+	ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(context.Context) WorkspaceNamedValueValueFromKeyVaultPtrOutput
+}
+
+type workspaceNamedValueValueFromKeyVaultPtrType WorkspaceNamedValueValueFromKeyVaultArgs
+
+func WorkspaceNamedValueValueFromKeyVaultPtr(v *WorkspaceNamedValueValueFromKeyVaultArgs) WorkspaceNamedValueValueFromKeyVaultPtrInput {
+	return (*workspaceNamedValueValueFromKeyVaultPtrType)(v)
+}
+
+func (*workspaceNamedValueValueFromKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceNamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (i *workspaceNamedValueValueFromKeyVaultPtrType) ToWorkspaceNamedValueValueFromKeyVaultPtrOutput() WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return i.ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceNamedValueValueFromKeyVaultPtrType) ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNamedValueValueFromKeyVaultPtrOutput)
+}
+
+type WorkspaceNamedValueValueFromKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceNamedValueValueFromKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceNamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (o WorkspaceNamedValueValueFromKeyVaultOutput) ToWorkspaceNamedValueValueFromKeyVaultOutput() WorkspaceNamedValueValueFromKeyVaultOutput {
+	return o
+}
+
+func (o WorkspaceNamedValueValueFromKeyVaultOutput) ToWorkspaceNamedValueValueFromKeyVaultOutputWithContext(ctx context.Context) WorkspaceNamedValueValueFromKeyVaultOutput {
+	return o
+}
+
+func (o WorkspaceNamedValueValueFromKeyVaultOutput) ToWorkspaceNamedValueValueFromKeyVaultPtrOutput() WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return o.ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceNamedValueValueFromKeyVaultOutput) ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceNamedValueValueFromKeyVault) *WorkspaceNamedValueValueFromKeyVault {
+		return &v
+	}).(WorkspaceNamedValueValueFromKeyVaultPtrOutput)
+}
+
+// The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+func (o WorkspaceNamedValueValueFromKeyVaultOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceNamedValueValueFromKeyVault) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Key Vault Secret.
+func (o WorkspaceNamedValueValueFromKeyVaultOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceNamedValueValueFromKeyVault) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+type WorkspaceNamedValueValueFromKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceNamedValueValueFromKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceNamedValueValueFromKeyVault)(nil)).Elem()
+}
+
+func (o WorkspaceNamedValueValueFromKeyVaultPtrOutput) ToWorkspaceNamedValueValueFromKeyVaultPtrOutput() WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o WorkspaceNamedValueValueFromKeyVaultPtrOutput) ToWorkspaceNamedValueValueFromKeyVaultPtrOutputWithContext(ctx context.Context) WorkspaceNamedValueValueFromKeyVaultPtrOutput {
+	return o
+}
+
+func (o WorkspaceNamedValueValueFromKeyVaultPtrOutput) Elem() WorkspaceNamedValueValueFromKeyVaultOutput {
+	return o.ApplyT(func(v *WorkspaceNamedValueValueFromKeyVault) WorkspaceNamedValueValueFromKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceNamedValueValueFromKeyVault
+		return ret
+	}).(WorkspaceNamedValueValueFromKeyVaultOutput)
+}
+
+// The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+func (o WorkspaceNamedValueValueFromKeyVaultPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceNamedValueValueFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Key Vault Secret.
+func (o WorkspaceNamedValueValueFromKeyVaultPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceNamedValueValueFromKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetApiSubscriptionKeyParameterName struct {
 	// The name of the HTTP Header which should be used for the Subscription Key.
 	Header string `pulumi:"header"`
@@ -17082,6 +17238,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ServiceVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandaloneGatewaySkuInput)(nil)).Elem(), StandaloneGatewaySkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandaloneGatewaySkuPtrInput)(nil)).Elem(), StandaloneGatewaySkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceNamedValueValueFromKeyVaultInput)(nil)).Elem(), WorkspaceNamedValueValueFromKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceNamedValueValueFromKeyVaultPtrInput)(nil)).Elem(), WorkspaceNamedValueValueFromKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApiSubscriptionKeyParameterNameInput)(nil)).Elem(), GetApiSubscriptionKeyParameterNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApiSubscriptionKeyParameterNameArrayInput)(nil)).Elem(), GetApiSubscriptionKeyParameterNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayLocationDataInput)(nil)).Elem(), GetGatewayLocationDataArgs{})
@@ -17294,6 +17452,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceVirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StandaloneGatewaySkuOutput{})
 	pulumi.RegisterOutputType(StandaloneGatewaySkuPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceNamedValueValueFromKeyVaultOutput{})
+	pulumi.RegisterOutputType(WorkspaceNamedValueValueFromKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayLocationDataOutput{})

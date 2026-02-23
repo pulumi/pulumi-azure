@@ -26,6 +26,8 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The ID of the public IP address to associate with the Virtual Network Gateway.
+        /// 
+        /// &gt; **Note:** `PublicIpAddressId` should not be specified when `Type` is set to `ExpressRoute`.
         /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }

@@ -20,17 +20,21 @@ __all__ = ['UserAssignedIdentityArgs', 'UserAssignedIdentity']
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 isolation_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserAssignedIdentity resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[_builtins.str] isolation_scope: The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the User Assigned Identity.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if isolation_scope is not None:
+            pulumi.set(__self__, "isolation_scope", isolation_scope)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -49,6 +53,18 @@ class UserAssignedIdentityArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isolationScope")
+    def isolation_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+        """
+        return pulumi.get(self, "isolation_scope")
+
+    @isolation_scope.setter
+    def isolation_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "isolation_scope", value)
 
     @_builtins.property
     @pulumi.getter
@@ -91,6 +107,7 @@ class UserAssignedIdentityArgs:
 class _UserAssignedIdentityState:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 isolation_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -100,6 +117,7 @@ class _UserAssignedIdentityState:
         """
         Input properties used for looking up and filtering UserAssignedIdentity resources.
         :param pulumi.Input[_builtins.str] client_id: The ID of the app associated with the Identity.
+        :param pulumi.Input[_builtins.str] isolation_scope: The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Service Principal object associated with the created Identity.
@@ -109,6 +127,8 @@ class _UserAssignedIdentityState:
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if isolation_scope is not None:
+            pulumi.set(__self__, "isolation_scope", isolation_scope)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -133,6 +153,18 @@ class _UserAssignedIdentityState:
     @client_id.setter
     def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isolationScope")
+    def isolation_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+        """
+        return pulumi.get(self, "isolation_scope")
+
+    @isolation_scope.setter
+    def isolation_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "isolation_scope", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,6 +250,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 isolation_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -264,6 +297,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] isolation_scope: The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
@@ -329,6 +363,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 isolation_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -343,6 +378,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserAssignedIdentityArgs.__new__(UserAssignedIdentityArgs)
 
+            __props__.__dict__["isolation_scope"] = isolation_scope
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -363,6 +399,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             client_id: Optional[pulumi.Input[_builtins.str]] = None,
+            isolation_scope: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             principal_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -377,6 +414,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_id: The ID of the app associated with the Identity.
+        :param pulumi.Input[_builtins.str] isolation_scope: The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Service Principal object associated with the created Identity.
@@ -389,6 +427,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         __props__ = _UserAssignedIdentityState.__new__(_UserAssignedIdentityState)
 
         __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["isolation_scope"] = isolation_scope
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["principal_id"] = principal_id
@@ -404,6 +443,14 @@ class UserAssignedIdentity(pulumi.CustomResource):
         The ID of the app associated with the Identity.
         """
         return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="isolationScope")
+    def isolation_scope(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+        """
+        return pulumi.get(self, "isolation_scope")
 
     @_builtins.property
     @pulumi.getter

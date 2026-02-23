@@ -49,12 +49,16 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
     /**
      * The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
+     * &gt; **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
+     * 
      */
     @Import(name="publicIpAddressId")
     private @Nullable Output<String> publicIpAddressId;
 
     /**
      * @return The ID of the public IP address to associate with the Virtual Network Gateway.
+     * 
+     * &gt; **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
      * 
      */
     public Optional<Output<String>> publicIpAddressId() {
@@ -148,6 +152,8 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         /**
          * @param publicIpAddressId The ID of the public IP address to associate with the Virtual Network Gateway.
          * 
+         * &gt; **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +164,8 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
 
         /**
          * @param publicIpAddressId The ID of the public IP address to associate with the Virtual Network Gateway.
+         * 
+         * &gt; **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
          * 
          * @return builder
          * 

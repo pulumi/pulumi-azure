@@ -187,7 +187,11 @@ type ManagedRedis struct {
 
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey ManagedRedisCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
-	// A `defaultDatabase` block as defined below. A Managed Redis instance will not be functional without a database. This block is intentionally optional to allow removal and re-creation of the database for troubleshooting purposes. A default database can be created or deleted in-place, however most properties will trigger an entire cluster replacement if changed.
+	// A `defaultDatabase` block as defined below.
+	//
+	// > **Note:** `defaultDatabase` is Required when creating a new Managed Redis.
+	//
+	// > **Note:** A `defaultDatabase` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
 	DefaultDatabase ManagedRedisDefaultDatabasePtrOutput `pulumi:"defaultDatabase"`
 	// Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
 	HighAvailabilityEnabled pulumi.BoolPtrOutput `pulumi:"highAvailabilityEnabled"`
@@ -203,9 +207,11 @@ type ManagedRedis struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The name of the Resource Group where the Managed Redis instance should exist. Changing this forces a new Managed Redis instance to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication. Changing this forces a new Managed Redis instance to be created.
+	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+	//
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -249,7 +255,11 @@ func GetManagedRedis(ctx *pulumi.Context,
 type managedRedisState struct {
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *ManagedRedisCustomerManagedKey `pulumi:"customerManagedKey"`
-	// A `defaultDatabase` block as defined below. A Managed Redis instance will not be functional without a database. This block is intentionally optional to allow removal and re-creation of the database for troubleshooting purposes. A default database can be created or deleted in-place, however most properties will trigger an entire cluster replacement if changed.
+	// A `defaultDatabase` block as defined below.
+	//
+	// > **Note:** `defaultDatabase` is Required when creating a new Managed Redis.
+	//
+	// > **Note:** A `defaultDatabase` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
 	DefaultDatabase *ManagedRedisDefaultDatabase `pulumi:"defaultDatabase"`
 	// Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
 	HighAvailabilityEnabled *bool `pulumi:"highAvailabilityEnabled"`
@@ -265,9 +275,11 @@ type managedRedisState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the Resource Group where the Managed Redis instance should exist. Changing this forces a new Managed Redis instance to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication. Changing this forces a new Managed Redis instance to be created.
+	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+	//
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags map[string]string `pulumi:"tags"`
@@ -276,7 +288,11 @@ type managedRedisState struct {
 type ManagedRedisState struct {
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey ManagedRedisCustomerManagedKeyPtrInput
-	// A `defaultDatabase` block as defined below. A Managed Redis instance will not be functional without a database. This block is intentionally optional to allow removal and re-creation of the database for troubleshooting purposes. A default database can be created or deleted in-place, however most properties will trigger an entire cluster replacement if changed.
+	// A `defaultDatabase` block as defined below.
+	//
+	// > **Note:** `defaultDatabase` is Required when creating a new Managed Redis.
+	//
+	// > **Note:** A `defaultDatabase` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
 	DefaultDatabase ManagedRedisDefaultDatabasePtrInput
 	// Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
 	HighAvailabilityEnabled pulumi.BoolPtrInput
@@ -292,9 +308,11 @@ type ManagedRedisState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the Resource Group where the Managed Redis instance should exist. Changing this forces a new Managed Redis instance to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication. Changing this forces a new Managed Redis instance to be created.
+	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+	//
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags pulumi.StringMapInput
@@ -307,7 +325,11 @@ func (ManagedRedisState) ElementType() reflect.Type {
 type managedRedisArgs struct {
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *ManagedRedisCustomerManagedKey `pulumi:"customerManagedKey"`
-	// A `defaultDatabase` block as defined below. A Managed Redis instance will not be functional without a database. This block is intentionally optional to allow removal and re-creation of the database for troubleshooting purposes. A default database can be created or deleted in-place, however most properties will trigger an entire cluster replacement if changed.
+	// A `defaultDatabase` block as defined below.
+	//
+	// > **Note:** `defaultDatabase` is Required when creating a new Managed Redis.
+	//
+	// > **Note:** A `defaultDatabase` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
 	DefaultDatabase *ManagedRedisDefaultDatabase `pulumi:"defaultDatabase"`
 	// Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
 	HighAvailabilityEnabled *bool `pulumi:"highAvailabilityEnabled"`
@@ -321,9 +343,11 @@ type managedRedisArgs struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the Resource Group where the Managed Redis instance should exist. Changing this forces a new Managed Redis instance to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication. Changing this forces a new Managed Redis instance to be created.
+	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+	//
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags map[string]string `pulumi:"tags"`
@@ -333,7 +357,11 @@ type managedRedisArgs struct {
 type ManagedRedisArgs struct {
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey ManagedRedisCustomerManagedKeyPtrInput
-	// A `defaultDatabase` block as defined below. A Managed Redis instance will not be functional without a database. This block is intentionally optional to allow removal and re-creation of the database for troubleshooting purposes. A default database can be created or deleted in-place, however most properties will trigger an entire cluster replacement if changed.
+	// A `defaultDatabase` block as defined below.
+	//
+	// > **Note:** `defaultDatabase` is Required when creating a new Managed Redis.
+	//
+	// > **Note:** A `defaultDatabase` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
 	DefaultDatabase ManagedRedisDefaultDatabasePtrInput
 	// Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
 	HighAvailabilityEnabled pulumi.BoolPtrInput
@@ -347,9 +375,11 @@ type ManagedRedisArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the Resource Group where the Managed Redis instance should exist. Changing this forces a new Managed Redis instance to be created.
 	ResourceGroupName pulumi.StringInput
-	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication. Changing this forces a new Managed Redis instance to be created.
+	// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
 	//
 	// > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+	//
+	// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Managed Redis instance.
 	Tags pulumi.StringMapInput
@@ -447,7 +477,11 @@ func (o ManagedRedisOutput) CustomerManagedKey() ManagedRedisCustomerManagedKeyP
 	return o.ApplyT(func(v *ManagedRedis) ManagedRedisCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(ManagedRedisCustomerManagedKeyPtrOutput)
 }
 
-// A `defaultDatabase` block as defined below. A Managed Redis instance will not be functional without a database. This block is intentionally optional to allow removal and re-creation of the database for troubleshooting purposes. A default database can be created or deleted in-place, however most properties will trigger an entire cluster replacement if changed.
+// A `defaultDatabase` block as defined below.
+//
+// > **Note:** `defaultDatabase` is Required when creating a new Managed Redis.
+//
+// > **Note:** A `defaultDatabase` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
 func (o ManagedRedisOutput) DefaultDatabase() ManagedRedisDefaultDatabasePtrOutput {
 	return o.ApplyT(func(v *ManagedRedis) ManagedRedisDefaultDatabasePtrOutput { return v.DefaultDatabase }).(ManagedRedisDefaultDatabasePtrOutput)
 }
@@ -487,9 +521,11 @@ func (o ManagedRedisOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedRedis) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication. Changing this forces a new Managed Redis instance to be created.
+// The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
 //
 // > **Note:** `Enterprise_` and `EnterpriseFlash_` prefixed SKUs were previously used by Redis Enterprise, and [not supported by Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+//
+// > **Note:** Changing `skuName` to a lower tier is restricted by Azure under certain conditions, in which case the resource will be marked for recreation. Validation for this is on a best-effort basis, if the provider is unable to determine whether it can change the SKU in-place, it will attempt to do regardless and this request may fail. Please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/redis/how-to-scale) for more information.
 func (o ManagedRedisOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedRedis) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

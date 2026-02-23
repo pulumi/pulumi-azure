@@ -70,6 +70,8 @@ type StaticWebApp struct {
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
 	// A key-value pair of App Settings.
+	//
+	// > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `basicAuth` block as defined below.
 	BasicAuth StaticWebAppBasicAuthPtrOutput `pulumi:"basicAuth"`
@@ -151,6 +153,8 @@ type staticWebAppState struct {
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey *string `pulumi:"apiKey"`
 	// A key-value pair of App Settings.
+	//
+	// > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `basicAuth` block as defined below.
 	BasicAuth *StaticWebAppBasicAuth `pulumi:"basicAuth"`
@@ -188,6 +192,8 @@ type StaticWebAppState struct {
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey pulumi.StringPtrInput
 	// A key-value pair of App Settings.
+	//
+	// > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
 	AppSettings pulumi.StringMapInput
 	// A `basicAuth` block as defined below.
 	BasicAuth StaticWebAppBasicAuthPtrInput
@@ -227,6 +233,8 @@ func (StaticWebAppState) ElementType() reflect.Type {
 
 type staticWebAppArgs struct {
 	// A key-value pair of App Settings.
+	//
+	// > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `basicAuth` block as defined below.
 	BasicAuth *StaticWebAppBasicAuth `pulumi:"basicAuth"`
@@ -261,6 +269,8 @@ type staticWebAppArgs struct {
 // The set of arguments for constructing a StaticWebApp resource.
 type StaticWebAppArgs struct {
 	// A key-value pair of App Settings.
+	//
+	// > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
 	AppSettings pulumi.StringMapInput
 	// A `basicAuth` block as defined below.
 	BasicAuth StaticWebAppBasicAuthPtrInput
@@ -385,6 +395,8 @@ func (o StaticWebAppOutput) ApiKey() pulumi.StringOutput {
 }
 
 // A key-value pair of App Settings.
+//
+// > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
 func (o StaticWebAppOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StaticWebApp) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }

@@ -123,6 +123,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkspaceApiVersionSet{}
 	case "azure:apimanagement/workspaceCertificate:WorkspaceCertificate":
 		r = &WorkspaceCertificate{}
+	case "azure:apimanagement/workspaceNamedValue:WorkspaceNamedValue":
+		r = &WorkspaceNamedValue{}
 	case "azure:apimanagement/workspacePolicy:WorkspacePolicy":
 		r = &WorkspacePolicy{}
 	case "azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment":
@@ -393,6 +395,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/workspaceCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/workspaceNamedValue",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

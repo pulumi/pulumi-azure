@@ -18,6 +18,21 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
     public static final UserAssignedIdentityArgs Empty = new UserAssignedIdentityArgs();
 
     /**
+     * The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+     * 
+     */
+    @Import(name="isolationScope")
+    private @Nullable Output<String> isolationScope;
+
+    /**
+     * @return The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+     * 
+     */
+    public Optional<Output<String>> isolationScope() {
+        return Optional.ofNullable(this.isolationScope);
+    }
+
+    /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
@@ -80,6 +95,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
     private UserAssignedIdentityArgs() {}
 
     private UserAssignedIdentityArgs(UserAssignedIdentityArgs $) {
+        this.isolationScope = $.isolationScope;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -102,6 +118,27 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
 
         public Builder(UserAssignedIdentityArgs defaults) {
             $ = new UserAssignedIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param isolationScope The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isolationScope(@Nullable Output<String> isolationScope) {
+            $.isolationScope = isolationScope;
+            return this;
+        }
+
+        /**
+         * @param isolationScope The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isolationScope(String isolationScope) {
+            return isolationScope(Output.of(isolationScope));
         }
 
         /**

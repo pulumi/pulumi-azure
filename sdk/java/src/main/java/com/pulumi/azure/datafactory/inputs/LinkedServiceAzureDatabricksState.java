@@ -171,18 +171,37 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
     }
 
     /**
+     * @deprecated
+     * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+    @Import(name="msiWorkSpaceResourceId")
+    private @Nullable Output<String> msiWorkSpaceResourceId;
+
+    /**
+     * @deprecated
+     * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+    public Optional<Output<String>> msiWorkSpaceResourceId() {
+        return Optional.ofNullable(this.msiWorkSpaceResourceId);
+    }
+
+    /**
      * Authenticate to ADB via managed service identity.
      * 
      */
-    @Import(name="msiWorkSpaceResourceId")
-    private @Nullable Output<String> msiWorkSpaceResourceId;
+    @Import(name="msiWorkspaceId")
+    private @Nullable Output<String> msiWorkspaceId;
 
     /**
      * @return Authenticate to ADB via managed service identity.
      * 
      */
-    public Optional<Output<String>> msiWorkSpaceResourceId() {
-        return Optional.ofNullable(this.msiWorkSpaceResourceId);
+    public Optional<Output<String>> msiWorkspaceId() {
+        return Optional.ofNullable(this.msiWorkspaceId);
     }
 
     /**
@@ -244,6 +263,7 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
         this.integrationRuntimeName = $.integrationRuntimeName;
         this.keyVaultPassword = $.keyVaultPassword;
         this.msiWorkSpaceResourceId = $.msiWorkSpaceResourceId;
+        this.msiWorkspaceId = $.msiWorkspaceId;
         this.name = $.name;
         this.newClusterConfig = $.newClusterConfig;
         this.parameters = $.parameters;
@@ -488,24 +508,49 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
         }
 
         /**
-         * @param msiWorkSpaceResourceId Authenticate to ADB via managed service identity.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder msiWorkSpaceResourceId(@Nullable Output<String> msiWorkSpaceResourceId) {
             $.msiWorkSpaceResourceId = msiWorkSpaceResourceId;
             return this;
         }
 
         /**
-         * @param msiWorkSpaceResourceId Authenticate to ADB via managed service identity.
+         * @return builder
+         * 
+         * @deprecated
+         * The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider */
+        public Builder msiWorkSpaceResourceId(String msiWorkSpaceResourceId) {
+            return msiWorkSpaceResourceId(Output.of(msiWorkSpaceResourceId));
+        }
+
+        /**
+         * @param msiWorkspaceId Authenticate to ADB via managed service identity.
          * 
          * @return builder
          * 
          */
-        public Builder msiWorkSpaceResourceId(String msiWorkSpaceResourceId) {
-            return msiWorkSpaceResourceId(Output.of(msiWorkSpaceResourceId));
+        public Builder msiWorkspaceId(@Nullable Output<String> msiWorkspaceId) {
+            $.msiWorkspaceId = msiWorkspaceId;
+            return this;
+        }
+
+        /**
+         * @param msiWorkspaceId Authenticate to ADB via managed service identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder msiWorkspaceId(String msiWorkspaceId) {
+            return msiWorkspaceId(Output.of(msiWorkspaceId));
         }
 
         /**

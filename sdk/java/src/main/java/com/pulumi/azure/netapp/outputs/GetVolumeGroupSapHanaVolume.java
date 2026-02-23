@@ -34,6 +34,11 @@ public final class GetVolumeGroupSapHanaVolume {
      */
     private List<GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicies;
     /**
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys.
+     * 
+     */
+    private String encryptionKeySource;
+    /**
      * @return A `exportPolicyRule` block as defined below.
      * 
      */
@@ -44,6 +49,11 @@ public final class GetVolumeGroupSapHanaVolume {
      */
     private String id;
     /**
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys.
+     * 
+     */
+    private String keyVaultPrivateEndpointId;
+    /**
      * @return A `mountIpAddresses` block as defined below.
      * 
      */
@@ -53,6 +63,11 @@ public final class GetVolumeGroupSapHanaVolume {
      * 
      */
     private String name;
+    /**
+     * @return Network features of the volume.
+     * 
+     */
+    private String networkFeatures;
     /**
      * @return A `protocols` block as defined below.
      * 
@@ -108,6 +123,11 @@ public final class GetVolumeGroupSapHanaVolume {
      * 
      */
     private String volumeSpecName;
+    /**
+     * @return Specifies the Availability Zone in which the Volume is located.
+     * 
+     */
+    private String zone;
 
     private GetVolumeGroupSapHanaVolume() {}
     /**
@@ -132,6 +152,13 @@ public final class GetVolumeGroupSapHanaVolume {
         return this.dataProtectionSnapshotPolicies;
     }
     /**
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys.
+     * 
+     */
+    public String encryptionKeySource() {
+        return this.encryptionKeySource;
+    }
+    /**
      * @return A `exportPolicyRule` block as defined below.
      * 
      */
@@ -146,6 +173,13 @@ public final class GetVolumeGroupSapHanaVolume {
         return this.id;
     }
     /**
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys.
+     * 
+     */
+    public String keyVaultPrivateEndpointId() {
+        return this.keyVaultPrivateEndpointId;
+    }
+    /**
      * @return A `mountIpAddresses` block as defined below.
      * 
      */
@@ -158,6 +192,13 @@ public final class GetVolumeGroupSapHanaVolume {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return Network features of the volume.
+     * 
+     */
+    public String networkFeatures() {
+        return this.networkFeatures;
     }
     /**
      * @return A `protocols` block as defined below.
@@ -236,6 +277,13 @@ public final class GetVolumeGroupSapHanaVolume {
     public String volumeSpecName() {
         return this.volumeSpecName;
     }
+    /**
+     * @return Specifies the Availability Zone in which the Volume is located.
+     * 
+     */
+    public String zone() {
+        return this.zone;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -249,10 +297,13 @@ public final class GetVolumeGroupSapHanaVolume {
         private String capacityPoolId;
         private List<GetVolumeGroupSapHanaVolumeDataProtectionReplication> dataProtectionReplications;
         private List<GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicies;
+        private String encryptionKeySource;
         private List<GetVolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules;
         private String id;
+        private String keyVaultPrivateEndpointId;
         private List<String> mountIpAddresses;
         private String name;
+        private String networkFeatures;
         private List<String> protocols;
         private String proximityPlacementGroupId;
         private String securityStyle;
@@ -264,16 +315,20 @@ public final class GetVolumeGroupSapHanaVolume {
         private Double throughputInMibps;
         private String volumePath;
         private String volumeSpecName;
+        private String zone;
         public Builder() {}
         public Builder(GetVolumeGroupSapHanaVolume defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityPoolId = defaults.capacityPoolId;
     	      this.dataProtectionReplications = defaults.dataProtectionReplications;
     	      this.dataProtectionSnapshotPolicies = defaults.dataProtectionSnapshotPolicies;
+    	      this.encryptionKeySource = defaults.encryptionKeySource;
     	      this.exportPolicyRules = defaults.exportPolicyRules;
     	      this.id = defaults.id;
+    	      this.keyVaultPrivateEndpointId = defaults.keyVaultPrivateEndpointId;
     	      this.mountIpAddresses = defaults.mountIpAddresses;
     	      this.name = defaults.name;
+    	      this.networkFeatures = defaults.networkFeatures;
     	      this.protocols = defaults.protocols;
     	      this.proximityPlacementGroupId = defaults.proximityPlacementGroupId;
     	      this.securityStyle = defaults.securityStyle;
@@ -285,6 +340,7 @@ public final class GetVolumeGroupSapHanaVolume {
     	      this.throughputInMibps = defaults.throughputInMibps;
     	      this.volumePath = defaults.volumePath;
     	      this.volumeSpecName = defaults.volumeSpecName;
+    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -318,6 +374,14 @@ public final class GetVolumeGroupSapHanaVolume {
             return dataProtectionSnapshotPolicies(List.of(dataProtectionSnapshotPolicies));
         }
         @CustomType.Setter
+        public Builder encryptionKeySource(String encryptionKeySource) {
+            if (encryptionKeySource == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolume", "encryptionKeySource");
+            }
+            this.encryptionKeySource = encryptionKeySource;
+            return this;
+        }
+        @CustomType.Setter
         public Builder exportPolicyRules(List<GetVolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules) {
             if (exportPolicyRules == null) {
               throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolume", "exportPolicyRules");
@@ -337,6 +401,14 @@ public final class GetVolumeGroupSapHanaVolume {
             return this;
         }
         @CustomType.Setter
+        public Builder keyVaultPrivateEndpointId(String keyVaultPrivateEndpointId) {
+            if (keyVaultPrivateEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolume", "keyVaultPrivateEndpointId");
+            }
+            this.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mountIpAddresses(List<String> mountIpAddresses) {
             if (mountIpAddresses == null) {
               throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolume", "mountIpAddresses");
@@ -353,6 +425,14 @@ public final class GetVolumeGroupSapHanaVolume {
               throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolume", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkFeatures(String networkFeatures) {
+            if (networkFeatures == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolume", "networkFeatures");
+            }
+            this.networkFeatures = networkFeatures;
             return this;
         }
         @CustomType.Setter
@@ -446,15 +526,26 @@ public final class GetVolumeGroupSapHanaVolume {
             this.volumeSpecName = volumeSpecName;
             return this;
         }
+        @CustomType.Setter
+        public Builder zone(String zone) {
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolume", "zone");
+            }
+            this.zone = zone;
+            return this;
+        }
         public GetVolumeGroupSapHanaVolume build() {
             final var _resultValue = new GetVolumeGroupSapHanaVolume();
             _resultValue.capacityPoolId = capacityPoolId;
             _resultValue.dataProtectionReplications = dataProtectionReplications;
             _resultValue.dataProtectionSnapshotPolicies = dataProtectionSnapshotPolicies;
+            _resultValue.encryptionKeySource = encryptionKeySource;
             _resultValue.exportPolicyRules = exportPolicyRules;
             _resultValue.id = id;
+            _resultValue.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             _resultValue.mountIpAddresses = mountIpAddresses;
             _resultValue.name = name;
+            _resultValue.networkFeatures = networkFeatures;
             _resultValue.protocols = protocols;
             _resultValue.proximityPlacementGroupId = proximityPlacementGroupId;
             _resultValue.securityStyle = securityStyle;
@@ -466,6 +557,7 @@ public final class GetVolumeGroupSapHanaVolume {
             _resultValue.throughputInMibps = throughputInMibps;
             _resultValue.volumePath = volumePath;
             _resultValue.volumeSpecName = volumeSpecName;
+            _resultValue.zone = zone;
             return _resultValue;
         }
     }

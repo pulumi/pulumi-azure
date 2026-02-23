@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class PointToPointVpnGatewayConnectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `False`.
+        /// Should Internet Security be enabled to secure internet traffic? Defaults to `False`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }

@@ -163,6 +163,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     declare public readonly backupRetentionDays: pulumi.Output<number>;
     /**
+     * A `cluster` block as defined below.
+     */
+    declare public readonly cluster: pulumi.Output<outputs.postgresql.FlexibleServerCluster | undefined>;
+    /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      */
     declare public readonly createMode: pulumi.Output<string | undefined>;
@@ -262,6 +266,8 @@ export class FlexibleServer extends pulumi.CustomResource {
      * > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+     *
+     * > **Note:** Major version upgrades are not supported when `cluster` is specified.
      */
     declare public readonly version: pulumi.Output<string>;
     /**
@@ -292,6 +298,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["authentication"] = state?.authentication;
             resourceInputs["autoGrowEnabled"] = state?.autoGrowEnabled;
             resourceInputs["backupRetentionDays"] = state?.backupRetentionDays;
+            resourceInputs["cluster"] = state?.cluster;
             resourceInputs["createMode"] = state?.createMode;
             resourceInputs["customerManagedKey"] = state?.customerManagedKey;
             resourceInputs["delegatedSubnetId"] = state?.delegatedSubnetId;
@@ -325,6 +332,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["authentication"] = args?.authentication;
             resourceInputs["autoGrowEnabled"] = args?.autoGrowEnabled;
             resourceInputs["backupRetentionDays"] = args?.backupRetentionDays;
+            resourceInputs["cluster"] = args?.cluster;
             resourceInputs["createMode"] = args?.createMode;
             resourceInputs["customerManagedKey"] = args?.customerManagedKey;
             resourceInputs["delegatedSubnetId"] = args?.delegatedSubnetId;
@@ -387,6 +395,10 @@ export interface FlexibleServerState {
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
     backupRetentionDays?: pulumi.Input<number>;
+    /**
+     * A `cluster` block as defined below.
+     */
+    cluster?: pulumi.Input<inputs.postgresql.FlexibleServerCluster>;
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      */
@@ -487,6 +499,8 @@ export interface FlexibleServerState {
      * > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+     *
+     * > **Note:** Major version upgrades are not supported when `cluster` is specified.
      */
     version?: pulumi.Input<string>;
     /**
@@ -531,6 +545,10 @@ export interface FlexibleServerArgs {
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
     backupRetentionDays?: pulumi.Input<number>;
+    /**
+     * A `cluster` block as defined below.
+     */
+    cluster?: pulumi.Input<inputs.postgresql.FlexibleServerCluster>;
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      */
@@ -627,6 +645,8 @@ export interface FlexibleServerArgs {
      * > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+     *
+     * > **Note:** Major version upgrades are not supported when `cluster` is specified.
      */
     version?: pulumi.Input<string>;
     /**

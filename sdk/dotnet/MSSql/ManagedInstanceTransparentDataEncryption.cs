@@ -12,7 +12,7 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages the transparent data encryption configuration for a MSSQL Managed Instance
     /// 
-    /// &gt; **Note:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `KeyVaultUri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+    /// &gt; **Note:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
     /// 
     /// &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
     /// 
@@ -273,17 +273,14 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
-        /// </summary>
-        [Output("keyVaultKeyId")]
-        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
-
-        /// <summary>
-        /// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
         /// &gt; **Note:** If `ManagedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
+        [Output("keyVaultKeyId")]
+        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
+
         [Output("managedHsmKeyId")]
         public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
 
@@ -347,17 +344,14 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
-        /// </summary>
-        [Input("keyVaultKeyId")]
-        public Input<string>? KeyVaultKeyId { get; set; }
-
-        /// <summary>
-        /// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
         /// &gt; **Note:** If `ManagedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
+
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
 
@@ -383,17 +377,14 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
-        /// </summary>
-        [Input("keyVaultKeyId")]
-        public Input<string>? KeyVaultKeyId { get; set; }
-
-        /// <summary>
-        /// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
         /// &gt; **Note:** If `ManagedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
+
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
 

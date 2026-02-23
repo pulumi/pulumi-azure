@@ -103,6 +103,20 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
+     * The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+     * 
+     */
+    @Export(name="isolationScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> isolationScope;
+
+    /**
+     * @return The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+     * 
+     */
+    public Output<Optional<String>> isolationScope() {
+        return Codegen.optional(this.isolationScope);
+    }
+    /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */

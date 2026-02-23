@@ -34,6 +34,7 @@ class RunBookArgs:
                  log_activity_trace_level: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
+                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RunBook resource.
@@ -41,7 +42,7 @@ class RunBookArgs:
         :param pulumi.Input[_builtins.bool] log_progress: Progress log option.
         :param pulumi.Input[_builtins.bool] log_verbose: Verbose log option.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content: The desired content of the runbook.
                
                > **Note:** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
@@ -54,6 +55,9 @@ class RunBookArgs:
         :param pulumi.Input[_builtins.int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: One `publish_content_link` block as defined below.
+        :param pulumi.Input[_builtins.str] runtime_environment_name: The runtime environment name for the runbook.
+               
+               > **Note:** The `runbook_type` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -77,6 +81,8 @@ class RunBookArgs:
             pulumi.set(__self__, "name", name)
         if publish_content_link is not None:
             pulumi.set(__self__, "publish_content_link", publish_content_link)
+        if runtime_environment_name is not None:
+            pulumi.set(__self__, "runtime_environment_name", runtime_environment_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -132,7 +138,7 @@ class RunBookArgs:
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_type")
 
@@ -241,6 +247,20 @@ class RunBookArgs:
         pulumi.set(self, "publish_content_link", value)
 
     @_builtins.property
+    @pulumi.getter(name="runtimeEnvironmentName")
+    def runtime_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The runtime environment name for the runbook.
+
+        > **Note:** The `runbook_type` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+        """
+        return pulumi.get(self, "runtime_environment_name")
+
+    @runtime_environment_name.setter
+    def runtime_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "runtime_environment_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -269,6 +289,7 @@ class _RunBookState:
                  publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RunBook resources.
@@ -288,7 +309,10 @@ class _RunBookState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: One `publish_content_link` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] runtime_environment_name: The runtime environment name for the runbook.
+               
+               > **Note:** The `runbook_type` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if automation_account_name is not None:
@@ -317,6 +341,8 @@ class _RunBookState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if runbook_type is not None:
             pulumi.set(__self__, "runbook_type", runbook_type)
+        if runtime_environment_name is not None:
+            pulumi.set(__self__, "runtime_environment_name", runtime_environment_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -472,13 +498,27 @@ class _RunBookState:
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_type")
 
     @runbook_type.setter
     def runbook_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "runbook_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeEnvironmentName")
+    def runtime_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The runtime environment name for the runbook.
+
+        > **Note:** The `runbook_type` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+        """
+        return pulumi.get(self, "runtime_environment_name")
+
+    @runtime_environment_name.setter
+    def runtime_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "runtime_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -512,6 +552,7 @@ class RunBook(pulumi.CustomResource):
                  publish_content_link: Optional[pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -571,7 +612,10 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']] publish_content_link: One `publish_content_link` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] runtime_environment_name: The runtime environment name for the runbook.
+               
+               > **Note:** The `runbook_type` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -647,6 +691,7 @@ class RunBook(pulumi.CustomResource):
                  publish_content_link: Optional[pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -680,6 +725,7 @@ class RunBook(pulumi.CustomResource):
             if runbook_type is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_type'")
             __props__.__dict__["runbook_type"] = runbook_type
+            __props__.__dict__["runtime_environment_name"] = runtime_environment_name
             __props__.__dict__["tags"] = tags
         super(RunBook, __self__).__init__(
             'azure:automation/runBook:RunBook',
@@ -704,6 +750,7 @@ class RunBook(pulumi.CustomResource):
             publish_content_link: Optional[pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             runbook_type: Optional[pulumi.Input[_builtins.str]] = None,
+            runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RunBook':
         """
         Get an existing RunBook resource's state with the given name, id, and optional extra
@@ -728,7 +775,10 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['RunBookPublishContentLinkArgs', 'RunBookPublishContentLinkArgsDict']] publish_content_link: One `publish_content_link` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] runtime_environment_name: The runtime environment name for the runbook.
+               
+               > **Note:** The `runbook_type` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -748,6 +798,7 @@ class RunBook(pulumi.CustomResource):
         __props__.__dict__["publish_content_link"] = publish_content_link
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["runbook_type"] = runbook_type
+        __props__.__dict__["runtime_environment_name"] = runtime_environment_name
         __props__.__dict__["tags"] = tags
         return RunBook(resource_name, opts=opts, __props__=__props__)
 
@@ -855,9 +906,19 @@ class RunBook(pulumi.CustomResource):
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_type")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeEnvironmentName")
+    def runtime_environment_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The runtime environment name for the runbook.
+
+        > **Note:** The `runbook_type` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+        """
+        return pulumi.get(self, "runtime_environment_name")
 
     @_builtins.property
     @pulumi.getter

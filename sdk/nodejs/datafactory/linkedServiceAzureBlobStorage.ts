@@ -104,9 +104,9 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
-     * A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      */
-    declare public readonly keyVaultSasToken: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken | undefined>;
+    declare public readonly keyVaultSasToken: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -115,6 +115,10 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     */
+    declare public readonly sasTokenLinkedKeyVaultKey: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey>;
     /**
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
@@ -150,6 +154,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             resourceInputs["keyVaultSasToken"] = state?.keyVaultSasToken;
             resourceInputs["name"] = state?.name;
             resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["sasTokenLinkedKeyVaultKey"] = state?.sasTokenLinkedKeyVaultKey;
             resourceInputs["sasUri"] = state?.sasUri;
             resourceInputs["serviceEndpoint"] = state?.serviceEndpoint;
             resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
@@ -173,6 +178,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             resourceInputs["keyVaultSasToken"] = args?.keyVaultSasToken;
             resourceInputs["name"] = args?.name;
             resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["sasTokenLinkedKeyVaultKey"] = args?.sasTokenLinkedKeyVaultKey;
             resourceInputs["sasUri"] = args?.sasUri ? pulumi.secret(args.sasUri) : undefined;
             resourceInputs["serviceEndpoint"] = args?.serviceEndpoint ? pulumi.secret(args.serviceEndpoint) : undefined;
             resourceInputs["servicePrincipalId"] = args?.servicePrincipalId;
@@ -226,7 +232,7 @@ export interface LinkedServiceAzureBlobStorageState {
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      */
     keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken>;
     /**
@@ -237,6 +243,10 @@ export interface LinkedServiceAzureBlobStorageState {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     */
+    sasTokenLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey>;
     /**
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
@@ -287,7 +297,7 @@ export interface LinkedServiceAzureBlobStorageArgs {
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
      */
     keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken>;
     /**
@@ -298,6 +308,10 @@ export interface LinkedServiceAzureBlobStorageArgs {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
+     */
+    sasTokenLinkedKeyVaultKey?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey>;
     /**
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */

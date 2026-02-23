@@ -5941,7 +5941,7 @@ class KubernetesClusterLinuxProfile(dict):
                  ssh_key: 'outputs.KubernetesClusterLinuxProfileSshKey'):
         """
         :param _builtins.str admin_username: The Admin Username for the Cluster. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterLinuxProfileSshKeyArgs' ssh_key: An `ssh_key` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+        :param 'KubernetesClusterLinuxProfileSshKeyArgs' ssh_key: An `ssh_key` block as defined below.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh_key", ssh_key)
@@ -5958,7 +5958,7 @@ class KubernetesClusterLinuxProfile(dict):
     @pulumi.getter(name="sshKey")
     def ssh_key(self) -> 'outputs.KubernetesClusterLinuxProfileSshKey':
         """
-        An `ssh_key` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+        An `ssh_key` block as defined below.
         """
         return pulumi.get(self, "ssh_key")
 
@@ -6660,7 +6660,7 @@ class KubernetesClusterNetworkProfile(dict):
                
                > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
                
-               > **Note:** Upgrading `network_policy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+               > **Note:** Upgrading `network_policy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
         :param _builtins.str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
                
                > **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -6811,7 +6811,7 @@ class KubernetesClusterNetworkProfile(dict):
 
         > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
 
-        > **Note:** Upgrading `network_policy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+        > **Note:** Upgrading `network_policy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
         """
         return pulumi.get(self, "network_policy")
 

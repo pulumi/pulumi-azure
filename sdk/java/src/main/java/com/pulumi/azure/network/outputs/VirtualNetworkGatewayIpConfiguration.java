@@ -25,6 +25,8 @@ public final class VirtualNetworkGatewayIpConfiguration {
     /**
      * @return The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
+     * &gt; **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
+     * 
      */
     private @Nullable String publicIpAddressId;
     /**
@@ -50,6 +52,8 @@ public final class VirtualNetworkGatewayIpConfiguration {
     }
     /**
      * @return The ID of the public IP address to associate with the Virtual Network Gateway.
+     * 
+     * &gt; **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
      * 
      */
     public Optional<String> publicIpAddressId() {

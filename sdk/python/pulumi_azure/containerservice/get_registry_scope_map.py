@@ -121,7 +121,7 @@ def get_registry_scope_map(container_registry_name: Optional[_builtins.str] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry` - 2025-04-01
+    * `Microsoft.ContainerRegistry` - 2025-11-01
 
 
     :param _builtins.str container_registry_name: The Name of the Container Registry where the token exists.
@@ -166,7 +166,7 @@ def get_registry_scope_map_output(container_registry_name: Optional[pulumi.Input
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry` - 2025-04-01
+    * `Microsoft.ContainerRegistry` - 2025-11-01
 
 
     :param _builtins.str container_registry_name: The Name of the Container Registry where the token exists.

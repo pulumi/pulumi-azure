@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry` - 2025-04-01
+ * * `Microsoft.ContainerRegistry` - 2025-11-01
  */
 export function getRegistryScopeMap(args: GetRegistryScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryScopeMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,7 +94,7 @@ export interface GetRegistryScopeMapResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry` - 2025-04-01
+ * * `Microsoft.ContainerRegistry` - 2025-11-01
  */
 export function getRegistryScopeMapOutput(args: GetRegistryScopeMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryScopeMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

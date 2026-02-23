@@ -105,8 +105,12 @@ type RunBook struct {
 	PublishContentLink RunBookPublishContentLinkPtrOutput `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
 	RunbookType pulumi.StringOutput `pulumi:"runbookType"`
+	// The runtime environment name for the runbook.
+	//
+	// > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+	RuntimeEnvironmentName pulumi.StringPtrOutput `pulumi:"runtimeEnvironmentName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -184,8 +188,12 @@ type runBookState struct {
 	PublishContentLink *RunBookPublishContentLink `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
 	RunbookType *string `pulumi:"runbookType"`
+	// The runtime environment name for the runbook.
+	//
+	// > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+	RuntimeEnvironmentName *string `pulumi:"runtimeEnvironmentName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -219,8 +227,12 @@ type RunBookState struct {
 	PublishContentLink RunBookPublishContentLinkPtrInput
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
 	RunbookType pulumi.StringPtrInput
+	// The runtime environment name for the runbook.
+	//
+	// > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+	RuntimeEnvironmentName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -258,8 +270,12 @@ type runBookArgs struct {
 	PublishContentLink *RunBookPublishContentLink `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
 	RunbookType string `pulumi:"runbookType"`
+	// The runtime environment name for the runbook.
+	//
+	// > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+	RuntimeEnvironmentName *string `pulumi:"runtimeEnvironmentName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -294,8 +310,12 @@ type RunBookArgs struct {
 	PublishContentLink RunBookPublishContentLinkPtrInput
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
 	RunbookType pulumi.StringInput
+	// The runtime environment name for the runbook.
+	//
+	// > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+	RuntimeEnvironmentName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -451,9 +471,16 @@ func (o RunBookOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
 func (o RunBookOutput) RunbookType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringOutput { return v.RunbookType }).(pulumi.StringOutput)
+}
+
+// The runtime environment name for the runbook.
+//
+// > **Note:** The `runbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+func (o RunBookOutput) RuntimeEnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBook) pulumi.StringPtrOutput { return v.RuntimeEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

@@ -92,14 +92,14 @@ public final class ExpressRoutePortLink2Args extends com.pulumi.resources.Resour
     }
 
     /**
-     * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+     * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
      * 
      */
     @Import(name="macsecCipher")
     private @Nullable Output<String> macsecCipher;
 
     /**
-     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+     * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
      * 
      */
     public Optional<Output<String>> macsecCipher() {
@@ -325,7 +325,7 @@ public final class ExpressRoutePortLink2Args extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param macsecCipher The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         * @param macsecCipher The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ExpressRoutePortLink2Args extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param macsecCipher The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         * @param macsecCipher The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
          * 
          * @return builder
          * 

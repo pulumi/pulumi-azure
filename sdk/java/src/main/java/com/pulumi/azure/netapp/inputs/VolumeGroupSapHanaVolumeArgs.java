@@ -70,6 +70,21 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    @Import(name="encryptionKeySource")
+    private @Nullable Output<String> encryptionKeySource;
+
+    /**
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<Output<String>> encryptionKeySource() {
+        return Optional.ofNullable(this.encryptionKeySource);
+    }
+
+    /**
      * One or more `exportPolicyRule` blocks as defined below.
      * 
      */
@@ -99,6 +114,21 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    @Import(name="keyVaultPrivateEndpointId")
+    private @Nullable Output<String> keyVaultPrivateEndpointId;
+
+    /**
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<Output<String>> keyVaultPrivateEndpointId() {
+        return Optional.ofNullable(this.keyVaultPrivateEndpointId);
+    }
+
     @Import(name="mountIpAddresses")
     private @Nullable Output<List<String>> mountIpAddresses;
 
@@ -119,6 +149,21 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    @Import(name="networkFeatures")
+    private @Nullable Output<String> networkFeatures;
+
+    /**
+     * @return Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<Output<String>> networkFeatures() {
+        return Optional.ofNullable(this.networkFeatures);
     }
 
     /**
@@ -290,16 +335,34 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         return this.volumeSpecName;
     }
 
+    /**
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    @Import(name="zone")
+    private @Nullable Output<String> zone;
+
+    /**
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<Output<String>> zone() {
+        return Optional.ofNullable(this.zone);
+    }
+
     private VolumeGroupSapHanaVolumeArgs() {}
 
     private VolumeGroupSapHanaVolumeArgs(VolumeGroupSapHanaVolumeArgs $) {
         this.capacityPoolId = $.capacityPoolId;
         this.dataProtectionReplication = $.dataProtectionReplication;
         this.dataProtectionSnapshotPolicy = $.dataProtectionSnapshotPolicy;
+        this.encryptionKeySource = $.encryptionKeySource;
         this.exportPolicyRules = $.exportPolicyRules;
         this.id = $.id;
+        this.keyVaultPrivateEndpointId = $.keyVaultPrivateEndpointId;
         this.mountIpAddresses = $.mountIpAddresses;
         this.name = $.name;
+        this.networkFeatures = $.networkFeatures;
         this.protocols = $.protocols;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.securityStyle = $.securityStyle;
@@ -311,6 +374,7 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         this.throughputInMibps = $.throughputInMibps;
         this.volumePath = $.volumePath;
         this.volumeSpecName = $.volumeSpecName;
+        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -395,6 +459,27 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeySource(@Nullable Output<String> encryptionKeySource) {
+            $.encryptionKeySource = encryptionKeySource;
+            return this;
+        }
+
+        /**
+         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeySource(String encryptionKeySource) {
+            return encryptionKeySource(Output.of(encryptionKeySource));
+        }
+
+        /**
          * @param exportPolicyRules One or more `exportPolicyRule` blocks as defined below.
          * 
          * @return builder
@@ -446,6 +531,27 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
             return id(Output.of(id));
         }
 
+        /**
+         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateEndpointId(@Nullable Output<String> keyVaultPrivateEndpointId) {
+            $.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateEndpointId(String keyVaultPrivateEndpointId) {
+            return keyVaultPrivateEndpointId(Output.of(keyVaultPrivateEndpointId));
+        }
+
         public Builder mountIpAddresses(@Nullable Output<List<String>> mountIpAddresses) {
             $.mountIpAddresses = mountIpAddresses;
             return this;
@@ -478,6 +584,27 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkFeatures Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkFeatures(@Nullable Output<String> networkFeatures) {
+            $.networkFeatures = networkFeatures;
+            return this;
+        }
+
+        /**
+         * @param networkFeatures Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkFeatures(String networkFeatures) {
+            return networkFeatures(Output.of(networkFeatures));
         }
 
         /**
@@ -713,6 +840,27 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
          */
         public Builder volumeSpecName(String volumeSpecName) {
             return volumeSpecName(Output.of(volumeSpecName));
+        }
+
+        /**
+         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(@Nullable Output<String> zone) {
+            $.zone = zone;
+            return this;
+        }
+
+        /**
+         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(String zone) {
+            return zone(Output.of(zone));
         }
 
         public VolumeGroupSapHanaVolumeArgs build() {

@@ -13,13 +13,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class LinkedServiceAzureBlobStorageKeyVaultSasToken
     {
-        /// <summary>
-        /// Specifies the name of an existing Key Vault Data Factory Linked Service.
-        /// </summary>
         public readonly string LinkedServiceName;
-        /// <summary>
-        /// Specifies the secret name in Azure Key Vault that stores the SAS token.
-        /// </summary>
         public readonly string SecretName;
 
         [OutputConstructor]
