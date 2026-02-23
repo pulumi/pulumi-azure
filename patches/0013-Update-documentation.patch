@@ -1278,7 +1278,7 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index 648b9135e0..8b916f9a0a 100644
+index 91eb44c178..47796496b0 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -12,7 +12,7 @@ Manages as an Azure Container Group instance.
@@ -1300,7 +1300,7 @@ index 648b9135e0..8b916f9a0a 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index c6a6894280..95d8f66ec1 100644
+index 3a58319de5..631871e729 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1512,7 +1512,7 @@ index 7af7cbe757..fa04b47d6a 100644
  For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
  
 diff --git a/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown b/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
-index 9722cc9944..74f91569de 100644
+index c50eed323f..284b991b5c 100644
 --- a/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -2137,7 +2137,7 @@ index e32bd341dd..3d783894ed 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 782081ca60..aaf2973411 100644
+index 4f76da00b8..a974ac1b80 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -3353,7 +3353,7 @@ index 8db03cba4b..a3aae2da47 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 934f0ba419..76df39a0bb 100644
+index 8de4436d4d..9b315a1cf6 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
 @@ -344,7 +344,7 @@ A `record_sets` block exports:
@@ -4058,10 +4058,10 @@ index d4ad3b0f9e..7caa5e6ec2 100644
  
  ## Import
 diff --git a/website/docs/r/subscription.html.markdown b/website/docs/r/subscription.html.markdown
-index 9e6cf31273..b9aaf425f8 100644
+index 621f052c31..40e5f1930d 100644
 --- a/website/docs/r/subscription.html.markdown
 +++ b/website/docs/r/subscription.html.markdown
-@@ -8,17 +8,17 @@ description: |-
+@@ -8,19 +8,19 @@ description: |-
  
  # azurerm_subscription
  
@@ -4079,12 +4079,15 @@ index 9e6cf31273..b9aaf425f8 100644
 -~> **Note:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in Terraform only a single Alias is supported.
 +~> **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in Terraform only a single Alias is supported.
  
+-~> **Note:** Subscription Aliases have their own RBAC scope, separate from the underlying Subscription. If an Alias already exists and the Service Principal lacks read/write permissions on that Alias, you may encounter a `401 Unauthorized` error. To resolve this, the Alias creator or a Global Administrator must assign the `Owner` role on the Alias scope to the Service Principal. Global Administrators may need to [elevate access](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) to gain visibility over all subscriptions before performing the role assignment.
++~> **NOTE:** Subscription Aliases have their own RBAC scope, separate from the underlying Subscription. If an Alias already exists and the Service Principal lacks read/write permissions on that Alias, you may encounter a `401 Unauthorized` error. To resolve this, the Alias creator or a Global Administrator must assign the `Owner` role on the Alias scope to the Service Principal. Global Administrators may need to [elevate access](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) to gain visibility over all subscriptions before performing the role assignment.
+ 
 -~> **Note:** When using this resource across tenants the `client_id` and `tenant_id` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details.
 +~> **NOTE:** When using this resource across tenants the `client_id` and `tenant_id` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details.
  
  ## Example Usage - creating a new Alias and Subscription for an Enrollment Account
  
-@@ -81,15 +81,15 @@ The following arguments are supported:
+@@ -83,15 +83,15 @@ The following arguments are supported:
  
  ---
  
@@ -4103,7 +4106,7 @@ index 9e6cf31273..b9aaf425f8 100644
  
  * `workload` - (Optional) The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
  
-@@ -120,8 +120,7 @@ Subscriptions can be imported using the `resource id`, e.g.
+@@ -122,8 +122,7 @@ Subscriptions can be imported using the `resource id`, e.g.
  terraform import azurerm_subscription.example "/providers/Microsoft.Subscription/aliases/subscription1"
  ```
  
@@ -4699,13 +4702,13 @@ index 0e31c3541e..a6079eb72e 100644
  
 --> **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 +-> **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
-+
-+~> **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
  
 -~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
-+~> **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
++~> **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
  
 -~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
++~> **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
++
 +* `vm_agent_platform_updates_enabled` - (Optional) Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
  
  * `vtpm_enabled` - (Optional) Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -4817,7 +4820,7 @@ index 0e31c3541e..a6079eb72e 100644
  ## Import
  
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 35f28de161..a21ed84c6b 100644
+index 1df47232f2..39224daf5c 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,17 @@ Manages a Windows Virtual Machine Scale Set.
