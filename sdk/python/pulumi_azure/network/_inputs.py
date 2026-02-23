@@ -4595,7 +4595,7 @@ class ApplicationGatewayWafConfigurationArgsDict(TypedDict):
     """
     rule_set_version: pulumi.Input[_builtins.str]
     """
-    The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+    The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
     """
     disabled_rule_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict']]]]
     """
@@ -4637,7 +4637,7 @@ class ApplicationGatewayWafConfigurationArgs:
         """
         :param pulumi.Input[_builtins.bool] enabled: Is the Web Application Firewall enabled?
         :param pulumi.Input[_builtins.str] firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-        :param pulumi.Input[_builtins.str] rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+        :param pulumi.Input[_builtins.str] rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]] disabled_rule_groups: One or more `disabled_rule_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
         :param pulumi.Input[_builtins.int] file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
@@ -4689,7 +4689,7 @@ class ApplicationGatewayWafConfigurationArgs:
     @pulumi.getter(name="ruleSetVersion")
     def rule_set_version(self) -> pulumi.Input[_builtins.str]:
         """
-        The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+        The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         """
         return pulumi.get(self, "rule_set_version")
 
@@ -4773,7 +4773,7 @@ class ApplicationGatewayWafConfigurationArgs:
 class ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict(TypedDict):
     rule_group_name: pulumi.Input[_builtins.str]
     """
-    The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+    The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
     """
     rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
     """
@@ -4786,7 +4786,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
                  rule_group_name: pulumi.Input[_builtins.str],
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] rule_group_name: The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+        :param pulumi.Input[_builtins.str] rule_group_name: The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] rules: A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
@@ -4797,7 +4797,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
     @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+        The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
         """
         return pulumi.get(self, "rule_group_name")
 
@@ -5464,7 +5464,7 @@ class ExpressRoutePortLink1ArgsDict(TypedDict):
     """
     macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+    The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
     """
     macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -5509,7 +5509,7 @@ class ExpressRoutePortLink1Args:
         :param pulumi.Input[_builtins.str] id: The ID of this Express Route Port Link.
         :param pulumi.Input[_builtins.str] interface_name: The interface name of the Azure router associated with the Express Route Port Link.
         :param pulumi.Input[_builtins.str] macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        :param pulumi.Input[_builtins.str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        :param pulumi.Input[_builtins.str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
         :param pulumi.Input[_builtins.str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param pulumi.Input[_builtins.bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
                
@@ -5605,7 +5605,7 @@ class ExpressRoutePortLink1Args:
     @pulumi.getter(name="macsecCipher")
     def macsec_cipher(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
         """
         return pulumi.get(self, "macsec_cipher")
 
@@ -5699,7 +5699,7 @@ class ExpressRoutePortLink2ArgsDict(TypedDict):
     """
     macsec_cipher: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+    The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
     """
     macsec_ckn_keyvault_secret_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -5744,7 +5744,7 @@ class ExpressRoutePortLink2Args:
         :param pulumi.Input[_builtins.str] id: The ID of this Express Route Port Link.
         :param pulumi.Input[_builtins.str] interface_name: The interface name of the Azure router associated with the Express Route Port Link.
         :param pulumi.Input[_builtins.str] macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-        :param pulumi.Input[_builtins.str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        :param pulumi.Input[_builtins.str] macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
         :param pulumi.Input[_builtins.str] macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param pulumi.Input[_builtins.bool] macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
                
@@ -5840,7 +5840,7 @@ class ExpressRoutePortLink2Args:
     @pulumi.getter(name="macsecCipher")
     def macsec_cipher(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
         """
         return pulumi.get(self, "macsec_cipher")
 
@@ -10615,7 +10615,7 @@ class PointToPointVpnGatewayConnectionConfigurationArgsDict(TypedDict):
     """
     internet_security_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
-    Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+    Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
     """
     route: NotRequired[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgsDict']]
     """
@@ -10632,7 +10632,7 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Connection Configuration.
         :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs'] vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
-        :param pulumi.Input[_builtins.bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs'] route: A `route` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -10670,7 +10670,7 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         """
         return pulumi.get(self, "internet_security_enabled")
 
@@ -13331,6 +13331,8 @@ class VirtualNetworkGatewayIpConfigurationArgsDict(TypedDict):
     public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The ID of the public IP address to associate with the Virtual Network Gateway.
+
+    > **Note:** `public_ip_address_id` should not be specified when `type` is set to `ExpressRoute`.
     """
 
 @pulumi.input_type
@@ -13345,6 +13347,8 @@ class VirtualNetworkGatewayIpConfigurationArgs:
         :param pulumi.Input[_builtins.str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
         :param pulumi.Input[_builtins.str] private_ip_address_allocation: Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the public IP address to associate with the Virtual Network Gateway.
+               
+               > **Note:** `public_ip_address_id` should not be specified when `type` is set to `ExpressRoute`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if name is not None:
@@ -13395,6 +13399,8 @@ class VirtualNetworkGatewayIpConfigurationArgs:
     def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID of the public IP address to associate with the Virtual Network Gateway.
+
+        > **Note:** `public_ip_address_id` should not be specified when `type` is set to `ExpressRoute`.
         """
         return pulumi.get(self, "public_ip_address_id")
 

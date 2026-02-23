@@ -582,7 +582,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerInstance` - 2023-05-01
+     * * `Microsoft.ContainerInstance` - 2025-09-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -633,7 +633,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerInstance` - 2023-05-01
+     * * `Microsoft.ContainerInstance` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -684,7 +684,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerInstance` - 2023-05-01
+     * * `Microsoft.ContainerInstance` - 2025-09-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -735,7 +735,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerInstance` - 2023-05-01
+     * * `Microsoft.ContainerInstance` - 2025-09-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
@@ -786,7 +786,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerInstance` - 2023-05-01
+     * * `Microsoft.ContainerInstance` - 2025-09-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -1560,7 +1560,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args) {
@@ -1609,7 +1609,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args) {
@@ -1658,7 +1658,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOptions options) {
@@ -1707,7 +1707,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOutputOptions options) {
@@ -1756,7 +1756,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
@@ -1886,7 +1886,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args) {
@@ -1936,7 +1936,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args) {
@@ -1986,7 +1986,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args, InvokeOptions options) {
@@ -2036,7 +2036,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args, InvokeOutputOptions options) {
@@ -2086,7 +2086,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args, InvokeOptions options) {
@@ -2136,7 +2136,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args) {
@@ -2186,7 +2186,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args) {
@@ -2236,7 +2236,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOptions options) {
@@ -2286,7 +2286,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOutputOptions options) {
@@ -2336,7 +2336,7 @@ public final class ContainerserviceFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ContainerRegistry` - 2025-04-01
+     * * `Microsoft.ContainerRegistry` - 2025-11-01
      * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args, InvokeOptions options) {

@@ -28,6 +28,7 @@ class FlexibleServerArgs:
                  authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
                  auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster: Optional[pulumi.Input['FlexibleServerClusterArgs']] = None,
                  create_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
                  delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -61,6 +62,7 @@ class FlexibleServerArgs:
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
+        :param pulumi.Input['FlexibleServerClusterArgs'] cluster: A `cluster` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -98,6 +100,8 @@ class FlexibleServerArgs:
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
                > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+               
+               > **Note:** Major version upgrades are not supported when `cluster` is specified.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
                
                > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
@@ -117,6 +121,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if customer_managed_key is not None:
@@ -245,6 +251,18 @@ class FlexibleServerArgs:
     @backup_retention_days.setter
     def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "backup_retention_days", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def cluster(self) -> Optional[pulumi.Input['FlexibleServerClusterArgs']]:
+        """
+        A `cluster` block as defined below.
+        """
+        return pulumi.get(self, "cluster")
+
+    @cluster.setter
+    def cluster(self, value: Optional[pulumi.Input['FlexibleServerClusterArgs']]):
+        pulumi.set(self, "cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
@@ -485,6 +503,8 @@ class FlexibleServerArgs:
         > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 
         > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+
+        > **Note:** Major version upgrades are not supported when `cluster` is specified.
         """
         return pulumi.get(self, "version")
 
@@ -518,6 +538,7 @@ class _FlexibleServerState:
                  authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
                  auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster: Optional[pulumi.Input['FlexibleServerClusterArgs']] = None,
                  create_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input['FlexibleServerCustomerManagedKeyArgs']] = None,
                  delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -552,6 +573,7 @@ class _FlexibleServerState:
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
+        :param pulumi.Input['FlexibleServerClusterArgs'] cluster: A `cluster` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         :param pulumi.Input['FlexibleServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -591,6 +613,8 @@ class _FlexibleServerState:
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
                > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+               
+               > **Note:** Major version upgrades are not supported when `cluster` is specified.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
                
                > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
@@ -609,6 +633,8 @@ class _FlexibleServerState:
             pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if customer_managed_key is not None:
@@ -729,6 +755,18 @@ class _FlexibleServerState:
     @backup_retention_days.setter
     def backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "backup_retention_days", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def cluster(self) -> Optional[pulumi.Input['FlexibleServerClusterArgs']]:
+        """
+        A `cluster` block as defined below.
+        """
+        return pulumi.get(self, "cluster")
+
+    @cluster.setter
+    def cluster(self, value: Optional[pulumi.Input['FlexibleServerClusterArgs']]):
+        pulumi.set(self, "cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
@@ -993,6 +1031,8 @@ class _FlexibleServerState:
         > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 
         > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+
+        > **Note:** Major version upgrades are not supported when `cluster` is specified.
         """
         return pulumi.get(self, "version")
 
@@ -1029,6 +1069,7 @@ class FlexibleServer(pulumi.CustomResource):
                  authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster: Optional[pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1155,6 +1196,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
+        :param pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']] cluster: A `cluster` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -1193,6 +1235,8 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
                > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+               
+               > **Note:** Major version upgrades are not supported when `cluster` is specified.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
                
                > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
@@ -1318,6 +1362,7 @@ class FlexibleServer(pulumi.CustomResource):
                  authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster: Optional[pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1354,6 +1399,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
             __props__.__dict__["backup_retention_days"] = backup_retention_days
+            __props__.__dict__["cluster"] = cluster
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
@@ -1396,6 +1442,7 @@ class FlexibleServer(pulumi.CustomResource):
             authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
             auto_grow_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+            cluster: Optional[pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']]] = None,
             create_mode: Optional[pulumi.Input[_builtins.str]] = None,
             customer_managed_key: Optional[pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
             delegated_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1435,6 +1482,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
+        :param pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']] cluster: A `cluster` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -1474,6 +1522,8 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
                > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+               
+               > **Note:** Major version upgrades are not supported when `cluster` is specified.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
                
                > **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use Terraform's `ignore_changes` functionality to ignore changes to the `zone` and `high_availability[0].standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over.
@@ -1490,6 +1540,7 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["authentication"] = authentication
         __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
         __props__.__dict__["backup_retention_days"] = backup_retention_days
+        __props__.__dict__["cluster"] = cluster
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
@@ -1565,6 +1616,14 @@ class FlexibleServer(pulumi.CustomResource):
         The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         """
         return pulumi.get(self, "backup_retention_days")
+
+    @_builtins.property
+    @pulumi.getter
+    def cluster(self) -> pulumi.Output[Optional['outputs.FlexibleServerCluster']]:
+        """
+        A `cluster` block as defined below.
+        """
+        return pulumi.get(self, "cluster")
 
     @_builtins.property
     @pulumi.getter(name="createMode")
@@ -1749,6 +1808,8 @@ class FlexibleServer(pulumi.CustomResource):
         > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 
         > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+
+        > **Note:** Major version upgrades are not supported when `cluster` is specified.
         """
         return pulumi.get(self, "version")
 

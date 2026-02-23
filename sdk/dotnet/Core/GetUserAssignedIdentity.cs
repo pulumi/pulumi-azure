@@ -187,6 +187,10 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The isolation scope for the User Assigned Identity.
+        /// </summary>
+        public readonly string IsolationScope;
+        /// <summary>
         /// The Azure location where the User Assigned Identity exists.
         /// </summary>
         public readonly string Location;
@@ -211,6 +215,8 @@ namespace Pulumi.Azure.Core
 
             string id,
 
+            string isolationScope,
+
             string location,
 
             string name,
@@ -225,6 +231,7 @@ namespace Pulumi.Azure.Core
         {
             ClientId = clientId;
             Id = id;
+            IsolationScope = isolationScope;
             Location = location;
             Name = name;
             PrincipalId = principalId;

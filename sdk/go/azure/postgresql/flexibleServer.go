@@ -172,6 +172,8 @@ type FlexibleServer struct {
 	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
+	// A `cluster` block as defined below.
+	Cluster FlexibleServerClusterPtrOutput `pulumi:"cluster"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
@@ -231,6 +233,8 @@ type FlexibleServer struct {
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+	//
+	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -296,6 +300,8 @@ type flexibleServerState struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// A `cluster` block as defined below.
+	Cluster *FlexibleServerCluster `pulumi:"cluster"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
@@ -355,6 +361,8 @@ type flexibleServerState struct {
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+	//
+	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
 	Version *string `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -381,6 +389,8 @@ type FlexibleServerState struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
+	// A `cluster` block as defined below.
+	Cluster FlexibleServerClusterPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
@@ -440,6 +450,8 @@ type FlexibleServerState struct {
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+	//
+	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
 	Version pulumi.StringPtrInput
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -470,6 +482,8 @@ type flexibleServerArgs struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// A `cluster` block as defined below.
+	Cluster *FlexibleServerCluster `pulumi:"cluster"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
@@ -527,6 +541,8 @@ type flexibleServerArgs struct {
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+	//
+	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
 	Version *string `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -554,6 +570,8 @@ type FlexibleServerArgs struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
+	// A `cluster` block as defined below.
+	Cluster FlexibleServerClusterPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
@@ -611,6 +629,8 @@ type FlexibleServerArgs struct {
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+	//
+	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
 	Version pulumi.StringPtrInput
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -741,6 +761,11 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.BackupRetentionDays }).(pulumi.IntOutput)
 }
 
+// A `cluster` block as defined below.
+func (o FlexibleServerOutput) Cluster() FlexibleServerClusterPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) FlexibleServerClusterPtrOutput { return v.Cluster }).(FlexibleServerClusterPtrOutput)
+}
+
 // The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
@@ -860,6 +885,8 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 // > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 //
 // > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+//
+// > **Note:** Major version upgrades are not supported when `cluster` is specified.
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

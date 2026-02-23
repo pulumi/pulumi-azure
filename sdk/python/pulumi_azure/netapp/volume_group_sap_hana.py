@@ -457,6 +457,211 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                 ]))
         ```
 
+        ### Example with Availability Zone and Customer-Managed Keys
+
+        This example demonstrates using availability zones instead of proximity placement groups, with customer-managed key encryption and Standard network features.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name=f"{prefix}-resources",
+            location=location)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name=f"{prefix}-vnet",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.88.0.0/16"])
+        example_delegated = azure.network.Subnet("example_delegated",
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.1.0/24"],
+            delegations=[{
+                "name": "netapp",
+                "service_delegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                },
+            }])
+        example_private_endpoint = azure.network.Subnet("example_private_endpoint",
+            name=f"{prefix}-pe-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.2.0/24"])
+        example_account = azure.netapp.Account("example",
+            name=f"{prefix}-netapp-account",
+            location=example.location,
+            resource_group_name=example.name,
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name=f"{prefix}kv",
+            location=example.location,
+            resource_group_name=example.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True,
+            soft_delete_retention_days=7,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True,
+            access_policies=[
+                {
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
+                        "Get",
+                        "Create",
+                        "Delete",
+                        "WrapKey",
+                        "UnwrapKey",
+                        "GetRotationPolicy",
+                        "SetRotationPolicy",
+                    ],
+                },
+                {
+                    "tenant_id": example_account.identity.tenant_id,
+                    "object_id": example_account.identity.principal_id,
+                    "key_permissions": [
+                        "Get",
+                        "Encrypt",
+                        "Decrypt",
+                    ],
+                },
+            ])
+        example_key = azure.keyvault.Key("example",
+            name=f"{prefix}-key",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ])
+        example_account_encryption = azure.netapp.AccountEncryption("example",
+            netapp_account_id=example_account.id,
+            system_assigned_identity_principal_id=example_account.identity.principal_id,
+            encryption_key=example_key.versionless_id)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name=f"{prefix}-pe-kv",
+            location=example.location,
+            resource_group_name=example.name,
+            subnet_id=example_private_endpoint.id,
+            private_service_connection={
+                "name": f"{prefix}-pe-sc-kv",
+                "private_connection_resource_id": example_key_vault.id,
+                "is_manual_connection": False,
+                "subresource_names": ["Vault"],
+            })
+        example_pool = azure.netapp.Pool("example",
+            name=f"{prefix}-netapp-pool",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            service_level="Standard",
+            size_in_tb=8,
+            qos_type="Manual",
+            opts = pulumi.ResourceOptions(depends_on=[example_account_encryption]))
+        example_volume_group_sap_hana = azure.netapp.VolumeGroupSapHana("example",
+            name=f"{prefix}-netapp-volumegroup",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            group_description="Test volume group with zone and CMK",
+            application_identifier="TST",
+            volumes=[
+                {
+                    "name": f"{prefix}-netapp-volume-data",
+                    "volume_path": "my-unique-file-path-data",
+                    "service_level": "Standard",
+                    "capacity_pool_id": example_pool.id,
+                    "subnet_id": example_delegated.id,
+                    "zone": "1",
+                    "volume_spec_name": "data",
+                    "storage_quota_in_gb": 1024,
+                    "throughput_in_mibps": 24,
+                    "protocols": "NFSv4.1",
+                    "security_style": "unix",
+                    "snapshot_directory_visible": False,
+                    "network_features": "Standard",
+                    "encryption_key_source": "Microsoft.KeyVault",
+                    "key_vault_private_endpoint_id": example_endpoint.id,
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-log",
+                    "volume_path": "my-unique-file-path-log",
+                    "service_level": "Standard",
+                    "capacity_pool_id": example_pool.id,
+                    "subnet_id": example_delegated.id,
+                    "zone": "1",
+                    "volume_spec_name": "log",
+                    "storage_quota_in_gb": 1024,
+                    "throughput_in_mibps": 24,
+                    "protocols": "NFSv4.1",
+                    "security_style": "unix",
+                    "snapshot_directory_visible": False,
+                    "network_features": "Standard",
+                    "encryption_key_source": "Microsoft.KeyVault",
+                    "key_vault_private_endpoint_id": example_endpoint.id,
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-shared",
+                    "volume_path": "my-unique-file-path-shared",
+                    "service_level": "Standard",
+                    "capacity_pool_id": example_pool.id,
+                    "subnet_id": example_delegated.id,
+                    "zone": "1",
+                    "volume_spec_name": "shared",
+                    "storage_quota_in_gb": 1024,
+                    "throughput_in_mibps": 24,
+                    "protocols": "NFSv4.1",
+                    "security_style": "unix",
+                    "snapshot_directory_visible": False,
+                    "network_features": "Standard",
+                    "encryption_key_source": "Microsoft.KeyVault",
+                    "key_vault_private_endpoint_id": example_endpoint.id,
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
+                },
+            ])
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
@@ -676,6 +881,211 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     example_linux_virtual_machine,
                     example_placement_group,
                 ]))
+        ```
+
+        ### Example with Availability Zone and Customer-Managed Keys
+
+        This example demonstrates using availability zones instead of proximity placement groups, with customer-managed key encryption and Standard network features.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name=f"{prefix}-resources",
+            location=location)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name=f"{prefix}-vnet",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.88.0.0/16"])
+        example_delegated = azure.network.Subnet("example_delegated",
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.1.0/24"],
+            delegations=[{
+                "name": "netapp",
+                "service_delegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                },
+            }])
+        example_private_endpoint = azure.network.Subnet("example_private_endpoint",
+            name=f"{prefix}-pe-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.2.0/24"])
+        example_account = azure.netapp.Account("example",
+            name=f"{prefix}-netapp-account",
+            location=example.location,
+            resource_group_name=example.name,
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name=f"{prefix}kv",
+            location=example.location,
+            resource_group_name=example.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True,
+            soft_delete_retention_days=7,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True,
+            access_policies=[
+                {
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
+                        "Get",
+                        "Create",
+                        "Delete",
+                        "WrapKey",
+                        "UnwrapKey",
+                        "GetRotationPolicy",
+                        "SetRotationPolicy",
+                    ],
+                },
+                {
+                    "tenant_id": example_account.identity.tenant_id,
+                    "object_id": example_account.identity.principal_id,
+                    "key_permissions": [
+                        "Get",
+                        "Encrypt",
+                        "Decrypt",
+                    ],
+                },
+            ])
+        example_key = azure.keyvault.Key("example",
+            name=f"{prefix}-key",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ])
+        example_account_encryption = azure.netapp.AccountEncryption("example",
+            netapp_account_id=example_account.id,
+            system_assigned_identity_principal_id=example_account.identity.principal_id,
+            encryption_key=example_key.versionless_id)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name=f"{prefix}-pe-kv",
+            location=example.location,
+            resource_group_name=example.name,
+            subnet_id=example_private_endpoint.id,
+            private_service_connection={
+                "name": f"{prefix}-pe-sc-kv",
+                "private_connection_resource_id": example_key_vault.id,
+                "is_manual_connection": False,
+                "subresource_names": ["Vault"],
+            })
+        example_pool = azure.netapp.Pool("example",
+            name=f"{prefix}-netapp-pool",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            service_level="Standard",
+            size_in_tb=8,
+            qos_type="Manual",
+            opts = pulumi.ResourceOptions(depends_on=[example_account_encryption]))
+        example_volume_group_sap_hana = azure.netapp.VolumeGroupSapHana("example",
+            name=f"{prefix}-netapp-volumegroup",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            group_description="Test volume group with zone and CMK",
+            application_identifier="TST",
+            volumes=[
+                {
+                    "name": f"{prefix}-netapp-volume-data",
+                    "volume_path": "my-unique-file-path-data",
+                    "service_level": "Standard",
+                    "capacity_pool_id": example_pool.id,
+                    "subnet_id": example_delegated.id,
+                    "zone": "1",
+                    "volume_spec_name": "data",
+                    "storage_quota_in_gb": 1024,
+                    "throughput_in_mibps": 24,
+                    "protocols": "NFSv4.1",
+                    "security_style": "unix",
+                    "snapshot_directory_visible": False,
+                    "network_features": "Standard",
+                    "encryption_key_source": "Microsoft.KeyVault",
+                    "key_vault_private_endpoint_id": example_endpoint.id,
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-log",
+                    "volume_path": "my-unique-file-path-log",
+                    "service_level": "Standard",
+                    "capacity_pool_id": example_pool.id,
+                    "subnet_id": example_delegated.id,
+                    "zone": "1",
+                    "volume_spec_name": "log",
+                    "storage_quota_in_gb": 1024,
+                    "throughput_in_mibps": 24,
+                    "protocols": "NFSv4.1",
+                    "security_style": "unix",
+                    "snapshot_directory_visible": False,
+                    "network_features": "Standard",
+                    "encryption_key_source": "Microsoft.KeyVault",
+                    "key_vault_private_endpoint_id": example_endpoint.id,
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-shared",
+                    "volume_path": "my-unique-file-path-shared",
+                    "service_level": "Standard",
+                    "capacity_pool_id": example_pool.id,
+                    "subnet_id": example_delegated.id,
+                    "zone": "1",
+                    "volume_spec_name": "shared",
+                    "storage_quota_in_gb": 1024,
+                    "throughput_in_mibps": 24,
+                    "protocols": "NFSv4.1",
+                    "security_style": "unix",
+                    "snapshot_directory_visible": False,
+                    "network_features": "Standard",
+                    "encryption_key_source": "Microsoft.KeyVault",
+                    "key_vault_private_endpoint_id": example_endpoint.id,
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
+                },
+            ])
         ```
 
         ## API Providers

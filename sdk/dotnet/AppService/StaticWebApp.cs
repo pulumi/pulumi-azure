@@ -64,6 +64,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A key-value pair of App Settings.
+        /// 
+        /// &gt; **Note:** If using the `ApiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `RepositoryBranch` and `RepositoryUrl` will get updated in Azure, but it is not possible to set `RepositoryToken` in that case. Use a `Lifecycle` block to `IgnoreChanges` for `RepositoryBranch` and`RepositoryUrl` if that is your deployment scenario.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
@@ -215,6 +217,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A key-value pair of App Settings.
+        /// 
+        /// &gt; **Note:** If using the `ApiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `RepositoryBranch` and `RepositoryUrl` will get updated in Azure, but it is not possible to set `RepositoryToken` in that case. Use a `Lifecycle` block to `IgnoreChanges` for `RepositoryBranch` and`RepositoryUrl` if that is your deployment scenario.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -361,6 +365,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// A key-value pair of App Settings.
+        /// 
+        /// &gt; **Note:** If using the `ApiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `RepositoryBranch` and `RepositoryUrl` will get updated in Azure, but it is not possible to set `RepositoryToken` in that case. Use a `Lifecycle` block to `IgnoreChanges` for `RepositoryBranch` and`RepositoryUrl` if that is your deployment scenario.
         /// </summary>
         public InputMap<string> AppSettings
         {

@@ -325,7 +325,7 @@ type ManagedInstance struct {
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
-	ProxyOverride pulumi.StringPtrOutput `pulumi:"proxyOverride"`
+	ProxyOverride pulumi.StringOutput `pulumi:"proxyOverride"`
 	// Is the public data endpoint enabled? Defaults to `false`.
 	PublicDataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"publicDataEndpointEnabled"`
 	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
@@ -840,8 +840,8 @@ func (o ManagedInstanceOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
-func (o ManagedInstanceOutput) ProxyOverride() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.ProxyOverride }).(pulumi.StringPtrOutput)
+func (o ManagedInstanceOutput) ProxyOverride() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.ProxyOverride }).(pulumi.StringOutput)
 }
 
 // Is the public data endpoint enabled? Defaults to `false`.

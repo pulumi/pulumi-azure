@@ -1681,7 +1681,7 @@ class ManagedInstance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="proxyOverride")
-    def proxy_override(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def proxy_override(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
         """

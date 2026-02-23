@@ -77,6 +77,8 @@ type GetUserAssignedIdentityResult struct {
 	ClientId string `pulumi:"clientId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The isolation scope for the User Assigned Identity.
+	IsolationScope string `pulumi:"isolationScope"`
 	// The Azure location where the User Assigned Identity exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
@@ -133,6 +135,11 @@ func (o GetUserAssignedIdentityResultOutput) ClientId() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetUserAssignedIdentityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAssignedIdentityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The isolation scope for the User Assigned Identity.
+func (o GetUserAssignedIdentityResultOutput) IsolationScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserAssignedIdentityResult) string { return v.IsolationScope }).(pulumi.StringOutput)
 }
 
 // The Azure location where the User Assigned Identity exists.

@@ -38,7 +38,6 @@ namespace Pulumi.Azure.ArmMsi
     ///     var exampleFederatedIdentityCredential = new Azure.ArmMsi.FederatedIdentityCredential("example", new()
     ///     {
     ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
     ///         Audience = "foo",
     ///         Issuer = "https://foo",
     ///         ParentId = exampleUserAssignedIdentity.Id,
@@ -90,9 +89,6 @@ namespace Pulumi.Azure.ArmMsi
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -172,11 +168,8 @@ namespace Pulumi.Azure.ArmMsi
         [Input("parentId", required: true)]
         public Input<string> ParentId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Specifies the subject for this Federated Identity Credential.
@@ -216,9 +209,6 @@ namespace Pulumi.Azure.ArmMsi
         [Input("parentId")]
         public Input<string>? ParentId { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

@@ -233,7 +233,7 @@ class EndpointPrivateDnsZoneConfigArgsDict(TypedDict):
     """
     private_dns_zone_id: NotRequired[pulumi.Input[_builtins.str]]
     """
-    A list of IP Addresses
+    The ID of the Private DNS Zone that the config belongs to.
     """
     record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgsDict']]]]
     """
@@ -250,7 +250,7 @@ class EndpointPrivateDnsZoneConfigArgs:
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Private DNS Zone Config.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] private_dns_zone_id: A list of IP Addresses
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: The ID of the Private DNS Zone that the config belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]] record_sets: A `record_sets` block as defined below.
         """
         if id is not None:
@@ -290,7 +290,7 @@ class EndpointPrivateDnsZoneConfigArgs:
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A list of IP Addresses
+        The ID of the Private DNS Zone that the config belongs to.
         """
         return pulumi.get(self, "private_dns_zone_id")
 

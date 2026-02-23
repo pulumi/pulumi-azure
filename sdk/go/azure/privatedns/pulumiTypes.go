@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LinkServiceNatIpConfiguration struct {
-	// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+	// Specifies the name which should be used for the NAT IP Configuration.
 	Name string `pulumi:"name"`
-	// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+	// Is this is the Primary IP Configuration?
 	Primary bool `pulumi:"primary"`
 	// Specifies a Private Static IP Address for this IP Configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -40,9 +40,9 @@ type LinkServiceNatIpConfigurationInput interface {
 }
 
 type LinkServiceNatIpConfigurationArgs struct {
-	// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+	// Specifies the name which should be used for the NAT IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+	// Is this is the Primary IP Configuration?
 	Primary pulumi.BoolInput `pulumi:"primary"`
 	// Specifies a Private Static IP Address for this IP Configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
@@ -105,12 +105,12 @@ func (o LinkServiceNatIpConfigurationOutput) ToLinkServiceNatIpConfigurationOutp
 	return o
 }
 
-// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+// Specifies the name which should be used for the NAT IP Configuration.
 func (o LinkServiceNatIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkServiceNatIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+// Is this is the Primary IP Configuration?
 func (o LinkServiceNatIpConfigurationOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v LinkServiceNatIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }

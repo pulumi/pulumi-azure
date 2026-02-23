@@ -30,6 +30,12 @@ namespace Pulumi.Azure.NetApp.Inputs
         [Input("dataProtectionSnapshotPolicy")]
         public Input<Inputs.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyGetArgs>? DataProtectionSnapshotPolicy { get; set; }
 
+        /// <summary>
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `KeyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        [Input("encryptionKeySource")]
+        public Input<string>? EncryptionKeySource { get; set; }
+
         [Input("exportPolicyRules", required: true)]
         private InputList<Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleGetArgs>? _exportPolicyRules;
 
@@ -48,6 +54,12 @@ namespace Pulumi.Azure.NetApp.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `EncryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        [Input("keyVaultPrivateEndpointId")]
+        public Input<string>? KeyVaultPrivateEndpointId { get; set; }
+
         [Input("mountIpAddresses")]
         private InputList<string>? _mountIpAddresses;
         public InputList<string> MountIpAddresses
@@ -61,6 +73,12 @@ namespace Pulumi.Azure.NetApp.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        [Input("networkFeatures")]
+        public Input<string>? NetworkFeatures { get; set; }
 
         /// <summary>
         /// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `Nfsv3Enabled = false` and `Nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
@@ -135,6 +153,12 @@ namespace Pulumi.Azure.NetApp.Inputs
         /// </summary>
         [Input("volumeSpecName", required: true)]
         public Input<string> VolumeSpecName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public VolumeGroupSapHanaVolumeGetArgs()
         {

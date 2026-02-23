@@ -225,7 +225,7 @@ class ApiKey(pulumi.CustomResource):
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
-            sku="standardv2_Monthly",
+            sku="standardv3_Monthly",
             location=example.location,
             automatic_upgrade_channel="stable",
             frontend_public={
@@ -312,7 +312,7 @@ class ApiKey(pulumi.CustomResource):
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
-            sku="standardv2_Monthly",
+            sku="standardv3_Monthly",
             location=example.location,
             automatic_upgrade_channel="stable",
             frontend_public={

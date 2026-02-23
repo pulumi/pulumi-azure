@@ -31,6 +31,7 @@ __all__ = [
     'GetCloudVmClusterFileSystemConfigurationResult',
     'GetCloudVmClusterIormConfigCacheResult',
     'GetCloudVmClusterIormConfigCacheDbPlanResult',
+    'GetDatabaseSystemVersionsVersionResult',
     'GetDbNodesDbNodeResult',
     'GetDbServersDbServerResult',
     'GetDbSystemShapesDbSystemShapeResult',
@@ -910,6 +911,57 @@ class GetCloudVmClusterIormConfigCacheDbPlanResult(dict):
         The relative priority of this database.
         """
         return pulumi.get(self, "share")
+
+
+@pulumi.output_type
+class GetDatabaseSystemVersionsVersionResult(dict):
+    def __init__(__self__, *,
+                 latest_version: _builtins.bool,
+                 name: _builtins.str,
+                 pluggable_database_supported: _builtins.bool,
+                 version: _builtins.str):
+        """
+        :param _builtins.bool latest_version: Indicates if this version of the Oracle Database software is the latest version for a release.
+        :param _builtins.str name: The name of the Oracle Database version.
+        :param _builtins.bool pluggable_database_supported: Indicates if this version of the Oracle Database software supports pluggable databases.
+        :param _builtins.str version: The value of the Oracle Database version.
+        """
+        pulumi.set(__self__, "latest_version", latest_version)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pluggable_database_supported", pluggable_database_supported)
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> _builtins.bool:
+        """
+        Indicates if this version of the Oracle Database software is the latest version for a release.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the Oracle Database version.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="pluggableDatabaseSupported")
+    def pluggable_database_supported(self) -> _builtins.bool:
+        """
+        Indicates if this version of the Oracle Database software supports pluggable databases.
+        """
+        return pulumi.get(self, "pluggable_database_supported")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        The value of the Oracle Database version.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

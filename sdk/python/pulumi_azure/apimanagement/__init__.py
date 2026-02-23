@@ -67,6 +67,7 @@ from .user import *
 from .workspace import *
 from .workspace_api_version_set import *
 from .workspace_certificate import *
+from .workspace_named_value import *
 from .workspace_policy import *
 from .workspace_policy_fragment import *
 from ._inputs import *

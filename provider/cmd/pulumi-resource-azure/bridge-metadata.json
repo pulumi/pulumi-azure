@@ -913,6 +913,18 @@
                 "current": "azure:apimanagement/workspaceCertificate:WorkspaceCertificate",
                 "majorVersion": 6
             },
+            "azurerm_api_management_workspace_named_value": {
+                "current": "azure:apimanagement/workspaceNamedValue:WorkspaceNamedValue",
+                "majorVersion": 6,
+                "fields": {
+                    "tags": {
+                        "maxItemsOne": false
+                    },
+                    "value_from_key_vault": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_api_management_workspace_policy": {
                 "current": "azure:apimanagement/workspacePolicy:WorkspacePolicy",
                 "majorVersion": 6
@@ -5701,6 +5713,9 @@
                     "key_vault_sas_token": {
                         "maxItemsOne": true
                     },
+                    "sas_token_linked_key_vault_key": {
+                        "maxItemsOne": true
+                    },
                     "service_principal_linked_key_vault_key": {
                         "maxItemsOne": true
                     }
@@ -5899,6 +5914,21 @@
                 "fields": {
                     "annotations": {
                         "maxItemsOne": false
+                    },
+                    "key_vault_password": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_data_factory_linked_service_sql_managed_instance": {
+                "current": "azure:datafactory/linkedServiceSqlManagedInstance:LinkedServiceSqlManagedInstance",
+                "majorVersion": 6,
+                "fields": {
+                    "annotations": {
+                        "maxItemsOne": false
+                    },
+                    "key_vault_connection_string": {
+                        "maxItemsOne": true
                     },
                     "key_vault_password": {
                         "maxItemsOne": true
@@ -13907,6 +13937,10 @@
                     }
                 }
             },
+            "azurerm_managed_redis_access_policy_assignment": {
+                "current": "azure:managedredis/accessPolicyAssignment:AccessPolicyAssignment",
+                "majorVersion": 6
+            },
             "azurerm_managed_redis_geo_replication": {
                 "current": "azure:managedredis/geoReplication:GeoReplication",
                 "majorVersion": 6,
@@ -17342,6 +17376,9 @@
                 "majorVersion": 6,
                 "fields": {
                     "authentication": {
+                        "maxItemsOne": true
+                    },
+                    "cluster": {
                         "maxItemsOne": true
                     },
                     "customer_managed_key": {
@@ -25699,6 +25736,22 @@
                     }
                 }
             },
+            "azurerm_cognitive_account_project": {
+                "current": "azure:cognitive/getAccountProject:getAccountProject",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_communication_service": {
                 "current": "azure:communication/getService:getService",
                 "majorVersion": 6
@@ -28727,6 +28780,10 @@
                     }
                 }
             },
+            "azurerm_managed_redis_access_policy_assignment": {
+                "current": "azure:managedredis/getAccessPolicyAssignment:getAccessPolicyAssignment",
+                "majorVersion": 6
+            },
             "azurerm_management_group": {
                 "current": "azure:management/getGroup:getGroup",
                 "majorVersion": 6,
@@ -29787,6 +29844,15 @@
                         "maxItemsOne": false
                     },
                     "vip_ods": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_database_system_versions": {
+                "current": "azure:oracle/getDatabaseSystemVersions:getDatabaseSystemVersions",
+                "majorVersion": 6,
+                "fields": {
+                    "versions": {
                         "maxItemsOne": false
                     }
                 }

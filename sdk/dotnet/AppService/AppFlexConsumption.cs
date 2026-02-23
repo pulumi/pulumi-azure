@@ -269,7 +269,9 @@ namespace Pulumi.Azure.AppService
         public Output<string> RuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `Node`, `3.10`, `3.11` for `Python`, `11`, `17` for `Java`, `7.4` for `Powershell`.
+        /// The Runtime version of the Linux Function App. Accepted values varies with the value of `RuntimeName`.
+        /// 
+        /// &gt; **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         /// </summary>
         [Output("runtimeVersion")]
         public Output<string> RuntimeVersion { get; private set; } = null!;
@@ -558,7 +560,9 @@ namespace Pulumi.Azure.AppService
         public Input<string> RuntimeName { get; set; } = null!;
 
         /// <summary>
-        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `Node`, `3.10`, `3.11` for `Python`, `11`, `17` for `Java`, `7.4` for `Powershell`.
+        /// The Runtime version of the Linux Function App. Accepted values varies with the value of `RuntimeName`.
+        /// 
+        /// &gt; **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         /// </summary>
         [Input("runtimeVersion", required: true)]
         public Input<string> RuntimeVersion { get; set; } = null!;
@@ -874,7 +878,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? RuntimeName { get; set; }
 
         /// <summary>
-        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `Node`, `3.10`, `3.11` for `Python`, `11`, `17` for `Java`, `7.4` for `Powershell`.
+        /// The Runtime version of the Linux Function App. Accepted values varies with the value of `RuntimeName`.
+        /// 
+        /// &gt; **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }

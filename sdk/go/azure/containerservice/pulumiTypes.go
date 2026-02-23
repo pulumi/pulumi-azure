@@ -12081,7 +12081,7 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) UserAssignedIdentityId() pulu
 type KubernetesClusterLinuxProfile struct {
 	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+	// An `sshKey` block as defined below.
 	SshKey KubernetesClusterLinuxProfileSshKey `pulumi:"sshKey"`
 }
 
@@ -12099,7 +12099,7 @@ type KubernetesClusterLinuxProfileInput interface {
 type KubernetesClusterLinuxProfileArgs struct {
 	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+	// An `sshKey` block as defined below.
 	SshKey KubernetesClusterLinuxProfileSshKeyInput `pulumi:"sshKey"`
 }
 
@@ -12185,7 +12185,7 @@ func (o KubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput
 	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+// An `sshKey` block as defined below.
 func (o KubernetesClusterLinuxProfileOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
 	return o.ApplyT(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
@@ -12224,7 +12224,7 @@ func (o KubernetesClusterLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+// An `sshKey` block as defined below.
 func (o KubernetesClusterLinuxProfilePtrOutput) SshKey() KubernetesClusterLinuxProfileSshKeyPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterLinuxProfile) *KubernetesClusterLinuxProfileSshKey {
 		if v == nil {
@@ -13925,7 +13925,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	//
-	// > **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+	// > **Note:** Upgrading `networkPolicy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
 	//
@@ -13999,7 +13999,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	//
-	// > **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+	// > **Note:** Upgrading `networkPolicy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
 	//
@@ -14174,7 +14174,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.String
 //
 // > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 //
-// > **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+// > **Note:** Upgrading `networkPolicy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
@@ -14356,7 +14356,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.Str
 //
 // > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 //
-// > **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+// > **Note:** Upgrading `networkPolicy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {

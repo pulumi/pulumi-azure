@@ -23,12 +23,16 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A key-value pair of App Settings.
      * 
+     * &gt; **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
+     * 
      */
     @Import(name="appSettings")
     private @Nullable Output<Map<String,String>> appSettings;
 
     /**
      * @return A key-value pair of App Settings.
+     * 
+     * &gt; **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -286,6 +290,8 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A key-value pair of App Settings.
          * 
+         * &gt; **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
+         * 
          * @return builder
          * 
          */
@@ -296,6 +302,8 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param appSettings A key-value pair of App Settings.
+         * 
+         * &gt; **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
          * 
          * @return builder
          * 

@@ -360,7 +360,7 @@ type EndpointPrivateDnsZoneConfig struct {
 	Id *string `pulumi:"id"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of IP Addresses
+	// The ID of the Private DNS Zone that the config belongs to.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// A `recordSets` block as defined below.
 	RecordSets []EndpointPrivateDnsZoneConfigRecordSet `pulumi:"recordSets"`
@@ -382,7 +382,7 @@ type EndpointPrivateDnsZoneConfigArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A list of IP Addresses
+	// The ID of the Private DNS Zone that the config belongs to.
 	PrivateDnsZoneId pulumi.StringPtrInput `pulumi:"privateDnsZoneId"`
 	// A `recordSets` block as defined below.
 	RecordSets EndpointPrivateDnsZoneConfigRecordSetArrayInput `pulumi:"recordSets"`
@@ -449,7 +449,7 @@ func (o EndpointPrivateDnsZoneConfigOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateDnsZoneConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A list of IP Addresses
+// The ID of the Private DNS Zone that the config belongs to.
 func (o EndpointPrivateDnsZoneConfigOutput) PrivateDnsZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateDnsZoneConfig) *string { return v.PrivateDnsZoneId }).(pulumi.StringPtrOutput)
 }

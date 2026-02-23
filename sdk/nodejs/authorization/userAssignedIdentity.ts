@@ -78,6 +78,10 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly clientId: pulumi.Output<string>;
     /**
+     * The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+     */
+    declare public readonly isolationScope: pulumi.Output<string | undefined>;
+    /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
     declare public readonly location: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as UserAssignedIdentityState | undefined;
             resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["isolationScope"] = state?.isolationScope;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["principalId"] = state?.principalId;
@@ -127,6 +132,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["isolationScope"] = args?.isolationScope;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -150,6 +156,10 @@ export interface UserAssignedIdentityState {
      * The ID of the app associated with the Identity.
      */
     clientId?: pulumi.Input<string>;
+    /**
+     * The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+     */
+    isolationScope?: pulumi.Input<string>;
     /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
@@ -180,6 +190,10 @@ export interface UserAssignedIdentityState {
  * The set of arguments for constructing a UserAssignedIdentity resource.
  */
 export interface UserAssignedIdentityArgs {
+    /**
+     * The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+     */
+    isolationScope?: pulumi.Input<string>;
     /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */

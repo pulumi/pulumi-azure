@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LinkedServiceAzureBlobStorageKeyVaultSasToken {
-    /**
-     * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     private String linkedServiceName;
-    /**
-     * @return Specifies the secret name in Azure Key Vault that stores the SAS token.
-     * 
-     */
     private String secretName;
 
     private LinkedServiceAzureBlobStorageKeyVaultSasToken() {}
-    /**
-     * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
-     * 
-     */
     public String linkedServiceName() {
         return this.linkedServiceName;
     }
-    /**
-     * @return Specifies the secret name in Azure Key Vault that stores the SAS token.
-     * 
-     */
     public String secretName() {
         return this.secretName;
     }

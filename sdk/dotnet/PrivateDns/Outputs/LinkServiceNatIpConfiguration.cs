@@ -14,11 +14,11 @@ namespace Pulumi.Azure.PrivateDns.Outputs
     public sealed class LinkServiceNatIpConfiguration
     {
         /// <summary>
-        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+        /// Specifies the name which should be used for the NAT IP Configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        /// Is this is the Primary IP Configuration?
         /// </summary>
         public readonly bool Primary;
         /// <summary>

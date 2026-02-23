@@ -4,8 +4,11 @@
 package com.pulumi.azure.managedredis;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
+import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentPlainArgs;
 import com.pulumi.azure.managedredis.inputs.GetArgs;
 import com.pulumi.azure.managedredis.inputs.GetPlainArgs;
+import com.pulumi.azure.managedredis.outputs.GetAccessPolicyAssignmentResult;
 import com.pulumi.azure.managedredis.outputs.GetResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -269,5 +272,255 @@ public final class ManagedredisFunctions {
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:managedredis/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Redis Access Policy Assignment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedredis.ManagedredisFunctions;
+     * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagedredisFunctions.getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs.builder()
+     *             .objectId("00000000-0000-0000-0000-000000000000")
+     *             .managedRedisName("example-managedredis")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("objectId", example.objectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache` - 2025-07-01
+     * 
+     */
+    public static Output<GetAccessPolicyAssignmentResult> getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs args) {
+        return getAccessPolicyAssignment(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Redis Access Policy Assignment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedredis.ManagedredisFunctions;
+     * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagedredisFunctions.getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs.builder()
+     *             .objectId("00000000-0000-0000-0000-000000000000")
+     *             .managedRedisName("example-managedredis")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("objectId", example.objectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache` - 2025-07-01
+     * 
+     */
+    public static CompletableFuture<GetAccessPolicyAssignmentResult> getAccessPolicyAssignmentPlain(GetAccessPolicyAssignmentPlainArgs args) {
+        return getAccessPolicyAssignmentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Redis Access Policy Assignment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedredis.ManagedredisFunctions;
+     * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagedredisFunctions.getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs.builder()
+     *             .objectId("00000000-0000-0000-0000-000000000000")
+     *             .managedRedisName("example-managedredis")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("objectId", example.objectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache` - 2025-07-01
+     * 
+     */
+    public static Output<GetAccessPolicyAssignmentResult> getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:managedredis/getAccessPolicyAssignment:getAccessPolicyAssignment", TypeShape.of(GetAccessPolicyAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Redis Access Policy Assignment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedredis.ManagedredisFunctions;
+     * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagedredisFunctions.getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs.builder()
+     *             .objectId("00000000-0000-0000-0000-000000000000")
+     *             .managedRedisName("example-managedredis")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("objectId", example.objectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache` - 2025-07-01
+     * 
+     */
+    public static Output<GetAccessPolicyAssignmentResult> getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:managedredis/getAccessPolicyAssignment:getAccessPolicyAssignment", TypeShape.of(GetAccessPolicyAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Redis Access Policy Assignment.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.managedredis.ManagedredisFunctions;
+     * import com.pulumi.azure.managedredis.inputs.GetAccessPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ManagedredisFunctions.getAccessPolicyAssignment(GetAccessPolicyAssignmentArgs.builder()
+     *             .objectId("00000000-0000-0000-0000-000000000000")
+     *             .managedRedisName("example-managedredis")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("objectId", example.objectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cache` - 2025-07-01
+     * 
+     */
+    public static CompletableFuture<GetAccessPolicyAssignmentResult> getAccessPolicyAssignmentPlain(GetAccessPolicyAssignmentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:managedredis/getAccessPolicyAssignment:getAccessPolicyAssignment", TypeShape.of(GetAccessPolicyAssignmentResult.class), args, Utilities.withVersion(options));
     }
 }

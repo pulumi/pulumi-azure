@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Security` - 2022-12-01-preview
+ * * `Microsoft.Security` - 2025-06-01
  * 
  * ## Import
  * 

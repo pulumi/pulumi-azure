@@ -5,8 +5,11 @@ package com.pulumi.azure.containerapp.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAppPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +32,21 @@ public final class GetAppPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Should the data source read the secrets from the Container App? Defaults to `true`.
+     * 
+     */
+    @Import(name="readSecrets")
+    private @Nullable Boolean readSecrets;
+
+    /**
+     * @return Should the data source read the secrets from the Container App? Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> readSecrets() {
+        return Optional.ofNullable(this.readSecrets);
+    }
+
+    /**
      * The name of the Resource Group where this Container App exists.
      * 
      */
@@ -47,6 +65,7 @@ public final class GetAppPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetAppPlainArgs(GetAppPlainArgs $) {
         this.name = $.name;
+        this.readSecrets = $.readSecrets;
         this.resourceGroupName = $.resourceGroupName;
     }
 
@@ -76,6 +95,17 @@ public final class GetAppPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param readSecrets Should the data source read the secrets from the Container App? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readSecrets(@Nullable Boolean readSecrets) {
+            $.readSecrets = readSecrets;
             return this;
         }
 

@@ -40,6 +40,8 @@ class StaticWebAppArgs:
         The set of arguments for constructing a StaticWebApp resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
+               
+               > **Note:** If using the `api_key` to deploy a Static Web App from a CI/CD pipeline or other source, `repository_branch` and `repository_url` will get updated in Azure, but it is not possible to set `repository_token` in that case. Use a `lifecycle` block to `ignore_changes` for `repository_branch` and`repository_url` if that is your deployment scenario.
         :param pulumi.Input['StaticWebAppBasicAuthArgs'] basic_auth: A `basic_auth` block as defined below.
         :param pulumi.Input[_builtins.bool] configuration_file_changes_enabled: Should changes to the configuration file be permitted. Defaults to `true`.
         :param pulumi.Input['StaticWebAppIdentityArgs'] identity: An `identity` block as defined below.
@@ -101,6 +103,8 @@ class StaticWebAppArgs:
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair of App Settings.
+
+        > **Note:** If using the `api_key` to deploy a Static Web App from a CI/CD pipeline or other source, `repository_branch` and `repository_url` will get updated in Azure, but it is not possible to set `repository_token` in that case. Use a `lifecycle` block to `ignore_changes` for `repository_branch` and`repository_url` if that is your deployment scenario.
         """
         return pulumi.get(self, "app_settings")
 
@@ -289,6 +293,8 @@ class _StaticWebAppState:
         Input properties used for looking up and filtering StaticWebApp resources.
         :param pulumi.Input[_builtins.str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
+               
+               > **Note:** If using the `api_key` to deploy a Static Web App from a CI/CD pipeline or other source, `repository_branch` and `repository_url` will get updated in Azure, but it is not possible to set `repository_token` in that case. Use a `lifecycle` block to `ignore_changes` for `repository_branch` and`repository_url` if that is your deployment scenario.
         :param pulumi.Input['StaticWebAppBasicAuthArgs'] basic_auth: A `basic_auth` block as defined below.
         :param pulumi.Input[_builtins.bool] configuration_file_changes_enabled: Should changes to the configuration file be permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.str] default_host_name: The default host name of the Static Web App.
@@ -357,6 +363,8 @@ class _StaticWebAppState:
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair of App Settings.
+
+        > **Note:** If using the `api_key` to deploy a Static Web App from a CI/CD pipeline or other source, `repository_branch` and `repository_url` will get updated in Azure, but it is not possible to set `repository_token` in that case. Use a `lifecycle` block to `ignore_changes` for `repository_branch` and`repository_url` if that is your deployment scenario.
         """
         return pulumi.get(self, "app_settings")
 
@@ -603,6 +611,8 @@ class StaticWebApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
+               
+               > **Note:** If using the `api_key` to deploy a Static Web App from a CI/CD pipeline or other source, `repository_branch` and `repository_url` will get updated in Azure, but it is not possible to set `repository_token` in that case. Use a `lifecycle` block to `ignore_changes` for `repository_branch` and`repository_url` if that is your deployment scenario.
         :param pulumi.Input[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict']] basic_auth: A `basic_auth` block as defined below.
         :param pulumi.Input[_builtins.bool] configuration_file_changes_enabled: Should changes to the configuration file be permitted. Defaults to `true`.
         :param pulumi.Input[Union['StaticWebAppIdentityArgs', 'StaticWebAppIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -753,6 +763,8 @@ class StaticWebApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
+               
+               > **Note:** If using the `api_key` to deploy a Static Web App from a CI/CD pipeline or other source, `repository_branch` and `repository_url` will get updated in Azure, but it is not possible to set `repository_token` in that case. Use a `lifecycle` block to `ignore_changes` for `repository_branch` and`repository_url` if that is your deployment scenario.
         :param pulumi.Input[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict']] basic_auth: A `basic_auth` block as defined below.
         :param pulumi.Input[_builtins.bool] configuration_file_changes_enabled: Should changes to the configuration file be permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.str] default_host_name: The default host name of the Static Web App.
@@ -805,6 +817,8 @@ class StaticWebApp(pulumi.CustomResource):
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         A key-value pair of App Settings.
+
+        > **Note:** If using the `api_key` to deploy a Static Web App from a CI/CD pipeline or other source, `repository_branch` and `repository_url` will get updated in Azure, but it is not possible to set `repository_token` in that case. Use a `lifecycle` block to `ignore_changes` for `repository_branch` and`repository_url` if that is your deployment scenario.
         """
         return pulumi.get(self, "app_settings")
 

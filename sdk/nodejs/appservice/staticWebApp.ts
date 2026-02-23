@@ -75,6 +75,8 @@ export class StaticWebApp extends pulumi.CustomResource {
     declare public /*out*/ readonly apiKey: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
+     *
+     * > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
      */
     declare public readonly appSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -208,6 +210,8 @@ export interface StaticWebAppState {
     apiKey?: pulumi.Input<string>;
     /**
      * A key-value pair of App Settings.
+     *
+     * > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -278,6 +282,8 @@ export interface StaticWebAppState {
 export interface StaticWebAppArgs {
     /**
      * A key-value pair of App Settings.
+     *
+     * > **Note:** If using the `apiKey` to deploy a Static Web App from a CI/CD pipeline or other source, `repositoryBranch` and `repositoryUrl` will get updated in Azure, but it is not possible to set `repositoryToken` in that case. Use a `lifecycle` block to `ignoreChanges` for `repositoryBranch` and`repositoryUrl` if that is your deployment scenario.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

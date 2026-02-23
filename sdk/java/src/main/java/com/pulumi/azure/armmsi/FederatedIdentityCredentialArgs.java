@@ -77,18 +77,22 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated
+     * This field is no longer used and will be removed in the next major version of the Azure Provider
      * 
      */
-    @Import(name="resourceGroupName", required=true)
-    private Output<String> resourceGroupName;
+    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
+    @Import(name="resourceGroupName")
+    private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated
+     * This field is no longer used and will be removed in the next major version of the Azure Provider
      * 
      */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
+    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
+    public Optional<Output<String>> resourceGroupName() {
+        return Optional.ofNullable(this.resourceGroupName);
     }
 
     /**
@@ -220,22 +224,26 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer used and will be removed in the next major version of the Azure Provider
+         * 
          */
-        public Builder resourceGroupName(Output<String> resourceGroupName) {
+        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
+        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer used and will be removed in the next major version of the Azure Provider
+         * 
          */
+        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }
@@ -270,9 +278,6 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
             }
             if ($.parentId == null) {
                 throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "parentId");
-            }
-            if ($.resourceGroupName == null) {
-                throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "resourceGroupName");
             }
             if ($.subject == null) {
                 throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "subject");

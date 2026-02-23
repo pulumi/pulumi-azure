@@ -26,6 +26,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly Outputs.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy? DataProtectionSnapshotPolicy;
         /// <summary>
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `KeyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        public readonly string? EncryptionKeySource;
+        /// <summary>
         /// One or more `ExportPolicyRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VolumeGroupSapHanaVolumeExportPolicyRule> ExportPolicyRules;
@@ -33,11 +37,19 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// The ID of the Application Volume Group.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `EncryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        public readonly string? KeyVaultPrivateEndpointId;
         public readonly ImmutableArray<string> MountIpAddresses;
         /// <summary>
         /// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        public readonly string? NetworkFeatures;
         /// <summary>
         /// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `Nfsv3Enabled = false` and `Nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
         /// 
@@ -84,6 +96,10 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// Volume specification name. Possible values are `Data`, `Log`, `Shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string VolumeSpecName;
+        /// <summary>
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// </summary>
+        public readonly string? Zone;
 
         [OutputConstructor]
         private VolumeGroupSapHanaVolume(
@@ -93,13 +109,19 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             Outputs.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy? dataProtectionSnapshotPolicy,
 
+            string? encryptionKeySource,
+
             ImmutableArray<Outputs.VolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules,
 
             string? id,
 
+            string? keyVaultPrivateEndpointId,
+
             ImmutableArray<string> mountIpAddresses,
 
             string name,
+
+            string? networkFeatures,
 
             string protocols,
 
@@ -121,15 +143,20 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             string volumePath,
 
-            string volumeSpecName)
+            string volumeSpecName,
+
+            string? zone)
         {
             CapacityPoolId = capacityPoolId;
             DataProtectionReplication = dataProtectionReplication;
             DataProtectionSnapshotPolicy = dataProtectionSnapshotPolicy;
+            EncryptionKeySource = encryptionKeySource;
             ExportPolicyRules = exportPolicyRules;
             Id = id;
+            KeyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             MountIpAddresses = mountIpAddresses;
             Name = name;
+            NetworkFeatures = networkFeatures;
             Protocols = protocols;
             ProximityPlacementGroupId = proximityPlacementGroupId;
             SecurityStyle = securityStyle;
@@ -141,6 +168,7 @@ namespace Pulumi.Azure.NetApp.Outputs
             ThroughputInMibps = throughputInMibps;
             VolumePath = volumePath;
             VolumeSpecName = volumeSpecName;
+            Zone = zone;
         }
     }
 }

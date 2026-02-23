@@ -48,14 +48,14 @@ public final class EndpointPrivateDnsZoneConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * A list of IP Addresses
+     * The ID of the Private DNS Zone that the config belongs to.
      * 
      */
     @Import(name="privateDnsZoneId")
     private @Nullable Output<String> privateDnsZoneId;
 
     /**
-     * @return A list of IP Addresses
+     * @return The ID of the Private DNS Zone that the config belongs to.
      * 
      */
     public Optional<Output<String>> privateDnsZoneId() {
@@ -147,7 +147,7 @@ public final class EndpointPrivateDnsZoneConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param privateDnsZoneId A list of IP Addresses
+         * @param privateDnsZoneId The ID of the Private DNS Zone that the config belongs to.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class EndpointPrivateDnsZoneConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param privateDnsZoneId A list of IP Addresses
+         * @param privateDnsZoneId The ID of the Private DNS Zone that the config belongs to.
          * 
          * @return builder
          * 

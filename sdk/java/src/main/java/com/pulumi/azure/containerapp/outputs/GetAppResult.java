@@ -11,11 +11,14 @@ import com.pulumi.azure.containerapp.outputs.GetAppSecret;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplate;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAppResult {
@@ -59,6 +62,7 @@ public final class GetAppResult {
      */
     private String name;
     private List<String> outboundIpAddresses;
+    private @Nullable Boolean readSecrets;
     /**
      * @return A `registry` block as detailed below.
      * 
@@ -156,6 +160,9 @@ public final class GetAppResult {
     public List<String> outboundIpAddresses() {
         return this.outboundIpAddresses;
     }
+    public Optional<Boolean> readSecrets() {
+        return Optional.ofNullable(this.readSecrets);
+    }
     /**
      * @return A `registry` block as detailed below.
      * 
@@ -223,6 +230,7 @@ public final class GetAppResult {
         private Integer maxInactiveRevisions;
         private String name;
         private List<String> outboundIpAddresses;
+        private @Nullable Boolean readSecrets;
         private List<GetAppRegistry> registries;
         private String resourceGroupName;
         private String revisionMode;
@@ -245,6 +253,7 @@ public final class GetAppResult {
     	      this.maxInactiveRevisions = defaults.maxInactiveRevisions;
     	      this.name = defaults.name;
     	      this.outboundIpAddresses = defaults.outboundIpAddresses;
+    	      this.readSecrets = defaults.readSecrets;
     	      this.registries = defaults.registries;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.revisionMode = defaults.revisionMode;
@@ -363,6 +372,12 @@ public final class GetAppResult {
             return outboundIpAddresses(List.of(outboundIpAddresses));
         }
         @CustomType.Setter
+        public Builder readSecrets(@Nullable Boolean readSecrets) {
+
+            this.readSecrets = readSecrets;
+            return this;
+        }
+        @CustomType.Setter
         public Builder registries(List<GetAppRegistry> registries) {
             if (registries == null) {
               throw new MissingRequiredPropertyException("GetAppResult", "registries");
@@ -441,6 +456,7 @@ public final class GetAppResult {
             _resultValue.maxInactiveRevisions = maxInactiveRevisions;
             _resultValue.name = name;
             _resultValue.outboundIpAddresses = outboundIpAddresses;
+            _resultValue.readSecrets = readSecrets;
             _resultValue.registries = registries;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.revisionMode = revisionMode;

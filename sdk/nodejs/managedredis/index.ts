@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessPolicyAssignmentArgs, AccessPolicyAssignmentState } from "./accessPolicyAssignment";
+export type AccessPolicyAssignment = import("./accessPolicyAssignment").AccessPolicyAssignment;
+export const AccessPolicyAssignment: typeof import("./accessPolicyAssignment").AccessPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["AccessPolicyAssignment"], () => require("./accessPolicyAssignment"));
+
 export { GeoReplicationArgs, GeoReplicationState } from "./geoReplication";
 export type GeoReplication = import("./geoReplication").GeoReplication;
 export const GeoReplication: typeof import("./geoReplication").GeoReplication = null as any;
@@ -14,6 +19,11 @@ export { GetArgs, GetResult, GetOutputArgs } from "./get";
 export const get: typeof import("./get").get = null as any;
 export const getOutput: typeof import("./get").getOutput = null as any;
 utilities.lazyLoad(exports, ["get","getOutput"], () => require("./get"));
+
+export { GetAccessPolicyAssignmentArgs, GetAccessPolicyAssignmentResult, GetAccessPolicyAssignmentOutputArgs } from "./getAccessPolicyAssignment";
+export const getAccessPolicyAssignment: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignment = null as any;
+export const getAccessPolicyAssignmentOutput: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicyAssignment","getAccessPolicyAssignmentOutput"], () => require("./getAccessPolicyAssignment"));
 
 export { ManagedRedisArgs, ManagedRedisState } from "./managedRedis";
 export type ManagedRedis = import("./managedRedis").ManagedRedis;
@@ -25,6 +35,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:managedredis/accessPolicyAssignment:AccessPolicyAssignment":
+                return new AccessPolicyAssignment(name, <any>undefined, { urn })
             case "azure:managedredis/geoReplication:GeoReplication":
                 return new GeoReplication(name, <any>undefined, { urn })
             case "azure:managedredis/managedRedis:ManagedRedis":
@@ -34,5 +46,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "managedredis/accessPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "managedredis/geoReplication", _module)
 pulumi.runtime.registerResourceModule("azure", "managedredis/managedRedis", _module)

@@ -2373,6 +2373,17 @@ export namespace apimanagement {
         name: string;
     }
 
+    export interface WorkspaceNamedValueValueFromKeyVault {
+        /**
+         * The client ID of the User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used if not specified.
+         */
+        identityClientId?: string;
+        /**
+         * The resource ID of the Key Vault Secret.
+         */
+        secretId: string;
+    }
+
 }
 
 export namespace appconfiguration {
@@ -11708,7 +11719,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: string;
         /**
-         * The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to run. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -12714,7 +12725,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: string;
         /**
-         * The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to use. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -25770,6 +25781,25 @@ export namespace cognitive {
         subnetId: string;
     }
 
+    export interface GetAccountProjectIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account Project.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Cognitive Services Account Project.
+         */
+        type: string;
+    }
+
     export interface GetAccountStorage {
         /**
          * The client ID of the managed identity associated with the storage resource.
@@ -34832,7 +34862,7 @@ export namespace containerservice {
          */
         adminUsername: string;
         /**
-         * An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+         * An `sshKey` block as defined below.
          */
         sshKey: outputs.containerservice.KubernetesClusterLinuxProfileSshKey;
     }
@@ -35072,7 +35102,7 @@ export namespace containerservice {
          *
          * > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
          *
-         * > **Note:** Upgrading `networkPolicy` from `azure` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
+         * > **Note:** Upgrading `networkPolicy` from `azure` or `calico` to `cilium` is supported and will perform an in-place upgrade. Changing from other values will force a new resource to be created.
          */
         networkPolicy: string;
         /**
@@ -39284,6 +39314,11 @@ export namespace datafactory {
     }
 
     export interface LinkedServiceAzureBlobStorageKeyVaultSasToken {
+        linkedServiceName: string;
+        secretName: string;
+    }
+
+    export interface LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
          */
@@ -39484,6 +39519,28 @@ export namespace datafactory {
         linkedServiceName: string;
         /**
          * Specifies the secret name in Azure Key Vault that stores Snowflake password.
+         */
+        secretName: string;
+    }
+
+    export interface LinkedServiceSqlManagedInstanceKeyVaultConnectionString {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Managed Instance connection string.
+         */
+        secretName: string;
+    }
+
+    export interface LinkedServiceSqlManagedInstanceKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Managed Instance password.
          */
         secretName: string;
     }
@@ -55068,6 +55125,10 @@ export namespace netapp {
          */
         dataProtectionSnapshotPolicies: outputs.netapp.GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy[];
         /**
+         * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys.
+         */
+        encryptionKeySource: string;
+        /**
          * A `exportPolicyRule` block as defined below.
          */
         exportPolicyRules: outputs.netapp.GetVolumeGroupSapHanaVolumeExportPolicyRule[];
@@ -55076,6 +55137,10 @@ export namespace netapp {
          */
         id: string;
         /**
+         * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys.
+         */
+        keyVaultPrivateEndpointId: string;
+        /**
          * A `mountIpAddresses` block as defined below.
          */
         mountIpAddresses: string[];
@@ -55083,6 +55148,10 @@ export namespace netapp {
          * The name of this Application Volume Group for SAP HANA application.
          */
         name: string;
+        /**
+         * Network features of the volume.
+         */
+        networkFeatures: string;
         /**
          * A `protocols` block as defined below.
          */
@@ -55127,6 +55196,10 @@ export namespace netapp {
          * Volume spec name.
          */
         volumeSpecName: string;
+        /**
+         * Specifies the Availability Zone in which the Volume is located.
+         */
+        zone: string;
     }
 
     export interface GetVolumeGroupSapHanaVolumeDataProtectionReplication {
@@ -55536,6 +55609,10 @@ export namespace netapp {
          */
         dataProtectionSnapshotPolicy: outputs.netapp.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy;
         /**
+         * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        encryptionKeySource: string;
+        /**
          * One or more `exportPolicyRule` blocks as defined below.
          */
         exportPolicyRules: outputs.netapp.VolumeGroupSapHanaVolumeExportPolicyRule[];
@@ -55543,11 +55620,19 @@ export namespace netapp {
          * The ID of the Application Volume Group.
          */
         id: string;
+        /**
+         * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        keyVaultPrivateEndpointId: string;
         mountIpAddresses: string[];
         /**
          * The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         name: string;
+        /**
+         * Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        networkFeatures: string;
         /**
          * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
          *
@@ -55594,6 +55679,10 @@ export namespace netapp {
          * Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
          */
         volumeSpecName: string;
+        /**
+         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        zone?: string;
     }
 
     export interface VolumeGroupSapHanaVolumeDataProtectionReplication {
@@ -56590,14 +56679,14 @@ export namespace network {
          */
         ruleSetType?: string;
         /**
-         * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          */
         ruleSetVersion: string;
     }
 
     export interface ApplicationGatewayWafConfigurationDisabledRuleGroup {
         /**
-         * The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+         * The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
          */
         ruleGroupName: string;
         /**
@@ -56762,7 +56851,7 @@ export namespace network {
          */
         macsecCakKeyvaultSecretId?: string;
         /**
-         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
          */
         macsecCipher?: string;
         /**
@@ -56811,7 +56900,7 @@ export namespace network {
          */
         macsecCakKeyvaultSecretId?: string;
         /**
-         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
          */
         macsecCipher?: string;
         /**
@@ -59653,7 +59742,7 @@ export namespace network {
 
     export interface PointToPointVpnGatewayConnectionConfiguration {
         /**
-         * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+         * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
          */
         internetSecurityEnabled?: boolean;
         /**
@@ -60269,6 +60358,8 @@ export namespace network {
         privateIpAddressAllocation?: string;
         /**
          * The ID of the public IP address to associate with the Virtual Network Gateway.
+         *
+         * > **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
          */
         publicIpAddressId?: string;
         /**
@@ -61853,6 +61944,25 @@ export namespace oracle {
          * The relative priority of this database.
          */
         share: number;
+    }
+
+    export interface GetDatabaseSystemVersionsVersion {
+        /**
+         * Indicates if this version of the Oracle Database software is the latest version for a release.
+         */
+        latestVersion: boolean;
+        /**
+         * The name of the Oracle Database version.
+         */
+        name: string;
+        /**
+         * Indicates if this version of the Oracle Database software supports pluggable databases.
+         */
+        pluggableDatabaseSupported: boolean;
+        /**
+         * The value of the Oracle Database version.
+         */
+        version: string;
     }
 
     export interface GetDbNodesDbNode {
@@ -63833,6 +63943,23 @@ export namespace postgresql {
         tenantId?: string;
     }
 
+    export interface FlexibleServerCluster {
+        /**
+         * The default database name to be created. Changing this forces a new PostgreSQL Flexible Server to be created.
+         */
+        defaultDatabaseName?: string;
+        /**
+         * The number of nodes in the cluster. Must be at least `1` and no greater than `32`.
+         *
+         * > **Note:** The maximum supported cluster size is currently 20 nodes. Support for up to 32 nodes will be available in the near future.
+         *
+         * > **Note:** Cluster support is only available for PostgreSQL version 17 and above, and is not supported when `createMode` is set to anything other than `Default`.
+         *
+         * > **Note:** The cluster `size` can only be increased, not decreased. Attempting to reduce the cluster size will result in an error.
+         */
+        size: number;
+    }
+
     export interface FlexibleServerCustomerManagedKey {
         /**
          * The versioned/versionless ID of the geo backup Key Vault Key.
@@ -64053,11 +64180,11 @@ export namespace privatedns {
 
     export interface LinkServiceNatIpConfiguration {
         /**
-         * Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+         * Specifies the name which should be used for the NAT IP Configuration.
          */
         name: string;
         /**
-         * Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+         * Is this is the Primary IP Configuration?
          */
         primary: boolean;
         /**
@@ -64238,7 +64365,7 @@ export namespace privatelink {
          */
         name: string;
         /**
-         * A list of IP Addresses
+         * The ID of the Private DNS Zone that the config belongs to.
          */
         privateDnsZoneId: string;
         /**
@@ -69835,7 +69962,7 @@ export namespace waf {
          */
         type?: string;
         /**
-         * The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+         * The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1`, `2.2` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
          */
         version?: string;
     }
@@ -69846,8 +69973,7 @@ export namespace waf {
          */
         excludedRules?: string[];
         /**
-         * The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
-         * `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+         * The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
          */
         ruleGroupName: string;
     }
@@ -69862,14 +69988,14 @@ export namespace waf {
          */
         type?: string;
         /**
-         * The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          */
         version: string;
     }
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
         /**
-         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
+         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
          */
         ruleGroupName: string;
         /**

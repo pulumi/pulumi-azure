@@ -312,7 +312,7 @@ export class ManagedInstance extends pulumi.CustomResource {
     /**
      * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      */
-    declare public readonly proxyOverride: pulumi.Output<string | undefined>;
+    declare public readonly proxyOverride: pulumi.Output<string>;
     /**
      * Is the public data endpoint enabled? Defaults to `false`.
      */

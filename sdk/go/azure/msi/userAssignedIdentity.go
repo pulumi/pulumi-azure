@@ -77,6 +77,8 @@ type UserAssignedIdentity struct {
 
 	// The ID of the app associated with the Identity.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+	IsolationScope pulumi.StringPtrOutput `pulumi:"isolationScope"`
 	// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
@@ -126,6 +128,8 @@ func GetUserAssignedIdentity(ctx *pulumi.Context,
 type userAssignedIdentityState struct {
 	// The ID of the app associated with the Identity.
 	ClientId *string `pulumi:"clientId"`
+	// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+	IsolationScope *string `pulumi:"isolationScope"`
 	// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
@@ -143,6 +147,8 @@ type userAssignedIdentityState struct {
 type UserAssignedIdentityState struct {
 	// The ID of the app associated with the Identity.
 	ClientId pulumi.StringPtrInput
+	// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+	IsolationScope pulumi.StringPtrInput
 	// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
@@ -162,6 +168,8 @@ func (UserAssignedIdentityState) ElementType() reflect.Type {
 }
 
 type userAssignedIdentityArgs struct {
+	// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+	IsolationScope *string `pulumi:"isolationScope"`
 	// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
@@ -174,6 +182,8 @@ type userAssignedIdentityArgs struct {
 
 // The set of arguments for constructing a UserAssignedIdentity resource.
 type UserAssignedIdentityArgs struct {
+	// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+	IsolationScope pulumi.StringPtrInput
 	// The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
@@ -274,6 +284,11 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx 
 // The ID of the app associated with the Identity.
 func (o UserAssignedIdentityOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
+func (o UserAssignedIdentityOutput) IsolationScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringPtrOutput { return v.IsolationScope }).(pulumi.StringPtrOutput)
 }
 
 // The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.

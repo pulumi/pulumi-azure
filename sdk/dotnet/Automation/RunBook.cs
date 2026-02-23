@@ -143,10 +143,18 @@ namespace Pulumi.Azure.Automation
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("runbookType")]
         public Output<string> RunbookType { get; private set; } = null!;
+
+        /// <summary>
+        /// The runtime environment name for the runbook.
+        /// 
+        /// &gt; **Note:** The `RunbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+        /// </summary>
+        [Output("runtimeEnvironmentName")]
+        public Output<string?> RuntimeEnvironmentName { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -283,10 +291,18 @@ namespace Pulumi.Azure.Automation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("runbookType", required: true)]
         public Input<string> RunbookType { get; set; } = null!;
+
+        /// <summary>
+        /// The runtime environment name for the runbook.
+        /// 
+        /// &gt; **Note:** The `RunbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+        /// </summary>
+        [Input("runtimeEnvironmentName")]
+        public Input<string>? RuntimeEnvironmentName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -391,10 +407,18 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
+        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `PowerShell72`, `Python`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("runbookType")]
         public Input<string>? RunbookType { get; set; }
+
+        /// <summary>
+        /// The runtime environment name for the runbook.
+        /// 
+        /// &gt; **Note:** The `RunbookType` must be set to a value that supports runtime environments, such as `PowerShell` or `Python`.
+        /// </summary>
+        [Input("runtimeEnvironmentName")]
+        public Input<string>? RuntimeEnvironmentName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

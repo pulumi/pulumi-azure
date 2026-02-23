@@ -36,6 +36,11 @@ public final class VolumeGroupSapHanaVolume {
      */
     private @Nullable VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy dataProtectionSnapshotPolicy;
     /**
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    private @Nullable String encryptionKeySource;
+    /**
      * @return One or more `exportPolicyRule` blocks as defined below.
      * 
      */
@@ -45,12 +50,22 @@ public final class VolumeGroupSapHanaVolume {
      * 
      */
     private @Nullable String id;
+    /**
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    private @Nullable String keyVaultPrivateEndpointId;
     private @Nullable List<String> mountIpAddresses;
     /**
      * @return The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private String name;
+    /**
+     * @return Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    private @Nullable String networkFeatures;
     /**
      * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
      * 
@@ -108,6 +123,11 @@ public final class VolumeGroupSapHanaVolume {
      * 
      */
     private String volumeSpecName;
+    /**
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    private @Nullable String zone;
 
     private VolumeGroupSapHanaVolume() {}
     /**
@@ -132,6 +152,13 @@ public final class VolumeGroupSapHanaVolume {
         return Optional.ofNullable(this.dataProtectionSnapshotPolicy);
     }
     /**
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<String> encryptionKeySource() {
+        return Optional.ofNullable(this.encryptionKeySource);
+    }
+    /**
      * @return One or more `exportPolicyRule` blocks as defined below.
      * 
      */
@@ -145,6 +172,13 @@ public final class VolumeGroupSapHanaVolume {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<String> keyVaultPrivateEndpointId() {
+        return Optional.ofNullable(this.keyVaultPrivateEndpointId);
+    }
     public List<String> mountIpAddresses() {
         return this.mountIpAddresses == null ? List.of() : this.mountIpAddresses;
     }
@@ -154,6 +188,13 @@ public final class VolumeGroupSapHanaVolume {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<String> networkFeatures() {
+        return Optional.ofNullable(this.networkFeatures);
     }
     /**
      * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
@@ -234,6 +275,13 @@ public final class VolumeGroupSapHanaVolume {
     public String volumeSpecName() {
         return this.volumeSpecName;
     }
+    /**
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+     * 
+     */
+    public Optional<String> zone() {
+        return Optional.ofNullable(this.zone);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -247,10 +295,13 @@ public final class VolumeGroupSapHanaVolume {
         private String capacityPoolId;
         private @Nullable VolumeGroupSapHanaVolumeDataProtectionReplication dataProtectionReplication;
         private @Nullable VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy dataProtectionSnapshotPolicy;
+        private @Nullable String encryptionKeySource;
         private List<VolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules;
         private @Nullable String id;
+        private @Nullable String keyVaultPrivateEndpointId;
         private @Nullable List<String> mountIpAddresses;
         private String name;
+        private @Nullable String networkFeatures;
         private String protocols;
         private @Nullable String proximityPlacementGroupId;
         private String securityStyle;
@@ -262,16 +313,20 @@ public final class VolumeGroupSapHanaVolume {
         private Double throughputInMibps;
         private String volumePath;
         private String volumeSpecName;
+        private @Nullable String zone;
         public Builder() {}
         public Builder(VolumeGroupSapHanaVolume defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityPoolId = defaults.capacityPoolId;
     	      this.dataProtectionReplication = defaults.dataProtectionReplication;
     	      this.dataProtectionSnapshotPolicy = defaults.dataProtectionSnapshotPolicy;
+    	      this.encryptionKeySource = defaults.encryptionKeySource;
     	      this.exportPolicyRules = defaults.exportPolicyRules;
     	      this.id = defaults.id;
+    	      this.keyVaultPrivateEndpointId = defaults.keyVaultPrivateEndpointId;
     	      this.mountIpAddresses = defaults.mountIpAddresses;
     	      this.name = defaults.name;
+    	      this.networkFeatures = defaults.networkFeatures;
     	      this.protocols = defaults.protocols;
     	      this.proximityPlacementGroupId = defaults.proximityPlacementGroupId;
     	      this.securityStyle = defaults.securityStyle;
@@ -283,6 +338,7 @@ public final class VolumeGroupSapHanaVolume {
     	      this.throughputInMibps = defaults.throughputInMibps;
     	      this.volumePath = defaults.volumePath;
     	      this.volumeSpecName = defaults.volumeSpecName;
+    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -306,6 +362,12 @@ public final class VolumeGroupSapHanaVolume {
             return this;
         }
         @CustomType.Setter
+        public Builder encryptionKeySource(@Nullable String encryptionKeySource) {
+
+            this.encryptionKeySource = encryptionKeySource;
+            return this;
+        }
+        @CustomType.Setter
         public Builder exportPolicyRules(List<VolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules) {
             if (exportPolicyRules == null) {
               throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "exportPolicyRules");
@@ -323,6 +385,12 @@ public final class VolumeGroupSapHanaVolume {
             return this;
         }
         @CustomType.Setter
+        public Builder keyVaultPrivateEndpointId(@Nullable String keyVaultPrivateEndpointId) {
+
+            this.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mountIpAddresses(@Nullable List<String> mountIpAddresses) {
 
             this.mountIpAddresses = mountIpAddresses;
@@ -337,6 +405,12 @@ public final class VolumeGroupSapHanaVolume {
               throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkFeatures(@Nullable String networkFeatures) {
+
+            this.networkFeatures = networkFeatures;
             return this;
         }
         @CustomType.Setter
@@ -423,15 +497,24 @@ public final class VolumeGroupSapHanaVolume {
             this.volumeSpecName = volumeSpecName;
             return this;
         }
+        @CustomType.Setter
+        public Builder zone(@Nullable String zone) {
+
+            this.zone = zone;
+            return this;
+        }
         public VolumeGroupSapHanaVolume build() {
             final var _resultValue = new VolumeGroupSapHanaVolume();
             _resultValue.capacityPoolId = capacityPoolId;
             _resultValue.dataProtectionReplication = dataProtectionReplication;
             _resultValue.dataProtectionSnapshotPolicy = dataProtectionSnapshotPolicy;
+            _resultValue.encryptionKeySource = encryptionKeySource;
             _resultValue.exportPolicyRules = exportPolicyRules;
             _resultValue.id = id;
+            _resultValue.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             _resultValue.mountIpAddresses = mountIpAddresses;
             _resultValue.name = name;
+            _resultValue.networkFeatures = networkFeatures;
             _resultValue.protocols = protocols;
             _resultValue.proximityPlacementGroupId = proximityPlacementGroupId;
             _resultValue.securityStyle = securityStyle;
@@ -443,6 +526,7 @@ public final class VolumeGroupSapHanaVolume {
             _resultValue.throughputInMibps = throughputInMibps;
             _resultValue.volumePath = volumePath;
             _resultValue.volumeSpecName = volumeSpecName;
+            _resultValue.zone = zone;
             return _resultValue;
         }
     }

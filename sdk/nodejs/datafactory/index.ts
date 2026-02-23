@@ -225,6 +225,11 @@ export type LinkedServiceSnowflake = import("./linkedServiceSnowflake").LinkedSe
 export const LinkedServiceSnowflake: typeof import("./linkedServiceSnowflake").LinkedServiceSnowflake = null as any;
 utilities.lazyLoad(exports, ["LinkedServiceSnowflake"], () => require("./linkedServiceSnowflake"));
 
+export { LinkedServiceSqlManagedInstanceArgs, LinkedServiceSqlManagedInstanceState } from "./linkedServiceSqlManagedInstance";
+export type LinkedServiceSqlManagedInstance = import("./linkedServiceSqlManagedInstance").LinkedServiceSqlManagedInstance;
+export const LinkedServiceSqlManagedInstance: typeof import("./linkedServiceSqlManagedInstance").LinkedServiceSqlManagedInstance = null as any;
+utilities.lazyLoad(exports, ["LinkedServiceSqlManagedInstance"], () => require("./linkedServiceSqlManagedInstance"));
+
 export { LinkedServiceSqlServerArgs, LinkedServiceSqlServerState } from "./linkedServiceSqlServer";
 export type LinkedServiceSqlServer = import("./linkedServiceSqlServer").LinkedServiceSqlServer;
 export const LinkedServiceSqlServer: typeof import("./linkedServiceSqlServer").LinkedServiceSqlServer = null as any;
@@ -357,6 +362,8 @@ const _module = {
                 return new LinkedServiceSftp(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake":
                 return new LinkedServiceSnowflake(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedServiceSqlManagedInstance:LinkedServiceSqlManagedInstance":
+                return new LinkedServiceSqlManagedInstance(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer":
                 return new LinkedServiceSqlServer(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse":
@@ -421,6 +428,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceOdbc", 
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServicePostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSftp", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSnowflake", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSqlManagedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSqlServer", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSynapse", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceWeb", _module)

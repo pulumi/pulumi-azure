@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     dataFactoryId: exampleFactory.id,
  *     description: "ADB Linked Service via MSI",
  *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
- *     msiWorkSpaceResourceId: exampleWorkspace.id,
+ *     msiWorkspaceId: exampleWorkspace.id,
  *     newClusterConfig: {
  *         nodeType: "Standard_NC12",
  *         clusterVersion: "5.5.x-gpu-scala2.11",
@@ -180,9 +180,13 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      */
     declare public readonly keyVaultPassword: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword | undefined>;
     /**
+     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
+     */
+    declare public readonly msiWorkSpaceResourceId: pulumi.Output<string>;
+    /**
      * Authenticate to ADB via managed service identity.
      */
-    declare public readonly msiWorkSpaceResourceId: pulumi.Output<string | undefined>;
+    declare public readonly msiWorkspaceId: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -220,6 +224,7 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
             resourceInputs["keyVaultPassword"] = state?.keyVaultPassword;
             resourceInputs["msiWorkSpaceResourceId"] = state?.msiWorkSpaceResourceId;
+            resourceInputs["msiWorkspaceId"] = state?.msiWorkspaceId;
             resourceInputs["name"] = state?.name;
             resourceInputs["newClusterConfig"] = state?.newClusterConfig;
             resourceInputs["parameters"] = state?.parameters;
@@ -242,6 +247,7 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
             resourceInputs["keyVaultPassword"] = args?.keyVaultPassword;
             resourceInputs["msiWorkSpaceResourceId"] = args?.msiWorkSpaceResourceId;
+            resourceInputs["msiWorkspaceId"] = args?.msiWorkspaceId;
             resourceInputs["name"] = args?.name;
             resourceInputs["newClusterConfig"] = args?.newClusterConfig;
             resourceInputs["parameters"] = args?.parameters;
@@ -298,9 +304,13 @@ export interface LinkedServiceAzureDatabricksState {
      */
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
     /**
-     * Authenticate to ADB via managed service identity.
+     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
      */
     msiWorkSpaceResourceId?: pulumi.Input<string>;
+    /**
+     * Authenticate to ADB via managed service identity.
+     */
+    msiWorkspaceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -360,9 +370,13 @@ export interface LinkedServiceAzureDatabricksArgs {
      */
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
     /**
-     * Authenticate to ADB via managed service identity.
+     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
      */
     msiWorkSpaceResourceId?: pulumi.Input<string>;
+    /**
+     * Authenticate to ADB via managed service identity.
+     */
+    msiWorkspaceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */

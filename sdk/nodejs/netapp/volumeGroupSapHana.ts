@@ -210,6 +210,223 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Example with Availability Zone and Customer-Managed Keys
+ *
+ * This example demonstrates using availability zones instead of proximity placement groups, with customer-managed key encryption and Standard network features.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: `${prefix}-resources`,
+ *     location: location,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: `${prefix}-vnet`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     addressSpaces: ["10.88.0.0/16"],
+ * });
+ * const exampleDelegated = new azure.network.Subnet("example_delegated", {
+ *     name: `${prefix}-delegated-subnet`,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.88.1.0/24"],
+ *     delegations: [{
+ *         name: "netapp",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Netapp/volumes",
+ *             actions: [
+ *                 "Microsoft.Network/networkinterfaces/*",
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * const examplePrivateEndpoint = new azure.network.Subnet("example_private_endpoint", {
+ *     name: `${prefix}-pe-subnet`,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.88.2.0/24"],
+ * });
+ * const exampleAccount = new azure.netapp.Account("example", {
+ *     name: `${prefix}-netapp-account`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: `${prefix}kv`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ *     softDeleteRetentionDays: 7,
+ *     enabledForDiskEncryption: true,
+ *     enabledForDeployment: true,
+ *     enabledForTemplateDeployment: true,
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "Create",
+ *                 "Delete",
+ *                 "WrapKey",
+ *                 "UnwrapKey",
+ *                 "GetRotationPolicy",
+ *                 "SetRotationPolicy",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: exampleAccount.identity.apply(identity => identity?.tenantId),
+ *             objectId: exampleAccount.identity.apply(identity => identity?.principalId),
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "Encrypt",
+ *                 "Decrypt",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: `${prefix}-key`,
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * });
+ * const exampleAccountEncryption = new azure.netapp.AccountEncryption("example", {
+ *     netappAccountId: exampleAccount.id,
+ *     systemAssignedIdentityPrincipalId: exampleAccount.identity.apply(identity => identity?.principalId),
+ *     encryptionKey: exampleKey.versionlessId,
+ * });
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: `${prefix}-pe-kv`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     subnetId: examplePrivateEndpoint.id,
+ *     privateServiceConnection: {
+ *         name: `${prefix}-pe-sc-kv`,
+ *         privateConnectionResourceId: exampleKeyVault.id,
+ *         isManualConnection: false,
+ *         subresourceNames: ["Vault"],
+ *     },
+ * });
+ * const examplePool = new azure.netapp.Pool("example", {
+ *     name: `${prefix}-netapp-pool`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount.name,
+ *     serviceLevel: "Standard",
+ *     sizeInTb: 8,
+ *     qosType: "Manual",
+ * }, {
+ *     dependsOn: [exampleAccountEncryption],
+ * });
+ * const exampleVolumeGroupSapHana = new azure.netapp.VolumeGroupSapHana("example", {
+ *     name: `${prefix}-netapp-volumegroup`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount.name,
+ *     groupDescription: "Test volume group with zone and CMK",
+ *     applicationIdentifier: "TST",
+ *     volumes: [
+ *         {
+ *             name: `${prefix}-netapp-volume-data`,
+ *             volumePath: "my-unique-file-path-data",
+ *             serviceLevel: "Standard",
+ *             capacityPoolId: examplePool.id,
+ *             subnetId: exampleDelegated.id,
+ *             zone: "1",
+ *             volumeSpecName: "data",
+ *             storageQuotaInGb: 1024,
+ *             throughputInMibps: 24,
+ *             protocols: "NFSv4.1",
+ *             securityStyle: "unix",
+ *             snapshotDirectoryVisible: false,
+ *             networkFeatures: "Standard",
+ *             encryptionKeySource: "Microsoft.KeyVault",
+ *             keyVaultPrivateEndpointId: exampleEndpoint.id,
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
+ *         },
+ *         {
+ *             name: `${prefix}-netapp-volume-log`,
+ *             volumePath: "my-unique-file-path-log",
+ *             serviceLevel: "Standard",
+ *             capacityPoolId: examplePool.id,
+ *             subnetId: exampleDelegated.id,
+ *             zone: "1",
+ *             volumeSpecName: "log",
+ *             storageQuotaInGb: 1024,
+ *             throughputInMibps: 24,
+ *             protocols: "NFSv4.1",
+ *             securityStyle: "unix",
+ *             snapshotDirectoryVisible: false,
+ *             networkFeatures: "Standard",
+ *             encryptionKeySource: "Microsoft.KeyVault",
+ *             keyVaultPrivateEndpointId: exampleEndpoint.id,
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
+ *         },
+ *         {
+ *             name: `${prefix}-netapp-volume-shared`,
+ *             volumePath: "my-unique-file-path-shared",
+ *             serviceLevel: "Standard",
+ *             capacityPoolId: examplePool.id,
+ *             subnetId: exampleDelegated.id,
+ *             zone: "1",
+ *             volumeSpecName: "shared",
+ *             storageQuotaInGb: 1024,
+ *             throughputInMibps: 24,
+ *             protocols: "NFSv4.1",
+ *             securityStyle: "unix",
+ *             snapshotDirectoryVisible: false,
+ *             networkFeatures: "Standard",
+ *             encryptionKeySource: "Microsoft.KeyVault",
+ *             keyVaultPrivateEndpointId: exampleEndpoint.id,
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->

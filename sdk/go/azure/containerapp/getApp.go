@@ -60,6 +60,8 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 type LookupAppArgs struct {
 	// The name of the Container App.
 	Name string `pulumi:"name"`
+	// Should the data source read the secrets from the Container App? Defaults to `true`.
+	ReadSecrets *bool `pulumi:"readSecrets"`
 	// The name of the Resource Group where this Container App exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -85,6 +87,7 @@ type LookupAppResult struct {
 	// Name for the IP restriction rule.
 	Name                string   `pulumi:"name"`
 	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
+	ReadSecrets         *bool    `pulumi:"readSecrets"`
 	// A `registry` block as detailed below.
 	Registries        []GetAppRegistry `pulumi:"registries"`
 	ResourceGroupName string           `pulumi:"resourceGroupName"`
@@ -113,6 +116,8 @@ func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulu
 type LookupAppOutputArgs struct {
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Should the data source read the secrets from the Container App? Defaults to `true`.
+	ReadSecrets pulumi.BoolPtrInput `pulumi:"readSecrets"`
 	// The name of the Resource Group where this Container App exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
@@ -189,6 +194,10 @@ func (o LookupAppResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupAppResultOutput) OutboundIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []string { return v.OutboundIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupAppResultOutput) ReadSecrets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *bool { return v.ReadSecrets }).(pulumi.BoolPtrOutput)
 }
 
 // A `registry` block as detailed below.

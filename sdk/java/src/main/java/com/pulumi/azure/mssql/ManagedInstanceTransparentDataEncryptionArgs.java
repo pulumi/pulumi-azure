@@ -35,6 +35,10 @@ public final class ManagedInstanceTransparentDataEncryptionArgs extends com.pulu
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      * 
+     * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+     * 
+     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+     * 
      */
     @Import(name="keyVaultKeyId")
     private @Nullable Output<String> keyVaultKeyId;
@@ -42,30 +46,18 @@ public final class ManagedInstanceTransparentDataEncryptionArgs extends com.pulu
     /**
      * @return To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      * 
+     * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+     * 
+     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+     * 
      */
     public Optional<Output<String>> keyVaultKeyId() {
         return Optional.ofNullable(this.keyVaultKeyId);
     }
 
-    /**
-     * To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
-     * 
-     * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
-     * 
-     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-     * 
-     */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
-    /**
-     * @return To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
-     * 
-     * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
-     * 
-     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-     * 
-     */
     public Optional<Output<String>> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }
@@ -136,6 +128,10 @@ public final class ManagedInstanceTransparentDataEncryptionArgs extends com.pulu
         /**
          * @param keyVaultKeyId To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
          * 
+         * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+         * 
+         * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+         * 
          * @return builder
          * 
          */
@@ -147,6 +143,10 @@ public final class ManagedInstanceTransparentDataEncryptionArgs extends com.pulu
         /**
          * @param keyVaultKeyId To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
          * 
+         * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+         * 
+         * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+         * 
          * @return builder
          * 
          */
@@ -154,31 +154,11 @@ public final class ManagedInstanceTransparentDataEncryptionArgs extends com.pulu
             return keyVaultKeyId(Output.of(keyVaultKeyId));
         }
 
-        /**
-         * @param managedHsmKeyId To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
-         * 
-         * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
-         * 
-         * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
             $.managedHsmKeyId = managedHsmKeyId;
             return this;
         }
 
-        /**
-         * @param managedHsmKeyId To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
-         * 
-         * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
-         * 
-         * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedHsmKeyId(String managedHsmKeyId) {
             return managedHsmKeyId(Output.of(managedHsmKeyId));
         }

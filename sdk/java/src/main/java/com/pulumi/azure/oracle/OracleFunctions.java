@@ -20,6 +20,8 @@ import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseCloneFromDatabasePlai
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabasePlainArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterPlainArgs;
+import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
+import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetDbNodesArgs;
 import com.pulumi.azure.oracle.inputs.GetDbNodesPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetDbServersArgs;
@@ -42,6 +44,7 @@ import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseCloneFromBackupResul
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseCloneFromDatabaseResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseResult;
 import com.pulumi.azure.oracle.outputs.GetCloudVmClusterResult;
+import com.pulumi.azure.oracle.outputs.GetDatabaseSystemVersionsResult;
 import com.pulumi.azure.oracle.outputs.GetDbNodesResult;
 import com.pulumi.azure.oracle.outputs.GetDbServersResult;
 import com.pulumi.azure.oracle.outputs.GetDbSystemShapesResult;
@@ -1986,6 +1989,246 @@ public final class OracleFunctions {
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Oracle Database Systems Versions.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs.builder()
+     *             .location("eastus")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetDatabaseSystemVersionsResult> getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs args) {
+        return getDatabaseSystemVersions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Oracle Database Systems Versions.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs.builder()
+     *             .location("eastus")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetDatabaseSystemVersionsResult> getDatabaseSystemVersionsPlain(GetDatabaseSystemVersionsPlainArgs args) {
+        return getDatabaseSystemVersionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Oracle Database Systems Versions.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs.builder()
+     *             .location("eastus")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetDatabaseSystemVersionsResult> getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getDatabaseSystemVersions:getDatabaseSystemVersions", TypeShape.of(GetDatabaseSystemVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Oracle Database Systems Versions.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs.builder()
+     *             .location("eastus")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static Output<GetDatabaseSystemVersionsResult> getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getDatabaseSystemVersions:getDatabaseSystemVersions", TypeShape.of(GetDatabaseSystemVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Oracle Database Systems Versions.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDatabaseSystemVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDatabaseSystemVersions(GetDatabaseSystemVersionsArgs.builder()
+     *             .location("eastus")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-09-01
+     * 
+     */
+    public static CompletableFuture<GetDatabaseSystemVersionsResult> getDatabaseSystemVersionsPlain(GetDatabaseSystemVersionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getDatabaseSystemVersions:getDatabaseSystemVersions", TypeShape.of(GetDatabaseSystemVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Lists the database nodes for the specified Cloud VM Cluster.

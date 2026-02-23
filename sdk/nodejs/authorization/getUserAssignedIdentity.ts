@@ -66,6 +66,10 @@ export interface GetUserAssignedIdentityResult {
      */
     readonly id: string;
     /**
+     * The isolation scope for the User Assigned Identity.
+     */
+    readonly isolationScope: string;
+    /**
      * The Azure location where the User Assigned Identity exists.
      */
     readonly location: string;

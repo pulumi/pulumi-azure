@@ -310,6 +310,11 @@ export type WorkspaceCertificate = import("./workspaceCertificate").WorkspaceCer
 export const WorkspaceCertificate: typeof import("./workspaceCertificate").WorkspaceCertificate = null as any;
 utilities.lazyLoad(exports, ["WorkspaceCertificate"], () => require("./workspaceCertificate"));
 
+export { WorkspaceNamedValueArgs, WorkspaceNamedValueState } from "./workspaceNamedValue";
+export type WorkspaceNamedValue = import("./workspaceNamedValue").WorkspaceNamedValue;
+export const WorkspaceNamedValue: typeof import("./workspaceNamedValue").WorkspaceNamedValue = null as any;
+utilities.lazyLoad(exports, ["WorkspaceNamedValue"], () => require("./workspaceNamedValue"));
+
 export { WorkspacePolicyArgs, WorkspacePolicyState } from "./workspacePolicy";
 export type WorkspacePolicy = import("./workspacePolicy").WorkspacePolicy;
 export const WorkspacePolicy: typeof import("./workspacePolicy").WorkspacePolicy = null as any;
@@ -427,6 +432,8 @@ const _module = {
                 return new WorkspaceApiVersionSet(name, <any>undefined, { urn })
             case "azure:apimanagement/workspaceCertificate:WorkspaceCertificate":
                 return new WorkspaceCertificate(name, <any>undefined, { urn })
+            case "azure:apimanagement/workspaceNamedValue:WorkspaceNamedValue":
+                return new WorkspaceNamedValue(name, <any>undefined, { urn })
             case "azure:apimanagement/workspacePolicy:WorkspacePolicy":
                 return new WorkspacePolicy(name, <any>undefined, { urn })
             case "azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment":
@@ -487,5 +494,6 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/user", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/workspace", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/workspaceApiVersionSet", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/workspaceCertificate", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/workspaceNamedValue", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/workspacePolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/workspacePolicyFragment", _module)

@@ -20,14 +20,14 @@ public final class PointToPointVpnGatewayConnectionConfigurationArgs extends com
     public static final PointToPointVpnGatewayConnectionConfigurationArgs Empty = new PointToPointVpnGatewayConnectionConfigurationArgs();
 
     /**
-     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+     * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      * 
      */
     @Import(name="internetSecurityEnabled")
     private @Nullable Output<Boolean> internetSecurityEnabled;
 
     /**
-     * @return Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+     * @return Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> internetSecurityEnabled() {
@@ -107,7 +107,7 @@ public final class PointToPointVpnGatewayConnectionConfigurationArgs extends com
         }
 
         /**
-         * @param internetSecurityEnabled Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+         * @param internetSecurityEnabled Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class PointToPointVpnGatewayConnectionConfigurationArgs extends com
         }
 
         /**
-         * @param internetSecurityEnabled Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+         * @param internetSecurityEnabled Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
          * 
          * @return builder
          * 

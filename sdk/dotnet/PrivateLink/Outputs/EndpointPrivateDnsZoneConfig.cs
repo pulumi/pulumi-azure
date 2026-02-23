@@ -22,7 +22,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A list of IP Addresses
+        /// The ID of the Private DNS Zone that the config belongs to.
         /// </summary>
         public readonly string? PrivateDnsZoneId;
         /// <summary>

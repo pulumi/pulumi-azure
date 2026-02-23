@@ -3032,13 +3032,19 @@ type VolumeGroupSapHanaVolume struct {
 	DataProtectionReplication *VolumeGroupSapHanaVolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` blocks as defined below.
 	ExportPolicyRules []VolumeGroupSapHanaVolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// The ID of the Application Volume Group.
-	Id               *string  `pulumi:"id"`
-	MountIpAddresses []string `pulumi:"mountIpAddresses"`
+	Id *string `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	KeyVaultPrivateEndpointId *string  `pulumi:"keyVaultPrivateEndpointId"`
+	MountIpAddresses          []string `pulumi:"mountIpAddresses"`
 	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	Name string `pulumi:"name"`
+	// Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 	//
 	// > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
@@ -3063,6 +3069,8 @@ type VolumeGroupSapHanaVolume struct {
 	VolumePath string `pulumi:"volumePath"`
 	// Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName string `pulumi:"volumeSpecName"`
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+	Zone *string `pulumi:"zone"`
 }
 
 // VolumeGroupSapHanaVolumeInput is an input type that accepts VolumeGroupSapHanaVolumeArgs and VolumeGroupSapHanaVolumeOutput values.
@@ -3083,13 +3091,19 @@ type VolumeGroupSapHanaVolumeArgs struct {
 	DataProtectionReplication VolumeGroupSapHanaVolumeDataProtectionReplicationPtrInput `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput `pulumi:"dataProtectionSnapshotPolicy"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	EncryptionKeySource pulumi.StringPtrInput `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` blocks as defined below.
 	ExportPolicyRules VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput `pulumi:"exportPolicyRules"`
 	// The ID of the Application Volume Group.
-	Id               pulumi.StringPtrInput   `pulumi:"id"`
-	MountIpAddresses pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	KeyVaultPrivateEndpointId pulumi.StringPtrInput   `pulumi:"keyVaultPrivateEndpointId"`
+	MountIpAddresses          pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
 	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	NetworkFeatures pulumi.StringPtrInput `pulumi:"networkFeatures"`
 	// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 	//
 	// > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
@@ -3114,6 +3128,8 @@ type VolumeGroupSapHanaVolumeArgs struct {
 	VolumePath pulumi.StringInput `pulumi:"volumePath"`
 	// Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (VolumeGroupSapHanaVolumeArgs) ElementType() reflect.Type {
@@ -3186,6 +3202,11 @@ func (o VolumeGroupSapHanaVolumeOutput) DataProtectionSnapshotPolicy() VolumeGro
 	}).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
+// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) EncryptionKeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.EncryptionKeySource }).(pulumi.StringPtrOutput)
+}
+
 // One or more `exportPolicyRule` blocks as defined below.
 func (o VolumeGroupSapHanaVolumeOutput) ExportPolicyRules() VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) []VolumeGroupSapHanaVolumeExportPolicyRule {
@@ -3198,6 +3219,11 @@ func (o VolumeGroupSapHanaVolumeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) KeyVaultPrivateEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.KeyVaultPrivateEndpointId }).(pulumi.StringPtrOutput)
+}
+
 func (o VolumeGroupSapHanaVolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -3205,6 +3231,11 @@ func (o VolumeGroupSapHanaVolumeOutput) MountIpAddresses() pulumi.StringArrayOut
 // The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network features of the volume. Possible values are `Basic` or `Standard`. Default value is `Basic`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) NetworkFeatures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.NetworkFeatures }).(pulumi.StringPtrOutput)
 }
 
 // The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
@@ -3262,6 +3293,11 @@ func (o VolumeGroupSapHanaVolumeOutput) VolumePath() pulumi.StringOutput {
 // Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeOutput) VolumeSpecName() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
+}
+
+// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type VolumeGroupSapHanaVolumeArrayOutput struct{ *pulumi.OutputState }
@@ -5314,14 +5350,20 @@ type GetVolumeGroupSapHanaVolume struct {
 	DataProtectionReplications []GetVolumeGroupSapHanaVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicies []GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicies"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys.
+	EncryptionKeySource string `pulumi:"encryptionKeySource"`
 	// A `exportPolicyRule` block as defined below.
 	ExportPolicyRules []GetVolumeGroupSapHanaVolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Volume ID.
 	Id string `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys.
+	KeyVaultPrivateEndpointId string `pulumi:"keyVaultPrivateEndpointId"`
 	// A `mountIpAddresses` block as defined below.
 	MountIpAddresses []string `pulumi:"mountIpAddresses"`
 	// The name of this Application Volume Group for SAP HANA application.
 	Name string `pulumi:"name"`
+	// Network features of the volume.
+	NetworkFeatures string `pulumi:"networkFeatures"`
 	// A `protocols` block as defined below.
 	Protocols []string `pulumi:"protocols"`
 	// The ID of the proximity placement group.
@@ -5344,6 +5386,8 @@ type GetVolumeGroupSapHanaVolume struct {
 	VolumePath string `pulumi:"volumePath"`
 	// Volume spec name.
 	VolumeSpecName string `pulumi:"volumeSpecName"`
+	// Specifies the Availability Zone in which the Volume is located.
+	Zone string `pulumi:"zone"`
 }
 
 // GetVolumeGroupSapHanaVolumeInput is an input type that accepts GetVolumeGroupSapHanaVolumeArgs and GetVolumeGroupSapHanaVolumeOutput values.
@@ -5364,14 +5408,20 @@ type GetVolumeGroupSapHanaVolumeArgs struct {
 	DataProtectionReplications GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput `pulumi:"dataProtectionReplications"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicies GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput `pulumi:"dataProtectionSnapshotPolicies"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys.
+	EncryptionKeySource pulumi.StringInput `pulumi:"encryptionKeySource"`
 	// A `exportPolicyRule` block as defined below.
 	ExportPolicyRules GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput `pulumi:"exportPolicyRules"`
 	// Volume ID.
 	Id pulumi.StringInput `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys.
+	KeyVaultPrivateEndpointId pulumi.StringInput `pulumi:"keyVaultPrivateEndpointId"`
 	// A `mountIpAddresses` block as defined below.
 	MountIpAddresses pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
 	// The name of this Application Volume Group for SAP HANA application.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Network features of the volume.
+	NetworkFeatures pulumi.StringInput `pulumi:"networkFeatures"`
 	// A `protocols` block as defined below.
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// The ID of the proximity placement group.
@@ -5394,6 +5444,8 @@ type GetVolumeGroupSapHanaVolumeArgs struct {
 	VolumePath pulumi.StringInput `pulumi:"volumePath"`
 	// Volume spec name.
 	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
+	// Specifies the Availability Zone in which the Volume is located.
+	Zone pulumi.StringInput `pulumi:"zone"`
 }
 
 func (GetVolumeGroupSapHanaVolumeArgs) ElementType() reflect.Type {
@@ -5466,6 +5518,11 @@ func (o GetVolumeGroupSapHanaVolumeOutput) DataProtectionSnapshotPolicies() GetV
 	}).(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput)
 }
 
+// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys.
+func (o GetVolumeGroupSapHanaVolumeOutput) EncryptionKeySource() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.EncryptionKeySource }).(pulumi.StringOutput)
+}
+
 // A `exportPolicyRule` block as defined below.
 func (o GetVolumeGroupSapHanaVolumeOutput) ExportPolicyRules() GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) []GetVolumeGroupSapHanaVolumeExportPolicyRule {
@@ -5478,6 +5535,11 @@ func (o GetVolumeGroupSapHanaVolumeOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys.
+func (o GetVolumeGroupSapHanaVolumeOutput) KeyVaultPrivateEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.KeyVaultPrivateEndpointId }).(pulumi.StringOutput)
+}
+
 // A `mountIpAddresses` block as defined below.
 func (o GetVolumeGroupSapHanaVolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
@@ -5486,6 +5548,11 @@ func (o GetVolumeGroupSapHanaVolumeOutput) MountIpAddresses() pulumi.StringArray
 // The name of this Application Volume Group for SAP HANA application.
 func (o GetVolumeGroupSapHanaVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network features of the volume.
+func (o GetVolumeGroupSapHanaVolumeOutput) NetworkFeatures() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.NetworkFeatures }).(pulumi.StringOutput)
 }
 
 // A `protocols` block as defined below.
@@ -5541,6 +5608,11 @@ func (o GetVolumeGroupSapHanaVolumeOutput) VolumePath() pulumi.StringOutput {
 // Volume spec name.
 func (o GetVolumeGroupSapHanaVolumeOutput) VolumeSpecName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
+}
+
+// Specifies the Availability Zone in which the Volume is located.
+func (o GetVolumeGroupSapHanaVolumeOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.Zone }).(pulumi.StringOutput)
 }
 
 type GetVolumeGroupSapHanaVolumeArrayOutput struct{ *pulumi.OutputState }

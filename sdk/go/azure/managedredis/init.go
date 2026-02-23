@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:managedredis/accessPolicyAssignment:AccessPolicyAssignment":
+		r = &AccessPolicyAssignment{}
 	case "azure:managedredis/geoReplication:GeoReplication":
 		r = &GeoReplication{}
 	case "azure:managedredis/managedRedis:ManagedRedis":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"managedredis/accessPolicyAssignment",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"managedredis/geoReplication",

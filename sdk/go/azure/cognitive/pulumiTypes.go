@@ -3043,6 +3043,130 @@ func (o GetAccountNetworkInjectionArrayOutput) Index(i pulumi.IntInput) GetAccou
 	}).(GetAccountNetworkInjectionOutput)
 }
 
+type GetAccountProjectIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account Project.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Cognitive Services Account Project.
+	Type string `pulumi:"type"`
+}
+
+// GetAccountProjectIdentityInput is an input type that accepts GetAccountProjectIdentityArgs and GetAccountProjectIdentityOutput values.
+// You can construct a concrete instance of `GetAccountProjectIdentityInput` via:
+//
+//	GetAccountProjectIdentityArgs{...}
+type GetAccountProjectIdentityInput interface {
+	pulumi.Input
+
+	ToGetAccountProjectIdentityOutput() GetAccountProjectIdentityOutput
+	ToGetAccountProjectIdentityOutputWithContext(context.Context) GetAccountProjectIdentityOutput
+}
+
+type GetAccountProjectIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account Project.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Cognitive Services Account Project.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetAccountProjectIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountProjectIdentity)(nil)).Elem()
+}
+
+func (i GetAccountProjectIdentityArgs) ToGetAccountProjectIdentityOutput() GetAccountProjectIdentityOutput {
+	return i.ToGetAccountProjectIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAccountProjectIdentityArgs) ToGetAccountProjectIdentityOutputWithContext(ctx context.Context) GetAccountProjectIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountProjectIdentityOutput)
+}
+
+// GetAccountProjectIdentityArrayInput is an input type that accepts GetAccountProjectIdentityArray and GetAccountProjectIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAccountProjectIdentityArrayInput` via:
+//
+//	GetAccountProjectIdentityArray{ GetAccountProjectIdentityArgs{...} }
+type GetAccountProjectIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountProjectIdentityArrayOutput() GetAccountProjectIdentityArrayOutput
+	ToGetAccountProjectIdentityArrayOutputWithContext(context.Context) GetAccountProjectIdentityArrayOutput
+}
+
+type GetAccountProjectIdentityArray []GetAccountProjectIdentityInput
+
+func (GetAccountProjectIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountProjectIdentity)(nil)).Elem()
+}
+
+func (i GetAccountProjectIdentityArray) ToGetAccountProjectIdentityArrayOutput() GetAccountProjectIdentityArrayOutput {
+	return i.ToGetAccountProjectIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountProjectIdentityArray) ToGetAccountProjectIdentityArrayOutputWithContext(ctx context.Context) GetAccountProjectIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountProjectIdentityArrayOutput)
+}
+
+type GetAccountProjectIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAccountProjectIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountProjectIdentity)(nil)).Elem()
+}
+
+func (o GetAccountProjectIdentityOutput) ToGetAccountProjectIdentityOutput() GetAccountProjectIdentityOutput {
+	return o
+}
+
+func (o GetAccountProjectIdentityOutput) ToGetAccountProjectIdentityOutputWithContext(ctx context.Context) GetAccountProjectIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Cognitive Services Account Project.
+func (o GetAccountProjectIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccountProjectIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+func (o GetAccountProjectIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountProjectIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Services Account Project.
+func (o GetAccountProjectIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountProjectIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Cognitive Services Account Project.
+func (o GetAccountProjectIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountProjectIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAccountProjectIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountProjectIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountProjectIdentity)(nil)).Elem()
+}
+
+func (o GetAccountProjectIdentityArrayOutput) ToGetAccountProjectIdentityArrayOutput() GetAccountProjectIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccountProjectIdentityArrayOutput) ToGetAccountProjectIdentityArrayOutputWithContext(ctx context.Context) GetAccountProjectIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccountProjectIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountProjectIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountProjectIdentity {
+		return vs[0].([]GetAccountProjectIdentity)[vs[1].(int)]
+	}).(GetAccountProjectIdentityOutput)
+}
+
 type GetAccountStorage struct {
 	// The client ID of the managed identity associated with the storage resource.
 	IdentityClientId string `pulumi:"identityClientId"`
@@ -3190,6 +3314,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkAclVirtualNetworkRuleArrayInput)(nil)).Elem(), GetAccountNetworkAclVirtualNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkInjectionInput)(nil)).Elem(), GetAccountNetworkInjectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountNetworkInjectionArrayInput)(nil)).Elem(), GetAccountNetworkInjectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountProjectIdentityInput)(nil)).Elem(), GetAccountProjectIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountProjectIdentityArrayInput)(nil)).Elem(), GetAccountProjectIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountStorageInput)(nil)).Elem(), GetAccountStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountStorageArrayInput)(nil)).Elem(), GetAccountStorageArray{})
 	pulumi.RegisterOutputType(AIServicesCustomerManagedKeyOutput{})
@@ -3232,6 +3358,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountNetworkAclVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountNetworkInjectionOutput{})
 	pulumi.RegisterOutputType(GetAccountNetworkInjectionArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountProjectIdentityOutput{})
+	pulumi.RegisterOutputType(GetAccountProjectIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountStorageOutput{})
 	pulumi.RegisterOutputType(GetAccountStorageArrayOutput{})
 }

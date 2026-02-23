@@ -215,7 +215,7 @@ class EndpointPrivateDnsZoneConfig(dict):
         """
         :param _builtins.str id: The ID of the Private DNS Zone Config.
         :param _builtins.str name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        :param _builtins.str private_dns_zone_id: A list of IP Addresses
+        :param _builtins.str private_dns_zone_id: The ID of the Private DNS Zone that the config belongs to.
         :param Sequence['EndpointPrivateDnsZoneConfigRecordSetArgs'] record_sets: A `record_sets` block as defined below.
         """
         if id is not None:
@@ -247,7 +247,7 @@ class EndpointPrivateDnsZoneConfig(dict):
     @pulumi.getter(name="privateDnsZoneId")
     def private_dns_zone_id(self) -> Optional[_builtins.str]:
         """
-        A list of IP Addresses
+        The ID of the Private DNS Zone that the config belongs to.
         """
         return pulumi.get(self, "private_dns_zone_id")
 

@@ -281,6 +281,297 @@ import (
 //
 // ```
 //
+// ### Example with Availability Zone and Customer-Managed Keys
+//
+// This example demonstrates using availability zones instead of proximity placement groups, with customer-managed key encryption and Standard network features.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatelink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.Sprintf("%v-resources", prefix),
+//				Location: pulumi.Any(location),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.Sprintf("%v-vnet", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.88.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDelegated, err := network.NewSubnet(ctx, "example_delegated", &network.SubnetArgs{
+//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.88.1.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("netapp"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Netapp/volumes"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/networkinterfaces/*"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePrivateEndpoint, err := network.NewSubnet(ctx, "example_private_endpoint", &network.SubnetArgs{
+//				Name:               pulumi.Sprintf("%v-pe-subnet", prefix),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.88.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
+//				Name:              pulumi.Sprintf("%v-netapp-account", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Identity: &netapp.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                         pulumi.Sprintf("%vkv", prefix),
+//				Location:                     example.Location,
+//				ResourceGroupName:            example.Name,
+//				TenantId:                     pulumi.String(current.TenantId),
+//				SkuName:                      pulumi.String("standard"),
+//				PurgeProtectionEnabled:       pulumi.Bool(true),
+//				SoftDeleteRetentionDays:      pulumi.Int(7),
+//				EnabledForDiskEncryption:     pulumi.Bool(true),
+//				EnabledForDeployment:         pulumi.Bool(true),
+//				EnabledForTemplateDeployment: pulumi.Bool(true),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Create"),
+//							pulumi.String("Delete"),
+//							pulumi.String("WrapKey"),
+//							pulumi.String("UnwrapKey"),
+//							pulumi.String("GetRotationPolicy"),
+//							pulumi.String("SetRotationPolicy"),
+//						},
+//					},
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
+//							return &identity.TenantId, nil
+//						}).(pulumi.StringPtrOutput),
+//						ObjectId: exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
+//							return &identity.PrincipalId, nil
+//						}).(pulumi.StringPtrOutput),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Encrypt"),
+//							pulumi.String("Decrypt"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.Sprintf("%v-key", prefix),
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccountEncryption, err := netapp.NewAccountEncryption(ctx, "example", &netapp.AccountEncryptionArgs{
+//				NetappAccountId: exampleAccount.ID(),
+//				SystemAssignedIdentityPrincipalId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput)),
+//				EncryptionKey: exampleKey.VersionlessId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
+//				Name:              pulumi.Sprintf("%v-pe-kv", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				SubnetId:          examplePrivateEndpoint.ID(),
+//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+//					Name:                        pulumi.Sprintf("%v-pe-sc-kv", prefix),
+//					PrivateConnectionResourceId: exampleKeyVault.ID(),
+//					IsManualConnection:          pulumi.Bool(false),
+//					SubresourceNames: pulumi.StringArray{
+//						pulumi.String("Vault"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePool, err := netapp.NewPool(ctx, "example", &netapp.PoolArgs{
+//				Name:              pulumi.Sprintf("%v-netapp-pool", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AccountName:       exampleAccount.Name,
+//				ServiceLevel:      pulumi.String("Standard"),
+//				SizeInTb:          pulumi.Int(8),
+//				QosType:           pulumi.String("Manual"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccountEncryption,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = netapp.NewVolumeGroupSapHana(ctx, "example", &netapp.VolumeGroupSapHanaArgs{
+//				Name:                  pulumi.Sprintf("%v-netapp-volumegroup", prefix),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
+//				AccountName:           exampleAccount.Name,
+//				GroupDescription:      pulumi.String("Test volume group with zone and CMK"),
+//				ApplicationIdentifier: pulumi.String("TST"),
+//				Volumes: netapp.VolumeGroupSapHanaVolumeArray{
+//					&netapp.VolumeGroupSapHanaVolumeArgs{
+//						Name:                      pulumi.Sprintf("%v-netapp-volume-data", prefix),
+//						VolumePath:                pulumi.String("my-unique-file-path-data"),
+//						ServiceLevel:              pulumi.String("Standard"),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleDelegated.ID(),
+//						Zone:                      pulumi.String("1"),
+//						VolumeSpecName:            pulumi.String("data"),
+//						StorageQuotaInGb:          pulumi.Int(1024),
+//						ThroughputInMibps:         pulumi.Float64(24),
+//						Protocols:                 pulumi.String("NFSv4.1"),
+//						SecurityStyle:             pulumi.String("unix"),
+//						SnapshotDirectoryVisible:  pulumi.Bool(false),
+//						NetworkFeatures:           pulumi.String("Standard"),
+//						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
+//						KeyVaultPrivateEndpointId: exampleEndpoint.ID(),
+//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
+//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
+//								RuleIndex:         pulumi.Int(1),
+//								AllowedClients:    pulumi.String("0.0.0.0/0"),
+//								Nfsv3Enabled:      pulumi.Bool(false),
+//								Nfsv41Enabled:     pulumi.Bool(true),
+//								UnixReadOnly:      pulumi.Bool(false),
+//								UnixReadWrite:     pulumi.Bool(true),
+//								RootAccessEnabled: pulumi.Bool(false),
+//							},
+//						},
+//					},
+//					&netapp.VolumeGroupSapHanaVolumeArgs{
+//						Name:                      pulumi.Sprintf("%v-netapp-volume-log", prefix),
+//						VolumePath:                pulumi.String("my-unique-file-path-log"),
+//						ServiceLevel:              pulumi.String("Standard"),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleDelegated.ID(),
+//						Zone:                      pulumi.String("1"),
+//						VolumeSpecName:            pulumi.String("log"),
+//						StorageQuotaInGb:          pulumi.Int(1024),
+//						ThroughputInMibps:         pulumi.Float64(24),
+//						Protocols:                 pulumi.String("NFSv4.1"),
+//						SecurityStyle:             pulumi.String("unix"),
+//						SnapshotDirectoryVisible:  pulumi.Bool(false),
+//						NetworkFeatures:           pulumi.String("Standard"),
+//						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
+//						KeyVaultPrivateEndpointId: exampleEndpoint.ID(),
+//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
+//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
+//								RuleIndex:         pulumi.Int(1),
+//								AllowedClients:    pulumi.String("0.0.0.0/0"),
+//								Nfsv3Enabled:      pulumi.Bool(false),
+//								Nfsv41Enabled:     pulumi.Bool(true),
+//								UnixReadOnly:      pulumi.Bool(false),
+//								UnixReadWrite:     pulumi.Bool(true),
+//								RootAccessEnabled: pulumi.Bool(false),
+//							},
+//						},
+//					},
+//					&netapp.VolumeGroupSapHanaVolumeArgs{
+//						Name:                      pulumi.Sprintf("%v-netapp-volume-shared", prefix),
+//						VolumePath:                pulumi.String("my-unique-file-path-shared"),
+//						ServiceLevel:              pulumi.String("Standard"),
+//						CapacityPoolId:            examplePool.ID(),
+//						SubnetId:                  exampleDelegated.ID(),
+//						Zone:                      pulumi.String("1"),
+//						VolumeSpecName:            pulumi.String("shared"),
+//						StorageQuotaInGb:          pulumi.Int(1024),
+//						ThroughputInMibps:         pulumi.Float64(24),
+//						Protocols:                 pulumi.String("NFSv4.1"),
+//						SecurityStyle:             pulumi.String("unix"),
+//						SnapshotDirectoryVisible:  pulumi.Bool(false),
+//						NetworkFeatures:           pulumi.String("Standard"),
+//						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
+//						KeyVaultPrivateEndpointId: exampleEndpoint.ID(),
+//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
+//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
+//								RuleIndex:         pulumi.Int(1),
+//								AllowedClients:    pulumi.String("0.0.0.0/0"),
+//								Nfsv3Enabled:      pulumi.Bool(false),
+//								Nfsv41Enabled:     pulumi.Bool(true),
+//								UnixReadOnly:      pulumi.Bool(false),
+//								UnixReadWrite:     pulumi.Bool(true),
+//								RootAccessEnabled: pulumi.Bool(false),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->

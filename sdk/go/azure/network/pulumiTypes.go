@@ -5631,7 +5631,7 @@ type ApplicationGatewayWafConfiguration struct {
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
 	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
 	RuleSetType *string `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion string `pulumi:"ruleSetVersion"`
 }
 
@@ -5663,7 +5663,7 @@ type ApplicationGatewayWafConfigurationArgs struct {
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
 	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
 	RuleSetType pulumi.StringPtrInput `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
 }
 
@@ -5788,7 +5788,7 @@ func (o ApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringPtr
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *string { return v.RuleSetType }).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) string { return v.RuleSetVersion }).(pulumi.StringOutput)
 }
@@ -5897,7 +5897,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {
@@ -5908,7 +5908,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.Str
 }
 
 type ApplicationGatewayWafConfigurationDisabledRuleGroup struct {
-	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 	// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 	Rules []int `pulumi:"rules"`
@@ -5926,7 +5926,7 @@ type ApplicationGatewayWafConfigurationDisabledRuleGroupInput interface {
 }
 
 type ApplicationGatewayWafConfigurationDisabledRuleGroupArgs struct {
-	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 	// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 	Rules pulumi.IntArrayInput `pulumi:"rules"`
@@ -5983,7 +5983,7 @@ func (o ApplicationGatewayWafConfigurationDisabledRuleGroupOutput) ToApplication
 	return o
 }
 
-// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
 func (o ApplicationGatewayWafConfigurationDisabledRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfigurationDisabledRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
@@ -7452,7 +7452,7 @@ type ExpressRoutePortLink1 struct {
 	InterfaceName *string `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
-	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 	MacsecCipher *string `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
@@ -7490,7 +7490,7 @@ type ExpressRoutePortLink1Args struct {
 	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
-	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
@@ -7608,7 +7608,7 @@ func (o ExpressRoutePortLink1Output) MacsecCakKeyvaultSecretId() pulumi.StringPt
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
 
-// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink1Output) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCipher }).(pulumi.StringPtrOutput)
 }
@@ -7714,7 +7714,7 @@ func (o ExpressRoutePortLink1PtrOutput) MacsecCakKeyvaultSecretId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink1PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
 		if v == nil {
@@ -7787,7 +7787,7 @@ type ExpressRoutePortLink2 struct {
 	InterfaceName *string `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
-	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 	MacsecCipher *string `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
@@ -7825,7 +7825,7 @@ type ExpressRoutePortLink2Args struct {
 	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
 	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
-	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
 	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
@@ -7943,7 +7943,7 @@ func (o ExpressRoutePortLink2Output) MacsecCakKeyvaultSecretId() pulumi.StringPt
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
 
-// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink2Output) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCipher }).(pulumi.StringPtrOutput)
 }
@@ -8049,7 +8049,7 @@ func (o ExpressRoutePortLink2PtrOutput) MacsecCakKeyvaultSecretId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128`, `GcmAes256`, `GcmAesXpn128` and `GcmAesXpn256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink2PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
 		if v == nil {
@@ -15855,7 +15855,7 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceResourceId() pu
 }
 
 type PointToPointVpnGatewayConnectionConfiguration struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection Configuration.
 	Name string `pulumi:"name"`
@@ -15877,7 +15877,7 @@ type PointToPointVpnGatewayConnectionConfigurationInput interface {
 }
 
 type PointToPointVpnGatewayConnectionConfigurationArgs struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+	// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrInput `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -15938,7 +15938,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGa
 	return o
 }
 
-// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
 func (o PointToPointVpnGatewayConnectionConfigurationOutput) InternetSecurityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) *bool { return v.InternetSecurityEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -21351,6 +21351,8 @@ type VirtualNetworkGatewayIpConfiguration struct {
 	// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public IP address to associate with the Virtual Network Gateway.
+	//
+	// > **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
 	SubnetId string `pulumi:"subnetId"`
@@ -21373,6 +21375,8 @@ type VirtualNetworkGatewayIpConfigurationArgs struct {
 	// Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public IP address to associate with the Virtual Network Gateway.
+	//
+	// > **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -21440,6 +21444,8 @@ func (o VirtualNetworkGatewayIpConfigurationOutput) PrivateIpAddressAllocation()
 }
 
 // The ID of the public IP address to associate with the Virtual Network Gateway.
+//
+// > **Note:** `publicIpAddressId` should not be specified when `type` is set to `ExpressRoute`.
 func (o VirtualNetworkGatewayIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }

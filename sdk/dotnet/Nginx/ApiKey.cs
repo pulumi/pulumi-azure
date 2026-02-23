@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Nginx
     ///     {
     ///         Name = "example-nginx",
     ///         ResourceGroupName = example.Name,
-    ///         Sku = "standardv2_Monthly",
+    ///         Sku = "standardv3_Monthly",
     ///         Location = example.Location,
     ///         AutomaticUpgradeChannel = "stable",
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs

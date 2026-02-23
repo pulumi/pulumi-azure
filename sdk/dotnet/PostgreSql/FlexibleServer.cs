@@ -195,6 +195,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<int> BackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
+        /// A `Cluster` block as defined below.
+        /// </summary>
+        [Output("cluster")]
+        public Output<Outputs.FlexibleServerCluster?> Cluster { get; private set; } = null!;
+
+        /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
         /// </summary>
         [Output("createMode")]
@@ -334,6 +340,8 @@ namespace Pulumi.Azure.PostgreSql
         /// &gt; **Note:** Downgrading `Version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+        /// 
+        /// &gt; **Note:** Major version upgrades are not supported when `Cluster` is specified.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -447,6 +455,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
+
+        /// <summary>
+        /// A `Cluster` block as defined below.
+        /// </summary>
+        [Input("cluster")]
+        public Input<Inputs.FlexibleServerClusterArgs>? Cluster { get; set; }
 
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
@@ -588,6 +602,8 @@ namespace Pulumi.Azure.PostgreSql
         /// &gt; **Note:** Downgrading `Version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+        /// 
+        /// &gt; **Note:** Major version upgrades are not supported when `Cluster` is specified.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -659,6 +675,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
+
+        /// <summary>
+        /// A `Cluster` block as defined below.
+        /// </summary>
+        [Input("cluster")]
+        public Input<Inputs.FlexibleServerClusterGetArgs>? Cluster { get; set; }
 
         /// <summary>
         /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
@@ -806,6 +828,8 @@ namespace Pulumi.Azure.PostgreSql
         /// &gt; **Note:** Downgrading `Version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
         /// 
         /// &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+        /// 
+        /// &gt; **Note:** Major version upgrades are not supported when `Cluster` is specified.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.postgresql.FlexibleServerArgs;
 import com.pulumi.azure.postgresql.inputs.FlexibleServerState;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerAuthentication;
+import com.pulumi.azure.postgresql.outputs.FlexibleServerCluster;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerCustomerManagedKey;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerHighAvailability;
 import com.pulumi.azure.postgresql.outputs.FlexibleServerIdentity;
@@ -257,6 +258,20 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> backupRetentionDays() {
         return this.backupRetentionDays;
+    }
+    /**
+     * A `cluster` block as defined below.
+     * 
+     */
+    @Export(name="cluster", refs={FlexibleServerCluster.class}, tree="[0]")
+    private Output</* @Nullable */ FlexibleServerCluster> cluster;
+
+    /**
+     * @return A `cluster` block as defined below.
+     * 
+     */
+    public Output<Optional<FlexibleServerCluster>> cluster() {
+        return Codegen.optional(this.cluster);
     }
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
@@ -573,6 +588,8 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      * 
+     * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
+     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
@@ -583,6 +600,8 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
      * 
      * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
+     * 
+     * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
      * 
      */
     public Output<String> version() {

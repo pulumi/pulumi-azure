@@ -50,6 +50,7 @@ from .linked_service_odbc import *
 from .linked_service_postgresql import *
 from .linked_service_sftp import *
 from .linked_service_snowflake import *
+from .linked_service_sql_managed_instance import *
 from .linked_service_sql_server import *
 from .linked_service_synapse import *
 from .linked_service_web import *

@@ -24,7 +24,7 @@ public final class EndpointPrivateDnsZoneConfig {
      */
     private @Nullable String name;
     /**
-     * @return A list of IP Addresses
+     * @return The ID of the Private DNS Zone that the config belongs to.
      * 
      */
     private @Nullable String privateDnsZoneId;
@@ -50,7 +50,7 @@ public final class EndpointPrivateDnsZoneConfig {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return A list of IP Addresses
+     * @return The ID of the Private DNS Zone that the config belongs to.
      * 
      */
     public Optional<String> privateDnsZoneId() {

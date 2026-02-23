@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleFederatedIdentityCredential = new azure.armmsi.FederatedIdentityCredential("example", {
  *     name: "example",
- *     resourceGroupName: example.name,
  *     audience: "foo",
  *     issuer: "https://foo",
  *     parentId: exampleUserAssignedIdentity.id,
@@ -92,7 +91,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
      */
     declare public readonly parentId: pulumi.Output<string>;
     /**
-     * Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
@@ -130,9 +129,6 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if (args?.resourceGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
@@ -169,7 +165,7 @@ export interface FederatedIdentityCredentialState {
      */
     parentId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -199,9 +195,9 @@ export interface FederatedIdentityCredentialArgs {
      */
     parentId: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the subject for this Federated Identity Credential.
      */

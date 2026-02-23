@@ -28,13 +28,16 @@ class GetUserAssignedIdentityResult:
     """
     A collection of values returned by getUserAssignedIdentity.
     """
-    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, resource_group_name=None, tags=None, tenant_id=None):
+    def __init__(__self__, client_id=None, id=None, isolation_scope=None, location=None, name=None, principal_id=None, resource_group_name=None, tags=None, tenant_id=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if isolation_scope and not isinstance(isolation_scope, str):
+            raise TypeError("Expected argument 'isolation_scope' to be a str")
+        pulumi.set(__self__, "isolation_scope", isolation_scope)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -69,6 +72,14 @@ class GetUserAssignedIdentityResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isolationScope")
+    def isolation_scope(self) -> _builtins.str:
+        """
+        The isolation scope for the User Assigned Identity.
+        """
+        return pulumi.get(self, "isolation_scope")
 
     @_builtins.property
     @pulumi.getter
@@ -121,6 +132,7 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
         return GetUserAssignedIdentityResult(
             client_id=self.client_id,
             id=self.id,
+            isolation_scope=self.isolation_scope,
             location=self.location,
             name=self.name,
             principal_id=self.principal_id,
@@ -171,6 +183,7 @@ def get_user_assigned_identity(name: Optional[_builtins.str] = None,
     return AwaitableGetUserAssignedIdentityResult(
         client_id=pulumi.get(__ret__, 'client_id'),
         id=pulumi.get(__ret__, 'id'),
+        isolation_scope=pulumi.get(__ret__, 'isolation_scope'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
@@ -218,6 +231,7 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[_builtins.str]
     return __ret__.apply(lambda __response__: GetUserAssignedIdentityResult(
         client_id=pulumi.get(__response__, 'client_id'),
         id=pulumi.get(__response__, 'id'),
+        isolation_scope=pulumi.get(__response__, 'isolation_scope'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         principal_id=pulumi.get(__response__, 'principal_id'),

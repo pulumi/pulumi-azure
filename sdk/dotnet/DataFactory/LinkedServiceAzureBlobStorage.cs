@@ -108,11 +108,8 @@ namespace Pulumi.Azure.DataFactory
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `KeyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
-        /// </summary>
         [Output("keyVaultSasToken")]
-        public Output<Outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken?> KeyVaultSasToken { get; private set; } = null!;
+        public Output<Outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken> KeyVaultSasToken { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -125,6 +122,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// A `SasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
+        /// </summary>
+        [Output("sasTokenLinkedKeyVaultKey")]
+        public Output<Outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey> SasTokenLinkedKeyVaultKey { get; private set; } = null!;
 
         /// <summary>
         /// The SAS URI. Conflicts with `ConnectionStringInsecure`, `ConnectionString` and `ServiceEndpoint`.
@@ -273,9 +276,6 @@ namespace Pulumi.Azure.DataFactory
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
-        /// <summary>
-        /// A `KeyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
-        /// </summary>
         [Input("keyVaultSasToken")]
         public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>? KeyVaultSasToken { get; set; }
 
@@ -296,6 +296,12 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// A `SasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
+        /// </summary>
+        [Input("sasTokenLinkedKeyVaultKey")]
+        public Input<Inputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs>? SasTokenLinkedKeyVaultKey { get; set; }
 
         [Input("sasUri")]
         private Input<string>? _sasUri;
@@ -419,9 +425,6 @@ namespace Pulumi.Azure.DataFactory
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
-        /// <summary>
-        /// A `KeyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
-        /// </summary>
         [Input("keyVaultSasToken")]
         public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenGetArgs>? KeyVaultSasToken { get; set; }
 
@@ -442,6 +445,12 @@ namespace Pulumi.Azure.DataFactory
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// A `SasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
+        /// </summary>
+        [Input("sasTokenLinkedKeyVaultKey")]
+        public Input<Inputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyGetArgs>? SasTokenLinkedKeyVaultKey { get; set; }
 
         [Input("sasUri")]
         private Input<string>? _sasUri;

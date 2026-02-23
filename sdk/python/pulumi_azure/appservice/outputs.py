@@ -12617,7 +12617,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
                > **Note:** The value `21` is currently in Preview for `java_version`.
         :param _builtins.str node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         :param _builtins.str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
-        :param _builtins.str python_version: The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param _builtins.str python_version: The version of Python to run. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param _builtins.bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param _builtins.bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -12684,7 +12684,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[_builtins.str]:
         """
-        The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to run. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -16297,7 +16297,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
         :param _builtins.str java_version: The version of Java to use. Possible values are `8`, `11`, `17` and `21`.
         :param _builtins.str node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
         :param _builtins.str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
-        :param _builtins.str python_version: The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param _builtins.str python_version: The version of Python to use. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param _builtins.bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param _builtins.bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -16362,7 +16362,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[_builtins.str]:
         """
-        The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to use. Possible values are `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 

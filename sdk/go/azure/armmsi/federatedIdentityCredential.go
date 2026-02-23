@@ -46,12 +46,11 @@ import (
 //				return err
 //			}
 //			_, err = armmsi.NewFederatedIdentityCredential(ctx, "example", &armmsi.FederatedIdentityCredentialArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Audience:          pulumi.String("foo"),
-//				Issuer:            pulumi.String("https://foo"),
-//				ParentId:          exampleUserAssignedIdentity.ID(),
-//				Subject:           pulumi.String("foo"),
+//				Name:     pulumi.String("example"),
+//				Audience: pulumi.String("foo"),
+//				Issuer:   pulumi.String("https://foo"),
+//				ParentId: exampleUserAssignedIdentity.ID(),
+//				Subject:  pulumi.String("foo"),
 //			})
 //			if err != nil {
 //				return err
@@ -87,7 +86,7 @@ type FederatedIdentityCredential struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
-	// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the subject for this Federated Identity Credential.
 	Subject pulumi.StringOutput `pulumi:"subject"`
@@ -108,9 +107,6 @@ func NewFederatedIdentityCredential(ctx *pulumi.Context,
 	}
 	if args.ParentId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentId'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.Subject == nil {
 		return nil, errors.New("invalid value for required argument 'Subject'")
@@ -146,7 +142,7 @@ type federatedIdentityCredentialState struct {
 	Name *string `pulumi:"name"`
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId *string `pulumi:"parentId"`
-	// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the subject for this Federated Identity Credential.
 	Subject *string `pulumi:"subject"`
@@ -161,7 +157,7 @@ type FederatedIdentityCredentialState struct {
 	Name pulumi.StringPtrInput
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId pulumi.StringPtrInput
-	// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the subject for this Federated Identity Credential.
 	Subject pulumi.StringPtrInput
@@ -180,8 +176,8 @@ type federatedIdentityCredentialArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId string `pulumi:"parentId"`
-	// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the subject for this Federated Identity Credential.
 	Subject string `pulumi:"subject"`
 }
@@ -196,8 +192,8 @@ type FederatedIdentityCredentialArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
 	ParentId pulumi.StringInput
-	// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
-	ResourceGroupName pulumi.StringInput
+	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
+	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the subject for this Federated Identity Credential.
 	Subject pulumi.StringInput
 }
@@ -309,7 +305,7 @@ func (o FederatedIdentityCredentialOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedIdentityCredential) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
+// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
 func (o FederatedIdentityCredentialOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedIdentityCredential) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
