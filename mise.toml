@@ -1,5 +1,5 @@
 [tools]
-golangci-lint = "2.5.0"
+golangci-lint = "2.7.0"
 "vfox-pulumi:pulumi/pulumi-random" = "4.18.5"
 "vfox-pulumi:pulumi/pulumi-azuread" = "6.8.0"
 "vfox-pulumi:pulumiverse/pulumi-time" = "0.1.1"
