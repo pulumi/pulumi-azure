@@ -25,6 +25,7 @@ class CustomDomainArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
+
         :param pulumi.Input[_builtins.str] domain_name: Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
                
                > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
@@ -98,6 +99,7 @@ class _CustomDomainState:
                  web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
+
         :param pulumi.Input[_builtins.str] domain_name: Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
                
                > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
@@ -196,6 +198,7 @@ class CustomDomain(pulumi.CustomResource):
         $ pulumi import azure:webpubsub/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1/customDomains/customDomain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
@@ -230,6 +233,7 @@ class CustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:webpubsub/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1/customDomains/customDomain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomDomainArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class IdentityProviderTwitterArgs:
                  resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IdentityProviderTwitter resource.
+
         :param pulumi.Input[_builtins.str] api_key: App Consumer API key for Twitter.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_secret_key: App Consumer API secret key for Twitter.
@@ -93,6 +94,7 @@ class _IdentityProviderTwitterState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProviderTwitter resources.
+
         :param pulumi.Input[_builtins.str] api_key: App Consumer API key for Twitter.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_secret_key: App Consumer API secret key for Twitter.
@@ -208,6 +210,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/twitter
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: App Consumer API key for Twitter.
@@ -261,6 +264,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/twitter
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderTwitterArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class SpringCloudContainerDeploymentArgs:
                  quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudContainerDeployment resource.
+
         :param pulumi.Input[_builtins.str] image: Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         :param pulumi.Input[_builtins.str] server: The name of the registry that contains the container image.
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
@@ -232,6 +233,7 @@ class _SpringCloudContainerDeploymentState:
                  spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudContainerDeployment resources.
+
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
@@ -484,6 +486,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/deployments/deploy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
@@ -554,6 +557,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/deployments/deploy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudContainerDeploymentArgs args: The arguments to use to populate this resource's properties.

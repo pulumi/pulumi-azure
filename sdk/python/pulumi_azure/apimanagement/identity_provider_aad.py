@@ -28,6 +28,7 @@ class IdentityProviderAadArgs:
                  signin_tenant: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProviderAad resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tenants: List of allowed AAD Tenants.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: Client Id of the Application in the AAD Identity Provider.
@@ -143,6 +144,7 @@ class _IdentityProviderAadState:
                  signin_tenant: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProviderAad resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tenants: List of allowed AAD Tenants.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: Client Id of the Application in the AAD Identity Provider.
@@ -307,6 +309,7 @@ class IdentityProviderAad(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/identityProviderAad:IdentityProviderAad example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/aad
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tenants: List of allowed AAD Tenants.
@@ -364,6 +367,7 @@ class IdentityProviderAad(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/identityProviderAad:IdentityProviderAad example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/aad
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderAadArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class JobScheduleArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobSchedule resource.
+
         :param pulumi.Input[_builtins.str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Schedule to be created.
         :param pulumi.Input[_builtins.str] type: The type of schedule. Possible values are `Once` and `Recurring`.
         :param pulumi.Input[_builtins.bool] enabled: Should the Elastic Job Schedule be enabled? Defaults to `false`.
@@ -133,6 +134,7 @@ class _JobScheduleState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobSchedule resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Should the Elastic Job Schedule be enabled? Defaults to `false`.
                
                > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
@@ -303,6 +305,7 @@ class JobSchedule(pulumi.CustomResource):
         $ pulumi import azure:mssql/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/jobs/myjob1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Should the Elastic Job Schedule be enabled? Defaults to `false`.
@@ -379,6 +382,7 @@ class JobSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/jobs/myjob1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobScheduleArgs args: The arguments to use to populate this resource's properties.

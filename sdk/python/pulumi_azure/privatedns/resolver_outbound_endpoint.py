@@ -26,6 +26,7 @@ class ResolverOutboundEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverOutboundEndpoint resource.
+
         :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
@@ -112,6 +113,7 @@ class _ResolverOutboundEndpointState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverOutboundEndpoint resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
@@ -261,6 +263,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
         $ pulumi import azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1/outboundEndpoints/outboundEndpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
@@ -333,6 +336,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1/outboundEndpoints/outboundEndpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverOutboundEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -47,6 +47,7 @@ class VirtualMachineArgs:
                  zones: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: A list of Network Interface IDs which should be associated with the Virtual Machine.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineStorageOsDiskArgs'] storage_os_disk: A `storage_os_disk` block as defined below.
@@ -455,6 +456,7 @@ class _VirtualMachineState:
                  zones: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachine resources.
+
         :param pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[_builtins.str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -962,6 +964,7 @@ class VirtualMachine(pulumi.CustomResource):
         $ pulumi import azure:compute/virtualMachine:VirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
@@ -1097,6 +1100,7 @@ class VirtualMachine(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/virtualMachine:VirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

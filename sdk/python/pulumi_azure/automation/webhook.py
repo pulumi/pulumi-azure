@@ -30,6 +30,7 @@ class WebhookArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] expiry_time: Timestamp when the webhook expires. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
@@ -178,6 +179,7 @@ class _WebhookState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enabled: Controls if Webhook is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] expiry_time: Timestamp when the webhook expires. Changing this forces a new resource to be created.
@@ -388,6 +390,7 @@ class Webhook(pulumi.CustomResource):
         $ pulumi import azure:automation/webhook:Webhook TestRunbook_webhook /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/webHooks/TestRunbook_webhook
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
@@ -461,6 +464,7 @@ class Webhook(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/webhook:Webhook TestRunbook_webhook /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/webHooks/TestRunbook_webhook
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class DatasetBlobStorageArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatasetBlobStorage resource.
+
         :param pulumi.Input[_builtins.str] container_name: The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[_builtins.str] data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input['DatasetBlobStorageStorageAccountArgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
@@ -131,6 +132,7 @@ class _DatasetBlobStorageState:
                  storage_account: Optional[pulumi.Input['DatasetBlobStorageStorageAccountArgs']] = None):
         """
         Input properties used for looking up and filtering DatasetBlobStorage resources.
+
         :param pulumi.Input[_builtins.str] container_name: The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[_builtins.str] data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[_builtins.str] display_name: The name of the Data Share Dataset.
@@ -263,6 +265,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         $ pulumi import azure:datashare/datasetBlobStorage:DatasetBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_name: The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -288,6 +291,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datashare/datasetBlobStorage:DatasetBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetBlobStorageArgs args: The arguments to use to populate this resource's properties.

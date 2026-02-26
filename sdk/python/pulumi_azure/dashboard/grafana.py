@@ -37,6 +37,7 @@ class GrafanaArgs:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Grafana resource.
+
         :param pulumi.Input[_builtins.str] grafana_major_version: Which major version of Grafana to deploy. Possible values are `10`, `11`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[_builtins.bool] api_key_enabled: Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
@@ -270,6 +271,7 @@ class _GrafanaState:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Grafana resources.
+
         :param pulumi.Input[_builtins.bool] api_key_enabled: Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
         :param pulumi.Input[_builtins.str] auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
         :param pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
@@ -592,6 +594,7 @@ class Grafana(pulumi.CustomResource):
         $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] api_key_enabled: Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
@@ -657,6 +660,7 @@ class Grafana(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GrafanaArgs args: The arguments to use to populate this resource's properties.

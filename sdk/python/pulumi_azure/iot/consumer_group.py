@@ -25,6 +25,7 @@ class ConsumerGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConsumerGroup resource.
+
         :param pulumi.Input[_builtins.str] eventhub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] iothub_name: The name of the IoT Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _ConsumerGroupState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConsumerGroup resources.
+
         :param pulumi.Input[_builtins.str] eventhub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] iothub_name: The name of the IoT Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of this Consumer Group. Changing this forces a new resource to be created.
@@ -206,6 +208,7 @@ class ConsumerGroup(pulumi.CustomResource):
         $ pulumi import azure:iot/consumerGroup:ConsumerGroup group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/eventHubEndpoints/events/consumerGroups/group1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] eventhub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
@@ -256,6 +259,7 @@ class ConsumerGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/consumerGroup:ConsumerGroup group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/eventHubEndpoints/events/consumerGroups/group1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConsumerGroupArgs args: The arguments to use to populate this resource's properties.

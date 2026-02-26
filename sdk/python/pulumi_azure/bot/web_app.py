@@ -34,6 +34,7 @@ class WebAppArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WebApp resource.
+
         :param pulumi.Input[_builtins.str] microsoft_app_id: The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
@@ -247,6 +248,7 @@ class _WebAppState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering WebApp resources.
+
         :param pulumi.Input[_builtins.str] developer_app_insights_api_key: The Application Insights API Key to associate with the Web App Bot.
         :param pulumi.Input[_builtins.str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Web App Bot.
         :param pulumi.Input[_builtins.str] developer_app_insights_key: The Application Insights Key to associate with the Web App Bot.
@@ -494,6 +496,7 @@ class WebApp(pulumi.CustomResource):
         $ pulumi import azure:bot/webApp:WebApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] developer_app_insights_api_key: The Application Insights API Key to associate with the Web App Bot.
@@ -544,6 +547,7 @@ class WebApp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/webApp:WebApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAppArgs args: The arguments to use to populate this resource's properties.

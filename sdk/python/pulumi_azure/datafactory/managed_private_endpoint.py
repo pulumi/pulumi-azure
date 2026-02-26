@@ -26,6 +26,7 @@ class ManagedPrivateEndpointArgs:
                  subresource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: Fully qualified domain names. Changing this forces a new resource to be created.
@@ -116,6 +117,7 @@ class _ManagedPrivateEndpointState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: Fully qualified domain names. Changing this forces a new resource to be created.
                
@@ -256,6 +258,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         $ pulumi import azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -317,6 +320,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.

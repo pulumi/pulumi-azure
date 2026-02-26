@@ -29,6 +29,7 @@ class ActiveRoleAssignmentArgs:
                  ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None):
         """
         The set of arguments for constructing a ActiveRoleAssignment resource.
+
         :param pulumi.Input[_builtins.str] principal_id: Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID for this role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
@@ -131,6 +132,7 @@ class _ActiveRoleAssignmentState:
                  ticket: Optional[pulumi.Input['ActiveRoleAssignmentTicketArgs']] = None):
         """
         Input properties used for looking up and filtering ActiveRoleAssignment resources.
+
         :param pulumi.Input[_builtins.str] justification: The justification for the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: Type of principal to which the role will be assigned.
@@ -330,6 +332,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
 
         > **Note:** This ID is specific to Terraform - and is of the format `{scope}|{roleDefinitionId}|{principalId}`, where the first segment is the scope of the role assignment, the second segment is the role definition ID, and the last segment is the principal object ID.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] justification: The justification for the role assignment. Changing this forces a new resource to be created.
@@ -422,6 +425,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         ```
 
         > **Note:** This ID is specific to Terraform - and is of the format `{scope}|{roleDefinitionId}|{principalId}`, where the first segment is the scope of the role assignment, the second segment is the role definition ID, and the last segment is the principal object ID.
+
 
         :param str resource_name: The name of the resource.
         :param ActiveRoleAssignmentArgs args: The arguments to use to populate this resource's properties.

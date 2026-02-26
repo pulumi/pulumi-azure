@@ -26,6 +26,7 @@ class PrivateLinkScopeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkScope resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -113,6 +114,7 @@ class _PrivateLinkScopeState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkScope resources.
+
         :param pulumi.Input[_builtins.str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] query_access_mode: The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
@@ -237,6 +239,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         $ pulumi import azure:monitoring/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ingestion_access_mode: The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
@@ -284,6 +287,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.

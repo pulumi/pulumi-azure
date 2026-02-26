@@ -25,6 +25,7 @@ class LinkedServiceArgs:
                  write_access_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[_builtins.str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
@@ -100,6 +101,7 @@ class _LinkedServiceState:
                  write_access_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedService resources.
+
         :param pulumi.Input[_builtins.str] name: The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
         :param pulumi.Input[_builtins.str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
@@ -245,6 +247,7 @@ class LinkedService(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Cluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
@@ -311,6 +314,7 @@ class LinkedService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Cluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceArgs args: The arguments to use to populate this resource's properties.

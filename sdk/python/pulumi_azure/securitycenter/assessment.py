@@ -27,6 +27,7 @@ class AssessmentArgs:
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+
         :param pulumi.Input[_builtins.str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
         :param pulumi.Input['AssessmentStatusArgs'] status: A `status` block as defined below.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
@@ -96,6 +97,7 @@ class _AssessmentState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Assessment resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[_builtins.str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
         :param pulumi.Input['AssessmentStatusArgs'] status: A `status` block as defined below.
@@ -243,6 +245,7 @@ class Assessment(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/assessment:Assessment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Security/assessments/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_data: A map of additional data to associate with the assessment.
@@ -328,6 +331,7 @@ class Assessment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/assessment:Assessment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Security/assessments/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

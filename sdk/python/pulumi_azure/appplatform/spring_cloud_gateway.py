@@ -39,6 +39,7 @@ class SpringCloudGatewayArgs:
                  sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudGateway resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
         :param pulumi.Input['SpringCloudGatewayApiMetadataArgs'] api_metadata: A `api_metadata` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
@@ -303,6 +304,7 @@ class _SpringCloudGatewayState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudGateway resources.
+
         :param pulumi.Input['SpringCloudGatewayApiMetadataArgs'] api_metadata: A `api_metadata` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
@@ -657,6 +659,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudGateway:SpringCloudGateway example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpringCloudGatewayApiMetadataArgs', 'SpringCloudGatewayApiMetadataArgsDict']] api_metadata: A `api_metadata` block as defined below.
@@ -754,6 +757,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudGateway:SpringCloudGateway example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudGatewayArgs args: The arguments to use to populate this resource's properties.

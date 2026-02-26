@@ -38,6 +38,7 @@ class RunBookArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RunBook resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] log_progress: Progress log option.
         :param pulumi.Input[_builtins.bool] log_verbose: Verbose log option.
@@ -293,6 +294,7 @@ class _RunBookState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RunBook resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content: The desired content of the runbook.
                
@@ -594,6 +596,7 @@ class RunBook(pulumi.CustomResource):
         $ pulumi import azure:automation/runBook:RunBook Get-AzureVMTutorial /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/Get-AzureVMTutorial
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
@@ -662,6 +665,7 @@ class RunBook(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/runBook:RunBook Get-AzureVMTutorial /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/Get-AzureVMTutorial
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RunBookArgs args: The arguments to use to populate this resource's properties.

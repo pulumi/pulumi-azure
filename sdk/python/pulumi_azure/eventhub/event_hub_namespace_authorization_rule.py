@@ -27,6 +27,7 @@ class EventHubNamespaceAuthorizationRuleArgs:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EventHubNamespaceAuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
                
@@ -139,6 +140,7 @@ class _EventHubNamespaceAuthorizationRuleState:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EventHubNamespaceAuthorizationRule resources.
+
         :param pulumi.Input[_builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -384,6 +386,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         $ pulumi import azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/authorizationRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -445,6 +448,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/authorizationRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventHubNamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

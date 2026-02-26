@@ -29,6 +29,7 @@ class ImplicitDataDiskFromSourceArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ImplicitDataDiskFromSource resource.
+
         :param pulumi.Input[_builtins.str] create_option: Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] disk_size_gb: Specifies the size of the Data Disk in gigabytes.
                
@@ -176,6 +177,7 @@ class _ImplicitDataDiskFromSourceState:
                  write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ImplicitDataDiskFromSource resources.
+
         :param pulumi.Input[_builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[_builtins.str] create_option: Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] disk_size_gb: Specifies the size of the Data Disk in gigabytes.
@@ -434,6 +436,7 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
 
         > **Note:** This is a Terraform Unique ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
@@ -562,6 +565,7 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
         ```
 
         > **Note:** This is a Terraform Unique ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
+
 
         :param str resource_name: The name of the resource.
         :param ImplicitDataDiskFromSourceArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class VirtualMachineAvailabilityGroupListenerArgs:
                  port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a VirtualMachineAvailabilityGroupListener resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] availability_group_name: The name of the Availability Group. Changing this forces a new resource to be created.
@@ -152,6 +153,7 @@ class _VirtualMachineAvailabilityGroupListenerState:
                  sql_virtual_machine_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineAvailabilityGroupListener resources.
+
         :param pulumi.Input[_builtins.str] availability_group_name: The name of the Availability Group. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs'] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
                
@@ -363,6 +365,7 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         $ pulumi import azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/vmgroup1/availabilityGroupListeners/listener1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_group_name: The name of the Availability Group. Changing this forces a new resource to be created.
@@ -465,6 +468,7 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/vmgroup1/availabilityGroupListeners/listener1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineAvailabilityGroupListenerArgs args: The arguments to use to populate this resource's properties.

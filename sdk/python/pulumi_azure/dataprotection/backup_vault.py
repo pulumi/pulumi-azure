@@ -34,6 +34,7 @@ class BackupVaultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BackupVault resource.
+
         :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -231,6 +232,7 @@ class _BackupVaultState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering BackupVault resources.
+
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
@@ -468,6 +470,7 @@ class BackupVault(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
@@ -530,6 +533,7 @@ class BackupVault(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupVaultArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ServiceTrustArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceTrust resource.
+
         :param pulumi.Input[_builtins.str] domain_service_id: The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
         :param pulumi.Input[_builtins.str] password: The password of the inbound trust set in the on-premise Active Directory Domain Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_domain_dns_ips: Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service.
@@ -110,6 +111,7 @@ class _ServiceTrustState:
                  trusted_domain_fqdn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceTrust resources.
+
         :param pulumi.Input[_builtins.str] domain_service_id: The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created.
         :param pulumi.Input[_builtins.str] password: The password of the inbound trust set in the on-premise Active Directory Domain Service.
@@ -237,6 +239,7 @@ class ServiceTrust(pulumi.CustomResource):
         $ pulumi import azure:domainservices/serviceTrust:ServiceTrust example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AAD/domainServices/DomainService1/trusts/trust1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_service_id: The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
@@ -287,6 +290,7 @@ class ServiceTrust(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:domainservices/serviceTrust:ServiceTrust example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AAD/domainServices/DomainService1/trusts/trust1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceTrustArgs args: The arguments to use to populate this resource's properties.

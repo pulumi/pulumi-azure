@@ -77,6 +77,7 @@ class WindowsVirtualMachineArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WindowsVirtualMachine resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
@@ -1026,6 +1027,7 @@ class _WindowsVirtualMachineState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsVirtualMachine resources.
+
         :param pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -2131,6 +2133,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         $ pulumi import azure:compute/windowsVirtualMachine:WindowsVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: A `additional_capabilities` block as defined below.
@@ -2308,6 +2311,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/windowsVirtualMachine:WindowsVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WindowsVirtualMachineArgs args: The arguments to use to populate this resource's properties.

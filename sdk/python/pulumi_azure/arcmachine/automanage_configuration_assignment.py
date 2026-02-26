@@ -23,6 +23,7 @@ class AutomanageConfigurationAssignmentArgs:
                  configuration_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AutomanageConfigurationAssignment resource.
+
         :param pulumi.Input[_builtins.str] arc_machine_id: The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configuration_id: The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
                
@@ -65,6 +66,7 @@ class _AutomanageConfigurationAssignmentState:
                  configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomanageConfigurationAssignment resources.
+
         :param pulumi.Input[_builtins.str] arc_machine_id: The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configuration_id: The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
                
@@ -152,6 +154,7 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         $ pulumi import azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/machine1/providers/Microsoft.AutoManage/configurationProfileAssignments/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arc_machine_id: The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
@@ -205,6 +208,7 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/machine1/providers/Microsoft.AutoManage/configurationProfileAssignments/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutomanageConfigurationAssignmentArgs args: The arguments to use to populate this resource's properties.

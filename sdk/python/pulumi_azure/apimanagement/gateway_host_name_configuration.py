@@ -30,6 +30,7 @@ class GatewayHostNameConfigurationArgs:
                  tls11_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GatewayHostNameConfiguration resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_id: The certificate ID to be used for TLS connection establishment.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
@@ -178,6 +179,7 @@ class _GatewayHostNameConfigurationState:
                  tls11_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GatewayHostNameConfiguration resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_id: The certificate ID to be used for TLS connection establishment.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
@@ -394,6 +396,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/hostnameConfigurations/hc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service. Changing this forces a new resource to be created.
@@ -473,6 +476,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/hostnameConfigurations/hc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GatewayHostNameConfigurationArgs args: The arguments to use to populate this resource's properties.

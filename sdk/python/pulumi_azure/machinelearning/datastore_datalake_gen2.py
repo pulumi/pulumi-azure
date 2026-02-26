@@ -31,6 +31,7 @@ class DatastoreDatalakeGen2Args:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatastoreDatalakeGen2 resource.
+
         :param pulumi.Input[_builtins.str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[_builtins.str] authority_url: An URL used for authentication.
@@ -198,6 +199,7 @@ class _DatastoreDatalakeGen2State:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatastoreDatalakeGen2 resources.
+
         :param pulumi.Input[_builtins.str] authority_url: An URL used for authentication.
         :param pulumi.Input[_builtins.str] client_id: The object ID of the Service Principal.
         :param pulumi.Input[_builtins.str] client_secret: The secret of the Service Principal.
@@ -448,6 +450,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         $ pulumi import azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authority_url: An URL used for authentication.
@@ -531,6 +534,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatastoreDatalakeGen2Args args: The arguments to use to populate this resource's properties.

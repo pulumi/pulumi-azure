@@ -30,6 +30,7 @@ class ConnectionArgs:
                  vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
                
@@ -139,6 +140,7 @@ class _ConnectionState:
                  vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
                
@@ -327,6 +329,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import azure:appservice/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/webapp/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
@@ -415,6 +418,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/webapp/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

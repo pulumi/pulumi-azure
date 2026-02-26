@@ -24,6 +24,7 @@ class EnvironmentTypeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentType resource.
+
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Environment Type. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Environment Type.
@@ -79,6 +80,7 @@ class _EnvironmentTypeState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EnvironmentType resources.
+
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Environment Type. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Environment Type.
@@ -179,6 +181,7 @@ class EnvironmentType(pulumi.CustomResource):
         $ pulumi import azure:devcenter/environmentType:EnvironmentType example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/environmentTypes/et1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
@@ -232,6 +235,7 @@ class EnvironmentType(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devcenter/environmentType:EnvironmentType example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/environmentTypes/et1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentTypeArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class ExtensionArgs:
                  type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
+
         :param pulumi.Input[_builtins.str] arc_machine_id: The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[_builtins.str] publisher: The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new Hybrid Compute Machine Extension to be created.
@@ -225,6 +226,7 @@ class _ExtensionState:
                  type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
+
         :param pulumi.Input[_builtins.str] arc_machine_id: The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
         :param pulumi.Input[_builtins.bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
                
@@ -460,6 +462,7 @@ class Extension(pulumi.CustomResource):
         $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arc_machine_id: The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
@@ -522,6 +525,7 @@ class Extension(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

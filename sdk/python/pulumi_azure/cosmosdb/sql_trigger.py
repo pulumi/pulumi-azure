@@ -26,6 +26,7 @@ class SqlTriggerArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlTrigger resource.
+
         :param pulumi.Input[_builtins.str] body: Body of the Trigger.
         :param pulumi.Input[_builtins.str] container_id: The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
         :param pulumi.Input[_builtins.str] operation: The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
@@ -110,6 +111,7 @@ class _SqlTriggerState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlTrigger resources.
+
         :param pulumi.Input[_builtins.str] body: Body of the Trigger.
         :param pulumi.Input[_builtins.str] container_id: The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
@@ -238,6 +240,7 @@ class SqlTrigger(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/sqlTrigger:SqlTrigger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/triggers/trigger1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: Body of the Trigger.
@@ -289,6 +292,7 @@ class SqlTrigger(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/sqlTrigger:SqlTrigger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1/triggers/trigger1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlTriggerArgs args: The arguments to use to populate this resource's properties.

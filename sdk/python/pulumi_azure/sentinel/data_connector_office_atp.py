@@ -24,6 +24,7 @@ class DataConnectorOfficeAtpArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorOfficeAtp resource.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Office ATP Data Connector resides in. Changing this forces a new Office ATP Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Office ATP Data Connector. Changing this forces a new Office ATP Data Connector to be created.
         :param pulumi.Input[_builtins.str] tenant_id: The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
@@ -83,6 +84,7 @@ class _DataConnectorOfficeAtpState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorOfficeAtp resources.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Office ATP Data Connector resides in. Changing this forces a new Office ATP Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Office ATP Data Connector. Changing this forces a new Office ATP Data Connector to be created.
         :param pulumi.Input[_builtins.str] tenant_id: The ID of the tenant that this Office ATP Data Connector connects to. Changing this forces a new Office ATP Data Connector to be created.
@@ -176,6 +178,7 @@ class DataConnectorOfficeAtp(pulumi.CustomResource):
         $ pulumi import azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Office ATP Data Connector resides in. Changing this forces a new Office ATP Data Connector to be created.
@@ -220,6 +223,7 @@ class DataConnectorOfficeAtp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataConnectorOfficeAtpArgs args: The arguments to use to populate this resource's properties.

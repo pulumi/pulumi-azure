@@ -29,6 +29,7 @@ class FirewallPolicyRuleCollectionGroupArgs:
                  network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallPolicyRuleCollectionGroup resource.
+
         :param pulumi.Input[_builtins.str] firewall_policy_id: The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[_builtins.int] priority: The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]] application_rule_collections: One or more `application_rule_collection` blocks as defined below.
@@ -131,6 +132,7 @@ class _FirewallPolicyRuleCollectionGroupState:
                  priority: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FirewallPolicyRuleCollectionGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]] application_rule_collections: One or more `application_rule_collection` blocks as defined below.
         :param pulumi.Input[_builtins.str] firewall_policy_id: The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
@@ -335,6 +337,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         $ pulumi import azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/firewallPolicies/policy1/ruleCollectionGroups/gruop1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]] application_rule_collections: One or more `application_rule_collection` blocks as defined below.
@@ -447,6 +450,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/firewallPolicies/policy1/ruleCollectionGroups/gruop1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyRuleCollectionGroupArgs args: The arguments to use to populate this resource's properties.

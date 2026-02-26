@@ -31,6 +31,7 @@ class RegistryWebookArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RegistryWebook resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
         :param pulumi.Input[_builtins.str] registry_name: The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
@@ -195,6 +196,7 @@ class _RegistryWebookState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RegistryWebook resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_headers: Custom headers that will be added to the webhook notifications request.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -417,6 +419,7 @@ class RegistryWebook(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webHooks/mywebhook1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
@@ -482,6 +485,7 @@ class RegistryWebook(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webHooks/mywebhook1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryWebookArgs args: The arguments to use to populate this resource's properties.

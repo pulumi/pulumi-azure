@@ -36,6 +36,7 @@ class DomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
@@ -254,6 +255,7 @@ class _DomainState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         :param pulumi.Input[_builtins.str] endpoint: The Endpoint associated with the EventGrid Domain.
@@ -553,6 +555,7 @@ class Domain(pulumi.CustomResource):
         $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
@@ -610,6 +613,7 @@ class Domain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

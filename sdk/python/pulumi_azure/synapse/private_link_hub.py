@@ -25,6 +25,7 @@ class PrivateLinkHubArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkHub resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Synapse Private Link Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse Private Link Hub. Changing this forces a new Synapse Private Link Hub to be created.
@@ -96,6 +97,7 @@ class _PrivateLinkHubState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkHub resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse Private Link Hub. Changing this forces a new Synapse Private Link Hub to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Synapse Private Link Hub. Changing this forces a new resource to be created.
@@ -193,6 +195,7 @@ class PrivateLinkHub(pulumi.CustomResource):
         $ pulumi import azure:synapse/privateLinkHub:PrivateLinkHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
@@ -228,6 +231,7 @@ class PrivateLinkHub(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/privateLinkHub:PrivateLinkHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkHubArgs args: The arguments to use to populate this resource's properties.

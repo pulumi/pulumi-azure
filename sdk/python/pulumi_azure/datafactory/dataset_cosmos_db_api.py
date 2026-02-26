@@ -33,6 +33,7 @@ class DatasetCosmosDBApiArgs:
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetCosmosDBApi resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -203,6 +204,7 @@ class _DatasetCosmosDBApiState:
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None):
         """
         Input properties used for looking up and filtering DatasetCosmosDBApi resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
                
                The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
@@ -415,6 +417,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         $ pulumi import azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -473,6 +476,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetCosmosDBApiArgs args: The arguments to use to populate this resource's properties.

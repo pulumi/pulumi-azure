@@ -28,6 +28,7 @@ class FunctionJavascriptUdaArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionJavascriptUda resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]] inputs: One or more `input` blocks as defined below.
         :param pulumi.Input['FunctionJavascriptUdaOutputArgs'] output: An `output` block as defined below.
         :param pulumi.Input[_builtins.str] script: The JavaScript of this UDA Function.
@@ -112,6 +113,7 @@ class _FunctionJavascriptUdaState:
                  stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionJavascriptUda resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['FunctionJavascriptUdaInputArgs']]] inputs: One or more `input` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
         :param pulumi.Input['FunctionJavascriptUdaOutputArgs'] output: An `output` block as defined below.
@@ -254,6 +256,7 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/functions/func1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionJavascriptUdaInputArgs', 'FunctionJavascriptUdaInputArgsDict']]]] inputs: One or more `input` blocks as defined below.
@@ -319,6 +322,7 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/functions/func1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionJavascriptUdaArgs args: The arguments to use to populate this resource's properties.

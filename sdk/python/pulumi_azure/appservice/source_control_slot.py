@@ -31,6 +31,7 @@ class SourceControlSlotArgs:
                  use_mercurial: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SourceControlSlot resource.
+
         :param pulumi.Input[_builtins.str] slot_id: The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
                
                > **Note:** Function App Slots are not supported at this time.
@@ -172,6 +173,7 @@ class _SourceControlSlotState:
                  uses_github_action: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SourceControlSlot resources.
+
         :param pulumi.Input[_builtins.str] branch: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input['SourceControlSlotGithubActionConfigurationArgs'] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] repo_url: The branch name to use for deployments. Changing this forces a new resource to be created.
@@ -393,6 +395,7 @@ class SourceControlSlot(pulumi.CustomResource):
         $ pulumi import azure:appservice/sourceControlSlot:SourceControlSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The URL for the repository. Changing this forces a new resource to be created.
@@ -460,6 +463,7 @@ class SourceControlSlot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/sourceControlSlot:SourceControlSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceControlSlotArgs args: The arguments to use to populate this resource's properties.

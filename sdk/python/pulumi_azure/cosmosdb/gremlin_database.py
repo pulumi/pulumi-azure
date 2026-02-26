@@ -28,6 +28,7 @@ class GremlinDatabaseArgs:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a GremlinDatabase resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
         :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
@@ -122,6 +123,7 @@ class _GremlinDatabaseState:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering GremlinDatabase resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
         :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
@@ -253,6 +255,7 @@ class GremlinDatabase(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
@@ -303,6 +306,7 @@ class GremlinDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GremlinDatabaseArgs args: The arguments to use to populate this resource's properties.

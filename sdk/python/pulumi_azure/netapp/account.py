@@ -29,6 +29,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
@@ -132,6 +133,7 @@ class _AccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -292,6 +294,7 @@ class Account(pulumi.CustomResource):
 
         > **Note:** When importing a NetApp account, the `active_directory.password` and `active_directory.server_root_ca_certificate` values *cannot* be retrieved from the Azure API and will need to be redeclared within the resource.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict']] active_directory: A `active_directory` block as defined below.
@@ -360,6 +363,7 @@ class Account(pulumi.CustomResource):
         ```
 
         > **Note:** When importing a NetApp account, the `active_directory.password` and `active_directory.server_root_ca_certificate` values *cannot* be retrieved from the Azure API and will need to be redeclared within the resource.
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

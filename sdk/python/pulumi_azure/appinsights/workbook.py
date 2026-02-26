@@ -34,6 +34,7 @@ class WorkbookArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workbook resource.
+
         :param pulumi.Input[_builtins.str] data_json: Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         :param pulumi.Input[_builtins.str] display_name: Specifies the user-defined name (display name) of the workbook.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
@@ -219,6 +220,7 @@ class _WorkbookState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Workbook resources.
+
         :param pulumi.Input[_builtins.str] category: Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
         :param pulumi.Input[_builtins.str] data_json: Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the workbook.
@@ -459,6 +461,7 @@ class Workbook(pulumi.CustomResource):
         $ pulumi import azure:appinsights/workbook:Workbook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbooks/resource1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
@@ -530,6 +533,7 @@ class Workbook(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appinsights/workbook:Workbook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbooks/resource1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkbookArgs args: The arguments to use to populate this resource's properties.

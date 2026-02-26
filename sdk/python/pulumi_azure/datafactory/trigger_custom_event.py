@@ -34,6 +34,7 @@ class TriggerCustomEventArgs:
                  subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerCustomEvent resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] eventgrid_topic_id: The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: List of events that will fire this trigger. At least one event must be specified.
@@ -214,6 +215,7 @@ class _TriggerCustomEventState:
                  subject_ends_with: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerCustomEvent resources.
+
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Custom Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Custom Event Trigger.
@@ -459,6 +461,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
         $ pulumi import azure:datafactory/triggerCustomEvent:TriggerCustomEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
@@ -537,6 +540,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/triggerCustomEvent:TriggerCustomEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerCustomEventArgs args: The arguments to use to populate this resource's properties.

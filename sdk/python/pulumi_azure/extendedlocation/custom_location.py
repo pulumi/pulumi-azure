@@ -32,6 +32,7 @@ class CustomLocationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomLocation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
         :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] namespace: Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
@@ -180,6 +181,7 @@ class _CustomLocationState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomLocation resources.
+
         :param pulumi.Input['CustomLocationAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Custom Location.
@@ -347,6 +349,7 @@ class CustomLocation(pulumi.CustomResource):
         $ pulumi import azure:extendedlocation/customLocation:CustomLocation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
@@ -377,6 +380,7 @@ class CustomLocation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:extendedlocation/customLocation:CustomLocation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomLocationArgs args: The arguments to use to populate this resource's properties.

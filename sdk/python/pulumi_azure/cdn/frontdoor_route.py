@@ -37,6 +37,7 @@ class FrontdoorRouteArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorRoute resource.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs that this Front Door Route will link to.
@@ -276,6 +277,7 @@ class _FrontdoorRouteState:
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRoute resources.
+
         :param pulumi.Input['FrontdoorRouteCacheArgs'] cache: A `cache` block as defined below.
                
                > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
@@ -641,6 +643,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorRoute:FrontdoorRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']] cache: A `cache` block as defined below.
@@ -788,6 +791,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorRoute:FrontdoorRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorRouteArgs args: The arguments to use to populate this resource's properties.

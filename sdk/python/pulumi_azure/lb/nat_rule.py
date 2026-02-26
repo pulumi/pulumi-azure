@@ -36,6 +36,7 @@ class NatRuleArgs:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NatRule resource.
+
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
@@ -281,6 +282,7 @@ class _NatRuleState:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering NatRule resources.
+
         :param pulumi.Input[_builtins.str] backend_address_pool_id: Specifies a reference to backendAddressPool resource.
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[_builtins.bool] floating_ip_enabled: Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -620,6 +622,7 @@ class NatRule(pulumi.CustomResource):
         $ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backend_address_pool_id: Specifies a reference to backendAddressPool resource.
@@ -708,6 +711,7 @@ class NatRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NatRuleArgs args: The arguments to use to populate this resource's properties.

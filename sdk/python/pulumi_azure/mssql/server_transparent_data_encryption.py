@@ -25,6 +25,7 @@ class ServerTransparentDataEncryptionArgs:
                  managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTransparentDataEncryption resource.
+
         :param pulumi.Input[_builtins.str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[_builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
@@ -104,6 +105,7 @@ class _ServerTransparentDataEncryptionState:
                  server_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
+
         :param pulumi.Input[_builtins.bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[_builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
                
@@ -319,6 +321,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         $ pulumi import azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/encryptionProtector/current
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
@@ -467,6 +470,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/encryptionProtector/current
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.

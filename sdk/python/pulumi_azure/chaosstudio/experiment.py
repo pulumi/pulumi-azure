@@ -29,6 +29,7 @@ class ExperimentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Experiment resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentSelectorArgs']]] selectors: One or more `selectors` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentStepArgs']]] steps: One or more `steps` blocks as defined below.
@@ -130,6 +131,7 @@ class _ExperimentState:
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentStepArgs']]]] = None):
         """
         Input properties used for looking up and filtering Experiment resources.
+
         :param pulumi.Input['ExperimentIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
@@ -340,6 +342,7 @@ class Experiment(pulumi.CustomResource):
         $ pulumi import azure:chaosstudio/experiment:Experiment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Chaos/experiments/experiment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']] identity: A `identity` block as defined below.
@@ -458,6 +461,7 @@ class Experiment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:chaosstudio/experiment:Experiment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Chaos/experiments/experiment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.

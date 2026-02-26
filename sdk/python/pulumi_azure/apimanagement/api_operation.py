@@ -34,6 +34,7 @@ class ApiOperationArgs:
                  template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None):
         """
         The set of arguments for constructing a ApiOperation resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this API Management Operation.
@@ -211,6 +212,7 @@ class _ApiOperationState:
                  url_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiOperation resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description for this API Operation, which may include HTML formatting tags.
@@ -444,6 +446,7 @@ class ApiOperation(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -510,6 +513,7 @@ class ApiOperation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiOperationArgs args: The arguments to use to populate this resource's properties.

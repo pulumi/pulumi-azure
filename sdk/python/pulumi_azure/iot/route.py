@@ -28,6 +28,7 @@ class RouteArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[_builtins.str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[_builtins.str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
@@ -143,6 +144,7 @@ class _RouteState:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
+
         :param pulumi.Input[_builtins.str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[_builtins.str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
@@ -328,6 +330,7 @@ class Route(pulumi.CustomResource):
         $ pulumi import azure:iot/route:Route route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/routes/route1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
@@ -406,6 +409,7 @@ class Route(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/route:Route route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/routes/route1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

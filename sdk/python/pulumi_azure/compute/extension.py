@@ -36,6 +36,7 @@ class ExtensionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Extension resource.
+
         :param pulumi.Input[_builtins.str] publisher: The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: The type of extension, available types for a publisher can be found using the Azure CLI.
                
@@ -276,6 +277,7 @@ class _ExtensionState:
                  virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
+
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[_builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[_builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
@@ -610,6 +612,7 @@ class Extension(pulumi.CustomResource):
         $ pulumi import azure:compute/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/myVM/extensions/extensionName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
@@ -733,6 +736,7 @@ class Extension(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/myVM/extensions/extensionName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

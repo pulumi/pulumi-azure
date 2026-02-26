@@ -33,6 +33,7 @@ class VpnSiteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpnSite resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[_builtins.str] virtual_wan_id: The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
@@ -203,6 +204,7 @@ class _VpnSiteState:
                  virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnSite resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
                
                > **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
@@ -420,6 +422,7 @@ class VpnSite(pulumi.CustomResource):
         $ pulumi import azure:network/vpnSite:VpnSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnSites/site1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_cidrs: Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
@@ -483,6 +486,7 @@ class VpnSite(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/vpnSite:VpnSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnSites/site1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnSiteArgs args: The arguments to use to populate this resource's properties.

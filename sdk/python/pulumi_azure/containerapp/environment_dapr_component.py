@@ -32,6 +32,7 @@ class EnvironmentDaprComponentArgs:
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentDaprComponent resource.
+
         :param pulumi.Input[_builtins.str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] version: The version of the component.
@@ -185,6 +186,7 @@ class _EnvironmentDaprComponentState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentDaprComponent resources.
+
         :param pulumi.Input[_builtins.str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
@@ -388,6 +390,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
@@ -452,6 +455,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentDaprComponentArgs args: The arguments to use to populate this resource's properties.

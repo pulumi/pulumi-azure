@@ -28,6 +28,7 @@ class ConfigurationArgs:
                  protected_files: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
+
         :param pulumi.Input[_builtins.str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[_builtins.str] root_file: Specifies the root file path of this Nginx Configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]] config_files: One or more `config_file` blocks as defined below.
@@ -114,6 +115,7 @@ class _ConfigurationState:
                  root_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[_builtins.str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[_builtins.str] package_data: Specifies the package data for this configuration.
@@ -305,6 +307,7 @@ class Configuration(pulumi.CustomResource):
         $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1/configurations/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationConfigFileArgs', 'ConfigurationConfigFileArgsDict']]]] config_files: One or more `config_file` blocks as defined below.
@@ -419,6 +422,7 @@ class Configuration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:nginx/configuration:Configuration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1/configurations/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

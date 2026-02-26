@@ -28,6 +28,7 @@ class ProtectedVMArgs:
                  source_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProtectedVM resource.
+
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use.
@@ -162,6 +163,7 @@ class _ProtectedVMState:
                  source_vm_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectedVM resources.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use.
                
                > **Note:** `backup_policy_id` is required during initial creation of this resource.
@@ -352,6 +354,7 @@ class ProtectedVM(pulumi.CustomResource):
         $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use.
@@ -427,6 +430,7 @@ class ProtectedVM(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProtectedVMArgs args: The arguments to use to populate this resource's properties.

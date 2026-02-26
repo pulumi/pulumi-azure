@@ -28,6 +28,7 @@ class WorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Desktop Workspace.
         :param pulumi.Input[_builtins.str] friendly_name: A friendly name for the Virtual Desktop Workspace.
@@ -147,6 +148,7 @@ class _WorkspaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Desktop Workspace.
         :param pulumi.Input[_builtins.str] friendly_name: A friendly name for the Virtual Desktop Workspace.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created.
@@ -304,6 +306,7 @@ class Workspace(pulumi.CustomResource):
         $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Desktop Workspace.
@@ -354,6 +357,7 @@ class Workspace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

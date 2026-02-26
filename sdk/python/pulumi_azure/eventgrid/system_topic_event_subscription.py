@@ -45,6 +45,7 @@ class SystemTopicEventSubscriptionArgs:
                  webhook_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionWebhookEndpointArgs']] = None):
         """
         The set of arguments for constructing a SystemTopicEventSubscription resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the System Topic exists. Changing this forces a new Event Subscription to be created.
         :param pulumi.Input[_builtins.str] system_topic: The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
         :param pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
@@ -411,6 +412,7 @@ class _SystemTopicEventSubscriptionState:
                  webhook_endpoint: Optional[pulumi.Input['SystemTopicEventSubscriptionWebhookEndpointArgs']] = None):
         """
         Input properties used for looking up and filtering SystemTopicEventSubscription resources.
+
         :param pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[_builtins.bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
         :param pulumi.Input['SystemTopicEventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
@@ -836,6 +838,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         $ pulumi import azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/topic1/eventSubscriptions/subscription1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SystemTopicEventSubscriptionAdvancedFilterArgs', 'SystemTopicEventSubscriptionAdvancedFilterArgsDict']] advanced_filter: A `advanced_filter` block as defined below.
@@ -925,6 +928,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/topic1/eventSubscriptions/subscription1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SystemTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.

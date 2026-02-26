@@ -24,6 +24,7 @@ class NamespaceCustomerManagedKeyInitArgs:
                  infrastructure_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NamespaceCustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the Service Bus namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
@@ -78,6 +79,7 @@ class _NamespaceCustomerManagedKeyState:
                  namespace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceCustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the Service Bus namespace. Changing this forces a new resource to be created.
@@ -243,6 +245,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
@@ -361,6 +364,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceCustomerManagedKeyInitArgs args: The arguments to use to populate this resource's properties.

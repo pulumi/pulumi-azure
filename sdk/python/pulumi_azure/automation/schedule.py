@@ -35,6 +35,7 @@ class ScheduleArgs:
                  week_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
@@ -232,6 +233,7 @@ class _ScheduleState:
                  week_days: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description for this Schedule.
         :param pulumi.Input[_builtins.str] expiry_time: The end time of the schedule.
@@ -478,6 +480,7 @@ class Schedule(pulumi.CustomResource):
         $ pulumi import azure:automation/schedule:Schedule schedule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
@@ -542,6 +545,7 @@ class Schedule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/schedule:Schedule schedule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

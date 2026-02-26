@@ -37,6 +37,7 @@ class ResourcePolicyAssignmentArgs:
                  resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a ResourcePolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
                
@@ -275,6 +276,7 @@ class _ResourcePolicyAssignmentState:
                  resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorArgs']]]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicyAssignment resources.
+
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[_builtins.bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
@@ -568,6 +570,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
 
         where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
@@ -645,6 +648,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         ```
 
         where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

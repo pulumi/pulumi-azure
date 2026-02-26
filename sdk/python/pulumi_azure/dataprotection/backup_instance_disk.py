@@ -28,6 +28,7 @@ class BackupInstanceDiskArgs:
                  snapshot_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupInstanceDisk resource.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] disk_id: The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
@@ -145,6 +146,7 @@ class _BackupInstanceDiskState:
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupInstanceDisk resources.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] disk_id: The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
@@ -347,6 +349,7 @@ class BackupInstanceDisk(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/backupInstanceDisk:BackupInstanceDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
@@ -427,6 +430,7 @@ class BackupInstanceDisk(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/backupInstanceDisk:BackupInstanceDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceDiskArgs args: The arguments to use to populate this resource's properties.

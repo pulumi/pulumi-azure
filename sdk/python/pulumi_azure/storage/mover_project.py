@@ -24,6 +24,7 @@ class MoverProjectArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverProject resource.
+
         :param pulumi.Input[_builtins.str] storage_mover_id: Specifies the ID of the storage mover for this Storage Mover Project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Specifies a description for this Storage Mover Project.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
@@ -79,6 +80,7 @@ class _MoverProjectState:
                  storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverProject resources.
+
         :param pulumi.Input[_builtins.str] description: Specifies a description for this Storage Mover Project.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_mover_id: Specifies the ID of the storage mover for this Storage Mover Project. Changing this forces a new resource to be created.
@@ -174,6 +176,7 @@ class MoverProject(pulumi.CustomResource):
         $ pulumi import azure:storage/moverProject:MoverProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies a description for this Storage Mover Project.
@@ -222,6 +225,7 @@ class MoverProject(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/moverProject:MoverProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MoverProjectArgs args: The arguments to use to populate this resource's properties.

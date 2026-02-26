@@ -31,6 +31,7 @@ class VirtualNetworkGatewayNatRuleArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayNatRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
@@ -163,6 +164,7 @@ class _VirtualNetworkGatewayNatRuleState:
                  virtual_network_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkGatewayNatRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[_builtins.str] ip_configuration_id: The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
@@ -374,6 +376,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         $ pulumi import azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/virtualNetworkGateways/gw1/natRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleExternalMappingArgs', 'VirtualNetworkGatewayNatRuleExternalMappingArgsDict']]]] external_mappings: One or more `external_mapping` blocks as documented below.
@@ -463,6 +466,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/virtualNetworkGateways/gw1/natRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayNatRuleArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class CertificateContactsArgs:
                  contacts: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]] = None):
         """
         The set of arguments for constructing a CertificateContacts resource.
+
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
         """
@@ -64,6 +65,7 @@ class _CertificateContactsState:
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificateContacts resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
@@ -155,6 +157,7 @@ class CertificateContacts(pulumi.CustomResource):
         $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateContactsContactArgs', 'CertificateContactsContactArgsDict']]]] contacts: One or more `contact` blocks as defined below.
@@ -214,6 +217,7 @@ class CertificateContacts(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateContactsArgs args: The arguments to use to populate this resource's properties.

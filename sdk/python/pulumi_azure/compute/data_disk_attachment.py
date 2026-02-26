@@ -27,6 +27,7 @@ class DataDiskAttachmentArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DataDiskAttachment resource.
+
         :param pulumi.Input[_builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[_builtins.int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_disk_id: The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
@@ -127,6 +128,7 @@ class _DataDiskAttachmentState:
                  write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DataDiskAttachment resources.
+
         :param pulumi.Input[_builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[_builtins.str] create_option: The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
@@ -330,6 +332,7 @@ class DataDiskAttachment(pulumi.CustomResource):
 
         > **Note:** This is provider-specific ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -441,6 +444,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         ```
 
         > **Note:** This is provider-specific ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
+
 
         :param str resource_name: The name of the resource.
         :param DataDiskAttachmentArgs args: The arguments to use to populate this resource's properties.

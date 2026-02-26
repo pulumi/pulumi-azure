@@ -27,6 +27,7 @@ class VolumeQuotaRuleArgs:
                  quota_target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeQuotaRule resource.
+
         :param pulumi.Input[_builtins.int] quota_size_in_kib: Quota size in kibibytes.
         :param pulumi.Input[_builtins.str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
@@ -136,6 +137,7 @@ class _VolumeQuotaRuleState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VolumeQuotaRule resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[_builtins.int] quota_size_in_kib: Quota size in kibibytes.
@@ -351,6 +353,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         $ pulumi import azure:netapp/volumeQuotaRule:VolumeQuotaRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1/volumeQuotaRules/quota1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
@@ -470,6 +473,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:netapp/volumeQuotaRule:VolumeQuotaRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1/volumeQuotaRules/quota1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeQuotaRuleArgs args: The arguments to use to populate this resource's properties.

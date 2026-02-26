@@ -25,6 +25,7 @@ class NetworkManagerRoutingConfigurationArgs:
                  route_table_usage_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerRoutingConfiguration resource.
+
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Configuration.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
@@ -96,6 +97,7 @@ class _NetworkManagerRoutingConfigurationState:
                  route_table_usage_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerRoutingConfiguration resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Configuration.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the Network Manager. Changing this forces a new Network Manager Routing Configuration to be created.
@@ -212,6 +214,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/routingConfigurations/conf1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Configuration.
@@ -266,6 +269,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/routingConfigurations/conf1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerRoutingConfigurationArgs args: The arguments to use to populate this resource's properties.

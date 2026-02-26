@@ -23,6 +23,7 @@ class VaultResourceGuardAssociationArgs:
                  vault_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a VaultResourceGuardAssociation resource.
+
         :param pulumi.Input[_builtins.str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _VaultResourceGuardAssociationState:
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
+
         :param pulumi.Input[_builtins.str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         """
@@ -138,6 +140,7 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         $ pulumi import azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupResourceGuardProxies/proxy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
@@ -183,6 +186,7 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupResourceGuardProxies/proxy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VaultResourceGuardAssociationArgs args: The arguments to use to populate this resource's properties.

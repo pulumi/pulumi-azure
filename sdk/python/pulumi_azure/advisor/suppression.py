@@ -25,6 +25,7 @@ class SuppressionArgs:
                  ttl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Suppression resource.
+
         :param pulumi.Input[_builtins.str] recommendation_id: The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
@@ -96,6 +97,7 @@ class _SuppressionState:
                  ttl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Suppression resources.
+
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
         :param pulumi.Input[_builtins.str] recommendation_id: The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
@@ -218,6 +220,7 @@ class Suppression(pulumi.CustomResource):
         $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
@@ -263,6 +266,7 @@ class Suppression(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SuppressionArgs args: The arguments to use to populate this resource's properties.

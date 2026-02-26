@@ -58,6 +58,7 @@ class WindowsFunctionAppArgs:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WindowsFunctionApp resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['WindowsFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
@@ -684,6 +685,7 @@ class _WindowsFunctionAppState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsFunctionApp resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **Note:** For runtime related settings, please use `node_version` in `site_config` to set the node version and use `functions_extension_version` to set the function runtime version, terraform will assign the values to the key `WEBSITE_NODE_DEFAULT_VERSION` and `FUNCTIONS_EXTENSION_VERSION` in app setting.
@@ -1490,6 +1492,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         $ pulumi import azure:appservice/windowsFunctionApp:WindowsFunctionApp example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -1608,6 +1611,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/windowsFunctionApp:WindowsFunctionApp example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WindowsFunctionAppArgs args: The arguments to use to populate this resource's properties.

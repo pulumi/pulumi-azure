@@ -35,6 +35,7 @@ class ConnectedRegistryArgs:
                  sync_window: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectedRegistry resource.
+
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
                
                > **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
@@ -237,6 +238,7 @@ class _ConnectedRegistryState:
                  sync_window: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectedRegistry resources.
+
         :param pulumi.Input[_builtins.bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
@@ -502,6 +504,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] audit_log_enabled: Should the log auditing be enabled?
@@ -583,6 +586,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/connectedRegistry:ConnectedRegistry example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/connectedRegistries/registry1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectedRegistryArgs args: The arguments to use to populate this resource's properties.

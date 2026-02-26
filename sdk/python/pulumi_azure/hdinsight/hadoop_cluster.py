@@ -43,6 +43,7 @@ class HadoopClusterArgs:
                  tls_min_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HadoopCluster resource.
+
         :param pulumi.Input[_builtins.str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['HadoopClusterGatewayArgs'] gateway: A `gateway` block as defined below.
@@ -371,6 +372,7 @@ class _HadoopClusterState:
                  tls_min_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HadoopCluster resources.
+
         :param pulumi.Input[_builtins.str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['HadoopClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
@@ -810,6 +812,7 @@ class HadoopCluster(pulumi.CustomResource):
         $ pulumi import azure:hdinsight/hadoopCluster:HadoopCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -915,6 +918,7 @@ class HadoopCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hdinsight/hadoopCluster:HadoopCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HadoopClusterArgs args: The arguments to use to populate this resource's properties.

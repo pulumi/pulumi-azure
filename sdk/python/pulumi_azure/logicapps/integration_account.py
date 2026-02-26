@@ -27,6 +27,7 @@ class IntegrationAccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccount resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         :param pulumi.Input[_builtins.str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
@@ -129,6 +130,7 @@ class _IntegrationAccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
+
         :param pulumi.Input[_builtins.str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
@@ -272,6 +274,7 @@ class IntegrationAccount(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
@@ -323,6 +326,7 @@ class IntegrationAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountArgs args: The arguments to use to populate this resource's properties.

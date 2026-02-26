@@ -28,6 +28,7 @@ class BackendAddressPoolArgs:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackendAddressPool resource.
+
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] synchronous_mode: The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
@@ -123,6 +124,7 @@ class _BackendAddressPoolState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackendAddressPool resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inbound_nat_rules: An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
@@ -324,6 +326,7 @@ class BackendAddressPool(pulumi.CustomResource):
         $ pulumi import azure:lb/backendAddressPool:BackendAddressPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/backendAddressPools/pool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
@@ -386,6 +389,7 @@ class BackendAddressPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lb/backendAddressPool:BackendAddressPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/backendAddressPools/pool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackendAddressPoolArgs args: The arguments to use to populate this resource's properties.

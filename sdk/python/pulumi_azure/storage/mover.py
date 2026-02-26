@@ -26,6 +26,7 @@ class MoverArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Mover resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
         :param pulumi.Input[_builtins.str] description: A description for the Storage Mover.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
@@ -113,6 +114,7 @@ class _MoverState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Mover resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the Storage Mover.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Storage Mover should exist. Changing this forces a new Storage Mover to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Storage Mover. Changing this forces a new Storage Mover to be created.
@@ -240,6 +242,7 @@ class Mover(pulumi.CustomResource):
         $ pulumi import azure:storage/mover:Mover example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Storage Mover.
@@ -290,6 +293,7 @@ class Mover(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/mover:Mover example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MoverArgs args: The arguments to use to populate this resource's properties.

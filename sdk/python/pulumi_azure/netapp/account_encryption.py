@@ -27,6 +27,7 @@ class AccountEncryptionArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountEncryption resource.
+
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
@@ -129,6 +130,7 @@ class _AccountEncryptionState:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountEncryption resources.
+
         :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
@@ -347,6 +349,7 @@ class AccountEncryption(pulumi.CustomResource):
         $ pulumi import azure:netapp/accountEncryption:AccountEncryption example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
@@ -473,6 +476,7 @@ class AccountEncryption(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:netapp/accountEncryption:AccountEncryption example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountEncryptionArgs args: The arguments to use to populate this resource's properties.

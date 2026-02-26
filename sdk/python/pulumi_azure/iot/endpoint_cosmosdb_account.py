@@ -34,6 +34,7 @@ class EndpointCosmosdbAccountArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointCosmosdbAccount resource.
+
         :param pulumi.Input[_builtins.str] container_name: The name of the Cosmos DB Container in the Cosmos DB Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Database in the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] endpoint_uri: The URI of the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -261,6 +262,7 @@ class _EndpointCosmosdbAccountState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointCosmosdbAccount resources.
+
         :param pulumi.Input[_builtins.str] authentication_type: The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param pulumi.Input[_builtins.str] container_name: The name of the Cosmos DB Container in the Cosmos DB Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Database in the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -562,6 +564,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         $ pulumi import azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount endpoint1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/cosmosDBAccountEndpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_type: The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -658,6 +661,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount endpoint1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/cosmosDBAccountEndpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointCosmosdbAccountArgs args: The arguments to use to populate this resource's properties.

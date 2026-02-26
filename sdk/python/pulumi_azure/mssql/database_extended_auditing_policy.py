@@ -28,6 +28,7 @@ class DatabaseExtendedAuditingPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseExtendedAuditingPolicy resource.
+
         :param pulumi.Input[_builtins.str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
@@ -157,6 +158,7 @@ class _DatabaseExtendedAuditingPolicyState:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
+
         :param pulumi.Input[_builtins.str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
@@ -340,6 +342,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -411,6 +414,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/databases/db1/extendedAuditingSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseExtendedAuditingPolicyArgs args: The arguments to use to populate this resource's properties.

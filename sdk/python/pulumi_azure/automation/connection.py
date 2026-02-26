@@ -27,6 +27,7 @@ class ConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
@@ -139,6 +140,7 @@ class _ConnectionState:
                  values: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description for this Connection.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Connection. Changing this forces a new resource to be created.
@@ -303,6 +305,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import azure:automation/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -369,6 +372,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class CustomDatasetArgs:
                  schema_json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDataset resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input['CustomDatasetLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[_builtins.str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
@@ -216,6 +217,7 @@ class _CustomDatasetState:
                  type_properties_json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDataset resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
@@ -507,6 +509,7 @@ class CustomDataset(pulumi.CustomResource):
         $ pulumi import azure:datafactory/customDataset:CustomDataset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -630,6 +633,7 @@ class CustomDataset(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/customDataset:CustomDataset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomDatasetArgs args: The arguments to use to populate this resource's properties.

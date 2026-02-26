@@ -26,6 +26,7 @@ class DataCollectionRuleAssociationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataCollectionRuleAssociation resource.
+
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The ID of the Data Collection Endpoint which will be associated to the target resource.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule which will be associated to the target resource.
@@ -121,6 +122,7 @@ class _DataCollectionRuleAssociationState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataCollectionRuleAssociation resources.
+
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The ID of the Data Collection Endpoint which will be associated to the target resource.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule which will be associated to the target resource.
                
@@ -314,6 +316,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         $ pulumi import azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/dataCollectionRuleAssociations/dca1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The ID of the Data Collection Endpoint which will be associated to the target resource.
@@ -426,6 +429,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/dataCollectionRuleAssociations/dca1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class VMWareReplicationPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VMWareReplicationPolicy resource.
+
         :param pulumi.Input[_builtins.int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
         :param pulumi.Input[_builtins.int] recovery_point_retention_in_minutes: Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
         :param pulumi.Input[_builtins.str] recovery_vault_id: ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
@@ -94,6 +95,7 @@ class _VMWareReplicationPolicyState:
                  recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VMWareReplicationPolicy resources.
+
         :param pulumi.Input[_builtins.int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
         :param pulumi.Input[_builtins.int] recovery_point_retention_in_minutes: Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
@@ -209,6 +211,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/vault1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
@@ -262,6 +265,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/vault1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VMWareReplicationPolicyArgs args: The arguments to use to populate this resource's properties.

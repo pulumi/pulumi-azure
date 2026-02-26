@@ -40,6 +40,7 @@ class FirewallPolicyArgs:
                  tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[_builtins.bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range.
         :param pulumi.Input[_builtins.str] base_policy_id: The ID of the base Firewall Policy.
@@ -322,6 +323,7 @@ class _FirewallPolicyState:
                  tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None):
         """
         Input properties used for looking up and filtering FirewallPolicy resources.
+
         :param pulumi.Input[_builtins.bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range.
         :param pulumi.Input[_builtins.str] base_policy_id: The ID of the base Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_policies: A list of reference to child Firewall Policies of this Firewall Policy.
@@ -682,6 +684,7 @@ class FirewallPolicy(pulumi.CustomResource):
         $ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range.
@@ -740,6 +743,7 @@ class FirewallPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/firewallPolicy:FirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/firewallPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.

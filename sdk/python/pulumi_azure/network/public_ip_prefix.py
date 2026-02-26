@@ -31,6 +31,7 @@ class PublicIpPrefixArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicIpPrefix resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
                
@@ -215,6 +216,7 @@ class _PublicIpPrefixState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PublicIpPrefix resources.
+
         :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
                
                > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
@@ -453,6 +455,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         $ pulumi import azure:network/publicIpPrefix:PublicIpPrefix myPublicIpPrefix /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
@@ -516,6 +519,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/publicIpPrefix:PublicIpPrefix myPublicIpPrefix /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PublicIpPrefixArgs args: The arguments to use to populate this resource's properties.

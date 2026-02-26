@@ -24,6 +24,7 @@ class ActiveSlotArgs:
                  resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ActiveSlot resource.
+
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] app_service_slot_name: The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
@@ -77,6 +78,7 @@ class _ActiveSlotState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActiveSlot resources.
+
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] app_service_slot_name: The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
@@ -160,6 +162,7 @@ class ActiveSlot(pulumi.CustomResource):
             app_service_slot_name=example_slot.name)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
@@ -196,6 +199,7 @@ class ActiveSlot(pulumi.CustomResource):
             app_service_name=example_app_service.name,
             app_service_slot_name=example_slot.name)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActiveSlotArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class DatasetDataLakeGen2Args:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatasetDataLakeGen2 resource.
+
         :param pulumi.Input[_builtins.str] file_system_name: The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         :param pulumi.Input[_builtins.str] share_id: The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
@@ -129,6 +130,7 @@ class _DatasetDataLakeGen2State:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatasetDataLakeGen2 resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Data Share Dataset.
         :param pulumi.Input[_builtins.str] file_path: The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         :param pulumi.Input[_builtins.str] file_system_name: The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
@@ -261,6 +263,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         $ pulumi import azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_path: The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
@@ -286,6 +289,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetDataLakeGen2Args args: The arguments to use to populate this resource's properties.

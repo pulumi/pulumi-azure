@@ -27,6 +27,7 @@ class IntegrationAccountMapArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountMap resource.
+
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Map.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
         :param pulumi.Input[_builtins.str] map_type: The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
@@ -127,6 +128,7 @@ class _IntegrationAccountMapState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountMap resources.
+
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Map.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
         :param pulumi.Input[_builtins.str] map_type: The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
@@ -274,6 +276,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccountMap:IntegrationAccountMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/maps/map1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Map.
@@ -329,6 +332,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccountMap:IntegrationAccountMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/maps/map1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountMapArgs args: The arguments to use to populate this resource's properties.

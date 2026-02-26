@@ -32,6 +32,7 @@ class EventHubArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHub resource.
+
         :param pulumi.Input[_builtins.int] partition_count: Specifies the current number of shards on the Event Hub.
                
                > **Note:** When using a shared parent EventHub Namespace, `partition_count` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partition_count` cannot be decreased.
@@ -196,6 +197,7 @@ class _EventHubState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventHub resources.
+
         :param pulumi.Input['EventHubCaptureDescriptionArgs'] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[_builtins.int] message_retention: Specifies the number of days to retain the events for this Event Hub.
                
@@ -420,6 +422,7 @@ class EventHub(pulumi.CustomResource):
         $ pulumi import azure:eventhub/eventHub:EventHub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']] capture_description: A `capture_description` block as defined below.
@@ -484,6 +487,7 @@ class EventHub(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/eventHub:EventHub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventHubArgs args: The arguments to use to populate this resource's properties.

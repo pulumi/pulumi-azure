@@ -26,6 +26,7 @@ class RegistryTokenArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryToken resource.
+
         :param pulumi.Input[_builtins.str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope_map_id: The ID of the Container Registry Scope Map associated with the token.
@@ -111,6 +112,7 @@ class _RegistryTokenState:
                  scope_map_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryToken resources.
+
         :param pulumi.Input[_builtins.str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should the Container Registry token be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the token. Changing this forces a new resource to be created.
@@ -257,6 +259,7 @@ class RegistryToken(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registryToken:RegistryToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/tokens/token1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
@@ -326,6 +329,7 @@ class RegistryToken(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registryToken:RegistryToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/tokens/token1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryTokenArgs args: The arguments to use to populate this resource's properties.

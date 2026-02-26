@@ -24,6 +24,7 @@ class AccountCustomerManagedKeyInitArgs:
                  identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountCustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         :param pulumi.Input[_builtins.str] identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
@@ -78,6 +79,7 @@ class _AccountCustomerManagedKeyState:
                  key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountCustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
@@ -269,6 +271,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account. Changing this forces a new resource to be created.
@@ -413,6 +416,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountCustomerManagedKeyInitArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] ai_services_hub_id: The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[_builtins.str] description: The description of this AI Foundry Project.
         :param pulumi.Input[_builtins.str] friendly_name: The display name of this AI Foundry Project.
@@ -184,6 +185,7 @@ class _ProjectState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] ai_services_hub_id: The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[_builtins.str] description: The description of this AI Foundry Project.
         :param pulumi.Input[_builtins.str] friendly_name: The display name of this AI Foundry Project.
@@ -425,6 +427,7 @@ class Project(pulumi.CustomResource):
         $ pulumi import azure:aifoundry/project:Project example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/project1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ai_services_hub_id: The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
@@ -514,6 +517,7 @@ class Project(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:aifoundry/project:Project example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/project1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

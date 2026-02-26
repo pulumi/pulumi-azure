@@ -27,6 +27,7 @@ class MonitorTagRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorTagRule resource.
+
         :param pulumi.Input[_builtins.str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]] logs: A `log` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]] metrics: A `metric` block as defined below.
@@ -98,6 +99,7 @@ class _MonitorTagRuleState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorTagRule resources.
+
         :param pulumi.Input[_builtins.str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]] logs: A `log` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]] metrics: A `metric` block as defined below.
@@ -230,6 +232,7 @@ class MonitorTagRule(pulumi.CustomResource):
         $ pulumi import azure:datadog/monitorTagRule:MonitorTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/tagRules/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
@@ -300,6 +303,7 @@ class MonitorTagRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datadog/monitorTagRule:MonitorTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/tagRules/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorTagRuleArgs args: The arguments to use to populate this resource's properties.

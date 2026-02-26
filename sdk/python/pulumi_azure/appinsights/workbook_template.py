@@ -32,6 +32,7 @@ class WorkbookTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WorkbookTemplate resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[_builtins.str] template_data: Valid JSON object containing workbook template payload.
@@ -181,6 +182,7 @@ class _WorkbookTemplateState:
                  template_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkbookTemplate resources.
+
         :param pulumi.Input[_builtins.str] author: Information about the author of the workbook template.
         :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[_builtins.str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
@@ -422,6 +424,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbookTemplates/resource1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] author: Information about the author of the workbook template.
@@ -526,6 +529,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbookTemplates/resource1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkbookTemplateArgs args: The arguments to use to populate this resource's properties.

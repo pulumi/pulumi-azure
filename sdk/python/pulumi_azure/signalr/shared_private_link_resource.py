@@ -26,6 +26,7 @@ class SharedPrivateLinkResourceArgs:
                  request_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
+
         :param pulumi.Input[_builtins.str] signalr_service_id: The id of the Signalr Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sub_resource_name: The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -116,6 +117,7 @@ class _SharedPrivateLinkResourceState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SharedPrivateLinkResource resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] request_message: The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[_builtins.str] signalr_service_id: The id of the Signalr Service. Changing this forces a new resource to be created.
@@ -282,6 +284,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         $ pulumi import azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/sharedPrivateLinkResources/resource1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -354,6 +357,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/sharedPrivateLinkResources/resource1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.

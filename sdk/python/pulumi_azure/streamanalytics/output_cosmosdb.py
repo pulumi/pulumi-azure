@@ -29,6 +29,7 @@ class OutputCosmosdbArgs:
                  partition_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputCosmosdb resource.
+
         :param pulumi.Input[_builtins.str] container_name: The name of the CosmosDB container.
         :param pulumi.Input[_builtins.str] cosmosdb_account_key: The account key for the CosmosDB database.
         :param pulumi.Input[_builtins.str] cosmosdb_sql_database_id: The ID of the CosmosDB database.
@@ -161,6 +162,7 @@ class _OutputCosmosdbState:
                  stream_analytics_job_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputCosmosdb resources.
+
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         :param pulumi.Input[_builtins.str] container_name: The name of the CosmosDB container.
         :param pulumi.Input[_builtins.str] cosmosdb_account_key: The account key for the CosmosDB database.
@@ -363,6 +365,7 @@ class OutputCosmosdb(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/outputCosmosdb:OutputCosmosdb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
@@ -443,6 +446,7 @@ class OutputCosmosdb(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/outputCosmosdb:OutputCosmosdb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutputCosmosdbArgs args: The arguments to use to populate this resource's properties.

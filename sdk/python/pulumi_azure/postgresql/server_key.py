@@ -23,6 +23,7 @@ class ServerKeyArgs:
                  server_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServerKey resource.
+
         :param pulumi.Input[_builtins.str] key_vault_key_id: The URL to a Key Vault Key.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _ServerKeyState:
                  server_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerKey resources.
+
         :param pulumi.Input[_builtins.str] key_vault_key_id: The URL to a Key Vault Key.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
         """
@@ -206,6 +208,7 @@ class ServerKey(pulumi.CustomResource):
         $ pulumi import azure:postgresql/serverKey:ServerKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/servers/server1/keys/keyvaultname_key-name_keyversion
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The URL to a Key Vault Key.
@@ -319,6 +322,7 @@ class ServerKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:postgresql/serverKey:ServerKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/servers/server1/keys/keyvaultname_key-name_keyversion
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerKeyArgs args: The arguments to use to populate this resource's properties.

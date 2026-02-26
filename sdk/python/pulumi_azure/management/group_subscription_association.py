@@ -23,6 +23,7 @@ class GroupSubscriptionAssociationArgs:
                  subscription_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GroupSubscriptionAssociation resource.
+
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
         """
@@ -61,6 +62,7 @@ class _GroupSubscriptionAssociationState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupSubscriptionAssociation resources.
+
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
         """
@@ -136,6 +138,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         $ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /providers/Microsoft.Management/managementGroups/MyManagementGroup/subscriptions/12345678-1234-1234-1234-123456789012
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
@@ -179,6 +182,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /providers/Microsoft.Management/managementGroups/MyManagementGroup/subscriptions/12345678-1234-1234-1234-123456789012
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupSubscriptionAssociationArgs args: The arguments to use to populate this resource's properties.

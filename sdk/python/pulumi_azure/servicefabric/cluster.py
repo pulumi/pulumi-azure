@@ -46,6 +46,7 @@ class ClusterArgs:
                  vmss_zonal_upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] management_endpoint: Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeTypeArgs']]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[_builtins.str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
@@ -425,6 +426,7 @@ class _ClusterState:
                  vmss_zonal_upgrade_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add_on_features: A List of one or more features which should be enabled, such as `DnsService`.
         :param pulumi.Input['ClusterAzureActiveDirectoryArgs'] azure_active_directory: An `azure_active_directory` block as defined below.
         :param pulumi.Input['ClusterCertificateArgs'] certificate: A `certificate` block as defined below. Conflicts with `certificate_common_names`.
@@ -871,6 +873,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import azure:servicefabric/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabric/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add_on_features: A List of one or more features which should be enabled, such as `DnsService`.
@@ -951,6 +954,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:servicefabric/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabric/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

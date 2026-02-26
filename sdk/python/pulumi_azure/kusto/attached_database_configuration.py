@@ -32,6 +32,7 @@ class AttachedDatabaseConfigurationArgs:
                  sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None):
         """
         The set of arguments for constructing a AttachedDatabaseConfiguration resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -182,6 +183,7 @@ class _AttachedDatabaseConfigurationState:
                  sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None):
         """
         Input properties used for looking up and filtering AttachedDatabaseConfiguration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
         :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -421,6 +423,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The resource id of the cluster where the databases you would like to attach reside.
@@ -507,6 +510,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.

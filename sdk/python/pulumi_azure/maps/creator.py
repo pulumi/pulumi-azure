@@ -26,6 +26,7 @@ class CreatorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Creator resource.
+
         :param pulumi.Input[_builtins.str] maps_account_id: The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_units: The storage units to be allocated. Integer values from 1 to 100, inclusive.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _CreatorState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Creator resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maps_account_id: The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Maps Creator. Changing this forces a new resource to be created.
@@ -248,6 +250,7 @@ class Creator(pulumi.CustomResource):
         $ pulumi import azure:maps/creator:Creator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Maps/accounts/account1/creators/creator1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
@@ -307,6 +310,7 @@ class Creator(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:maps/creator:Creator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Maps/accounts/account1/creators/creator1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CreatorArgs args: The arguments to use to populate this resource's properties.

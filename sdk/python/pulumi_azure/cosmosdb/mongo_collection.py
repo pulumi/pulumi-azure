@@ -33,6 +33,7 @@ class MongoCollectionArgs:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a MongoCollection resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -203,6 +204,7 @@ class _MongoCollectionState:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering MongoCollection resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['MongoCollectionAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.
@@ -429,6 +431,7 @@ class MongoCollection(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/mongoCollection:MongoCollection collection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1/collections/collection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -486,6 +489,7 @@ class MongoCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/mongoCollection:MongoCollection collection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1/collections/collection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MongoCollectionArgs args: The arguments to use to populate this resource's properties.

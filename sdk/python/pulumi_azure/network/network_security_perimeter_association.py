@@ -25,6 +25,7 @@ class NetworkSecurityPerimeterAssociationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAssociation resource.
+
         :param pulumi.Input[_builtins.str] access_mode: Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
         :param pulumi.Input[_builtins.str] network_security_perimeter_profile_id: The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
         :param pulumi.Input[_builtins.str] resource_id: The ID of the associated resource. Changing this forces a new Network Security Perimeter Association to be created.
@@ -100,6 +101,7 @@ class _NetworkSecurityPerimeterAssociationState:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityPerimeterAssociation resources.
+
         :param pulumi.Input[_builtins.str] access_mode: Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Association. Changing this forces a new Network Security Perimeter Association to be created.
         :param pulumi.Input[_builtins.str] network_security_perimeter_profile_id: The ID of the Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Association to be created.
@@ -225,6 +227,7 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
         $ pulumi import azure:network/networkSecurityPerimeterAssociation:NetworkSecurityPerimeterAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp/resourceAssociations/example-assoc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_mode: Access mode for the associated resource on the Network Security Perimeter. Possible values are `Audit`, `Enforced`, and `Learning`.
@@ -285,6 +288,7 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkSecurityPerimeterAssociation:NetworkSecurityPerimeterAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp/resourceAssociations/example-assoc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAssociationArgs args: The arguments to use to populate this resource's properties.

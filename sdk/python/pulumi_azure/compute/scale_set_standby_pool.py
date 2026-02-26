@@ -30,6 +30,7 @@ class ScaleSetStandbyPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScaleSetStandbyPool resource.
+
         :param pulumi.Input[_builtins.str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
         :param pulumi.Input['ScaleSetStandbyPoolElasticityProfileArgs'] elasticity_profile: An `elasticity_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
@@ -146,6 +147,7 @@ class _ScaleSetStandbyPoolState:
                  virtual_machine_state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScaleSetStandbyPool resources.
+
         :param pulumi.Input[_builtins.str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
         :param pulumi.Input['ScaleSetStandbyPoolElasticityProfileArgs'] elasticity_profile: An `elasticity_profile` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
@@ -317,6 +319,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
         $ pulumi import azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/standbyVirtualMachinePool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
@@ -381,6 +384,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/standbyVirtualMachinePool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScaleSetStandbyPoolArgs args: The arguments to use to populate this resource's properties.

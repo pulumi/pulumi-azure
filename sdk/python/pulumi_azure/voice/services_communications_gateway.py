@@ -37,6 +37,7 @@ class ServicesCommunicationsGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServicesCommunicationsGateway resource.
+
         :param pulumi.Input[_builtins.str] codecs: The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`.
         :param pulumi.Input[_builtins.str] connectivity: How to connect back to the operator network, e.g. MAPS. Possible values is `PublicAddress`. Changing this forces a new Voice Services Communications Gateways to be created.
         :param pulumi.Input[_builtins.str] e911_type: How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`.
@@ -263,6 +264,7 @@ class _ServicesCommunicationsGatewayState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServicesCommunicationsGateway resources.
+
         :param pulumi.Input[_builtins.str] api_bridge: Details of API bridge functionality, if required.
         :param pulumi.Input[_builtins.str] auto_generated_domain_name_label_scope: Specifies the scope at which the auto-generated domain name can be re-used. Possible values are `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse` and `NoReuse` . Changing this forces a new resource to be created. Defaults to `TenantReuse`.
         :param pulumi.Input[_builtins.str] codecs: The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`.
@@ -569,6 +571,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         $ pulumi import azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.VoiceServices/communicationsGateways/communicationsGateway1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_bridge: Details of API bridge functionality, if required.
@@ -663,6 +666,7 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.VoiceServices/communicationsGateways/communicationsGateway1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServicesCommunicationsGatewayArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class NetworkManagerIpamPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkManagerIpamPool resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of IPv4 or IPv6 IP address prefixes. Changing this forces a new Network Manager IPAM Pool to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the parent Network Manager. Changing this forces a new Network Manager IPAM Pool to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager IPAM Pool.
@@ -163,6 +164,7 @@ class _NetworkManagerIpamPoolState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerIpamPool resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of IPv4 or IPv6 IP address prefixes. Changing this forces a new Network Manager IPAM Pool to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager IPAM Pool.
         :param pulumi.Input[_builtins.str] display_name: The display name for the Network Manager IPAM Pool.
@@ -348,6 +350,7 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerIpamPool:NetworkManagerIpamPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/ipamPools/pool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of IPv4 or IPv6 IP address prefixes. Changing this forces a new Network Manager IPAM Pool to be created.
@@ -411,6 +414,7 @@ class NetworkManagerIpamPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerIpamPool:NetworkManagerIpamPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/ipamPools/pool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerIpamPoolArgs args: The arguments to use to populate this resource's properties.

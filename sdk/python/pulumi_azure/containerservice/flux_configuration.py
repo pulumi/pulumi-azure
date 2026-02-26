@@ -32,6 +32,7 @@ class FluxConfigurationArgs:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FluxConfiguration resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]] kustomizations: A `kustomizations` block as defined below.
         :param pulumi.Input[_builtins.str] namespace: Specifies the namespace to which this configuration is installed to. Changing this forces a new Kubernetes Flux Configuration to be created.
@@ -181,6 +182,7 @@ class _FluxConfigurationState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FluxConfiguration resources.
+
         :param pulumi.Input['FluxConfigurationBlobStorageArgs'] blob_storage: An `blob_storage` block as defined below.
         :param pulumi.Input['FluxConfigurationBucketArgs'] bucket: A `bucket` block as defined below.
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
@@ -403,6 +405,7 @@ class FluxConfiguration(pulumi.CustomResource):
         $ pulumi import azure:containerservice/fluxConfiguration:FluxConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/fluxConfiguration1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FluxConfigurationBlobStorageArgs', 'FluxConfigurationBlobStorageArgsDict']] blob_storage: An `blob_storage` block as defined below.
@@ -488,6 +491,7 @@ class FluxConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/fluxConfiguration:FluxConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/fluxConfiguration1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FluxConfigurationArgs args: The arguments to use to populate this resource's properties.

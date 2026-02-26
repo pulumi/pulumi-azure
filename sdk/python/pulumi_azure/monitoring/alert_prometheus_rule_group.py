@@ -33,6 +33,7 @@ class AlertPrometheusRuleGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AlertPrometheusRuleGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]] rules: One or more `rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
@@ -198,6 +199,7 @@ class _AlertPrometheusRuleGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AlertPrometheusRuleGroup resources.
+
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Managed Kubernetes Cluster.
         :param pulumi.Input[_builtins.str] description: The description of the Alert Management Prometheus Rule Group.
         :param pulumi.Input[_builtins.str] interval: Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
@@ -461,6 +463,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         $ pulumi import azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AlertsManagement/prometheusRuleGroups/ruleGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Managed Kubernetes Cluster.
@@ -572,6 +575,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AlertsManagement/prometheusRuleGroups/ruleGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertPrometheusRuleGroupArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class EndpointServicebusArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointServicebus resource.
+
         :param pulumi.Input[_builtins.str] digital_twins_id: The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
         :param pulumi.Input[_builtins.str] servicebus_primary_connection_string: The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
         :param pulumi.Input[_builtins.str] servicebus_secondary_connection_string: The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
@@ -111,6 +112,7 @@ class _EndpointServicebusState:
                  servicebus_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointServicebus resources.
+
         :param pulumi.Input[_builtins.str] dead_letter_storage_secret: The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         :param pulumi.Input[_builtins.str] digital_twins_id: The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Digital Twins Service Bus Endpoint. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
@@ -253,6 +255,7 @@ class EndpointServicebus(pulumi.CustomResource):
         $ pulumi import azure:digitaltwins/endpointServicebus:EndpointServicebus example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/endpoints/ep1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dead_letter_storage_secret: The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -318,6 +321,7 @@ class EndpointServicebus(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:digitaltwins/endpointServicebus:EndpointServicebus example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/endpoints/ep1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointServicebusArgs args: The arguments to use to populate this resource's properties.

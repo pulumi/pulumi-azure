@@ -45,6 +45,7 @@ class SparkClusterArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SparkCluster resource.
+
         :param pulumi.Input[_builtins.str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['SparkClusterGatewayArgs'] gateway: A `gateway` block as defined below.
@@ -405,6 +406,7 @@ class _SparkClusterState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SparkCluster resources.
+
         :param pulumi.Input[_builtins.str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['SparkClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
@@ -876,6 +878,7 @@ class SparkCluster(pulumi.CustomResource):
         $ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -983,6 +986,7 @@ class SparkCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SparkClusterArgs args: The arguments to use to populate this resource's properties.

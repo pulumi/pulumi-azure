@@ -23,6 +23,7 @@ class WorkspaceArgs:
                  workspace_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace to save the data in.
         """
@@ -61,6 +62,7 @@ class _WorkspaceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
+
         :param pulumi.Input[_builtins.str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace to save the data in.
         """
@@ -135,6 +137,7 @@ class Workspace(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/workspaceSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
@@ -177,6 +180,7 @@ class Workspace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/workspaceSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

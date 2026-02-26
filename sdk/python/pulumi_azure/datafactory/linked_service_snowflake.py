@@ -32,6 +32,7 @@ class LinkedServiceSnowflakeArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkedServiceSnowflake resource.
+
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with Snowflake.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
@@ -182,6 +183,7 @@ class _LinkedServiceSnowflakeState:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceSnowflake resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with Snowflake.
@@ -400,6 +402,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
         $ pulumi import azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
@@ -481,6 +484,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceSnowflakeArgs args: The arguments to use to populate this resource's properties.

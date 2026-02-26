@@ -23,6 +23,7 @@ class IPGroupCIDRArgs:
                  ip_group_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IPGroupCIDR resource.
+
         :param pulumi.Input[_builtins.str] cidr: The `CIDR` that should be added to the IP Group.
                Changing this forces a new IP Group CIDR to be created.
                
@@ -69,6 +70,7 @@ class _IPGroupCIDRState:
                  ip_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IPGroupCIDR resources.
+
         :param pulumi.Input[_builtins.str] cidr: The `CIDR` that should be added to the IP Group.
                Changing this forces a new IP Group CIDR to be created.
                
@@ -160,6 +162,7 @@ class IPGroupCIDR(pulumi.CustomResource):
         $ pulumi import azure:network/iPGroupCIDR:IPGroupCIDR example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/ipGroups/test-ipgroup/cidrs/10.1.0.0_24
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr: The `CIDR` that should be added to the IP Group.
@@ -215,6 +218,7 @@ class IPGroupCIDR(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/iPGroupCIDR:IPGroupCIDR example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/ipGroups/test-ipgroup/cidrs/10.1.0.0_24
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IPGroupCIDRArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class SpringCloudAcceleratorArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudAccelerator resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
         """
@@ -62,6 +63,7 @@ class _SpringCloudAcceleratorState:
                  spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAccelerator resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created.
         """
@@ -138,6 +140,7 @@ class SpringCloudAccelerator(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudAccelerator:SpringCloudAccelerator example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/applicationAccelerators/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
@@ -182,6 +185,7 @@ class SpringCloudAccelerator(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudAccelerator:SpringCloudAccelerator example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/applicationAccelerators/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudAcceleratorArgs args: The arguments to use to populate this resource's properties.

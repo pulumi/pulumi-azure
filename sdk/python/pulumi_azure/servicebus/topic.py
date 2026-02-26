@@ -34,6 +34,7 @@ class TopicArgs:
                  support_ordering: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Topic resource.
+
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         :param pulumi.Input[_builtins.bool] batched_operations_enabled: Boolean flag which controls if server-side batched operations are enabled.
@@ -255,6 +256,7 @@ class _TopicState:
                  support_ordering: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Topic resources.
+
         :param pulumi.Input[_builtins.str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         :param pulumi.Input[_builtins.bool] batched_operations_enabled: Boolean flag which controls if server-side batched operations are enabled.
         :param pulumi.Input[_builtins.str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
@@ -542,6 +544,7 @@ class Topic(pulumi.CustomResource):
         $ pulumi import azure:servicebus/topic:Topic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
@@ -608,6 +611,7 @@ class Topic(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:servicebus/topic:Topic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

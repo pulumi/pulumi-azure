@@ -32,6 +32,7 @@ class StreamInputIotHubArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamInputIotHub resource.
+
         :param pulumi.Input[_builtins.str] endpoint: The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
         :param pulumi.Input[_builtins.str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
         :param pulumi.Input[_builtins.str] iothub_namespace: The name or the URI of the IoT Hub.
@@ -176,6 +177,7 @@ class _StreamInputIotHubState:
                  stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamInputIotHub resources.
+
         :param pulumi.Input[_builtins.str] endpoint: The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
         :param pulumi.Input[_builtins.str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
         :param pulumi.Input[_builtins.str] iothub_namespace: The name or the URI of the IoT Hub.
@@ -382,6 +384,7 @@ class StreamInputIotHub(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/streamInputIotHub:StreamInputIotHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] endpoint: The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
@@ -451,6 +454,7 @@ class StreamInputIotHub(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/streamInputIotHub:StreamInputIotHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamInputIotHubArgs args: The arguments to use to populate this resource's properties.

@@ -37,6 +37,7 @@ class ConfigurationStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationStore resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] data_plane_proxy_authentication_mode: The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
         :param pulumi.Input[_builtins.bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
@@ -293,6 +294,7 @@ class _ConfigurationStoreState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationStore resources.
+
         :param pulumi.Input[_builtins.str] data_plane_proxy_authentication_mode: The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
         :param pulumi.Input[_builtins.bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
                
@@ -761,6 +763,7 @@ class ConfigurationStore(pulumi.CustomResource):
         $ pulumi import azure:appconfiguration/configurationStore:ConfigurationStore appconf /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_plane_proxy_authentication_mode: The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
@@ -932,6 +935,7 @@ class ConfigurationStore(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appconfiguration/configurationStore:ConfigurationStore appconf /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.

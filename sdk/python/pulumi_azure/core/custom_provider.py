@@ -30,6 +30,7 @@ class CustomProviderArgs:
                  validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]]] = None):
         """
         The set of arguments for constructing a CustomProvider resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderActionArgs']]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -149,6 +150,7 @@ class _CustomProviderState:
                  validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]]] = None):
         """
         Input properties used for looking up and filtering CustomProvider resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['CustomProviderActionArgs']]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
@@ -308,6 +310,7 @@ class CustomProvider(pulumi.CustomResource):
         $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
@@ -360,6 +363,7 @@ class CustomProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomProviderArgs args: The arguments to use to populate this resource's properties.

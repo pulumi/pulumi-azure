@@ -23,6 +23,7 @@ class ApplicationSecurityGroupAssociationArgs:
                  private_endpoint_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ApplicationSecurityGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] application_security_group_id: The id of application security group to associate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_id: The id of private endpoint to associate. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _ApplicationSecurityGroupAssociationState:
                  private_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationSecurityGroupAssociation resources.
+
         :param pulumi.Input[_builtins.str] application_security_group_id: The id of application security group to associate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_id: The id of private endpoint to associate. Changing this forces a new resource to be created.
         """
@@ -196,6 +198,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
 
         > **Note:** This ID is specific to Terraform - and is of the format `{privateEndpointId}|{applicationSecurityGroupId}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_security_group_id: The id of application security group to associate. Changing this forces a new resource to be created.
@@ -299,6 +302,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         ```
 
         > **Note:** This ID is specific to Terraform - and is of the format `{privateEndpointId}|{applicationSecurityGroupId}`.
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.

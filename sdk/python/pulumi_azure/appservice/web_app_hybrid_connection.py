@@ -26,6 +26,7 @@ class WebAppHybridConnectionArgs:
                  send_key_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppHybridConnection resource.
+
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
         :param pulumi.Input[_builtins.int] port: The port to use for the endpoint.
         :param pulumi.Input[_builtins.str] relay_id: The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created.
@@ -115,6 +116,7 @@ class _WebAppHybridConnectionState:
                  web_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAppHybridConnection resources.
+
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the Relay Namespace.
         :param pulumi.Input[_builtins.int] port: The port to use for the endpoint.
@@ -337,6 +339,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         $ pulumi import azure:appservice/webAppHybridConnection:WebAppHybridConnection example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/hybridConnectionNamespaces/hybridConnectionNamespace1/relays/relay1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
@@ -407,6 +410,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/webAppHybridConnection:WebAppHybridConnection example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/hybridConnectionNamespaces/hybridConnectionNamespace1/relays/relay1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebAppHybridConnectionArgs args: The arguments to use to populate this resource's properties.

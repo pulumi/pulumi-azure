@@ -29,6 +29,7 @@ class SqlPoolWorkloadClassifierArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolWorkloadClassifier resource.
+
         :param pulumi.Input[_builtins.str] member_name: The workload classifier member name used to classified against.
         :param pulumi.Input[_builtins.str] workload_group_id: The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         :param pulumi.Input[_builtins.str] context: Specifies the session context value that a request can be classified against.
@@ -163,6 +164,7 @@ class _SqlPoolWorkloadClassifierState:
                  workload_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlPoolWorkloadClassifier resources.
+
         :param pulumi.Input[_builtins.str] context: Specifies the session context value that a request can be classified against.
         :param pulumi.Input[_builtins.str] end_time: The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
         :param pulumi.Input[_builtins.str] importance: The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
@@ -366,6 +368,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         $ pulumi import azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1/workloadClassifiers/workloadClassifier1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] context: Specifies the session context value that a request can be classified against.
@@ -447,6 +450,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1/workloadClassifiers/workloadClassifier1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlPoolWorkloadClassifierArgs args: The arguments to use to populate this resource's properties.

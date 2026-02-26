@@ -34,6 +34,7 @@ class VpnServerConfigurationArgs:
                  vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpnServerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpn_authentication_types: A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         :param pulumi.Input['VpnServerConfigurationIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block as defined below.
@@ -200,6 +201,7 @@ class _VpnServerConfigurationState:
                  vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpnServerConfiguration resources.
+
         :param pulumi.Input['VpnServerConfigurationIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
@@ -428,6 +430,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         $ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VpnServerConfigurationIpsecPolicyArgs', 'VpnServerConfigurationIpsecPolicyArgsDict']] ipsec_policy: A `ipsec_policy` block as defined below.
@@ -501,6 +504,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnServerConfigurationArgs args: The arguments to use to populate this resource's properties.

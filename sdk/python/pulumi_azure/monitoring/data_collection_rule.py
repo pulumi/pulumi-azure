@@ -35,6 +35,7 @@ class DataCollectionRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataCollectionRule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]] data_flows: One or more `data_flow` blocks as defined below.
         :param pulumi.Input['DataCollectionRuleDestinationsArgs'] destinations: A `destinations` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -237,6 +238,7 @@ class _DataCollectionRuleState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataCollectionRule resources.
+
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]] data_flows: One or more `data_flow` blocks as defined below.
         :param pulumi.Input['DataCollectionRuleDataSourcesArgs'] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -469,6 +471,7 @@ class DataCollectionRule(pulumi.CustomResource):
         $ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
@@ -502,6 +505,7 @@ class DataCollectionRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleArgs args: The arguments to use to populate this resource's properties.

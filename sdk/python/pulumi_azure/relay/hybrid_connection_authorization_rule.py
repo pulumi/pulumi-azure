@@ -28,6 +28,7 @@ class HybridConnectionAuthorizationRuleArgs:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a HybridConnectionAuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] hybrid_connection_name: Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
         :param pulumi.Input[_builtins.str] namespace_name: Name of the Azure Relay Namespace for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Relay Hybrid Connection Authorization Rule should exist. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
@@ -149,6 +150,7 @@ class _HybridConnectionAuthorizationRuleState:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering HybridConnectionAuthorizationRule resources.
+
         :param pulumi.Input[_builtins.str] hybrid_connection_name: Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
         :param pulumi.Input[_builtins.bool] listen: Grants listen access to this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] manage: Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be set to `true` too. Defaults to `false`.
@@ -382,6 +384,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         $ pulumi import azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/hybridConnections/connection1/authorizationRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hybrid_connection_name: Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
@@ -448,6 +451,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/hybridConnections/connection1/authorizationRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HybridConnectionAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

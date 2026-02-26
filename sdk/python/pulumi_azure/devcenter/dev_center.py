@@ -29,6 +29,7 @@ class DevCenterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DevCenter resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input['DevCenterIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
@@ -133,6 +134,7 @@ class _DevCenterState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DevCenter resources.
+
         :param pulumi.Input[_builtins.str] dev_center_uri: The URI of the Dev Center.
         :param pulumi.Input['DevCenterIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
@@ -309,6 +311,7 @@ class DevCenter(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
@@ -378,6 +381,7 @@ class DevCenter(pulumi.CustomResource):
         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+
 
         :param str resource_name: The name of the resource.
         :param DevCenterArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class CustomerManagedKeyArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] customer_managed_key_id: The ID the of the Customer Managed Key to associate with the Data Factory.
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of the Data Factory Resource the Customer Managed Key will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The User Assigned Identity ID that will be used to access Key Vaults that contain the encryption keys.
@@ -78,6 +79,7 @@ class _CustomerManagedKeyState:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.str] customer_managed_key_id: The ID the of the Customer Managed Key to associate with the Data Factory.
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of the Data Factory Resource the Customer Managed Key will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The User Assigned Identity ID that will be used to access Key Vaults that contain the encryption keys.
@@ -235,6 +237,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:datafactory/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: The ID the of the Customer Managed Key to associate with the Data Factory.
@@ -345,6 +348,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class MedtechServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MedtechService resource.
+
         :param pulumi.Input[_builtins.str] device_mapping_json: Specifies the Device Mappings of the Med Tech Service.
         :param pulumi.Input[_builtins.str] eventhub_consumer_group_name: Specifies the Consumer Group of the Event Hub to connect to.
         :param pulumi.Input[_builtins.str] eventhub_name: Specifies the name of the Event Hub to connect to.
@@ -179,6 +180,7 @@ class _MedtechServiceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MedtechService resources.
+
         :param pulumi.Input[_builtins.str] device_mapping_json: Specifies the Device Mappings of the Med Tech Service.
         :param pulumi.Input[_builtins.str] eventhub_consumer_group_name: Specifies the Consumer Group of the Event Hub to connect to.
         :param pulumi.Input[_builtins.str] eventhub_name: Specifies the name of the Event Hub to connect to.
@@ -394,6 +396,7 @@ class MedtechService(pulumi.CustomResource):
         $ pulumi import azure:healthcare/medtechService:MedtechService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotConnectors/iotconnector1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_mapping_json: Specifies the Device Mappings of the Med Tech Service.
@@ -472,6 +475,7 @@ class MedtechService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:healthcare/medtechService:MedtechService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotConnectors/iotconnector1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MedtechServiceArgs args: The arguments to use to populate this resource's properties.

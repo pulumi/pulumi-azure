@@ -25,6 +25,7 @@ class NetworkManagerAdminRuleCollectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerAdminRuleCollection resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_group_ids: A list of Network Group ID which this Network Manager Admin Rule Collection applies to.
         :param pulumi.Input[_builtins.str] security_admin_configuration_id: Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Admin Rule Collection to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Admin Rule Collection.
@@ -95,6 +96,7 @@ class _NetworkManagerAdminRuleCollectionState:
                  security_admin_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerAdminRuleCollection resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Admin Rule Collection.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_group_ids: A list of Network Group ID which this Network Manager Admin Rule Collection applies to.
@@ -221,6 +223,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Admin Rule Collection.
@@ -285,6 +288,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerAdminRuleCollectionArgs args: The arguments to use to populate this resource's properties.

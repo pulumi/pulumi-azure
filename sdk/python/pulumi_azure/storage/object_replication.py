@@ -26,6 +26,7 @@ class ObjectReplicationArgs:
                  source_storage_account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ObjectReplication resource.
+
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
@@ -81,6 +82,7 @@ class _ObjectReplicationState:
                  source_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectReplication resources.
+
         :param pulumi.Input[_builtins.str] destination_object_replication_id: The ID of the Object Replication in the destination storage account.
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]] rules: One or more `rules` blocks as defined below.
@@ -236,6 +238,7 @@ class ObjectReplication(pulumi.CustomResource):
         $ pulumi import azure:storage/objectReplication:ObjectReplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/objectReplicationPolicies/objectReplicationPolicy1;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group2/providers/Microsoft.Storage/storageAccounts/storageAccount2/objectReplicationPolicies/objectReplicationPolicy2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
@@ -314,6 +317,7 @@ class ObjectReplication(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/objectReplication:ObjectReplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/objectReplicationPolicies/objectReplicationPolicy1;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group2/providers/Microsoft.Storage/storageAccounts/storageAccount2/objectReplicationPolicies/objectReplicationPolicy2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ObjectReplicationArgs args: The arguments to use to populate this resource's properties.

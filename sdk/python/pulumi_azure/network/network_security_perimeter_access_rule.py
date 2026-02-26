@@ -28,6 +28,7 @@ class NetworkSecurityPerimeterAccessRuleArgs:
                  subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAccessRule resource.
+
         :param pulumi.Input[_builtins.str] direction: The direction of the rule. Possible values are `Inbound` and `Outbound`. Changing this forces a new Network Security Perimeter Access Rule to be created.
         :param pulumi.Input[_builtins.str] network_security_perimeter_profile_id: The ID of the Network Security Perimeter Profile within which this Access Rule is created. Changing this forces a new Network Security Perimeter Access Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `service_tags`, `subscription_ids`.
@@ -146,6 +147,7 @@ class _NetworkSecurityPerimeterAccessRuleState:
                  subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityPerimeterAccessRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `service_tags`, `subscription_ids`.
         :param pulumi.Input[_builtins.str] direction: The direction of the rule. Possible values are `Inbound` and `Outbound`. Changing this forces a new Network Security Perimeter Access Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: Specifies a list of fully qualified domain names. Can only be specified when direction is set to `Outbound`. Conflicts with `address_prefixes`, `service_tags`, and `subscription_ids`.
@@ -309,6 +311,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
         $ pulumi import azure:network/networkSecurityPerimeterAccessRule:NetworkSecurityPerimeterAccessRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp/profiles/defaultProfile/accessRules/example-accessrule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of CIDRs. Can only be specified when direction is set to `Inbound`. Conflicts with `fqdns`, `service_tags`, `subscription_ids`.
@@ -365,6 +368,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkSecurityPerimeterAccessRule:NetworkSecurityPerimeterAccessRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp/profiles/defaultProfile/accessRules/example-accessrule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAccessRuleArgs args: The arguments to use to populate this resource's properties.

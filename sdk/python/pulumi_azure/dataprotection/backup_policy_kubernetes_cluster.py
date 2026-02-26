@@ -30,6 +30,7 @@ class BackupPolicyKubernetesClusterArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPolicyKubernetesCluster resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
         :param pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs'] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -146,6 +147,7 @@ class _BackupPolicyKubernetesClusterState:
                  vault_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicyKubernetesCluster resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
         :param pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs'] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Backup Policy Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -327,6 +329,7 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupPolicies/backupPolicy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
@@ -401,6 +404,7 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupPolicies/backupPolicy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupPolicyKubernetesClusterArgs args: The arguments to use to populate this resource's properties.

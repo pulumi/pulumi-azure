@@ -37,6 +37,7 @@ class TriggerScheduleArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerSchedule resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
@@ -268,6 +269,7 @@ class _TriggerScheduleState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerSchedule resources.
+
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -537,6 +539,7 @@ class TriggerSchedule(pulumi.CustomResource):
         $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
@@ -594,6 +597,7 @@ class TriggerSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerScheduleArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class MonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input['MonitorDatadogOrganizationArgs'] datadog_organization: A `datadog_organization` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name which should be used for this sku.
@@ -181,6 +182,7 @@ class _MonitorState:
                  user: Optional[pulumi.Input['MonitorUserArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input['MonitorDatadogOrganizationArgs'] datadog_organization: A `datadog_organization` block as defined below.
         :param pulumi.Input['MonitorIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
@@ -415,6 +417,7 @@ class Monitor(pulumi.CustomResource):
         $ pulumi import azure:datadog/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']] datadog_organization: A `datadog_organization` block as defined below.
@@ -497,6 +500,7 @@ class Monitor(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datadog/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

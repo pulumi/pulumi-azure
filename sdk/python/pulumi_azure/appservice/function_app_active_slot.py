@@ -23,6 +23,7 @@ class FunctionAppActiveSlotArgs:
                  overwrite_network_config: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FunctionAppActiveSlot resource.
+
         :param pulumi.Input[_builtins.str] slot_id: The ID of the Slot to swap with `Production`.
         :param pulumi.Input[_builtins.bool] overwrite_network_config: The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         """
@@ -63,6 +64,7 @@ class _FunctionAppActiveSlotState:
                  slot_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionAppActiveSlot resources.
+
         :param pulumi.Input[_builtins.str] last_successful_swap: The timestamp of the last successful swap with `Production`
         :param pulumi.Input[_builtins.bool] overwrite_network_config: The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] slot_id: The ID of the Slot to swap with `Production`.
@@ -212,6 +214,7 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         $ pulumi import azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] overwrite_network_config: The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
@@ -314,6 +317,7 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionAppActiveSlotArgs args: The arguments to use to populate this resource's properties.

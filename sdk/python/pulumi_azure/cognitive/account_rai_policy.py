@@ -29,6 +29,7 @@ class AccountRaiPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccountRaiPolicy resource.
+
         :param pulumi.Input[_builtins.str] base_policy_name: The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]] content_filters: A `content_filter` block as defined below.
@@ -130,6 +131,7 @@ class _AccountRaiPolicyState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccountRaiPolicy resources.
+
         :param pulumi.Input[_builtins.str] base_policy_name: The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]] content_filters: A `content_filter` block as defined below.
@@ -282,6 +284,7 @@ class AccountRaiPolicy(pulumi.CustomResource):
         $ pulumi import azure:cognitive/accountRaiPolicy:AccountRaiPolicy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1/raiPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_policy_name: The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
@@ -342,6 +345,7 @@ class AccountRaiPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cognitive/accountRaiPolicy:AccountRaiPolicy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1/raiPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountRaiPolicyArgs args: The arguments to use to populate this resource's properties.

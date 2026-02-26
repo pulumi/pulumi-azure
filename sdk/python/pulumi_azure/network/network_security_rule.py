@@ -39,6 +39,7 @@ class NetworkSecurityRuleArgs:
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityRule resource.
+
         :param pulumi.Input[_builtins.str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[_builtins.str] direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         :param pulumi.Input[_builtins.str] network_security_group_name: The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
@@ -337,6 +338,7 @@ class _NetworkSecurityRuleState:
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityRule resources.
+
         :param pulumi.Input[_builtins.str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[_builtins.str] description: A description for this rule. Restricted to 140 characters.
         :param pulumi.Input[_builtins.str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
@@ -692,6 +694,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         $ pulumi import azure:network/networkSecurityRule:NetworkSecurityRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/mySecurityGroup/securityRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -771,6 +774,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkSecurityRule:NetworkSecurityRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/mySecurityGroup/securityRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityRuleArgs args: The arguments to use to populate this resource's properties.

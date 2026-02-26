@@ -24,6 +24,7 @@ class SpringCloudGatewayCustomDomainArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudGatewayCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
         :param pulumi.Input[_builtins.str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Gateway Custom Domain.
@@ -79,6 +80,7 @@ class _SpringCloudGatewayCustomDomainState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudGatewayCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
         :param pulumi.Input[_builtins.str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Gateway Custom Domain.
@@ -174,6 +176,7 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1/domains/domain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
@@ -222,6 +225,7 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1/domains/domain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudGatewayCustomDomainArgs args: The arguments to use to populate this resource's properties.

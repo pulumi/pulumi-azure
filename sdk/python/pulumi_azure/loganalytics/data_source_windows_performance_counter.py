@@ -28,6 +28,7 @@ class DataSourceWindowsPerformanceCounterArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSourceWindowsPerformanceCounter resource.
+
         :param pulumi.Input[_builtins.str] counter_name: The friendly name of the performance counter.
         :param pulumi.Input[_builtins.str] instance_name: The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
         :param pulumi.Input[_builtins.int] interval_seconds: The time of sample interval in seconds. Supports values between 10 and 2147483647.
@@ -142,6 +143,7 @@ class _DataSourceWindowsPerformanceCounterState:
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataSourceWindowsPerformanceCounter resources.
+
         :param pulumi.Input[_builtins.str] counter_name: The friendly name of the performance counter.
         :param pulumi.Input[_builtins.str] instance_name: The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
         :param pulumi.Input[_builtins.int] interval_seconds: The time of sample interval in seconds. Supports values between 10 and 2147483647.
@@ -306,6 +308,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataSources/datasource1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] counter_name: The friendly name of the performance counter.
@@ -363,6 +366,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataSources/datasource1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceWindowsPerformanceCounterArgs args: The arguments to use to populate this resource's properties.

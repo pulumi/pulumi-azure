@@ -26,6 +26,7 @@ class MoverAgentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverAgent resource.
+
         :param pulumi.Input[_builtins.str] arc_virtual_machine_id: Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] arc_virtual_machine_uuid: Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_mover_id: Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
@@ -111,6 +112,7 @@ class _MoverAgentState:
                  storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverAgent resources.
+
         :param pulumi.Input[_builtins.str] arc_virtual_machine_id: Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] arc_virtual_machine_uuid: Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Specifies a description for this Storage Mover Agent.
@@ -239,6 +241,7 @@ class MoverAgent(pulumi.CustomResource):
         $ pulumi import azure:storage/moverAgent:MoverAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/agents/agent1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arc_virtual_machine_id: Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
@@ -290,6 +293,7 @@ class MoverAgent(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/moverAgent:MoverAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/agents/agent1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MoverAgentArgs args: The arguments to use to populate this resource's properties.

@@ -43,6 +43,7 @@ class AppServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppService resource.
+
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
@@ -376,6 +377,7 @@ class _AppServiceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppService resources.
+
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['AppServiceAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
@@ -864,6 +866,7 @@ class AppService(pulumi.CustomResource):
         $ pulumi import azure:appservice/appService:AppService instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
@@ -945,6 +948,7 @@ class AppService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/appService:AppService instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppServiceArgs args: The arguments to use to populate this resource's properties.

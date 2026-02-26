@@ -30,6 +30,7 @@ class EndpointServicebusQueueArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointServicebusQueue resource.
+
         :param pulumi.Input[_builtins.str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] authentication_type: Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -188,6 +189,7 @@ class _EndpointServicebusQueueState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointServicebusQueue resources.
+
         :param pulumi.Input[_builtins.str] authentication_type: Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param pulumi.Input[_builtins.str] connection_string: The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         :param pulumi.Input[_builtins.str] endpoint_uri: URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
@@ -405,6 +407,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_type: Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -481,6 +484,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointServicebusQueueArgs args: The arguments to use to populate this resource's properties.

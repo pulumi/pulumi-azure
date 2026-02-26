@@ -52,6 +52,7 @@ class LinuxWebAppArgs:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinuxWebApp resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input['LinuxWebAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
@@ -554,6 +555,7 @@ class _LinuxWebAppState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebApp resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input['LinuxWebAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['LinuxWebAppAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
@@ -1228,6 +1230,7 @@ class LinuxWebApp(pulumi.CustomResource):
         $ pulumi import azure:appservice/linuxWebApp:LinuxWebApp example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
@@ -1318,6 +1321,7 @@ class LinuxWebApp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/linuxWebApp:LinuxWebApp example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinuxWebAppArgs args: The arguments to use to populate this resource's properties.

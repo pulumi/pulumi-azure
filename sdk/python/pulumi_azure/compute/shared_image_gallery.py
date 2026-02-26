@@ -29,6 +29,7 @@ class SharedImageGalleryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SharedImageGallery resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description for this Shared Image Gallery.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -133,6 +134,7 @@ class _SharedImageGalleryState:
                  unique_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SharedImageGallery resources.
+
         :param pulumi.Input[_builtins.str] description: A description for this Shared Image Gallery.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
@@ -292,6 +294,7 @@ class SharedImageGallery(pulumi.CustomResource):
         $ pulumi import azure:compute/sharedImageGallery:SharedImageGallery gallery1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for this Shared Image Gallery.
@@ -344,6 +347,7 @@ class SharedImageGallery(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/sharedImageGallery:SharedImageGallery gallery1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedImageGalleryArgs args: The arguments to use to populate this resource's properties.

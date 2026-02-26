@@ -25,6 +25,7 @@ class PrivateLinkAssociationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLinkAssociation resource.
+
         :param pulumi.Input[_builtins.str] management_group_id: Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
                
                > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
@@ -99,6 +100,7 @@ class _PrivateLinkAssociationState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAssociation resources.
+
         :param pulumi.Input[_builtins.str] management_group_id: Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
                
                > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
@@ -234,6 +236,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         $ pulumi import azure:management/privateLinkAssociation:PrivateLinkAssociation example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/privateLinkAssociations/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] management_group_id: Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
@@ -290,6 +293,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:management/privateLinkAssociation:PrivateLinkAssociation example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/privateLinkAssociations/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAssociationArgs args: The arguments to use to populate this resource's properties.

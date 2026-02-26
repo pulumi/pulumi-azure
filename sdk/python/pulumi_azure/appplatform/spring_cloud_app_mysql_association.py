@@ -27,6 +27,7 @@ class SpringCloudAppMysqlAssociationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudAppMysqlAssociation resource.
+
         :param pulumi.Input[_builtins.str] database_name: Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
         :param pulumi.Input[_builtins.str] mysql_server_id: Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] password: Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
@@ -126,6 +127,7 @@ class _SpringCloudAppMysqlAssociationState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppMysqlAssociation resources.
+
         :param pulumi.Input[_builtins.str] database_name: Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
         :param pulumi.Input[_builtins.str] mysql_server_id: Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
@@ -285,6 +287,7 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1/bindings/bind1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
@@ -352,6 +355,7 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1/bindings/bind1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudAppMysqlAssociationArgs args: The arguments to use to populate this resource's properties.

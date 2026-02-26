@@ -32,6 +32,7 @@ class TrafficManagerProfileArgs:
                  traffic_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TrafficManagerProfile resource.
+
         :param pulumi.Input['TrafficManagerProfileDnsConfigArgs'] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         :param pulumi.Input['TrafficManagerProfileMonitorConfigArgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -197,6 +198,7 @@ class _TrafficManagerProfileState:
                  traffic_view_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerProfile resources.
+
         :param pulumi.Input['TrafficManagerProfileDnsConfigArgs'] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[_builtins.int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
@@ -436,6 +438,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         $ pulumi import azure:network/trafficManagerProfile:TrafficManagerProfile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
@@ -515,6 +518,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/trafficManagerProfile:TrafficManagerProfile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficManagerProfileArgs args: The arguments to use to populate this resource's properties.

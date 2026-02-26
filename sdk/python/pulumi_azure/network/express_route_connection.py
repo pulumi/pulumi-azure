@@ -32,6 +32,7 @@ class ExpressRouteConnectionArgs:
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ExpressRouteConnection resource.
+
         :param pulumi.Input[_builtins.str] express_route_circuit_peering_id: The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key to establish the Express Route Connection.
@@ -182,6 +183,7 @@ class _ExpressRouteConnectionState:
                  routing_weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteConnection resources.
+
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key to establish the Express Route Connection.
         :param pulumi.Input[_builtins.bool] enable_internet_security: Is Internet security enabled for this Express Route Connection?
         :param pulumi.Input[_builtins.str] express_route_circuit_peering_id: The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
@@ -413,6 +415,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         $ pulumi import azure:network/expressRouteConnection:ExpressRouteConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRouteGateways/expressRouteGateway1/expressRouteConnections/connection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key to establish the Express Route Connection.
@@ -506,6 +509,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/expressRouteConnection:ExpressRouteConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRouteGateways/expressRouteGateway1/expressRouteConnections/connection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteConnectionArgs args: The arguments to use to populate this resource's properties.

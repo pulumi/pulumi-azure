@@ -29,6 +29,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] agent_public_key_certificate: Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
@@ -137,6 +138,7 @@ class _ClusterState:
                  total_node_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] agent_public_key_certificate: Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[_builtins.str] agent_version: Version of the agent running on the cluster resource.
         :param pulumi.Input[_builtins.str] distribution: The distribution running on this Arc Kubernetes Cluster.
@@ -393,6 +395,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import azure:arckubernetes/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Kubernetes/connectedClusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_public_key_certificate: Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
@@ -452,6 +455,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arckubernetes/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Kubernetes/connectedClusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

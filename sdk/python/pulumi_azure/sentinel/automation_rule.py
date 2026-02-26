@@ -35,6 +35,7 @@ class AutomationRuleArgs:
                  triggers_when: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[_builtins.int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
@@ -236,6 +237,7 @@ class _AutomationRuleState:
                  triggers_when: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
@@ -486,6 +488,7 @@ class AutomationRule(pulumi.CustomResource):
         $ pulumi import azure:sentinel/automationRule:AutomationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/automationRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
@@ -552,6 +555,7 @@ class AutomationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/automationRule:AutomationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/automationRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.

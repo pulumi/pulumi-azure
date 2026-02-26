@@ -22,6 +22,7 @@ class PortalTenantConfigurationArgs:
                  private_markdown_storage_enforced: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a PortalTenantConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] private_markdown_storage_enforced: Is the private tile markdown storage which used to display custom dynamic and static content enabled?
                
                > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
@@ -49,6 +50,7 @@ class _PortalTenantConfigurationState:
                  private_markdown_storage_enforced: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PortalTenantConfiguration resources.
+
         :param pulumi.Input[_builtins.bool] private_markdown_storage_enforced: Is the private tile markdown storage which used to display custom dynamic and static content enabled?
                
                > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
@@ -114,6 +116,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] private_markdown_storage_enforced: Is the private tile markdown storage which used to display custom dynamic and static content enabled?
@@ -160,6 +163,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PortalTenantConfigurationArgs args: The arguments to use to populate this resource's properties.

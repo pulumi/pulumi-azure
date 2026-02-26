@@ -30,6 +30,7 @@ class IotHubDeviceUpdateAccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IotHubDeviceUpdateAccount resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['IotHubDeviceUpdateAccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
@@ -150,6 +151,7 @@ class _IotHubDeviceUpdateAccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IotHubDeviceUpdateAccount resources.
+
         :param pulumi.Input[_builtins.str] host_name: The API host name of the IoT Hub Device Update Account.
         :param pulumi.Input['IotHubDeviceUpdateAccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
@@ -326,6 +328,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         $ pulumi import azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DeviceUpdate/accounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -380,6 +383,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DeviceUpdate/accounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IotHubDeviceUpdateAccountArgs args: The arguments to use to populate this resource's properties.

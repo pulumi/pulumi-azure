@@ -24,6 +24,7 @@ class SlotVirtualNetworkSwiftConnectionArgs:
                  subnet_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SlotVirtualNetworkSwiftConnection resource.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] slot_name: The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
@@ -77,6 +78,7 @@ class _SlotVirtualNetworkSwiftConnectionState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SlotVirtualNetworkSwiftConnection resources.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] slot_name: The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
@@ -197,6 +199,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         $ pulumi import azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/slots/staging/config/virtualNetwork
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
@@ -270,6 +273,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/slots/staging/config/virtualNetwork
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SlotVirtualNetworkSwiftConnectionArgs args: The arguments to use to populate this resource's properties.

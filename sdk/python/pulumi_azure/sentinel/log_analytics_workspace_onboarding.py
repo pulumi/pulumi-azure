@@ -23,6 +23,7 @@ class LogAnalyticsWorkspaceOnboardingArgs:
                  customer_managed_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LogAnalyticsWorkspaceOnboarding resource.
+
         :param pulumi.Input[_builtins.str] workspace_id: Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -70,6 +71,7 @@ class _LogAnalyticsWorkspaceOnboardingState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogAnalyticsWorkspaceOnboarding resources.
+
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
@@ -157,6 +159,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         $ pulumi import azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/onboardingStates/defaults
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] customer_managed_key_enabled: Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
@@ -208,6 +211,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/onboardingStates/defaults
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogAnalyticsWorkspaceOnboardingArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class WorkspacePolicyArgs:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspacePolicy resource.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] xml_content: Specifies the API Management Workspace Policy as an XML string.
         :param pulumi.Input[_builtins.str] xml_link: Specifies a publicly accessible URL to a policy XML document.
@@ -83,6 +84,7 @@ class _WorkspacePolicyState:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspacePolicy resources.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] xml_content: Specifies the API Management Workspace Policy as an XML string.
         :param pulumi.Input[_builtins.str] xml_link: Specifies a publicly accessible URL to a policy XML document.
@@ -193,6 +195,7 @@ class WorkspacePolicy(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/workspacePolicy:WorkspacePolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/workspaces/workspace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
@@ -254,6 +257,7 @@ class WorkspacePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/workspacePolicy:WorkspacePolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/workspaces/workspace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspacePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorMicrosoftThreatIntelligence resource.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[_builtins.str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
@@ -99,6 +100,7 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorMicrosoftThreatIntelligence resources.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[_builtins.str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
@@ -209,6 +211,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         $ pulumi import azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
@@ -255,6 +258,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataConnectorMicrosoftThreatIntelligenceArgs args: The arguments to use to populate this resource's properties.

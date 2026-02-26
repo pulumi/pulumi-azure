@@ -30,6 +30,7 @@ class ScriptArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Script resource.
+
         :param pulumi.Input[_builtins.str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[_builtins.bool] continue_on_errors_enabled: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[_builtins.str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
@@ -181,6 +182,7 @@ class _ScriptState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Script resources.
+
         :param pulumi.Input[_builtins.bool] continue_on_errors_enabled: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[_builtins.str] database_id: The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
         :param pulumi.Input[_builtins.str] force_an_update_when_value_changed: A unique string. If changed the script will be applied again.
@@ -415,6 +417,7 @@ class Script(pulumi.CustomResource):
         $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/scripts/script1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] continue_on_errors_enabled: Flag that indicates whether to continue if one of the command fails.
@@ -512,6 +515,7 @@ class Script(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/scripts/script1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class ApplicationNetworkRuleSetArgs:
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationNetworkRuleSet resource.
+
         :param pulumi.Input[_builtins.str] iotcentral_application_id: The ID of the IoT Central Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] apply_to_device: Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
         :param pulumi.Input[_builtins.str] default_action: Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -98,6 +99,7 @@ class _ApplicationNetworkRuleSetState:
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering ApplicationNetworkRuleSet resources.
+
         :param pulumi.Input[_builtins.bool] apply_to_device: Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
         :param pulumi.Input[_builtins.str] default_action: Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[_builtins.str] iotcentral_application_id: The ID of the IoT Central Application. Changing this forces a new resource to be created.
@@ -223,6 +225,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         $ pulumi import azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/iotApps/app1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_to_device: Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
@@ -286,6 +289,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/iotApps/app1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.

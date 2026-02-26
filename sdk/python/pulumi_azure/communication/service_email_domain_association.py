@@ -23,6 +23,7 @@ class ServiceEmailDomainAssociationArgs:
                  email_service_domain_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServiceEmailDomainAssociation resource.
+
         :param pulumi.Input[_builtins.str] communication_service_id: The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
         :param pulumi.Input[_builtins.str] email_service_domain_id: The ID of the EMail Service Domain. Changing this forces a new communication service email domain association to be created.
         """
@@ -61,6 +62,7 @@ class _ServiceEmailDomainAssociationState:
                  email_service_domain_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceEmailDomainAssociation resources.
+
         :param pulumi.Input[_builtins.str] communication_service_id: The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
         :param pulumi.Input[_builtins.str] email_service_domain_id: The ID of the EMail Service Domain. Changing this forces a new communication service email domain association to be created.
         """
@@ -147,6 +149,7 @@ class ServiceEmailDomainAssociation(pulumi.CustomResource):
         $ pulumi import azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/communicationServices/communicationService1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/emailServices/emailCommunicationService1/domains/domain1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] communication_service_id: The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
@@ -201,6 +204,7 @@ class ServiceEmailDomainAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/communicationServices/communicationService1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/emailServices/emailCommunicationService1/domains/domain1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEmailDomainAssociationArgs args: The arguments to use to populate this resource's properties.

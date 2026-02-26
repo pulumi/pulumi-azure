@@ -35,6 +35,7 @@ class PlanArgs:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Plan resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input['PlanSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[_builtins.str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
@@ -246,6 +247,7 @@ class _PlanState:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Plan resources.
+
         :param pulumi.Input[_builtins.str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
                
                > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
@@ -571,6 +573,7 @@ class Plan(pulumi.CustomResource):
         $ pulumi import azure:appservice/plan:Plan instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/serverFarms/instance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
@@ -693,6 +696,7 @@ class Plan(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/plan:Plan instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/serverFarms/instance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.

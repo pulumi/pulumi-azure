@@ -37,6 +37,7 @@ class OutputBlobArgs:
                  storage_account_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputBlob resource.
+
         :param pulumi.Input[_builtins.str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[_builtins.str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -261,6 +262,7 @@ class _OutputBlobState:
                  time_format: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputBlob resources.
+
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[_builtins.str] batch_max_wait_time: The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
         :param pulumi.Input[_builtins.int] batch_min_rows: The minimum number of rows per batch (must be between `0` and `1000000`).
@@ -551,6 +553,7 @@ class OutputBlob(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/outputBlob:OutputBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -629,6 +632,7 @@ class OutputBlob(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/outputBlob:OutputBlob example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutputBlobArgs args: The arguments to use to populate this resource's properties.

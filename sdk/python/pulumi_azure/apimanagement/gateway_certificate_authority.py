@@ -25,6 +25,7 @@ class GatewayCertificateAuthorityArgs:
                  is_trusted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GatewayCertificateAuthority resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _GatewayCertificateAuthorityState:
                  is_trusted: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GatewayCertificateAuthority resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
@@ -225,6 +227,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/certificateAuthorities/cert1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service. Changing this forces a new resource to be created.
@@ -294,6 +297,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/certificateAuthorities/cert1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GatewayCertificateAuthorityArgs args: The arguments to use to populate this resource's properties.

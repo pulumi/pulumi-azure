@@ -35,6 +35,7 @@ class ScheduledActionArgs:
                  weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
+
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
@@ -259,6 +260,7 @@ class _ScheduledActionState:
                  weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ScheduledAction resources.
+
         :param pulumi.Input[_builtins.int] day_of_month: UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
@@ -530,6 +532,7 @@ class ScheduledAction(pulumi.CustomResource):
         $ pulumi import azure:costmanagement/scheduledAction:ScheduledAction example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/scheduledActions/scheduledaction1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] day_of_month: UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
@@ -589,6 +592,7 @@ class ScheduledAction(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:costmanagement/scheduledAction:ScheduledAction example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/scheduledActions/scheduledaction1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

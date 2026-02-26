@@ -30,6 +30,7 @@ class ManagedInstanceFailoverGroupArgs:
                  secondary_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceFailoverGroup resource.
+
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] partner_managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
         :param pulumi.Input['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
@@ -149,6 +150,7 @@ class _ManagedInstanceFailoverGroupState:
                  secondary_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceFailoverGroup resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
@@ -487,6 +489,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         $ pulumi import azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/locations/Location/instanceFailoverGroups/failoverGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -688,6 +691,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/locations/Location/instanceFailoverGroups/failoverGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceFailoverGroupArgs args: The arguments to use to populate this resource's properties.

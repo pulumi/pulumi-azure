@@ -29,6 +29,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
                  sampling_requests_per_second: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SpringCloudApplicationInsightsApplicationPerformanceMonitoring resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] connection_string: The instrumentation key used to push data to Application Insights.
         :param pulumi.Input[_builtins.bool] globally_enabled: Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
@@ -164,6 +165,7 @@ class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
                  spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApplicationInsightsApplicationPerformanceMonitoring resources.
+
         :param pulumi.Input[_builtins.str] connection_string: The instrumentation key used to push data to Application Insights.
         :param pulumi.Input[_builtins.bool] globally_enabled: Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
@@ -354,6 +356,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
         $ pulumi import azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_string: The instrumentation key used to push data to Application Insights.
@@ -422,6 +425,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
         ```sh
         $ pulumi import azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs args: The arguments to use to populate this resource's properties.

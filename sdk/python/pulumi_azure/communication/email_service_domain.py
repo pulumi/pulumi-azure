@@ -28,6 +28,7 @@ class EmailServiceDomainArgs:
                  user_engagement_tracking_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EmailServiceDomain resource.
+
         :param pulumi.Input[_builtins.str] domain_management: Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.str] email_service_id: The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
@@ -117,6 +118,7 @@ class _EmailServiceDomainState:
                  verification_records: Optional[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordArgs']]]] = None):
         """
         Input properties used for looking up and filtering EmailServiceDomain resources.
+
         :param pulumi.Input[_builtins.str] domain_management: Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.str] email_service_id: The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[_builtins.str] from_sender_domain: P2 sender domain that is displayed to the email recipients [RFC 5322].
@@ -289,6 +291,7 @@ class EmailServiceDomain(pulumi.CustomResource):
         $ pulumi import azure:communication/emailServiceDomain:EmailServiceDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/emailServices/emailCommunicationService1/domains/domain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_management: Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
@@ -339,6 +342,7 @@ class EmailServiceDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:communication/emailServiceDomain:EmailServiceDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/emailServices/emailCommunicationService1/domains/domain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailServiceDomainArgs args: The arguments to use to populate this resource's properties.

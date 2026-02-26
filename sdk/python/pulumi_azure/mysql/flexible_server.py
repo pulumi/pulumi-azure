@@ -47,6 +47,7 @@ class FlexibleServerArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServer resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server.
@@ -489,6 +490,7 @@ class _FlexibleServerState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServer resources.
+
         :param pulumi.Input[_builtins.str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server.
         :param pulumi.Input[_builtins.int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
@@ -1038,6 +1040,7 @@ class FlexibleServer(pulumi.CustomResource):
         $ pulumi import azure:mysql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
@@ -1160,6 +1163,7 @@ class FlexibleServer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mysql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerArgs args: The arguments to use to populate this resource's properties.

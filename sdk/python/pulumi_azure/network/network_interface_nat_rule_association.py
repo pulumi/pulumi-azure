@@ -24,6 +24,7 @@ class NetworkInterfaceNatRuleAssociationArgs:
                  network_interface_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NetworkInterfaceNatRuleAssociation resource.
+
         :param pulumi.Input[_builtins.str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] nat_rule_id: The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
@@ -77,6 +78,7 @@ class _NetworkInterfaceNatRuleAssociationState:
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceNatRuleAssociation resources.
+
         :param pulumi.Input[_builtins.str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] nat_rule_id: The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
@@ -210,6 +212,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
 
         > **Note:** This ID is specific to this provider - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{natRuleId}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
@@ -296,6 +299,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         ```
 
         > **Note:** This ID is specific to this provider - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{natRuleId}`.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceNatRuleAssociationArgs args: The arguments to use to populate this resource's properties.

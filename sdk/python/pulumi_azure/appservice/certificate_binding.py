@@ -24,6 +24,7 @@ class CertificateBindingArgs:
                  ssl_state: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CertificateBinding resource.
+
         :param pulumi.Input[_builtins.str] certificate_id: The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
         :param pulumi.Input[_builtins.str] hostname_binding_id: The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
         :param pulumi.Input[_builtins.str] ssl_state: The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
@@ -80,6 +81,7 @@ class _CertificateBindingState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificateBinding resources.
+
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service to which the certificate was bound.
         :param pulumi.Input[_builtins.str] certificate_id: The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the bound certificate.
@@ -246,6 +248,7 @@ class CertificateBinding(pulumi.CustomResource):
         $ pulumi import azure:appservice/certificateBinding:CertificateBinding example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/mywebsite.com"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_id: The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
@@ -320,6 +323,7 @@ class CertificateBinding(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/certificateBinding:CertificateBinding example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/mywebsite.com"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateBindingArgs args: The arguments to use to populate this resource's properties.

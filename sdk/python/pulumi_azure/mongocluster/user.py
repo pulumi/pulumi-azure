@@ -28,6 +28,7 @@ class UserArgs:
                  roles: pulumi.Input[Sequence[pulumi.Input['UserRoleArgs']]]):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] identity_provider_type: The identity provider type for the Mongo Cluster User. The only possible value is `MicrosoftEntraID`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] mongo_cluster_id: The ID of the Mongo Cluster where the User should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] object_id: The Object ID of the Entra ID User or Service Principal. Changing this forces a new resource to be created.
@@ -111,6 +112,7 @@ class _UserState:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input['UserRoleArgs']]]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] identity_provider_type: The identity provider type for the Mongo Cluster User. The only possible value is `MicrosoftEntraID`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] mongo_cluster_id: The ID of the Mongo Cluster where the User should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] object_id: The Object ID of the Entra ID User or Service Principal. Changing this forces a new resource to be created.
@@ -255,6 +257,7 @@ class User(pulumi.CustomResource):
         $ pulumi import azure:mongocluster/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/cluster1/users/user1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_provider_type: The identity provider type for the Mongo Cluster User. The only possible value is `MicrosoftEntraID`. Changing this forces a new resource to be created.
@@ -322,6 +325,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mongocluster/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/cluster1/users/user1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class SpringCloudAppArgs:
                  tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpringCloudApp resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
@@ -235,6 +236,7 @@ class _SpringCloudAppState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApp resources.
+
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
@@ -502,6 +504,7 @@ class SpringCloudApp(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
@@ -557,6 +560,7 @@ class SpringCloudApp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudAppArgs args: The arguments to use to populate this resource's properties.

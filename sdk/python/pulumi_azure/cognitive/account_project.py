@@ -30,6 +30,7 @@ class AccountProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccountProject resource.
+
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account where the Project should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountProjectIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the Cognitive Account Project.
@@ -150,6 +151,7 @@ class _AccountProjectState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccountProject resources.
+
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account where the Project should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] default: Whether this project is the default project for the Cognitive Account.
         :param pulumi.Input[_builtins.str] description: A description of the Cognitive Account Project.
@@ -356,6 +358,7 @@ class AccountProject(pulumi.CustomResource):
         $ pulumi import azure:cognitive/accountProject:AccountProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1/projects/project1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account where the Project should exist. Changing this forces a new resource to be created.
@@ -425,6 +428,7 @@ class AccountProject(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cognitive/accountProject:AccountProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1/projects/project1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountProjectArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class SubscriptionCostManagementExportArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionCostManagementExport resource.
+
         :param pulumi.Input['SubscriptionCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['SubscriptionCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.
@@ -178,6 +179,7 @@ class _SubscriptionCostManagementExportState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionCostManagementExport resources.
+
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input['SubscriptionCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['SubscriptionCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
@@ -386,6 +388,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
         $ pulumi import azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/providers/Microsoft.CostManagement/exports/export1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
@@ -457,6 +460,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/providers/Microsoft.CostManagement/exports/export1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionCostManagementExportArgs args: The arguments to use to populate this resource's properties.

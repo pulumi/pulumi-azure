@@ -29,6 +29,7 @@ class DatabasePrincipalAssignmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabasePrincipalAssignment resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
@@ -160,6 +161,7 @@ class _DatabasePrincipalAssignmentState:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatabasePrincipalAssignment resources.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the kusto principal assignment. Changing this forces a new resource to be created.
@@ -382,6 +384,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         $ pulumi import azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/principalAssignments/assignment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -452,6 +455,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/principalAssignments/assignment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class ElasticSanArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticSan resource.
+
         :param pulumi.Input[_builtins.int] base_size_in_tib: Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
                > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
@@ -181,6 +182,7 @@ class _ElasticSanState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ElasticSan resources.
+
         :param pulumi.Input[_builtins.int] base_size_in_tib: Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
                > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
@@ -444,6 +446,7 @@ class ElasticSan(pulumi.CustomResource):
         $ pulumi import azure:elasticsan/elasticSan:ElasticSan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_size_in_tib: Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
@@ -504,6 +507,7 @@ class ElasticSan(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:elasticsan/elasticSan:ElasticSan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticSanArgs args: The arguments to use to populate this resource's properties.

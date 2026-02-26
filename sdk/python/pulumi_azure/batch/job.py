@@ -27,6 +27,7 @@ class JobArgs:
                  task_retry_maximum: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input[_builtins.str] batch_pool_id: The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] common_environment_properties: Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this Batch Job. Changing this forces a new Batch Job to be created.
@@ -130,6 +131,7 @@ class _JobState:
                  task_retry_maximum: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Job resources.
+
         :param pulumi.Input[_builtins.str] batch_pool_id: The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] common_environment_properties: Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this Batch Job. Changing this forces a new Batch Job to be created.
@@ -280,6 +282,7 @@ class Job(pulumi.CustomResource):
         $ pulumi import azure:batch/job:Job example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Batch/batchAccounts/account1/pools/pool1/jobs/job1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] batch_pool_id: The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
@@ -338,6 +341,7 @@ class Job(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:batch/job:Job example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Batch/batchAccounts/account1/pools/pool1/jobs/job1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

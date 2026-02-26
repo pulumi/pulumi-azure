@@ -26,6 +26,7 @@ class ResolverDnsForwardingRulesetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResolverDnsForwardingRuleset resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_dns_resolver_outbound_endpoint_ids: The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
@@ -112,6 +113,7 @@ class _ResolverDnsForwardingRulesetState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverDnsForwardingRuleset resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_dns_resolver_outbound_endpoint_ids: The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
@@ -269,6 +271,7 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
         $ pulumi import azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
@@ -349,6 +352,7 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverDnsForwardingRulesetArgs args: The arguments to use to populate this resource's properties.

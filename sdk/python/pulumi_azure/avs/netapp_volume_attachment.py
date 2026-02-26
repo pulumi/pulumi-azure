@@ -24,6 +24,7 @@ class NetappVolumeAttachmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetappVolumeAttachment resource.
+
         :param pulumi.Input[_builtins.str] netapp_volume_id: The netapp file volume for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[_builtins.str] vmware_cluster_id: The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
                
@@ -82,6 +83,7 @@ class _NetappVolumeAttachmentState:
                  vmware_cluster_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetappVolumeAttachment resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud Netapp File Volume Attachment. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[_builtins.str] netapp_volume_id: The netapp file volume for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         :param pulumi.Input[_builtins.str] vmware_cluster_id: The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
@@ -278,6 +280,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         $ pulumi import azure:avs/netappVolumeAttachment:NetappVolumeAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/Cluster1/dataStores/datastore1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud Netapp File Volume Attachment. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
@@ -425,6 +428,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:avs/netappVolumeAttachment:NetappVolumeAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/Cluster1/dataStores/datastore1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetappVolumeAttachmentArgs args: The arguments to use to populate this resource's properties.

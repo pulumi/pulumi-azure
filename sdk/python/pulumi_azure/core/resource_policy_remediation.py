@@ -30,6 +30,7 @@ class ResourcePolicyRemediationArgs:
                  resource_discovery_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePolicyRemediation resource.
+
         :param pulumi.Input[_builtins.str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
         :param pulumi.Input[_builtins.str] resource_id: The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
@@ -180,6 +181,7 @@ class _ResourcePolicyRemediationState:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicyRemediation resources.
+
         :param pulumi.Input[_builtins.float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[_builtins.str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
@@ -394,6 +396,7 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         $ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
@@ -471,6 +474,7 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyRemediationArgs args: The arguments to use to populate this resource's properties.

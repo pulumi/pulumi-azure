@@ -30,6 +30,7 @@ class DefinitionArgs:
                  policy_rule: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Definition resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the policy definition.
         :param pulumi.Input[_builtins.str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
                
@@ -184,6 +185,7 @@ class _DefinitionState:
                  role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Definition resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the policy definition.
         :param pulumi.Input[_builtins.str] display_name: The display name of the policy definition.
         :param pulumi.Input[_builtins.str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -417,6 +419,7 @@ class Definition(pulumi.CustomResource):
         $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/<MANGAGEMENT_GROUP_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the policy definition.
@@ -496,6 +499,7 @@ class Definition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/<MANGAGEMENT_GROUP_ID>/providers/Microsoft.Authorization/policyDefinitions/<POLICY_NAME>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefinitionArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class GroupArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Management Group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
@@ -145,6 +146,7 @@ class _GroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of this API Management Group.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Management Group.
@@ -309,6 +311,7 @@ class Group(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
@@ -366,6 +369,7 @@ class Group(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

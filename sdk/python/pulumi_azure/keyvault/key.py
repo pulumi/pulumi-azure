@@ -33,6 +33,7 @@ class KeyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Key resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
         :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
@@ -216,6 +217,7 @@ class _KeyState:
                  y: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
+
         :param pulumi.Input[_builtins.str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] e: The RSA public exponent of this Key Vault Key.
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -615,6 +617,7 @@ class Key(pulumi.CustomResource):
         $ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
@@ -708,6 +711,7 @@ class Key(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

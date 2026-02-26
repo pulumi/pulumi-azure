@@ -25,6 +25,7 @@ class NamespaceDisasterRecoveryConfigArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceDisasterRecoveryConfig resource.
+
         :param pulumi.Input[_builtins.str] partner_namespace_id: The ID of the Service Bus Namespace to replicate to.
         :param pulumi.Input[_builtins.str] primary_namespace_id: The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.
@@ -99,6 +100,7 @@ class _NamespaceDisasterRecoveryConfigState:
                  secondary_connection_string_alias: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceDisasterRecoveryConfig resources.
+
         :param pulumi.Input[_builtins.str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.
         :param pulumi.Input[_builtins.str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[_builtins.str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -287,6 +289,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         $ pulumi import azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/disasterRecoveryConfigs/config1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.
@@ -353,6 +356,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/disasterRecoveryConfigs/config1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceDisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.

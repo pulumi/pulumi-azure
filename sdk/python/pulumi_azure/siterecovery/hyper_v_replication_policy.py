@@ -26,6 +26,7 @@ class HyperVReplicationPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HyperVReplicationPolicy resource.
+
         :param pulumi.Input[_builtins.int] application_consistent_snapshot_frequency_in_hours: Specifies the frequency at which to create application consistent recovery points.
         :param pulumi.Input[_builtins.int] recovery_point_retention_in_hours: The duration in hours for which the recovery points need to be stored.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The id of the vault that should be updated. Changing this forces a new resource to be created.
@@ -110,6 +111,7 @@ class _HyperVReplicationPolicyState:
                  replication_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HyperVReplicationPolicy resources.
+
         :param pulumi.Input[_builtins.int] application_consistent_snapshot_frequency_in_hours: Specifies the frequency at which to create application consistent recovery points.
         :param pulumi.Input[_builtins.str] name: The name of the replication policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] recovery_point_retention_in_hours: The duration in hours for which the recovery points need to be stored.
@@ -240,6 +242,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationPolicies/policy-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] application_consistent_snapshot_frequency_in_hours: Specifies the frequency at which to create application consistent recovery points.
@@ -293,6 +296,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationPolicies/policy-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HyperVReplicationPolicyArgs args: The arguments to use to populate this resource's properties.

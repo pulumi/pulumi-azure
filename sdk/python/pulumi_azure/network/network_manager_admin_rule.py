@@ -34,6 +34,7 @@ class NetworkManagerAdminRuleArgs:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkManagerAdminRule resource.
+
         :param pulumi.Input[_builtins.str] action: Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
         :param pulumi.Input[_builtins.str] admin_rule_collection_id: Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
         :param pulumi.Input[_builtins.str] direction: Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
@@ -213,6 +214,7 @@ class _NetworkManagerAdminRuleState:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerAdminRule resources.
+
         :param pulumi.Input[_builtins.str] action: Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
         :param pulumi.Input[_builtins.str] admin_rule_collection_id: Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Admin Rule.
@@ -478,6 +480,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerAdminRule:NetworkManagerAdminRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1/rules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
@@ -576,6 +579,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerAdminRule:NetworkManagerAdminRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1/rules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerAdminRuleArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class FrontdoorRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorRule resource.
+
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[_builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
@@ -135,6 +136,7 @@ class _FrontdoorRuleState:
                  order: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRule resources.
+
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
@@ -533,6 +535,7 @@ class FrontdoorRule(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorRule:FrontdoorRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']] actions: An `actions` block as defined below.
@@ -822,6 +825,7 @@ class FrontdoorRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorRule:FrontdoorRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorRuleArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class CapabilityArgs:
                  chaos_studio_target_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Capability resource.
+
         :param pulumi.Input[_builtins.str] capability_type: The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
         :param pulumi.Input[_builtins.str] chaos_studio_target_id: The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
         """
@@ -62,6 +63,7 @@ class _CapabilityState:
                  chaos_studio_target_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Capability resources.
+
         :param pulumi.Input[_builtins.str] capability_type: The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
         :param pulumi.Input[_builtins.str] capability_urn: The Unique Resource Name of the Capability.
         :param pulumi.Input[_builtins.str] chaos_studio_target_id: The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
@@ -172,6 +174,7 @@ class Capability(pulumi.CustomResource):
         * Where `{targetName}` is the name of the Target. For example `targetValue`.
         * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capability_type: The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
@@ -235,6 +238,7 @@ class Capability(pulumi.CustomResource):
         * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
         * Where `{targetName}` is the name of the Target. For example `targetValue`.
         * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
+
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.

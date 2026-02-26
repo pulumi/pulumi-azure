@@ -26,6 +26,7 @@ class WorkspaceTableArgs:
                  total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a WorkspaceTable resource.
+
         :param pulumi.Input[_builtins.str] workspace_id: The object ID of the Log Analytics Workspace that contains the table.
         :param pulumi.Input[_builtins.str] name: Specifies the name of a table in a Log Analytics Workspace.
         :param pulumi.Input[_builtins.str] plan: Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
@@ -125,6 +126,7 @@ class _WorkspaceTableState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceTable resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of a table in a Log Analytics Workspace.
         :param pulumi.Input[_builtins.str] plan: Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
                
@@ -261,6 +263,7 @@ class WorkspaceTable(pulumi.CustomResource):
 
         * `Microsoft.OperationalInsights` - 2022-10-01
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of a table in a Log Analytics Workspace.
@@ -314,6 +317,7 @@ class WorkspaceTable(pulumi.CustomResource):
         This resource uses the following Azure API Providers:
 
         * `Microsoft.OperationalInsights` - 2022-10-01
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceTableArgs args: The arguments to use to populate this resource's properties.

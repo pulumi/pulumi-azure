@@ -23,6 +23,7 @@ class NetworkInterfaceSecurityGroupAssociationArgs:
                  network_security_group_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NetworkInterfaceSecurityGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_security_group_id: The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _NetworkInterfaceSecurityGroupAssociationState:
                  network_security_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAssociation resources.
+
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_security_group_id: The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
         """
@@ -160,6 +162,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
 
         > **Note:** This ID is specific to this provider - and is of the format `{networkInterfaceId}|{networkSecurityGroupId}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
@@ -227,6 +230,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         ```
 
         > **Note:** This ID is specific to this provider - and is of the format `{networkInterfaceId}|{networkSecurityGroupId}`.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.

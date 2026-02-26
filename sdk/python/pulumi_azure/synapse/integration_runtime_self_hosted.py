@@ -24,6 +24,7 @@ class IntegrationRuntimeSelfHostedArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
+
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
@@ -81,6 +82,7 @@ class _IntegrationRuntimeSelfHostedState:
                  synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeSelfHosted resources.
+
         :param pulumi.Input[_builtins.str] authorization_key_primary: The primary integration runtime authentication key.
         :param pulumi.Input[_builtins.str] authorization_key_secondary: The secondary integration runtime authentication key.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
@@ -223,6 +225,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         $ pulumi import azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationRuntimes/IntegrationRuntime1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
@@ -288,6 +291,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationRuntimes/IntegrationRuntime1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeSelfHostedArgs args: The arguments to use to populate this resource's properties.

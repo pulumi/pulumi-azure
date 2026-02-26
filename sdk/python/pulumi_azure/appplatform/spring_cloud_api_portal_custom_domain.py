@@ -24,6 +24,7 @@ class SpringCloudApiPortalCustomDomainArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudApiPortalCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_api_portal_id: The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
         :param pulumi.Input[_builtins.str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain.
@@ -79,6 +80,7 @@ class _SpringCloudApiPortalCustomDomainState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApiPortalCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_api_portal_id: The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created.
         :param pulumi.Input[_builtins.str] thumbprint: Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain.
@@ -178,6 +180,7 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/apiPortals/apiPortal1/domains/domain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
@@ -230,6 +233,7 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/apiPortals/apiPortal1/domains/domain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudApiPortalCustomDomainArgs args: The arguments to use to populate this resource's properties.

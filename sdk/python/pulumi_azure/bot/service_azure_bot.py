@@ -42,6 +42,7 @@ class ServiceAzureBotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServiceAzureBot resource.
+
         :param pulumi.Input[_builtins.str] microsoft_app_id: The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -387,6 +388,7 @@ class _ServiceAzureBotState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceAzureBot resources.
+
         :param pulumi.Input[_builtins.str] cmk_key_vault_key_url: The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
                
                > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
@@ -787,6 +789,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         $ pulumi import azure:bot/serviceAzureBot:ServiceAzureBot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.BotService/botServices/botService1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cmk_key_vault_key_url: The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
@@ -868,6 +871,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/serviceAzureBot:ServiceAzureBot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.BotService/botServices/botService1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceAzureBotArgs args: The arguments to use to populate this resource's properties.

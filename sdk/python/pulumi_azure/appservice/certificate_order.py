@@ -33,6 +33,7 @@ class CertificateOrderArgs:
                  validity_in_years: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CertificateOrder resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[_builtins.str] csr: Last CSR that was created for this order.
@@ -213,6 +214,7 @@ class _CertificateOrderState:
                  validity_in_years: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CertificateOrder resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
         :param pulumi.Input[_builtins.bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
@@ -550,6 +552,7 @@ class CertificateOrder(pulumi.CustomResource):
         $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
@@ -598,6 +601,7 @@ class CertificateOrder(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateOrderArgs args: The arguments to use to populate this resource's properties.

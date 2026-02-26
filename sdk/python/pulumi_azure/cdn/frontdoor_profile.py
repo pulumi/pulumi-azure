@@ -30,6 +30,7 @@ class FrontdoorProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorProfile resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         :param pulumi.Input['FrontdoorProfileIdentityArgs'] identity: An `identity` block as defined below.
@@ -153,6 +154,7 @@ class _FrontdoorProfileState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorProfile resources.
+
         :param pulumi.Input['FrontdoorProfileIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
                
@@ -342,6 +344,7 @@ class FrontdoorProfile(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -407,6 +410,7 @@ class FrontdoorProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorProfileArgs args: The arguments to use to populate this resource's properties.

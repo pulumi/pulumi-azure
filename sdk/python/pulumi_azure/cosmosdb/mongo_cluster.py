@@ -45,6 +45,7 @@ class MongoClusterArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MongoCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -417,6 +418,7 @@ class _MongoClusterState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MongoCluster resources.
+
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
@@ -879,6 +881,7 @@ class MongoCluster(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/mongoCluster:MongoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
@@ -983,6 +986,7 @@ class MongoCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/mongoCluster:MongoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MongoClusterArgs args: The arguments to use to populate this resource's properties.

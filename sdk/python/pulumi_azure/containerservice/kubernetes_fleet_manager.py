@@ -28,6 +28,7 @@ class KubernetesFleetManagerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KubernetesFleetManager resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -115,6 +116,7 @@ class _KubernetesFleetManagerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KubernetesFleetManager resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -242,6 +244,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
         * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -291,6 +294,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`.
         * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`.
         * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
+
 
         :param str resource_name: The name of the resource.
         :param KubernetesFleetManagerArgs args: The arguments to use to populate this resource's properties.

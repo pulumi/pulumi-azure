@@ -26,6 +26,7 @@ class FrontdoorSecurityPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorSecurityPolicy resource.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: An `security_policies` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
@@ -80,6 +81,7 @@ class _FrontdoorSecurityPolicyState:
                  security_policies: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']] = None):
         """
         Input properties used for looking up and filtering FrontdoorSecurityPolicy resources.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: An `security_policies` block as defined below.
@@ -224,6 +226,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
@@ -321,6 +324,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorSecurityPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class IntegrationRuntimeAzureArgs:
                  time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeAzure resource.
+
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Azure Integration Runtime to be created.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -147,6 +148,7 @@ class _IntegrationRuntimeAzureState:
                  time_to_live_min: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeAzure resources.
+
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
@@ -324,6 +326,7 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
         $ pulumi import azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationRuntimes/IntegrationRuntime1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
@@ -394,6 +397,7 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationRuntimes/IntegrationRuntime1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeAzureArgs args: The arguments to use to populate this resource's properties.

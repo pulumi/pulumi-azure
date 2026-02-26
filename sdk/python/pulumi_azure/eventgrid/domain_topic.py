@@ -24,6 +24,7 @@ class DomainTopicArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainTopic resource.
+
         :param pulumi.Input[_builtins.str] domain_name: Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
@@ -78,6 +79,7 @@ class _DomainTopicState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainTopic resources.
+
         :param pulumi.Input[_builtins.str] domain_name: Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
@@ -176,6 +178,7 @@ class DomainTopic(pulumi.CustomResource):
         $ pulumi import azure:eventgrid/domainTopic:DomainTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1/topics/topic1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
@@ -227,6 +230,7 @@ class DomainTopic(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventgrid/domainTopic:DomainTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1/topics/topic1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainTopicArgs args: The arguments to use to populate this resource's properties.

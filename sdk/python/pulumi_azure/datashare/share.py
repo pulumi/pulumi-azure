@@ -29,6 +29,7 @@ class ShareArgs:
                  terms: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
+
         :param pulumi.Input[_builtins.str] account_id: The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
         :param pulumi.Input[_builtins.str] kind: The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
         :param pulumi.Input[_builtins.str] description: The Data Share's description.
@@ -131,6 +132,7 @@ class _ShareState:
                  terms: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
+
         :param pulumi.Input[_builtins.str] account_id: The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
         :param pulumi.Input[_builtins.str] description: The Data Share's description.
         :param pulumi.Input[_builtins.str] kind: The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
@@ -287,6 +289,7 @@ class Share(pulumi.CustomResource):
         $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
@@ -351,6 +354,7 @@ class Share(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.

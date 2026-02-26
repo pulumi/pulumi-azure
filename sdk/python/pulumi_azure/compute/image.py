@@ -32,6 +32,7 @@ class ImageArgs:
                  zone_resilient: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Image resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
                
@@ -199,6 +200,7 @@ class _ImageState:
                  zone_resilient: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Image resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ImageDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
                
                > **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
@@ -404,6 +406,7 @@ class Image(pulumi.CustomResource):
         $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageDataDiskArgs', 'ImageDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
@@ -464,6 +467,7 @@ class Image(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ImageArgs args: The arguments to use to populate this resource's properties.

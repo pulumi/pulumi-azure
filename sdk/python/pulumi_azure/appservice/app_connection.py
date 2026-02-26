@@ -30,6 +30,7 @@ class AppConnectionArgs:
                  vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppConnection resource.
+
         :param pulumi.Input['AppConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
@@ -139,6 +140,7 @@ class _AppConnectionState:
                  vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppConnection resources.
+
         :param pulumi.Input['AppConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
@@ -334,6 +336,7 @@ class AppConnection(pulumi.CustomResource):
         $ pulumi import azure:appservice/appConnection:AppConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/webapp/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
@@ -429,6 +432,7 @@ class AppConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/appConnection:AppConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/webapp/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppConnectionArgs args: The arguments to use to populate this resource's properties.

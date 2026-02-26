@@ -23,6 +23,7 @@ class FrontdoorCustomDomainAssociationArgs:
                  cdn_frontdoor_route_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a FrontdoorCustomDomainAssociation resource.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
                
@@ -65,6 +66,7 @@ class _FrontdoorCustomDomainAssociationState:
                  cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorCustomDomainAssociation resources.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_route_ids: One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
                
@@ -206,6 +208,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/associations/assoc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_custom_domain_id: The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
@@ -313,6 +316,7 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/associations/assoc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorCustomDomainAssociationArgs args: The arguments to use to populate this resource's properties.

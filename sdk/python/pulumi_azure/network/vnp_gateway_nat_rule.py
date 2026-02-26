@@ -30,6 +30,7 @@ class VnpGatewayNatRuleArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VnpGatewayNatRule resource.
+
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One of more `external_mapping` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One of more `internal_mapping` blocks as defined below.
@@ -149,6 +150,7 @@ class _VnpGatewayNatRuleState:
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VnpGatewayNatRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One of more `external_mapping` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One of more `internal_mapping` blocks as defined below.
         :param pulumi.Input[_builtins.str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
@@ -324,6 +326,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]] external_mappings: One of more `external_mapping` blocks as defined below.
@@ -392,6 +395,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VnpGatewayNatRuleArgs args: The arguments to use to populate this resource's properties.

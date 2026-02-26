@@ -33,6 +33,7 @@ class IntegrationAccountAgreementArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAgreement resource.
+
         :param pulumi.Input[_builtins.str] agreement_type: The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Agreement.
         :param pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'] guest_identity: A `guest_identity` block as documented below.
@@ -193,6 +194,7 @@ class _IntegrationAccountAgreementState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountAgreement resources.
+
         :param pulumi.Input[_builtins.str] agreement_type: The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Agreement.
         :param pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'] guest_identity: A `guest_identity` block as documented below.
@@ -430,6 +432,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/agreements/agreement1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agreement_type: The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
@@ -515,6 +518,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/agreements/agreement1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAgreementArgs args: The arguments to use to populate this resource's properties.

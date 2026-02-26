@@ -28,6 +28,7 @@ class WorkspaceApiVersionSetArgs:
                  version_query_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceApiVersionSet resource.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the API Management Workspace API Version Set.
         :param pulumi.Input[_builtins.str] versioning_scheme: Specifies where in a request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
@@ -145,6 +146,7 @@ class _WorkspaceApiVersionSetState:
                  versioning_scheme: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceApiVersionSet resources.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the API Management Workspace API Version Set.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the API Management Workspace API Version Set.
@@ -313,6 +315,7 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/workspaceApiVersionSet:WorkspaceApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/workspaces/workspace1/apiVersionSets/set1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
@@ -374,6 +377,7 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/workspaceApiVersionSet:WorkspaceApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/workspaces/workspace1/apiVersionSets/set1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApiVersionSetArgs args: The arguments to use to populate this resource's properties.

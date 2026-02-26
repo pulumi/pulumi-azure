@@ -25,6 +25,7 @@ class ApplicationSecurityGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationSecurityGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
@@ -96,6 +97,7 @@ class _ApplicationSecurityGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApplicationSecurityGroup resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
@@ -206,6 +208,7 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         $ pulumi import azure:network/applicationSecurityGroup:ApplicationSecurityGroup securitygroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securitygroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -254,6 +257,7 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/applicationSecurityGroup:ApplicationSecurityGroup securitygroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securitygroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationSecurityGroupArgs args: The arguments to use to populate this resource's properties.

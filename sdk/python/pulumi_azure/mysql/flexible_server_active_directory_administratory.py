@@ -26,6 +26,7 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
                  tenant_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a FlexibleServerActiveDirectoryAdministratory resource.
+
         :param pulumi.Input[_builtins.str] identity_id: The resource ID of the identity used for AAD Authentication.
         :param pulumi.Input[_builtins.str] login: The login name of the principal to set as the server administrator
         :param pulumi.Input[_builtins.str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
@@ -109,6 +110,7 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
+
         :param pulumi.Input[_builtins.str] identity_id: The resource ID of the identity used for AAD Authentication.
         :param pulumi.Input[_builtins.str] login: The login name of the principal to set as the server administrator
         :param pulumi.Input[_builtins.str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
@@ -251,6 +253,7 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
         $ pulumi import azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforMySQL/flexibleServers/server1/administrators/ActiveDirectory
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_id: The resource ID of the identity used for AAD Authentication.
@@ -316,6 +319,7 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforMySQL/flexibleServers/server1/administrators/ActiveDirectory
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerActiveDirectoryAdministratoryArgs args: The arguments to use to populate this resource's properties.

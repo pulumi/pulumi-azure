@@ -32,6 +32,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
@@ -187,6 +188,7 @@ class _AccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input[_builtins.str] dsc_primary_access_key: The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[_builtins.str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[_builtins.str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
@@ -449,6 +451,7 @@ class Account(pulumi.CustomResource):
         $ pulumi import azure:automation/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]] encryptions: An `encryption` block as defined below.
@@ -503,6 +506,7 @@ class Account(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

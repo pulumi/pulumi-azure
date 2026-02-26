@@ -25,6 +25,7 @@ class SpringCloudCustomDomainArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_name: Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
@@ -96,6 +97,7 @@ class _SpringCloudCustomDomainState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] certificate_name: Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -218,6 +220,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/domains/domain.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_name: Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
@@ -278,6 +281,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/domains/domain.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudCustomDomainArgs args: The arguments to use to populate this resource's properties.

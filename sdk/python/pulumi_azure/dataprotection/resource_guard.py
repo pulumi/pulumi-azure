@@ -26,6 +26,7 @@ class ResourceGuardArgs:
                  vault_critical_operation_exclusion_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceGuard resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Resource Guard. Changing this forces a new resource to be created.
@@ -113,6 +114,7 @@ class _ResourceGuardState:
                  vault_critical_operation_exclusion_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceGuard resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Resource Guard. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created.
@@ -236,6 +238,7 @@ class ResourceGuard(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/resourceGuard:ResourceGuard example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/resourceGuards/resourceGuard1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
@@ -282,6 +285,7 @@ class ResourceGuard(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/resourceGuard:ResourceGuard example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/resourceGuards/resourceGuard1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardArgs args: The arguments to use to populate this resource's properties.

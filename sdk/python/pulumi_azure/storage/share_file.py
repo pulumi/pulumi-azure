@@ -31,6 +31,7 @@ class ShareFileArgs:
                  storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareFile resource.
+
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
@@ -208,6 +209,7 @@ class _ShareFileState:
                  storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ShareFile resources.
+
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[_builtins.int] content_length: The length in bytes of the file content
@@ -439,6 +441,7 @@ class ShareFile(pulumi.CustomResource):
         $ pulumi import azure:storage/shareFile:ShareFile example https://account1.file.core.windows.net/share1/file1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
@@ -498,6 +501,7 @@ class ShareFile(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/shareFile:ShareFile example https://account1.file.core.windows.net/share1/file1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ShareFileArgs args: The arguments to use to populate this resource's properties.

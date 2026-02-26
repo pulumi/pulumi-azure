@@ -38,6 +38,7 @@ class SharedImageVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SharedImageVersion resource.
+
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -306,6 +307,7 @@ class _SharedImageVersionState:
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None):
         """
         Input properties used for looking up and filtering SharedImageVersion resources.
+
         :param pulumi.Input[_builtins.str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
                
                > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
@@ -623,6 +625,7 @@ class SharedImageVersion(pulumi.CustomResource):
         $ pulumi import azure:compute/sharedImageVersion:SharedImageVersion version /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1/versions/1.2.3
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
@@ -701,6 +704,7 @@ class SharedImageVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/sharedImageVersion:SharedImageVersion version /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1/versions/1.2.3
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedImageVersionArgs args: The arguments to use to populate this resource's properties.

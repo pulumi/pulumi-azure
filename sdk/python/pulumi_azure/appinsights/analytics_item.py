@@ -27,6 +27,7 @@ class AnalyticsItemArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AnalyticsItem resource.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content: The content for the Analytics Item, for example the query text if `type` is `query`.
         :param pulumi.Input[_builtins.str] scope: The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
@@ -130,6 +131,7 @@ class _AnalyticsItemState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnalyticsItem resources.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content: The content for the Analytics Item, for example the query text if `type` is `query`.
         :param pulumi.Input[_builtins.str] function_alias: The alias to use for the function. Required when `type` is `function`.
@@ -329,6 +331,7 @@ class AnalyticsItem(pulumi.CustomResource):
         az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
@@ -391,6 +394,7 @@ class AnalyticsItem(pulumi.CustomResource):
         ```sh
         az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalyticsItemArgs args: The arguments to use to populate this resource's properties.

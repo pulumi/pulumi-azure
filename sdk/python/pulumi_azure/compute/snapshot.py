@@ -37,6 +37,7 @@ class SnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
+
         :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
@@ -276,6 +277,7 @@ class _SnapshotState:
                  trusted_launch_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
+
         :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
@@ -575,6 +577,7 @@ class Snapshot(pulumi.CustomResource):
         $ pulumi import azure:compute/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/snapshots/snapshot1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
@@ -643,6 +646,7 @@ class Snapshot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/snapshots/snapshot1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

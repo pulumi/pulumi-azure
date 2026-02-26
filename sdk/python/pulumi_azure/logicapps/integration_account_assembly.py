@@ -29,6 +29,7 @@ class IntegrationAccountAssemblyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAssembly resource.
+
         :param pulumi.Input[_builtins.str] assembly_name: The name of the Logic App Integration Account Assembly.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
@@ -162,6 +163,7 @@ class _IntegrationAccountAssemblyState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountAssembly resources.
+
         :param pulumi.Input[_builtins.str] assembly_name: The name of the Logic App Integration Account Assembly.
         :param pulumi.Input[_builtins.str] assembly_version: The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Assembly.
@@ -341,6 +343,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/assemblies/assembly1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assembly_name: The name of the Logic App Integration Account Assembly.
@@ -398,6 +401,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/assemblies/assembly1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAssemblyArgs args: The arguments to use to populate this resource's properties.

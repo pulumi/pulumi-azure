@@ -51,6 +51,7 @@ class FlexibleServerArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServer resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
                
@@ -563,6 +564,7 @@ class _FlexibleServerState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServer resources.
+
         :param pulumi.Input[_builtins.str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
                
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
@@ -1184,6 +1186,7 @@ class FlexibleServer(pulumi.CustomResource):
         $ pulumi import azure:postgresql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
@@ -1340,6 +1343,7 @@ class FlexibleServer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:postgresql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerArgs args: The arguments to use to populate this resource's properties.

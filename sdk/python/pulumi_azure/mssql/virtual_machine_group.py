@@ -30,6 +30,7 @@ class VirtualMachineGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sql_image_offer: The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sql_image_sku: The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`.
@@ -146,6 +147,7 @@ class _VirtualMachineGroupState:
                  wsfc_domain_profile: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']] = None):
         """
         Input properties used for looking up and filtering VirtualMachineGroup resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
@@ -307,6 +309,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
         $ pulumi import azure:mssql/virtualMachineGroup:VirtualMachineGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/vmgroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
@@ -361,6 +364,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/virtualMachineGroup:VirtualMachineGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/vmgroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineGroupArgs args: The arguments to use to populate this resource's properties.

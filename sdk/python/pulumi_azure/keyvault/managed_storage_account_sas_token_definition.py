@@ -27,6 +27,7 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedStorageAccountSasTokenDefinition resource.
+
         :param pulumi.Input[_builtins.str] managed_storage_account_id: The ID of the Managed Storage Account.
         :param pulumi.Input[_builtins.str] sas_template_uri: The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         :param pulumi.Input[_builtins.str] sas_type: The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
@@ -128,6 +129,7 @@ class _ManagedStorageAccountSasTokenDefinitionState:
                  validity_period: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedStorageAccountSasTokenDefinition resources.
+
         :param pulumi.Input[_builtins.str] managed_storage_account_id: The ID of the Managed Storage Account.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this SAS Definition.
         :param pulumi.Input[_builtins.str] sas_template_uri: The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
@@ -342,6 +344,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         $ pulumi import azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01/sas/exampleSasDefinition01
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] managed_storage_account_id: The ID of the Managed Storage Account.
@@ -449,6 +452,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01/sas/exampleSasDefinition01
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedStorageAccountSasTokenDefinitionArgs args: The arguments to use to populate this resource's properties.

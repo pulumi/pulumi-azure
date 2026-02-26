@@ -58,6 +58,7 @@ class AccountArgs:
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
@@ -545,6 +546,7 @@ class _AccountState:
                  write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
@@ -1354,6 +1356,7 @@ class Account(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']] analytical_storage: An `analytical_storage` block as defined below.
@@ -1482,6 +1485,7 @@ class Account(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

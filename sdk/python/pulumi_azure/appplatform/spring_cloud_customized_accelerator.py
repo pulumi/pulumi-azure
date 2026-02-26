@@ -31,6 +31,7 @@ class SpringCloudCustomizedAcceleratorArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudCustomizedAccelerator resource.
+
         :param pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryArgs'] git_repository: A `git_repository` block as defined below.
         :param pulumi.Input[_builtins.str] spring_cloud_accelerator_id: The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_tags: Specifies a list of accelerator tags.
@@ -165,6 +166,7 @@ class _SpringCloudCustomizedAcceleratorState:
                  spring_cloud_accelerator_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudCustomizedAccelerator resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_tags: Specifies a list of accelerator tags.
         :param pulumi.Input[_builtins.str] accelerator_type: Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Spring Cloud Customized Accelerator.
@@ -357,6 +359,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/applicationAccelerators/default/customizedAccelerators/customizedAccelerator1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_tags: Specifies a list of accelerator tags.
@@ -427,6 +430,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/applicationAccelerators/default/customizedAccelerators/customizedAccelerator1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudCustomizedAcceleratorArgs args: The arguments to use to populate this resource's properties.

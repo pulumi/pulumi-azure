@@ -33,6 +33,7 @@ class ExascaleDatabaseStorageVaultArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExascaleDatabaseStorageVault resource.
+
         :param pulumi.Input[_builtins.int] additional_flash_cache_percentage: The size of additional Flash Cache in percentage of High Capacity database storage. Changing this forces a new Exadata Database Storage Vault to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Exadata Database Storage Vault resource. The name does not need to be unique. Changing this forces a new Exadata Database Storage Vault to be created.
         :param pulumi.Input['ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs'] high_capacity_database_storage: A `high_capacity_database_storage` block as defined below. Changing this forces a new Exadata Database Storage Vault to be created.
@@ -196,6 +197,7 @@ class _ExascaleDatabaseStorageVaultState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ExascaleDatabaseStorageVault resources.
+
         :param pulumi.Input[_builtins.int] additional_flash_cache_percentage: The size of additional Flash Cache in percentage of High Capacity database storage. Changing this forces a new Exadata Database Storage Vault to be created.
         :param pulumi.Input[_builtins.str] description: Exadata Database Storage Vault description. Changing this forces a new Exadata Database Storage Vault to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Exadata Database Storage Vault resource. The name does not need to be unique. Changing this forces a new Exadata Database Storage Vault to be created.
@@ -407,6 +409,7 @@ class ExascaleDatabaseStorageVault(pulumi.CustomResource):
         $ pulumi import azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/exascaleDbStorageVaults/exascaleDbStorageVaults1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] additional_flash_cache_percentage: The size of additional Flash Cache in percentage of High Capacity database storage. Changing this forces a new Exadata Database Storage Vault to be created.
@@ -466,6 +469,7 @@ class ExascaleDatabaseStorageVault(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:oracle/exascaleDatabaseStorageVault:ExascaleDatabaseStorageVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/exascaleDbStorageVaults/exascaleDbStorageVaults1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExascaleDatabaseStorageVaultArgs args: The arguments to use to populate this resource's properties.

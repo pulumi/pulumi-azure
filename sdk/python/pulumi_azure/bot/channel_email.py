@@ -27,6 +27,7 @@ class ChannelEmailArgs:
                  magic_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelEmail resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] email_address: The email address that the Bot will authenticate with.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -128,6 +129,7 @@ class _ChannelEmailState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelEmail resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] email_address: The email address that the Bot will authenticate with.
         :param pulumi.Input[_builtins.str] email_password: The email password that the Bot will authenticate with.
@@ -278,6 +280,7 @@ class ChannelEmail(pulumi.CustomResource):
         $ pulumi import azure:bot/channelEmail:ChannelEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/EmailChannel
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -336,6 +339,7 @@ class ChannelEmail(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelEmail:ChannelEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/EmailChannel
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelEmailArgs args: The arguments to use to populate this resource's properties.

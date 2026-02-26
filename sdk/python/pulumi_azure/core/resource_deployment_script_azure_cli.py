@@ -40,6 +40,7 @@ class ResourceDeploymentScriptAzureCliArgs:
                  timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDeploymentScriptAzureCli resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[_builtins.str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[_builtins.str] version: Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
@@ -318,6 +319,7 @@ class _ResourceDeploymentScriptAzureCliState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceDeploymentScriptAzureCli resources.
+
         :param pulumi.Input[_builtins.str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[_builtins.str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs'] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
@@ -666,6 +668,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
@@ -742,6 +745,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceDeploymentScriptAzureCliArgs args: The arguments to use to populate this resource's properties.

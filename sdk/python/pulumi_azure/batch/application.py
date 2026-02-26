@@ -27,6 +27,7 @@ class ApplicationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] allow_updates: A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
@@ -129,6 +130,7 @@ class _ApplicationState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] allow_updates: A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
         :param pulumi.Input[_builtins.str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
@@ -281,6 +283,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import azure:batch/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Batch/batchAccounts/exampleba/applications/example-batch-application
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Batch account. Changing this forces a new resource to be created.
@@ -341,6 +344,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:batch/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Batch/batchAccounts/exampleba/applications/example-batch-application
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

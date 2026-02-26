@@ -30,6 +30,7 @@ class HciExtensionArgs:
                  type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HciExtension resource.
+
         :param pulumi.Input[_builtins.str] arc_setting_id: The ID of the Azure Stack HCI Cluster Arc Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] publisher: The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new resource to be created.
@@ -183,6 +184,7 @@ class _HciExtensionState:
                  type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HciExtension resources.
+
         :param pulumi.Input[_builtins.str] arc_setting_id: The ID of the Azure Stack HCI Cluster Arc Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version_enabled: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `true` and `false`. Defaults to `true`.
@@ -378,6 +380,7 @@ class HciExtension(pulumi.CustomResource):
         $ pulumi import azure:stack/hciExtension:HciExtension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1/arcSettings/default/extensions/extension1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arc_setting_id: The ID of the Azure Stack HCI Cluster Arc Setting. Changing this forces a new resource to be created.
@@ -434,6 +437,7 @@ class HciExtension(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:stack/hciExtension:HciExtension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1/arcSettings/default/extensions/extension1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HciExtensionArgs args: The arguments to use to populate this resource's properties.

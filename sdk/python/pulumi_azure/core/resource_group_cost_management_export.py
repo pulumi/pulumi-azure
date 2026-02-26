@@ -32,6 +32,7 @@ class ResourceGroupCostManagementExportArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceGroupCostManagementExport resource.
+
         :param pulumi.Input['ResourceGroupCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['ResourceGroupCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.
@@ -178,6 +179,7 @@ class _ResourceGroupCostManagementExportState:
                  resource_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceGroupCostManagementExport resources.
+
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input['ResourceGroupCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['ResourceGroupCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
@@ -385,6 +387,7 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         $ pulumi import azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.CostManagement/exports/export1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
@@ -455,6 +458,7 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.CostManagement/exports/export1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupCostManagementExportArgs args: The arguments to use to populate this resource's properties.

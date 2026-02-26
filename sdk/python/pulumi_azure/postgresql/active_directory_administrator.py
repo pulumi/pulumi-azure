@@ -26,6 +26,7 @@ class ActiveDirectoryAdministratorArgs:
                  tenant_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ActiveDirectoryAdministrator resource.
+
         :param pulumi.Input[_builtins.str] login: The login name of the principal to set as the server administrator
         :param pulumi.Input[_builtins.str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
@@ -109,6 +110,7 @@ class _ActiveDirectoryAdministratorState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActiveDirectoryAdministrator resources.
+
         :param pulumi.Input[_builtins.str] login: The login name of the principal to set as the server administrator
         :param pulumi.Input[_builtins.str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
@@ -246,6 +248,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         $ pulumi import azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] login: The login name of the principal to set as the server administrator
@@ -306,6 +309,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActiveDirectoryAdministratorArgs args: The arguments to use to populate this resource's properties.

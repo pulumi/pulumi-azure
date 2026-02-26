@@ -28,6 +28,7 @@ class ChannelTeamsArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelTeams resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] calling_enabled: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
@@ -146,6 +147,7 @@ class _ChannelTeamsState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelTeams resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] calling_enabled: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         :param pulumi.Input[_builtins.str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
@@ -303,6 +305,7 @@ class ChannelTeams(pulumi.CustomResource):
         $ pulumi import azure:bot/channelTeams:ChannelTeams example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/MsTeamsChannel
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -352,6 +355,7 @@ class ChannelTeams(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelTeams:ChannelTeams example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/MsTeamsChannel
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelTeamsArgs args: The arguments to use to populate this resource's properties.

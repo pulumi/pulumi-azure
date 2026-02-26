@@ -46,6 +46,7 @@ class AutonomousDatabaseArgs:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutonomousDatabase resource.
+
         :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage.
@@ -405,6 +406,7 @@ class _AutonomousDatabaseState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutonomousDatabase resources.
+
         :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
@@ -852,6 +854,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         $ pulumi import azure:oracle/autonomousDatabase:AutonomousDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/autonomousDatabases/autonomousDatabases1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
@@ -956,6 +959,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:oracle/autonomousDatabase:AutonomousDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/autonomousDatabases/autonomousDatabases1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutonomousDatabaseArgs args: The arguments to use to populate this resource's properties.

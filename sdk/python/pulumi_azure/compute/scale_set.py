@@ -51,6 +51,7 @@ class ScaleSetArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScaleSet resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]] network_profiles: A collection of `network_profile` blocks as documented below.
         :param pulumi.Input['ScaleSetOsProfileArgs'] os_profile: A `os_profile` block as documented below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
@@ -509,6 +510,7 @@ class _ScaleSetState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ScaleSet resources.
+
         :param pulumi.Input[_builtins.bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as referenced below.
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -1208,6 +1210,7 @@ class ScaleSet(pulumi.CustomResource):
         $ pulumi import azure:compute/scaleSet:ScaleSet scaleset1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
@@ -1481,6 +1484,7 @@ class ScaleSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/scaleSet:ScaleSet scaleset1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScaleSetArgs args: The arguments to use to populate this resource's properties.

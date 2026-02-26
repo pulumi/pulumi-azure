@@ -42,6 +42,7 @@ class RegistryArgs:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Registry resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[_builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
@@ -372,6 +373,7 @@ class _RegistryState:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Registry resources.
+
         :param pulumi.Input[_builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[_builtins.str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
@@ -876,6 +878,7 @@ class Registry(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
@@ -1025,6 +1028,7 @@ class Registry(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.

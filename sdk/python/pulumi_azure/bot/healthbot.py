@@ -26,6 +26,7 @@ class HealthbotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Healthbot resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies The name of the Resource Group in which to create the Healthbot Service. changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name which should be used for the SKU of the service. Possible values are `C0`, `C1`, `F0`, `PES` and `S1`.
                
@@ -117,6 +118,7 @@ class _HealthbotState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Healthbot resources.
+
         :param pulumi.Input[_builtins.str] bot_management_portal_url: The management portal url.
         :param pulumi.Input[_builtins.str] location: Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
@@ -260,6 +262,7 @@ class Healthbot(pulumi.CustomResource):
         $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
@@ -309,6 +312,7 @@ class Healthbot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HealthbotArgs args: The arguments to use to populate this resource's properties.

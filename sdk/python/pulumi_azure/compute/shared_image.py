@@ -51,6 +51,7 @@ class SharedImageArgs:
                  trusted_launch_supported: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SharedImage resource.
+
         :param pulumi.Input[_builtins.str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
         :param pulumi.Input[_builtins.str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -511,6 +512,7 @@ class _SharedImageState:
                  trusted_launch_supported: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SharedImage resources.
+
         :param pulumi.Input[_builtins.bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
@@ -1026,6 +1028,7 @@ class SharedImage(pulumi.CustomResource):
         $ pulumi import azure:compute/sharedImage:SharedImage image1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
@@ -1115,6 +1118,7 @@ class SharedImage(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/sharedImage:SharedImage image1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedImageArgs args: The arguments to use to populate this resource's properties.

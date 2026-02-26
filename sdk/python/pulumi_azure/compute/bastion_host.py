@@ -39,6 +39,7 @@ class BastionHostArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
@@ -335,6 +336,7 @@ class _BastionHostState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering BastionHost resources.
+
         :param pulumi.Input[_builtins.bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[_builtins.str] dns_name: The FQDN for the Bastion Host.
         :param pulumi.Input[_builtins.bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
@@ -704,6 +706,7 @@ class BastionHost(pulumi.CustomResource):
         $ pulumi import azure:compute/bastionHost:BastionHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/bastionHosts/instance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
@@ -800,6 +803,7 @@ class BastionHost(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/bastionHost:BastionHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/bastionHosts/instance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BastionHostArgs args: The arguments to use to populate this resource's properties.

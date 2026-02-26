@@ -27,6 +27,7 @@ class VirtualHubRouteTableArgs:
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualHubRouteTable resource.
+
         :param pulumi.Input[_builtins.str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[_builtins.str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
@@ -98,6 +99,7 @@ class _VirtualHubRouteTableState:
                  virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualHubRouteTable resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[_builtins.str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: One or more `route` blocks as defined below.
@@ -243,6 +245,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         $ pulumi import azure:network/virtualHubRouteTable:VirtualHubRouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: List of labels associated with this route table.
@@ -326,6 +329,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualHubRouteTable:VirtualHubRouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHubRouteTableArgs args: The arguments to use to populate this resource's properties.

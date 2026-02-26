@@ -28,6 +28,7 @@ class AnomalyAlertArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AnomalyAlert resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Cost Anomaly Alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses which the Anomaly Alerts are send to.
         :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
@@ -145,6 +146,7 @@ class _AnomalyAlertState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnomalyAlert resources.
+
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Cost Anomaly Alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses which the Anomaly Alerts are send to.
         :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
@@ -301,6 +303,7 @@ class AnomalyAlert(pulumi.CustomResource):
         $ pulumi import azure:costmanagement/anomalyAlert:AnomalyAlert example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/scheduledActions/dailyanomalybyresourcegroup
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Cost Anomaly Alert.
@@ -350,6 +353,7 @@ class AnomalyAlert(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:costmanagement/anomalyAlert:AnomalyAlert example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/scheduledActions/dailyanomalybyresourcegroup
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnomalyAlertArgs args: The arguments to use to populate this resource's properties.

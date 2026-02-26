@@ -24,6 +24,7 @@ class NetworkManagerStaticMemberArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerStaticMember resource.
+
         :param pulumi.Input[_builtins.str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] target_virtual_network_id: Specifies the Resource ID of the Virtual Network or Subnet used as the Static Member. Changing this forces a new Network Manager Static Member to be created.
                
@@ -83,6 +84,7 @@ class _NetworkManagerStaticMemberState:
                  target_virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerStaticMember resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] network_group_id: Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
         :param pulumi.Input[_builtins.str] region: The region of the Network Manager Static Member.
@@ -215,6 +217,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerStaticMember:NetworkManagerStaticMember example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1/staticMembers/staticMember1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
@@ -283,6 +286,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerStaticMember:NetworkManagerStaticMember example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1/staticMembers/staticMember1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerStaticMemberArgs args: The arguments to use to populate this resource's properties.

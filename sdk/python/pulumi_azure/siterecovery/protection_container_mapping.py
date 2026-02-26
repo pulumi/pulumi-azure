@@ -31,6 +31,7 @@ class ProtectionContainerMappingArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProtectionContainerMapping resource.
+
         :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
@@ -161,6 +162,7 @@ class _ProtectionContainerMappingState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectionContainerMapping resources.
+
         :param pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs'] automatic_update: a `automatic_update` block defined as below.
         :param pulumi.Input[_builtins.str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
@@ -370,6 +372,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric1/replicationProtectionContainers/container1/replicationProtectionContainerMappings/mapping1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']] automatic_update: a `automatic_update` block defined as below.
@@ -457,6 +460,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric1/replicationProtectionContainers/container1/replicationProtectionContainerMappings/mapping1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProtectionContainerMappingArgs args: The arguments to use to populate this resource's properties.

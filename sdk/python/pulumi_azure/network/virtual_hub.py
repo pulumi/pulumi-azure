@@ -34,6 +34,7 @@ class VirtualHubArgs:
                  virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualHub resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
@@ -220,6 +221,7 @@ class _VirtualHubState:
                  virtual_wan_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualHub resources.
+
         :param pulumi.Input[_builtins.str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
         :param pulumi.Input[_builtins.str] default_route_table_id: The ID of the default Route Table in the Virtual Hub.
@@ -490,6 +492,7 @@ class VirtualHub(pulumi.CustomResource):
         $ pulumi import azure:network/virtualHub:VirtualHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
@@ -548,6 +551,7 @@ class VirtualHub(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualHub:VirtualHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHubArgs args: The arguments to use to populate this resource's properties.

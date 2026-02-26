@@ -26,6 +26,7 @@ class NetworkManagerRoutingRuleCollectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerRoutingRuleCollection resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_group_ids: A list of Network Group IDs which this Network Manager Routing Rule Collection applies to.
         :param pulumi.Input[_builtins.str] routing_configuration_id: The ID of the Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Rule Collection to be created.
         :param pulumi.Input[_builtins.bool] bgp_route_propagation_enabled: Whether to enable the BGP route propagation. Defaults to `false`.
@@ -112,6 +113,7 @@ class _NetworkManagerRoutingRuleCollectionState:
                  routing_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerRoutingRuleCollection resources.
+
         :param pulumi.Input[_builtins.bool] bgp_route_propagation_enabled: Whether to enable the BGP route propagation. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: The description of the Network Manager Routing Rule Collection.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Routing Rule Collection. Changing this forces a new Network Manager Routing Rule Collection to be created.
@@ -253,6 +255,7 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/routingConfigurations/conf1/ruleCollections/collection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bgp_route_propagation_enabled: Whether to enable the BGP route propagation. Defaults to `false`.
@@ -317,6 +320,7 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/routingConfigurations/conf1/ruleCollections/collection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerRoutingRuleCollectionArgs args: The arguments to use to populate this resource's properties.

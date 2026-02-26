@@ -27,6 +27,7 @@ class CacheBlobTargetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheBlobTarget resource.
+
         :param pulumi.Input[_builtins.str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] namespace_path: The client-facing file path of the HPC Cache Blob Target.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
@@ -131,6 +132,7 @@ class _CacheBlobTargetState:
                  storage_container_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CacheBlobTarget resources.
+
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
@@ -256,6 +258,7 @@ class CacheBlobTarget(pulumi.CustomResource):
         $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
@@ -287,6 +290,7 @@ class CacheBlobTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheBlobTargetArgs args: The arguments to use to populate this resource's properties.

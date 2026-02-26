@@ -35,6 +35,7 @@ class SingleNodeVirtualInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SingleNodeVirtualInstance resource.
+
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Single Node Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -229,6 +230,7 @@ class _SingleNodeVirtualInstanceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SingleNodeVirtualInstance resources.
+
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Single Node Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
         :param pulumi.Input['SingleNodeVirtualInstanceIdentityArgs'] identity: An `identity` block as defined below.
@@ -572,6 +574,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         $ pulumi import azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Workloads/sapVirtualInstances/vis1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
@@ -733,6 +736,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Workloads/sapVirtualInstances/vis1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SingleNodeVirtualInstanceArgs args: The arguments to use to populate this resource's properties.

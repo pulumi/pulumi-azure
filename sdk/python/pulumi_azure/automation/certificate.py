@@ -27,6 +27,7 @@ class CertificateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] base64: Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -129,6 +130,7 @@ class _CertificateState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] base64: Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of this Automation Certificate.
@@ -292,6 +294,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
@@ -348,6 +351,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

@@ -40,6 +40,7 @@ class AnalyticsWorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsWorkspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
@@ -338,6 +339,7 @@ class _AnalyticsWorkspaceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnalyticsWorkspace resources.
+
         :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[_builtins.float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
@@ -716,6 +718,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         $ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
@@ -783,6 +786,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalyticsWorkspaceArgs args: The arguments to use to populate this resource's properties.

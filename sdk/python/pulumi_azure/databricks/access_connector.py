@@ -28,6 +28,7 @@ class AccessConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessConnector resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['AccessConnectorIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -115,6 +116,7 @@ class _AccessConnectorState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccessConnector resources.
+
         :param pulumi.Input['AccessConnectorIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
@@ -244,6 +246,7 @@ class AccessConnector(pulumi.CustomResource):
         $ pulumi import azure:databricks/accessConnector:AccessConnector connector1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/accessConnectors/connector1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessConnectorIdentityArgs', 'AccessConnectorIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -296,6 +299,7 @@ class AccessConnector(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:databricks/accessConnector:AccessConnector connector1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/accessConnectors/connector1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessConnectorArgs args: The arguments to use to populate this resource's properties.

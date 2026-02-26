@@ -30,6 +30,7 @@ class ProviderArgs:
                  tpm_policy_base64: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
@@ -191,6 +192,7 @@ class _ProviderState:
                  trust_model: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Provider resources.
+
         :param pulumi.Input[_builtins.str] attestation_uri: The URI of the Attestation Service.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
@@ -418,6 +420,7 @@ class Provider(pulumi.CustomResource):
         $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
@@ -474,6 +477,7 @@ class Provider(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.

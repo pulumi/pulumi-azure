@@ -26,6 +26,7 @@ class CredentialUserManagedIdentityArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CredentialUserManagedIdentity resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] identity_id: The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
                
@@ -120,6 +121,7 @@ class _CredentialUserManagedIdentityState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CredentialUserManagedIdentity resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
                
                > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
@@ -268,6 +270,7 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
         $ pulumi import azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity example /subscriptions/1f3d6e58-feed-4bb6-87e5-a52305ad3375/resourceGroups/example-resources/providers/Microsoft.DataFactory/factories/example/credentials/credential1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
@@ -335,6 +338,7 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity example /subscriptions/1f3d6e58-feed-4bb6-87e5-a52305ad3375/resourceGroups/example-resources/providers/Microsoft.DataFactory/factories/example/credentials/credential1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CredentialUserManagedIdentityArgs args: The arguments to use to populate this resource's properties.

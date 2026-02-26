@@ -33,6 +33,7 @@ class ScalingPlanArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScalingPlan resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
@@ -198,6 +199,7 @@ class _ScalingPlanState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScalingPlan resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the Scaling Plan.
         :param pulumi.Input[_builtins.str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly name of the Scaling Plan.
@@ -385,6 +387,7 @@ class ScalingPlan(pulumi.CustomResource):
         $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Scaling Plan.
@@ -420,6 +423,7 @@ class ScalingPlan(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.

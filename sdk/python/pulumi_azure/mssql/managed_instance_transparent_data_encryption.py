@@ -25,6 +25,7 @@ class ManagedInstanceTransparentDataEncryptionArgs:
                  managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceTransparentDataEncryption resource.
+
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[_builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
@@ -100,6 +101,7 @@ class _ManagedInstanceTransparentDataEncryptionState:
                  managed_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceTransparentDataEncryption resources.
+
         :param pulumi.Input[_builtins.bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[_builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
                
@@ -346,6 +348,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         $ pulumi import azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/instance1/encryptionProtector/current
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
@@ -529,6 +532,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/instance1/encryptionProtector/current
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.

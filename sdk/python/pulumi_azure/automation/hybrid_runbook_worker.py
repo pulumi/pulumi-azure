@@ -26,6 +26,7 @@ class HybridRunbookWorkerArgs:
                  worker_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a HybridRunbookWorker resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.str] vm_resource_id: The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
@@ -114,6 +115,7 @@ class _HybridRunbookWorkerState:
                  worker_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HybridRunbookWorker resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ip: The IP address of assigned machine.
         :param pulumi.Input[_builtins.str] last_seen_date_time: Last Heartbeat from the Worker.
@@ -361,6 +363,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
         $ pulumi import azure:automation/hybridRunbookWorker:HybridRunbookWorker example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/hybridRunbookWorkerGroups/group1/hybridRunbookWorkers/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
@@ -456,6 +459,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/hybridRunbookWorker:HybridRunbookWorker example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/hybridRunbookWorkerGroups/group1/hybridRunbookWorkers/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class OutputFunctionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputFunction resource.
+
         :param pulumi.Input[_builtins.str] api_key: The API key for the Function.
         :param pulumi.Input[_builtins.str] function_app: The name of the Function App.
         :param pulumi.Input[_builtins.str] function_name: The name of the function in the Function App.
@@ -160,6 +161,7 @@ class _OutputFunctionState:
                  stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputFunction resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API key for the Function.
         :param pulumi.Input[_builtins.int] batch_max_count: The maximum number of events in each batch that's sent to the function. Defaults to `100`.
         :param pulumi.Input[_builtins.int] batch_max_in_bytes: The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
@@ -368,6 +370,7 @@ class OutputFunction(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/outputFunction:OutputFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API key for the Function.
@@ -454,6 +457,7 @@ class OutputFunction(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/outputFunction:OutputFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutputFunctionArgs args: The arguments to use to populate this resource's properties.

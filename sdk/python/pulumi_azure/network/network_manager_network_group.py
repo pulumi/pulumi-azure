@@ -25,6 +25,7 @@ class NetworkManagerNetworkGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerNetworkGroup resource.
+
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Network Group.
         :param pulumi.Input[_builtins.str] member_type: The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
@@ -100,6 +101,7 @@ class _NetworkManagerNetworkGroupState:
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerNetworkGroup resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Network Group.
         :param pulumi.Input[_builtins.str] member_type: The member type for the network group. Possible values are `Subnet` and `VirtualNetwork`. Defaults to `VirtualNetwork`.
                
@@ -223,6 +225,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Network Group.
@@ -282,6 +285,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerNetworkGroupArgs args: The arguments to use to populate this resource's properties.

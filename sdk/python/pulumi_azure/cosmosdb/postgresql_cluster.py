@@ -46,6 +46,7 @@ class PostgresqlClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PostgresqlCluster resource.
+
         :param pulumi.Input[_builtins.int] node_count: The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
@@ -430,6 +431,7 @@ class _PostgresqlClusterState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PostgresqlCluster resources.
+
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[_builtins.str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[_builtins.bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
@@ -883,6 +885,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/postgresqlCluster:PostgresqlCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
@@ -955,6 +958,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/postgresqlCluster:PostgresqlCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PostgresqlClusterArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class HciLogicalNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HciLogicalNetwork resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HciLogicalNetworkSubnetArgs'] subnet: A `subnet` block as defined below. Changing this forces a new resource to be created.
@@ -163,6 +164,7 @@ class _HciLogicalNetworkState:
                  virtual_switch_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HciLogicalNetwork resources.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IPv4 addresses of DNS servers available to VMs deployed in the Logical Networks. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
@@ -352,6 +354,7 @@ class HciLogicalNetwork(pulumi.CustomResource):
         $ pulumi import azure:stack/hciLogicalNetwork:HciLogicalNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/logicalNetworks/ln1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
@@ -419,6 +422,7 @@ class HciLogicalNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:stack/hciLogicalNetwork:HciLogicalNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/logicalNetworks/ln1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HciLogicalNetworkArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class WorkspaceNamedValueArgs:
                  value_from_key_vault: Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']] = None):
         """
         The set of arguments for constructing a WorkspaceNamedValue resource.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: The ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Management Workspace Named Value.
         :param pulumi.Input[_builtins.str] name: The name of the API Management Workspace Named Value. Changing this forces a new resource to be created.
@@ -160,6 +161,7 @@ class _WorkspaceNamedValueState:
                  value_from_key_vault: Optional[pulumi.Input['WorkspaceNamedValueValueFromKeyVaultArgs']] = None):
         """
         Input properties used for looking up and filtering WorkspaceNamedValue resources.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: The ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Management Workspace Named Value.
         :param pulumi.Input[_builtins.str] name: The name of the API Management Workspace Named Value. Changing this forces a new resource to be created.
@@ -344,6 +346,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/workspaceNamedValue:WorkspaceNamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/workspaces/workspace1/namedValues/namedValue1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_workspace_id: The ID of the API Management Workspace. Changing this forces a new resource to be created.
@@ -415,6 +418,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/workspaceNamedValue:WorkspaceNamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/workspaces/workspace1/namedValues/namedValue1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceNamedValueArgs args: The arguments to use to populate this resource's properties.

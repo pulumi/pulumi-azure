@@ -26,6 +26,7 @@ class TokenPasswordArgs:
                  password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None):
         """
         The set of arguments for constructing a TokenPassword resource.
+
         :param pulumi.Input[_builtins.str] container_registry_token_id: The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
         :param pulumi.Input['TokenPasswordPassword1Args'] password1: One `password` block as defined below.
         :param pulumi.Input['TokenPasswordPassword2Args'] password2: One `password` block as defined below.
@@ -80,6 +81,7 @@ class _TokenPasswordState:
                  password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None):
         """
         Input properties used for looking up and filtering TokenPassword resources.
+
         :param pulumi.Input[_builtins.str] container_registry_token_id: The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
         :param pulumi.Input['TokenPasswordPassword1Args'] password1: One `password` block as defined below.
         :param pulumi.Input['TokenPasswordPassword2Args'] password2: One `password` block as defined below.
@@ -195,6 +197,7 @@ class TokenPassword(pulumi.CustomResource):
         $ pulumi import azure:containerservice/tokenPassword:TokenPassword example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/tokens/token1/passwords/password
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_registry_token_id: The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
@@ -263,6 +266,7 @@ class TokenPassword(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/tokenPassword:TokenPassword example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/tokens/token1/passwords/password
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TokenPasswordArgs args: The arguments to use to populate this resource's properties.

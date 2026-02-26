@@ -35,6 +35,7 @@ class IotHubDataConnectionArgs:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IotHubDataConnection resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] consumer_group: Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
@@ -261,6 +262,7 @@ class _IotHubDataConnectionState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IotHubDataConnection resources.
+
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] consumer_group: Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] data_format: Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
@@ -575,6 +577,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -677,6 +680,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.

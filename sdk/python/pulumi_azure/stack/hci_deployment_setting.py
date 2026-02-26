@@ -27,6 +27,7 @@ class HciDeploymentSettingArgs:
                  version: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a HciDeploymentSetting resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] arc_resource_ids: Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]] scale_units: One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[_builtins.str] stack_hci_cluster_id: The ID of the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
@@ -95,6 +96,7 @@ class _HciDeploymentSettingState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HciDeploymentSetting resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] arc_resource_ids: Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[Sequence[pulumi.Input['HciDeploymentSettingScaleUnitArgs']]] scale_units: One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[_builtins.str] stack_hci_cluster_id: The ID of the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
@@ -184,6 +186,7 @@ class HciDeploymentSetting(pulumi.CustomResource):
         $ pulumi import azure:stack/hciDeploymentSetting:HciDeploymentSetting example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/clus1/deploymentSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] arc_resource_ids: Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
@@ -211,6 +214,7 @@ class HciDeploymentSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:stack/hciDeploymentSetting:HciDeploymentSetting example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/clus1/deploymentSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HciDeploymentSettingArgs args: The arguments to use to populate this resource's properties.

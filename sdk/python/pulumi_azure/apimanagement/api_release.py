@@ -24,6 +24,7 @@ class ApiReleaseArgs:
                  notes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiRelease resource.
+
         :param pulumi.Input[_builtins.str] api_id: The ID of the API Management API. Changing this forces a new API Management API Release to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
         :param pulumi.Input[_builtins.str] notes: The Release Notes.
@@ -79,6 +80,7 @@ class _ApiReleaseState:
                  notes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiRelease resources.
+
         :param pulumi.Input[_builtins.str] api_id: The ID of the API Management API. Changing this forces a new API Management API Release to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
         :param pulumi.Input[_builtins.str] notes: The Release Notes.
@@ -188,6 +190,7 @@ class ApiRelease(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The ID of the API Management API. Changing this forces a new API Management API Release to be created.
@@ -250,6 +253,7 @@ class ApiRelease(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiReleaseArgs args: The arguments to use to populate this resource's properties.

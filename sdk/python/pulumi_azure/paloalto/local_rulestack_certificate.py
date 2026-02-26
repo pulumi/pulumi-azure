@@ -27,6 +27,7 @@ class LocalRulestackCertificateArgs:
                  self_signed: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalRulestackCertificate resource.
+
         :param pulumi.Input[_builtins.str] rulestack_id: The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input[_builtins.str] description: The description for the Certificate.
@@ -134,6 +135,7 @@ class _LocalRulestackCertificateState:
                  self_signed: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackCertificate resources.
+
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input[_builtins.str] description: The description for the Certificate.
         :param pulumi.Input[_builtins.str] key_vault_certificate_id: The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
@@ -281,6 +283,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         $ pulumi import azure:paloalto/localRulestackCertificate:LocalRulestackCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/certificates/myCertificate
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
@@ -334,6 +337,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/localRulestackCertificate:LocalRulestackCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/certificates/myCertificate
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackCertificateArgs args: The arguments to use to populate this resource's properties.

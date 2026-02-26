@@ -31,6 +31,7 @@ class WorkspaceTableCustomLogArgs:
                  total_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a WorkspaceTableCustomLog resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]] columns: One or more `column` blocks as defined below.
         :param pulumi.Input[_builtins.str] workspace_id: The object ID of the Log Analytics Workspace that contains the table. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the table.
@@ -179,6 +180,7 @@ class _WorkspaceTableCustomLogState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceTableCustomLog resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceTableCustomLogColumnArgs']]] columns: One or more `column` blocks as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the table.
         :param pulumi.Input[_builtins.str] display_name: The display name of the table.
@@ -401,6 +403,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/workspaceTableCustomLog:WorkspaceTableCustomLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/tables/table1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]] columns: One or more `column` blocks as defined below.
@@ -465,6 +468,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/workspaceTableCustomLog:WorkspaceTableCustomLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/tables/table1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceTableCustomLogArgs args: The arguments to use to populate this resource's properties.

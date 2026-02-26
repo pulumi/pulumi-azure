@@ -23,6 +23,7 @@ class ExpressRouteAuthorizationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteAuthorization resource.
+
         :param pulumi.Input[_builtins.str] private_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
         """
@@ -64,6 +65,7 @@ class _ExpressRouteAuthorizationState:
                  private_cloud_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteAuthorization resources.
+
         :param pulumi.Input[_builtins.str] express_route_authorization_id: The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
         :param pulumi.Input[_builtins.str] express_route_authorization_key: The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
@@ -180,6 +182,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
@@ -234,6 +237,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:avs/expressRouteAuthorization:ExpressRouteAuthorization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/authorizations/authorization1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteAuthorizationArgs args: The arguments to use to populate this resource's properties.

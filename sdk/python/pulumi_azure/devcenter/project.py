@@ -31,6 +31,7 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
+
         :param pulumi.Input[_builtins.str] dev_center_id: Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[_builtins.str] description: Description of the project. Changing this forces a new Dev Center Project to be created.
@@ -166,6 +167,7 @@ class _ProjectState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the project. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[_builtins.str] dev_center_id: Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[_builtins.str] dev_center_uri: The URI of the Dev Center resource this project is associated with.
@@ -364,6 +366,7 @@ class Project(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Project exists. For example `example-resource-group`.
         * Where `{projectName}` is the name of the Project. For example `projectValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the project. Changing this forces a new Dev Center Project to be created.
@@ -425,6 +428,7 @@ class Project(pulumi.CustomResource):
         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center Project exists. For example `12345678-1234-9876-4563-123456789012`.
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Project exists. For example `example-resource-group`.
         * Where `{projectName}` is the name of the Project. For example `projectValue`.
+
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

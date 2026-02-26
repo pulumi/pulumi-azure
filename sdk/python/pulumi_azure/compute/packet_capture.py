@@ -31,6 +31,7 @@ class PacketCaptureArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PacketCapture resource.
+
         :param pulumi.Input[_builtins.str] network_watcher_id: The resource ID of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input['PacketCaptureStorageLocationArgs'] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_machine_id: The resource ID of the target Virtual Machine to capture packets from. Changing this forces a new resource to be created.
@@ -164,6 +165,7 @@ class _PacketCaptureState:
                  virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PacketCapture resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
@@ -403,6 +405,7 @@ class PacketCapture(pulumi.CustomResource):
         $ pulumi import azure:compute/packetCapture:PacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
@@ -520,6 +523,7 @@ class PacketCapture(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/packetCapture:PacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.

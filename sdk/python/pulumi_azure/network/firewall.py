@@ -38,6 +38,7 @@ class FirewallArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Firewall resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_tier: SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
@@ -287,6 +288,7 @@ class _FirewallState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
+
         :param pulumi.Input[_builtins.bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[_builtins.str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
@@ -597,6 +599,7 @@ class Firewall(pulumi.CustomResource):
         $ pulumi import azure:network/firewall:Firewall example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/azureFirewalls/testfirewall
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
@@ -678,6 +681,7 @@ class Firewall(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/firewall:Firewall example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/azureFirewalls/testfirewall
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class ApiTagArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiTag resource.
+
         :param pulumi.Input[_builtins.str] api_id: The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
         :param pulumi.Input[_builtins.str] name: The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
         """
@@ -62,6 +63,7 @@ class _ApiTagState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiTag resources.
+
         :param pulumi.Input[_builtins.str] api_id: The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
         :param pulumi.Input[_builtins.str] name: The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
         """
@@ -146,6 +148,7 @@ class ApiTag(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiTag:ApiTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/tags/tag1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
@@ -198,6 +201,7 @@ class ApiTag(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiTag:ApiTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/tags/tag1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiTagArgs args: The arguments to use to populate this resource's properties.

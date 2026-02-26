@@ -28,6 +28,7 @@ class ClusterPrincipalAssignmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterPrincipalAssignment resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -144,6 +145,7 @@ class _ClusterPrincipalAssignmentState:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterPrincipalAssignment resources.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
@@ -342,6 +344,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         $ pulumi import azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/principalAssignments/assignment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -403,6 +406,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/principalAssignments/assignment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

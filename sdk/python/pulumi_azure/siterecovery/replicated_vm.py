@@ -47,6 +47,7 @@ class ReplicatedVMArgs:
                  unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicatedVM resource.
+
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
@@ -430,6 +431,7 @@ class _ReplicatedVMState:
                  unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
         """
         Input properties used for looking up and filtering ReplicatedVM resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
@@ -1005,6 +1007,7 @@ class ReplicatedVM(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/replicatedVM:ReplicatedVM vmreplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name/replicationProtectedItems/vm-replication-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
@@ -1218,6 +1221,7 @@ class ReplicatedVM(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/replicatedVM:ReplicatedVM vmreplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name/replicationProtectedItems/vm-replication-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicatedVMArgs args: The arguments to use to populate this resource's properties.

@@ -44,6 +44,7 @@ class DatasetDelimitedTextArgs:
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetDelimitedText resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -394,6 +395,7 @@ class _DatasetDelimitedTextState:
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDelimitedTextSchemaColumnArgs']]]] = None):
         """
         Input properties used for looking up and filtering DatasetDelimitedText resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
                
                The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
@@ -795,6 +797,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         $ pulumi import azure:datafactory/datasetDelimitedText:DatasetDelimitedText example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -875,6 +878,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/datasetDelimitedText:DatasetDelimitedText example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetDelimitedTextArgs args: The arguments to use to populate this resource's properties.

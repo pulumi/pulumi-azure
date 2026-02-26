@@ -32,6 +32,7 @@ class ScheduledQueryRulesLogArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ScheduledQueryRulesLog resource.
+
         :param pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
@@ -181,6 +182,7 @@ class _ScheduledQueryRulesLogState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ScheduledQueryRulesLog resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
         :param pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
@@ -415,6 +417,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         $ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
@@ -512,6 +515,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryRulesLogArgs args: The arguments to use to populate this resource's properties.

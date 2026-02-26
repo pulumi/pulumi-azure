@@ -29,6 +29,7 @@ class AccountNetworkRulesInitArgs:
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccountNetworkRules resource.
+
         :param pulumi.Input[_builtins.str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
@@ -151,6 +152,7 @@ class _AccountNetworkRulesState:
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AccountNetworkRules resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
                
                > **Note:** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
@@ -338,6 +340,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         $ pulumi import azure:storage/accountNetworkRules:AccountNetworkRules storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
@@ -423,6 +426,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/accountNetworkRules:AccountNetworkRules storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountNetworkRulesInitArgs args: The arguments to use to populate this resource's properties.

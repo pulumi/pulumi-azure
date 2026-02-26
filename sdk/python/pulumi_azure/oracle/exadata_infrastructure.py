@@ -36,6 +36,7 @@ class ExadataInfrastructureArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExadataInfrastructure resource.
+
         :param pulumi.Input[_builtins.int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -246,6 +247,7 @@ class _ExadataInfrastructureState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ExadataInfrastructure resources.
+
         :param pulumi.Input[_builtins.int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -504,6 +506,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         $ pulumi import azure:oracle/exadataInfrastructure:ExadataInfrastructure example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/cloudExadataInfrastructures/cloudExadataInfrastructures1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -565,6 +568,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:oracle/exadataInfrastructure:ExadataInfrastructure example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/cloudExadataInfrastructures/cloudExadataInfrastructures1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExadataInfrastructureArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class MongoRoleDefinitionArgs:
                  privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None):
         """
         The set of arguments for constructing a MongoRoleDefinition resource.
+
         :param pulumi.Input[_builtins.str] cosmos_mongo_database_id: The resource ID of the Mongo DB. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_name: The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inherited_role_names: A list of Mongo Roles which are inherited to the Mongo Role Definition.
@@ -101,6 +102,7 @@ class _MongoRoleDefinitionState:
                  role_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MongoRoleDefinition resources.
+
         :param pulumi.Input[_builtins.str] cosmos_mongo_database_id: The resource ID of the Mongo DB. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inherited_role_names: A list of Mongo Roles which are inherited to the Mongo Role Definition.
                
@@ -236,6 +238,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbRoleDefinitions/dbname1.rolename1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cosmos_mongo_database_id: The resource ID of the Mongo DB. Changing this forces a new resource to be created.
@@ -307,6 +310,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbRoleDefinitions/dbname1.rolename1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MongoRoleDefinitionArgs args: The arguments to use to populate this resource's properties.

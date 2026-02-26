@@ -27,6 +27,7 @@ class GlobalSchemaArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalSchema resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] schema_id: A unique identifier for this Schema. Changing this forces a new resource to be created.
@@ -126,6 +127,7 @@ class _GlobalSchemaState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GlobalSchema resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the schema.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -275,6 +277,7 @@ class GlobalSchema(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/globalSchema:GlobalSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/schemas/schema1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -332,6 +335,7 @@ class GlobalSchema(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/globalSchema:GlobalSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/schemas/schema1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GlobalSchemaArgs args: The arguments to use to populate this resource's properties.

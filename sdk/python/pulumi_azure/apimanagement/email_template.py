@@ -26,6 +26,7 @@ class EmailTemplateArgs:
                  template_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EmailTemplate resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
         :param pulumi.Input[_builtins.str] body: The body of the Email. Its format has to be a well-formed HTML document.
                
@@ -115,6 +116,7 @@ class _EmailTemplateState:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailTemplate resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
         :param pulumi.Input[_builtins.str] body: The body of the Email. Its format has to be a well-formed HTML document.
                
@@ -291,6 +293,7 @@ class EmailTemplate(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/emailTemplate:EmailTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/templates/template1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
@@ -358,6 +361,7 @@ class EmailTemplate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/emailTemplate:EmailTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/templates/template1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.

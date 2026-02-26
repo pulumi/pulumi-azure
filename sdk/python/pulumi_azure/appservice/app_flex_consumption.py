@@ -55,6 +55,7 @@ class AppFlexConsumptionArgs:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppFlexConsumption resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[_builtins.str] runtime_name: The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
         :param pulumi.Input[_builtins.str] runtime_version: The Runtime version of the Linux Function App. Accepted values varies with the value of `runtime_name`.
@@ -624,6 +625,7 @@ class _AppFlexConsumptionState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppFlexConsumption resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]] always_readies: One or more `always_ready` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
@@ -1392,6 +1394,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         $ pulumi import azure:appservice/appFlexConsumption:AppFlexConsumption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]] always_readies: One or more `always_ready` blocks as defined below.
@@ -1519,6 +1522,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/appFlexConsumption:AppFlexConsumption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppFlexConsumptionArgs args: The arguments to use to populate this resource's properties.

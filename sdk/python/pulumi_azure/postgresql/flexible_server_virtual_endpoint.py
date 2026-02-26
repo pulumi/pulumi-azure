@@ -25,6 +25,7 @@ class FlexibleServerVirtualEndpointArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerVirtualEndpoint resource.
+
         :param pulumi.Input[_builtins.str] replica_server_id: The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
                
                > **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
@@ -98,6 +99,7 @@ class _FlexibleServerVirtualEndpointState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerVirtualEndpoint resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] replica_server_id: The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
                
@@ -235,6 +237,7 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
         $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourceServerName/virtualEndpoints/endpointName|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/replicaServerName/virtualEndpoints/endpointName"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Endpoint. Changing this forces a new resource to be created.
@@ -308,6 +311,7 @@ class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourceServerName/virtualEndpoints/endpointName|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/replicaServerName/virtualEndpoints/endpointName"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerVirtualEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class EnrichmentArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Enrichment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoint_names: The list of endpoints which will be enriched.
         :param pulumi.Input[_builtins.str] iothub_name: The IoTHub name of the enrichment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key: The key of the enrichment. Changing this forces a new resource to be created.
@@ -109,6 +110,7 @@ class _EnrichmentState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Enrichment resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoint_names: The list of endpoints which will be enriched.
         :param pulumi.Input[_builtins.str] iothub_name: The IoTHub name of the enrichment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key: The key of the enrichment. Changing this forces a new resource to be created.
@@ -268,6 +270,7 @@ class Enrichment(pulumi.CustomResource):
         $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoint_names: The list of endpoints which will be enriched.
@@ -350,6 +353,7 @@ class Enrichment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnrichmentArgs args: The arguments to use to populate this resource's properties.

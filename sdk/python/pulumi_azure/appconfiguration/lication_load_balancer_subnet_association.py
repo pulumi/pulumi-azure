@@ -25,6 +25,7 @@ class LicationLoadBalancerSubnetAssociationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LicationLoadBalancerSubnetAssociation resource.
+
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to.
                
@@ -99,6 +100,7 @@ class _LicationLoadBalancerSubnetAssociationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LicationLoadBalancerSubnetAssociation resources.
+
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to.
@@ -231,6 +233,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         $ pulumi import azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/alb1/associations/association1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
@@ -299,6 +302,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/alb1/associations/association1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LicationLoadBalancerSubnetAssociationArgs args: The arguments to use to populate this resource's properties.

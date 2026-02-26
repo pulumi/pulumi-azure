@@ -26,6 +26,7 @@ class NamespaceAuthorizationRuleArgs:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
                
                > **Note:** At least one of the 3 permissions below needs to be set.
@@ -123,6 +124,7 @@ class _NamespaceAuthorizationRuleState:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering NamespaceAuthorizationRule resources.
+
         :param pulumi.Input[_builtins.bool] listen: Grants listen access to this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] manage: Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
@@ -355,6 +357,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         $ pulumi import azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/authorizationRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] listen: Grants listen access to this Authorization Rule. Defaults to `false`.
@@ -413,6 +416,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/authorizationRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

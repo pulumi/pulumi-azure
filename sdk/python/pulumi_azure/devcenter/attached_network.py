@@ -24,6 +24,7 @@ class AttachedNetworkArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AttachedNetwork resource.
+
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_connection_id: The ID of the Dev Center Network Connection you want to attach. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Attached Network. Changing this forces a new resource to be created.
@@ -78,6 +79,7 @@ class _AttachedNetworkState:
                  network_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AttachedNetwork resources.
+
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Attached Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_connection_id: The ID of the Dev Center Network Connection you want to attach. Changing this forces a new resource to be created.
@@ -192,6 +194,7 @@ class AttachedNetwork(pulumi.CustomResource):
         $ pulumi import azure:devcenter/attachedNetwork:AttachedNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/attachedNetworks/et1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
@@ -259,6 +262,7 @@ class AttachedNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devcenter/attachedNetwork:AttachedNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/attachedNetworks/et1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AttachedNetworkArgs args: The arguments to use to populate this resource's properties.

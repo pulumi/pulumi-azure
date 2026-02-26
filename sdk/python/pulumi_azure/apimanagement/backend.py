@@ -36,6 +36,7 @@ class BackendArgs:
                  tls: Optional[pulumi.Input['BackendTlsArgs']] = None):
         """
         The set of arguments for constructing a Backend resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -248,6 +249,7 @@ class _BackendState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Backend resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['BackendCircuitBreakerRuleArgs'] circuit_breaker_rule: A `circuit_breaker_rule` block as documented below.
         :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as documented below.
@@ -508,6 +510,7 @@ class Backend(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
@@ -571,6 +574,7 @@ class Backend(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/backend:Backend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/backends/backend1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackendArgs args: The arguments to use to populate this resource's properties.

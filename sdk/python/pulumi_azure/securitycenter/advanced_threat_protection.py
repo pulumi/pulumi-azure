@@ -23,6 +23,7 @@ class AdvancedThreatProtectionArgs:
                  target_resource_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AdvancedThreatProtection resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Should Advanced Threat Protection be enabled on this resource?
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _AdvancedThreatProtectionState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdvancedThreatProtection resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Should Advanced Threat Protection be enabled on this resource?
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
         """
@@ -137,6 +139,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Should Advanced Threat Protection be enabled on this resource?
@@ -181,6 +184,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AdvancedThreatProtectionArgs args: The arguments to use to populate this resource's properties.

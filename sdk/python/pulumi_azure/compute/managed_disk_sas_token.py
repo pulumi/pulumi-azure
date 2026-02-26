@@ -24,6 +24,7 @@ class ManagedDiskSasTokenArgs:
                  managed_disk_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ManagedDiskSasToken resource.
+
         :param pulumi.Input[_builtins.str] access_level: The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
                
                Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
@@ -84,6 +85,7 @@ class _ManagedDiskSasTokenState:
                  sas_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedDiskSasToken resources.
+
         :param pulumi.Input[_builtins.str] access_level: The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
                
                Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
@@ -209,6 +211,7 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         $ pulumi import azure:compute/managedDiskSasToken:ManagedDiskSasToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_level: The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
@@ -269,6 +272,7 @@ class ManagedDiskSasToken(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/managedDiskSasToken:ManagedDiskSasToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedDiskSasTokenArgs args: The arguments to use to populate this resource's properties.

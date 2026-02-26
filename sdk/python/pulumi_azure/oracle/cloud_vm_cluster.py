@@ -53,6 +53,7 @@ class CloudVmClusterArgs:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudVmCluster resource.
+
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
@@ -532,6 +533,7 @@ class _CloudVmClusterState:
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CloudVmCluster resources.
+
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] cluster_name: The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
@@ -1132,6 +1134,7 @@ class CloudVmCluster(pulumi.CustomResource):
         $ pulumi import azure:oracle/cloudVmCluster:CloudVmCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/cloudVmClusters/cloudVmClusters1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_subnet_cidr: The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
@@ -1250,6 +1253,7 @@ class CloudVmCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:oracle/cloudVmCluster:CloudVmCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/cloudVmClusters/cloudVmClusters1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudVmClusterArgs args: The arguments to use to populate this resource's properties.

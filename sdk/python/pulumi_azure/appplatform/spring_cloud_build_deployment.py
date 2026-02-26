@@ -31,6 +31,7 @@ class SpringCloudBuildDeploymentArgs:
                  quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudBuildDeployment resource.
+
         :param pulumi.Input[_builtins.str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
@@ -165,6 +166,7 @@ class _SpringCloudBuildDeploymentState:
                  spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudBuildDeployment resources.
+
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[_builtins.str] build_result_id: The ID of the Spring Cloud Build Result.
@@ -351,6 +353,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/deployments/deploy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
@@ -415,6 +418,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/spring/spring1/apps/app1/deployments/deploy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudBuildDeploymentArgs args: The arguments to use to populate this resource's properties.

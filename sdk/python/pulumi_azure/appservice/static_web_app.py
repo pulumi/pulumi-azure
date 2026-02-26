@@ -38,6 +38,7 @@ class StaticWebAppArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StaticWebApp resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
                
@@ -291,6 +292,7 @@ class _StaticWebAppState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering StaticWebApp resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
                
@@ -608,6 +610,7 @@ class StaticWebApp(pulumi.CustomResource):
         $ pulumi import azure:appservice/staticWebApp:StaticWebApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
@@ -666,6 +669,7 @@ class StaticWebApp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/staticWebApp:StaticWebApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StaticWebAppArgs args: The arguments to use to populate this resource's properties.

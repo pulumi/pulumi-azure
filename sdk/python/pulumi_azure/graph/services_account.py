@@ -25,6 +25,7 @@ class ServicesAccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServicesAccount resource.
+
         :param pulumi.Input[_builtins.str] application_id: Customer owned application ID. Changing this forces a new Account to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Account. Changing this forces a new Account to be created.
@@ -96,6 +97,7 @@ class _ServicesAccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServicesAccount resources.
+
         :param pulumi.Input[_builtins.str] application_id: Customer owned application ID. Changing this forces a new Account to be created.
         :param pulumi.Input[_builtins.str] billing_plan_id: Billing Plan Id.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Account. Changing this forces a new Account to be created.
@@ -223,6 +225,7 @@ class ServicesAccount(pulumi.CustomResource):
         $ pulumi import azure:graph/servicesAccount:ServicesAccount example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.GraphServices/accounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Customer owned application ID. Changing this forces a new Account to be created.
@@ -273,6 +276,7 @@ class ServicesAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:graph/servicesAccount:ServicesAccount example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.GraphServices/accounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServicesAccountArgs args: The arguments to use to populate this resource's properties.

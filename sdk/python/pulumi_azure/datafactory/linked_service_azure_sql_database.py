@@ -38,6 +38,7 @@ class LinkedServiceAzureSqlDatabaseArgs:
                  use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceAzureSqlDatabase resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
@@ -285,6 +286,7 @@ class _LinkedServiceAzureSqlDatabaseState:
                  use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceAzureSqlDatabase resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
@@ -565,6 +567,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         $ pulumi import azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
@@ -618,6 +621,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceAzureSqlDatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class CustomerManagedKeyArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key.
@@ -181,6 +182,7 @@ class _CustomerManagedKeyState:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -435,6 +437,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:storage/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] federated_identity_client_id: The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
@@ -547,6 +550,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/customerManagedKey:CustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.

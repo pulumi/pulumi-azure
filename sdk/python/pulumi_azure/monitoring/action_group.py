@@ -40,6 +40,7 @@ class ActionGroupArgs:
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None):
         """
         The set of arguments for constructing a ActionGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] short_name: The short name of the action group. This will be used in SMS messages.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupArmRoleReceiverArgs']]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
@@ -318,6 +319,7 @@ class _ActionGroupState:
                  webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None):
         """
         Input properties used for looking up and filtering ActionGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupArmRoleReceiverArgs']]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupAutomationRunbookReceiverArgs']]] automation_runbook_receivers: One or more `automation_runbook_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupAzureAppPushReceiverArgs']]] azure_app_push_receivers: One or more `azure_app_push_receiver` blocks as defined below.
@@ -709,6 +711,7 @@ class ActionGroup(pulumi.CustomResource):
         $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict']]]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
@@ -843,6 +846,7 @@ class ActionGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionGroupArgs args: The arguments to use to populate this resource's properties.

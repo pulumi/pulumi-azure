@@ -26,6 +26,7 @@ class LicationLoadBalancerSecurityPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LicationLoadBalancerSecurityPolicy resource.
+
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Load Balancer. Changing this forces a new Application Gateway for Containers Security Policy to be created.
         :param pulumi.Input[_builtins.str] web_application_firewall_policy_id: The ID of the Web Application Firewall Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Application Load Balancer Security Policy should exist. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _LicationLoadBalancerSecurityPolicyState:
                  web_application_firewall_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LicationLoadBalancerSecurityPolicy resources.
+
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Load Balancer. Changing this forces a new Application Gateway for Containers Security Policy to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Application Load Balancer Security Policy should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Load Balancer Security Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
@@ -254,6 +256,7 @@ class LicationLoadBalancerSecurityPolicy(pulumi.CustomResource):
         $ pulumi import azure:appconfiguration/licationLoadBalancerSecurityPolicy:LicationLoadBalancerSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/alb/securityPolicies/sp1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Load Balancer. Changing this forces a new Application Gateway for Containers Security Policy to be created.
@@ -319,6 +322,7 @@ class LicationLoadBalancerSecurityPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appconfiguration/licationLoadBalancerSecurityPolicy:LicationLoadBalancerSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/alb/securityPolicies/sp1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LicationLoadBalancerSecurityPolicyArgs args: The arguments to use to populate this resource's properties.

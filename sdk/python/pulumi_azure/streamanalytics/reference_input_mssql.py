@@ -33,6 +33,7 @@ class ReferenceInputMssqlArgs:
                  table: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReferenceInputMssql resource.
+
         :param pulumi.Input[_builtins.str] database: The MS SQL database name where the reference data exists.
         :param pulumi.Input[_builtins.str] full_snapshot_query: The query used to retrieve the reference data from the MS SQL database.
         :param pulumi.Input[_builtins.str] password: The password to connect to the MS SQL database.
@@ -225,6 +226,7 @@ class _ReferenceInputMssqlState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReferenceInputMssql resources.
+
         :param pulumi.Input[_builtins.str] database: The MS SQL database name where the reference data exists.
         :param pulumi.Input[_builtins.str] delta_snapshot_query: The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         :param pulumi.Input[_builtins.str] full_snapshot_query: The query used to retrieve the reference data from the MS SQL database.
@@ -482,6 +484,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database: The MS SQL database name where the reference data exists.
@@ -557,6 +560,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReferenceInputMssqlArgs args: The arguments to use to populate this resource's properties.

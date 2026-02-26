@@ -26,6 +26,7 @@ class ProtectedFileShareArgs:
                  source_storage_account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProtectedFileShare resource.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
@@ -113,6 +114,7 @@ class _ProtectedFileShareState:
                  source_storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectedFileShare resources.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
@@ -267,6 +269,7 @@ class ProtectedFileShare(pulumi.CustomResource):
 
         > **Note:** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_policy_id: Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
@@ -342,6 +345,7 @@ class ProtectedFileShare(pulumi.CustomResource):
         ```
 
         > **Note:** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
+
 
         :param str resource_name: The name of the resource.
         :param ProtectedFileShareArgs args: The arguments to use to populate this resource's properties.

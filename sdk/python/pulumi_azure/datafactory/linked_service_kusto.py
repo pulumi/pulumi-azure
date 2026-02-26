@@ -34,6 +34,7 @@ class LinkedServiceKustoArgs:
                  use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceKusto resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] kusto_database_name: The Kusto Database Name.
         :param pulumi.Input[_builtins.str] kusto_endpoint: The URI of the Kusto Cluster endpoint.
@@ -259,6 +260,7 @@ class _LinkedServiceKustoState:
                  use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceKusto resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
                
                The following supported arguments are specific to Azure Kusto Linked Service:
@@ -546,6 +548,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
         $ pulumi import azure:datafactory/linkedServiceKusto:LinkedServiceKusto example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
@@ -630,6 +633,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/linkedServiceKusto:LinkedServiceKusto example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceKustoArgs args: The arguments to use to populate this resource's properties.

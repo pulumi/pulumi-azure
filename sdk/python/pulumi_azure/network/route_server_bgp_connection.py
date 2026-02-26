@@ -25,6 +25,7 @@ class RouteServerBgpConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RouteServerBgpConnection resource.
+
         :param pulumi.Input[_builtins.int] peer_asn: The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] peer_ip: The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] route_server_id: The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _RouteServerBgpConnectionState:
                  route_server_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteServerBgpConnection resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] peer_asn: The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] peer_ip: The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
@@ -229,6 +231,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         $ pulumi import azure:network/routeServerBgpConnection:RouteServerBgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1/bgpConnections/connection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
@@ -302,6 +305,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/routeServerBgpConnection:RouteServerBgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1/bgpConnections/connection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerBgpConnectionArgs args: The arguments to use to populate this resource's properties.

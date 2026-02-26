@@ -25,6 +25,7 @@ class ChannelAlexaArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelAlexa resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Alexa Channel should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] skill_id: The Alexa skill ID for the Alexa Channel.
@@ -94,6 +95,7 @@ class _ChannelAlexaState:
                  skill_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelAlexa resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Alexa Channel should be created. Changing this forces a new resource to be created.
@@ -204,6 +206,7 @@ class ChannelAlexa(pulumi.CustomResource):
         $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -252,6 +255,7 @@ class ChannelAlexa(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelAlexaArgs args: The arguments to use to populate this resource's properties.

@@ -41,6 +41,7 @@ class RegistryTaskArgs:
                  timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None):
         """
         The set of arguments for constructing a RegistryTask resource.
+
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[_builtins.str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input['RegistryTaskAgentSettingArgs'] agent_setting: A `agent_setting` block as defined below.
@@ -332,6 +333,7 @@ class _RegistryTaskState:
                  timer_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]]] = None):
         """
         Input properties used for looking up and filtering RegistryTask resources.
+
         :param pulumi.Input[_builtins.str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input['RegistryTaskAgentSettingArgs'] agent_setting: A `agent_setting` block as defined below.
                
@@ -672,6 +674,7 @@ class RegistryTask(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registryTask:RegistryTask example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/tasks/task1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
@@ -746,6 +749,7 @@ class RegistryTask(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registryTask:RegistryTask example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/tasks/task1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryTaskArgs args: The arguments to use to populate this resource's properties.

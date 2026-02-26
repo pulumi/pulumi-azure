@@ -29,6 +29,7 @@ class SpringCloudDevToolPortalArgs:
                  sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudDevToolPortal resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[_builtins.bool] application_accelerator_enabled: Should the Accelerator plugin be enabled?
         :param pulumi.Input[_builtins.bool] application_live_view_enabled: Should the Application Live View be enabled?
@@ -132,6 +133,7 @@ class _SpringCloudDevToolPortalState:
                  sso: Optional[pulumi.Input['SpringCloudDevToolPortalSsoArgs']] = None):
         """
         Input properties used for looking up and filtering SpringCloudDevToolPortal resources.
+
         :param pulumi.Input[_builtins.bool] application_accelerator_enabled: Should the Accelerator plugin be enabled?
         :param pulumi.Input[_builtins.bool] application_live_view_enabled: Should the Application Live View be enabled?
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
@@ -286,6 +288,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] application_accelerator_enabled: Should the Accelerator plugin be enabled?
@@ -348,6 +351,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudDevToolPortalArgs args: The arguments to use to populate this resource's properties.

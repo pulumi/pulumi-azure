@@ -30,6 +30,7 @@ class FunctionAppFunctionArgs:
                  test_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionAppFunction resource.
+
         :param pulumi.Input[_builtins.str] config_json: The config for this Function in JSON format.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should this function be enabled. Defaults to `true`.
@@ -159,6 +160,7 @@ class _FunctionAppFunctionState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionAppFunction resources.
+
         :param pulumi.Input[_builtins.str] config_json: The config for this Function in JSON format.
         :param pulumi.Input[_builtins.str] config_url: The URL of the configuration JSON.
         :param pulumi.Input[_builtins.bool] enabled: Should this function be enabled. Defaults to `true`.
@@ -539,6 +541,7 @@ class FunctionAppFunction(pulumi.CustomResource):
         $ pulumi import azure:appservice/functionAppFunction:FunctionAppFunction example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/functions/function1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] config_json: The config for this Function in JSON format.
@@ -705,6 +708,7 @@ class FunctionAppFunction(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/functionAppFunction:FunctionAppFunction example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/functions/function1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionAppFunctionArgs args: The arguments to use to populate this resource's properties.

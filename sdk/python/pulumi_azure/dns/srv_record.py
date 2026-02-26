@@ -29,6 +29,7 @@ class SrvRecordArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SrvRecord resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SrvRecordRecordArgs']]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -130,6 +131,7 @@ class _SrvRecordState:
                  zone_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SrvRecord resources.
+
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS SRV Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SrvRecordRecordArgs']]] records: A list of values that make up the SRV record. Each `record` block supports fields documented below.
@@ -299,6 +301,7 @@ class SrvRecord(pulumi.CustomResource):
         $ pulumi import azure:dns/srvRecord:SrvRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/SRV/myrecord1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
@@ -361,6 +364,7 @@ class SrvRecord(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dns/srvRecord:SrvRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/SRV/myrecord1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SrvRecordArgs args: The arguments to use to populate this resource's properties.

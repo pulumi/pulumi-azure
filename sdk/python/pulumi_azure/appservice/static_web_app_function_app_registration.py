@@ -23,6 +23,7 @@ class StaticWebAppFunctionAppRegistrationArgs:
                  static_web_app_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a StaticWebAppFunctionAppRegistration resource.
+
         :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
                
                > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
@@ -69,6 +70,7 @@ class _StaticWebAppFunctionAppRegistrationState:
                  static_web_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticWebAppFunctionAppRegistration resources.
+
         :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
                
                > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
@@ -177,6 +179,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         $ pulumi import azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/userProvidedFunctionApps/myFunctionApp
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
@@ -249,6 +252,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/userProvidedFunctionApps/myFunctionApp
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StaticWebAppFunctionAppRegistrationArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class SpringCloudConfigurationServiceArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None):
         """
         The set of arguments for constructing a SpringCloudConfigurationService resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         :param pulumi.Input[_builtins.str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
@@ -115,6 +116,7 @@ class _SpringCloudConfigurationServiceState:
                  spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudConfigurationService resources.
+
         :param pulumi.Input[_builtins.str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         :param pulumi.Input[_builtins.int] refresh_interval_in_seconds: Specifies how often to check repository updates. Minimum value is 0.
@@ -259,6 +261,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/configurationServices/configurationService1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
@@ -326,6 +329,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/configurationServices/configurationService1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudConfigurationServiceArgs args: The arguments to use to populate this resource's properties.

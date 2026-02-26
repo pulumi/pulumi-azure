@@ -25,6 +25,7 @@ class NetworkManagerIpamPoolStaticCidrArgs:
                  number_of_ip_addresses_to_allocate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerIpamPoolStaticCidr resource.
+
         :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the Network Manager IP Address Management (IPAM) Pool. Changing this forces a new Network Manager IPAM Pool Static CIDR to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
                
@@ -104,6 +105,7 @@ class _NetworkManagerIpamPoolStaticCidrState:
                  number_of_ip_addresses_to_allocate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerIpamPoolStaticCidr resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
                
                > **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
@@ -236,6 +238,7 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/ipamPools/pool1/staticCidrs/cidr1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
@@ -302,6 +305,7 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/ipamPools/pool1/staticCidrs/cidr1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerIpamPoolStaticCidrArgs args: The arguments to use to populate this resource's properties.

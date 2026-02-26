@@ -30,6 +30,7 @@ class DataLakeGen2PathArgs:
                  owner: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataLakeGen2Path resource.
+
         :param pulumi.Input[_builtins.str] filesystem_name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource: Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
@@ -146,6 +147,7 @@ class _DataLakeGen2PathState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataLakeGen2Path resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[_builtins.str] filesystem_name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
@@ -308,6 +310,7 @@ class DataLakeGen2Path(pulumi.CustomResource):
         $ pulumi import azure:storage/dataLakeGen2Path:DataLakeGen2Path example https://account1.dfs.core.windows.net/fileSystem1/path
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2PathAceArgs', 'DataLakeGen2PathAceArgsDict']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
@@ -363,6 +366,7 @@ class DataLakeGen2Path(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/dataLakeGen2Path:DataLakeGen2Path example https://account1.dfs.core.windows.net/fileSystem1/path
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataLakeGen2PathArgs args: The arguments to use to populate this resource's properties.

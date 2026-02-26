@@ -37,6 +37,7 @@ class DiagnosticArgs:
                  verbosity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Diagnostic resource.
+
         :param pulumi.Input[_builtins.str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
@@ -265,6 +266,7 @@ class _DiagnosticState:
                  verbosity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Diagnostic resources.
+
         :param pulumi.Input[_builtins.bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         :param pulumi.Input[_builtins.str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
@@ -589,6 +591,7 @@ class Diagnostic(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/diagnostic:Diagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/diagnostics/applicationinsights
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
@@ -701,6 +704,7 @@ class Diagnostic(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/diagnostic:Diagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/diagnostics/applicationinsights
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DiagnosticArgs args: The arguments to use to populate this resource's properties.

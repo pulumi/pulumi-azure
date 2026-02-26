@@ -39,6 +39,7 @@ class VirtualMachineArgs:
                  wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
+
         :param pulumi.Input[_builtins.str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
         :param pulumi.Input['VirtualMachineAutoBackupArgs'] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
@@ -302,6 +303,7 @@ class _VirtualMachineState:
                  wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None):
         """
         Input properties used for looking up and filtering VirtualMachine resources.
+
         :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
         :param pulumi.Input['VirtualMachineAutoBackupArgs'] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAutoPatchingArgs'] auto_patching: An `auto_patching` block as defined below.
@@ -613,6 +615,7 @@ class VirtualMachine(pulumi.CustomResource):
         $ pulumi import azure:mssql/virtualMachine:VirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/example1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VirtualMachineAssessmentArgs', 'VirtualMachineAssessmentArgsDict']] assessment: An `assessment` block as defined below.
@@ -682,6 +685,7 @@ class VirtualMachine(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/virtualMachine:VirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/example1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

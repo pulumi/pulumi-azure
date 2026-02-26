@@ -34,6 +34,7 @@ class FrontdoorOriginArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a FrontdoorOrigin resource.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[_builtins.bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[_builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
@@ -227,6 +228,7 @@ class _FrontdoorOriginState:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FrontdoorOrigin resources.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[_builtins.bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[_builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
@@ -607,6 +609,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
@@ -814,6 +817,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorOriginArgs args: The arguments to use to populate this resource's properties.

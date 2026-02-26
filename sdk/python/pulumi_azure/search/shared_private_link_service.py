@@ -26,6 +26,7 @@ class SharedPrivateLinkServiceArgs:
                  request_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkService resource.
+
         :param pulumi.Input[_builtins.str] search_service_id: Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -116,6 +117,7 @@ class _SharedPrivateLinkServiceState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SharedPrivateLinkService resources.
+
         :param pulumi.Input[_builtins.str] name: Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[_builtins.str] search_service_id: Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
@@ -271,6 +273,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -332,6 +335,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkServiceArgs args: The arguments to use to populate this resource's properties.

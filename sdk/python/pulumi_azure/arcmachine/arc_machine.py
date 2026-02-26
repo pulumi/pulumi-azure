@@ -29,6 +29,7 @@ class ArcMachineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ArcMachine resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ArcMachineIdentityArgs'] identity: An `identity` block as defined below.
@@ -131,6 +132,7 @@ class _ArcMachineState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ArcMachine resources.
+
         :param pulumi.Input['ArcMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
@@ -277,6 +279,7 @@ class ArcMachine(pulumi.CustomResource):
         $ pulumi import azure:arcmachine/arcMachine:ArcMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.HybridCompute/machines/machine1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -331,6 +334,7 @@ class ArcMachine(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arcmachine/arcMachine:ArcMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.HybridCompute/machines/machine1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ArcMachineArgs args: The arguments to use to populate this resource's properties.

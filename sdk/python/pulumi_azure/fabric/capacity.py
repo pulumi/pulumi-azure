@@ -29,6 +29,7 @@ class CapacityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Capacity resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input['CapacitySkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administration_members: An array of administrator user identities. The member must be an Entra user or a service principal.
@@ -135,6 +136,7 @@ class _CapacityState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Capacity resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administration_members: An array of administrator user identities. The member must be an Entra user or a service principal.
                
                > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
@@ -287,6 +289,7 @@ class Capacity(pulumi.CustomResource):
         $ pulumi import azure:fabric/capacity:Capacity example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Fabric/capacities/capacity1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] administration_members: An array of administrator user identities. The member must be an Entra user or a service principal.
@@ -345,6 +348,7 @@ class Capacity(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:fabric/capacity:Capacity example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Fabric/capacities/capacity1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityArgs args: The arguments to use to populate this resource's properties.

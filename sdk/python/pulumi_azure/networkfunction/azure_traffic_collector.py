@@ -25,6 +25,7 @@ class AzureTrafficCollectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureTrafficCollector resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created.
@@ -98,6 +99,7 @@ class _AzureTrafficCollectorState:
                  virtual_hub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AzureTrafficCollector resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] collector_policy_ids: The list of Resource IDs of collector policies.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created.
@@ -238,6 +240,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
         $ pulumi import azure:networkfunction/azureTrafficCollector:AzureTrafficCollector example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.NetworkFunction/azureTrafficCollectors/azureTrafficCollector1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
@@ -286,6 +289,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:networkfunction/azureTrafficCollector:AzureTrafficCollector example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.NetworkFunction/azureTrafficCollectors/azureTrafficCollector1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureTrafficCollectorArgs args: The arguments to use to populate this resource's properties.

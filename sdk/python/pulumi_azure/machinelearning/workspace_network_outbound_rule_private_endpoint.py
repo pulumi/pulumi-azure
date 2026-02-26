@@ -26,6 +26,7 @@ class WorkspaceNetworkOutboundRulePrivateEndpointArgs:
                  spark_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a WorkspaceNetworkOutboundRulePrivateEndpoint resource.
+
         :param pulumi.Input[_builtins.str] service_resource_id: Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
                
                > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
@@ -129,6 +130,7 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceNetworkOutboundRulePrivateEndpoint resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_resource_id: Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
                
@@ -308,6 +310,7 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
         $ pulumi import azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/outboundRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
@@ -401,6 +404,7 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/outboundRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceNetworkOutboundRulePrivateEndpointArgs args: The arguments to use to populate this resource's properties.

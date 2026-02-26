@@ -26,6 +26,7 @@ class GalleryApplicationAssignmentArgs:
                  tag: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GalleryApplicationAssignment resource.
+
         :param pulumi.Input[_builtins.str] gallery_application_version_id: The ID of the Gallery Application Version. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _GalleryApplicationAssignmentState:
                  virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GalleryApplicationAssignment resources.
+
         :param pulumi.Input[_builtins.str] configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gallery_application_version_id: The ID of the Gallery Application Version. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
@@ -277,6 +279,7 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
         $ pulumi import azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment example subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/galleries/gallery1/applications/galleryApplication1/versions/galleryApplicationVersion1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
@@ -365,6 +368,7 @@ class GalleryApplicationAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment example subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/galleries/gallery1/applications/galleryApplication1/versions/galleryApplicationVersion1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationAssignmentArgs args: The arguments to use to populate this resource's properties.

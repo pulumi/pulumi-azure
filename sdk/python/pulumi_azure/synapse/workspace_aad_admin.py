@@ -25,6 +25,7 @@ class WorkspaceAadAdminArgs:
                  tenant_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceAadAdmin resource.
+
         :param pulumi.Input[_builtins.str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
         :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
@@ -93,6 +94,7 @@ class _WorkspaceAadAdminState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceAadAdmin resources.
+
         :param pulumi.Input[_builtins.str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
         :param pulumi.Input[_builtins.str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
@@ -247,6 +249,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         $ pulumi import azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] login: The login name of the Azure AD Administrator of this Synapse Workspace.
@@ -339,6 +342,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceAadAdminArgs args: The arguments to use to populate this resource's properties.

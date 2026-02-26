@@ -23,6 +23,7 @@ class ManagedCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedCertificate resource.
+
         :param pulumi.Input[_builtins.str] custom_hostname_binding_id: The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the App Service Managed Certificate.
         """
@@ -70,6 +71,7 @@ class _ManagedCertificateState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedCertificate resources.
+
         :param pulumi.Input[_builtins.str] canonical_name: The Canonical Name of the Certificate.
         :param pulumi.Input[_builtins.str] custom_hostname_binding_id: The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
         :param pulumi.Input[_builtins.str] expiration_date: The expiration date of the Certificate.
@@ -301,6 +303,7 @@ class ManagedCertificate(pulumi.CustomResource):
         $ pulumi import azure:appservice/managedCertificate:ManagedCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Web/certificates/customhost.contoso.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_hostname_binding_id: The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
@@ -380,6 +383,7 @@ class ManagedCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/managedCertificate:ManagedCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Web/certificates/customhost.contoso.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedCertificateArgs args: The arguments to use to populate this resource's properties.

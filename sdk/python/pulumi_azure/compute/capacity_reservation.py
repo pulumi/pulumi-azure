@@ -28,6 +28,7 @@ class CapacityReservationArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
+
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         :param pulumi.Input['CapacityReservationSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
@@ -114,6 +115,7 @@ class _CapacityReservationState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CapacityReservation resources.
+
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
         :param pulumi.Input['CapacityReservationSkuArgs'] sku: A `sku` block as defined below.
@@ -244,6 +246,7 @@ class CapacityReservation(pulumi.CustomResource):
         $ pulumi import azure:compute/capacityReservation:CapacityReservation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1/capacityReservations/capacityReservation1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
@@ -297,6 +300,7 @@ class CapacityReservation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/capacityReservation:CapacityReservation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1/capacityReservations/capacityReservation1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class EventGridTopicArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventGridTopic resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input['EventGridTopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -220,6 +221,7 @@ class _EventGridTopicState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventGridTopic resources.
+
         :param pulumi.Input[_builtins.str] endpoint: The Endpoint associated with the EventGrid Topic.
         :param pulumi.Input['EventGridTopicIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -494,6 +496,7 @@ class EventGridTopic(pulumi.CustomResource):
         $ pulumi import azure:eventhub/eventGridTopic:EventGridTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventGridTopicIdentityArgs', 'EventGridTopicIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -551,6 +554,7 @@ class EventGridTopic(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/eventGridTopic:EventGridTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventGridTopicArgs args: The arguments to use to populate this resource's properties.

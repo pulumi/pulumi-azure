@@ -28,6 +28,7 @@ class EnvironmentStorageArgs:
                  nfs_server_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EnvironmentStorage resource.
+
         :param pulumi.Input[_builtins.str] access_mode: The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] share_name: The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
@@ -145,6 +146,7 @@ class _EnvironmentStorageState:
                  share_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentStorage resources.
+
         :param pulumi.Input[_builtins.str] access_key: The Storage Account Access Key.
         :param pulumi.Input[_builtins.str] access_mode: The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] account_name: The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
@@ -324,6 +326,7 @@ class EnvironmentStorage(pulumi.CustomResource):
         $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_key: The Storage Account Access Key.
@@ -396,6 +399,7 @@ class EnvironmentStorage(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentStorageArgs args: The arguments to use to populate this resource's properties.

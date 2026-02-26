@@ -32,6 +32,7 @@ class PrefixArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Prefix resource.
+
         :param pulumi.Input[_builtins.str] cidr: The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] commissioning_enabled: Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
@@ -226,6 +227,7 @@ class _PrefixState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Prefix resources.
+
         :param pulumi.Input[_builtins.str] cidr: The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] commissioning_enabled: Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
                
@@ -490,6 +492,7 @@ class Prefix(pulumi.CustomResource):
         $ pulumi import azure:customip/prefix:Prefix example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/customIPPrefixes/customIPPrefix1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cidr: The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
@@ -581,6 +584,7 @@ class Prefix(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:customip/prefix:Prefix example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/customIPPrefixes/customIPPrefix1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrefixArgs args: The arguments to use to populate this resource's properties.

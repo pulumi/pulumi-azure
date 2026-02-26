@@ -37,6 +37,7 @@ class EventHubNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventHubNamespace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[_builtins.bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
@@ -277,6 +278,7 @@ class _EventHubNamespaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering EventHubNamespace resources.
+
         :param pulumi.Input[_builtins.bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[_builtins.int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[_builtins.str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
@@ -643,6 +645,7 @@ class EventHubNamespace(pulumi.CustomResource):
         $ pulumi import azure:eventhub/eventHubNamespace:EventHubNamespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
@@ -705,6 +708,7 @@ class EventHubNamespace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/eventHubNamespace:EventHubNamespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventHubNamespaceArgs args: The arguments to use to populate this resource's properties.

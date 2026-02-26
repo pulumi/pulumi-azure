@@ -27,6 +27,7 @@ class FederatedIdentityCredentialArgs:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FederatedIdentityCredential resource.
+
         :param pulumi.Input[_builtins.str] audience: Specifies the audience for this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] issuer: Specifies the issuer of this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] parent_id: Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
@@ -127,6 +128,7 @@ class _FederatedIdentityCredentialState:
                  subject: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FederatedIdentityCredential resources.
+
         :param pulumi.Input[_builtins.str] audience: Specifies the audience for this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] issuer: Specifies the issuer of this Federated Identity Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
@@ -272,6 +274,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audience: Specifies the audience for this Federated Identity Credential.
@@ -324,6 +327,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FederatedIdentityCredentialArgs args: The arguments to use to populate this resource's properties.

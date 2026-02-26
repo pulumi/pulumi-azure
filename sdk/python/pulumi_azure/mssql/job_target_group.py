@@ -26,6 +26,7 @@ class JobTargetGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobTargetGroup resource.
+
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]] job_targets: One or more `job_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
@@ -81,6 +82,7 @@ class _JobTargetGroupState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobTargetGroup resources.
+
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input['JobTargetGroupJobTargetArgs']]] job_targets: One or more `job_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
@@ -196,6 +198,7 @@ class JobTargetGroup(pulumi.CustomResource):
         $ pulumi import azure:mssql/jobTargetGroup:JobTargetGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/targetGroups/mytargetgroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
@@ -264,6 +267,7 @@ class JobTargetGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/jobTargetGroup:JobTargetGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/targetGroups/mytargetgroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobTargetGroupArgs args: The arguments to use to populate this resource's properties.

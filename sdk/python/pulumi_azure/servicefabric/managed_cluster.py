@@ -41,6 +41,7 @@ class ManagedClusterArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedCluster resource.
+
         :param pulumi.Input[_builtins.int] client_connection_port: Port to use when connecting to the cluster.
         :param pulumi.Input[_builtins.int] http_gateway_port: Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]] lb_rules: One or more `lb_rule` blocks as defined below.
@@ -333,6 +334,7 @@ class _ManagedClusterState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedCluster resources.
+
         :param pulumi.Input['ManagedClusterAuthenticationArgs'] authentication: Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] backup_service_enabled: If true, backup service is enabled.
         :param pulumi.Input[_builtins.int] client_connection_port: Port to use when connecting to the cluster.
@@ -683,6 +685,7 @@ class ManagedCluster(pulumi.CustomResource):
         $ pulumi import azure:servicefabric/managedCluster:ManagedCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ServiceFabric/managedClusters/clusterName1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']] authentication: Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
@@ -761,6 +764,7 @@ class ManagedCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:servicefabric/managedCluster:ManagedCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ServiceFabric/managedClusters/clusterName1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

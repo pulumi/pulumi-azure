@@ -29,6 +29,7 @@ class FirewallNatRuleCollectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallNatRuleCollection resource.
+
         :param pulumi.Input[_builtins.str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
         :param pulumi.Input[_builtins.str] azure_firewall_name: Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
@@ -128,6 +129,7 @@ class _FirewallNatRuleCollectionState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering FirewallNatRuleCollection resources.
+
         :param pulumi.Input[_builtins.str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
         :param pulumi.Input[_builtins.str] azure_firewall_name: Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
@@ -308,6 +310,7 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
@@ -396,6 +399,7 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallNatRuleCollectionArgs args: The arguments to use to populate this resource's properties.

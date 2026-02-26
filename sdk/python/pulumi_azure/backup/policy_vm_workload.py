@@ -29,6 +29,7 @@ class PolicyVMWorkloadArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyVMWorkload resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]] protection_policies: One or more `protection_policy` blocks as defined below.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
@@ -128,6 +129,7 @@ class _PolicyVMWorkloadState:
                  workload_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyVMWorkload resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]] protection_policies: One or more `protection_policy` blocks as defined below.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -292,6 +294,7 @@ class PolicyVMWorkload(pulumi.CustomResource):
         $ pulumi import azure:backup/policyVMWorkload:PolicyVMWorkload policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
@@ -364,6 +367,7 @@ class PolicyVMWorkload(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:backup/policyVMWorkload:PolicyVMWorkload policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyVMWorkloadArgs args: The arguments to use to populate this resource's properties.

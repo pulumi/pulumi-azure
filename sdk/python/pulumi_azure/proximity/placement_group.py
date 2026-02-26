@@ -27,6 +27,7 @@ class PlacementGroupArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_vm_sizes: Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
                
@@ -138,6 +139,7 @@ class _PlacementGroupState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PlacementGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_vm_sizes: Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
                
                > **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
@@ -288,6 +290,7 @@ class PlacementGroup(pulumi.CustomResource):
         $ pulumi import azure:proximity/placementGroup:PlacementGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/proximityPlacementGroups/example-ppg
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_vm_sizes: Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
@@ -342,6 +345,7 @@ class PlacementGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:proximity/placementGroup:PlacementGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/proximityPlacementGroups/example-ppg
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PlacementGroupArgs args: The arguments to use to populate this resource's properties.

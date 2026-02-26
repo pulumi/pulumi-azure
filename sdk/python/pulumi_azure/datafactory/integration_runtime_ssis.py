@@ -42,6 +42,7 @@ class IntegrationRuntimeSsisArgs:
                  vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSsis resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
@@ -356,6 +357,7 @@ class _IntegrationRuntimeSsisState:
                  vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeSsis resources.
+
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input['IntegrationRuntimeSsisCopyComputeScaleArgs'] copy_compute_scale: One `copy_compute_scale` block as defined below.
         :param pulumi.Input[_builtins.str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
@@ -712,6 +714,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         $ pulumi import azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationRuntimes/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['IntegrationRuntimeSsisCatalogInfoArgs', 'IntegrationRuntimeSsisCatalogInfoArgsDict']] catalog_info: A `catalog_info` block as defined below.
@@ -779,6 +782,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationRuntimes/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeSsisArgs args: The arguments to use to populate this resource's properties.

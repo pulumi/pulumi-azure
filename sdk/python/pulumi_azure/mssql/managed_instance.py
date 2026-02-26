@@ -48,6 +48,7 @@ class ManagedInstanceArgs:
                  zone_redundant_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedInstance resource.
+
         :param pulumi.Input[_builtins.str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
@@ -468,6 +469,7 @@ class _ManagedInstanceState:
                  zone_redundant_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ManagedInstance resources.
+
         :param pulumi.Input[_builtins.str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
                
@@ -1115,6 +1117,7 @@ class ManagedInstance(pulumi.CustomResource):
         $ pulumi import azure:mssql/managedInstance:ManagedInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
@@ -1347,6 +1350,7 @@ class ManagedInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/managedInstance:ManagedInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceArgs args: The arguments to use to populate this resource's properties.

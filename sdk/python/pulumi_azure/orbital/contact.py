@@ -27,6 +27,7 @@ class ContactArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Contact resource.
+
         :param pulumi.Input[_builtins.str] contact_profile_id: ID of the orbital contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ground_station_name: Name of the Azure ground station. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] reservation_end_time: Reservation end time of the Contact. Changing this forces a new resource to be created.
@@ -126,6 +127,7 @@ class _ContactState:
                  spacecraft_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Contact resources.
+
         :param pulumi.Input[_builtins.str] contact_profile_id: ID of the orbital contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ground_station_name: Name of the Azure ground station. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Contact. Changing this forces a new resource to be created.
@@ -335,6 +337,7 @@ class Contact(pulumi.CustomResource):
         $ pulumi import azure:orbital/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/spacecrafts/spacecraft1/contacts/contact1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_profile_id: ID of the orbital contact profile. Changing this forces a new resource to be created.
@@ -452,6 +455,7 @@ class Contact(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:orbital/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/spacecrafts/spacecraft1/contacts/contact1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.

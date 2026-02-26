@@ -26,6 +26,7 @@ class RegistryScopeMapArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryScopeMap resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         :param pulumi.Input[_builtins.str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
@@ -111,6 +112,7 @@ class _RegistryScopeMapState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryScopeMap resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         :param pulumi.Input[_builtins.str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Container Registry.
@@ -252,6 +254,7 @@ class RegistryScopeMap(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registryScopeMap:RegistryScopeMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/scopeMaps/scopemap1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
@@ -316,6 +319,7 @@ class RegistryScopeMap(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registryScopeMap:RegistryScopeMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/scopeMaps/scopemap1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryScopeMapArgs args: The arguments to use to populate this resource's properties.

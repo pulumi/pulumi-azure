@@ -26,6 +26,7 @@ class DataSourceWindowsEventArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataSourceWindowsEvent resource.
+
         :param pulumi.Input[_builtins.str] event_log_name: Specifies the name of the Windows Event Log to collect events from.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
@@ -110,6 +111,7 @@ class _DataSourceWindowsEventState:
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataSourceWindowsEvent resources.
+
         :param pulumi.Input[_builtins.str] event_log_name: Specifies the name of the Windows Event Log to collect events from.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_types: Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
@@ -240,6 +242,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataSources/datasource1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_log_name: Specifies the name of the Windows Event Log to collect events from.
@@ -293,6 +296,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataSources/datasource1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataSourceWindowsEventArgs args: The arguments to use to populate this resource's properties.

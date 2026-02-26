@@ -29,6 +29,7 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent resource.
+
         :param pulumi.Input[_builtins.str] destination_resource_id: The ID of the destination resource. The value can be the ID of either Public internet, Cosmos DB, Storage Account, SQL Server, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         :param pulumi.Input['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs'] ip_traffic: An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         :param pulumi.Input[_builtins.str] source_resource_id: The ID of the source resource. The value can be the ID of either Public internet, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
@@ -129,6 +130,7 @@ class _NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState:
                  verifier_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         :param pulumi.Input[_builtins.str] destination_resource_id: The ID of the destination resource. The value can be the ID of either Public internet, Cosmos DB, Storage Account, SQL Server, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         :param pulumi.Input['NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs'] ip_traffic: An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
@@ -328,6 +330,7 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
         $ pulumi import azure:network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent:NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/verifierWorkspaces/workspace1/reachabilityAnalysisIntents/intent1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
@@ -435,6 +438,7 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
         ```sh
         $ pulumi import azure:network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent:NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/verifierWorkspaces/workspace1/reachabilityAnalysisIntents/intent1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs args: The arguments to use to populate this resource's properties.

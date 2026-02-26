@@ -38,6 +38,7 @@ class SecuritySolutionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecuritySolution resource.
+
         :param pulumi.Input[_builtins.str] display_name: Specifies the Display Name for this Iot Security Solution.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iothub_ids: Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
@@ -283,6 +284,7 @@ class _SecuritySolutionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SecuritySolution resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]] additional_workspaces: A `additional_workspace` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_data_sources: A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         :param pulumi.Input[_builtins.str] display_name: Specifies the Display Name for this Iot Security Solution.
@@ -569,6 +571,7 @@ class SecuritySolution(pulumi.CustomResource):
         $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/iotSecuritySolutions/solution1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecuritySolutionAdditionalWorkspaceArgs', 'SecuritySolutionAdditionalWorkspaceArgsDict']]]] additional_workspaces: A `additional_workspace` block as defined below.
@@ -628,6 +631,7 @@ class SecuritySolution(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/securitySolution:SecuritySolution example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Security/iotSecuritySolutions/solution1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecuritySolutionArgs args: The arguments to use to populate this resource's properties.

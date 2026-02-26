@@ -35,6 +35,7 @@ class ComputeInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComputeInstance resource.
+
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] virtual_machine_size: The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input['ComputeInstanceAssignToUserArgs'] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -241,6 +242,7 @@ class _ComputeInstanceState:
                  virtual_machine_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ComputeInstance resources.
+
         :param pulumi.Input['ComputeInstanceAssignToUserArgs'] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -539,6 +541,7 @@ class ComputeInstance(pulumi.CustomResource):
         $ pulumi import azure:machinelearning/computeInstance:ComputeInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -651,6 +654,7 @@ class ComputeInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:machinelearning/computeInstance:ComputeInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ComputeInstanceArgs args: The arguments to use to populate this resource's properties.

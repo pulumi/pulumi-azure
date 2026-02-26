@@ -39,6 +39,7 @@ class PublicIpArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicIp resource.
+
         :param pulumi.Input[_builtins.str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
                
                > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
@@ -363,6 +364,7 @@ class _PublicIpState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PublicIp resources.
+
         :param pulumi.Input[_builtins.str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
                
                > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
@@ -758,6 +760,7 @@ class PublicIp(pulumi.CustomResource):
         $ pulumi import azure:network/publicIp:PublicIp myPublicIp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
@@ -837,6 +840,7 @@ class PublicIp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/publicIp:PublicIp myPublicIp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PublicIpArgs args: The arguments to use to populate this resource's properties.

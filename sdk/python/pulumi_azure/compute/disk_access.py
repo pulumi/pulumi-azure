@@ -25,6 +25,7 @@ class DiskAccessArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiskAccess resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Disk Access should exist. Changing this forces a new Disk Access to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Disk Access. Changing this forces a new Disk Access to be created.
@@ -96,6 +97,7 @@ class _DiskAccessState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DiskAccess resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Disk Access. Changing this forces a new Disk Access to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Disk Access should exist. Changing this forces a new Disk Access to be created.
@@ -200,6 +202,7 @@ class DiskAccess(pulumi.CustomResource):
         $ pulumi import azure:compute/diskAccess:DiskAccess example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/diskAccesses/diskAccess1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
@@ -242,6 +245,7 @@ class DiskAccess(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/diskAccess:DiskAccess example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/diskAccesses/diskAccess1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DiskAccessArgs args: The arguments to use to populate this resource's properties.

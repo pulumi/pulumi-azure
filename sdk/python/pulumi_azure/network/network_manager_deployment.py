@@ -26,6 +26,7 @@ class NetworkManagerDeploymentArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkManagerDeployment resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] configuration_ids: A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[_builtins.str] scope_access: Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
@@ -111,6 +112,7 @@ class _NetworkManagerDeploymentState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerDeployment resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] configuration_ids: A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         :param pulumi.Input[_builtins.str] location: Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
@@ -340,6 +342,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerDeployment:NetworkManagerDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/commit|eastus|Connectivity
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] configuration_ids: A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
@@ -492,6 +495,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerDeployment:NetworkManagerDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/commit|eastus|Connectivity
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerDeploymentArgs args: The arguments to use to populate this resource's properties.

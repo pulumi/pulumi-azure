@@ -44,6 +44,7 @@ class MetadataArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Metadata resource.
+
         :param pulumi.Input[_builtins.str] content_id: The ID of the content. Used to identify dependencies and content from solutions or community.
         :param pulumi.Input[_builtins.str] kind: The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
         :param pulumi.Input[_builtins.str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
@@ -384,6 +385,7 @@ class _MetadataState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Metadata resources.
+
         :param pulumi.Input['MetadataAuthorArgs'] author: An `author` blocks as defined below.
         :param pulumi.Input['MetadataCategoryArgs'] category: A `category` block as defined below.
         :param pulumi.Input[_builtins.str] content_id: The ID of the content. Used to identify dependencies and content from solutions or community.
@@ -790,6 +792,7 @@ class Metadata(pulumi.CustomResource):
         $ pulumi import azure:sentinel/metadata:Metadata example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/metadata/metadata1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']] author: An `author` blocks as defined below.
@@ -879,6 +882,7 @@ class Metadata(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/metadata:Metadata example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/metadata/metadata1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MetadataArgs args: The arguments to use to populate this resource's properties.

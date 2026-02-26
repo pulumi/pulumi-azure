@@ -24,6 +24,7 @@ class CacheAccessPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheAccessPolicy resource.
+
         :param pulumi.Input[_builtins.str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy.
         :param pulumi.Input[_builtins.str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
@@ -78,6 +79,7 @@ class _CacheAccessPolicyState:
                  redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CacheAccessPolicy resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
         :param pulumi.Input[_builtins.str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy.
         :param pulumi.Input[_builtins.str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
@@ -182,6 +184,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
         $ pulumi import azure:redis/cacheAccessPolicy:CacheAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/accessPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
@@ -239,6 +242,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:redis/cacheAccessPolicy:CacheAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/accessPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheAccessPolicyArgs args: The arguments to use to populate this resource's properties.

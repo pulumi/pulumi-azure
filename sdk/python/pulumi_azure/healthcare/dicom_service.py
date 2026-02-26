@@ -33,6 +33,7 @@ class DicomServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DicomService resource.
+
         :param pulumi.Input[_builtins.str] workspace_id: Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input['DicomServiceCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
@@ -203,6 +204,7 @@ class _DicomServiceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DicomService resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]] authentications: The `authentication` block as defined below.
         :param pulumi.Input['DicomServiceCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[_builtins.bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
@@ -454,6 +456,7 @@ class DicomService(pulumi.CustomResource):
         $ pulumi import azure:healthcare/dicomService:DicomService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomServices/service1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']] cors: A `cors` block as defined below.
@@ -512,6 +515,7 @@ class DicomService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:healthcare/dicomService:DicomService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomServices/service1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DicomServiceArgs args: The arguments to use to populate this resource's properties.

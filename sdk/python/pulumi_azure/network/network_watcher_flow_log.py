@@ -35,6 +35,7 @@ class NetworkWatcherFlowLogArgs:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a NetworkWatcherFlowLog resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[_builtins.str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
@@ -234,6 +235,7 @@ class _NetworkWatcherFlowLogState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering NetworkWatcherFlowLog resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[_builtins.str] location: The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
         :param pulumi.Input[_builtins.str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
@@ -510,6 +512,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         $ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/flowLogs/log1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Should Network Flow Logging be Enabled?
@@ -601,6 +604,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/flowLogs/log1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkWatcherFlowLogArgs args: The arguments to use to populate this resource's properties.

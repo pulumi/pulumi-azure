@@ -27,6 +27,7 @@ class ClusterCustomerManagedKeyArgs:
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterCustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault for CMK encryption.
@@ -134,6 +135,7 @@ class _ClusterCustomerManagedKeyState:
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault for CMK encryption.
@@ -335,6 +337,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
@@ -442,6 +445,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.

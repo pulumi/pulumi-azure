@@ -29,6 +29,7 @@ class CustomDomainArgs:
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]] gateways: One or more `gateway` blocks as defined below.
@@ -132,6 +133,7 @@ class _CustomDomainState:
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
         """
         Input properties used for looking up and filtering CustomDomain resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDomainGatewayArgs']]] gateways: One or more `gateway` blocks as defined below.
@@ -333,6 +335,7 @@ class CustomDomain(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/customDomains/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
@@ -442,6 +445,7 @@ class CustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/customDomains/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomDomainArgs args: The arguments to use to populate this resource's properties.

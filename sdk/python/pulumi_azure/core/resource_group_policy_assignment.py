@@ -37,6 +37,7 @@ class ResourceGroupPolicyAssignmentArgs:
                  resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceGroupPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] resource_group_id: The ID of the Resource Group where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
@@ -271,6 +272,7 @@ class _ResourceGroupPolicyAssignmentState:
                  resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] = None):
         """
         Input properties used for looking up and filtering ResourceGroupPolicyAssignment resources.
+
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[_builtins.bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
@@ -568,6 +570,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         $ pulumi import azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
@@ -651,6 +654,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

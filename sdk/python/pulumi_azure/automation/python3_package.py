@@ -29,6 +29,7 @@ class Python3PackageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Python3Package resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_uri: The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
@@ -162,6 +163,7 @@ class _Python3PackageState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Python3Package resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_uri: The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
         :param pulumi.Input[_builtins.str] content_version: Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
@@ -345,6 +347,7 @@ class Python3Package(pulumi.CustomResource):
         $ pulumi import azure:automation/python3Package:Python3Package example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/python3Packages/pkg
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
@@ -406,6 +409,7 @@ class Python3Package(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/python3Package:Python3Package example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/python3Packages/pkg
         ```
+
 
         :param str resource_name: The name of the resource.
         :param Python3PackageArgs args: The arguments to use to populate this resource's properties.

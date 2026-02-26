@@ -37,6 +37,7 @@ class AIServicesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AIServices resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the AI Services Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this AI Services Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
                
@@ -278,6 +279,7 @@ class _AIServicesState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AIServices resources.
+
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
@@ -602,6 +604,7 @@ class AIServices(pulumi.CustomResource):
         $ pulumi import azure:cognitive/aIServices:AIServices account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
@@ -665,6 +668,7 @@ class AIServices(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cognitive/aIServices:AIServices account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AIServicesArgs args: The arguments to use to populate this resource's properties.

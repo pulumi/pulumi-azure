@@ -35,6 +35,7 @@ class ExpressRouteCircuitPeeringArgs:
                  shared_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuitPeering resource.
+
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
                
@@ -243,6 +244,7 @@ class _ExpressRouteCircuitPeeringState:
                  vlan_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteCircuitPeering resources.
+
         :param pulumi.Input[_builtins.int] azure_asn: The ASN used by Azure.
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ipv4_enabled: A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
@@ -615,6 +617,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         $ pulumi import azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering peering1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/peerings/peering1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
@@ -745,6 +748,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering peering1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/peerings/peering1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitPeeringArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class StandaloneGatewayArgs:
                  virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StandaloneGateway resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['StandaloneGatewaySkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[_builtins.str] backend_subnet_id: Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
@@ -148,6 +149,7 @@ class _StandaloneGatewayState:
                  virtual_network_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandaloneGateway resources.
+
         :param pulumi.Input[_builtins.str] backend_subnet_id: Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
@@ -329,6 +331,7 @@ class StandaloneGateway(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/standaloneGateway:StandaloneGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/gateways/gateway1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backend_subnet_id: Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
@@ -403,6 +406,7 @@ class StandaloneGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/standaloneGateway:StandaloneGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/gateways/gateway1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StandaloneGatewayArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class PrivateLinkScopedServiceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedService resource.
+
         :param pulumi.Input[_builtins.str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope_name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _PrivateLinkScopedServiceState:
                  scope_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkScopedService resources.
+
         :param pulumi.Input[_builtins.str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
@@ -210,6 +212,7 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         $ pulumi import azure:monitoring/privateLinkScopedService:PrivateLinkScopedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1/scopedResources/sr1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
@@ -264,6 +267,7 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/privateLinkScopedService:PrivateLinkScopedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1/scopedResources/sr1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedServiceArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class NetworkManagerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkManager resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         :param pulumi.Input['NetworkManagerScopeArgs'] scope: A `scope` block as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager.
@@ -149,6 +150,7 @@ class _NetworkManagerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkManager resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerCrossTenantScopeArgs']]] cross_tenant_scopes: One or more `cross_tenant_scopes` blocks as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
@@ -331,6 +333,7 @@ class NetworkManager(pulumi.CustomResource):
         $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager.
@@ -391,6 +394,7 @@ class NetworkManager(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerArgs args: The arguments to use to populate this resource's properties.

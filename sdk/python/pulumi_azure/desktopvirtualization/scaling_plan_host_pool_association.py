@@ -24,6 +24,7 @@ class ScalingPlanHostPoolAssociationArgs:
                  scaling_plan_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ScalingPlanHostPoolAssociation resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Should the Scaling Plan be enabled on this Host Pool.
         :param pulumi.Input[_builtins.str] host_pool_id: The resource ID for the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scaling_plan_id: The resource ID for the Virtual Desktop Scaling Plan. Changing this forces a new resource to be created.
@@ -77,6 +78,7 @@ class _ScalingPlanHostPoolAssociationState:
                  scaling_plan_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScalingPlanHostPoolAssociation resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Should the Scaling Plan be enabled on this Host Pool.
         :param pulumi.Input[_builtins.str] host_pool_id: The resource ID for the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scaling_plan_id: The resource ID for the Virtual Desktop Scaling Plan. Changing this forces a new resource to be created.
@@ -148,6 +150,7 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
 
         > **Note:** This ID is specific to Terraform - and is of the format `{virtualDesktopScalingPlanID}|{virtualDesktopHostPoolID}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Should the Scaling Plan be enabled on this Host Pool.
@@ -172,6 +175,7 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
         ```
 
         > **Note:** This ID is specific to Terraform - and is of the format `{virtualDesktopScalingPlanID}|{virtualDesktopHostPoolID}`.
+
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanHostPoolAssociationArgs args: The arguments to use to populate this resource's properties.

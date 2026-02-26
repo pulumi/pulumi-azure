@@ -28,6 +28,7 @@ class NatGatewayArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
@@ -152,6 +153,7 @@ class _NatGatewayState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NatGateway resources.
+
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
@@ -331,6 +333,7 @@ class NatGateway(pulumi.CustomResource):
         $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
@@ -386,6 +389,7 @@ class NatGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NatGatewayArgs args: The arguments to use to populate this resource's properties.

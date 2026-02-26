@@ -27,6 +27,7 @@ class HybridConnectionArgs:
                  send_key_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridConnection resource.
+
         :param pulumi.Input[_builtins.str] app_service_name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
         :param pulumi.Input[_builtins.int] port: The port of the endpoint.
@@ -131,6 +132,7 @@ class _HybridConnectionState:
                  service_bus_suffix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HybridConnection resources.
+
         :param pulumi.Input[_builtins.str] app_service_name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the Relay Namespace.
@@ -371,6 +373,7 @@ class HybridConnection(pulumi.CustomResource):
         $ pulumi import azure:appservice/hybridConnection:HybridConnection example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/exampleResourceGroup1/providers/Microsoft.Web/sites/exampleAppService1/hybridConnectionNamespaces/exampleRN1/relays/exampleRHC1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_name: Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -448,6 +451,7 @@ class HybridConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/hybridConnection:HybridConnection example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/exampleResourceGroup1/providers/Microsoft.Web/sites/exampleAppService1/hybridConnectionNamespaces/exampleRN1/relays/exampleRHC1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HybridConnectionArgs args: The arguments to use to populate this resource's properties.

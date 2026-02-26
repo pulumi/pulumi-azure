@@ -29,6 +29,7 @@ class SubscriptionRuleArgs:
                  sql_filter: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionRule resource.
+
         :param pulumi.Input[_builtins.str] filter_type: Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -132,6 +133,7 @@ class _SubscriptionRuleState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionRule resources.
+
         :param pulumi.Input[_builtins.str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
         :param pulumi.Input['SubscriptionRuleCorrelationFilterArgs'] correlation_filter: A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
         :param pulumi.Input[_builtins.str] filter_type: Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
@@ -339,6 +341,7 @@ class SubscriptionRule(pulumi.CustomResource):
         $ pulumi import azure:servicebus/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
@@ -443,6 +446,7 @@ class SubscriptionRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:servicebus/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionRuleArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class ApiVersionSetArgs:
                  version_query_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiVersionSet resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Version Set.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
@@ -169,6 +170,7 @@ class _ApiVersionSetState:
                  versioning_scheme: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiVersionSet resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of API Version Set.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Version Set.
@@ -357,6 +359,7 @@ class ApiVersionSet(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
@@ -419,6 +422,7 @@ class ApiVersionSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiVersionSetArgs args: The arguments to use to populate this resource's properties.

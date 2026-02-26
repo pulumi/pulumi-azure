@@ -28,6 +28,7 @@ class ExpressRouteGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExpressRouteGateway resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         :param pulumi.Input[_builtins.str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
@@ -145,6 +146,7 @@ class _ExpressRouteGatewayState:
                  virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteGateway resources.
+
         :param pulumi.Input[_builtins.bool] allow_non_virtual_wan_traffic: Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
@@ -315,6 +317,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         $ pulumi import azure:network/expressRouteGateway:ExpressRouteGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteGateways/myExpressRouteGateway
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_non_virtual_wan_traffic: Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
@@ -378,6 +381,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/expressRouteGateway:ExpressRouteGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteGateways/myExpressRouteGateway
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteGatewayArgs args: The arguments to use to populate this resource's properties.

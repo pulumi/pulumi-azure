@@ -29,6 +29,7 @@ class FunctionJavaScriptUDFArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionJavaScriptUDF resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]] inputs: One or more `input` blocks as defined below.
         :param pulumi.Input['FunctionJavaScriptUDFOutputArgs'] output: An `output` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -128,6 +129,7 @@ class _FunctionJavaScriptUDFState:
                  stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionJavaScriptUDF resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]] inputs: One or more `input` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
         :param pulumi.Input['FunctionJavaScriptUDFOutputArgs'] output: An `output` blocks as defined below.
@@ -277,6 +279,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/functions/func1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionJavaScriptUDFInputArgs', 'FunctionJavaScriptUDFInputArgsDict']]]] inputs: One or more `input` blocks as defined below.
@@ -334,6 +337,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/functions/func1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionJavaScriptUDFArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class SourceControlArgs:
                  use_mercurial: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
                
                > **Note:** Function apps are not supported at this time.
@@ -176,6 +177,7 @@ class _SourceControlState:
                  uses_github_action: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SourceControl resources.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
                
                > **Note:** Function apps are not supported at this time.
@@ -397,6 +399,7 @@ class SourceControl(pulumi.CustomResource):
         $ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
@@ -462,6 +465,7 @@ class SourceControl(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.

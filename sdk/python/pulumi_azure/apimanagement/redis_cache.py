@@ -27,6 +27,7 @@ class RedisCacheArgs:
                  redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedisCache resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[_builtins.str] connection_string: The connection string to the Cache for Redis.
         :param pulumi.Input[_builtins.str] cache_location: The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
@@ -129,6 +130,7 @@ class _RedisCacheState:
                  redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RedisCache resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[_builtins.str] cache_location: The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
         :param pulumi.Input[_builtins.str] connection_string: The connection string to the Cache for Redis.
@@ -288,6 +290,7 @@ class RedisCache(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/redisCache:RedisCache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/caches/cache1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
@@ -355,6 +358,7 @@ class RedisCache(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/redisCache:RedisCache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/caches/cache1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RedisCacheArgs args: The arguments to use to populate this resource's properties.

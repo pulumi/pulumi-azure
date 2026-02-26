@@ -29,6 +29,7 @@ class RouteTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] bgp_route_propagation_enabled: Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -137,6 +138,7 @@ class _RouteTableState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RouteTable resources.
+
         :param pulumi.Input[_builtins.bool] bgp_route_propagation_enabled: Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the route.
@@ -306,6 +308,7 @@ class RouteTable(pulumi.CustomResource):
         $ pulumi import azure:network/routeTable:RouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/routeTables/mytable1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bgp_route_propagation_enabled: Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
@@ -366,6 +369,7 @@ class RouteTable(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/routeTable:RouteTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/routeTables/mytable1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteTableArgs args: The arguments to use to populate this resource's properties.

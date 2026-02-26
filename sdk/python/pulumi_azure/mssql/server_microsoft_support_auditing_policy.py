@@ -27,6 +27,7 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
                  storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerMicrosoftSupportAuditingPolicy resource.
+
         :param pulumi.Input[_builtins.str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
@@ -134,6 +135,7 @@ class _ServerMicrosoftSupportAuditingPolicyState:
                  storage_account_subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerMicrosoftSupportAuditingPolicy resources.
+
         :param pulumi.Input[_builtins.str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
@@ -370,6 +372,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         $ pulumi import azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/devOpsAuditingSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
@@ -512,6 +515,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/devOpsAuditingSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerMicrosoftSupportAuditingPolicyArgs args: The arguments to use to populate this resource's properties.

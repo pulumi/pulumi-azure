@@ -28,6 +28,7 @@ class ContainerArgs:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Container resource.
+
         :param pulumi.Input[_builtins.str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
                > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
@@ -167,6 +168,7 @@ class _ContainerState:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Container resources.
+
         :param pulumi.Input[_builtins.str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
                
                > **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
@@ -396,6 +398,7 @@ class Container(pulumi.CustomResource):
         $ pulumi import azure:storage/container:Container container1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/blobServices/default/containers/mycontainer
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
@@ -459,6 +462,7 @@ class Container(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/container:Container container1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/blobServices/default/containers/mycontainer
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.

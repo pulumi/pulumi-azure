@@ -24,6 +24,7 @@ class ActionCustomArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActionCustom resource.
+
         :param pulumi.Input[_builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Action.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -82,6 +83,7 @@ class _ActionCustomState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionCustom resources.
+
         :param pulumi.Input[_builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Action.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -190,6 +192,7 @@ class ActionCustom(pulumi.CustomResource):
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Action.
@@ -249,6 +252,7 @@ class ActionCustom(pulumi.CustomResource):
         ```
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
+
 
         :param str resource_name: The name of the resource.
         :param ActionCustomArgs args: The arguments to use to populate this resource's properties.

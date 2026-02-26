@@ -33,6 +33,7 @@ class IdentityProviderAadb2cArgs:
                  profile_editing_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProviderAadb2c resource.
+
         :param pulumi.Input[_builtins.str] allowed_tenant: The allowed AAD tenant, usually your B2C tenant domain.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] authority: OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
@@ -224,6 +225,7 @@ class _IdentityProviderAadb2cState:
                  signup_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProviderAadb2c resources.
+
         :param pulumi.Input[_builtins.str] allowed_tenant: The allowed AAD tenant, usually your B2C tenant domain.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] authority: OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
@@ -478,6 +480,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/service1/identityProviders/aadB2C
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_tenant: The allowed AAD tenant, usually your B2C tenant domain.
@@ -550,6 +553,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/service1/identityProviders/aadB2C
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderAadb2cArgs args: The arguments to use to populate this resource's properties.

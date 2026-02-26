@@ -27,6 +27,7 @@ class AAAARecordArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AAAARecord resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] records: A list of IPv6 Addresses.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -128,6 +129,7 @@ class _AAAARecordState:
                  zone_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AAAARecord resources.
+
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS AAAA Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS A Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] records: A list of IPv6 Addresses.
@@ -290,6 +292,7 @@ class AAAARecord(pulumi.CustomResource):
         $ pulumi import azure:privatedns/aAAARecord:AAAARecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/AAAA/myrecord1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS A Record. Changing this forces a new resource to be created.
@@ -345,6 +348,7 @@ class AAAARecord(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/aAAARecord:AAAARecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/AAAA/myrecord1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AAAARecordArgs args: The arguments to use to populate this resource's properties.

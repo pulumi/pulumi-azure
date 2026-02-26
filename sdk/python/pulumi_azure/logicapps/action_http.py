@@ -31,6 +31,7 @@ class ActionHttpArgs:
                  run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None):
         """
         The set of arguments for constructing a ActionHttp resource.
+
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] method: Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         :param pulumi.Input[_builtins.str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
@@ -168,6 +169,7 @@ class _ActionHttpState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActionHttp resources.
+
         :param pulumi.Input[_builtins.str] body: Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] headers: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -343,6 +345,7 @@ class ActionHttp(pulumi.CustomResource):
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
@@ -394,6 +397,7 @@ class ActionHttp(pulumi.CustomResource):
         ```
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
+
 
         :param str resource_name: The name of the resource.
         :param ActionHttpArgs args: The arguments to use to populate this resource's properties.

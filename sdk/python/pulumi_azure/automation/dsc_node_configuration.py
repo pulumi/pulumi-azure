@@ -25,6 +25,7 @@ class DscNodeConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DscNodeConfiguration resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_embedded: The PowerShell DSC Node Configuration (mof content).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
@@ -95,6 +96,7 @@ class _DscNodeConfigurationState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DscNodeConfiguration resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_embedded: The PowerShell DSC Node Configuration (mof content).
         :param pulumi.Input[_builtins.str] name: Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
@@ -247,6 +249,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
         $ pulumi import azure:automation/dscNodeConfiguration:DscNodeConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/nodeConfigurations/configuration1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
@@ -326,6 +329,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/dscNodeConfiguration:DscNodeConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/nodeConfigurations/configuration1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DscNodeConfigurationArgs args: The arguments to use to populate this resource's properties.

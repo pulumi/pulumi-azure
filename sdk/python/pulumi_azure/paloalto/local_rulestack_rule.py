@@ -42,6 +42,7 @@ class LocalRulestackRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalRulestackRule resource.
+
         :param pulumi.Input[_builtins.str] action: The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: Specifies a list of Applications.
         :param pulumi.Input['LocalRulestackRuleDestinationArgs'] destination: One or more `destination` blocks as defined below.
@@ -356,6 +357,7 @@ class _LocalRulestackRuleState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackRule resources.
+
         :param pulumi.Input[_builtins.str] action: The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applications: Specifies a list of Applications.
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
@@ -724,6 +726,7 @@ class LocalRulestackRule(pulumi.CustomResource):
         $ pulumi import azure:paloalto/localRulestackRule:LocalRulestackRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/localRules/myRule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
@@ -801,6 +804,7 @@ class LocalRulestackRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/localRulestackRule:LocalRulestackRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/localRules/myRule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackRuleArgs args: The arguments to use to populate this resource's properties.

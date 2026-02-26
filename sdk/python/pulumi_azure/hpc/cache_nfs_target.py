@@ -31,6 +31,7 @@ class CacheNfsTargetArgs:
                  write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CacheNfsTarget resource.
+
         :param pulumi.Input[_builtins.str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
@@ -162,6 +163,7 @@ class _CacheNfsTargetState:
                  write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CacheNfsTarget resources.
+
         :param pulumi.Input[_builtins.str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
@@ -417,6 +419,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
@@ -550,6 +553,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheNfsTargetArgs args: The arguments to use to populate this resource's properties.

@@ -44,6 +44,7 @@ class EventSubscriptionArgs:
                  webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None):
         """
         The set of arguments for constructing a EventSubscription resource.
+
         :param pulumi.Input[_builtins.str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['EventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[_builtins.bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
@@ -395,6 +396,7 @@ class _EventSubscriptionState:
                  webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None):
         """
         Input properties used for looking up and filtering EventSubscription resources.
+
         :param pulumi.Input['EventSubscriptionAdvancedFilterArgs'] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[_builtins.bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
         :param pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs'] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
@@ -802,6 +804,7 @@ class EventSubscription(pulumi.CustomResource):
         $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict']] advanced_filter: A `advanced_filter` block as defined below.
@@ -883,6 +886,7 @@ class EventSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

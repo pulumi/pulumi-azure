@@ -31,6 +31,7 @@ class NetworkManagerConnectivityConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerConnectivityConfiguration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[_builtins.str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
@@ -164,6 +165,7 @@ class _NetworkManagerConnectivityConfigurationState:
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerConnectivityConfiguration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[_builtins.str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[_builtins.bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
@@ -376,6 +378,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/connectivityConfigurations/configuration1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
@@ -466,6 +469,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/connectivityConfigurations/configuration1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerConnectivityConfigurationArgs args: The arguments to use to populate this resource's properties.

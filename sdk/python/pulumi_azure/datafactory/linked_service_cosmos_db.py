@@ -32,6 +32,7 @@ class LinkedServiceCosmosDbArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkedServiceCosmosDb resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[_builtins.str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
@@ -219,6 +220,7 @@ class _LinkedServiceCosmosDbState:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceCosmosDb resources.
+
         :param pulumi.Input[_builtins.str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[_builtins.str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
@@ -443,6 +445,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         $ pulumi import azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
@@ -498,6 +501,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceCosmosDbArgs args: The arguments to use to populate this resource's properties.

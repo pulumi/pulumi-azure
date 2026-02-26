@@ -32,6 +32,7 @@ class NetworkConnectionMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkConnectionMonitor resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]] endpoints: A `endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] network_watcher_id: The ID of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]] test_configurations: A `test_configuration` block as defined below.
@@ -180,6 +181,7 @@ class _NetworkConnectionMonitorState:
                  test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None):
         """
         Input properties used for looking up and filtering NetworkConnectionMonitor resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]] endpoints: A `endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
@@ -464,6 +466,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]] endpoints: A `endpoint` block as defined below.
@@ -611,6 +614,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkConnectionMonitorArgs args: The arguments to use to populate this resource's properties.

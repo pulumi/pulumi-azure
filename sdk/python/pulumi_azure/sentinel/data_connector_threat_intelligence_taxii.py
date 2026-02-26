@@ -31,6 +31,7 @@ class DataConnectorThreatIntelligenceTaxiiArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorThreatIntelligenceTaxii resource.
+
         :param pulumi.Input[_builtins.str] api_root_url: The API root URI of the TAXII server.
         :param pulumi.Input[_builtins.str] collection_id: The collection ID of the TAXII server.
         :param pulumi.Input[_builtins.str] display_name: The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
@@ -199,6 +200,7 @@ class _DataConnectorThreatIntelligenceTaxiiState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorThreatIntelligenceTaxii resources.
+
         :param pulumi.Input[_builtins.str] api_root_url: The API root URI of the TAXII server.
         :param pulumi.Input[_builtins.str] collection_id: The collection ID of the TAXII server.
         :param pulumi.Input[_builtins.str] display_name: The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
@@ -414,6 +416,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         $ pulumi import azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_root_url: The API root URI of the TAXII server.
@@ -475,6 +478,7 @@ class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataConnectorThreatIntelligenceTaxiiArgs args: The arguments to use to populate this resource's properties.

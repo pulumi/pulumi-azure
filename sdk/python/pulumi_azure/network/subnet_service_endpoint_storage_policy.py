@@ -28,6 +28,7 @@ class SubnetServiceEndpointStoragePolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SubnetServiceEndpointStoragePolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']]] definitions: A `definition` block as defined below
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -115,6 +116,7 @@ class _SubnetServiceEndpointStoragePolicyState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SubnetServiceEndpointStoragePolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']]] definitions: A `definition` block as defined below
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -269,6 +271,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         $ pulumi import azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/serviceEndpointPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetServiceEndpointStoragePolicyDefinitionArgs', 'SubnetServiceEndpointStoragePolicyDefinitionArgsDict']]]] definitions: A `definition` block as defined below
@@ -346,6 +349,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/serviceEndpointPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetServiceEndpointStoragePolicyArgs args: The arguments to use to populate this resource's properties.

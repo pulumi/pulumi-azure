@@ -35,6 +35,7 @@ class NetworkInterfaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
@@ -259,6 +260,7 @@ class _NetworkInterfaceState:
                  virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterface resources.
+
         :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
                
                > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
@@ -619,6 +621,7 @@ class NetworkInterface(pulumi.CustomResource):
         $ pulumi import azure:network/networkInterface:NetworkInterface example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Should Accelerated Networking be enabled? Defaults to `false`.
@@ -697,6 +700,7 @@ class NetworkInterface(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkInterface:NetworkInterface example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

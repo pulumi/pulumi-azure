@@ -32,6 +32,7 @@ class AlertProcessingRuleActionGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AlertProcessingRuleActionGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add_action_group_ids: Specifies a list of Action Group IDs.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of resource IDs which will be the target of alert processing rule.
@@ -181,6 +182,7 @@ class _AlertProcessingRuleActionGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AlertProcessingRuleActionGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add_action_group_ids: Specifies a list of Action Group IDs.
         :param pulumi.Input['AlertProcessingRuleActionGroupConditionArgs'] condition: A `condition` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Alert Processing Rule.
@@ -407,6 +409,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         $ pulumi import azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add_action_group_ids: Specifies a list of Action Group IDs.
@@ -496,6 +499,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertProcessingRuleActionGroupArgs args: The arguments to use to populate this resource's properties.

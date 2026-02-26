@@ -25,6 +25,7 @@ class ServiceCustomDomainArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] domain_name: Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
                
                > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
@@ -98,6 +99,7 @@ class _ServiceCustomDomainState:
                  signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] domain_name: Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
                
                > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
@@ -269,6 +271,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:signalr/serviceCustomDomain:ServiceCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customDomains/customDomain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
@@ -376,6 +379,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:signalr/serviceCustomDomain:ServiceCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customDomains/customDomain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceCustomDomainArgs args: The arguments to use to populate this resource's properties.

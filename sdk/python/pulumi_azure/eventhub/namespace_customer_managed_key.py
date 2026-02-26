@@ -25,6 +25,7 @@ class NamespaceCustomerManagedKeyInitArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceCustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_vault_key_ids: The list of keys of Key Vault.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
@@ -103,6 +104,7 @@ class _NamespaceCustomerManagedKeyState:
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceCustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_vault_key_ids: The list of keys of Key Vault.
@@ -363,6 +365,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] eventhub_namespace_id: The ID of the EventHub Namespace. Changing this forces a new resource to be created.
@@ -557,6 +560,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceCustomerManagedKeyInitArgs args: The arguments to use to populate this resource's properties.

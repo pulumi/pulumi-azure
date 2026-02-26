@@ -26,6 +26,7 @@ class NamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
@@ -117,6 +118,7 @@ class _NamespaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] metric_id: The Identifier for Azure Insights metrics.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
@@ -319,6 +321,7 @@ class Namespace(pulumi.CustomResource):
         $ pulumi import azure:relay/namespace:Namespace relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
@@ -369,6 +372,7 @@ class Namespace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:relay/namespace:Namespace relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

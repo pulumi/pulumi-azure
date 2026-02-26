@@ -30,6 +30,7 @@ class VolumeGroupOracleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeGroupOracle resource.
+
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -145,6 +146,7 @@ class _VolumeGroupOracleState:
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]]] = None):
         """
         Input properties used for looking up and filtering VolumeGroupOracle resources.
+
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -540,6 +542,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
         $ pulumi import azure:netapp/volumeGroupOracle:VolumeGroupOracle example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mytest-rg/providers/Microsoft.NetApp/netAppAccounts/netapp-account-test/volumeGroups/netapp-volumegroup-test
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -828,6 +831,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:netapp/volumeGroupOracle:VolumeGroupOracle example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mytest-rg/providers/Microsoft.NetApp/netAppAccounts/netapp-account-test/volumeGroups/netapp-volumegroup-test
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeGroupOracleArgs args: The arguments to use to populate this resource's properties.

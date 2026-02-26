@@ -29,6 +29,7 @@ class ChannelDirectLineSpeechArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelDirectLineSpeech resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_service_access_key: The access key to access the Cognitive Service.
         :param pulumi.Input[_builtins.str] cognitive_service_location: Specifies the supported Azure location where the Cognitive Service resource exists.
@@ -161,6 +162,7 @@ class _ChannelDirectLineSpeechState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelDirectLineSpeech resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account this Bot Channel should be associated with.
         :param pulumi.Input[_builtins.str] cognitive_service_access_key: The access key to access the Cognitive Service.
@@ -340,6 +342,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         $ pulumi import azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/DirectLineSpeechChannel
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -397,6 +400,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/DirectLineSpeechChannel
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelDirectLineSpeechArgs args: The arguments to use to populate this resource's properties.

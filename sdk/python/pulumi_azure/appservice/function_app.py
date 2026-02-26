@@ -44,6 +44,7 @@ class FunctionAppArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionApp resource.
+
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
@@ -406,6 +407,7 @@ class _FunctionAppState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionApp resources.
+
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
@@ -983,6 +985,7 @@ class FunctionApp(pulumi.CustomResource):
         $ pulumi import azure:appservice/functionApp:FunctionApp functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
@@ -1145,6 +1148,7 @@ class FunctionApp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/functionApp:FunctionApp functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionAppArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class PostgresqlFirewallRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PostgresqlFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
         :param pulumi.Input[_builtins.str] start_ip_address: The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
@@ -94,6 +95,7 @@ class _PostgresqlFirewallRuleState:
                  start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PostgresqlFirewallRule resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
@@ -210,6 +212,7 @@ class PostgresqlFirewallRule(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/firewallRules/firewallRule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
@@ -264,6 +267,7 @@ class PostgresqlFirewallRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/firewallRules/firewallRule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PostgresqlFirewallRuleArgs args: The arguments to use to populate this resource's properties.

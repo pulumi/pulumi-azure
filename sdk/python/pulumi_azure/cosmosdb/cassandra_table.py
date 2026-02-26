@@ -30,6 +30,7 @@ class CassandraTableArgs:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CassandraTable resource.
+
         :param pulumi.Input[_builtins.str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input['CassandraTableSchemaArgs'] schema: A `schema` block as defined below.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
@@ -156,6 +157,7 @@ class _CassandraTableState:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CassandraTable resources.
+
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
                
                > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
@@ -346,6 +348,7 @@ class CassandraTable(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/cassandraTable:CassandraTable ks1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/cassandraKeyspaces/ks1/tables/table1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
@@ -425,6 +428,7 @@ class CassandraTable(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/cassandraTable:CassandraTable ks1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/cassandraKeyspaces/ks1/tables/table1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CassandraTableArgs args: The arguments to use to populate this resource's properties.

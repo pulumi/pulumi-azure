@@ -23,6 +23,7 @@ class SpringCloudApplicationLiveViewArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudApplicationLiveView resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Application Live View to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
         """
@@ -62,6 +63,7 @@ class _SpringCloudApplicationLiveViewState:
                  spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApplicationLiveView resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Application Live View to be created.
         """
@@ -134,6 +136,7 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
 
         Spring Cloud Application Live Views can be imported using the `resource id`, e.g.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
@@ -174,6 +177,7 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
         ## Import
 
         Spring Cloud Application Live Views can be imported using the `resource id`, e.g.
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudApplicationLiveViewArgs args: The arguments to use to populate this resource's properties.

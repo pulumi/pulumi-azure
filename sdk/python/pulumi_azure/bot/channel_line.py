@@ -27,6 +27,7 @@ class ChannelLineArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelLine resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]] line_channels: One or more `line_channel` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
@@ -96,6 +97,7 @@ class _ChannelLineState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelLine resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]] line_channels: One or more `line_channel` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -209,6 +211,7 @@ class ChannelLine(pulumi.CustomResource):
         $ pulumi import azure:bot/channelLine:ChannelLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/LineChannel
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -260,6 +263,7 @@ class ChannelLine(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelLine:ChannelLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/LineChannel
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelLineArgs args: The arguments to use to populate this resource's properties.

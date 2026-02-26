@@ -29,6 +29,7 @@ class RuntimeEnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuntimeEnvironment resource.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of the automation account in which the Automation Runtime Environment is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] runtime_language: The programming language used by the Automation Runtime Environment. Possible values are `Python` and `PowerShell`. Changing this forces a new Automation Runtime Environment to be created.
         :param pulumi.Input[_builtins.str] runtime_version: The version of the runtime environment. Changing this forces a new Automation Runtime Environment to be created.
@@ -162,6 +163,7 @@ class _RuntimeEnvironmentState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuntimeEnvironment resources.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of the automation account in which the Automation Runtime Environment is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Automation Runtime Environment.
         :param pulumi.Input[_builtins.str] location: The location where the Automation Runtime Environment is created. Changing this forces a new resource to be created.
@@ -347,6 +349,7 @@ class RuntimeEnvironment(pulumi.CustomResource):
         $ pulumi import azure:automation/runtimeEnvironment:RuntimeEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runtimeEnvironments/env1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of the automation account in which the Automation Runtime Environment is created. Changing this forces a new resource to be created.
@@ -410,6 +413,7 @@ class RuntimeEnvironment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/runtimeEnvironment:RuntimeEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runtimeEnvironments/env1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuntimeEnvironmentArgs args: The arguments to use to populate this resource's properties.

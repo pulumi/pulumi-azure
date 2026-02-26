@@ -31,6 +31,7 @@ class HciClusterArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HciCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[_builtins.str] client_id: The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -173,6 +174,7 @@ class _HciClusterState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HciCluster resources.
+
         :param pulumi.Input[_builtins.str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[_builtins.str] client_id: The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cloud_id: An immutable UUID for the Azure Stack HCI Cluster.
@@ -371,6 +373,7 @@ class HciCluster(pulumi.CustomResource):
         $ pulumi import azure:stack/hciCluster:HciCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
@@ -400,6 +403,7 @@ class HciCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:stack/hciCluster:HciCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HciClusterArgs args: The arguments to use to populate this resource's properties.

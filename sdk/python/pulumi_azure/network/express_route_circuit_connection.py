@@ -27,6 +27,7 @@ class ExpressRouteCircuitConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuitConnection resource.
+
         :param pulumi.Input[_builtins.str] address_prefix_ipv4: The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[_builtins.str] peer_peering_id: The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[_builtins.str] peering_id: The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created.
@@ -132,6 +133,7 @@ class _ExpressRouteCircuitConnectionState:
                  peering_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteCircuitConnection resources.
+
         :param pulumi.Input[_builtins.str] address_prefix_ipv4: The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
         :param pulumi.Input[_builtins.str] address_prefix_ipv6: The IPv6 address space from which to allocate customer addresses for global reach.
                
@@ -329,6 +331,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         $ pulumi import azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRouteCircuits/circuit1/peerings/peering1/connections/connection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_prefix_ipv4: The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
@@ -432,6 +435,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRouteCircuits/circuit1/peerings/peering1/connections/connection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitConnectionArgs args: The arguments to use to populate this resource's properties.

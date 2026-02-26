@@ -26,6 +26,7 @@ class RestorePointCollectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RestorePointCollection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _RestorePointCollectionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RestorePointCollection resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
@@ -277,6 +279,7 @@ class RestorePointCollection(pulumi.CustomResource):
         $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
@@ -365,6 +368,7 @@ class RestorePointCollection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RestorePointCollectionArgs args: The arguments to use to populate this resource's properties.

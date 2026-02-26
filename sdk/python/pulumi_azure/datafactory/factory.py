@@ -36,6 +36,7 @@ class FactoryArgs:
                  vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Factory resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
@@ -251,6 +252,7 @@ class _FactoryState:
                  vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Factory resources.
+
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
@@ -502,6 +504,7 @@ class Factory(pulumi.CustomResource):
         $ pulumi import azure:datafactory/factory:Factory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
@@ -556,6 +559,7 @@ class Factory(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/factory:Factory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FactoryArgs args: The arguments to use to populate this resource's properties.

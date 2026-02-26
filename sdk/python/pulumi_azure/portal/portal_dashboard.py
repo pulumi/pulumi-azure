@@ -26,6 +26,7 @@ class PortalDashboardArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PortalDashboard resource.
+
         :param pulumi.Input[_builtins.str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -116,6 +117,7 @@ class _PortalDashboardState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PortalDashboard resources.
+
         :param pulumi.Input[_builtins.str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
@@ -395,6 +397,7 @@ class PortalDashboard(pulumi.CustomResource):
 
         Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
@@ -595,6 +598,7 @@ class PortalDashboard(pulumi.CustomResource):
         ```
 
         Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+
 
         :param str resource_name: The name of the resource.
         :param PortalDashboardArgs args: The arguments to use to populate this resource's properties.

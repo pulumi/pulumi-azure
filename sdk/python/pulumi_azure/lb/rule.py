@@ -36,6 +36,7 @@ class RuleArgs:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Rule resource.
+
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
@@ -294,6 +295,7 @@ class _RuleState:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
                
                > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
@@ -620,6 +622,7 @@ class Rule(pulumi.CustomResource):
         $ pulumi import azure:lb/rule:Rule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/loadBalancingRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
@@ -699,6 +702,7 @@ class Rule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lb/rule:Rule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/loadBalancingRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.

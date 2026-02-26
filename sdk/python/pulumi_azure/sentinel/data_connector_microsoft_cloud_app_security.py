@@ -26,6 +26,7 @@ class DataConnectorMicrosoftCloudAppSecurityArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorMicrosoftCloudAppSecurity resource.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[_builtins.bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
@@ -121,6 +122,7 @@ class _DataConnectorMicrosoftCloudAppSecurityState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorMicrosoftCloudAppSecurity resources.
+
         :param pulumi.Input[_builtins.bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
                
@@ -252,6 +254,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         $ pulumi import azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
@@ -302,6 +305,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataConnectorMicrosoftCloudAppSecurityArgs args: The arguments to use to populate this resource's properties.

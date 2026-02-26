@@ -31,6 +31,7 @@ class HciNetworkInterfaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HciNetworkInterface resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HciNetworkInterfaceIpConfigurationArgs'] ip_configuration: An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
@@ -168,6 +169,7 @@ class _HciNetworkInterfaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HciNetworkInterface resources.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input['HciNetworkInterfaceIpConfigurationArgs'] ip_configuration: An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
@@ -375,6 +377,7 @@ class HciNetworkInterface(pulumi.CustomResource):
         $ pulumi import azure:stack/hciNetworkInterface:HciNetworkInterface example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/networkInterfaces/ni1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
@@ -458,6 +461,7 @@ class HciNetworkInterface(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:stack/hciNetworkInterface:HciNetworkInterface example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/networkInterfaces/ni1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HciNetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

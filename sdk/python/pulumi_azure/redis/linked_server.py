@@ -26,6 +26,7 @@ class LinkedServerArgs:
                  target_redis_cache_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a LinkedServer resource.
+
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[_builtins.str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
@@ -111,6 +112,7 @@ class _LinkedServerState:
                  target_redis_cache_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedServer resources.
+
         :param pulumi.Input[_builtins.str] geo_replicated_primary_host_name: The geo-replicated primary hostname for this linked server.
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[_builtins.str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -295,6 +297,7 @@ class LinkedServer(pulumi.CustomResource):
         $ pulumi import azure:redis/linkedServer:LinkedServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/linkedServers/cache2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -372,6 +375,7 @@ class LinkedServer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:redis/linkedServer:LinkedServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/linkedServers/cache2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServerArgs args: The arguments to use to populate this resource's properties.

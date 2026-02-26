@@ -47,6 +47,7 @@ class StandardArgs:
                  vnet_content_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Standard resource.
+
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
@@ -465,6 +466,7 @@ class _StandardState:
                  vnet_content_share_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Standard resources.
+
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
@@ -1069,6 +1071,7 @@ class Standard(pulumi.CustomResource):
         $ pulumi import azure:logicapps/standard:Standard logicapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/logicapp1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
@@ -1209,6 +1212,7 @@ class Standard(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/standard:Standard logicapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/logicapp1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StandardArgs args: The arguments to use to populate this resource's properties.

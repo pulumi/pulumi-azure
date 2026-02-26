@@ -27,6 +27,7 @@ class ManagedInstanceStartStopScheduleArgs:
                  timezone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceStartStopSchedule resource.
+
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedInstanceStartStopScheduleScheduleArgs']]] schedules: A `schedule` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the schedule.
@@ -99,6 +100,7 @@ class _ManagedInstanceStartStopScheduleState:
                  timezone_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceStartStopSchedule resources.
+
         :param pulumi.Input[_builtins.str] description: Specifies the description of the schedule.
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
         :param pulumi.Input[_builtins.str] next_execution_time: Timestamp when the next action will be executed in the corresponding schedule time zone.
@@ -407,6 +409,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
         $ pulumi import azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Sql/managedInstances/managedInstance1/startStopSchedules/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the schedule.
@@ -623,6 +626,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Sql/managedInstances/managedInstance1/startStopSchedules/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceStartStopScheduleArgs args: The arguments to use to populate this resource's properties.

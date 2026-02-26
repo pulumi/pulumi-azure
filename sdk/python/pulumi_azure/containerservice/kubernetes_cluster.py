@@ -82,6 +82,7 @@ class KubernetesClusterArgs:
                  workload_identity_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a KubernetesCluster resource.
+
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
@@ -1171,6 +1172,7 @@ class _KubernetesClusterState:
                  workload_identity_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
+
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         :param pulumi.Input[_builtins.bool] ai_toolchain_operator_enabled: Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
         :param pulumi.Input['KubernetesClusterApiServerAccessProfileArgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
@@ -2469,6 +2471,7 @@ class KubernetesCluster(pulumi.CustomResource):
         $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
@@ -2651,6 +2654,7 @@ class KubernetesCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class TargetArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
+
         :param pulumi.Input[_builtins.str] target_resource_id: Specifies the Target Resource Id within which this Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         :param pulumi.Input[_builtins.str] target_type: The name of the Chaos Studio Target. This has the format of [publisher]-[targetType] e.g. `Microsoft-StorageAccount`. For supported values please see this Target Type column in [this table](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-providers). Changing this forces a new Chaos Studio Target to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
@@ -78,6 +79,7 @@ class _TargetState:
                  target_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Target resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: Specifies the Target Resource Id within which this Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         :param pulumi.Input[_builtins.str] target_type: The name of the Chaos Studio Target. This has the format of [publisher]-[targetType] e.g. `Microsoft-StorageAccount`. For supported values please see this Target Type column in [this table](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-providers). Changing this forces a new Chaos Studio Target to be created.
@@ -183,6 +185,7 @@ class Target(pulumi.CustomResource):
         * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
         * Where `{targetName}` is the name of the Target. For example `targetValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
@@ -241,6 +244,7 @@ class Target(pulumi.CustomResource):
 
         * Where `{scope}` is the ID of the Azure Resource under which the Chaos Studio Target exists. For example `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group`.
         * Where `{targetName}` is the name of the Target. For example `targetValue`.
+
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.

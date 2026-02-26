@@ -24,6 +24,7 @@ class DataConnectorAwsCloudTrailArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorAwsCloudTrail resource.
+
         :param pulumi.Input[_builtins.str] aws_role_arn: The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
@@ -78,6 +79,7 @@ class _DataConnectorAwsCloudTrailState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorAwsCloudTrail resources.
+
         :param pulumi.Input[_builtins.str] aws_role_arn: The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
@@ -168,6 +170,7 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
         $ pulumi import azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_role_arn: The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
@@ -211,6 +214,7 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataConnectorAwsCloudTrailArgs args: The arguments to use to populate this resource's properties.

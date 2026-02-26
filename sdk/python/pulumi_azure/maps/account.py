@@ -32,6 +32,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
                
@@ -189,6 +190,7 @@ class _AccountState:
                  x_ms_client_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input['AccountCorsArgs'] cors: A `cors` block as defined below
         :param pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]] data_stores: One or more `data_store` blocks as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -429,6 +431,7 @@ class Account(pulumi.CustomResource):
         $ pulumi import azure:maps/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maps/accounts/my-maps-account
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict']] cors: A `cors` block as defined below
@@ -485,6 +488,7 @@ class Account(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:maps/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maps/accounts/my-maps-account
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

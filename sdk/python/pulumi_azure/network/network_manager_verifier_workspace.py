@@ -26,6 +26,7 @@ class NetworkManagerVerifierWorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkManagerVerifierWorkspace resource.
+
         :param pulumi.Input[_builtins.str] network_manager_id: The ID of the Network Manager. Changing this forces a new Network Manager Verifier Workspace to be created.
         :param pulumi.Input[_builtins.str] description: The Description of the Network Manager Verifier Workspace.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Network Manager Verifier Workspace should exist. Changing this forces a new Network Manager Verifier Workspace to be created.
@@ -113,6 +114,7 @@ class _NetworkManagerVerifierWorkspaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerVerifierWorkspace resources.
+
         :param pulumi.Input[_builtins.str] description: The Description of the Network Manager Verifier Workspace.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Network Manager Verifier Workspace should exist. Changing this forces a new Network Manager Verifier Workspace to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Manager Verifier Workspace. Changing this forces a new Network Manager Verifier Workspace to be created.
@@ -250,6 +252,7 @@ class NetworkManagerVerifierWorkspace(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/verifierWorkspaces/workspace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The Description of the Network Manager Verifier Workspace.
@@ -310,6 +313,7 @@ class NetworkManagerVerifierWorkspace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/verifierWorkspaces/workspace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerVerifierWorkspaceArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class VirtualMachineManagerVirtualMachineInstanceArgs:
                  system_center_virtual_machine_manager_availability_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineManagerVirtualMachineInstance resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs'] infrastructure: An `infrastructure` block as defined below.
         :param pulumi.Input[_builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
@@ -176,6 +177,7 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
                  system_center_virtual_machine_manager_availability_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineManagerVirtualMachineInstance resources.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineManagerVirtualMachineInstanceHardwareArgs'] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
                
@@ -399,6 +401,7 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         $ pulumi import azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.HybridCompute/machines/machine1/providers/Microsoft.ScVmm/virtualMachineInstances/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
@@ -494,6 +497,7 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.HybridCompute/machines/machine1/providers/Microsoft.ScVmm/virtualMachineInstances/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineManagerVirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.

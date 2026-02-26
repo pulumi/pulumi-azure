@@ -36,6 +36,7 @@ class ConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
         :param pulumi.Input['ConfigurationAntimalwareArgs'] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[_builtins.bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
@@ -247,6 +248,7 @@ class _ConfigurationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
+
         :param pulumi.Input['ConfigurationAntimalwareArgs'] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[_builtins.bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
         :param pulumi.Input['ConfigurationAzureSecurityBaselineArgs'] azure_security_baseline: A `azure_security_baseline` block as defined below.
@@ -549,6 +551,7 @@ class Configuration(pulumi.CustomResource):
         $ pulumi import azure:automanage/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AutoManage/configurationProfiles/configurationProfile1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']] antimalware: A `antimalware` block as defined below.
@@ -657,6 +660,7 @@ class Configuration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automanage/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AutoManage/configurationProfiles/configurationProfile1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class CustomHostnameBindingArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomHostnameBinding resource.
+
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
                
@@ -120,6 +121,7 @@ class _CustomHostnameBindingState:
                  virtual_ip: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomHostnameBinding resources.
+
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
                
@@ -278,6 +280,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
         $ pulumi import azure:appservice/customHostnameBinding:CustomHostnameBinding mywebsite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
@@ -340,6 +343,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/customHostnameBinding:CustomHostnameBinding mywebsite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/hostNameBindings/mywebsite.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomHostnameBindingArgs args: The arguments to use to populate this resource's properties.

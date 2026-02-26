@@ -33,6 +33,7 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudAppDynamicsApplicationPerformanceMonitoring resource.
+
         :param pulumi.Input[_builtins.str] agent_account_access_key: Specifies the account access key used to authenticate with the Controller.
         :param pulumi.Input[_builtins.str] agent_account_name: Specifies the account name of the App Dynamics account.
         :param pulumi.Input[_builtins.str] controller_host_name: Specifies the hostname or the IP address of the AppDynamics Controller.
@@ -229,6 +230,7 @@ class _SpringCloudAppDynamicsApplicationPerformanceMonitoringState:
                  spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppDynamicsApplicationPerformanceMonitoring resources.
+
         :param pulumi.Input[_builtins.str] agent_account_access_key: Specifies the account access key used to authenticate with the Controller.
         :param pulumi.Input[_builtins.str] agent_account_name: Specifies the account name of the App Dynamics account.
         :param pulumi.Input[_builtins.str] agent_application_name: Specifies the name of the logical business application that this JVM node belongs to.
@@ -482,6 +484,7 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResour
         $ pulumi import azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_account_access_key: Specifies the account access key used to authenticate with the Controller.
@@ -553,6 +556,7 @@ class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResour
         ```sh
         $ pulumi import azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs args: The arguments to use to populate this resource's properties.

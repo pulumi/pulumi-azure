@@ -25,6 +25,7 @@ class ClusterTrustedAccessRoleBindingArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterTrustedAccessRoleBinding resource.
+
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: A list of roles to bind, each item is a resource type qualified role name.
         :param pulumi.Input[_builtins.str] source_resource_id: The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
@@ -94,6 +95,7 @@ class _ClusterTrustedAccessRoleBindingState:
                  source_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterTrustedAccessRoleBinding resources.
+
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: A list of roles to bind, each item is a resource type qualified role name.
@@ -255,6 +257,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
         * Where `{managedClusterName}` is the name of the Managed Cluster. For example `managedClusterValue`.
         * Where `{trustedAccessRoleBindingName}` is the name of the Trusted Access Role Binding. For example `trustedAccessRoleBindingValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
@@ -354,6 +357,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Cluster Trusted Access Role Binding exists. For example `example-resource-group`.
         * Where `{managedClusterName}` is the name of the Managed Cluster. For example `managedClusterValue`.
         * Where `{trustedAccessRoleBindingName}` is the name of the Trusted Access Role Binding. For example `trustedAccessRoleBindingValue`.
+
 
         :param str resource_name: The name of the resource.
         :param ClusterTrustedAccessRoleBindingArgs args: The arguments to use to populate this resource's properties.

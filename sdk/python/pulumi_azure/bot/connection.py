@@ -30,6 +30,7 @@ class ConnectionArgs:
                  scopes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: The Client ID that will be used to authenticate with the service provider.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret that will be used to authenticate with the service provider.
@@ -177,6 +178,7 @@ class _ConnectionState:
                  service_provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: The Client ID that will be used to authenticate with the service provider.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret that will be used to authenticate with the service provider.
@@ -368,6 +370,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import azure:bot/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/connections/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
@@ -422,6 +425,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/connections/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

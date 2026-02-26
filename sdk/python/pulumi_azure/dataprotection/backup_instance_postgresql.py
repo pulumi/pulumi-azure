@@ -27,6 +27,7 @@ class BackupInstancePostgresqlArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupInstancePostgresql resource.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -129,6 +130,7 @@ class _BackupInstancePostgresqlState:
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupInstancePostgresql resources.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] database_credential_key_vault_secret_id: The ID or versionless ID of the key vault secret which stores the connection string of the database.
         :param pulumi.Input[_builtins.str] database_id: The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
@@ -383,6 +385,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
@@ -530,6 +533,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupInstancePostgresqlArgs args: The arguments to use to populate this resource's properties.

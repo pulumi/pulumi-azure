@@ -27,6 +27,7 @@ class ServiceNetworkAclArgs:
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkAcl resource.
+
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
         :param pulumi.Input['ServiceNetworkAclPublicNetworkArgs'] public_network: A `public_network` block as defined below.
         :param pulumi.Input[_builtins.str] signalr_service_id: The ID of the SignalR service. Changing this forces a new resource to be created.
@@ -96,6 +97,7 @@ class _ServiceNetworkAclState:
                  signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceNetworkAcl resources.
+
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]] private_endpoints: A `private_endpoint` block as defined below.
         :param pulumi.Input['ServiceNetworkAclPublicNetworkArgs'] public_network: A `public_network` block as defined below.
@@ -239,6 +241,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         $ pulumi import azure:signalr/serviceNetworkAcl:ServiceNetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
@@ -320,6 +323,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:signalr/serviceNetworkAcl:ServiceNetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkAclArgs args: The arguments to use to populate this resource's properties.

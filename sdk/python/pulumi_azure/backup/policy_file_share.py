@@ -34,6 +34,7 @@ class PolicyFileShareArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyFileShare resource.
+
         :param pulumi.Input['PolicyFileShareBackupArgs'] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -222,6 +223,7 @@ class _PolicyFileShareState:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyFileShare resources.
+
         :param pulumi.Input['PolicyFileShareBackupArgs'] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
         :param pulumi.Input[_builtins.str] backup_tier: The backup tier to use. Possible values are `vault-standard` and `snapshot`. Defaults to `snapshot`.
                
@@ -481,6 +483,7 @@ class PolicyFileShare(pulumi.CustomResource):
         $ pulumi import azure:backup/policyFileShare:PolicyFileShare policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyFileShareBackupArgs', 'PolicyFileShareBackupArgsDict']] backup: Configures the Policy backup frequency and times as documented in the `backup` block below.
@@ -569,6 +572,7 @@ class PolicyFileShare(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:backup/policyFileShare:PolicyFileShare policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyFileShareArgs args: The arguments to use to populate this resource's properties.

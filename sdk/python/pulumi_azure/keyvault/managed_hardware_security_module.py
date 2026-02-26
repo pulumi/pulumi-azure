@@ -36,6 +36,7 @@ class ManagedHardwareSecurityModuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_object_ids: Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
@@ -250,6 +251,7 @@ class _ManagedHardwareSecurityModuleState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_object_ids: Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hsm_uri: The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -542,6 +544,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         $ pulumi import azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/managedHSMs/hsm1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_object_ids: Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -607,6 +610,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/managedHSMs/hsm1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedHardwareSecurityModuleArgs args: The arguments to use to populate this resource's properties.

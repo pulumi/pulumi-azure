@@ -25,6 +25,7 @@ class AlertRuleMachineLearningBehaviorAnalyticsArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertRuleMachineLearningBehaviorAnalytics resource.
+
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this SentinelMachine Learning Behavior Analytics Alert Rule belongs to. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
@@ -95,6 +96,7 @@ class _AlertRuleMachineLearningBehaviorAnalyticsState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertRuleMachineLearningBehaviorAnalytics resources.
+
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this SentinelMachine Learning Behavior Analytics Alert Rule belongs to. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
@@ -208,6 +210,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         $ pulumi import azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
@@ -259,6 +262,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleMachineLearningBehaviorAnalyticsArgs args: The arguments to use to populate this resource's properties.

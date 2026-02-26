@@ -30,6 +30,7 @@ class AnalyticsSolutionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsSolution resource.
+
         :param pulumi.Input['AnalyticsSolutionPlanArgs'] plan: A `plan` block as documented below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         :param pulumi.Input[_builtins.str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
@@ -145,6 +146,7 @@ class _AnalyticsSolutionState:
                  workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AnalyticsSolution resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['AnalyticsSolutionPlanArgs'] plan: A `plan` block as documented below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
@@ -317,6 +319,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         $ pulumi import azure:operationalinsights/analyticsSolution:AnalyticsSolution solution1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationsManagement/solutions/solution1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -382,6 +385,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:operationalinsights/analyticsSolution:AnalyticsSolution solution1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationsManagement/solutions/solution1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AnalyticsSolutionArgs args: The arguments to use to populate this resource's properties.

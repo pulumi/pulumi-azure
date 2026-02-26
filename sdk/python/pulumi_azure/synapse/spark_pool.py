@@ -42,6 +42,7 @@ class SparkPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SparkPool resource.
+
         :param pulumi.Input[_builtins.str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[_builtins.str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
         :param pulumi.Input[_builtins.str] spark_version: The Apache Spark version. Possible values are `3.4` and `3.5`.
@@ -314,6 +315,7 @@ class _SparkPoolState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SparkPool resources.
+
         :param pulumi.Input['SparkPoolAutoPauseArgs'] auto_pause: An `auto_pause` block as defined below.
         :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[_builtins.int] cache_size: The cache size in the Spark Pool.
@@ -662,6 +664,7 @@ class SparkPool(pulumi.CustomResource):
         $ pulumi import azure:synapse/sparkPool:SparkPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/bigDataPools/sparkPool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict']] auto_pause: An `auto_pause` block as defined below.
@@ -750,6 +753,7 @@ class SparkPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/sparkPool:SparkPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/bigDataPools/sparkPool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SparkPoolArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class ModuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Module resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
         :param pulumi.Input['ModuleModuleLinkArgs'] module_link: A `module_link` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
@@ -96,6 +97,7 @@ class _ModuleState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Module resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
         :param pulumi.Input['ModuleModuleLinkArgs'] module_link: A `module_link` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
@@ -211,6 +213,7 @@ class Module(pulumi.CustomResource):
         $ pulumi import azure:automation/module:Module module1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/modules/module1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
@@ -264,6 +267,7 @@ class Module(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/module:Module module1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/modules/module1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModuleArgs args: The arguments to use to populate this resource's properties.

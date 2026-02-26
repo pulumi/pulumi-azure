@@ -26,6 +26,7 @@ class AssignmentDynamicScopeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssignmentDynamicScope resource.
+
         :param pulumi.Input['AssignmentDynamicScopeFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[_builtins.str] maintenance_configuration_id: The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
@@ -84,6 +85,7 @@ class _AssignmentDynamicScopeState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssignmentDynamicScope resources.
+
         :param pulumi.Input['AssignmentDynamicScopeFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[_builtins.str] maintenance_configuration_id: The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
@@ -159,6 +161,7 @@ class AssignmentDynamicScope(pulumi.CustomResource):
         $ pulumi import azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Maintenance/configurationAssignments/assignmentName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AssignmentDynamicScopeFilterArgs', 'AssignmentDynamicScopeFilterArgsDict']] filter: A `filter` block as defined below.
@@ -185,6 +188,7 @@ class AssignmentDynamicScope(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Maintenance/configurationAssignments/assignmentName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssignmentDynamicScopeArgs args: The arguments to use to populate this resource's properties.
