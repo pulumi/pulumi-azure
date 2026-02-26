@@ -31,6 +31,7 @@ class ResourceBridgeApplianceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceBridgeAppliance resource.
+
         :param pulumi.Input[_builtins.str] distro: Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
         :param pulumi.Input['ResourceBridgeApplianceIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] infrastructure_provider: The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
@@ -163,6 +164,7 @@ class _ResourceBridgeApplianceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceBridgeAppliance resources.
+
         :param pulumi.Input[_builtins.str] distro: Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
         :param pulumi.Input['ResourceBridgeApplianceIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] infrastructure_provider: The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
@@ -342,6 +344,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         $ pulumi import azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ResourceConnector/appliances/appliancesExample
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] distro: Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
@@ -399,6 +402,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ResourceConnector/appliances/appliancesExample
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceBridgeApplianceArgs args: The arguments to use to populate this resource's properties.

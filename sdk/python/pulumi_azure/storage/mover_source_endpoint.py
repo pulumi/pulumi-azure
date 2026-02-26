@@ -27,6 +27,7 @@ class MoverSourceEndpointArgs:
                  nfs_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverSourceEndpoint resource.
+
         :param pulumi.Input[_builtins.str] host: Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_mover_id: Specifies the ID of the Storage Mover for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Storage Mover Source Endpoint.
@@ -129,6 +130,7 @@ class _MoverSourceEndpointState:
                  storage_mover_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverSourceEndpoint resources.
+
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Storage Mover Source Endpoint.
         :param pulumi.Input[_builtins.str] export: Specifies the directory being exported from the server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] host: Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created.
@@ -274,6 +276,7 @@ class MoverSourceEndpoint(pulumi.CustomResource):
         $ pulumi import azure:storage/moverSourceEndpoint:MoverSourceEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/endpoints/endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Storage Mover Source Endpoint.
@@ -327,6 +330,7 @@ class MoverSourceEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/moverSourceEndpoint:MoverSourceEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/endpoints/endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MoverSourceEndpointArgs args: The arguments to use to populate this resource's properties.

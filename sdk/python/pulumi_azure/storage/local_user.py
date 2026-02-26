@@ -30,6 +30,7 @@ class LocalUserArgs:
                  ssh_password_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LocalUser resource.
+
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
         :param pulumi.Input[_builtins.str] home_directory: The home directory of the Storage Account Local User.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
@@ -151,6 +152,7 @@ class _LocalUserState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalUser resources.
+
         :param pulumi.Input[_builtins.str] home_directory: The home directory of the Storage Account Local User.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
         :param pulumi.Input[_builtins.str] password: The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
@@ -367,6 +369,7 @@ class LocalUser(pulumi.CustomResource):
         $ pulumi import azure:storage/localUser:LocalUser example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Storage/storageAccounts/storageAccount1/localUsers/user1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] home_directory: The home directory of the Storage Account Local User.
@@ -446,6 +449,7 @@ class LocalUser(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/localUser:LocalUser example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Storage/storageAccounts/storageAccount1/localUsers/user1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalUserArgs args: The arguments to use to populate this resource's properties.

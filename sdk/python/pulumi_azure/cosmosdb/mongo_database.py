@@ -28,6 +28,7 @@ class MongoDatabaseArgs:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a MongoDatabase resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
         :param pulumi.Input['MongoDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
@@ -122,6 +123,7 @@ class _MongoDatabaseState:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering MongoDatabase resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input['MongoDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
@@ -246,6 +248,7 @@ class MongoDatabase(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/mongoDatabase:MongoDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
@@ -289,6 +292,7 @@ class MongoDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/mongoDatabase:MongoDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbDatabases/db1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MongoDatabaseArgs args: The arguments to use to populate this resource's properties.

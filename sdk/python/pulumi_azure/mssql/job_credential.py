@@ -26,6 +26,7 @@ class JobCredentialArgs:
                  password_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a JobCredential resource.
+
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
         :param pulumi.Input[_builtins.str] username: The username to use for this Elastic Job credential.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
@@ -112,6 +113,7 @@ class _JobCredentialState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobCredential resources.
+
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
         :param pulumi.Input[_builtins.str] password: The password to use for this Elastic Job credential.
@@ -252,6 +254,7 @@ class JobCredential(pulumi.CustomResource):
         $ pulumi import azure:mssql/jobCredential:JobCredential example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/credentials/credential1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
@@ -315,6 +318,7 @@ class JobCredential(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/jobCredential:JobCredential example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/credentials/credential1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobCredentialArgs args: The arguments to use to populate this resource's properties.

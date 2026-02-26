@@ -23,6 +23,7 @@ class VirtualNetworkSwiftConnectionArgs:
                  subnet_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a VirtualNetworkSwiftConnection resource.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
@@ -61,6 +62,7 @@ class _VirtualNetworkSwiftConnectionState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkSwiftConnection resources.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
@@ -233,6 +235,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/config/virtualNetwork
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
@@ -373,6 +376,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/config/virtualNetwork
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkSwiftConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class WorkspaceExtendedAuditingPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceExtendedAuditingPolicy resource.
+
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -130,6 +131,7 @@ class _WorkspaceExtendedAuditingPolicyState:
                  synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceExtendedAuditingPolicy resources.
+
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key to use for the auditing storage account.
@@ -290,6 +292,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         $ pulumi import azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/extendedAuditingSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
@@ -358,6 +361,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/extendedAuditingSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceExtendedAuditingPolicyArgs args: The arguments to use to populate this resource's properties.

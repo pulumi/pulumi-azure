@@ -31,6 +31,7 @@ class SynapseSparkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SynapseSpark resource.
+
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[_builtins.str] synapse_spark_pool_id: The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -165,6 +166,7 @@ class _SynapseSparkState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SynapseSpark resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input['SynapseSparkIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -391,6 +393,7 @@ class SynapseSpark(pulumi.CustomResource):
         $ pulumi import azure:machinelearning/synapseSpark:SynapseSpark example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -495,6 +498,7 @@ class SynapseSpark(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:machinelearning/synapseSpark:SynapseSpark example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SynapseSparkArgs args: The arguments to use to populate this resource's properties.

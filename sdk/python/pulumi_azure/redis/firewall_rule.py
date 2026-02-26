@@ -26,6 +26,7 @@ class FirewallRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
+
         :param pulumi.Input[_builtins.str] end_ip: The highest IP address included in the range.
         :param pulumi.Input[_builtins.str] redis_cache_name: The name of the Redis Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
@@ -110,6 +111,7 @@ class _FirewallRuleState:
                  start_ip: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallRule resources.
+
         :param pulumi.Input[_builtins.str] end_ip: The highest IP address included in the range.
         :param pulumi.Input[_builtins.str] name: The name of the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redis_cache_name: The name of the Redis Cache. Changing this forces a new resource to be created.
@@ -254,6 +256,7 @@ class FirewallRule(pulumi.CustomResource):
         $ pulumi import azure:redis/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/firewallRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_ip: The highest IP address included in the range.
@@ -321,6 +324,7 @@ class FirewallRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:redis/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/firewallRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

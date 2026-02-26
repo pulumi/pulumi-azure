@@ -25,6 +25,7 @@ class GroupArgs:
                  subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         :param pulumi.Input[_builtins.str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_management_group_id: The ID of the Parent Management Group.
@@ -102,6 +103,7 @@ class _GroupState:
                  tenant_scoped_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
         :param pulumi.Input[_builtins.str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_management_group_id: The ID of the Parent Management Group.
@@ -231,6 +233,7 @@ class Group(pulumi.CustomResource):
         $ pulumi import azure:management/group:Group example /providers/Microsoft.Management/managementGroups/group1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -281,6 +284,7 @@ class Group(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:management/group:Group example /providers/Microsoft.Management/managementGroups/group1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class VirtualNetworkApplianceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkAppliance resource.
+
         :param pulumi.Input[_builtins.str] virtual_hub_id: The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
                
                > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
@@ -66,6 +67,7 @@ class _VirtualNetworkApplianceState:
                  virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkAppliance resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
                
@@ -157,6 +159,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         $ pulumi import azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkVirtualAppliances/myPANetworkVirtualAppliance
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
@@ -214,6 +217,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkVirtualAppliances/myPANetworkVirtualAppliance
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkApplianceArgs args: The arguments to use to populate this resource's properties.

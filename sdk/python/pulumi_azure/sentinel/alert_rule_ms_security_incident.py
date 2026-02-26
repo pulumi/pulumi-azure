@@ -31,6 +31,7 @@ class AlertRuleMsSecurityIncidentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertRuleMsSecurityIncident resource.
+
         :param pulumi.Input[_builtins.str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[_builtins.str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
@@ -199,6 +200,7 @@ class _AlertRuleMsSecurityIncidentState:
                  severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleMsSecurityIncident resources.
+
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[_builtins.str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[_builtins.str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
@@ -414,6 +416,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         $ pulumi import azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -475,6 +478,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleMsSecurityIncidentArgs args: The arguments to use to populate this resource's properties.

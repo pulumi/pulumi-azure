@@ -28,6 +28,7 @@ class RulesEngineArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None):
         """
         The set of arguments for constructing a RulesEngine resource.
+
         :param pulumi.Input[_builtins.str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
@@ -115,6 +116,7 @@ class _RulesEngineState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering RulesEngine resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location in which the Front Door Rules Engine exists.
@@ -322,6 +324,7 @@ class RulesEngine(pulumi.CustomResource):
         $ pulumi import azure:frontdoor/rulesEngine:RulesEngine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/frontdoors/frontdoor1/rulesEngines/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
@@ -437,6 +440,7 @@ class RulesEngine(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:frontdoor/rulesEngine:RulesEngine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/frontdoors/frontdoor1/rulesEngines/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RulesEngineArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class EnvironmentArgs:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input['EnvironmentIdentityArgs'] identity: An `identity` block as defined below.
@@ -315,6 +316,7 @@ class _EnvironmentState:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App Environment.
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_domain: The default, publicly resolvable, name of this Container App Environment.
@@ -722,6 +724,7 @@ class Environment(pulumi.CustomResource):
         $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
@@ -800,6 +803,7 @@ class Environment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

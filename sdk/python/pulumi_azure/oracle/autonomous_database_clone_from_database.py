@@ -46,6 +46,7 @@ class AutonomousDatabaseCloneFromDatabaseArgs:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutonomousDatabaseCloneFromDatabase resource.
+
         :param pulumi.Input[_builtins.str] admin_password: The password for the SYS, SYSTEM, and PDB Admin users. The password must be at least 12 characters long, and contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (`"`) or the username "admin", regardless of casing. Changing this forces a new Autonomous Database Clone to be created.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count. Changing this forces a new Autonomous Database Clone to be created.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage. Changing this forces a new Autonomous Database Clone to be created.
@@ -453,6 +454,7 @@ class _AutonomousDatabaseCloneFromDatabaseState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutonomousDatabaseCloneFromDatabase resources.
+
         :param pulumi.Input[_builtins.str] admin_password: The password for the SYS, SYSTEM, and PDB Admin users. The password must be at least 12 characters long, and contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (`"`) or the username "admin", regardless of casing. Changing this forces a new Autonomous Database Clone to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_addresses: Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses. Changing this forces a new Autonomous Database Clone to be created.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count. Changing this forces a new Autonomous Database Clone to be created.
@@ -948,6 +950,7 @@ class AutonomousDatabaseCloneFromDatabase(pulumi.CustomResource):
         $ pulumi import azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Oracle.Database/autonomousDatabases/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_password: The password for the SYS, SYSTEM, and PDB Admin users. The password must be at least 12 characters long, and contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (`"`) or the username "admin", regardless of casing. Changing this forces a new Autonomous Database Clone to be created.
@@ -1058,6 +1061,7 @@ class AutonomousDatabaseCloneFromDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:oracle/autonomousDatabaseCloneFromDatabase:AutonomousDatabaseCloneFromDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Oracle.Database/autonomousDatabases/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutonomousDatabaseCloneFromDatabaseArgs args: The arguments to use to populate this resource's properties.

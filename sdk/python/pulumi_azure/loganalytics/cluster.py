@@ -29,6 +29,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
@@ -136,6 +137,7 @@ class _ClusterState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: The GUID of the cluster.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
@@ -299,6 +301,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
@@ -353,6 +356,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

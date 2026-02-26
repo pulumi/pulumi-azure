@@ -32,6 +32,7 @@ class ModuleArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Module resource.
+
         :param pulumi.Input['ModuleNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -185,6 +186,7 @@ class _ModuleState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Module resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input['ModuleManagementNetworkProfileArgs'] management_network_profile: A `management_network_profile` block as defined below.
                
@@ -441,6 +443,7 @@ class Module(pulumi.CustomResource):
         $ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -558,6 +561,7 @@ class Module(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ModuleArgs args: The arguments to use to populate this resource's properties.

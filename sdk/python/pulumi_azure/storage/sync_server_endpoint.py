@@ -30,6 +30,7 @@ class SyncServerEndpointArgs:
                  volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SyncServerEndpoint resource.
+
         :param pulumi.Input[_builtins.str] registered_server_id: The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
                
                > **Note:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
@@ -183,6 +184,7 @@ class _SyncServerEndpointState:
                  volume_free_space_percent: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SyncServerEndpoint resources.
+
         :param pulumi.Input[_builtins.bool] cloud_tiering_enabled: Is Cloud Tiering Enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] initial_download_policy: Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] local_cache_mode: Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
@@ -405,6 +407,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
         $ pulumi import azure:storage/syncServerEndpoint:SyncServerEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncGroup1/serverEndpoints/endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] cloud_tiering_enabled: Is Cloud Tiering Enabled? Defaults to `false`.
@@ -488,6 +491,7 @@ class SyncServerEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/syncServerEndpoint:SyncServerEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncGroup1/serverEndpoints/endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SyncServerEndpointArgs args: The arguments to use to populate this resource's properties.

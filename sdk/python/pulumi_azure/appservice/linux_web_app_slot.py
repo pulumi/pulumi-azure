@@ -50,6 +50,7 @@ class LinuxWebAppSlotArgs:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinuxWebAppSlot resource.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
@@ -526,6 +527,7 @@ class _LinuxWebAppSlotState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebAppSlot resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_metadata: A `app_metadata`.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
@@ -1191,6 +1193,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         $ pulumi import azure:appservice/linuxWebAppSlot:LinuxWebAppSlot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
@@ -1285,6 +1288,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/linuxWebAppSlot:LinuxWebAppSlot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinuxWebAppSlotArgs args: The arguments to use to populate this resource's properties.

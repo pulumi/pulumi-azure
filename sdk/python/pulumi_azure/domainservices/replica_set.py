@@ -24,6 +24,7 @@ class ReplicaSetArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicaSet resource.
+
         :param pulumi.Input[_builtins.str] domain_service_id: The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
@@ -81,6 +82,7 @@ class _ReplicaSetState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicaSet resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_controller_ip_addresses: A list of subnet IP addresses for the domain controllers in this Replica Set, typically two.
         :param pulumi.Input[_builtins.str] domain_service_id: The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] external_access_ip_address: The publicly routable IP address for the domain controllers in this Replica Set.
@@ -418,6 +420,7 @@ class ReplicaSet(pulumi.CustomResource):
         $ pulumi import azure:domainservices/replicaSet:ReplicaSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1/replicaSets/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_service_id: The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
@@ -663,6 +666,7 @@ class ReplicaSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:domainservices/replicaSet:ReplicaSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AAD/domainServices/instance1/replicaSets/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicaSetArgs args: The arguments to use to populate this resource's properties.

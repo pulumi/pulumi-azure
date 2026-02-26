@@ -26,6 +26,7 @@ class PolicyFragmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyFragment resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[_builtins.str] value: The value of the Policy Fragment.
                
@@ -120,6 +121,7 @@ class _PolicyFragmentState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyFragment resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[_builtins.str] description: The description for the Policy Fragment.
         :param pulumi.Input[_builtins.str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
@@ -262,6 +264,7 @@ class PolicyFragment(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/policyFragment:PolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policyFragments/policyFragment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
@@ -323,6 +326,7 @@ class PolicyFragment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/policyFragment:PolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/policyFragments/policyFragment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyFragmentArgs args: The arguments to use to populate this resource's properties.

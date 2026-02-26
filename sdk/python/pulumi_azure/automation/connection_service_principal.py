@@ -29,6 +29,7 @@ class ConnectionServicePrincipalArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionServicePrincipal resource.
+
         :param pulumi.Input[_builtins.str] application_id: The (Client) ID of the Service Principal.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_thumbprint: The thumbprint of the Service Principal Certificate.
@@ -159,6 +160,7 @@ class _ConnectionServicePrincipalState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectionServicePrincipal resources.
+
         :param pulumi.Input[_builtins.str] application_id: The (Client) ID of the Service Principal.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_thumbprint: The thumbprint of the Service Principal Certificate.
@@ -341,6 +343,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         $ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The (Client) ID of the Service Principal.
@@ -401,6 +404,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionServicePrincipalArgs args: The arguments to use to populate this resource's properties.

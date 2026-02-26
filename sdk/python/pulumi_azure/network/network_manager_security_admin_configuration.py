@@ -25,6 +25,7 @@ class NetworkManagerSecurityAdminConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerSecurityAdminConfiguration resource.
+
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         :param pulumi.Input[_builtins.str] apply_on_network_intent_policy_based_services: A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         :param pulumi.Input[_builtins.str] description: A description of the Security Admin Configuration.
@@ -96,6 +97,7 @@ class _NetworkManagerSecurityAdminConfigurationState:
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerSecurityAdminConfiguration resources.
+
         :param pulumi.Input[_builtins.str] apply_on_network_intent_policy_based_services: A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         :param pulumi.Input[_builtins.str] description: A description of the Security Admin Configuration.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
@@ -220,6 +222,7 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] apply_on_network_intent_policy_based_services: A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
@@ -282,6 +285,7 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerSecurityAdminConfigurationArgs args: The arguments to use to populate this resource's properties.

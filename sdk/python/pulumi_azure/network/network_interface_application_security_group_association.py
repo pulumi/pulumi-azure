@@ -23,6 +23,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociationArgs:
                  network_interface_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NetworkInterfaceApplicationSecurityGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _NetworkInterfaceApplicationSecurityGroupAssociationState:
                  network_interface_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceApplicationSecurityGroupAssociation resources.
+
         :param pulumi.Input[_builtins.str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
@@ -160,6 +162,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
 
         > **Note:** This ID is specific to this provider - and is of the format `{networkInterfaceId}|{applicationSecurityGroupId}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
@@ -227,6 +230,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         ```
 
         > **Note:** This ID is specific to this provider - and is of the format `{networkInterfaceId}|{applicationSecurityGroupId}`.
+
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceApplicationSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.

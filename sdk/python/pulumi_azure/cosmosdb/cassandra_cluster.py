@@ -37,6 +37,7 @@ class CassandraClusterArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CassandraCluster resource.
+
         :param pulumi.Input[_builtins.str] default_admin_password: The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -270,6 +271,7 @@ class _CassandraClusterState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CassandraCluster resources.
+
         :param pulumi.Input[_builtins.str] authentication_method: The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_certificate_pems: A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
         :param pulumi.Input[_builtins.str] default_admin_password: The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
@@ -521,6 +523,7 @@ class CassandraCluster(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/cassandraCluster:CassandraCluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_method: The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
@@ -558,6 +561,7 @@ class CassandraCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/cassandraCluster:CassandraCluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CassandraClusterArgs args: The arguments to use to populate this resource's properties.

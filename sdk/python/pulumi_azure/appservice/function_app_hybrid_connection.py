@@ -26,6 +26,7 @@ class FunctionAppHybridConnectionArgs:
                  send_key_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionAppHybridConnection resource.
+
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
         :param pulumi.Input[_builtins.int] port: The port to use for the endpoint
@@ -115,6 +116,7 @@ class _FunctionAppHybridConnectionState:
                  service_bus_suffix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionAppHybridConnection resources.
+
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the Relay Namespace.
@@ -351,6 +353,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         $ pulumi import azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/hybridConnectionNamespaces/hybridConnectionNamespace1/relays/relay1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
@@ -435,6 +438,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/hybridConnectionNamespaces/hybridConnectionNamespace1/relays/relay1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionAppHybridConnectionArgs args: The arguments to use to populate this resource's properties.

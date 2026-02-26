@@ -29,6 +29,7 @@ class RoleManagementPolicyArgs:
                  notification_rules: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesArgs']] = None):
         """
         The set of arguments for constructing a RoleManagementPolicy resource.
+
         :param pulumi.Input[_builtins.str] role_definition_id: The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         :param pulumi.Input['RoleManagementPolicyActivationRulesArgs'] activation_rules: An `activation_rules` block as defined below.
@@ -133,6 +134,7 @@ class _RoleManagementPolicyState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleManagementPolicy resources.
+
         :param pulumi.Input['RoleManagementPolicyActivationRulesArgs'] activation_rules: An `activation_rules` block as defined below.
         :param pulumi.Input['RoleManagementPolicyActiveAssignmentRulesArgs'] active_assignment_rules: An `active_assignment_rules` block as defined below.
         :param pulumi.Input[_builtins.str] description: (String) The description of this policy.
@@ -322,6 +324,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
         $ pulumi import azure:pim/roleManagementPolicy:RoleManagementPolicy example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|<scope>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict']] activation_rules: An `activation_rules` block as defined below.
@@ -389,6 +392,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:pim/roleManagementPolicy:RoleManagementPolicy example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|<scope>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleManagementPolicyArgs args: The arguments to use to populate this resource's properties.

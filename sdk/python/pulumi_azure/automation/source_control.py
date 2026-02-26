@@ -33,6 +33,7 @@ class SourceControlArgs:
                  publish_runbook_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[_builtins.str] folder_path: The folder path of the source control. This Path must be relative.
         :param pulumi.Input[_builtins.str] repository_url: The Repository URL of the source control.
@@ -196,6 +197,7 @@ class _SourceControlState:
                  source_control_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceControl resources.
+
         :param pulumi.Input[_builtins.bool] automatic_sync: Whether auto async the Source Control.
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[_builtins.str] branch: Specify the repo branch of the Source Control. Empty value is valid only for `VsoTfvc`.
@@ -411,6 +413,7 @@ class SourceControl(pulumi.CustomResource):
         $ pulumi import azure:automation/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/sourceControls/sc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automatic_sync: Whether auto async the Source Control.
@@ -474,6 +477,7 @@ class SourceControl(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/sourceControls/sc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.

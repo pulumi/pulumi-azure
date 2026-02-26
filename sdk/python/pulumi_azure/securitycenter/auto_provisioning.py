@@ -22,6 +22,7 @@ class AutoProvisioningArgs:
                  auto_provision: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AutoProvisioning resource.
+
         :param pulumi.Input[_builtins.str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
         pulumi.set(__self__, "auto_provision", auto_provision)
@@ -45,6 +46,7 @@ class _AutoProvisioningState:
                  auto_provision: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutoProvisioning resources.
+
         :param pulumi.Input[_builtins.str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
         if auto_provision is not None:
@@ -95,6 +97,7 @@ class AutoProvisioning(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/autoProvisioning:AutoProvisioning example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/autoProvisioningSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
@@ -128,6 +131,7 @@ class AutoProvisioning(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/autoProvisioning:AutoProvisioning example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/autoProvisioningSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutoProvisioningArgs args: The arguments to use to populate this resource's properties.

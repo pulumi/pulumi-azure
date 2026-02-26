@@ -32,6 +32,7 @@ class PartnerNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerNamespace resource.
+
         :param pulumi.Input[_builtins.str] partner_registration_id: The resource Id of the Event Grid Partner Registration that this namespace is associated with. Changing this forces a new Event Grid Partner Namespace to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Event Grid Partner Namespace should exist. Changing this forces a new Event Grid Partner Namespace to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -183,6 +184,7 @@ class _PartnerNamespaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PartnerNamespace resources.
+
         :param pulumi.Input[_builtins.str] endpoint: The endpoint for the Event Grid Partner Namespace.
         :param pulumi.Input[Sequence[pulumi.Input['PartnerNamespaceInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
@@ -389,6 +391,7 @@ class PartnerNamespace(pulumi.CustomResource):
         $ pulumi import azure:eventgrid/partnerNamespace:PartnerNamespace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.EventGrid/partnerNamespaces/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -443,6 +446,7 @@ class PartnerNamespace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventgrid/partnerNamespace:PartnerNamespace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.EventGrid/partnerNamespaces/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PartnerNamespaceArgs args: The arguments to use to populate this resource's properties.

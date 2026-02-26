@@ -33,6 +33,7 @@ class CassandraDatacenterArgs:
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CassandraDatacenter resource.
+
         :param pulumi.Input[_builtins.str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
@@ -236,6 +237,7 @@ class _CassandraDatacenterState:
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CassandraDatacenter resources.
+
         :param pulumi.Input[_builtins.bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] backup_storage_customer_key_uri: The key URI of the customer key to use for the encryption of the backup Storage Account.
         :param pulumi.Input[_builtins.str] base64_encoded_yaml_fragment: The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
@@ -470,6 +472,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/cassandraDatacenter:CassandraDatacenter example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1/dataCenters/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
@@ -505,6 +508,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/cassandraDatacenter:CassandraDatacenter example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1/dataCenters/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CassandraDatacenterArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class PostgresqlRoleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PostgresqlRole resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] password: The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
@@ -78,6 +79,7 @@ class _PostgresqlRoleState:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PostgresqlRole resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] password: The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
@@ -177,6 +179,7 @@ class PostgresqlRole(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/postgresqlRole:PostgresqlRole example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/roles/role1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
@@ -229,6 +232,7 @@ class PostgresqlRole(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/postgresqlRole:PostgresqlRole example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/roles/role1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PostgresqlRoleArgs args: The arguments to use to populate this resource's properties.

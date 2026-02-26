@@ -31,6 +31,7 @@ class ElasticsearchArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Elasticsearch resource.
+
         :param pulumi.Input[_builtins.str] elastic_cloud_email_address: Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
@@ -178,6 +179,7 @@ class _ElasticsearchState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Elasticsearch resources.
+
         :param pulumi.Input[_builtins.str] elastic_cloud_deployment_id: The ID of the Deployment within Elastic Cloud.
         :param pulumi.Input[_builtins.str] elastic_cloud_email_address: Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[_builtins.str] elastic_cloud_sso_default_url: The Default URL used for Single Sign On (SSO) to Elastic Cloud.
@@ -449,6 +451,7 @@ class Elasticsearch(pulumi.CustomResource):
         $ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] elastic_cloud_email_address: Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
@@ -504,6 +507,7 @@ class Elasticsearch(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticsearchArgs args: The arguments to use to populate this resource's properties.

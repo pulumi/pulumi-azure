@@ -25,6 +25,7 @@ class FleetMemberArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetMember resource.
+
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_id: Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
         :param pulumi.Input[_builtins.str] group: The group this member belongs to for multi-cluster update management.
@@ -95,6 +96,7 @@ class _FleetMemberState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FleetMember resources.
+
         :param pulumi.Input[_builtins.str] group: The group this member belongs to for multi-cluster update management.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_id: Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
@@ -222,6 +224,7 @@ class FleetMember(pulumi.CustomResource):
         * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
         * Where `{memberName}` is the name of the Member. For example `memberValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group: The group this member belongs to for multi-cluster update management.
@@ -287,6 +290,7 @@ class FleetMember(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Member exists. For example `example-resource-group`.
         * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
         * Where `{memberName}` is the name of the Member. For example `memberValue`.
+
 
         :param str resource_name: The name of the resource.
         :param FleetMemberArgs args: The arguments to use to populate this resource's properties.

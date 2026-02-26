@@ -23,6 +23,7 @@ class ServerDnsAliasArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerDnsAlias resource.
+
         :param pulumi.Input[_builtins.str] mssql_server_id: The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
         """
@@ -63,6 +64,7 @@ class _ServerDnsAliasState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerDnsAlias resources.
+
         :param pulumi.Input[_builtins.str] dns_record: The fully qualified DNS record for alias.
         :param pulumi.Input[_builtins.str] mssql_server_id: The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
@@ -159,6 +161,7 @@ class ServerDnsAlias(pulumi.CustomResource):
         $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mssql_server_id: The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
@@ -208,6 +211,7 @@ class ServerDnsAlias(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerDnsAliasArgs args: The arguments to use to populate this resource's properties.

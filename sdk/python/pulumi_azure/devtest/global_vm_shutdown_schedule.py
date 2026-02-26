@@ -30,6 +30,7 @@ class GlobalVMShutdownScheduleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GlobalVMShutdownSchedule resource.
+
         :param pulumi.Input[_builtins.str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         :param pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs'] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[_builtins.str] timezone: The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
@@ -146,6 +147,7 @@ class _GlobalVMShutdownScheduleState:
                  virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GlobalVMShutdownSchedule resources.
+
         :param pulumi.Input[_builtins.str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The location where the schedule is created. Changing this forces a new resource to be created.
@@ -351,6 +353,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
         The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
@@ -449,6 +452,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         ```
 
         The name of the resource within the `resource id` will always follow the format `shutdown-computevm-<VM Name>` where `<VM Name>` is replaced by the name of the target Virtual Machine
+
 
         :param str resource_name: The name of the resource.
         :param GlobalVMShutdownScheduleArgs args: The arguments to use to populate this resource's properties.

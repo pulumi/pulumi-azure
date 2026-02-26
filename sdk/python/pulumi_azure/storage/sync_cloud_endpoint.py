@@ -26,6 +26,7 @@ class SyncCloudEndpointArgs:
                  storage_account_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncCloudEndpoint resource.
+
         :param pulumi.Input[_builtins.str] file_share_name: The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         :param pulumi.Input[_builtins.str] storage_sync_group_id: The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
@@ -111,6 +112,7 @@ class _SyncCloudEndpointState:
                  storage_sync_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyncCloudEndpoint resources.
+
         :param pulumi.Input[_builtins.str] file_share_name: The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
@@ -260,6 +262,7 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         $ pulumi import azure:storage/syncCloudEndpoint:SyncCloudEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncgroup1/cloudEndpoints/cloudEndpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_share_name: The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
@@ -332,6 +335,7 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/syncCloudEndpoint:SyncCloudEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncgroup1/cloudEndpoints/cloudEndpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SyncCloudEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -42,6 +42,7 @@ class AuthorizationServerArgs:
                  token_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthorizationServer resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] authorization_endpoint: The OAUTH Authorization Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_methods: The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
@@ -358,6 +359,7 @@ class _AuthorizationServerState:
                  token_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthorizationServer resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] authorization_endpoint: The OAUTH Authorization Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_methods: The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
@@ -722,6 +724,7 @@ class AuthorizationServer(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/authorizationServer:AuthorizationServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/authorizationServers/server1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
@@ -793,6 +796,7 @@ class AuthorizationServer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/authorizationServer:AuthorizationServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/authorizationServers/server1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizationServerArgs args: The arguments to use to populate this resource's properties.

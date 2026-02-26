@@ -26,6 +26,7 @@ class HybridConnectionArgs:
                  user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridConnection resource.
+
         :param pulumi.Input[_builtins.str] relay_namespace_name: The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _HybridConnectionState:
                  user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HybridConnection resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] relay_namespace_name: The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
@@ -245,6 +247,7 @@ class HybridConnection(pulumi.CustomResource):
         $ pulumi import azure:relay/hybridConnection:HybridConnection relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1/hybridConnections/hconn1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
@@ -301,6 +304,7 @@ class HybridConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:relay/hybridConnection:HybridConnection relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1/hybridConnections/hconn1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HybridConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class IotHubDeviceUpdateInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IotHubDeviceUpdateInstance resource.
+
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
@@ -131,6 +132,7 @@ class _IotHubDeviceUpdateInstanceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IotHubDeviceUpdateInstance resources.
+
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
         :param pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs'] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
@@ -296,6 +298,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         $ pulumi import azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DeviceUpdate/accounts/account1/instances/instance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
@@ -369,6 +372,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DeviceUpdate/accounts/account1/instances/instance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IotHubDeviceUpdateInstanceArgs args: The arguments to use to populate this resource's properties.

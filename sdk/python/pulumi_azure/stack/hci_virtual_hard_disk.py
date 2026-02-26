@@ -34,6 +34,7 @@ class HciVirtualHardDiskArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HciVirtualHardDisk resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         :param pulumi.Input[_builtins.int] disk_size_in_gb: The size of the disk in GB. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
@@ -251,6 +252,7 @@ class _HciVirtualHardDiskState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering HciVirtualHardDisk resources.
+
         :param pulumi.Input[_builtins.int] block_size_in_bytes: The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         :param pulumi.Input[_builtins.str] disk_file_format: The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
@@ -521,6 +523,7 @@ class HciVirtualHardDisk(pulumi.CustomResource):
         $ pulumi import azure:stack/hciVirtualHardDisk:HciVirtualHardDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AzureStackHCI/virtualHardDisks/disk1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] block_size_in_bytes: The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
@@ -592,6 +595,7 @@ class HciVirtualHardDisk(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:stack/hciVirtualHardDisk:HciVirtualHardDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AzureStackHCI/virtualHardDisks/disk1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HciVirtualHardDiskArgs args: The arguments to use to populate this resource's properties.

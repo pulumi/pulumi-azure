@@ -31,6 +31,7 @@ class ShareArgs:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
+
         :param pulumi.Input[_builtins.int] quota: The maximum size of the share, in gigabytes.
                
                > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
@@ -196,6 +197,7 @@ class _ShareState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
+
         :param pulumi.Input[_builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
                > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
@@ -447,6 +449,7 @@ class Share(pulumi.CustomResource):
         $ pulumi import azure:storage/share:Share exampleShare /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myAccount/fileServices/default/shares/exampleShare
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
@@ -526,6 +529,7 @@ class Share(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/share:Share exampleShare /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myAccount/fileServices/default/shares/exampleShare
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.

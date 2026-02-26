@@ -25,6 +25,7 @@ class TableEntityArgs:
                  storage_table_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TableEntity resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[_builtins.str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
@@ -93,6 +94,7 @@ class _TableEntityState:
                  storage_table_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableEntity resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[_builtins.str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
@@ -205,6 +207,7 @@ class TableEntity(pulumi.CustomResource):
         $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
@@ -255,6 +258,7 @@ class TableEntity(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableEntityArgs args: The arguments to use to populate this resource's properties.

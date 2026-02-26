@@ -37,6 +37,7 @@ class VirtualNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
@@ -289,6 +290,7 @@ class _VirtualNetworkState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualNetwork resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
@@ -621,6 +623,7 @@ class VirtualNetwork(pulumi.CustomResource):
         $ pulumi import azure:network/virtualNetwork:VirtualNetwork exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
@@ -716,6 +719,7 @@ class VirtualNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualNetwork:VirtualNetwork exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.

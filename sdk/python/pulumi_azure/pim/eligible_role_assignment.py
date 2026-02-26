@@ -31,6 +31,7 @@ class EligibleRoleAssignmentArgs:
                  ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
         """
         The set of arguments for constructing a EligibleRoleAssignment resource.
+
         :param pulumi.Input[_builtins.str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
@@ -169,6 +170,7 @@ class _EligibleRoleAssignmentState:
                  ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
         """
         Input properties used for looking up and filtering EligibleRoleAssignment resources.
+
         :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
                
@@ -404,6 +406,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
         > **Note:** This ID is specific to Terraform - and is of the format `{scope}|{roleDefinitionId}|{principalId}`, where the first segment is the scope of the role assignment, the second segment is the role definition ID, and the last segment is the principal object ID.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
@@ -500,6 +503,7 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         ```
 
         > **Note:** This ID is specific to Terraform - and is of the format `{scope}|{roleDefinitionId}|{principalId}`, where the first segment is the scope of the role assignment, the second segment is the role definition ID, and the last segment is the principal object ID.
+
 
         :param str resource_name: The name of the resource.
         :param EligibleRoleAssignmentArgs args: The arguments to use to populate this resource's properties.

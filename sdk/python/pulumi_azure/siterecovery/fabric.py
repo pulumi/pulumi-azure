@@ -25,6 +25,7 @@ class FabricArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Fabric resource.
+
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
@@ -95,6 +96,7 @@ class _FabricState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Fabric resources.
+
         :param pulumi.Input[_builtins.str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the network mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -211,6 +213,7 @@ class Fabric(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: In what region should the fabric be located. Changing this forces a new resource to be created.
@@ -265,6 +268,7 @@ class Fabric(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FabricArgs args: The arguments to use to populate this resource's properties.

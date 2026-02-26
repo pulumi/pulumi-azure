@@ -27,6 +27,7 @@ class FallbackRouteArgs:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FallbackRoute resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Used to specify whether the fallback route is enabled.
         :param pulumi.Input[_builtins.str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param pulumi.Input[_builtins.str] iothub_name: The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
@@ -127,6 +128,7 @@ class _FallbackRouteState:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FallbackRoute resources.
+
         :param pulumi.Input[_builtins.str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: Used to specify whether the fallback route is enabled.
         :param pulumi.Input[_builtins.str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
@@ -300,6 +302,7 @@ class FallbackRoute(pulumi.CustomResource):
 
         > **Note:** As there may only be a single fallback route per IoTHub, the id always ends with `/fallbackRoute/default`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
@@ -381,6 +384,7 @@ class FallbackRoute(pulumi.CustomResource):
         ```
 
         > **Note:** As there may only be a single fallback route per IoTHub, the id always ends with `/fallbackRoute/default`.
+
 
         :param str resource_name: The name of the resource.
         :param FallbackRouteArgs args: The arguments to use to populate this resource's properties.

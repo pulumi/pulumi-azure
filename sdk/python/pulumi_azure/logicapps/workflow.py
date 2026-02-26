@@ -36,6 +36,7 @@ class WorkflowArgs:
                  workflow_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkflowAccessControlArgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
@@ -260,6 +261,7 @@ class _WorkflowState:
                  workflow_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
+
         :param pulumi.Input['WorkflowAccessControlArgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[_builtins.str] access_endpoint: The Access Endpoint for the Logic App Workflow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connector_endpoint_ip_addresses: The list of access endpoint IP addresses of connector.
@@ -590,6 +592,7 @@ class Workflow(pulumi.CustomResource):
         $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkflowAccessControlArgs', 'WorkflowAccessControlArgsDict']] access_control: A `access_control` block as defined below.
@@ -646,6 +649,7 @@ class Workflow(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

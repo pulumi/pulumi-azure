@@ -40,6 +40,7 @@ class SpringCloudServiceArgs:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpringCloudService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
@@ -322,6 +323,7 @@ class _SpringCloudServiceState:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SpringCloudService resources.
+
         :param pulumi.Input[_builtins.str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
@@ -698,6 +700,7 @@ class SpringCloudService(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
@@ -772,6 +775,7 @@ class SpringCloudService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudServiceArgs args: The arguments to use to populate this resource's properties.

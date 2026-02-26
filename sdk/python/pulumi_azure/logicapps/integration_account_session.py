@@ -25,6 +25,7 @@ class IntegrationAccountSessionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountSession resource.
+
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Session.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Session to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
@@ -94,6 +95,7 @@ class _IntegrationAccountSessionState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountSession resources.
+
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Session.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Session to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
@@ -210,6 +212,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccountSession:IntegrationAccountSession example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/sessions/session1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the Logic App Integration Account Session.
@@ -264,6 +267,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccountSession:IntegrationAccountSession example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/sessions/session1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountSessionArgs args: The arguments to use to populate this resource's properties.

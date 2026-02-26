@@ -27,6 +27,7 @@ class SecurityDeviceGroupArgs:
                  range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityDeviceGroup resource.
+
         :param pulumi.Input[_builtins.str] iothub_id: The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
         :param pulumi.Input['SecurityDeviceGroupAllowRuleArgs'] allow_rule: an `allow_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
@@ -98,6 +99,7 @@ class _SecurityDeviceGroupState:
                  range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering SecurityDeviceGroup resources.
+
         :param pulumi.Input['SecurityDeviceGroupAllowRuleArgs'] allow_rule: an `allow_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] iothub_id: The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
@@ -221,6 +223,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         $ pulumi import azure:iot/securityDeviceGroup:SecurityDeviceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Devices/iotHubs/hub1/providers/Microsoft.Security/deviceSecurityGroups/group1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SecurityDeviceGroupAllowRuleArgs', 'SecurityDeviceGroupAllowRuleArgsDict']] allow_rule: an `allow_rule` blocks as defined below.
@@ -282,6 +285,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/securityDeviceGroup:SecurityDeviceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Devices/iotHubs/hub1/providers/Microsoft.Security/deviceSecurityGroups/group1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityDeviceGroupArgs args: The arguments to use to populate this resource's properties.

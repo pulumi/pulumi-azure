@@ -39,6 +39,7 @@ class MetricAlertArgs:
                  window_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetricAlert resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
@@ -321,6 +322,7 @@ class _MetricAlertState:
                  window_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MetricAlert resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
                
@@ -670,6 +672,7 @@ class MetricAlert(pulumi.CustomResource):
         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]] actions: One or more `action` blocks as defined below.
@@ -767,6 +770,7 @@ class MetricAlert(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MetricAlertArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class SpringCloudBuildPackBindingArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudBuildPackBinding resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_builder_id: The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         :param pulumi.Input[_builtins.str] binding_type: Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input['SpringCloudBuildPackBindingLaunchArgs'] launch: A `launch` block as defined below.
@@ -98,6 +99,7 @@ class _SpringCloudBuildPackBindingState:
                  spring_cloud_builder_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudBuildPackBinding resources.
+
         :param pulumi.Input[_builtins.str] binding_type: Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input['SpringCloudBuildPackBindingLaunchArgs'] launch: A `launch` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
@@ -228,6 +230,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1/buildPackBindings/binding1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] binding_type: Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
@@ -296,6 +299,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1/buildPackBindings/binding1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudBuildPackBindingArgs args: The arguments to use to populate this resource's properties.

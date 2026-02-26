@@ -30,6 +30,7 @@ class ServerSecurityAlertPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerSecurityAlertPolicy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] state: Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
@@ -191,6 +192,7 @@ class _ServerSecurityAlertPolicyState:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerSecurityAlertPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         :param pulumi.Input[_builtins.bool] email_account_admins: Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
@@ -413,6 +415,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         $ pulumi import azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/servers/mssqlserver/securityAlertPolicies/Default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
@@ -492,6 +495,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/servers/mssqlserver/securityAlertPolicies/Default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.

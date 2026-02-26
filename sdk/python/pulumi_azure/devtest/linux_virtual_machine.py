@@ -40,6 +40,7 @@ class LinuxVirtualMachineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinuxVirtualMachine resource.
+
         :param pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs'] gallery_image_reference: A `gallery_image_reference` block as defined below.
         :param pulumi.Input[_builtins.str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
@@ -326,6 +327,7 @@ class _LinuxVirtualMachineState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinuxVirtualMachine resources.
+
         :param pulumi.Input[_builtins.bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the Virtual Machine.
@@ -713,6 +715,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualMachines/machine1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
@@ -807,6 +810,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualMachines/machine1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinuxVirtualMachineArgs args: The arguments to use to populate this resource's properties.

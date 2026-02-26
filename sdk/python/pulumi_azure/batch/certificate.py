@@ -28,6 +28,7 @@ class CertificateArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate: The base64-encoded contents of the certificate.
         :param pulumi.Input[_builtins.str] format: The format of the certificate. Possible values are `Cer` or `Pfx`.
@@ -144,6 +145,7 @@ class _CertificateState:
                  thumbprint_algorithm: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate: The base64-encoded contents of the certificate.
         :param pulumi.Input[_builtins.str] format: The format of the certificate. Possible values are `Cer` or `Pfx`.
@@ -352,6 +354,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import azure:batch/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Batch/batchAccounts/batch1/certificates/certificate1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -423,6 +426,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:batch/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Batch/batchAccounts/batch1/certificates/certificate1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class EnterpriseDatabaseArgs:
                  port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a EnterpriseDatabase resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[_builtins.str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[_builtins.str] clustering_policy: Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
@@ -193,6 +194,7 @@ class _EnterpriseDatabaseState:
                  secondary_access_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseDatabase resources.
+
         :param pulumi.Input[_builtins.str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[_builtins.str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[_builtins.str] clustering_policy: Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
@@ -438,6 +440,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         $ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
@@ -512,6 +515,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnterpriseDatabaseArgs args: The arguments to use to populate this resource's properties.

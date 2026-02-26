@@ -28,6 +28,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
@@ -114,6 +115,7 @@ class _AccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
@@ -243,6 +245,7 @@ class Account(pulumi.CustomResource):
         $ pulumi import azure:datashare/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
@@ -295,6 +298,7 @@ class Account(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datashare/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class CustomHttpsConfigurationArgs:
                  custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None):
         """
         The set of arguments for constructing a CustomHttpsConfiguration resource.
+
         :param pulumi.Input[_builtins.bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[_builtins.str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined above.
@@ -80,6 +81,7 @@ class _CustomHttpsConfigurationState:
                  frontend_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomHttpsConfiguration resources.
+
         :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined above.
         :param pulumi.Input[_builtins.bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[_builtins.str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
@@ -228,6 +230,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']] custom_https_configuration: A `custom_https_configuration` block as defined above.
@@ -329,6 +332,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomHttpsConfigurationArgs args: The arguments to use to populate this resource's properties.

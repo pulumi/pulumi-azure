@@ -30,6 +30,7 @@ class LedgerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ledger resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
         :param pulumi.Input[_builtins.str] ledger_type: Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
@@ -149,6 +150,7 @@ class _LedgerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Ledger resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
         :param pulumi.Input[_builtins.str] identity_service_endpoint: The Identity Service Endpoint for this Confidential Ledger.
@@ -341,6 +343,7 @@ class Ledger(pulumi.CustomResource):
         $ pulumi import azure:confidentialledger/ledger:Ledger example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-group/providers/Microsoft.ConfidentialLedger/ledgers/example-ledger
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LedgerAzureadBasedServicePrincipalArgs', 'LedgerAzureadBasedServicePrincipalArgsDict']]]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
@@ -396,6 +399,7 @@ class Ledger(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:confidentialledger/ledger:Ledger example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-group/providers/Microsoft.ConfidentialLedger/ledgers/example-ledger
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LedgerArgs args: The arguments to use to populate this resource's properties.

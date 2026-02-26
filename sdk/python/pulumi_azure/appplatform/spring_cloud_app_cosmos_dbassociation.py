@@ -31,6 +31,7 @@ class SpringCloudAppCosmosDBAssociationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudAppCosmosDBAssociation resource.
+
         :param pulumi.Input[_builtins.str] api_type: Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cosmosdb_access_key: Specifies the CosmosDB Account access key.
         :param pulumi.Input[_builtins.str] cosmosdb_account_id: Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -195,6 +196,7 @@ class _SpringCloudAppCosmosDBAssociationState:
                  spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppCosmosDBAssociation resources.
+
         :param pulumi.Input[_builtins.str] api_type: Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cosmosdb_access_key: Specifies the CosmosDB Account access key.
         :param pulumi.Input[_builtins.str] cosmosdb_account_id: Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -416,6 +418,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1/bindings/bind1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_type: Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
@@ -485,6 +488,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1/bindings/bind1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudAppCosmosDBAssociationArgs args: The arguments to use to populate this resource's properties.

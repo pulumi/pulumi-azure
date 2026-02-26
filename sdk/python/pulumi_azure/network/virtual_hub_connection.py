@@ -28,6 +28,7 @@ class VirtualHubConnectionArgs:
                  routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None):
         """
         The set of arguments for constructing a VirtualHubConnection resource.
+
         :param pulumi.Input[_builtins.str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
@@ -114,6 +115,7 @@ class _VirtualHubConnectionState:
                  virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualHubConnection resources.
+
         :param pulumi.Input[_builtins.bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
@@ -252,6 +254,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         $ pulumi import azure:network/virtualHubConnection:VirtualHubConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/connection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
@@ -313,6 +316,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualHubConnection:VirtualHubConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/connection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHubConnectionArgs args: The arguments to use to populate this resource's properties.

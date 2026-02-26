@@ -32,6 +32,7 @@ class AlertRuleAnomalyDuplicateArgs:
                  threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None):
         """
         The set of arguments for constructing a AlertRuleAnomalyDuplicate resource.
+
         :param pulumi.Input[_builtins.str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[_builtins.str] display_name: The Display Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[_builtins.bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
@@ -193,6 +194,7 @@ class _AlertRuleAnomalyDuplicateState:
                  threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleAnomalyDuplicate resources.
+
         :param pulumi.Input[_builtins.int] anomaly_settings_version: The version of the Anomaly Security ML Analytics Settings.
         :param pulumi.Input[_builtins.str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[_builtins.str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
@@ -539,6 +541,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         $ pulumi import azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/setting1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
@@ -600,6 +603,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/setting1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleAnomalyDuplicateArgs args: The arguments to use to populate this resource's properties.

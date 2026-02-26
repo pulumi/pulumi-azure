@@ -25,6 +25,7 @@ class ResourceGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceGroup resource.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
@@ -97,6 +98,7 @@ class _ResourceGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceGroup resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] managed_by: The ID of the resource or application that manages this Resource Group.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
@@ -197,6 +199,7 @@ class ResourceGroup(pulumi.CustomResource):
         $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
@@ -235,6 +238,7 @@ class ResourceGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourceGroup:ResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.

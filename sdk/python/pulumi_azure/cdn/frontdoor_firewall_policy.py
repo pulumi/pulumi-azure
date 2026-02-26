@@ -38,6 +38,7 @@ class FrontdoorFirewallPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorFirewallPolicy resource.
+
         :param pulumi.Input[_builtins.str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
@@ -312,6 +313,7 @@ class _FrontdoorFirewallPolicyState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorFirewallPolicy resources.
+
         :param pulumi.Input[_builtins.int] captcha_cookie_expiration_in_minutes: Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
                
                > **Note:** The `captcha_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/captcha-challenge) for more information.
@@ -748,6 +750,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/firewallPolicy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] captcha_cookie_expiration_in_minutes: Specifies the Captcha cookie lifetime in minutes. Possible values are between `5` and `1440`. Defaults to`30` minutes.
@@ -928,6 +931,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/firewallPolicy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorFirewallPolicyArgs args: The arguments to use to populate this resource's properties.

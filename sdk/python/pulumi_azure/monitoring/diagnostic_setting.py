@@ -34,6 +34,7 @@ class DiagnosticSettingArgs:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DiagnosticSetting resource.
+
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
@@ -257,6 +258,7 @@ class _DiagnosticSettingState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DiagnosticSetting resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
                > **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
@@ -539,6 +541,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         > **Note:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
@@ -633,6 +636,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         ```
 
         > **Note:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
+
 
         :param str resource_name: The name of the resource.
         :param DiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

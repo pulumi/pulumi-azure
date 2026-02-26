@@ -34,6 +34,7 @@ class StreamInputEventHubArgs:
                  shared_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamInputEventHub resource.
+
         :param pulumi.Input[_builtins.str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['StreamInputEventHubSerializationArgs'] serialization: A `serialization` block as defined below.
@@ -213,6 +214,7 @@ class _StreamInputEventHubState:
                  stream_analytics_job_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamInputEventHub resources.
+
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[_builtins.str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[_builtins.str] eventhub_name: The name of the Event Hub.
@@ -462,6 +464,7 @@ class StreamInputEventHub(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -544,6 +547,7 @@ class StreamInputEventHub(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamInputEventHubArgs args: The arguments to use to populate this resource's properties.

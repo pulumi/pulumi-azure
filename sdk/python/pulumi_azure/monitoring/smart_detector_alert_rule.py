@@ -34,6 +34,7 @@ class SmartDetectorAlertRuleArgs:
                  throttling_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SmartDetectorAlertRule resource.
+
         :param pulumi.Input['SmartDetectorAlertRuleActionGroupArgs'] action_group: An `action_group` block as defined below.
         :param pulumi.Input[_builtins.str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         :param pulumi.Input[_builtins.str] frequency: Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
@@ -212,6 +213,7 @@ class _SmartDetectorAlertRuleState:
                  throttling_duration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SmartDetectorAlertRule resources.
+
         :param pulumi.Input['SmartDetectorAlertRuleActionGroupArgs'] action_group: An `action_group` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Smart Detector Alert Rule.
         :param pulumi.Input[_builtins.str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
@@ -446,6 +448,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         $ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartDetectorAlertRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']] action_group: An `action_group` block as defined below.
@@ -513,6 +516,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartDetectorAlertRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SmartDetectorAlertRuleArgs args: The arguments to use to populate this resource's properties.

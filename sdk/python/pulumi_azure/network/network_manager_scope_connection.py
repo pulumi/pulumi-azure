@@ -26,6 +26,7 @@ class NetworkManagerScopeConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerScopeConnection resource.
+
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
         :param pulumi.Input[_builtins.str] target_scope_id: Specifies the Resource ID of the target scope which the Network Manager is connected to. It should be either Subscription ID or Management Group ID.
         :param pulumi.Input[_builtins.str] tenant_id: Specifies the Tenant ID of the Resource which the Network Manager is connected to.
@@ -112,6 +113,7 @@ class _NetworkManagerScopeConnectionState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerScopeConnection resources.
+
         :param pulumi.Input[_builtins.str] connection_state: The Connection state of the Network Manager Scope Connection.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Scope Connection.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
@@ -263,6 +265,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/scopeConnections/scopeConnection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Scope Connection.
@@ -322,6 +325,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/scopeConnections/scopeConnection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerScopeConnectionArgs args: The arguments to use to populate this resource's properties.

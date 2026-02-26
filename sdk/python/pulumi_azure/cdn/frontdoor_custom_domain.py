@@ -28,6 +28,7 @@ class FrontdoorCustomDomainArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[_builtins.str] host_name: The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input['FrontdoorCustomDomainTlsArgs'] tls: A `tls` block as defined below.
@@ -123,6 +124,7 @@ class _FrontdoorCustomDomainState:
                  validation_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FrontdoorCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[_builtins.str] dns_zone_id: The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
                
@@ -334,6 +336,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
@@ -434,6 +437,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorCustomDomainArgs args: The arguments to use to populate this resource's properties.

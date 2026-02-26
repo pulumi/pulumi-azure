@@ -50,6 +50,7 @@ class WindowsWebAppSlotArgs:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WindowsWebAppSlot resource.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
@@ -525,6 +526,7 @@ class _WindowsWebAppSlotState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsWebAppSlot resources.
+
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
         :param pulumi.Input['WindowsWebAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
@@ -1175,6 +1177,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         $ pulumi import azure:appservice/windowsWebAppSlot:WindowsWebAppSlot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
@@ -1269,6 +1272,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/windowsWebAppSlot:WindowsWebAppSlot example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WindowsWebAppSlotArgs args: The arguments to use to populate this resource's properties.

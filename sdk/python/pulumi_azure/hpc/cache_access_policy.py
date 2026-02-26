@@ -26,6 +26,7 @@ class CacheAccessPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheAccessPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]] access_rules: One or more `access_rule` blocks (up to three) as defined below.
         :param pulumi.Input[_builtins.str] hpc_cache_id: The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
@@ -80,6 +81,7 @@ class _CacheAccessPolicyState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CacheAccessPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]] access_rules: One or more `access_rule` blocks (up to three) as defined below.
         :param pulumi.Input[_builtins.str] hpc_cache_id: The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
@@ -193,6 +195,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
         $ pulumi import azure:hpc/cacheAccessPolicy:CacheAccessPolicy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/cacheAccessPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CacheAccessPolicyAccessRuleArgs', 'CacheAccessPolicyAccessRuleArgsDict']]]] access_rules: One or more `access_rule` blocks (up to three) as defined below.
@@ -259,6 +262,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hpc/cacheAccessPolicy:CacheAccessPolicy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/cacheAccessPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheAccessPolicyArgs args: The arguments to use to populate this resource's properties.

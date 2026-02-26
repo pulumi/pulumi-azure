@@ -25,6 +25,7 @@ class NetworkWatcherArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkWatcher resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -96,6 +97,7 @@ class _NetworkWatcherState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkWatcher resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Network Watcher. Changing this forces a new resource to be created.
@@ -203,6 +205,7 @@ class NetworkWatcher(pulumi.CustomResource):
         $ pulumi import azure:network/networkWatcher:NetworkWatcher watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -248,6 +251,7 @@ class NetworkWatcher(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkWatcher:NetworkWatcher watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkWatcherArgs args: The arguments to use to populate this resource's properties.

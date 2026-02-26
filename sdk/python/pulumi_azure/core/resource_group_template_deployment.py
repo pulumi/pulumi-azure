@@ -29,6 +29,7 @@ class ResourceGroupTemplateDeploymentArgs:
                  template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceGroupTemplateDeployment resource.
+
         :param pulumi.Input[_builtins.str] deployment_mode: The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
                
                > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
@@ -172,6 +173,7 @@ class _ResourceGroupTemplateDeploymentState:
                  template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceGroupTemplateDeployment resources.
+
         :param pulumi.Input[_builtins.str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[_builtins.str] deployment_mode: The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
                
@@ -416,6 +418,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         $ pulumi import azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Resources/deployments/template1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -519,6 +522,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Resources/deployments/template1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupTemplateDeploymentArgs args: The arguments to use to populate this resource's properties.

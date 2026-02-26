@@ -31,6 +31,7 @@ class BudgetSubscriptionArgs:
                  time_grain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BudgetSubscription resource.
+
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
@@ -167,6 +168,7 @@ class _BudgetSubscriptionState:
                  time_period: Optional[pulumi.Input['BudgetSubscriptionTimePeriodArgs']] = None):
         """
         Input properties used for looking up and filtering BudgetSubscription resources.
+
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[_builtins.str] etag: (Optional) The ETag of the Subscription Consumption Budget.
         :param pulumi.Input['BudgetSubscriptionFilterArgs'] filter: A `filter` block as defined below.
@@ -388,6 +390,7 @@ class BudgetSubscription(pulumi.CustomResource):
         $ pulumi import azure:consumption/budgetSubscription:BudgetSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/subscription1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget.
@@ -485,6 +488,7 @@ class BudgetSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:consumption/budgetSubscription:BudgetSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/subscription1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BudgetSubscriptionArgs args: The arguments to use to populate this resource's properties.

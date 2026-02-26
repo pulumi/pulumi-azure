@@ -28,6 +28,7 @@ class DeviceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Device resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
         :param pulumi.Input[_builtins.str] sku_name: The `sku_name` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `sku_name` defines the `name` of the SKU, possible values are `Gateway`, `EdgeMR_Mini`, `EdgeP_Base`, `EdgeP_High`, `EdgePR_Base`, `EdgePR_Base_UPS`, `GPU`, `RCA_Large`, `RCA_Small`, `RDC`, `TCA_Large`, `TCA_Small`, `TDC`, `TEA_1Node`, `TEA_1Node_UPS`, `TEA_1Node_Heater`, `TEA_1Node_UPS_Heater`, `TEA_4Node_Heater`, `TEA_4Node_UPS_Heater` or `TMA`. The second segment defines the `tier` of the `sku_name`, possible values are `Standard`. For more information see the product documentation. Changing this forces a new Databox Edge Device to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
@@ -115,6 +116,7 @@ class _DeviceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Device resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArgs']]] device_properties: A `device_properties` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
@@ -254,6 +256,7 @@ class Device(pulumi.CustomResource):
         $ pulumi import azure:databoxedge/device:Device example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/device1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
@@ -301,6 +304,7 @@ class Device(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:databoxedge/device:Device example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/device1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

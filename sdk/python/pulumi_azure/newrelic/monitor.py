@@ -35,6 +35,7 @@ class MonitorArgs:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input['MonitorPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input['MonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -240,6 +241,7 @@ class _MonitorState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input[_builtins.str] account_creation_source: Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
@@ -513,6 +515,7 @@ class Monitor(pulumi.CustomResource):
         $ pulumi import azure:newrelic/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_creation_source: Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -600,6 +603,7 @@ class Monitor(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:newrelic/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class BackupVaultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BackupVault resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Vault should be created under. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Backup Vault should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _BackupVaultState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering BackupVault resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Vault should be created under. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Backup Vault. Changing this forces a new resource to be created.
@@ -240,6 +242,7 @@ class BackupVault(pulumi.CustomResource):
         $ pulumi import azure:netapp/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/backupVaults/backupVault1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Vault should be created under. Changing this forces a new resource to be created.
@@ -291,6 +294,7 @@ class BackupVault(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:netapp/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/backupVaults/backupVault1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupVaultArgs args: The arguments to use to populate this resource's properties.

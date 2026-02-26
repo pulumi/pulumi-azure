@@ -37,6 +37,7 @@ class SubscriptionPolicyAssignmentArgs:
                  resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a SubscriptionPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
@@ -271,6 +272,7 @@ class _SubscriptionPolicyAssignmentState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionPolicyAssignment resources.
+
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[_builtins.bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
@@ -557,6 +559,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
@@ -629,6 +632,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

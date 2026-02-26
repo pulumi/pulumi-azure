@@ -31,6 +31,7 @@ class ReplicationRecoveryPlanArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationRecoveryPlan resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
         :param pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs'] failover_recovery_group: One `failover_recovery_group` block as defined below.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
@@ -161,6 +162,7 @@ class _ReplicationRecoveryPlanState:
                  target_recovery_fabric_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
+
         :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
         :param pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupArgs'] failover_recovery_group: One `failover_recovery_group` block as defined below.
@@ -490,6 +492,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/groupName/providers/Microsoft.RecoveryServices/vaults/vaultName/replicationRecoveryPlans/planName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
@@ -697,6 +700,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/groupName/providers/Microsoft.RecoveryServices/vaults/vaultName/replicationRecoveryPlans/planName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationRecoveryPlanArgs args: The arguments to use to populate this resource's properties.

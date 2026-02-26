@@ -30,6 +30,7 @@ class VirtualNetworkPeeringArgs:
                  use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkPeering resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] remote_address_space_prefixes: A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] remote_virtual_network_id: The ID of the remote virtual network. Changing this forces a new resource to be created.
                
@@ -188,6 +189,7 @@ class _VirtualNetworkPeeringState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkPeering resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_space_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
         :param pulumi.Input[_builtins.bool] allow_gateway_transit: Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
@@ -436,6 +438,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         $ pulumi import azure:databricks/virtualNetworkPeering:VirtualNetworkPeering example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1/virtualNetworkPeerings/peering1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
@@ -509,6 +512,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:databricks/virtualNetworkPeering:VirtualNetworkPeering example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1/virtualNetworkPeerings/peering1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkPeeringArgs args: The arguments to use to populate this resource's properties.

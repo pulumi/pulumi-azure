@@ -32,6 +32,7 @@ class LinkedServiceArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkedService resource.
+
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[_builtins.str] type: The type of data stores that will be connected to Synapse. Valid Values include `AmazonMWS`, `AmazonRdsForOracle`, `AmazonRdsForSqlServer`, `AmazonRedshift`, `AmazonS3`, `AzureBatch`. Changing this forces a new resource to be created.
                `AzureBlobFS`, `AzureBlobStorage`, `AzureDataExplorer`, `AzureDataLakeAnalytics`, `AzureDataLakeStore`, `AzureDatabricks`, `AzureDatabricksDeltaLake`, `AzureFileStorage`, `AzureFunction`,
@@ -197,6 +198,7 @@ class _LinkedServiceState:
                  type_properties_json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedService resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Synapse Linked Service.
         :param pulumi.Input[_builtins.str] description: The description for the Synapse Linked Service.
@@ -431,6 +433,7 @@ class LinkedService(pulumi.CustomResource):
         $ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedServices/linkedservice1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
@@ -520,6 +523,7 @@ class LinkedService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/linkedServices/linkedservice1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceArgs args: The arguments to use to populate this resource's properties.

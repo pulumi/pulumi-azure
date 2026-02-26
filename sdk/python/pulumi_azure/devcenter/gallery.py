@@ -24,6 +24,7 @@ class GalleryArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Gallery resource.
+
         :param pulumi.Input[_builtins.str] dev_center_id: Specifies the ID of the Dev Center within which this Dev Center Gallery should exist. Changing this forces a new Dev Center Gallery to be created.
         :param pulumi.Input[_builtins.str] shared_gallery_id: The ID of the Shared Gallery which should be connected to the Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
@@ -78,6 +79,7 @@ class _GalleryState:
                  shared_gallery_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Gallery resources.
+
         :param pulumi.Input[_builtins.str] dev_center_id: Specifies the ID of the Dev Center within which this Dev Center Gallery should exist. Changing this forces a new Dev Center Gallery to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
         :param pulumi.Input[_builtins.str] shared_gallery_id: The ID of the Shared Gallery which should be connected to the Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
@@ -190,6 +192,7 @@ class Gallery(pulumi.CustomResource):
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
         * Where `{galleryName}` is the name of the Gallery. For example `galleryValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_center_id: Specifies the ID of the Dev Center within which this Dev Center Gallery should exist. Changing this forces a new Dev Center Gallery to be created.
@@ -255,6 +258,7 @@ class Gallery(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Gallery exists. For example `example-resource-group`.
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
         * Where `{galleryName}` is the name of the Gallery. For example `galleryValue`.
+
 
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.

@@ -39,6 +39,7 @@ class HubArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Hub resource.
+
         :param pulumi.Input['HubIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_id: The Key Vault ID that should be used by this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
@@ -305,6 +306,7 @@ class _HubState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Hub resources.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The Application Insights ID that should be used by this AI Foundry Hub.
         :param pulumi.Input[_builtins.str] container_registry_id: The Container Registry ID that should be used by this AI Foundry Hub.
         :param pulumi.Input[_builtins.str] description: The description of this AI Foundry Hub.
@@ -673,6 +675,7 @@ class Hub(pulumi.CustomResource):
         $ pulumi import azure:aifoundry/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/hub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_insights_id: The Application Insights ID that should be used by this AI Foundry Hub.
@@ -767,6 +770,7 @@ class Hub(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:aifoundry/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/hub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.

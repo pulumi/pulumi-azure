@@ -31,6 +31,7 @@ class LocalRulestackArgs:
                  vulnerability_profile: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalRulestack resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         :param pulumi.Input[_builtins.str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
@@ -198,6 +199,7 @@ class _LocalRulestackState:
                  vulnerability_profile: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRulestack resources.
+
         :param pulumi.Input[_builtins.str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[_builtins.str] description: The description for this Local Rulestack.
@@ -401,6 +403,7 @@ class LocalRulestack(pulumi.CustomResource):
         $ pulumi import azure:paloalto/localRulestack:LocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
@@ -452,6 +455,7 @@ class LocalRulestack(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/localRulestack:LocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackArgs args: The arguments to use to populate this resource's properties.

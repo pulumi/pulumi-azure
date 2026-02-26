@@ -30,6 +30,7 @@ class MoverJobDefinitionArgs:
                  target_sub_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MoverJobDefinition resource.
+
         :param pulumi.Input[_builtins.str] copy_mode: Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
         :param pulumi.Input[_builtins.str] source_name: Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_mover_project_id: Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
@@ -178,6 +179,7 @@ class _MoverJobDefinitionState:
                  target_sub_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MoverJobDefinition resources.
+
         :param pulumi.Input[_builtins.str] agent_name: Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
         :param pulumi.Input[_builtins.str] copy_mode: Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
         :param pulumi.Input[_builtins.str] description: Specifies a description for this Storage Mover Job Definition.
@@ -403,6 +405,7 @@ class MoverJobDefinition(pulumi.CustomResource):
         $ pulumi import azure:storage/moverJobDefinition:MoverJobDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1/jobDefinitions/jobDefinition1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_name: Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
@@ -491,6 +494,7 @@ class MoverJobDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/moverJobDefinition:MoverJobDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1/jobDefinitions/jobDefinition1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MoverJobDefinitionArgs args: The arguments to use to populate this resource's properties.

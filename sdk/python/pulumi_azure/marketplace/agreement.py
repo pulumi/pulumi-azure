@@ -24,6 +24,7 @@ class AgreementArgs:
                  publisher: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Agreement resource.
+
         :param pulumi.Input[_builtins.str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
@@ -79,6 +80,7 @@ class _AgreementState:
                  publisher: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Agreement resources.
+
         :param pulumi.Input[_builtins.str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
@@ -189,6 +191,7 @@ class Agreement(pulumi.CustomResource):
         $ pulumi import azure:marketplace/agreement:Agreement example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.MarketplaceOrdering/agreements/publisher1/offers/offer1/plans/plan1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
@@ -230,6 +233,7 @@ class Agreement(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:marketplace/agreement:Agreement example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.MarketplaceOrdering/agreements/publisher1/offers/offer1/plans/plan1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgreementArgs args: The arguments to use to populate this resource's properties.

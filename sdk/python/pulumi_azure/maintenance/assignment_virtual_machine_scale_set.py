@@ -24,6 +24,7 @@ class AssignmentVirtualMachineScaleSetArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssignmentVirtualMachineScaleSet resource.
+
         :param pulumi.Input[_builtins.str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_machine_scale_set_id: Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -78,6 +79,7 @@ class _AssignmentVirtualMachineScaleSetState:
                  virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssignmentVirtualMachineScaleSet resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_machine_scale_set_id: Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
@@ -282,6 +284,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
         $ pulumi import azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Maintenance/configurationAssignments/assign1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -439,6 +442,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Maintenance/configurationAssignments/assign1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssignmentVirtualMachineScaleSetArgs args: The arguments to use to populate this resource's properties.

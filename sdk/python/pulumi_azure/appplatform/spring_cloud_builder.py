@@ -27,6 +27,7 @@ class SpringCloudBuilderArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudBuilder resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
         :param pulumi.Input['SpringCloudBuilderStackArgs'] stack: A `stack` block as defined below.
@@ -96,6 +97,7 @@ class _SpringCloudBuilderState:
                  stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None):
         """
         Input properties used for looking up and filtering SpringCloudBuilder resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
@@ -212,6 +214,7 @@ class SpringCloudBuilder(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudBuilder:SpringCloudBuilder example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudBuilderBuildPackGroupArgs', 'SpringCloudBuilderBuildPackGroupArgsDict']]]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
@@ -266,6 +269,7 @@ class SpringCloudBuilder(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudBuilder:SpringCloudBuilder example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudBuilderArgs args: The arguments to use to populate this resource's properties.

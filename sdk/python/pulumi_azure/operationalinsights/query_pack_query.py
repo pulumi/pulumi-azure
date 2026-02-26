@@ -31,6 +31,7 @@ class QueryPackQueryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a QueryPackQuery resource.
+
         :param pulumi.Input[_builtins.str] body: The body of the Log Analytics Query Pack Query.
         :param pulumi.Input[_builtins.str] display_name: The unique display name for the query within the Log Analytics Query Pack.
         :param pulumi.Input[_builtins.str] query_pack_id: The ID of the Log Analytics Query Pack. Changing this forces a new resource to be created.
@@ -196,6 +197,7 @@ class _QueryPackQueryState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering QueryPackQuery resources.
+
         :param pulumi.Input[_builtins.str] additional_settings_json: The additional properties that can be set for the Log Analytics Query Pack Query.
         :param pulumi.Input[_builtins.str] body: The body of the Log Analytics Query Pack Query.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] categories: A list of the related categories for the function. Possible values are `applications`, `audit`, `container`, `databases`, `desktopanalytics`, `management`, `monitor`, `network`, `resources`, `security`, `virtualmachines`, `windowsvirtualdesktop` and `workloads`.
@@ -416,6 +418,7 @@ class QueryPackQuery(pulumi.CustomResource):
         $ pulumi import azure:operationalinsights/queryPackQuery:QueryPackQuery example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.OperationalInsights/queryPacks/queryPack1/queries/15b49e87-8555-4d92-8a7b-2014b469a9df
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] additional_settings_json: The additional properties that can be set for the Log Analytics Query Pack Query.
@@ -484,6 +487,7 @@ class QueryPackQuery(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:operationalinsights/queryPackQuery:QueryPackQuery example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.OperationalInsights/queryPacks/queryPack1/queries/15b49e87-8555-4d92-8a7b-2014b469a9df
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueryPackQueryArgs args: The arguments to use to populate this resource's properties.

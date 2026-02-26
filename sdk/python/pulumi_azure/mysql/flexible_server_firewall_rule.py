@@ -26,6 +26,7 @@ class FlexibleServerFirewallRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. 
                
                > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
@@ -114,6 +115,7 @@ class _FlexibleServerFirewallRuleState:
                  start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerFirewallRule resources.
+
         :param pulumi.Input[_builtins.str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. 
                
                > **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
@@ -291,6 +293,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         $ pulumi import azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1/firewallRules/firewallRule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. 
@@ -389,6 +392,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1/firewallRules/firewallRule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerFirewallRuleArgs args: The arguments to use to populate this resource's properties.

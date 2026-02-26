@@ -23,6 +23,7 @@ class NatGatewayPublicIpAssociationArgs:
                  public_ip_address_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NatGatewayPublicIpAssociation resource.
+
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _NatGatewayPublicIpAssociationState:
                  public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NatGatewayPublicIpAssociation resources.
+
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
@@ -148,6 +150,7 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
 
         > **Note:** This is a provider-specific ID in the format `{natGatewayID}|{publicIPAddressID}`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
@@ -203,6 +206,7 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         ```
 
         > **Note:** This is a provider-specific ID in the format `{natGatewayID}|{publicIPAddressID}`
+
 
         :param str resource_name: The name of the resource.
         :param NatGatewayPublicIpAssociationArgs args: The arguments to use to populate this resource's properties.

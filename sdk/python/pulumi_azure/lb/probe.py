@@ -29,6 +29,7 @@ class ProbeArgs:
                  request_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Probe resource.
+
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[_builtins.int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
@@ -164,6 +165,7 @@ class _ProbeState:
                  request_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Probe resources.
+
         :param pulumi.Input[_builtins.int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Probe. Changing this forces a new resource to be created.
@@ -361,6 +363,7 @@ class Probe(pulumi.CustomResource):
         $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
@@ -425,6 +428,7 @@ class Probe(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProbeArgs args: The arguments to use to populate this resource's properties.

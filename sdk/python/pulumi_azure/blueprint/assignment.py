@@ -33,6 +33,7 @@ class AssignmentArgs:
                  resource_groups: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assignment resource.
+
         :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] version_id: The ID of the Published Version of the blueprint to be assigned.
@@ -210,6 +211,7 @@ class _AssignmentState:
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Assignment resources.
+
         :param pulumi.Input[_builtins.str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[_builtins.str] description: The Description on the Blueprint
         :param pulumi.Input[_builtins.str] display_name: The display name of the blueprint
@@ -526,6 +528,7 @@ class Assignment(pulumi.CustomResource):
         $ pulumi import azure:blueprint/assignment:Assignment example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -630,6 +633,7 @@ class Assignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:blueprint/assignment:Assignment example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.

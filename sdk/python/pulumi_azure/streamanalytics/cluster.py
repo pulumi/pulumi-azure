@@ -26,6 +26,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] streaming_capacity: The number of streaming units supported by the Cluster. Accepted values are multiples of `36` in the range of `36` to `216`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _ClusterState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Stream Analytics Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
@@ -236,6 +238,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/cluster:Cluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
@@ -283,6 +286,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/cluster:Cluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

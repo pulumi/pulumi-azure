@@ -80,6 +80,7 @@ class WindowsVirtualMachineScaleSetArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WindowsVirtualMachineScaleSet resource.
+
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] instances: The number of Virtual Machines in the Scale Set.
@@ -1062,6 +1063,7 @@ class _WindowsVirtualMachineScaleSetState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering WindowsVirtualMachineScaleSet resources.
+
         :param pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -2146,6 +2148,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         $ pulumi import azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
@@ -2324,6 +2327,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WindowsVirtualMachineScaleSetArgs args: The arguments to use to populate this resource's properties.

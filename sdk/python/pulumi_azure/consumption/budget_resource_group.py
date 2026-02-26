@@ -31,6 +31,7 @@ class BudgetResourceGroupArgs:
                  time_grain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BudgetResourceGroup resource.
+
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_id: The ID of the Resource Group to create the consumption budget for in the form of /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1. Changing this forces a new Resource Group Consumption Budget to be created.
@@ -163,6 +164,7 @@ class _BudgetResourceGroupState:
                  time_period: Optional[pulumi.Input['BudgetResourceGroupTimePeriodArgs']] = None):
         """
         Input properties used for looking up and filtering BudgetResourceGroup resources.
+
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[_builtins.str] etag: (Optional) The ETag of the Resource Group Consumption Budget
         :param pulumi.Input['BudgetResourceGroupFilterArgs'] filter: A `filter` block as defined below.
@@ -379,6 +381,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         $ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.float] amount: The total amount of cost to track with the budget.
@@ -473,6 +476,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BudgetResourceGroupArgs args: The arguments to use to populate this resource's properties.

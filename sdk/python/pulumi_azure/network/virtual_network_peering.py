@@ -34,6 +34,7 @@ class VirtualNetworkPeeringArgs:
                  use_remote_gateways: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkPeering resource.
+
         :param pulumi.Input[_builtins.str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network. Changing this forces a new resource to be created.
@@ -251,6 +252,7 @@ class _VirtualNetworkPeeringState:
                  virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkPeering resources.
+
         :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] allow_virtual_network_access: Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
@@ -621,6 +623,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         $ pulumi import azure:network/virtualNetworkPeering:VirtualNetworkPeering examplePeering /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/virtualNetworkPeerings/myvnet1peering
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
@@ -792,6 +795,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualNetworkPeering:VirtualNetworkPeering examplePeering /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/virtualNetworkPeerings/myvnet1peering
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkPeeringArgs args: The arguments to use to populate this resource's properties.

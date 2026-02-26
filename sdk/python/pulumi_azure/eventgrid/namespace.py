@@ -33,6 +33,7 @@ class NamespaceArgs:
                  topic_spaces_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] capacity: Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
@@ -200,6 +201,7 @@ class _NamespaceState:
                  topic_spaces_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationArgs']]]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
+
         :param pulumi.Input[_builtins.int] capacity: Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
@@ -406,6 +408,7 @@ class Namespace(pulumi.CustomResource):
         $ pulumi import azure:eventgrid/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/namespaces/namespace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
@@ -460,6 +463,7 @@ class Namespace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventgrid/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/namespaces/namespace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

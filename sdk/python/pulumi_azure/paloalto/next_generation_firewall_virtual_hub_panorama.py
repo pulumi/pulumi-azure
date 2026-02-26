@@ -33,6 +33,7 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualHubPanorama resource.
+
         :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] panorama_base64_config: The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
@@ -203,6 +204,7 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NextGenerationFirewallVirtualHubPanorama resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
         :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
@@ -451,6 +453,7 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
         $ pulumi import azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVhubPanoramaFW
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
@@ -534,6 +537,7 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVhubPanoramaFW
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NextGenerationFirewallVirtualHubPanoramaArgs args: The arguments to use to populate this resource's properties.

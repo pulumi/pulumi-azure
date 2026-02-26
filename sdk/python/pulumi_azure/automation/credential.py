@@ -27,6 +27,7 @@ class CredentialArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Credential resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] password: The password associated with this Automation Credential.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
@@ -127,6 +128,7 @@ class _CredentialState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Credential resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description associated with this Automation Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
@@ -274,6 +276,7 @@ class Credential(pulumi.CustomResource):
         $ pulumi import azure:automation/credential:Credential credential1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/credentials/credential1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
@@ -329,6 +332,7 @@ class Credential(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/credential:Credential credential1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/credentials/credential1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CredentialArgs args: The arguments to use to populate this resource's properties.

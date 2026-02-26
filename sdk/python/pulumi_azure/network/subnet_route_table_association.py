@@ -23,6 +23,7 @@ class SubnetRouteTableAssociationArgs:
                  subnet_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SubnetRouteTableAssociation resource.
+
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
                
                > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
@@ -65,6 +66,7 @@ class _SubnetRouteTableAssociationState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubnetRouteTableAssociation resources.
+
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
                
                > **Note:** Use this resource only when the subnet is managed as a standalone `network.Subnet`. If the subnet is declared inline inside `network.VirtualNetwork`, set `route_table_id` in the inline `subnet` block and do not create this association for the same subnet.
@@ -163,6 +165,7 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         $ pulumi import azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -227,6 +230,7 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.

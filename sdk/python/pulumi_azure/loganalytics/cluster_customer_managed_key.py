@@ -23,6 +23,7 @@ class ClusterCustomerManagedKeyArgs:
                  log_analytics_cluster_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ClusterCustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
         :param pulumi.Input[_builtins.str] log_analytics_cluster_id: The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         """
@@ -61,6 +62,7 @@ class _ClusterCustomerManagedKeyState:
                  log_analytics_cluster_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
         :param pulumi.Input[_builtins.str] log_analytics_cluster_id: The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         """
@@ -186,6 +188,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
@@ -279,6 +282,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.

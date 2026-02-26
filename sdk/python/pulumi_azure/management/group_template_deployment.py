@@ -29,6 +29,7 @@ class GroupTemplateDeploymentArgs:
                  template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupTemplateDeployment resource.
+
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Template should exist. Changing this forces a new Template to be created.
@@ -165,6 +166,7 @@ class _GroupTemplateDeploymentState:
                  template_spec_version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupTemplateDeployment resources.
+
         :param pulumi.Input[_builtins.str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Template should exist. Changing this forces a new Template to be created.
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
@@ -416,6 +418,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         $ pulumi import azure:management/groupTemplateDeployment:GroupTemplateDeployment example /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/deploy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -530,6 +533,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:management/groupTemplateDeployment:GroupTemplateDeployment example /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/deploy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupTemplateDeploymentArgs args: The arguments to use to populate this resource's properties.

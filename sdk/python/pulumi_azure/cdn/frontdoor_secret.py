@@ -26,6 +26,7 @@ class FrontdoorSecretArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorSecret resource.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
@@ -81,6 +82,7 @@ class _FrontdoorSecretState:
                  secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None):
         """
         Input properties used for looking up and filtering FrontdoorSecret resources.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_name: The name of the Front Door Profile containing this Front Door Secret.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
@@ -181,6 +183,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorSecret:FrontdoorSecret example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/secrets/secrets1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
@@ -219,6 +222,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorSecret:FrontdoorSecret example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/secrets/secrets1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorSecretArgs args: The arguments to use to populate this resource's properties.

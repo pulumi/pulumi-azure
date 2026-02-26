@@ -27,6 +27,7 @@ class PartnerConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
         :param pulumi.Input[_builtins.int] default_maximum_expiration_time_in_days: Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
         :param pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]] partner_authorizations: One or more `partner_authorization` blocks as defined below.
@@ -98,6 +99,7 @@ class _PartnerConfigurationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PartnerConfiguration resources.
+
         :param pulumi.Input[_builtins.int] default_maximum_expiration_time_in_days: Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
         :param pulumi.Input[Sequence[pulumi.Input['PartnerConfigurationPartnerAuthorizationArgs']]] partner_authorizations: One or more `partner_authorization` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
@@ -212,6 +214,7 @@ class PartnerConfiguration(pulumi.CustomResource):
         $ pulumi import azure:eventgrid/partnerConfiguration:PartnerConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] default_maximum_expiration_time_in_days: Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
@@ -264,6 +267,7 @@ class PartnerConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventgrid/partnerConfiguration:PartnerConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PartnerConfigurationArgs args: The arguments to use to populate this resource's properties.

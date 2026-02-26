@@ -25,6 +25,7 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgentArgs:
                  provisioning_action: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineManagerVirtualMachineInstanceGuestAgent resource.
+
         :param pulumi.Input[_builtins.str] password: The password that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance Guest Agent is stored. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] username: The username that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _VirtualMachineManagerVirtualMachineInstanceGuestAgentState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineManagerVirtualMachineInstanceGuestAgent resources.
+
         :param pulumi.Input[_builtins.str] password: The password that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] provisioning_action: The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance Guest Agent is stored. Changing this forces a new resource to be created.
@@ -248,6 +250,7 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
         $ pulumi import azure:systemcenter/virtualMachineManagerVirtualMachineInstanceGuestAgent:VirtualMachineManagerVirtualMachineInstanceGuestAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.HybridCompute/machines/machine1/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] password: The password that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
@@ -340,6 +343,7 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerVirtualMachineInstanceGuestAgent:VirtualMachineManagerVirtualMachineInstanceGuestAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.HybridCompute/machines/machine1/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineManagerVirtualMachineInstanceGuestAgentArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class RegistryCacheRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryCacheRule resource.
+
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_repo: The name of the source repository path. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_repo: The name of the new repository path to store artifacts. Changing this forces a new resource to be created.
@@ -111,6 +112,7 @@ class _RegistryCacheRuleState:
                  target_repo: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryCacheRule resources.
+
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] credential_set_id: The ARM resource ID of the Credential Store which is associated with the Cache Rule.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
@@ -244,6 +246,7 @@ class RegistryCacheRule(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registryCacheRule:RegistryCacheRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/cacheRules/myCacheRule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
@@ -300,6 +303,7 @@ class RegistryCacheRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registryCacheRule:RegistryCacheRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/cacheRules/myCacheRule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryCacheRuleArgs args: The arguments to use to populate this resource's properties.

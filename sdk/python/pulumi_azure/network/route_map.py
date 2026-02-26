@@ -26,6 +26,7 @@ class RouteMapArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]]] = None):
         """
         The set of arguments for constructing a RouteMap resource.
+
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Route Map. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]] rules: A `rule` block as defined below.
@@ -81,6 +82,7 @@ class _RouteMapState:
                  virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteMap resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Route Map. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleArgs']]] rules: A `rule` block as defined below.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
@@ -195,6 +197,7 @@ class RouteMap(pulumi.CustomResource):
         $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Route Map. Changing this forces a new resource to be created.
@@ -262,6 +265,7 @@ class RouteMap(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteMapArgs args: The arguments to use to populate this resource's properties.

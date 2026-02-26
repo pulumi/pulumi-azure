@@ -27,6 +27,7 @@ class VirtualHubIpArgs:
                  private_ip_allocation_method: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualHubIp resource.
+
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
@@ -128,6 +129,7 @@ class _VirtualHubIpState:
                  virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualHubIp resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IP address of the IP configuration.
         :param pulumi.Input[_builtins.str] private_ip_allocation_method: The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
@@ -293,6 +295,7 @@ class VirtualHubIp(pulumi.CustomResource):
         $ pulumi import azure:network/virtualHubIp:VirtualHubIp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/ipConfigurations/ipConfig1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
@@ -366,6 +369,7 @@ class VirtualHubIp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualHubIp:VirtualHubIp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/ipConfigurations/ipConfig1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHubIpArgs args: The arguments to use to populate this resource's properties.

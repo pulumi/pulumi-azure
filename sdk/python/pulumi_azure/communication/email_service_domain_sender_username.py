@@ -24,6 +24,7 @@ class EmailServiceDomainSenderUsernameArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailServiceDomainSenderUsername resource.
+
         :param pulumi.Input[_builtins.str] email_service_domain_id: The ID of the Email Communication Service Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name for the Email Communication Service Domain Sender Username resource.
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service Domain Sender Username resource. Changing this forces a new resource to be created.
@@ -79,6 +80,7 @@ class _EmailServiceDomainSenderUsernameState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailServiceDomainSenderUsername resources.
+
         :param pulumi.Input[_builtins.str] display_name: The display name for the Email Communication Service Domain Sender Username resource.
         :param pulumi.Input[_builtins.str] email_service_domain_id: The ID of the Email Communication Service Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service Domain Sender Username resource. Changing this forces a new resource to be created.
@@ -177,6 +179,7 @@ class EmailServiceDomainSenderUsername(pulumi.CustomResource):
         $ pulumi import azure:communication/emailServiceDomainSenderUsername:EmailServiceDomainSenderUsername example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/emailServices/service1/domains/domain1/senderUsernames/username1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The display name for the Email Communication Service Domain Sender Username resource.
@@ -228,6 +231,7 @@ class EmailServiceDomainSenderUsername(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:communication/emailServiceDomainSenderUsername:EmailServiceDomainSenderUsername example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Communication/emailServices/service1/domains/domain1/senderUsernames/username1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailServiceDomainSenderUsernameArgs args: The arguments to use to populate this resource's properties.

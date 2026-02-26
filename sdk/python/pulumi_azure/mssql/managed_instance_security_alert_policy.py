@@ -30,6 +30,7 @@ class ManagedInstanceSecurityAlertPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceSecurityAlertPolicy resource.
+
         :param pulumi.Input[_builtins.str] managed_instance_name: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
@@ -184,6 +185,7 @@ class _ManagedInstanceSecurityAlertPolicyState:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceSecurityAlertPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         :param pulumi.Input[_builtins.bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
@@ -540,6 +542,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         $ pulumi import azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/managedInstances/instance1/securityAlertPolicies/Default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
@@ -757,6 +760,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/managedInstances/instance1/securityAlertPolicies/Default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.

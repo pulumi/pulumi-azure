@@ -29,6 +29,7 @@ class CosmosdbDataConnectionArgs:
                  retrieval_start_date: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CosmosdbDataConnection resource.
+
         :param pulumi.Input[_builtins.str] cosmosdb_container_id: The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
         :param pulumi.Input[_builtins.str] kusto_database_id: The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
         :param pulumi.Input[_builtins.str] managed_identity_id: The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
@@ -161,6 +162,7 @@ class _CosmosdbDataConnectionState:
                  table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CosmosdbDataConnection resources.
+
         :param pulumi.Input[_builtins.str] cosmosdb_container_id: The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
         :param pulumi.Input[_builtins.str] kusto_database_id: The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
@@ -407,6 +409,7 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         $ pulumi import azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cosmosdb_container_id: The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
@@ -531,6 +534,7 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CosmosdbDataConnectionArgs args: The arguments to use to populate this resource's properties.

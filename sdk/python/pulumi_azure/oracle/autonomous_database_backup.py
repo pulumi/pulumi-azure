@@ -25,6 +25,7 @@ class AutonomousDatabaseBackupArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutonomousDatabaseBackup resource.
+
         :param pulumi.Input[_builtins.str] autonomous_database_id: The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_period_in_days: (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
         :param pulumi.Input[_builtins.str] name: The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
@@ -95,6 +96,7 @@ class _AutonomousDatabaseBackupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutonomousDatabaseBackup resources.
+
         :param pulumi.Input[_builtins.str] autonomous_database_id: The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The display name of the Autonomous Database Backup. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_period_in_days: (Updatable) The number of days to retain the backup. Must be between 90 and 3650 days.
@@ -207,6 +209,7 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
         $ pulumi import azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/autonomousDatabases/autonomousDatabase1/autonomousDatabaseBackups/autonomousDatabaseBackup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autonomous_database_id: The azureId of the Autonomous Database that this backup is for. Changing this forces a new resource to be created.
@@ -257,6 +260,7 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Oracle.Database/autonomousDatabases/autonomousDatabase1/autonomousDatabaseBackups/autonomousDatabaseBackup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutonomousDatabaseBackupArgs args: The arguments to use to populate this resource's properties.

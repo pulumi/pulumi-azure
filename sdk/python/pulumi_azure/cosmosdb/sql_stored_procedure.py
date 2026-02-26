@@ -27,6 +27,7 @@ class SqlStoredProcedureArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlStoredProcedure resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] body: The body of the stored procedure.
         :param pulumi.Input[_builtins.str] container_name: The name of the Cosmos DB SQL Container to create the stored procedure within. Changing this forces a new resource to be created.
@@ -126,6 +127,7 @@ class _SqlStoredProcedureState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlStoredProcedure resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] body: The body of the stored procedure.
         :param pulumi.Input[_builtins.str] container_name: The name of the Cosmos DB SQL Container to create the stored procedure within. Changing this forces a new resource to be created.
@@ -271,6 +273,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1/containers/c1/storedProcedures/sp1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
@@ -324,6 +327,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/db1/containers/c1/storedProcedures/sp1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlStoredProcedureArgs args: The arguments to use to populate this resource's properties.

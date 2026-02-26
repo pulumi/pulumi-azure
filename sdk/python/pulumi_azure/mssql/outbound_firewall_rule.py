@@ -23,6 +23,7 @@ class OutboundFirewallRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         """
@@ -62,6 +63,7 @@ class _OutboundFirewallRuleState:
                  server_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutboundFirewallRule resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_id: The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         """
@@ -144,6 +146,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
         $ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
@@ -194,6 +197,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutboundFirewallRuleArgs args: The arguments to use to populate this resource's properties.

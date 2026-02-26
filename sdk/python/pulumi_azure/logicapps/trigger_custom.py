@@ -24,6 +24,7 @@ class TriggerCustomArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerCustom resource.
+
         :param pulumi.Input[_builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -83,6 +84,7 @@ class _TriggerCustomState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerCustom resources.
+
         :param pulumi.Input[_builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
         :param pulumi.Input[_builtins.str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -199,6 +201,7 @@ class TriggerCustom(pulumi.CustomResource):
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
@@ -251,6 +254,7 @@ class TriggerCustom(pulumi.CustomResource):
         ```
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
+
 
         :param str resource_name: The name of the resource.
         :param TriggerCustomArgs args: The arguments to use to populate this resource's properties.

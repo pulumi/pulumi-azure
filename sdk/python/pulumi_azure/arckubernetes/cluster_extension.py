@@ -33,6 +33,7 @@ class ClusterExtensionArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterExtension resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input['ClusterExtensionIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
@@ -199,6 +200,7 @@ class _ClusterExtensionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterExtension resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
@@ -429,6 +431,7 @@ class ClusterExtension(pulumi.CustomResource):
         $ pulumi import azure:arckubernetes/clusterExtension:ClusterExtension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Kubernetes/connectedClusters/cluster1/providers/Microsoft.KubernetesConfiguration/extensions/extension1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
@@ -492,6 +495,7 @@ class ClusterExtension(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arckubernetes/clusterExtension:ClusterExtension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Kubernetes/connectedClusters/cluster1/providers/Microsoft.KubernetesConfiguration/extensions/extension1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterExtensionArgs args: The arguments to use to populate this resource's properties.

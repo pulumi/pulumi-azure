@@ -29,6 +29,7 @@ class DscConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DscConfiguration resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_embedded: The PowerShell DSC Configuration script.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -163,6 +164,7 @@ class _DscConfigurationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DscConfiguration resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_embedded: The PowerShell DSC Configuration script.
         :param pulumi.Input[_builtins.str] description: Description to go with DSC Configuration.
@@ -352,6 +354,7 @@ class DscConfiguration(pulumi.CustomResource):
         $ pulumi import azure:automation/dscConfiguration:DscConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/configurations/configuration1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
@@ -408,6 +411,7 @@ class DscConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/dscConfiguration:DscConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/configurations/configuration1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DscConfigurationArgs args: The arguments to use to populate this resource's properties.

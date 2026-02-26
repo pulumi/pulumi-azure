@@ -23,6 +23,7 @@ class SyncGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncGroup resource.
+
         :param pulumi.Input[_builtins.str] storage_sync_id: The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
         """
@@ -62,6 +63,7 @@ class _SyncGroupState:
                  storage_sync_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SyncGroup resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
         :param pulumi.Input[_builtins.str] storage_sync_id: The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
         """
@@ -140,6 +142,7 @@ class SyncGroup(pulumi.CustomResource):
         $ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
@@ -186,6 +189,7 @@ class SyncGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SyncGroupArgs args: The arguments to use to populate this resource's properties.

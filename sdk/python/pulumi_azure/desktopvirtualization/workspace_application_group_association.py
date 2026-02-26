@@ -23,6 +23,7 @@ class WorkspaceApplicationGroupAssociationArgs:
                  workspace_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a WorkspaceApplicationGroupAssociation resource.
+
         :param pulumi.Input[_builtins.str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _WorkspaceApplicationGroupAssociationState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceApplicationGroupAssociation resources.
+
         :param pulumi.Input[_builtins.str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
@@ -153,6 +155,7 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
 
         > **Note:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
@@ -213,6 +216,7 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         ```
 
         > **Note:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApplicationGroupAssociationArgs args: The arguments to use to populate this resource's properties.

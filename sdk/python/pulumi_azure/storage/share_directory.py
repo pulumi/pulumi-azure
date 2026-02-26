@@ -25,6 +25,7 @@ class ShareDirectoryArgs:
                  storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareDirectory resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
@@ -97,6 +98,7 @@ class _ShareDirectoryState:
                  storage_share_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ShareDirectory resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
@@ -208,6 +210,7 @@ class ShareDirectory(pulumi.CustomResource):
         $ pulumi import azure:storage/shareDirectory:ShareDirectory example https://tomdevsa20.file.core.windows.net/share1/directory1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this Directory.
@@ -256,6 +259,7 @@ class ShareDirectory(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/shareDirectory:ShareDirectory example https://tomdevsa20.file.core.windows.net/share1/directory1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ShareDirectoryArgs args: The arguments to use to populate this resource's properties.

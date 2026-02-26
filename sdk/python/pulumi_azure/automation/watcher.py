@@ -31,6 +31,7 @@ class WatcherArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Watcher resource.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
         :param pulumi.Input[_builtins.int] execution_frequency_in_seconds: Specify the frequency at which the watcher is invoked.
         :param pulumi.Input[_builtins.str] script_name: Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
@@ -196,6 +197,7 @@ class _WatcherState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Watcher resources.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
         :param pulumi.Input[_builtins.str] description: A description of this Automation Watcher.
         :param pulumi.Input[_builtins.str] etag: A string of etag assigned to this Automation Watcher.
@@ -445,6 +447,7 @@ class Watcher(pulumi.CustomResource):
         $ pulumi import azure:automation/watcher:Watcher example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/watchers/watch1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
@@ -527,6 +530,7 @@ class Watcher(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/watcher:Watcher example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/watchers/watch1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WatcherArgs args: The arguments to use to populate this resource's properties.

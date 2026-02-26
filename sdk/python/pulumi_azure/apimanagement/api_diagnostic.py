@@ -38,6 +38,7 @@ class ApiDiagnosticArgs:
                  verbosity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiDiagnostic resource.
+
         :param pulumi.Input[_builtins.str] api_management_logger_id: The ID (name) of the Diagnostics Logger.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         :param pulumi.Input[_builtins.str] api_name: The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
@@ -281,6 +282,7 @@ class _ApiDiagnosticState:
                  verbosity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiDiagnostic resources.
+
         :param pulumi.Input[_builtins.bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         :param pulumi.Input[_builtins.str] api_management_logger_id: The ID (name) of the Diagnostics Logger.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
@@ -634,6 +636,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
@@ -760,6 +763,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiDiagnosticArgs args: The arguments to use to populate this resource's properties.

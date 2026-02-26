@@ -26,6 +26,7 @@ class SpringCloudAppRedisAssociationArgs:
                  ssl_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpringCloudAppRedisAssociation resource.
+
         :param pulumi.Input[_builtins.str] redis_access_key: Specifies the Redis Cache access key.
         :param pulumi.Input[_builtins.str] redis_cache_id: Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
@@ -111,6 +112,7 @@ class _SpringCloudAppRedisAssociationState:
                  ssl_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SpringCloudAppRedisAssociation resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redis_access_key: Specifies the Redis Cache access key.
         :param pulumi.Input[_builtins.str] redis_cache_id: Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
@@ -247,6 +249,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp/bindings/bind1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
@@ -306,6 +309,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp/bindings/bind1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudAppRedisAssociationArgs args: The arguments to use to populate this resource's properties.

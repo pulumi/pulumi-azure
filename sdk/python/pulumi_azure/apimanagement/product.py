@@ -31,6 +31,7 @@ class ProductArgs:
                  terms: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Product resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this API Management Product.
         :param pulumi.Input[_builtins.str] product_id: The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
@@ -202,6 +203,7 @@ class _ProductState:
                  terms: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Product resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
                
@@ -424,6 +426,7 @@ class Product(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/product:Product example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/products/myproduct
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -490,6 +493,7 @@ class Product(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/product:Product example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/products/myproduct
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.

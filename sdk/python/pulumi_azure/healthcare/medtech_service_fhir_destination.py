@@ -27,6 +27,7 @@ class MedtechServiceFhirDestinationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MedtechServiceFhirDestination resource.
+
         :param pulumi.Input[_builtins.str] destination_fhir_mapping_json: Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
         :param pulumi.Input[_builtins.str] destination_fhir_service_id: Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         :param pulumi.Input[_builtins.str] destination_identity_resolution_type: Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
@@ -127,6 +128,7 @@ class _MedtechServiceFhirDestinationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MedtechServiceFhirDestination resources.
+
         :param pulumi.Input[_builtins.str] destination_fhir_mapping_json: Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
         :param pulumi.Input[_builtins.str] destination_fhir_service_id: Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         :param pulumi.Input[_builtins.str] destination_identity_resolution_type: Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
@@ -332,6 +334,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         $ pulumi import azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotConnectors/iotconnector1/fhirDestinations/destination1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_fhir_mapping_json: Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
@@ -445,6 +448,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotConnectors/iotconnector1/fhirDestinations/destination1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MedtechServiceFhirDestinationArgs args: The arguments to use to populate this resource's properties.

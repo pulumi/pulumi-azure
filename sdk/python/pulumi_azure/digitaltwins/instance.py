@@ -28,6 +28,7 @@ class InstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
         :param pulumi.Input['InstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
@@ -116,6 +117,7 @@ class _InstanceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
+
         :param pulumi.Input[_builtins.str] host_name: The API endpoint to work with this Digital Twins instance.
         :param pulumi.Input['InstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
@@ -257,6 +259,7 @@ class Instance(pulumi.CustomResource):
         $ pulumi import azure:digitaltwins/instance:Instance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceIdentityArgs', 'InstanceIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -306,6 +309,7 @@ class Instance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:digitaltwins/instance:Instance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

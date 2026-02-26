@@ -28,6 +28,7 @@ class CertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
@@ -129,6 +130,7 @@ class _CertificateState:
                  versionless_secret_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateCertificateAttributeArgs']]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[_builtins.str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
@@ -570,6 +572,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import azure:keyvault/certificate:Certificate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CertificateCertificateArgs', 'CertificateCertificateArgsDict']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
@@ -782,6 +785,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/certificate:Certificate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

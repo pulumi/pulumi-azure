@@ -29,6 +29,7 @@ class OutputPowerbiArgs:
                  token_user_principal_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputPowerbi resource.
+
         :param pulumi.Input[_builtins.str] dataset: The name of the Power BI dataset.
         :param pulumi.Input[_builtins.str] group_id: The ID of the Power BI group, this must be a valid UUID.
         :param pulumi.Input[_builtins.str] group_name: The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
@@ -160,6 +161,7 @@ class _OutputPowerbiState:
                  token_user_principal_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputPowerbi resources.
+
         :param pulumi.Input[_builtins.str] dataset: The name of the Power BI dataset.
         :param pulumi.Input[_builtins.str] group_id: The ID of the Power BI group, this must be a valid UUID.
         :param pulumi.Input[_builtins.str] group_name: The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
@@ -334,6 +336,7 @@ class OutputPowerbi(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/outputPowerbi:OutputPowerbi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset: The name of the Power BI dataset.
@@ -386,6 +389,7 @@ class OutputPowerbi(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/outputPowerbi:OutputPowerbi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutputPowerbiArgs args: The arguments to use to populate this resource's properties.

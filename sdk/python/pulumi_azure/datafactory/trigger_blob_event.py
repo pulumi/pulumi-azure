@@ -35,6 +35,7 @@ class TriggerBlobEventArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerBlobEvent resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]] pipelines: One or more `pipeline` blocks as defined below.
@@ -235,6 +236,7 @@ class _TriggerBlobEventState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerBlobEvent resources.
+
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Blob Event Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Blob Event Trigger.
@@ -503,6 +505,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
         $ pulumi import azure:datafactory/triggerBlobEvent:TriggerBlobEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
@@ -587,6 +590,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/triggerBlobEvent:TriggerBlobEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerBlobEventArgs args: The arguments to use to populate this resource's properties.

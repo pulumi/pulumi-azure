@@ -33,6 +33,7 @@ class PointToPointVpnGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PointToPointVpnGateway resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]] connection_configurations: A `connection_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] scale_unit: The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
@@ -196,6 +197,7 @@ class _PointToPointVpnGatewayState:
                  vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PointToPointVpnGateway resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]] connection_configurations: A `connection_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -447,6 +449,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         $ pulumi import azure:network/pointToPointVpnGateway:PointToPointVpnGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/p2sVpnGateways/gateway1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]] connection_configurations: A `connection_configuration` block as defined below.
@@ -546,6 +549,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/pointToPointVpnGateway:PointToPointVpnGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/p2sVpnGateways/gateway1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PointToPointVpnGatewayArgs args: The arguments to use to populate this resource's properties.

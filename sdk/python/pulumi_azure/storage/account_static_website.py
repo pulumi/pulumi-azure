@@ -24,6 +24,7 @@ class AccountStaticWebsiteInitArgs:
                  index_document: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountStaticWebsite resource.
+
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         :param pulumi.Input[_builtins.str] index_document: The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
@@ -79,6 +80,7 @@ class _AccountStaticWebsiteState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountStaticWebsite resources.
+
         :param pulumi.Input[_builtins.str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         :param pulumi.Input[_builtins.str] index_document: The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
@@ -172,6 +174,7 @@ class AccountStaticWebsite(pulumi.CustomResource):
         $ pulumi import azure:storage/accountStaticWebsite:AccountStaticWebsite mysite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
@@ -218,6 +221,7 @@ class AccountStaticWebsite(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/accountStaticWebsite:AccountStaticWebsite mysite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountStaticWebsiteInitArgs args: The arguments to use to populate this resource's properties.

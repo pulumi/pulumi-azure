@@ -26,6 +26,7 @@ class LocalRulestackPrefixListArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalRulestackPrefixList resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_lists: Specifies a list of Prefixes.
         :param pulumi.Input[_builtins.str] rulestack_id: The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created.
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
@@ -112,6 +113,7 @@ class _LocalRulestackPrefixListState:
                  rulestack_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackPrefixList resources.
+
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input[_builtins.str] description: The description for the Prefix List.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Local Rulestack Prefix List.
@@ -239,6 +241,7 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         $ pulumi import azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/prefixLists/myFQDNList1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
@@ -289,6 +292,7 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/prefixLists/myFQDNList1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackPrefixListArgs args: The arguments to use to populate this resource's properties.

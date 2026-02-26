@@ -43,6 +43,7 @@ class ScheduledQueryRulesAlertV2Args:
                  workspace_alerts_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ScheduledQueryRulesAlertV2 resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
                
@@ -384,6 +385,7 @@ class _ScheduledQueryRulesAlertV2State:
                  workspace_alerts_storage_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ScheduledQueryRulesAlertV2 resources.
+
         :param pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs'] action: An `action` block as defined below.
         :param pulumi.Input[_builtins.bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         :param pulumi.Input[_builtins.str] created_with_api_version: The api-version used when creating this alert rule.
@@ -871,6 +873,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         $ pulumi import azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/scheduledQueryRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']] action: An `action` block as defined below.
@@ -1003,6 +1006,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/scheduledQueryRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryRulesAlertV2Args args: The arguments to use to populate this resource's properties.

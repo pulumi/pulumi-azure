@@ -34,6 +34,7 @@ class LinkServiceArgs:
                  visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkService resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
@@ -221,6 +222,7 @@ class _LinkServiceState:
                  visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LinkService resources.
+
         :param pulumi.Input[_builtins.str] alias: A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         :param pulumi.Input[_builtins.str] destination_ip_address: The destination IP address of the Private Link Service.
@@ -506,6 +508,7 @@ class LinkService(pulumi.CustomResource):
         $ pulumi import azure:privatedns/linkService:LinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateLinkServices/service1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
@@ -607,6 +610,7 @@ class LinkService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/linkService:LinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateLinkServices/service1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkServiceArgs args: The arguments to use to populate this resource's properties.

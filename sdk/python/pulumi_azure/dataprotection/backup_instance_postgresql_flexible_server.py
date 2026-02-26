@@ -26,6 +26,7 @@ class BackupInstancePostgresqlFlexibleServerArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupInstancePostgresqlFlexibleServer resource.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] server_id: The ID of the source server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _BackupInstancePostgresqlFlexibleServerState:
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupInstancePostgresqlFlexibleServer resources.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[_builtins.str] location: The location of the source database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
@@ -296,6 +298,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy.
@@ -388,6 +391,7 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupInstancePostgresqlFlexibleServerArgs args: The arguments to use to populate this resource's properties.

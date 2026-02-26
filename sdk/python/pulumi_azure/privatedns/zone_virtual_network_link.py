@@ -28,6 +28,7 @@ class ZoneVirtualNetworkLinkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ZoneVirtualNetworkLink resource.
+
         :param pulumi.Input[_builtins.str] private_dns_zone_name: The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
@@ -145,6 +146,7 @@ class _ZoneVirtualNetworkLinkState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ZoneVirtualNetworkLink resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_dns_zone_name: The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
@@ -309,6 +311,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         $ pulumi import azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink link1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1.com/virtualNetworkLinks/myVnetLink1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
@@ -366,6 +369,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink link1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1.com/virtualNetworkLinks/myVnetLink1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ZoneVirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.

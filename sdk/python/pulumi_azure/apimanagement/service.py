@@ -49,6 +49,7 @@ class ServiceArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input[_builtins.str] publisher_email: The email of publisher/company.
         :param pulumi.Input[_builtins.str] publisher_name: The name of publisher/company.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
@@ -501,6 +502,7 @@ class _ServiceState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more `certificate` blocks (up to 10) as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
@@ -1115,6 +1117,7 @@ class Service(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]] additional_locations: One or more `additional_location` blocks as defined below.
@@ -1205,6 +1208,7 @@ class Service(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

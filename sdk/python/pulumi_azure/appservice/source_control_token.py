@@ -24,6 +24,7 @@ class SourceControlTokenArgs:
                  token_secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceControlToken resource.
+
         :param pulumi.Input[_builtins.str] token: The Access Token.
         :param pulumi.Input[_builtins.str] type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
         :param pulumi.Input[_builtins.str] token_secret: The Access Token Secret.
@@ -82,6 +83,7 @@ class _SourceControlTokenState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceControlToken resources.
+
         :param pulumi.Input[_builtins.str] token: The Access Token.
         :param pulumi.Input[_builtins.str] token_secret: The Access Token Secret.
                
@@ -175,6 +177,7 @@ class SourceControlToken(pulumi.CustomResource):
         $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] token: The Access Token.
@@ -219,6 +222,7 @@ class SourceControlToken(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceControlTokenArgs args: The arguments to use to populate this resource's properties.

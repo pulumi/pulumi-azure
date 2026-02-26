@@ -26,6 +26,7 @@ class RoutingIntentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingIntent resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
@@ -80,6 +81,7 @@ class _RoutingIntentState:
                  virtual_hub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoutingIntent resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
@@ -195,6 +197,7 @@ class RoutingIntent(pulumi.CustomResource):
         $ pulumi import azure:network/routingIntent:RoutingIntent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/routingIntent1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
@@ -263,6 +266,7 @@ class RoutingIntent(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/routingIntent:RoutingIntent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/routingIntent1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoutingIntentArgs args: The arguments to use to populate this resource's properties.

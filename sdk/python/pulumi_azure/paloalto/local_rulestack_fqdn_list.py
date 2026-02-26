@@ -26,6 +26,7 @@ class LocalRulestackFqdnListArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalRulestackFqdnList resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fully_qualified_domain_names: Specifies a list of Fully Qualified Domain Names.
         :param pulumi.Input[_builtins.str] rulestack_id: The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
@@ -112,6 +113,7 @@ class _LocalRulestackFqdnListState:
                  rulestack_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackFqdnList resources.
+
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input[_builtins.str] description: The description for the FQDN List.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fully_qualified_domain_names: Specifies a list of Fully Qualified Domain Names.
@@ -239,6 +241,7 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         $ pulumi import azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/fqdnLists/myFQDNList1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] audit_comment: The comment for Audit purposes.
@@ -289,6 +292,7 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/fqdnLists/myFQDNList1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackFqdnListArgs args: The arguments to use to populate this resource's properties.

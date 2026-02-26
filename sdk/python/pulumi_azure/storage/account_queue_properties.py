@@ -28,6 +28,7 @@ class AccountQueuePropertiesInitArgs:
                  minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']] = None):
         """
         The set of arguments for constructing a AccountQueueProperties resource.
+
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined above.
         :param pulumi.Input['AccountQueuePropertiesHourMetricsArgs'] hour_metrics: A `hour_metrics` block as defined below.
@@ -119,6 +120,7 @@ class _AccountQueuePropertiesState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountQueueProperties resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined above.
         :param pulumi.Input['AccountQueuePropertiesHourMetricsArgs'] hour_metrics: A `hour_metrics` block as defined below.
                
@@ -271,6 +273,7 @@ class AccountQueueProperties(pulumi.CustomResource):
         $ pulumi import azure:storage/accountQueueProperties:AccountQueueProperties queueprops /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountQueuePropertiesCorsRuleArgs', 'AccountQueuePropertiesCorsRuleArgsDict']]]] cors_rules: A `cors_rule` block as defined above.
@@ -344,6 +347,7 @@ class AccountQueueProperties(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/accountQueueProperties:AccountQueueProperties queueprops /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountQueuePropertiesInitArgs args: The arguments to use to populate this resource's properties.

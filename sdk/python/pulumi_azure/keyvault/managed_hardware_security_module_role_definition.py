@@ -28,6 +28,7 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
                  role_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleRoleDefinition resource.
+
         :param pulumi.Input[_builtins.str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[_builtins.str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         :param pulumi.Input[_builtins.str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
@@ -117,6 +118,7 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
                  role_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleDefinition resources.
+
         :param pulumi.Input[_builtins.str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         :param pulumi.Input[_builtins.str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[_builtins.str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
@@ -279,6 +281,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
@@ -334,6 +337,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedHardwareSecurityModuleRoleDefinitionArgs args: The arguments to use to populate this resource's properties.

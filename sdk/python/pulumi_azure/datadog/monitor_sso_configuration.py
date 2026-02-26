@@ -26,6 +26,7 @@ class MonitorSsoConfigurationArgs:
                  single_sign_on_enabled: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorSsoConfiguration resource.
+
         :param pulumi.Input[_builtins.str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[_builtins.str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[_builtins.str] name: The name of the SingleSignOn configuration. Defaults to `default`.
@@ -113,6 +114,7 @@ class _MonitorSsoConfigurationState:
                  single_sign_on_enabled: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorSsoConfiguration resources.
+
         :param pulumi.Input[_builtins.str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[_builtins.str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[_builtins.str] login_url: The SingleSignOn URL to login to Datadog org.
@@ -268,6 +270,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         $ pulumi import azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/singleSignOnConfigurations/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
@@ -330,6 +333,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/singleSignOnConfigurations/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorSsoConfigurationArgs args: The arguments to use to populate this resource's properties.

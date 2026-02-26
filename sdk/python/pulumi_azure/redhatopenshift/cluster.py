@@ -34,6 +34,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input['ClusterApiServerProfileArgs'] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIngressProfileArgs'] ingress_profile: An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
@@ -211,6 +212,7 @@ class _ClusterState:
                  worker_profile: Optional[pulumi.Input['ClusterWorkerProfileArgs']] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input['ClusterApiServerProfileArgs'] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterClusterProfileArgs'] cluster_profile: A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] console_url: The Red Hat OpenShift cluster console URL.
@@ -425,6 +427,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterApiServerProfileArgs', 'ClusterApiServerProfileArgsDict']] api_server_profile: An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
@@ -457,6 +460,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

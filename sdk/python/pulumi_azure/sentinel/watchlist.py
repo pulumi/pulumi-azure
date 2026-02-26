@@ -28,6 +28,7 @@ class WatchlistArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Watchlist resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[_builtins.str] item_search_key: The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
@@ -145,6 +146,7 @@ class _WatchlistState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Watchlist resources.
+
         :param pulumi.Input[_builtins.str] default_duration: The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[_builtins.str] description: The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -307,6 +309,7 @@ class Watchlist(pulumi.CustomResource):
         $ pulumi import azure:sentinel/watchlist:Watchlist example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_duration: The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
@@ -362,6 +365,7 @@ class Watchlist(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/watchlist:Watchlist example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WatchlistArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class NsRecordArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NsRecord resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] records: A list of values that make up the NS record.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -128,6 +129,7 @@ class _NsRecordState:
                  zone_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NsRecord resources.
+
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS NS Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS NS Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] records: A list of values that make up the NS record.
@@ -295,6 +297,7 @@ class NsRecord(pulumi.CustomResource):
         $ pulumi import azure:dns/nsRecord:NsRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/NS/myrecord1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS NS Record. Changing this forces a new resource to be created.
@@ -355,6 +358,7 @@ class NsRecord(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dns/nsRecord:NsRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/NS/myrecord1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NsRecordArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class ApplicationArgs:
                  show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] command_line_argument_policy: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         :param pulumi.Input[_builtins.str] path: The file path location of the app on the Virtual Desktop OS.
@@ -196,6 +197,7 @@ class _ApplicationState:
                  show_in_portal: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] command_line_argument_policy: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         :param pulumi.Input[_builtins.str] command_line_arguments: Command Line Arguments for Virtual Desktop Application.
@@ -427,6 +429,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import azure:desktopvirtualization/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup/applications/myapplication
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
@@ -506,6 +509,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:desktopvirtualization/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup/applications/myapplication
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

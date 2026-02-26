@@ -30,6 +30,7 @@ class SpringCloudJavaDeploymentArgs:
                  runtime_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudJavaDeployment resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[_builtins.int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -149,6 +150,7 @@ class _SpringCloudJavaDeploymentState:
                  spring_cloud_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudJavaDeployment resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[_builtins.int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[_builtins.str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
@@ -322,6 +324,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1/deployments/deploy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -388,6 +391,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1/deployments/deploy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudJavaDeploymentArgs args: The arguments to use to populate this resource's properties.

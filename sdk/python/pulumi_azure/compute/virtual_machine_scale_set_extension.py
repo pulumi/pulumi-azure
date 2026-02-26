@@ -36,6 +36,7 @@ class VirtualMachineScaleSetExtensionArgs:
                  settings: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineScaleSetExtension resource.
+
         :param pulumi.Input[_builtins.str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
@@ -280,6 +281,7 @@ class _VirtualMachineScaleSetExtensionState:
                  virtual_machine_scale_set_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineScaleSetExtension resources.
+
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param pulumi.Input[_builtins.bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
@@ -594,6 +596,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         $ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
@@ -695,6 +698,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetExtensionArgs args: The arguments to use to populate this resource's properties.

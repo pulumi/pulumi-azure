@@ -32,6 +32,7 @@ class SpringCloudGatewayRouteConfigArgs:
                  sso_validation_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SpringCloudGatewayRouteConfig resource.
+
         :param pulumi.Input[_builtins.str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
@@ -186,6 +187,7 @@ class _SpringCloudGatewayRouteConfigState:
                  sso_validation_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SpringCloudGatewayRouteConfig resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs'] open_api: One or more `open_api` blocks as defined below.
@@ -404,6 +406,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1/routeConfigs/routeConfig1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
@@ -483,6 +486,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1/routeConfigs/routeConfig1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudGatewayRouteConfigArgs args: The arguments to use to populate this resource's properties.

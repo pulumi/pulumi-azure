@@ -33,6 +33,7 @@ class ContactProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContactProfile resource.
+
         :param pulumi.Input[_builtins.str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
@@ -196,6 +197,7 @@ class _ContactProfileState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ContactProfile resources.
+
         :param pulumi.Input[_builtins.str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[_builtins.str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
@@ -442,6 +444,7 @@ class ContactProfile(pulumi.CustomResource):
         $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
@@ -536,6 +539,7 @@ class ContactProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactProfileArgs args: The arguments to use to populate this resource's properties.

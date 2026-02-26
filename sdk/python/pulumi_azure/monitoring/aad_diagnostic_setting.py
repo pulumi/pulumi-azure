@@ -29,6 +29,7 @@ class AadDiagnosticSettingArgs:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AadDiagnosticSetting resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[_builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
                
@@ -141,6 +142,7 @@ class _AadDiagnosticSettingState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AadDiagnosticSetting resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AadDiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[_builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
                
@@ -310,6 +312,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
@@ -383,6 +386,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AadDiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class IntegrationAccountCertificateArgs:
                  public_certificate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountCertificate resource.
+
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
         :param pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs'] key_vault_key: A `key_vault_key` block as documented below.
@@ -131,6 +132,7 @@ class _IntegrationAccountCertificateState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountCertificate resources.
+
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
         :param pulumi.Input['IntegrationAccountCertificateKeyVaultKeyArgs'] key_vault_key: A `key_vault_key` block as documented below.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
@@ -276,6 +278,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/certificates/certificate1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
@@ -329,6 +332,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/certificates/certificate1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountCertificateArgs args: The arguments to use to populate this resource's properties.

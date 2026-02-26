@@ -24,6 +24,7 @@ class SqlDedicatedGatewayArgs:
                  instance_size: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SqlDedicatedGateway resource.
+
         :param pulumi.Input[_builtins.str] cosmosdb_account_id: The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
         :param pulumi.Input[_builtins.str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
@@ -77,6 +78,7 @@ class _SqlDedicatedGatewayState:
                  instance_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlDedicatedGateway resources.
+
         :param pulumi.Input[_builtins.str] cosmosdb_account_id: The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
         :param pulumi.Input[_builtins.str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
@@ -181,6 +183,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/account1/services/SqlDedicatedGateway
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cosmosdb_account_id: The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -238,6 +241,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/account1/services/SqlDedicatedGateway
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlDedicatedGatewayArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class ChannelSlackArgs:
                  signing_secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelSlack resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: The Client ID that will be used to authenticate with Slack.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret that will be used to authenticate with Slack.
@@ -160,6 +161,7 @@ class _ChannelSlackState:
                  verification_token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelSlack resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: The Client ID that will be used to authenticate with Slack.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret that will be used to authenticate with Slack.
@@ -336,6 +338,7 @@ class ChannelSlack(pulumi.CustomResource):
         $ pulumi import azure:bot/channelSlack:ChannelSlack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/SlackChannel
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -390,6 +393,7 @@ class ChannelSlack(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelSlack:ChannelSlack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/SlackChannel
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelSlackArgs args: The arguments to use to populate this resource's properties.

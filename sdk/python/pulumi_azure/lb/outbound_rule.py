@@ -32,6 +32,7 @@ class OutboundRuleArgs:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OutboundRule resource.
+
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -181,6 +182,7 @@ class _OutboundRuleState:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OutboundRule resources.
+
         :param pulumi.Input[_builtins.int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
@@ -390,6 +392,7 @@ class OutboundRule(pulumi.CustomResource):
         $ pulumi import azure:lb/outboundRule:OutboundRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/outboundRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
@@ -461,6 +464,7 @@ class OutboundRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lb/outboundRule:OutboundRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/outboundRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutboundRuleArgs args: The arguments to use to populate this resource's properties.

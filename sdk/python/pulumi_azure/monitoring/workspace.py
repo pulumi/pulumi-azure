@@ -26,6 +26,7 @@ class WorkspaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
@@ -116,6 +117,7 @@ class _WorkspaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
+
         :param pulumi.Input[_builtins.str] default_data_collection_endpoint_id: The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
         :param pulumi.Input[_builtins.str] default_data_collection_rule_id: The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
@@ -287,6 +289,7 @@ class Workspace(pulumi.CustomResource):
         $ pulumi import azure:monitoring/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Monitor/accounts/azureMonitorWorkspace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
@@ -336,6 +339,7 @@ class Workspace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Monitor/accounts/azureMonitorWorkspace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

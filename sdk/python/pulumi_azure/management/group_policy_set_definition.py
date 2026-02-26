@@ -32,6 +32,7 @@ class GroupPolicySetDefinitionArgs:
                  policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None):
         """
         The set of arguments for constructing a GroupPolicySetDefinition resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of this Policy Set Definition.
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group where this Policy Set Definition should be created. Changing this forces a new Policy Set Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
@@ -180,6 +181,7 @@ class _GroupPolicySetDefinitionState:
                  policy_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupPolicySetDefinition resources.
+
         :param pulumi.Input[_builtins.str] description: The description of this Policy Set Definition.
         :param pulumi.Input[_builtins.str] display_name: The display name of this Policy Set Definition.
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group where this Policy Set Definition should be created. Changing this forces a new Policy Set Definition to be created.
@@ -385,6 +387,7 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
         $ pulumi import azure:management/groupPolicySetDefinition:GroupPolicySetDefinition example /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of this Policy Set Definition.
@@ -453,6 +456,7 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:management/groupPolicySetDefinition:GroupPolicySetDefinition example /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupPolicySetDefinitionArgs args: The arguments to use to populate this resource's properties.

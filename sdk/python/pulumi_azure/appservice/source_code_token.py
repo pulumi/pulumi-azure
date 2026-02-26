@@ -24,6 +24,7 @@ class SourceCodeTokenArgs:
                  token_secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceCodeToken resource.
+
         :param pulumi.Input[_builtins.str] token: The OAuth access token.
         :param pulumi.Input[_builtins.str] type: The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
         :param pulumi.Input[_builtins.str] token_secret: The OAuth access token secret.
@@ -78,6 +79,7 @@ class _SourceCodeTokenState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceCodeToken resources.
+
         :param pulumi.Input[_builtins.str] token: The OAuth access token.
         :param pulumi.Input[_builtins.str] token_secret: The OAuth access token secret.
         :param pulumi.Input[_builtins.str] type: The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
@@ -162,6 +164,7 @@ class SourceCodeToken(pulumi.CustomResource):
         $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example {type}
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] token: The OAuth access token.
@@ -199,6 +202,7 @@ class SourceCodeToken(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example {type}
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SourceCodeTokenArgs args: The arguments to use to populate this resource's properties.

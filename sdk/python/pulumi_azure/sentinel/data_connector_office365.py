@@ -27,6 +27,7 @@ class DataConnectorOffice365Args:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorOffice365 resource.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
         :param pulumi.Input[_builtins.bool] exchange_enabled: Should the Exchange data connector be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
@@ -138,6 +139,7 @@ class _DataConnectorOffice365State:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorOffice365 resources.
+
         :param pulumi.Input[_builtins.bool] exchange_enabled: Should the Exchange data connector be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
@@ -283,6 +285,7 @@ class DataConnectorOffice365(pulumi.CustomResource):
         $ pulumi import azure:sentinel/dataConnectorOffice365:DataConnectorOffice365 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] exchange_enabled: Should the Exchange data connector be enabled? Defaults to `true`.
@@ -332,6 +335,7 @@ class DataConnectorOffice365(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/dataConnectorOffice365:DataConnectorOffice365 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataConnectorOffice365Args args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class ConnectionCertificateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionCertificate resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] automation_certificate_name: The name of the automation certificate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
@@ -127,6 +128,7 @@ class _ConnectionCertificateState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectionCertificate resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] automation_certificate_name: The name of the automation certificate.
         :param pulumi.Input[_builtins.str] description: A description for this Connection.
@@ -280,6 +282,7 @@ class ConnectionCertificate(pulumi.CustomResource):
         $ pulumi import azure:automation/connectionCertificate:ConnectionCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -341,6 +344,7 @@ class ConnectionCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/connectionCertificate:ConnectionCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionCertificateArgs args: The arguments to use to populate this resource's properties.

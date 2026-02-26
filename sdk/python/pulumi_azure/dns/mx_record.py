@@ -29,6 +29,7 @@ class MxRecordArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MxRecord resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -130,6 +131,7 @@ class _MxRecordState:
                  zone_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MxRecord resources.
+
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
@@ -303,6 +305,7 @@ class MxRecord(pulumi.CustomResource):
         $ pulumi import azure:dns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/MX/myrecord1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
@@ -369,6 +372,7 @@ class MxRecord(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/MX/myrecord1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MxRecordArgs args: The arguments to use to populate this resource's properties.

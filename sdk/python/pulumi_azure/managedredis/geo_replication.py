@@ -23,6 +23,7 @@ class GeoReplicationArgs:
                  managed_redis_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GeoReplication resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_managed_redis_ids: A set of other Managed Redis IDs to link together in the geo-replication group. The ID of this Managed Redis is always included by default and does not need to be provided here. Can contain up to 4 Managed Redis IDs, making up a group of 5 in total. All Managed Redis must have the same `geo_replication_group_name` configured. Once linked, the geo-replication state of all Managed Redis will be updated.
         :param pulumi.Input[_builtins.str] managed_redis_id: The ID of the Managed Redis through which geo-replication group will be managed. Linking is reciprocal, if A is linked to B, both A and B will have the same linking state. There is no need to have duplicate `managedredis.GeoReplication` resources for each. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _GeoReplicationState:
                  managed_redis_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GeoReplication resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_managed_redis_ids: A set of other Managed Redis IDs to link together in the geo-replication group. The ID of this Managed Redis is always included by default and does not need to be provided here. Can contain up to 4 Managed Redis IDs, making up a group of 5 in total. All Managed Redis must have the same `geo_replication_group_name` configured. Once linked, the geo-replication state of all Managed Redis will be updated.
         :param pulumi.Input[_builtins.str] managed_redis_id: The ID of the Managed Redis through which geo-replication group will be managed. Linking is reciprocal, if A is linked to B, both A and B will have the same linking state. There is no need to have duplicate `managedredis.GeoReplication` resources for each. Changing this forces a new resource to be created.
         """
@@ -153,6 +155,7 @@ class GeoReplication(pulumi.CustomResource):
         $ pulumi import azure:managedredis/geoReplication:GeoReplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_managed_redis_ids: A set of other Managed Redis IDs to link together in the geo-replication group. The ID of this Managed Redis is always included by default and does not need to be provided here. Can contain up to 4 Managed Redis IDs, making up a group of 5 in total. All Managed Redis must have the same `geo_replication_group_name` configured. Once linked, the geo-replication state of all Managed Redis will be updated.
@@ -213,6 +216,7 @@ class GeoReplication(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:managedredis/geoReplication:GeoReplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GeoReplicationArgs args: The arguments to use to populate this resource's properties.

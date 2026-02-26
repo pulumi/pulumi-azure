@@ -24,6 +24,7 @@ class JobArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Elastic Job.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job. Changing this forces a new Elastic Job to be created.
@@ -79,6 +80,7 @@ class _JobState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Job resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the Elastic Job.
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job. Changing this forces a new Elastic Job to be created.
@@ -191,6 +193,7 @@ class Job(pulumi.CustomResource):
         $ pulumi import azure:mssql/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/jobs/myjob1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Elastic Job.
@@ -256,6 +259,7 @@ class Job(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/jobs/myjob1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

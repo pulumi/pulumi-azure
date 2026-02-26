@@ -27,6 +27,7 @@ class VirtualHubRouteTableRouteInitArgs:
                  next_hop_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualHubRouteTableRoute resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: A list of destination addresses for this route.
         :param pulumi.Input[_builtins.str] destinations_type: The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
         :param pulumi.Input[_builtins.str] next_hop: The next hop's resource ID.
@@ -127,6 +128,7 @@ class _VirtualHubRouteTableRouteState:
                  route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualHubRouteTableRoute resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: A list of destination addresses for this route.
         :param pulumi.Input[_builtins.str] destinations_type: The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this route. Changing this forces a new resource to be created.
@@ -309,6 +311,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         $ pulumi import azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1/routes/routeName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: A list of destination addresses for this route.
@@ -399,6 +402,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1/routes/routeName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHubRouteTableRouteInitArgs args: The arguments to use to populate this resource's properties.

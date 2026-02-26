@@ -66,6 +66,7 @@ class KubernetesClusterNodePoolArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KubernetesClusterNodePool resource.
+
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
@@ -797,6 +798,7 @@ class _KubernetesClusterNodePoolState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering KubernetesClusterNodePool resources.
+
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -1588,6 +1590,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
@@ -1717,6 +1720,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterNodePoolArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class AccessPolicyAssignmentArgs:
                  object_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] managed_redis_id: The ID of the Managed Redis instance. Changing this forces a new Access Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] object_id: The object ID of the Azure Active Directory user, group, service principal, or managed identity to assign the access policy to. Changing this forces a new Access Policy Assignment to be created.
                
@@ -65,6 +66,7 @@ class _AccessPolicyAssignmentState:
                  object_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicyAssignment resources.
+
         :param pulumi.Input[_builtins.str] managed_redis_id: The ID of the Managed Redis instance. Changing this forces a new Access Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] object_id: The object ID of the Azure Active Directory user, group, service principal, or managed identity to assign the access policy to. Changing this forces a new Access Policy Assignment to be created.
                
@@ -122,6 +124,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         $ pulumi import azure:managedredis/accessPolicyAssignment:AccessPolicyAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/redis1/databases/default/accessPolicyAssignments/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] managed_redis_id: The ID of the Managed Redis instance. Changing this forces a new Access Policy Assignment to be created.
@@ -145,6 +148,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:managedredis/accessPolicyAssignment:AccessPolicyAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/redis1/databases/default/accessPolicyAssignments/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualNetworkStrataCloudManager resource.
+
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager to be created.
         :param pulumi.Input[_builtins.str] strata_cloud_manager_tenant_name: Strata Cloud Manager name which is intended to manage the policy for this firewall.
@@ -215,6 +216,7 @@ class _NextGenerationFirewallVirtualNetworkStrataCloudManagerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NextGenerationFirewallVirtualNetworkStrataCloudManager resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs'] identity: An `identity` block as defined below.
@@ -491,6 +493,7 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
         $ pulumi import azure:paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager:NextGenerationFirewallVirtualNetworkStrataCloudManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVNetStrataCloudManagerFW
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
@@ -600,6 +603,7 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
         ```sh
         $ pulumi import azure:paloalto/nextGenerationFirewallVirtualNetworkStrataCloudManager:NextGenerationFirewallVirtualNetworkStrataCloudManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVNetStrataCloudManagerFW
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NextGenerationFirewallVirtualNetworkStrataCloudManagerArgs args: The arguments to use to populate this resource's properties.

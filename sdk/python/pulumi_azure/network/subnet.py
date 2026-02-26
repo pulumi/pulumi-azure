@@ -35,6 +35,7 @@ class SubnetArgs:
                  sharing_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subnet resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
@@ -269,6 +270,7 @@ class _SubnetState:
                  virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Subnet resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
@@ -560,6 +562,7 @@ class Subnet(pulumi.CustomResource):
         $ pulumi import azure:network/subnet:Subnet exampleSubnet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
@@ -651,6 +654,7 @@ class Subnet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/subnet:Subnet exampleSubnet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubnetArgs args: The arguments to use to populate this resource's properties.

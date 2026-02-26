@@ -36,6 +36,7 @@ class ElasticPoolArgs:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ElasticPool resource.
+
         :param pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'] per_database_settings: A `per_database_settings` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
@@ -264,6 +265,7 @@ class _ElasticPoolState:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ElasticPool resources.
+
         :param pulumi.Input[_builtins.str] enclave_type: Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
                
                > **Note:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
@@ -551,6 +553,7 @@ class ElasticPool(pulumi.CustomResource):
         $ pulumi import azure:mssql/elasticPool:ElasticPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/myelasticpoolname
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] enclave_type: Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
@@ -633,6 +636,7 @@ class ElasticPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/elasticPool:ElasticPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/elasticPools/myelasticpoolname
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ProductTagArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProductTag resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_management_product_id: The name of the API Management product. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _ProductTagState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductTag resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_management_product_id: The name of the API Management product. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created.
@@ -220,6 +222,7 @@ class ProductTag(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/productTag:ProductTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/products/myproduct/tags/mytag
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -284,6 +287,7 @@ class ProductTag(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/productTag:ProductTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/products/myproduct/tags/mytag
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProductTagArgs args: The arguments to use to populate this resource's properties.

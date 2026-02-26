@@ -32,6 +32,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualNetworkLocalRulestack resource.
+
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[_builtins.str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
@@ -185,6 +186,7 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NextGenerationFirewallVirtualNetworkLocalRulestack resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[_builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
@@ -448,6 +450,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         $ pulumi import azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVNetRulestackFW
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
@@ -572,6 +575,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVNetRulestackFW
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NextGenerationFirewallVirtualNetworkLocalRulestackArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class SpringCloudApiPortalArgs:
                  sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None):
         """
         The set of arguments for constructing a SpringCloudApiPortal resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
         :param pulumi.Input[_builtins.bool] api_try_out_enabled: Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
@@ -167,6 +168,7 @@ class _SpringCloudApiPortalState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApiPortal resources.
+
         :param pulumi.Input[_builtins.bool] api_try_out_enabled: Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[_builtins.bool] https_only_enabled: is only https is allowed?
@@ -375,6 +377,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudApiPortal:SpringCloudApiPortal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/apiPortals/apiPortal1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] api_try_out_enabled: Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
@@ -446,6 +449,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudApiPortal:SpringCloudApiPortal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/apiPortals/apiPortal1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudApiPortalArgs args: The arguments to use to populate this resource's properties.

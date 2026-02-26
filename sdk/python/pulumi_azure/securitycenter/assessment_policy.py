@@ -29,6 +29,7 @@ class AssessmentPolicyArgs:
                  user_impact: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentPolicy resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the Security Center Assessment.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly display name of the Security Center Assessment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] categories: A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
@@ -164,6 +165,7 @@ class _AssessmentPolicyState:
                  user_impact: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AssessmentPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] categories: A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
         :param pulumi.Input[_builtins.str] description: The description of the Security Center Assessment.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly display name of the Security Center Assessment.
@@ -347,6 +349,7 @@ class AssessmentPolicy(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/assessmentPolicy:AssessmentPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/assessmentMetadata/metadata1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] categories: A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
@@ -393,6 +396,7 @@ class AssessmentPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/assessmentPolicy:AssessmentPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/assessmentMetadata/metadata1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AssessmentPolicyArgs args: The arguments to use to populate this resource's properties.

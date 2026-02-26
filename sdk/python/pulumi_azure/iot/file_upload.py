@@ -31,6 +31,7 @@ class FileUploadArgs:
                  sas_ttl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FileUpload resource.
+
         :param pulumi.Input[_builtins.str] connection_string: The connection string for the Azure Storage account to which files are uploaded.
         :param pulumi.Input[_builtins.str] container_name: The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the `connection_string` specified.
         :param pulumi.Input[_builtins.str] iothub_id: The ID of the IoT Hub. Changing this forces a new IoT Hub to be created.
@@ -200,6 +201,7 @@ class _FileUploadState:
                  sas_ttl: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileUpload resources.
+
         :param pulumi.Input[_builtins.str] authentication_type: The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param pulumi.Input[_builtins.str] connection_string: The connection string for the Azure Storage account to which files are uploaded.
         :param pulumi.Input[_builtins.str] container_name: The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the `connection_string` specified.
@@ -420,6 +422,7 @@ class FileUpload(pulumi.CustomResource):
         $ pulumi import azure:iot/fileUpload:FileUpload example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_type: The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -486,6 +489,7 @@ class FileUpload(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/fileUpload:FileUpload example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FileUploadArgs args: The arguments to use to populate this resource's properties.

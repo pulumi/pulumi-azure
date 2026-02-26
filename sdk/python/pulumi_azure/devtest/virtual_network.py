@@ -29,6 +29,7 @@ class VirtualNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
+
         :param pulumi.Input[_builtins.str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Network.
@@ -132,6 +133,7 @@ class _VirtualNetworkState:
                  unique_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetwork resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Network.
         :param pulumi.Input[_builtins.str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
@@ -297,6 +299,7 @@ class VirtualNetwork(pulumi.CustomResource):
         $ pulumi import azure:devtest/virtualNetwork:VirtualNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualNetworks/network1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Network.
@@ -355,6 +358,7 @@ class VirtualNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devtest/virtualNetwork:VirtualNetwork network1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualNetworks/network1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class ScheduleArgs:
                  weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input[_builtins.str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input['ScheduleNotificationSettingsArgs'] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
@@ -230,6 +231,7 @@ class _ScheduleState:
                  weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
+
         :param pulumi.Input['ScheduleDailyRecurrenceArgs'] daily_recurrence: The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
         :param pulumi.Input['ScheduleHourlyRecurrenceArgs'] hourly_recurrence: The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
         :param pulumi.Input[_builtins.str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
@@ -484,6 +486,7 @@ class Schedule(pulumi.CustomResource):
         $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict']] daily_recurrence: The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
@@ -556,6 +559,7 @@ class Schedule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

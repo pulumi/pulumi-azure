@@ -30,6 +30,7 @@ class BackupPolicyArgs:
                  weekly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] daily_backups_to_keep: Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
@@ -184,6 +185,7 @@ class _BackupPolicyState:
                  weekly_backups_to_keep: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering BackupPolicy resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] daily_backups_to_keep: Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
         :param pulumi.Input[_builtins.bool] enabled: Whether the Backup Policy is enabled. Defaults to `true`.
@@ -381,6 +383,7 @@ class BackupPolicy(pulumi.CustomResource):
         $ pulumi import azure:netapp/backupPolicy:BackupPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/backupPolicies/backuppolicy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
@@ -439,6 +442,7 @@ class BackupPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:netapp/backupPolicy:BackupPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/backupPolicies/backuppolicy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class FhirServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FhirService resource.
+
         :param pulumi.Input['FhirServiceAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
@@ -250,6 +251,7 @@ class _FhirServiceState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FhirService resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A list of the access policies of the service instance.
         :param pulumi.Input['FhirServiceAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
@@ -547,6 +549,7 @@ class FhirService(pulumi.CustomResource):
         $ pulumi import azure:healthcare/fhirService:FhirService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirServices/service1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A list of the access policies of the service instance.
@@ -632,6 +635,7 @@ class FhirService(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:healthcare/fhirService:FhirService example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirServices/service1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FhirServiceArgs args: The arguments to use to populate this resource's properties.

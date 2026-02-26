@@ -24,6 +24,7 @@ class ContainerStorageAccountArgs:
                  storage_account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ContainerStorageAccount resource.
+
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
@@ -81,6 +82,7 @@ class _ContainerStorageAccountState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerStorageAccount resources.
+
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
@@ -182,6 +184,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
         Note the ID requires quoting as there are semicolons
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
@@ -234,6 +237,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         ```
 
         Note the ID requires quoting as there are semicolons
+
 
         :param str resource_name: The name of the resource.
         :param ContainerStorageAccountArgs args: The arguments to use to populate this resource's properties.

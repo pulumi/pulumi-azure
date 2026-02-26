@@ -34,6 +34,7 @@ class WebTestArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a WebTest resource.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
@@ -250,6 +251,7 @@ class _WebTestState:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering WebTest resources.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[_builtins.str] description: Purpose/user defined descriptive test for this WebTest.
@@ -540,6 +542,7 @@ class WebTest(pulumi.CustomResource):
         $ pulumi import azure:appinsights/webTest:WebTest my_test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/webTests/my_test
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
@@ -620,6 +623,7 @@ class WebTest(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appinsights/webTest:WebTest my_test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/webTests/my_test
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebTestArgs args: The arguments to use to populate this resource's properties.

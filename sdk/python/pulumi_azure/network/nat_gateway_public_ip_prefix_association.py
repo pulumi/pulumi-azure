@@ -23,6 +23,7 @@ class NatGatewayPublicIpPrefixAssociationArgs:
                  public_ip_prefix_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NatGatewayPublicIpPrefixAssociation resource.
+
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _NatGatewayPublicIpPrefixAssociationState:
                  public_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NatGatewayPublicIpPrefixAssociation resources.
+
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
         """
@@ -148,6 +150,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
 
         > **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
@@ -203,6 +206,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         ```
 
         > **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
+
 
         :param str resource_name: The name of the resource.
         :param NatGatewayPublicIpPrefixAssociationArgs args: The arguments to use to populate this resource's properties.

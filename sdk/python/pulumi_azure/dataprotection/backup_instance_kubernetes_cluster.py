@@ -30,6 +30,7 @@ class BackupInstanceKubernetesClusterArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupInstanceKubernetesCluster resource.
+
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] snapshot_resource_group_name: The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
@@ -147,6 +148,7 @@ class _BackupInstanceKubernetesClusterState:
                  vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupInstanceKubernetesCluster resources.
+
         :param pulumi.Input['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs'] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] backup_policy_id: The ID of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -446,6 +448,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below. Changing this forces a new resource to be created.
@@ -623,6 +626,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceKubernetesClusterArgs args: The arguments to use to populate this resource's properties.

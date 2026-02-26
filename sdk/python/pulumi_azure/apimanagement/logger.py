@@ -31,6 +31,7 @@ class LoggerArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Logger resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input['LoggerApplicationInsightsArgs'] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
@@ -165,6 +166,7 @@ class _LoggerState:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Logger resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input['LoggerApplicationInsightsArgs'] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] buffered: Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
@@ -352,6 +354,7 @@ class Logger(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -417,6 +420,7 @@ class Logger(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LoggerArgs args: The arguments to use to populate this resource's properties.

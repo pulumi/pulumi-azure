@@ -25,6 +25,7 @@ class ResolverVirtualNetworkLinkArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverVirtualNetworkLink resource.
+
         :param pulumi.Input[_builtins.str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata attached to the Private DNS Resolver Virtual Network Link.
@@ -95,6 +96,7 @@ class _ResolverVirtualNetworkLinkState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverVirtualNetworkLink resources.
+
         :param pulumi.Input[_builtins.str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata attached to the Private DNS Resolver Virtual Network Link.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
@@ -243,6 +245,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         $ pulumi import azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1/virtualNetworkLinks/virtualNetworkLink1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
@@ -329,6 +332,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1/virtualNetworkLinks/virtualNetworkLink1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverVirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.

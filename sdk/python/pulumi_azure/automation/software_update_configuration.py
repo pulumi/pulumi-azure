@@ -34,6 +34,7 @@ class SoftwareUpdateConfigurationArgs:
                  windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None):
         """
         The set of arguments for constructing a SoftwareUpdateConfiguration resource.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input['SoftwareUpdateConfigurationScheduleArgs'] schedule: A `schedule` blocks as defined below.
         :param pulumi.Input[_builtins.str] duration: Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
@@ -222,6 +223,7 @@ class _SoftwareUpdateConfigurationState:
                  windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None):
         """
         Input properties used for looking up and filtering SoftwareUpdateConfiguration resources.
+
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[_builtins.str] duration: Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
         :param pulumi.Input[_builtins.str] error_code: The Error code when failed.
@@ -509,6 +511,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         $ pulumi import azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/softwareUpdateConfigurations/suc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
@@ -597,6 +600,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/softwareUpdateConfigurations/suc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SoftwareUpdateConfigurationArgs args: The arguments to use to populate this resource's properties.

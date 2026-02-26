@@ -33,6 +33,7 @@ class ResourceGroupCostManagementViewArgs:
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewPivotArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceGroupCostManagementView resource.
+
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
         :param pulumi.Input['ResourceGroupCostManagementViewDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -194,6 +195,7 @@ class _ResourceGroupCostManagementViewState:
                  timeframe: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceGroupCostManagementView resources.
+
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
         :param pulumi.Input['ResourceGroupCostManagementViewDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -422,6 +424,7 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         $ pulumi import azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.CostManagement/views/costmanagementview
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
@@ -498,6 +501,7 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.CostManagement/views/costmanagementview
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupCostManagementViewArgs args: The arguments to use to populate this resource's properties.

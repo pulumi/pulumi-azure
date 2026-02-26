@@ -27,6 +27,7 @@ class DataExportRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataExportRule resource.
+
         :param pulumi.Input[_builtins.str] destination_resource_id: The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] table_names: A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
@@ -128,6 +129,7 @@ class _DataExportRuleState:
                  workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataExportRule resources.
+
         :param pulumi.Input[_builtins.str] destination_resource_id: The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
         :param pulumi.Input[_builtins.bool] enabled: Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] export_rule_id: The ID of the created Data Export Rule.
@@ -297,6 +299,7 @@ class DataExportRule(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_resource_id: The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
@@ -359,6 +362,7 @@ class DataExportRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataExportRuleArgs args: The arguments to use to populate this resource's properties.

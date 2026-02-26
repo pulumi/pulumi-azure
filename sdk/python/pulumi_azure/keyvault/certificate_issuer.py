@@ -30,6 +30,7 @@ class CertificateIssuerArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateIssuer resource.
+
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] provider_name: The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         :param pulumi.Input[_builtins.str] account_id: The account number with the third-party Certificate Issuer.
@@ -148,6 +149,7 @@ class _CertificateIssuerState:
                  provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificateIssuer resources.
+
         :param pulumi.Input[_builtins.str] account_id: The account number with the third-party Certificate Issuer.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateIssuerAdminArgs']]] admins: One or more `admin` blocks as defined below.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
@@ -306,6 +308,7 @@ class CertificateIssuer(pulumi.CustomResource):
         $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account number with the third-party Certificate Issuer.
@@ -357,6 +360,7 @@ class CertificateIssuer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateIssuerArgs args: The arguments to use to populate this resource's properties.

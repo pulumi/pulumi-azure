@@ -28,6 +28,7 @@ class ManagedStorageAccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedStorageAccount resource.
+
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account.
         :param pulumi.Input[_builtins.str] storage_account_key: Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
@@ -149,6 +150,7 @@ class _ManagedStorageAccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ManagedStorageAccount resources.
+
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         :param pulumi.Input[_builtins.bool] regenerate_key_automatically: Should Storage Account access key be regenerated periodically?
@@ -335,6 +337,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
         $ pulumi import azure:keyvault/managedStorageAccount:ManagedStorageAccount example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
@@ -412,6 +415,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/managedStorageAccount:ManagedStorageAccount example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedStorageAccountArgs args: The arguments to use to populate this resource's properties.

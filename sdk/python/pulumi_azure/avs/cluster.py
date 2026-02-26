@@ -25,6 +25,7 @@ class ClusterArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
+
         :param pulumi.Input[_builtins.int] cluster_node_count: The count of the Azure VMware Solution Cluster nodes.
         :param pulumi.Input[_builtins.str] sku_name: The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         :param pulumi.Input[_builtins.str] vmware_cloud_id: The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
@@ -96,6 +97,7 @@ class _ClusterState:
                  vmware_cloud_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
+
         :param pulumi.Input[_builtins.int] cluster_node_count: The count of the Azure VMware Solution Cluster nodes.
         :param pulumi.Input[_builtins.int] cluster_number: A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hosts: A list of hosts in the Azure VMware Solution Cluster.
@@ -246,6 +248,7 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cluster_node_count: The count of the Azure VMware Solution Cluster nodes.
@@ -304,6 +307,7 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

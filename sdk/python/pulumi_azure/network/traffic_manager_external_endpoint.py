@@ -34,6 +34,7 @@ class TrafficManagerExternalEndpointArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficManagerExternalEndpoint resource.
+
         :param pulumi.Input[_builtins.str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target: The FQDN DNS name of the target.
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
@@ -216,6 +217,7 @@ class _TrafficManagerExternalEndpointState:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerExternalEndpoint resources.
+
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerExternalEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the endpoint enabled? Defaults to `true`.
@@ -456,6 +458,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         $ pulumi import azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/trafficManagerProfiles/example-profile/ExternalEndpoints/example-endpoint
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
@@ -529,6 +532,7 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/trafficManagerProfiles/example-profile/ExternalEndpoints/example-endpoint
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficManagerExternalEndpointArgs args: The arguments to use to populate this resource's properties.

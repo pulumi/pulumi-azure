@@ -29,6 +29,7 @@ class OpenIdConnectProviderArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OpenIdConnectProvider resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: The Client ID used for the Client Application.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret used for the Client Application.
@@ -159,6 +160,7 @@ class _OpenIdConnectProviderState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OpenIdConnectProvider resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] client_id: The Client ID used for the Client Application.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret used for the Client Application.
@@ -341,6 +343,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
@@ -401,6 +404,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OpenIdConnectProviderArgs args: The arguments to use to populate this resource's properties.

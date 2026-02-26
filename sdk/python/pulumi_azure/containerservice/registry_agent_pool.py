@@ -29,6 +29,7 @@ class RegistryAgentPoolArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryAgentPool resource.
+
         :param pulumi.Input[_builtins.str] container_registry_name: Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
         :param pulumi.Input[_builtins.int] instance_count: VMSS instance count. Defaults to `1`.
@@ -163,6 +164,7 @@ class _RegistryAgentPoolState:
                  virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryAgentPool resources.
+
         :param pulumi.Input[_builtins.str] container_registry_name: Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
         :param pulumi.Input[_builtins.int] instance_count: VMSS instance count. Defaults to `1`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
@@ -340,6 +342,7 @@ class RegistryAgentPool(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registryAgentPool:RegistryAgentPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ContainerRegistry/registries/registry1/agentPools/agentpool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_registry_name: Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
@@ -395,6 +398,7 @@ class RegistryAgentPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registryAgentPool:RegistryAgentPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ContainerRegistry/registries/registry1/agentPools/agentpool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryAgentPoolArgs args: The arguments to use to populate this resource's properties.

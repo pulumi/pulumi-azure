@@ -31,6 +31,7 @@ class DefinitionArgs:
                  plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None):
         """
         The set of arguments for constructing a Definition resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: An `authorization` block as defined below.
         :param pulumi.Input[_builtins.str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The ID of the managed subscription. Changing this forces a new resource to be created.
@@ -164,6 +165,7 @@ class _DefinitionState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Definition resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: An `authorization` block as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the Lighthouse Definition.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]] eligible_authorizations: An `eligible_authorization` block as defined below.
@@ -339,6 +341,7 @@ class Definition(pulumi.CustomResource):
         $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]] authorizations: An `authorization` block as defined below.
@@ -392,6 +395,7 @@ class Definition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefinitionArgs args: The arguments to use to populate this resource's properties.

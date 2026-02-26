@@ -27,6 +27,7 @@ class VirtualMachineManagerAvailabilitySetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineManagerAvailabilitySet resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the System Center Virtual Machine Availability Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] system_center_virtual_machine_manager_server_id: The ID of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
@@ -128,6 +129,7 @@ class _VirtualMachineManagerAvailabilitySetState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineManagerAvailabilitySet resources.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the System Center Virtual Machine Manager Availability Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
@@ -277,6 +279,7 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
         $ pulumi import azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/availabilitySets/availabilitySet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
@@ -334,6 +337,7 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/availabilitySets/availabilitySet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineManagerAvailabilitySetArgs args: The arguments to use to populate this resource's properties.

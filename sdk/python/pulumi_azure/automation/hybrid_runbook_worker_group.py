@@ -25,6 +25,7 @@ class HybridRunbookWorkerGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridRunbookWorkerGroup resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.str] credential_name: The name of resource type `automation.Credential` to use for hybrid worker.
@@ -95,6 +96,7 @@ class _HybridRunbookWorkerGroupState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HybridRunbookWorkerGroup resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] credential_name: The name of resource type `automation.Credential` to use for hybrid worker.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
@@ -207,6 +209,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         $ pulumi import azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/hybridRunbookWorkerGroups/grp1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
@@ -257,6 +260,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/hybridRunbookWorkerGroups/grp1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerGroupArgs args: The arguments to use to populate this resource's properties.

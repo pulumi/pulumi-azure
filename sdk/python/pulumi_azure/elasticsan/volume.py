@@ -27,6 +27,7 @@ class VolumeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
+
         :param pulumi.Input[_builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
                > **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
@@ -105,6 +106,7 @@ class _VolumeState:
                  volume_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
+
         :param pulumi.Input['VolumeCreateSourceArgs'] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
@@ -331,6 +333,7 @@ class Volume(pulumi.CustomResource):
         $ pulumi import azure:elasticsan/volume:Volume example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1/volumeGroups/vg1/volumes/vol1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
@@ -433,6 +436,7 @@ class Volume(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:elasticsan/volume:Volume example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1/volumeGroups/vg1/volumes/vol1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

@@ -36,6 +36,7 @@ class RunCommandArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RunCommand resource.
+
         :param pulumi.Input['RunCommandSourceArgs'] source: A `source` block as defined below. The source of the run command script.
         :param pulumi.Input[_builtins.str] virtual_machine_id: Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         :param pulumi.Input['RunCommandErrorBlobManagedIdentityArgs'] error_blob_managed_identity: An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
@@ -251,6 +252,7 @@ class _RunCommandState:
                  virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RunCommand resources.
+
         :param pulumi.Input['RunCommandErrorBlobManagedIdentityArgs'] error_blob_managed_identity: An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         :param pulumi.Input[_builtins.str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
@@ -687,6 +689,7 @@ class RunCommand(pulumi.CustomResource):
         $ pulumi import azure:compute/runCommand:RunCommand example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/vm1/runCommands/rc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']] error_blob_managed_identity: An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
@@ -915,6 +918,7 @@ class RunCommand(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/runCommand:RunCommand example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/vm1/runCommands/rc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RunCommandArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class PostgresqlNodeConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PostgresqlNodeConfiguration resource.
+
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] value: The value of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster.
         :param pulumi.Input[_builtins.str] name: The name of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
@@ -78,6 +79,7 @@ class _PostgresqlNodeConfigurationState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PostgresqlNodeConfiguration resources.
+
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] value: The value of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster.
@@ -179,6 +181,7 @@ class PostgresqlNodeConfiguration(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/nodeConfigurations/array_nulls
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
@@ -233,6 +236,7 @@ class PostgresqlNodeConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/nodeConfigurations/array_nulls
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PostgresqlNodeConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -45,6 +45,7 @@ class VmwareReplicatedVmArgs:
                  test_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VmwareReplicatedVm resource.
+
         :param pulumi.Input[_builtins.str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: The ID of the policy to use for this replicated VM.
@@ -446,6 +447,7 @@ class _VmwareReplicatedVmState:
                  test_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VmwareReplicatedVm resources.
+
         :param pulumi.Input[_builtins.str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication. 
                
@@ -937,6 +939,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm vmreplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name/replicationProtectedItems/vm-replication-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
@@ -1072,6 +1075,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm vmreplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name/replicationProtectedItems/vm-replication-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VmwareReplicatedVmArgs args: The arguments to use to populate this resource's properties.

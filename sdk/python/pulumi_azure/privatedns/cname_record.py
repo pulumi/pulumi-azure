@@ -27,6 +27,7 @@ class CnameRecordArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CnameRecord resource.
+
         :param pulumi.Input[_builtins.str] record: The target of the CNAME.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
@@ -128,6 +129,7 @@ class _CnameRecordState:
                  zone_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CnameRecord resources.
+
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS CNAME Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] record: The target of the CNAME.
@@ -287,6 +289,7 @@ class CnameRecord(pulumi.CustomResource):
         $ pulumi import azure:privatedns/cnameRecord:CnameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/CNAME/myrecord1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
@@ -339,6 +342,7 @@ class CnameRecord(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/cnameRecord:CnameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/CNAME/myrecord1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CnameRecordArgs args: The arguments to use to populate this resource's properties.

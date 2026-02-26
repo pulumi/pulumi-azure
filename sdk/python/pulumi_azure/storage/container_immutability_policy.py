@@ -26,6 +26,7 @@ class ContainerImmutabilityPolicyArgs:
                  protected_append_writes_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ContainerImmutabilityPolicy resource.
+
         :param pulumi.Input[_builtins.int] immutability_period_in_days: The time interval in days that the data needs to be kept in a non-erasable and non-modifiable state.
         :param pulumi.Input[_builtins.str] storage_container_resource_manager_id: The Resource Manager ID of the Storage Container where this Immutability Policy should be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] locked: Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
@@ -116,6 +117,7 @@ class _ContainerImmutabilityPolicyState:
                  storage_container_resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ContainerImmutabilityPolicy resources.
+
         :param pulumi.Input[_builtins.int] immutability_period_in_days: The time interval in days that the data needs to be kept in a non-erasable and non-modifiable state.
         :param pulumi.Input[_builtins.bool] locked: Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
                
@@ -257,6 +259,7 @@ class ContainerImmutabilityPolicy(pulumi.CustomResource):
         $ pulumi import azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/blobServices/default/containers/mycontainer/immutabilityPolicies/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] immutability_period_in_days: The time interval in days that the data needs to be kept in a non-erasable and non-modifiable state.
@@ -319,6 +322,7 @@ class ContainerImmutabilityPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/blobServices/default/containers/mycontainer/immutabilityPolicies/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContainerImmutabilityPolicyArgs args: The arguments to use to populate this resource's properties.

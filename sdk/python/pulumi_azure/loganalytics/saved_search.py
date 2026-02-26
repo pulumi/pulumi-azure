@@ -29,6 +29,7 @@ class SavedSearchArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SavedSearch resource.
+
         :param pulumi.Input[_builtins.str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
@@ -161,6 +162,7 @@ class _SavedSearchState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SavedSearch resources.
+
         :param pulumi.Input[_builtins.str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
@@ -340,6 +342,7 @@ class SavedSearch(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/savedSearch:SavedSearch search1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/savedSearches/search1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
@@ -397,6 +400,7 @@ class SavedSearch(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/savedSearch:SavedSearch search1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/savedSearches/search1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SavedSearchArgs args: The arguments to use to populate this resource's properties.

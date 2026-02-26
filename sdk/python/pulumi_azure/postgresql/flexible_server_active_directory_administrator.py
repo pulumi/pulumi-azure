@@ -27,6 +27,7 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
                  tenant_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a FlexibleServerActiveDirectoryAdministrator resource.
+
         :param pulumi.Input[_builtins.str] object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_name: The name of Azure Active Directory principal. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: The type of Azure Active Directory principal. Possible values are `Group`, `ServicePrincipal` and `User`. Changing this forces a new resource to be created.
@@ -125,6 +126,7 @@ class _FlexibleServerActiveDirectoryAdministratorState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministrator resources.
+
         :param pulumi.Input[_builtins.str] object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_name: The name of Azure Active Directory principal. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: The type of Azure Active Directory principal. Possible values are `Group`, `ServicePrincipal` and `User`. Changing this forces a new resource to be created.
@@ -242,6 +244,7 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         $ pulumi import azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/myserver/administrators/objectId
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
@@ -267,6 +270,7 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/myserver/administrators/objectId
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerActiveDirectoryAdministratorArgs args: The arguments to use to populate this resource's properties.

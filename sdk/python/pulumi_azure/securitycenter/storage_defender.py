@@ -27,6 +27,7 @@ class StorageDefenderArgs:
                  sensitive_data_discovery_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a StorageDefender resource.
+
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] malware_scanning_on_upload_cap_gb_per_month: The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         :param pulumi.Input[_builtins.bool] malware_scanning_on_upload_enabled: Whether On Upload malware scanning should be enabled. Defaults to `false`.
@@ -130,6 +131,7 @@ class _StorageDefenderState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageDefender resources.
+
         :param pulumi.Input[_builtins.int] malware_scanning_on_upload_cap_gb_per_month: The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         :param pulumi.Input[_builtins.bool] malware_scanning_on_upload_enabled: Whether On Upload malware scanning should be enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] override_subscription_settings_enabled: Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
@@ -272,6 +274,7 @@ class StorageDefender(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/storageDefender:StorageDefender example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageacc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] malware_scanning_on_upload_cap_gb_per_month: The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
@@ -322,6 +325,7 @@ class StorageDefender(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/storageDefender:StorageDefender example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageacc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageDefenderArgs args: The arguments to use to populate this resource's properties.

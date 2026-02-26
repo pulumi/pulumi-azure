@@ -25,6 +25,7 @@ class FlexibleServerFirewallRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerFirewallRule resource.
+
         :param pulumi.Input[_builtins.str] end_ip_address: The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         :param pulumi.Input[_builtins.str] start_ip_address: The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
@@ -94,6 +95,7 @@ class _FlexibleServerFirewallRuleState:
                  start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerFirewallRule resources.
+
         :param pulumi.Input[_builtins.str] end_ip_address: The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
@@ -211,6 +213,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         $ pulumi import azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/firewallRules/firewallRule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_ip_address: The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
@@ -266,6 +269,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/firewallRules/firewallRule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerFirewallRuleArgs args: The arguments to use to populate this resource's properties.

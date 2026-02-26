@@ -22,6 +22,7 @@ class RegistryTaskScheduleRunNowArgs:
                  container_registry_task_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RegistryTaskScheduleRunNow resource.
+
         :param pulumi.Input[_builtins.str] container_registry_task_id: The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
         """
         pulumi.set(__self__, "container_registry_task_id", container_registry_task_id)
@@ -45,6 +46,7 @@ class _RegistryTaskScheduleRunNowState:
                  container_registry_task_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryTaskScheduleRunNow resources.
+
         :param pulumi.Input[_builtins.str] container_registry_task_id: The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
         """
         if container_registry_task_id is not None:
@@ -110,6 +112,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
 
         * `Microsoft.ContainerRegistry` - 2019-06-01-preview
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_registry_task_id: The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
@@ -158,6 +161,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         This resource uses the following Azure API Providers:
 
         * `Microsoft.ContainerRegistry` - 2019-06-01-preview
+
 
         :param str resource_name: The name of the resource.
         :param RegistryTaskScheduleRunNowArgs args: The arguments to use to populate this resource's properties.

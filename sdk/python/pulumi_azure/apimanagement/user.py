@@ -31,6 +31,7 @@ class UserArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] email: The email address associated with this user.
         :param pulumi.Input[_builtins.str] first_name: The first name for this user.
@@ -197,6 +198,7 @@ class _UserState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] confirmation: The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] email: The email address associated with this user.
@@ -415,6 +417,7 @@ class User(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/users/abc123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
@@ -479,6 +482,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/users/abc123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

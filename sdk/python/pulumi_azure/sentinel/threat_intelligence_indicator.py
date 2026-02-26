@@ -43,6 +43,7 @@ class ThreatIntelligenceIndicatorArgs:
                  validate_until_utc: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThreatIntelligenceIndicator resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] pattern: The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         :param pulumi.Input[_builtins.str] pattern_type: The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
@@ -373,6 +374,7 @@ class _ThreatIntelligenceIndicatorState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThreatIntelligenceIndicator resources.
+
         :param pulumi.Input[_builtins.int] confidence: Confidence levels of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] created_by: The creator of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] created_on: The date of this Threat Intelligence Indicator created.
@@ -859,6 +861,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         $ pulumi import azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators/indicator1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] confidence: Confidence levels of the Threat Intelligence Indicator.
@@ -923,6 +926,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators/indicator1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThreatIntelligenceIndicatorArgs args: The arguments to use to populate this resource's properties.

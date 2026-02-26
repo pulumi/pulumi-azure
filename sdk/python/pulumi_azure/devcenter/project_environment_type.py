@@ -31,6 +31,7 @@ class ProjectEnvironmentTypeArgs:
                  user_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentTypeUserRoleAssignmentArgs']]]] = None):
         """
         The set of arguments for constructing a ProjectEnvironmentType resource.
+
         :param pulumi.Input[_builtins.str] deployment_target_id: The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         :param pulumi.Input['ProjectEnvironmentTypeIdentityArgs'] identity: An `identity` block as defined below.
@@ -164,6 +165,7 @@ class _ProjectEnvironmentTypeState:
                  user_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentTypeUserRoleAssignmentArgs']]]] = None):
         """
         Input properties used for looking up and filtering ProjectEnvironmentType resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_role_assignment_roles: A list of roles to assign to the environment creator.
         :param pulumi.Input[_builtins.str] deployment_target_id: The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
@@ -356,6 +358,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         $ pulumi import azure:devcenter/projectEnvironmentType:ProjectEnvironmentType example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/projects/project1/environmentTypes/et1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_role_assignment_roles: A list of roles to assign to the environment creator.
@@ -426,6 +429,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devcenter/projectEnvironmentType:ProjectEnvironmentType example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/projects/project1/environmentTypes/et1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProjectEnvironmentTypeArgs args: The arguments to use to populate this resource's properties.

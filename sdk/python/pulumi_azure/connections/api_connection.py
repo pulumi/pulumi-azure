@@ -27,6 +27,7 @@ class ApiConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApiConnection resource.
+
         :param pulumi.Input[_builtins.str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[_builtins.str] display_name: A display name for this API Connection.
@@ -133,6 +134,7 @@ class _ApiConnectionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApiConnection resources.
+
         :param pulumi.Input[_builtins.str] display_name: A display name for this API Connection.
         :param pulumi.Input[_builtins.str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
@@ -290,6 +292,7 @@ class ApiConnection(pulumi.CustomResource):
         $ pulumi import azure:connections/apiConnection:ApiConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Web/connections/example-connection
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: A display name for this API Connection.
@@ -353,6 +356,7 @@ class ApiConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:connections/apiConnection:ApiConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Web/connections/example-connection
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -58,6 +58,7 @@ class ManagedDiskArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedDisk resource.
+
         :param pulumi.Input[_builtins.str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
                * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
                * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
@@ -723,6 +724,7 @@ class _ManagedDiskState:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedDisk resources.
+
         :param pulumi.Input[_builtins.str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
                * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
                * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
@@ -1466,6 +1468,7 @@ class ManagedDisk(pulumi.CustomResource):
         $ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
@@ -1632,6 +1635,7 @@ class ManagedDisk(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedDiskArgs args: The arguments to use to populate this resource's properties.

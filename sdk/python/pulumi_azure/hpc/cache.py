@@ -40,6 +40,7 @@ class CacheArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
+
         :param pulumi.Input[_builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
                > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
@@ -329,6 +330,7 @@ class _CacheState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
+
         :param pulumi.Input[_builtins.bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[_builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
@@ -688,6 +690,7 @@ class Cache(pulumi.CustomResource):
         $ pulumi import azure:hpc/cache:Cache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.StorageCache/caches/cacheName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
@@ -769,6 +772,7 @@ class Cache(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hpc/cache:Cache example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.StorageCache/caches/cacheName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.

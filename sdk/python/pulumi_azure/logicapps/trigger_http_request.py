@@ -26,6 +26,7 @@ class TriggerHttpRequestArgs:
                  relative_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerHttpRequest resource.
+
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         :param pulumi.Input[_builtins.str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
@@ -121,6 +122,7 @@ class _TriggerHttpRequestState:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerHttpRequest resources.
+
         :param pulumi.Input[_builtins.str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
@@ -274,6 +276,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -331,6 +334,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         ```
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
+
 
         :param str resource_name: The name of the resource.
         :param TriggerHttpRequestArgs args: The arguments to use to populate this resource's properties.

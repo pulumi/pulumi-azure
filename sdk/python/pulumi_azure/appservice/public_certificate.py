@@ -26,6 +26,7 @@ class PublicCertificateArgs:
                  resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a PublicCertificate resource.
+
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[_builtins.str] blob: The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[_builtins.str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
@@ -110,6 +111,7 @@ class _PublicCertificateState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PublicCertificate resources.
+
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[_builtins.str] blob: The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
         :param pulumi.Input[_builtins.str] certificate_location: The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
@@ -264,6 +266,7 @@ class PublicCertificate(pulumi.CustomResource):
         $ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_name: The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
@@ -326,6 +329,7 @@ class PublicCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PublicCertificateArgs args: The arguments to use to populate this resource's properties.

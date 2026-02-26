@@ -25,6 +25,7 @@ class OrganizationArgs:
                  parent_organization_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Organization resource.
+
         :param pulumi.Input[_builtins.str] display_name: Custom `display_name` for the organization.
         :param pulumi.Input[_builtins.str] iotcentral_application_id: The application `id`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] organization_id: The ID of the organization. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _OrganizationState:
                  parent_organization_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Organization resources.
+
         :param pulumi.Input[_builtins.str] display_name: Custom `display_name` for the organization.
         :param pulumi.Input[_builtins.str] iotcentral_application_id: The application `id`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] organization_id: The ID of the organization. Changing this forces a new resource to be created.
@@ -210,6 +212,7 @@ class Organization(pulumi.CustomResource):
         $ pulumi import azure:iotcentral/organization:Organization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/iotApps/example/organizations/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: Custom `display_name` for the organization.
@@ -264,6 +267,7 @@ class Organization(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iotcentral/organization:Organization example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/iotApps/example/organizations/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.

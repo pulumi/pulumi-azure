@@ -31,6 +31,7 @@ class NetworkConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkConnection resource.
+
         :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Network Connection should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet that is used to attach Virtual Machines.
@@ -196,6 +197,7 @@ class _NetworkConnectionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkConnection resources.
+
         :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure Active Directory domain.
         :param pulumi.Input[_builtins.str] domain_password: The password for the account used to join domain.
@@ -411,6 +413,7 @@ class NetworkConnection(pulumi.CustomResource):
         $ pulumi import azure:devcenter/networkConnection:NetworkConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/networkConnections/networkConnection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_join_type: The Azure Active Directory Join type. Possible values are `AzureADJoin`, `HybridAzureADJoin` and `None`. Changing this forces a new resource to be created.
@@ -474,6 +477,7 @@ class NetworkConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devcenter/networkConnection:NetworkConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/networkConnections/networkConnection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkConnectionArgs args: The arguments to use to populate this resource's properties.

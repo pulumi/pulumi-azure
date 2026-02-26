@@ -27,6 +27,7 @@ class SubscriptionArgs:
                  workload: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subscription resource.
+
         :param pulumi.Input[_builtins.str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[_builtins.str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         :param pulumi.Input[_builtins.str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
@@ -139,6 +140,7 @@ class _SubscriptionState:
                  workload: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Subscription resources.
+
         :param pulumi.Input[_builtins.str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         :param pulumi.Input[_builtins.str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
@@ -354,6 +356,7 @@ class Subscription(pulumi.CustomResource):
 
         !> **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `subscription_id` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
@@ -458,6 +461,7 @@ class Subscription(pulumi.CustomResource):
         ```
 
         !> **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `subscription_id` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.

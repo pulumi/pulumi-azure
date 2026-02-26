@@ -38,6 +38,7 @@ class TriggerTumblingWindowArgs:
                  trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
         """
         The set of arguments for constructing a TriggerTumblingWindow resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] frequency: Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
         :param pulumi.Input[_builtins.int] interval: Specifies the interval of Tumbling Window. Changing this forces a new resource.
@@ -281,6 +282,7 @@ class _TriggerTumblingWindowState:
                  trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
         """
         Input properties used for looking up and filtering TriggerTumblingWindow resources.
+
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
@@ -592,6 +594,7 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activated: Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
@@ -676,6 +679,7 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TriggerTumblingWindowArgs args: The arguments to use to populate this resource's properties.

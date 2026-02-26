@@ -25,6 +25,7 @@ class IdentityProviderFacebookArgs:
                  resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IdentityProviderFacebook resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] app_id: App ID for Facebook.
         :param pulumi.Input[_builtins.str] app_secret: App Secret for Facebook.
@@ -93,6 +94,7 @@ class _IdentityProviderFacebookState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProviderFacebook resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] app_id: App ID for Facebook.
         :param pulumi.Input[_builtins.str] app_secret: App Secret for Facebook.
@@ -208,6 +210,7 @@ class IdentityProviderFacebook(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/facebook
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
@@ -261,6 +264,7 @@ class IdentityProviderFacebook(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/facebook
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderFacebookArgs args: The arguments to use to populate this resource's properties.

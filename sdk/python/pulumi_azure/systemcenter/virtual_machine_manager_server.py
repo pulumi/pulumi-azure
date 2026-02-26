@@ -30,6 +30,7 @@ class VirtualMachineManagerServerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineManagerServer resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] password: The password that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
@@ -177,6 +178,7 @@ class _VirtualMachineManagerServerState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineManagerServer resources.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the System Center Virtual Machine Manager Server should exist. Changing this forces a new resource to be created.
@@ -372,6 +374,7 @@ class VirtualMachineManagerServer(pulumi.CustomResource):
         $ pulumi import azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/vmmServers/vmmServer1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
@@ -430,6 +433,7 @@ class VirtualMachineManagerServer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/vmmServers/vmmServer1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineManagerServerArgs args: The arguments to use to populate this resource's properties.

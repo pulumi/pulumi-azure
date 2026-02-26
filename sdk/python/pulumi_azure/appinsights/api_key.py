@@ -25,6 +25,7 @@ class ApiKeyArgs:
                  write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
@@ -101,6 +102,7 @@ class _ApiKeyState:
                  write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API Key secret (Sensitive).
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
@@ -264,6 +266,7 @@ class ApiKey(pulumi.CustomResource):
 
         > **Note:** The secret `api_key` cannot be retrieved during an import. You will need to edit the state by hand to set the secret value if you happen to have it backed up somewhere.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
@@ -348,6 +351,7 @@ class ApiKey(pulumi.CustomResource):
         ```
 
         > **Note:** The secret `api_key` cannot be retrieved during an import. You will need to edit the state by hand to set the secret value if you happen to have it backed up somewhere.
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

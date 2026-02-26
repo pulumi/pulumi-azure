@@ -31,6 +31,7 @@ class TimeSeriesDatabaseConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TimeSeriesDatabaseConnection resource.
+
         :param pulumi.Input[_builtins.str] digital_twins_id: The ID of the Digital Twins. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] eventhub_name: Name of the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] eventhub_namespace_endpoint_uri: URI of the Event Hub Namespace. Changing this forces a new resource to be created.
@@ -192,6 +193,7 @@ class _TimeSeriesDatabaseConnectionState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TimeSeriesDatabaseConnection resources.
+
         :param pulumi.Input[_builtins.str] digital_twins_id: The ID of the Digital Twins. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         :param pulumi.Input[_builtins.str] eventhub_name: Name of the Event Hub. Changing this forces a new resource to be created.
@@ -460,6 +462,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         $ pulumi import azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/timeSeriesDatabaseConnections/connection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] digital_twins_id: The ID of the Digital Twins. Changing this forces a new resource to be created.
@@ -576,6 +579,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/timeSeriesDatabaseConnections/connection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TimeSeriesDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class CredentialServicePrincipalArgs:
                  service_principal_key: Optional[pulumi.Input['CredentialServicePrincipalServicePrincipalKeyArgs']] = None):
         """
         The set of arguments for constructing a CredentialServicePrincipal resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] service_principal_id: The Client ID of the Service Principal.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID of the Service Principal.
@@ -147,6 +148,7 @@ class _CredentialServicePrincipalState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CredentialServicePrincipal resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Credential.
@@ -348,6 +350,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
         $ pulumi import azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.DataFactory/factories/example/credentials/credential1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
@@ -442,6 +445,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.DataFactory/factories/example/credentials/credential1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CredentialServicePrincipalArgs args: The arguments to use to populate this resource's properties.

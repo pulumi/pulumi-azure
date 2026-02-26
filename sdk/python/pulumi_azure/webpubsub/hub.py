@@ -28,6 +28,7 @@ class HubArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Hub resource.
+
         :param pulumi.Input[_builtins.str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
@@ -125,6 +126,7 @@ class _HubState:
                  web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Hub resources.
+
         :param pulumi.Input[_builtins.bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
@@ -310,6 +312,7 @@ class Hub(pulumi.CustomResource):
         $ pulumi import azure:webpubsub/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/hubs/webPubSubhub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
@@ -413,6 +416,7 @@ class Hub(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:webpubsub/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/hubs/webPubSubhub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.

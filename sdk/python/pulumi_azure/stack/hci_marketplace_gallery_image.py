@@ -33,6 +33,7 @@ class HciMarketplaceGalleryImageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HciMarketplaceGalleryImage resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hyperv_generation: The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input['HciMarketplaceGalleryImageIdentifierArgs'] identifier: An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
@@ -195,6 +196,7 @@ class _HciMarketplaceGalleryImageState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HciMarketplaceGalleryImage resources.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hyperv_generation: The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input['HciMarketplaceGalleryImageIdentifierArgs'] identifier: An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
@@ -376,6 +378,7 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
         $ pulumi import azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/image1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
@@ -405,6 +408,7 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/image1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HciMarketplaceGalleryImageArgs args: The arguments to use to populate this resource's properties.

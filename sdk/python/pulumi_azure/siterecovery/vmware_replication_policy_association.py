@@ -24,6 +24,7 @@ class VmwareReplicationPolicyAssociationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VmwareReplicationPolicyAssociation resource.
+
         :param pulumi.Input[_builtins.str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
                Changing this forces a new association to be created.
@@ -80,6 +81,7 @@ class _VmwareReplicationPolicyAssociationState:
                  recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VmwareReplicationPolicyAssociation resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the replication policy association. Changing this forces a new association to be created.
         :param pulumi.Input[_builtins.str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
@@ -183,6 +185,7 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/site-name/replicationProtectionContainers/container-name/replicationProtectionContainerMappings/mapping-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the replication policy association. Changing this forces a new association to be created.
@@ -238,6 +241,7 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/site-name/replicationProtectionContainers/container-name/replicationProtectionContainerMappings/mapping-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VmwareReplicationPolicyAssociationArgs args: The arguments to use to populate this resource's properties.

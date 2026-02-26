@@ -29,6 +29,7 @@ class AccessPolicyArgs:
                  storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
+
         :param pulumi.Input[_builtins.str] key_vault_id: Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
@@ -162,6 +163,7 @@ class _AccessPolicyState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicy resources.
+
         :param pulumi.Input[_builtins.str] application_id: The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_permissions: List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_permissions: List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
@@ -331,6 +333,7 @@ class AccessPolicy(pulumi.CustomResource):
 
         > **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
@@ -378,6 +381,7 @@ class AccessPolicy(pulumi.CustomResource):
         where `11111111-1111-1111-1111-111111111111` is the `object_id`.
 
         > **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

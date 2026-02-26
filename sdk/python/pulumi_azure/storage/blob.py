@@ -36,6 +36,7 @@ class BlobArgs:
                  source_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Blob resource.
+
         :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
@@ -290,6 +291,7 @@ class _BlobState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Blob resources.
+
         :param pulumi.Input[_builtins.str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[_builtins.str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
@@ -601,6 +603,7 @@ class Blob(pulumi.CustomResource):
         $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
@@ -666,6 +669,7 @@ class Blob(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BlobArgs args: The arguments to use to populate this resource's properties.

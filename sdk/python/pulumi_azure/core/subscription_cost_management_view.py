@@ -33,6 +33,7 @@ class SubscriptionCostManagementViewArgs:
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewPivotArgs']]]] = None):
         """
         The set of arguments for constructing a SubscriptionCostManagementView resource.
+
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
         :param pulumi.Input['SubscriptionCostManagementViewDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -194,6 +195,7 @@ class _SubscriptionCostManagementViewState:
                  timeframe: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionCostManagementView resources.
+
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
         :param pulumi.Input['SubscriptionCostManagementViewDatasetArgs'] dataset: A `dataset` block as defined below.
@@ -419,6 +421,7 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         $ pulumi import azure:core/subscriptionCostManagementView:SubscriptionCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/costmanagementview
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
@@ -492,6 +495,7 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/subscriptionCostManagementView:SubscriptionCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/costmanagementview
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionCostManagementViewArgs args: The arguments to use to populate this resource's properties.

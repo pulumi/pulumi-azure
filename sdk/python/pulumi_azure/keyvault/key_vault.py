@@ -40,6 +40,7 @@ class KeyVaultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KeyVault resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[_builtins.str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -334,6 +335,7 @@ class _KeyVaultState:
                  vault_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyVault resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 1024 objects describing access policies, as described below.
                
                > **Note:** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
@@ -692,6 +694,7 @@ class KeyVault(pulumi.CustomResource):
         $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
@@ -768,6 +771,7 @@ class KeyVault(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyVaultArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class RestorePointArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RestorePoint resource.
+
         :param pulumi.Input[_builtins.str] virtual_machine_restore_point_collection_id: Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] crash_consistency_mode_enabled: Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_disks: A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
@@ -96,6 +97,7 @@ class _RestorePointState:
                  virtual_machine_restore_point_collection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RestorePoint resources.
+
         :param pulumi.Input[_builtins.bool] crash_consistency_mode_enabled: Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_disks: A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
@@ -248,6 +250,7 @@ class RestorePoint(pulumi.CustomResource):
         $ pulumi import azure:compute/restorePoint:RestorePoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1/restorePoints/restorePoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] crash_consistency_mode_enabled: Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
@@ -338,6 +341,7 @@ class RestorePoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/restorePoint:RestorePoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1/restorePoints/restorePoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RestorePointArgs args: The arguments to use to populate this resource's properties.

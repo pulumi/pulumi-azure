@@ -24,6 +24,7 @@ class NotificationRecipientEmailArgs:
                  notification_type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a NotificationRecipientEmail resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
         :param pulumi.Input[_builtins.str] email: The recipient email address. Changing this forces a new API Management Notification Recipient Email to be created.
         :param pulumi.Input[_builtins.str] notification_type: The Notification Name to be received. Changing this forces a new API Management Notification Recipient Email to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
@@ -77,6 +78,7 @@ class _NotificationRecipientEmailState:
                  notification_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NotificationRecipientEmail resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
         :param pulumi.Input[_builtins.str] email: The recipient email address. Changing this forces a new API Management Notification Recipient Email to be created.
         :param pulumi.Input[_builtins.str] notification_type: The Notification Name to be received. Changing this forces a new API Management Notification Recipient Email to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
@@ -175,6 +177,7 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/notifications/notificationName1/recipientEmails/email1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
@@ -226,6 +229,7 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/notifications/notificationName1/recipientEmails/email1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationRecipientEmailArgs args: The arguments to use to populate this resource's properties.

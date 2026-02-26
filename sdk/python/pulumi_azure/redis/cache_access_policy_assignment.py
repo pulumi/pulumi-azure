@@ -26,6 +26,7 @@ class CacheAccessPolicyAssignmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheAccessPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] object_id: The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] object_id_alias: The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
@@ -110,6 +111,7 @@ class _CacheAccessPolicyAssignmentState:
                  redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CacheAccessPolicyAssignment resources.
+
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] object_id: The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
@@ -249,6 +251,7 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
         $ pulumi import azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/accessPolicyAssignments/assignment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
@@ -311,6 +314,7 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1/accessPolicyAssignments/assignment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheAccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

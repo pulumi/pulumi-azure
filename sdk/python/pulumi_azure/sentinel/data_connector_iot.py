@@ -24,6 +24,7 @@ class DataConnectorIotArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataConnectorIot resource.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Iot Data Connector. Changing this forces a new Iot Data Connector to be created.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the subscription that this Iot Data Connector connects to. Changing this forces a new Iot Data Connector to be created.
@@ -79,6 +80,7 @@ class _DataConnectorIotState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataConnectorIot resources.
+
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Iot Data Connector. Changing this forces a new Iot Data Connector to be created.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the subscription that this Iot Data Connector connects to. Changing this forces a new Iot Data Connector to be created.
@@ -168,6 +170,7 @@ class DataConnectorIot(pulumi.CustomResource):
         $ pulumi import azure:sentinel/dataConnectorIot:DataConnectorIot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created.
@@ -210,6 +213,7 @@ class DataConnectorIot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/dataConnectorIot:DataConnectorIot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataConnectorIotArgs args: The arguments to use to populate this resource's properties.

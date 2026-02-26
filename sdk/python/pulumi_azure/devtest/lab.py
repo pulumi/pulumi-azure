@@ -25,6 +25,7 @@ class LabArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lab resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
@@ -102,6 +103,7 @@ class _LabState:
                  unique_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Lab resources.
+
         :param pulumi.Input[_builtins.str] artifacts_storage_account_id: The ID of the Storage Account used for Artifact Storage.
         :param pulumi.Input[_builtins.str] default_premium_storage_account_id: The ID of the Default Premium Storage Account for this Dev Test Lab.
         :param pulumi.Input[_builtins.str] default_storage_account_id: The ID of the Default Storage Account for this Dev Test Lab.
@@ -302,6 +304,7 @@ class Lab(pulumi.CustomResource):
         $ pulumi import azure:devtest/lab:Lab lab1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
@@ -350,6 +353,7 @@ class Lab(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devtest/lab:Lab lab1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.

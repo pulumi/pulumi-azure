@@ -33,6 +33,7 @@ class ApplicationArgs:
                  template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Application resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         :param pulumi.Input[_builtins.str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
@@ -203,6 +204,7 @@ class _ApplicationState:
                  template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
+
         :param pulumi.Input[_builtins.str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
                
                > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
@@ -417,6 +419,7 @@ class Application(pulumi.CustomResource):
         $ pulumi import azure:iotcentral/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/iotApps/app1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
@@ -477,6 +480,7 @@ class Application(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iotcentral/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/iotApps/app1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

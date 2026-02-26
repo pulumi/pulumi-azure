@@ -27,6 +27,7 @@ class VirtualMachineManagerVirtualNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachineManagerVirtualNetwork resource.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the System Center Virtual Machine Virtual Network should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] system_center_virtual_machine_manager_server_inventory_item_id: The ID of the System Center Virtual Machine Manager Server Inventory Item. Changing this forces a new resource to be created.
@@ -128,6 +129,7 @@ class _VirtualMachineManagerVirtualNetworkState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineManagerVirtualNetwork resources.
+
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the System Center Virtual Machine Manager Virtual Network should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the System Center Virtual Machine Manager Virtual Network. Changing this forces a new resource to be created.
@@ -279,6 +281,7 @@ class VirtualMachineManagerVirtualNetwork(pulumi.CustomResource):
         $ pulumi import azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/virtualNetworks/virtualNetwork1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Network. Changing this forces a new resource to be created.
@@ -338,6 +341,7 @@ class VirtualMachineManagerVirtualNetwork(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/virtualNetworks/virtualNetwork1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineManagerVirtualNetworkArgs args: The arguments to use to populate this resource's properties.

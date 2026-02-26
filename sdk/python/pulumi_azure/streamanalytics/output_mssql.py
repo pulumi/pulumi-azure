@@ -32,6 +32,7 @@ class OutputMssqlArgs:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutputMssql resource.
+
         :param pulumi.Input[_builtins.str] database: The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server: The SQL server url. Changing this forces a new resource to be created.
@@ -211,6 +212,7 @@ class _OutputMssqlState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputMssql resources.
+
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[_builtins.str] database: The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
@@ -447,6 +449,7 @@ class OutputMssql(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/outputMssql:OutputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -516,6 +519,7 @@ class OutputMssql(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/outputMssql:OutputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutputMssqlArgs args: The arguments to use to populate this resource's properties.

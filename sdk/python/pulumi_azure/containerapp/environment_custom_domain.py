@@ -25,6 +25,7 @@ class EnvironmentCustomDomainArgs:
                  dns_suffix: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EnvironmentCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
         :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate bundle.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container Apps Managed Environment. Changing this forces a new resource to be created.
@@ -93,6 +94,7 @@ class _EnvironmentCustomDomainState:
                  dns_suffix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
         :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate bundle.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container Apps Managed Environment. Changing this forces a new resource to be created.
@@ -215,6 +217,7 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
@@ -275,6 +278,7 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentCustomDomainArgs args: The arguments to use to populate this resource's properties.

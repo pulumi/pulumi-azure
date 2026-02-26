@@ -48,6 +48,7 @@ class VirtualNetworkGatewayConnectionArgs:
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_network_gateway_id: The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
@@ -467,6 +468,7 @@ class _VirtualNetworkGatewayConnectionState:
                  virtual_network_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkGatewayConnection resources.
+
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
         :param pulumi.Input[_builtins.str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[_builtins.str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
@@ -1055,6 +1057,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         $ pulumi import azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection exampleConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/connections/myConnection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
@@ -1259,6 +1262,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection exampleConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/connections/myConnection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.

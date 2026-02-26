@@ -26,6 +26,7 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
         :param pulumi.Input[_builtins.str] sku_name: The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
@@ -113,6 +114,7 @@ class _AccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input[_builtins.str] account_uri: The URI of the Trusted Signing Account which is used during signing files.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
@@ -252,6 +254,7 @@ class Account(pulumi.CustomResource):
         $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
@@ -299,6 +302,7 @@ class Account(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

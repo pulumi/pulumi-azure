@@ -28,6 +28,7 @@ class CatalogArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Catalog resource.
+
         :param pulumi.Input[_builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input['CatalogCatalogAdogitArgs'] catalog_adogit: A `catalog_adogit` block as defined below.
@@ -114,6 +115,7 @@ class _CatalogState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Catalog resources.
+
         :param pulumi.Input['CatalogCatalogAdogitArgs'] catalog_adogit: A `catalog_adogit` block as defined below.
         :param pulumi.Input['CatalogCatalogGithubArgs'] catalog_github: A `catalog_github` block as defined below.
         :param pulumi.Input[_builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
@@ -255,6 +257,7 @@ class Catalog(pulumi.CustomResource):
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
         * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']] catalog_adogit: A `catalog_adogit` block as defined below.
@@ -319,6 +322,7 @@ class Catalog(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
         * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
         * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
+
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.

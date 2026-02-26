@@ -25,6 +25,7 @@ class SpringCloudStorageArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudStorage resource.
+
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created.
         :param pulumi.Input[_builtins.str] storage_account_key: The access key of the Azure Storage Account.
         :param pulumi.Input[_builtins.str] storage_account_name: The account name of the Azure Storage Account.
@@ -94,6 +95,7 @@ class _SpringCloudStorageState:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudStorage resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created.
         :param pulumi.Input[_builtins.str] storage_account_key: The access key of the Azure Storage Account.
@@ -207,6 +209,7 @@ class SpringCloudStorage(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudStorage:SpringCloudStorage example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/storages/storage1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
@@ -258,6 +261,7 @@ class SpringCloudStorage(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudStorage:SpringCloudStorage example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/storages/storage1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudStorageArgs args: The arguments to use to populate this resource's properties.

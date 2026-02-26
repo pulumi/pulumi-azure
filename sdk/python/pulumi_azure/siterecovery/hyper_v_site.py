@@ -23,6 +23,7 @@ class HyperVSiteArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HyperVSite resource.
+
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the Site created. Changing this forces a new Site to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
         """
@@ -62,6 +63,7 @@ class _HyperVSiteState:
                  recovery_vault_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HyperVSite resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the Site created. Changing this forces a new Site to be created.
         """
@@ -142,6 +144,7 @@ class HyperVSite(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/hyperVSite:HyperVSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/fabric1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
@@ -190,6 +193,7 @@ class HyperVSite(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/hyperVSite:HyperVSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/fabric1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HyperVSiteArgs args: The arguments to use to populate this resource's properties.

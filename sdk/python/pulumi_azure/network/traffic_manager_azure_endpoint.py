@@ -33,6 +33,7 @@ class TrafficManagerAzureEndpointArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficManagerAzureEndpoint resource.
+
         :param pulumi.Input[_builtins.str] profile_id: The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Azure Resource which should be used as a target.
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
@@ -199,6 +200,7 @@ class _TrafficManagerAzureEndpointState:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerAzureEndpoint resources.
+
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the endpoint enabled? Defaults to `true`.
@@ -429,6 +431,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         $ pulumi import azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/AzureEndpoints/example-endpoint
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
@@ -507,6 +510,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/AzureEndpoints/example-endpoint
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficManagerAzureEndpointArgs args: The arguments to use to populate this resource's properties.

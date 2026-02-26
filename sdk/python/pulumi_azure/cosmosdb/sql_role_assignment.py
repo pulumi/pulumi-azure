@@ -27,6 +27,7 @@ class SqlRoleAssignmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlRoleAssignment resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created.
@@ -126,6 +127,7 @@ class _SqlRoleAssignmentState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlRoleAssignment resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
@@ -284,6 +286,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlRoleAssignments/9e007587-dbcd-4190-84cb-fcab5a09ca39
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -350,6 +353,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlRoleAssignments/9e007587-dbcd-4190-84cb-fcab5a09ca39
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlRoleAssignmentArgs args: The arguments to use to populate this resource's properties.

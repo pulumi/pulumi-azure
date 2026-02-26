@@ -40,6 +40,7 @@ class HostPoolArgs:
                  vm_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostPool resource.
+
         :param pulumi.Input[_builtins.str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
                `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
                `Persistent` should be used if the host pool type is `Personal`
@@ -327,6 +328,7 @@ class _HostPoolState:
                  vm_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HostPool resources.
+
         :param pulumi.Input[_builtins.str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[_builtins.str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[_builtins.str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
@@ -663,6 +665,7 @@ class HostPool(pulumi.CustomResource):
 
         Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
@@ -737,6 +740,7 @@ class HostPool(pulumi.CustomResource):
         ## Import
 
         Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
+
 
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.

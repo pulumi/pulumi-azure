@@ -26,6 +26,7 @@ class PrivateLinkScopeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkScope resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Azure Arc Private Link Scope. Changing this forces a new Azure Arc Private Link Scope to be created.
@@ -113,6 +114,7 @@ class _PrivateLinkScopeState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkScope resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Azure Arc Private Link Scope. Changing this forces a new Azure Arc Private Link Scope to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `false`. Possible values are `true` and `false`.
@@ -236,6 +238,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         $ pulumi import azure:arc/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScope1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created.
@@ -282,6 +285,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arc/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScope1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.

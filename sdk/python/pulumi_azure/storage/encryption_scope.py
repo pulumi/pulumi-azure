@@ -26,6 +26,7 @@ class EncryptionScopeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EncryptionScope resource.
+
         :param pulumi.Input[_builtins.str] source: The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_required: Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
@@ -112,6 +113,7 @@ class _EncryptionScopeState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EncryptionScope resources.
+
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_required: Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
@@ -246,6 +248,7 @@ class EncryptionScope(pulumi.CustomResource):
         $ pulumi import azure:storage/encryptionScope:EncryptionScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/account1/encryptionScopes/scope1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_required: Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
@@ -303,6 +306,7 @@ class EncryptionScope(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/encryptionScope:EncryptionScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/account1/encryptionScopes/scope1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EncryptionScopeArgs args: The arguments to use to populate this resource's properties.

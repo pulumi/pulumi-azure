@@ -30,6 +30,7 @@ class IntegrationRuntimeRuleArgs:
                  virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeRule resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
@@ -181,6 +182,7 @@ class _IntegrationRuntimeRuleState:
                  virtual_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeRule resources.
+
         :param pulumi.Input[_builtins.bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -372,6 +374,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         $ pulumi import azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationRuntimes/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] cleanup_enabled: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
@@ -426,6 +429,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationRuntimes/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeRuleArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class EndpointCustomDomainArgs:
                  user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None):
         """
         The set of arguments for constructing a EndpointCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] cdn_endpoint_id: The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[_builtins.str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs'] cdn_managed_https: A `cdn_managed_https` block as defined below.
@@ -118,6 +119,7 @@ class _EndpointCustomDomainState:
                  user_managed_https: Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']] = None):
         """
         Input properties used for looking up and filtering EndpointCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] cdn_endpoint_id: The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs'] cdn_managed_https: A `cdn_managed_https` block as defined below.
         :param pulumi.Input[_builtins.str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
@@ -272,6 +274,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:cdn/endpointCustomDomain:EndpointCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customDomains/domain1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_endpoint_id: The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
@@ -347,6 +350,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/endpointCustomDomain:EndpointCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customDomains/domain1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndpointCustomDomainArgs args: The arguments to use to populate this resource's properties.

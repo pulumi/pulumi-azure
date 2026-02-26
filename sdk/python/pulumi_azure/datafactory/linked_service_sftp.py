@@ -43,6 +43,7 @@ class LinkedServiceSftpArgs:
                  skip_host_key_validation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceSftp resource.
+
         :param pulumi.Input[_builtins.str] authentication_type: The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] host: The SFTP server hostname.
@@ -382,6 +383,7 @@ class _LinkedServiceSftpState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceSftp resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
                
                The following supported arguments are specific to SFTP Linked Service:
@@ -762,6 +764,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
@@ -832,6 +835,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceSftpArgs args: The arguments to use to populate this resource's properties.

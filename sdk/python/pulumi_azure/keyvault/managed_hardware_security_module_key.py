@@ -30,6 +30,7 @@ class ManagedHardwareSecurityModuleKeyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleKey resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_hsm_id: Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
@@ -184,6 +185,7 @@ class _ManagedHardwareSecurityModuleKeyState:
                  versioned_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleKey resources.
+
         :param pulumi.Input[_builtins.str] curve: Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
@@ -426,6 +428,7 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey example https://exampleHSM.managedhsm.azure.net/keys/exampleKey
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] curve: Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
@@ -514,6 +517,7 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey example https://exampleHSM.managedhsm.azure.net/keys/exampleKey
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedHardwareSecurityModuleKeyArgs args: The arguments to use to populate this resource's properties.

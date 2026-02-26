@@ -25,6 +25,7 @@ class ProductApiArgs:
                  resource_group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProductApi resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] product_id: The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
@@ -93,6 +94,7 @@ class _ProductApiState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductApi resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] product_id: The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
@@ -207,6 +209,7 @@ class ProductApi(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/productApi:ProductApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/apis/apiId
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -259,6 +262,7 @@ class ProductApi(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/productApi:ProductApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/apis/apiId
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProductApiArgs args: The arguments to use to populate this resource's properties.

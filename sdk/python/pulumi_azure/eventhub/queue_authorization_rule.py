@@ -26,6 +26,7 @@ class QueueAuthorizationRuleArgs:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a QueueAuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] queue_id: Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
                
                > **Note:** At least one of the 3 permissions below needs to be set.
@@ -123,6 +124,7 @@ class _QueueAuthorizationRuleState:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering QueueAuthorizationRule resources.
+
         :param pulumi.Input[_builtins.bool] listen: Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
         :param pulumi.Input[_builtins.bool] manage: Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
@@ -359,6 +361,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         $ pulumi import azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/queues/queue1/authorizationRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] listen: Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
@@ -421,6 +424,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/queues/queue1/authorizationRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param QueueAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

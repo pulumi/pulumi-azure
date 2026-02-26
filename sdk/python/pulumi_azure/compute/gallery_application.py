@@ -31,6 +31,7 @@ class GalleryApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplication resource.
+
         :param pulumi.Input[_builtins.str] gallery_id: The ID of the Shared Image Gallery. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] supported_os_type: The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Gallery Application.
@@ -197,6 +198,7 @@ class _GalleryApplicationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GalleryApplication resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the Gallery Application.
         :param pulumi.Input[_builtins.str] end_of_life_date: The end of life date in RFC3339 format of the Gallery Application.
         :param pulumi.Input[_builtins.str] eula: The End User Licence Agreement of the Gallery Application.
@@ -405,6 +407,7 @@ class GalleryApplication(pulumi.CustomResource):
         $ pulumi import azure:compute/galleryApplication:GalleryApplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/galleries/gallery1/applications/galleryApplication1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Gallery Application.
@@ -461,6 +464,7 @@ class GalleryApplication(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/galleryApplication:GalleryApplication example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/galleries/gallery1/applications/galleryApplication1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.

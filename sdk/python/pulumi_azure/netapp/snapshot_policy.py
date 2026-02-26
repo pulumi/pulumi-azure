@@ -33,6 +33,7 @@ class SnapshotPolicyArgs:
                  weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None):
         """
         The set of arguments for constructing a SnapshotPolicy resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enabled: Defines that the NetApp Snapshot Policy is enabled or not.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
@@ -198,6 +199,7 @@ class _SnapshotPolicyState:
                  weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None):
         """
         Input properties used for looking up and filtering SnapshotPolicy resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['SnapshotPolicyDailyScheduleArgs'] daily_schedule: Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Defines that the NetApp Snapshot Policy is enabled or not.
@@ -436,6 +438,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         $ pulumi import azure:netapp/snapshotPolicy:SnapshotPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
@@ -522,6 +525,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:netapp/snapshotPolicy:SnapshotPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnapshotPolicyArgs args: The arguments to use to populate this resource's properties.

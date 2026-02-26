@@ -26,6 +26,7 @@ class ApiPolicyArgs:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiPolicy resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -111,6 +112,7 @@ class _ApiPolicyState:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiPolicy resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -241,6 +243,7 @@ class ApiPolicy(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiPolicy:ApiPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/exampleId
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -294,6 +297,7 @@ class ApiPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiPolicy:ApiPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/exampleId
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiPolicyArgs args: The arguments to use to populate this resource's properties.

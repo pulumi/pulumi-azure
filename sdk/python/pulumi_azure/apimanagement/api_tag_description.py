@@ -25,6 +25,7 @@ class ApiTagDescriptionArgs:
                  external_documentation_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiTagDescription resource.
+
         :param pulumi.Input[_builtins.str] api_tag_id: The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Tag.
         :param pulumi.Input[_builtins.str] external_documentation_description: The description of the external documentation resources describing the tag.
@@ -96,6 +97,7 @@ class _ApiTagDescriptionState:
                  external_documentation_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiTagDescription resources.
+
         :param pulumi.Input[_builtins.str] api_tag_id: The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Tag.
         :param pulumi.Input[_builtins.str] external_documentation_description: The description of the external documentation resources describing the tag.
@@ -226,6 +228,7 @@ class ApiTagDescription(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiTagDescription:ApiTagDescription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/tagDescriptions/tagDescriptionId1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_tag_id: The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
@@ -294,6 +297,7 @@ class ApiTagDescription(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiTagDescription:ApiTagDescription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/tagDescriptions/tagDescriptionId1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiTagDescriptionArgs args: The arguments to use to populate this resource's properties.

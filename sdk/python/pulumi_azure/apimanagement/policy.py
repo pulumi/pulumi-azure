@@ -24,6 +24,7 @@ class PolicyArgs:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
         :param pulumi.Input[_builtins.str] xml_content: The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         :param pulumi.Input[_builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
@@ -79,6 +80,7 @@ class _PolicyState:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
         :param pulumi.Input[_builtins.str] xml_content: The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         :param pulumi.Input[_builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
@@ -185,6 +187,7 @@ class Policy(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
@@ -244,6 +247,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/policy:Policy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

@@ -35,6 +35,7 @@ class GalleryApplicationVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplicationVersion resource.
+
         :param pulumi.Input[_builtins.str] gallery_application_id: The ID of the Gallery Application. Changing this forces a new resource to be created.
         :param pulumi.Input['GalleryApplicationVersionManageActionArgs'] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input['GalleryApplicationVersionSourceArgs'] source: A `source` block as defined below.
@@ -231,6 +232,7 @@ class _GalleryApplicationVersionState:
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None):
         """
         Input properties used for looking up and filtering GalleryApplicationVersion resources.
+
         :param pulumi.Input[_builtins.str] config_file: Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enable_health_check: Should the Gallery Application reports health. Defaults to `false`.
         :param pulumi.Input[_builtins.str] end_of_life_date: The end of life date in RFC3339 format of the Gallery Application Version.
@@ -502,6 +504,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         $ pulumi import azure:compute/galleryApplicationVersion:GalleryApplicationVersion example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/galleries/gallery1/applications/galleryApplication1/versions/galleryApplicationVersion1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] config_file: Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
@@ -591,6 +594,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/galleryApplicationVersion:GalleryApplicationVersion example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/galleries/gallery1/applications/galleryApplication1/versions/galleryApplicationVersion1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationVersionArgs args: The arguments to use to populate this resource's properties.

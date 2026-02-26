@@ -28,6 +28,7 @@ class CassandraKeyspaceArgs:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CassandraKeyspace resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
         :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
@@ -118,6 +119,7 @@ class _CassandraKeyspaceState:
                  throughput: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CassandraKeyspace resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
@@ -254,6 +256,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/cassandraKeyspace:CassandraKeyspace ks1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/cassandraKeyspaces/ks1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
@@ -311,6 +314,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/cassandraKeyspace:CassandraKeyspace ks1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/cassandraKeyspaces/ks1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CassandraKeyspaceArgs args: The arguments to use to populate this resource's properties.

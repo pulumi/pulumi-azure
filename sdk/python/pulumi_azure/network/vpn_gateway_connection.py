@@ -30,6 +30,7 @@ class VpnGatewayConnectionArgs:
                  traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a VpnGatewayConnection resource.
+
         :param pulumi.Input[_builtins.str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]] vpn_links: One or more `vpn_link` blocks as defined below.
@@ -147,6 +148,7 @@ class _VpnGatewayConnectionState:
                  vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None):
         """
         Input properties used for looking up and filtering VpnGatewayConnection resources.
+
         :param pulumi.Input[_builtins.bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[_builtins.str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
@@ -342,6 +344,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
         $ pulumi import azure:network/vpnGatewayConnection:VpnGatewayConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/conn1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
@@ -430,6 +433,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/vpnGatewayConnection:VpnGatewayConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/conn1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayConnectionArgs args: The arguments to use to populate this resource's properties.

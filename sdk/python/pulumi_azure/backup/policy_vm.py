@@ -36,6 +36,7 @@ class PolicyVMArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyVM resource.
+
         :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -253,6 +254,7 @@ class _PolicyVMState:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyVM resources.
+
         :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs'] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[_builtins.int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
@@ -540,6 +542,7 @@ class PolicyVM(pulumi.CustomResource):
         $ pulumi import azure:backup/policyVM:PolicyVM policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
@@ -628,6 +631,7 @@ class PolicyVM(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:backup/policyVM:PolicyVM policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyVMArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class StaticWebAppCustomDomainArgs:
                  validation_type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a StaticWebAppCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] static_web_app_id: The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] validation_type: One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
@@ -86,6 +87,7 @@ class _StaticWebAppCustomDomainState:
                  validation_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticWebAppCustomDomain resources.
+
         :param pulumi.Input[_builtins.str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] static_web_app_id: The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[_builtins.str] validation_token: Token to be used with `dns-txt-token` validation.
@@ -245,6 +247,7 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
         $ pulumi import azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
@@ -338,6 +341,7 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StaticWebAppCustomDomainArgs args: The arguments to use to populate this resource's properties.

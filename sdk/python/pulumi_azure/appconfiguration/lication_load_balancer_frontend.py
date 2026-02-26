@@ -24,6 +24,7 @@ class LicationLoadBalancerFrontendArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LicationLoadBalancerFrontend resource.
+
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
@@ -80,6 +81,7 @@ class _LicationLoadBalancerFrontendState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LicationLoadBalancerFrontend resources.
+
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] fully_qualified_domain_name: The Fully Qualified Domain Name of the DNS record associated to an Application Gateway for Containers Frontend.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
@@ -186,6 +188,7 @@ class LicationLoadBalancerFrontend(pulumi.CustomResource):
         $ pulumi import azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceNetworking/trafficControllers/alb1/frontends/frontend1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
@@ -230,6 +233,7 @@ class LicationLoadBalancerFrontend(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceNetworking/trafficControllers/alb1/frontends/frontend1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LicationLoadBalancerFrontendArgs args: The arguments to use to populate this resource's properties.

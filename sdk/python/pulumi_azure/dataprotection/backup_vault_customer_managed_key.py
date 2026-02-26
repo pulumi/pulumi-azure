@@ -23,6 +23,7 @@ class BackupVaultCustomerManagedKeyArgs:
                  key_vault_key_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a BackupVaultCustomerManagedKey resource.
+
         :param pulumi.Input[_builtins.str] data_protection_backup_vault_id: The ID of the Backup Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Backup Vault.
         """
@@ -61,6 +62,7 @@ class _BackupVaultCustomerManagedKeyState:
                  key_vault_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupVaultCustomerManagedKey resources.
+
         :param pulumi.Input[_builtins.str] data_protection_backup_vault_id: The ID of the Backup Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Backup Vault.
         """
@@ -207,6 +209,7 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
         $ pulumi import azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_protection_backup_vault_id: The ID of the Backup Vault. Changing this forces a new resource to be created.
@@ -321,6 +324,7 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupVaultCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.

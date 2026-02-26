@@ -26,6 +26,7 @@ class CapacityReservationGroupArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityReservationGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group the Capacity Reservation Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Capacity Reservation Group. Changing this forces a new resource to be created.
@@ -113,6 +114,7 @@ class _CapacityReservationGroupState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CapacityReservationGroup resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Capacity Reservation Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group the Capacity Reservation Group is located in. Changing this forces a new resource to be created.
@@ -236,6 +238,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         $ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created.
@@ -282,6 +285,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationGroupArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class ApiKeyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input[_builtins.str] end_date_time: The RFC3339 formatted date-time after which this Dataplane API Key is no longer valid. The maximum value is now+2y.
         :param pulumi.Input[_builtins.str] nginx_deployment_id: The ID of the NGINX Deployment that the API key is associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] secret_text: The value used as the Dataplane API Key. The API key requirements can be found in the [NGINXaaS Documentation](https://docs.nginx.com/nginxaas/azure/quickstart/loadbalancer-kubernetes/#create-an-nginxaas-data-plane-api-key).
@@ -95,6 +96,7 @@ class _ApiKeyState:
                  secret_text: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+
         :param pulumi.Input[_builtins.str] end_date_time: The RFC3339 formatted date-time after which this Dataplane API Key is no longer valid. The maximum value is now+2y.
         :param pulumi.Input[_builtins.str] hint: The first three characters of the secret text to help identify it in use.
         :param pulumi.Input[_builtins.str] name: The name of the NGINX Dataplane API Key. Changing this forces a new resource to be created.
@@ -258,6 +260,7 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import azure:nginx/apiKey:ApiKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/apiKeys/key1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_date_time: The RFC3339 formatted date-time after which this Dataplane API Key is no longer valid. The maximum value is now+2y.
@@ -344,6 +347,7 @@ class ApiKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:nginx/apiKey:ApiKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/deploy1/apiKeys/key1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

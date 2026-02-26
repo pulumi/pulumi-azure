@@ -29,6 +29,7 @@ class ChannelFacebookArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelFacebook resource.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] facebook_application_id: The Facebook Application ID for the Facebook Channel.
         :param pulumi.Input[_builtins.str] facebook_application_secret: The Facebook Application Secret for the Facebook Channel.
@@ -128,6 +129,7 @@ class _ChannelFacebookState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ChannelFacebook resources.
+
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] facebook_application_id: The Facebook Application ID for the Facebook Channel.
         :param pulumi.Input[_builtins.str] facebook_application_secret: The Facebook Application Secret for the Facebook Channel.
@@ -275,6 +277,7 @@ class ChannelFacebook(pulumi.CustomResource):
         $ pulumi import azure:bot/channelFacebook:ChannelFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/FacebookChannel
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -330,6 +333,7 @@ class ChannelFacebook(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelFacebook:ChannelFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/FacebookChannel
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelFacebookArgs args: The arguments to use to populate this resource's properties.

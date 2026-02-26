@@ -26,6 +26,7 @@ class ContactArgs:
                  phone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Contact resource.
+
         :param pulumi.Input[_builtins.bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[_builtins.bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[_builtins.str] email: The email of the Security Center Contact.
@@ -111,6 +112,7 @@ class _ContactState:
                  phone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Contact resources.
+
         :param pulumi.Input[_builtins.bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[_builtins.bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[_builtins.str] email: The email of the Security Center Contact.
@@ -228,6 +230,7 @@ class Contact(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] alert_notifications: Whether to send security alerts notifications to the security contact.
@@ -268,6 +271,7 @@ class Contact(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.

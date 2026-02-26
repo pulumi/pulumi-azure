@@ -29,6 +29,7 @@ class JobAgentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a JobAgent resource.
+
         :param pulumi.Input[_builtins.str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input['JobAgentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
@@ -132,6 +133,7 @@ class _JobAgentState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering JobAgent resources.
+
         :param pulumi.Input[_builtins.str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input['JobAgentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
@@ -283,6 +285,7 @@ class JobAgent(pulumi.CustomResource):
         $ pulumi import azure:mssql/jobAgent:JobAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
@@ -342,6 +345,7 @@ class JobAgent(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/jobAgent:JobAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobAgentArgs args: The arguments to use to populate this resource's properties.

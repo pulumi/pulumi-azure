@@ -35,6 +35,7 @@ class ConfigurationFeatureArgs:
                  timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationFeature resource.
+
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the App Configuration Feature.
         :param pulumi.Input[_builtins.bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
@@ -230,6 +231,7 @@ class _ConfigurationFeatureState:
                  timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationFeature resources.
+
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the App Configuration Feature.
         :param pulumi.Input[_builtins.bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
@@ -473,6 +475,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -537,6 +540,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationFeatureArgs args: The arguments to use to populate this resource's properties.

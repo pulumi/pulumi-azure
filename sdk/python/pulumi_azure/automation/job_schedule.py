@@ -28,6 +28,7 @@ class JobScheduleArgs:
                  run_on: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobSchedule resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
@@ -149,6 +150,7 @@ class _JobScheduleState:
                  schedule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JobSchedule resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
@@ -329,6 +331,7 @@ class JobSchedule(pulumi.CustomResource):
         $ pulumi import azure:automation/jobSchedule:JobSchedule example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
@@ -385,6 +388,7 @@ class JobSchedule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/jobSchedule:JobSchedule example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobScheduleArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class FlexibleServerBackupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerBackup resource.
+
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
         """
@@ -63,6 +64,7 @@ class _FlexibleServerBackupState:
                  server_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerBackup resources.
+
         :param pulumi.Input[_builtins.str] completed_time: The Time (ISO8601 format) at which the backup was completed.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
@@ -161,6 +163,7 @@ class FlexibleServerBackup(pulumi.CustomResource):
         $ pulumi import azure:postgresql/flexibleServerBackup:FlexibleServerBackup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/fs1/backups/backup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
@@ -212,6 +215,7 @@ class FlexibleServerBackup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:postgresql/flexibleServerBackup:FlexibleServerBackup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/fs1/backups/backup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerBackupArgs args: The arguments to use to populate this resource's properties.

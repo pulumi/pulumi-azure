@@ -26,6 +26,7 @@ class SmartDetectionRuleArgs:
                  send_emails_to_subscription_owners: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SmartDetectionRule resource.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
                
@@ -117,6 +118,7 @@ class _SmartDetectionRuleState:
                  send_emails_to_subscription_owners: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SmartDetectionRule resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
                
                > **Note:** At least one read or write permission must be defined.
@@ -249,6 +251,7 @@ class SmartDetectionRule(pulumi.CustomResource):
         $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/proactiveDetectionConfigs/myrule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
@@ -302,6 +305,7 @@ class SmartDetectionRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/proactiveDetectionConfigs/myrule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SmartDetectionRuleArgs args: The arguments to use to populate this resource's properties.

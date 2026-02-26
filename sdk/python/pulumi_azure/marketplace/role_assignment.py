@@ -30,6 +30,7 @@ class RoleAssignmentArgs:
                  skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
+
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications). To assign Azure roles, the Principal must have `Microsoft.Authorization/roleAssignments/write` permissions. See [documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for more information.
@@ -198,6 +199,7 @@ class _RoleAssignmentState:
                  skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RoleAssignment resources.
+
         :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource ID which contains a Managed Identity. Changing this forces a new resource to be created.
@@ -430,6 +432,7 @@ class RoleAssignment(pulumi.CustomResource):
 
         > **Note:** For cross tenant scenarios, the format of the `resource id` consists of the Azure resource ID and the tenant ID, for example:
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
@@ -502,6 +505,7 @@ class RoleAssignment(pulumi.CustomResource):
         ```
 
         > **Note:** For cross tenant scenarios, the format of the `resource id` consists of the Azure resource ID and the tenant ID, for example:
+
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.

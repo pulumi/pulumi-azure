@@ -55,6 +55,7 @@ class LinuxFunctionAppSlotArgs:
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LinuxFunctionAppSlot resource.
+
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxFunctionAppSlotSiteConfigArgs'] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -606,6 +607,7 @@ class _LinuxFunctionAppSlotState:
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LinuxFunctionAppSlot resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsArgs'] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2Args'] auth_settings_v2: an `auth_settings_v2` block as detailed below.
@@ -1340,6 +1342,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         $ pulumi import azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -1445,6 +1448,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinuxFunctionAppSlotArgs args: The arguments to use to populate this resource's properties.

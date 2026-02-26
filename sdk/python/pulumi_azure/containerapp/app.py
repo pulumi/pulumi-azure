@@ -36,6 +36,7 @@ class AppArgs:
                  workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a App resource.
+
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
@@ -257,6 +258,7 @@ class _AppState:
                  workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering App resources.
+
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App.
         :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
@@ -607,6 +609,7 @@ class App(pulumi.CustomResource):
         $ pulumi import azure:containerapp/app:App example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/containerApps/myContainerApp"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
@@ -683,6 +686,7 @@ class App(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerapp/app:App example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/containerApps/myContainerApp"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

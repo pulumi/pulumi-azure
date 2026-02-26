@@ -30,6 +30,7 @@ class SqlRoleDefinitionArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlRoleDefinition resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignable_scopes: A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
                
@@ -150,6 +151,7 @@ class _SqlRoleDefinitionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlRoleDefinition resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignable_scopes: A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
                
@@ -321,6 +323,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlRoleDefinitions/28b3c337-f436-482b-a167-c2618dc52033
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the Cosmos DB Account. Changing this forces a new resource to be created.
@@ -383,6 +386,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlRoleDefinitions/28b3c337-f436-482b-a167-c2618dc52033
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlRoleDefinitionArgs args: The arguments to use to populate this resource's properties.

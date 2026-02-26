@@ -32,6 +32,7 @@ class NatPoolArgs:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a NatPool resource.
+
         :param pulumi.Input[_builtins.int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[_builtins.int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
@@ -210,6 +211,7 @@ class _NatPoolState:
                  tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering NatPool resources.
+
         :param pulumi.Input[_builtins.int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[_builtins.bool] floating_ip_enabled: Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
@@ -462,6 +464,7 @@ class NatPool(pulumi.CustomResource):
         $ pulumi import azure:lb/natPool:NatPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatPools/pool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
@@ -536,6 +539,7 @@ class NatPool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lb/natPool:NatPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatPools/pool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NatPoolArgs args: The arguments to use to populate this resource's properties.

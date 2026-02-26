@@ -23,6 +23,7 @@ class SettingArgs:
                  setting_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Setting resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Boolean flag to enable/disable data access.
         :param pulumi.Input[_builtins.str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
         """
@@ -61,6 +62,7 @@ class _SettingState:
                  setting_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Setting resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Boolean flag to enable/disable data access.
         :param pulumi.Input[_builtins.str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
         """
@@ -136,6 +138,7 @@ class Setting(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Boolean flag to enable/disable data access.
@@ -179,6 +182,7 @@ class Setting(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SettingArgs args: The arguments to use to populate this resource's properties.

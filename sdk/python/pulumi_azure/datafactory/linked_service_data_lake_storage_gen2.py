@@ -34,6 +34,7 @@ class LinkedServiceDataLakeStorageGen2Args:
                  use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceDataLakeStorageGen2 resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] url: The endpoint for the Azure Data Lake Storage Gen2 service.
                
@@ -260,6 +261,7 @@ class _LinkedServiceDataLakeStorageGen2State:
                  use_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceDataLakeStorageGen2 resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
                
                The following supported arguments are specific to Data Lake Storage Gen2 Linked Service:
@@ -524,6 +526,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
@@ -585,6 +588,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceDataLakeStorageGen2Args args: The arguments to use to populate this resource's properties.

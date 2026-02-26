@@ -38,6 +38,7 @@ class JobArgs:
                  workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] replica_timeout_in_seconds: The maximum number of seconds a replica is allowed to run.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
@@ -288,6 +289,7 @@ class _JobState:
                  workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Job resources.
+
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] event_stream_endpoint: The endpoint for the Container App Job event stream.
         :param pulumi.Input['JobEventTriggerConfigArgs'] event_trigger_config: A `event_trigger_config` block as defined below. Changing this forces a new resource to be created.
@@ -652,6 +654,7 @@ class Job(pulumi.CustomResource):
         $ pulumi import azure:containerapp/job:Job example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.App/jobs/example-container-app-job"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
@@ -757,6 +760,7 @@ class Job(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerapp/job:Job example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.App/jobs/example-container-app-job"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

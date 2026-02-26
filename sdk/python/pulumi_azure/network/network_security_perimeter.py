@@ -25,6 +25,7 @@ class NetworkSecurityPerimeterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeter resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Network Security Perimeter should exist.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Network Security Perimeter should exist. Changing this forces a new Network Security Perimeter to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter. Changing this forces a new Network Security Perimeter to be created.
@@ -96,6 +97,7 @@ class _NetworkSecurityPerimeterState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityPerimeter resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Network Security Perimeter should exist. Changing this forces a new Network Security Perimeter to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter. Changing this forces a new Network Security Perimeter to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Network Security Perimeter should exist.
@@ -203,6 +205,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
         $ pulumi import azure:network/networkSecurityPerimeter:NetworkSecurityPerimeter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Network Security Perimeter should exist. Changing this forces a new Network Security Perimeter to be created.
@@ -248,6 +251,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkSecurityPerimeter:NetworkSecurityPerimeter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterArgs args: The arguments to use to populate this resource's properties.

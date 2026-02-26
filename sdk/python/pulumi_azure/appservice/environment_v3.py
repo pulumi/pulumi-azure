@@ -33,6 +33,7 @@ class EnvironmentV3Args:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EnvironmentV3 resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
                
@@ -224,6 +225,7 @@ class _EnvironmentV3State:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EnvironmentV3 resources.
+
         :param pulumi.Input[_builtins.bool] allow_new_private_endpoint_connections: Should new Private Endpoint Connections be allowed. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[_builtins.int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
@@ -625,6 +627,7 @@ class EnvironmentV3(pulumi.CustomResource):
         $ pulumi import azure:appservice/environmentV3:EnvironmentV3 myAppServiceEnv /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/hostingEnvironments/myAppServiceEnv
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_new_private_endpoint_connections: Should new Private Endpoint Connections be allowed. Defaults to `true`.
@@ -731,6 +734,7 @@ class EnvironmentV3(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/environmentV3:EnvironmentV3 myAppServiceEnv /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/hostingEnvironments/myAppServiceEnv
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentV3Args args: The arguments to use to populate this resource's properties.

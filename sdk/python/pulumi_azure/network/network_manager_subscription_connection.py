@@ -25,6 +25,7 @@ class NetworkManagerSubscriptionConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerSubscriptionConnection resource.
+
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager which the Subscription is connected to.
         :param pulumi.Input[_builtins.str] subscription_id: Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Subscription Connection.
@@ -96,6 +97,7 @@ class _NetworkManagerSubscriptionConnectionState:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerSubscriptionConnection resources.
+
         :param pulumi.Input[_builtins.str] connection_state: The Connection state of the Network Manager Subscription Connection.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Subscription Connection.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
@@ -228,6 +230,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Subscription Connection.
@@ -283,6 +286,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerSubscriptionConnectionArgs args: The arguments to use to populate this resource's properties.

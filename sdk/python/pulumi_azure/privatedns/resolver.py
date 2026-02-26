@@ -26,6 +26,7 @@ class ResolverArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Resolver resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver. Changing this forces a new Private DNS Resolver to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created.
@@ -112,6 +113,7 @@ class _ResolverState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resolver resources.
+
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver. Changing this forces a new Private DNS Resolver to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created.
@@ -241,6 +243,7 @@ class Resolver(pulumi.CustomResource):
         $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created.
@@ -293,6 +296,7 @@ class Resolver(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResolverArgs args: The arguments to use to populate this resource's properties.

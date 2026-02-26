@@ -36,6 +36,7 @@ class StandardWebTestArgs:
                  validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None):
         """
         The set of arguments for constructing a StandardWebTest resource.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] geo_locations: Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
                
@@ -253,6 +254,7 @@ class _StandardWebTestState:
                  validation_rules: Optional[pulumi.Input['StandardWebTestValidationRulesArgs']] = None):
         """
         Input properties used for looking up and filtering StandardWebTest resources.
+
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[_builtins.str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[_builtins.bool] enabled: Should the WebTest be enabled?
@@ -533,6 +535,7 @@ class StandardWebTest(pulumi.CustomResource):
         $ pulumi import azure:appinsights/standardWebTest:StandardWebTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Insights/webTests/appinsightswebtest
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_insights_id: The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
@@ -599,6 +602,7 @@ class StandardWebTest(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appinsights/standardWebTest:StandardWebTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Insights/webTests/appinsightswebtest
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StandardWebTestArgs args: The arguments to use to populate this resource's properties.

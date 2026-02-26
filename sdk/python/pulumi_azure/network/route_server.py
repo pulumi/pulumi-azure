@@ -30,6 +30,7 @@ class RouteServerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteServer resource.
+
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
@@ -185,6 +186,7 @@ class _RouteServerState:
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RouteServer resources.
+
         :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s).
         :param pulumi.Input[_builtins.str] hub_routing_preference: The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -433,6 +435,7 @@ class RouteServer(pulumi.CustomResource):
         $ pulumi import azure:network/routeServer:RouteServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s).
@@ -509,6 +512,7 @@ class RouteServer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/routeServer:RouteServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteServerArgs args: The arguments to use to populate this resource's properties.

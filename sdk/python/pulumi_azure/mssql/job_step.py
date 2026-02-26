@@ -35,6 +35,7 @@ class JobStepArgs:
                  timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a JobStep resource.
+
         :param pulumi.Input[_builtins.str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input[_builtins.int] job_step_index: The index at which to insert this Elastic Job Step into the Elastic Job.
                
@@ -247,6 +248,7 @@ class _JobStepState:
                  timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering JobStep resources.
+
         :param pulumi.Input[_builtins.int] initial_retry_interval_seconds: The initial retry interval in seconds. Defaults to `1`.
         :param pulumi.Input[_builtins.str] job_credential_id: The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
                
@@ -539,6 +541,7 @@ class JobStep(pulumi.CustomResource):
         $ pulumi import azure:mssql/jobStep:JobStep example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/jobs/myjob1/steps/myjobstep1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] initial_retry_interval_seconds: The initial retry interval in seconds. Defaults to `1`.
@@ -641,6 +644,7 @@ class JobStep(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/jobStep:JobStep example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/jobs/myjob1/steps/myjobstep1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobStepArgs args: The arguments to use to populate this resource's properties.

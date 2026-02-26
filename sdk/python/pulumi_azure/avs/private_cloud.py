@@ -33,6 +33,7 @@ class PrivateCloudArgs:
                  vcenter_password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateCloud resource.
+
         :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
                > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[_builtins.str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
@@ -210,6 +211,7 @@ class _PrivateCloudState:
                  vmotion_subnet_cidr: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateCloud resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]] circuits: A `circuit` block as defined below.
         :param pulumi.Input[_builtins.str] hcx_cloud_manager_endpoint: The endpoint for the VMware HCX Cloud Manager.
         :param pulumi.Input[_builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
@@ -562,6 +564,7 @@ class PrivateCloud(pulumi.CustomResource):
         $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
@@ -625,6 +628,7 @@ class PrivateCloud(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateCloudArgs args: The arguments to use to populate this resource's properties.

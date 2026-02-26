@@ -25,6 +25,7 @@ class ProtectionContainerArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProtectionContainer resource.
+
         :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _ProtectionContainerState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectionContainer resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the protection container. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -215,6 +217,7 @@ class ProtectionContainer(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/protectionContainer:ProtectionContainer mycontainer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the protection container. Changing this forces a new resource to be created.
@@ -274,6 +277,7 @@ class ProtectionContainer(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/protectionContainer:ProtectionContainer mycontainer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.

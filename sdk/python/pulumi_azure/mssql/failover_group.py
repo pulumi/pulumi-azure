@@ -30,6 +30,7 @@ class FailoverGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A `partner_server` block as defined below.
         :param pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[_builtins.str] server_id: The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created.
@@ -147,6 +148,7 @@ class _FailoverGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FailoverGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] databases: A set of database names to include in the failover group.
         :param pulumi.Input[_builtins.str] name: The name of the Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A `partner_server` block as defined below.
@@ -333,6 +335,7 @@ class FailoverGroup(pulumi.CustomResource):
         $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] databases: A set of database names to include in the failover group.
@@ -412,6 +415,7 @@ class FailoverGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FailoverGroupArgs args: The arguments to use to populate this resource's properties.

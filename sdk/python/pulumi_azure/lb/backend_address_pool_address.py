@@ -28,6 +28,7 @@ class BackendAddressPoolAddressArgs:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackendAddressPoolAddress resource.
+
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[_builtins.str] backend_address_ip_configuration_id: The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
                
@@ -120,6 +121,7 @@ class _BackendAddressPoolAddressState:
                  virtual_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackendAddressPoolAddress resources.
+
         :param pulumi.Input[_builtins.str] backend_address_ip_configuration_id: The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
                
                > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
@@ -278,6 +280,7 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         $ pulumi import azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/loadBalancer1/backendAddressPools/backendAddressPool1/addresses/address1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backend_address_ip_configuration_id: The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
@@ -342,6 +345,7 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/loadBalancer1/backendAddressPools/backendAddressPool1/addresses/address1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BackendAddressPoolAddressArgs args: The arguments to use to populate this resource's properties.

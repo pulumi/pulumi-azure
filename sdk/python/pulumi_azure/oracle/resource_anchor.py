@@ -24,6 +24,7 @@ class ResourceAnchorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceAnchor resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Oracle Resource Anchor should exist. Changing this forces a new Oracle Resource Anchor to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Oracle Resource Anchor.
@@ -81,6 +82,7 @@ class _ResourceAnchorState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceAnchor resources.
+
         :param pulumi.Input[_builtins.str] linked_compartment_id: Oracle Cloud Infrastructure compartment [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) which was created or linked by customer with Resource Anchor.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Oracle Resource Anchor exists.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
@@ -201,6 +203,7 @@ class ResourceAnchor(pulumi.CustomResource):
         $ pulumi import azure:oracle/resourceAnchor:ResourceAnchor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Oracle.Database/resourceAnchors/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Oracle Resource Anchor. Changing this forces a new Oracle Resource Anchor to be created.
@@ -244,6 +247,7 @@ class ResourceAnchor(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:oracle/resourceAnchor:ResourceAnchor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Oracle.Database/resourceAnchors/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceAnchorArgs args: The arguments to use to populate this resource's properties.

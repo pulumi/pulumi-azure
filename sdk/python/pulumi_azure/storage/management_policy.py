@@ -25,6 +25,7 @@ class ManagementPolicyArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementPolicy resource.
+
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: A `rule` block as documented below.
         """
@@ -64,6 +65,7 @@ class _ManagementPolicyState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagementPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: A `rule` block as documented below.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
@@ -197,6 +199,7 @@ class ManagementPolicy(pulumi.CustomResource):
         $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagementPolicyRuleArgs', 'ManagementPolicyRuleArgsDict']]]] rules: A `rule` block as documented below.
@@ -298,6 +301,7 @@ class ManagementPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagementPolicyArgs args: The arguments to use to populate this resource's properties.

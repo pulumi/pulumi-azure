@@ -27,6 +27,7 @@ class NetworkAclArgs:
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
+
         :param pulumi.Input['NetworkAclPublicNetworkArgs'] public_network: A `public_network` block as defined below.
         :param pulumi.Input[_builtins.str] web_pubsub_id: The ID of the Web Pubsub service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -97,6 +98,7 @@ class _NetworkAclState:
                  web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkAcl resources.
+
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]] private_endpoints: A `private_endpoint` block as defined below.
         :param pulumi.Input['NetworkAclPublicNetworkArgs'] public_network: A `public_network` block as defined below.
@@ -242,6 +244,7 @@ class NetworkAcl(pulumi.CustomResource):
         $ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -325,6 +328,7 @@ class NetworkAcl(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkAclArgs args: The arguments to use to populate this resource's properties.

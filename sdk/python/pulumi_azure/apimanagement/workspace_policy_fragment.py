@@ -26,6 +26,7 @@ class WorkspacePolicyFragmentArgs:
                  xml_format: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspacePolicyFragment resource.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] xml_content: Specifies the XML content of the API Management Workspace Policy Fragment.
         :param pulumi.Input[_builtins.str] description: Specifies the description for the API Management Workspace Policy Fragment.
@@ -112,6 +113,7 @@ class _WorkspacePolicyFragmentState:
                  xml_format: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspacePolicyFragment resources.
+
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Specifies the description for the API Management Workspace Policy Fragment.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the API Management Workspace Policy Fragment. Changing this forces a new resource to be created.
@@ -251,6 +253,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/workspaces/workspace1/policyFragments/policyFragment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_workspace_id: Specifies the ID of the API Management Workspace. Changing this forces a new resource to be created.
@@ -313,6 +316,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/workspacePolicyFragment:WorkspacePolicyFragment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/workspaces/workspace1/policyFragments/policyFragment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspacePolicyFragmentArgs args: The arguments to use to populate this resource's properties.

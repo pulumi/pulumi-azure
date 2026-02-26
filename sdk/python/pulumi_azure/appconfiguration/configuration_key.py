@@ -31,6 +31,7 @@ class ConfigurationKeyArgs:
                  vault_key_reference: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationKey resource.
+
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
@@ -209,6 +210,7 @@ class _ConfigurationKeyState:
                  vault_key_reference: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationKey resources.
+
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[_builtins.str] etag: (Optional) The ETag of the key.
@@ -491,6 +493,7 @@ class ConfigurationKey(pulumi.CustomResource):
         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -615,6 +618,7 @@ class ConfigurationKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationKeyArgs args: The arguments to use to populate this resource's properties.

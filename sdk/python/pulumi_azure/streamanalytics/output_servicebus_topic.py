@@ -34,6 +34,7 @@ class OutputServicebusTopicArgs:
                  system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OutputServicebusTopic resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['OutputServicebusTopicSerializationArgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[_builtins.str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
@@ -217,6 +218,7 @@ class _OutputServicebusTopicState:
                  topic_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OutputServicebusTopic resources.
+
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[_builtins.str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_columns: A list of property columns to add to the Service Bus Topic output.
@@ -463,6 +465,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
         $ pulumi import azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -540,6 +543,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OutputServicebusTopicArgs args: The arguments to use to populate this resource's properties.

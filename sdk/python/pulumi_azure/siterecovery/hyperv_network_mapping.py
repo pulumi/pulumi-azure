@@ -26,6 +26,7 @@ class HypervNetworkMappingArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HypervNetworkMapping resource.
+
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_network_name: The Name of the primary network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_system_center_virtual_machine_manager_name: Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
@@ -110,6 +111,7 @@ class _HypervNetworkMappingState:
                  target_network_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HypervNetworkMapping resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the HyperV network mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_network_name: The Name of the primary network. Changing this forces a new resource to be created.
@@ -245,6 +247,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
         $ pulumi import azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/primary-fabric-name/replicationNetworks/azureNetwork/replicationNetworkMappings/mapping-name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the HyperV network mapping. Changing this forces a new resource to be created.
@@ -303,6 +306,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/primary-fabric-name/replicationNetworks/azureNetwork/replicationNetworkMappings/mapping-name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HypervNetworkMappingArgs args: The arguments to use to populate this resource's properties.

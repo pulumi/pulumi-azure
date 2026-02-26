@@ -31,6 +31,7 @@ class ServerExtendedAuditingPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
+
         :param pulumi.Input[_builtins.str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
@@ -202,6 +203,7 @@ class _ServerExtendedAuditingPolicyState:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
@@ -499,6 +501,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
@@ -642,6 +645,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerExtendedAuditingPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class NetworkSecurityPerimeterProfileArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterProfile resource.
+
         :param pulumi.Input[_builtins.str] network_security_perimeter_id: The ID of the Network Security Perimeter within this Profile is created. Changing this forces a new Network Security Perimeter Profile to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Profile to be created.
         """
@@ -62,6 +63,7 @@ class _NetworkSecurityPerimeterProfileState:
                  network_security_perimeter_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkSecurityPerimeterProfile resources.
+
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Profile to be created.
         :param pulumi.Input[_builtins.str] network_security_perimeter_id: The ID of the Network Security Perimeter within this Profile is created. Changing this forces a new Network Security Perimeter Profile to be created.
         """
@@ -140,6 +142,7 @@ class NetworkSecurityPerimeterProfile(pulumi.CustomResource):
         $ pulumi import azure:network/networkSecurityPerimeterProfile:NetworkSecurityPerimeterProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp/profiles/defaultProfile
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Network Security Perimeter Profile. Changing this forces a new Network Security Perimeter Profile to be created.
@@ -186,6 +189,7 @@ class NetworkSecurityPerimeterProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkSecurityPerimeterProfile:NetworkSecurityPerimeterProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Network/networkSecurityPerimeters/example-nsp/profiles/defaultProfile
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterProfileArgs args: The arguments to use to populate this resource's properties.

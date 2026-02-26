@@ -31,6 +31,7 @@ class SpacecraftArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Spacecraft resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] norad_id: NORAD ID of the Spacecraft.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
@@ -162,6 +163,7 @@ class _SpacecraftState:
                  two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Spacecraft resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Spacecraft. Changing this forces a new resource to be created.
@@ -351,6 +353,7 @@ class Spacecraft(pulumi.CustomResource):
         $ pulumi import azure:orbital/spacecraft:Spacecraft example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/spacecrafts/spacecraft1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
@@ -418,6 +421,7 @@ class Spacecraft(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:orbital/spacecraft:Spacecraft example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/spacecrafts/spacecraft1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpacecraftArgs args: The arguments to use to populate this resource's properties.

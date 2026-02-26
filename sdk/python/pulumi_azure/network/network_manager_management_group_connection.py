@@ -25,6 +25,7 @@ class NetworkManagerManagementGroupConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerManagementGroupConnection resource.
+
         :param pulumi.Input[_builtins.str] management_group_id: Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Management Group Connection.
@@ -96,6 +97,7 @@ class _NetworkManagerManagementGroupConnectionState:
                  network_manager_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerManagementGroupConnection resources.
+
         :param pulumi.Input[_builtins.str] connection_state: The Connection state of the Network Manager Management Group Connection.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Management Group Connection.
         :param pulumi.Input[_builtins.str] management_group_id: Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
@@ -239,6 +241,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Management Group Connection.
@@ -305,6 +308,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerManagementGroupConnectionArgs args: The arguments to use to populate this resource's properties.

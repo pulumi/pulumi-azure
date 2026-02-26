@@ -33,6 +33,7 @@ class ConfigurationArgs:
                  window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None):
         """
         The set of arguments for constructing a Configuration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
         :param pulumi.Input[_builtins.str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
@@ -203,6 +204,7 @@ class _ConfigurationState:
                  window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
+
         :param pulumi.Input[_builtins.str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
         :param pulumi.Input['ConfigurationInstallPatchesArgs'] install_patches: An `install_patches` block as defined below.
                
@@ -414,6 +416,7 @@ class Configuration(pulumi.CustomResource):
         $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
@@ -471,6 +474,7 @@ class Configuration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

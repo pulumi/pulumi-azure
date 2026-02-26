@@ -46,6 +46,7 @@ class AlertRuleScheduledArgs:
                  trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a AlertRuleScheduled resource.
+
         :param pulumi.Input[_builtins.str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[_builtins.str] query: The query of this Sentinel Scheduled Alert Rule.
@@ -430,6 +431,7 @@ class _AlertRuleScheduledState:
                  trigger_threshold: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering AlertRuleScheduled resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         :param pulumi.Input[_builtins.str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
@@ -865,6 +867,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         $ pulumi import azure:sentinel/alertRuleScheduled:AlertRuleScheduled example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledAlertDetailsOverrideArgs', 'AlertRuleScheduledAlertDetailsOverrideArgsDict']]]] alert_details_overrides: An `alert_details_override` block as defined below.
@@ -947,6 +950,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/alertRuleScheduled:AlertRuleScheduled example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleScheduledArgs args: The arguments to use to populate this resource's properties.

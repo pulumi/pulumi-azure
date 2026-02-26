@@ -38,6 +38,7 @@ class SocketioArgs:
                  tls_client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Socketio resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
         :param pulumi.Input['SocketioSkuArgs'] sku: One or more `sku` blocks as defined below.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether Azure Active Directory authentication is enabled. Defaults to `true`.
@@ -300,6 +301,7 @@ class _SocketioState:
                  tls_client_cert_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Socketio resources.
+
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether Azure Active Directory authentication is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] external_ip: The publicly accessible IP address of the Web PubSub Service.
         :param pulumi.Input[_builtins.str] hostname: The FQDN of the Web PubSub Service.
@@ -712,6 +714,7 @@ class Socketio(pulumi.CustomResource):
         $ pulumi import azure:webpubsub/socketio:Socketio example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether Azure Active Directory authentication is enabled. Defaults to `true`.
@@ -773,6 +776,7 @@ class Socketio(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:webpubsub/socketio:Socketio example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SocketioArgs args: The arguments to use to populate this resource's properties.

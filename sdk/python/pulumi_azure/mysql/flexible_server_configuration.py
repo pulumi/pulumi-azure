@@ -25,6 +25,7 @@ class FlexibleServerConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] value: Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
@@ -94,6 +95,7 @@ class _FlexibleServerConfigurationState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerConfiguration resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
@@ -213,6 +215,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         $ pulumi import azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1/configurations/interactive_timeout
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -270,6 +273,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1/configurations/interactive_timeout
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlexibleServerConfigurationArgs args: The arguments to use to populate this resource's properties.

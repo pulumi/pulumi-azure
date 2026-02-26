@@ -23,6 +23,7 @@ class GatewayApiArgs:
                  gateway_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a GatewayApi resource.
+
         :param pulumi.Input[_builtins.str] api_id: The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
         :param pulumi.Input[_builtins.str] gateway_id: The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
         """
@@ -61,6 +62,7 @@ class _GatewayApiState:
                  gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayApi resources.
+
         :param pulumi.Input[_builtins.str] api_id: The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
         :param pulumi.Input[_builtins.str] gateway_id: The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
         """
@@ -140,6 +142,7 @@ class GatewayApi(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
@@ -187,6 +190,7 @@ class GatewayApi(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GatewayApiArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class StorageInsightsArgs:
                  table_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageInsights resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account used by this Log Analytics Storage Insights.
         :param pulumi.Input[_builtins.str] storage_account_key: The storage access key to be used to connect to the storage account.
@@ -144,6 +145,7 @@ class _StorageInsightsState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageInsights resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_container_names: The names of the blob containers that the workspace should read.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
@@ -313,6 +315,7 @@ class StorageInsights(pulumi.CustomResource):
         $ pulumi import azure:loganalytics/storageInsights:StorageInsights example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/storageInsightConfigs/storageInsight1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_container_names: The names of the blob containers that the workspace should read.
@@ -375,6 +378,7 @@ class StorageInsights(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:loganalytics/storageInsights:StorageInsights example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/storageInsightConfigs/storageInsight1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageInsightsArgs args: The arguments to use to populate this resource's properties.

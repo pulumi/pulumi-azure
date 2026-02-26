@@ -25,6 +25,7 @@ class ManagedHardwareSecurityModuleKeyRotationPolicyArgs:
                  time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleKeyRotationPolicy resource.
+
         :param pulumi.Input[_builtins.str] expire_after: Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
         :param pulumi.Input[_builtins.str] managed_hsm_key_id: The ID of the Managed HSM Key. Changing this forces a new Managed HSM Key rotation policy to be created.
         :param pulumi.Input[_builtins.str] time_after_creation: Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
@@ -95,6 +96,7 @@ class _ManagedHardwareSecurityModuleKeyRotationPolicyState:
                  time_before_expiry: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleKeyRotationPolicy resources.
+
         :param pulumi.Input[_builtins.str] expire_after: Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
         :param pulumi.Input[_builtins.str] managed_hsm_key_id: The ID of the Managed HSM Key. Changing this forces a new Managed HSM Key rotation policy to be created.
         :param pulumi.Input[_builtins.str] time_after_creation: Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
@@ -198,6 +200,7 @@ class ManagedHardwareSecurityModuleKeyRotationPolicy(pulumi.CustomResource):
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy example https://example-hsm.managedhsm.azure.net/keys/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] expire_after: Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
@@ -239,6 +242,7 @@ class ManagedHardwareSecurityModuleKeyRotationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy example https://example-hsm.managedhsm.azure.net/keys/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedHardwareSecurityModuleKeyRotationPolicyArgs args: The arguments to use to populate this resource's properties.

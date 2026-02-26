@@ -24,6 +24,7 @@ class DatasetKustoDatabaseArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatasetKustoDatabase resource.
+
         :param pulumi.Input[_builtins.str] kusto_database_id: The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
         :param pulumi.Input[_builtins.str] share_id: The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
@@ -80,6 +81,7 @@ class _DatasetKustoDatabaseState:
                  share_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatasetKustoDatabase resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Data Share Dataset.
         :param pulumi.Input[_builtins.str] kusto_cluster_location: The location of the Kusto Cluster.
         :param pulumi.Input[_builtins.str] kusto_database_id: The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
@@ -230,6 +232,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         $ pulumi import azure:datashare/datasetKustoDatabase:DatasetKustoDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kusto_database_id: The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
@@ -303,6 +306,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datashare/datasetKustoDatabase:DatasetKustoDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetKustoDatabaseArgs args: The arguments to use to populate this resource's properties.

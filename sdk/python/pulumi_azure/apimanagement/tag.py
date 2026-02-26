@@ -24,6 +24,7 @@ class TagArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management. Changing this forces a new API Management Tag to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of the API Management Tag. Defaults to the `name`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created. The name must be unique in the API Management Service.
@@ -79,6 +80,7 @@ class _TagState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management. Changing this forces a new API Management Tag to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of the API Management Tag. Defaults to the `name`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created. The name must be unique in the API Management Service.
@@ -176,6 +178,7 @@ class Tag(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/tag:Tag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/tags/tag1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management. Changing this forces a new API Management Tag to be created.
@@ -226,6 +229,7 @@ class Tag(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/tag:Tag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/tags/tag1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

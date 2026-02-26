@@ -28,6 +28,7 @@ class AuthorizationRuleArgs:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] notification_hub_name: The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
@@ -153,6 +154,7 @@ class _AuthorizationRuleState:
                  send: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AuthorizationRule resources.
+
         :param pulumi.Input[_builtins.bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         :param pulumi.Input[_builtins.bool] manage: Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
                
@@ -387,6 +389,7 @@ class AuthorizationRule(pulumi.CustomResource):
         $ pulumi import azure:notificationhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1/authorizationRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
@@ -452,6 +455,7 @@ class AuthorizationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:notificationhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1/authorizationRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

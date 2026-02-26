@@ -25,6 +25,7 @@ class WorkspaceKeyArgs:
                  customer_managed_key_versionless_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceKey resource.
+
         :param pulumi.Input[_builtins.bool] active: Specifies if the workspace should be encrypted with this key.
                
                > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
@@ -98,6 +99,7 @@ class _WorkspaceKeyState:
                  synapse_workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceKey resources.
+
         :param pulumi.Input[_builtins.bool] active: Specifies if the workspace should be encrypted with this key.
                
                > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
@@ -272,6 +274,7 @@ class WorkspaceKey(pulumi.CustomResource):
         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Specifies if the workspace should be encrypted with this key.
@@ -382,6 +385,7 @@ class WorkspaceKey(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceKeyArgs args: The arguments to use to populate this resource's properties.

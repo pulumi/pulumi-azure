@@ -30,6 +30,7 @@ class SpringCloudConnectionArgs:
                  vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudConnection resource.
+
         :param pulumi.Input['SpringCloudConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[_builtins.str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
@@ -135,6 +136,7 @@ class _SpringCloudConnectionState:
                  vnet_solution: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudConnection resources.
+
         :param pulumi.Input['SpringCloudConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
@@ -323,6 +325,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudConnection:SpringCloudConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/springcloud/apps/springcloudapp/deployments/deployment/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
@@ -413,6 +416,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudConnection:SpringCloudConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/springcloud/apps/springcloudapp/deployments/deployment/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudConnectionArgs args: The arguments to use to populate this resource's properties.

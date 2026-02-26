@@ -26,6 +26,7 @@ class UserAssignedIdentityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserAssignedIdentity resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         :param pulumi.Input[_builtins.str] isolation_scope: The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
@@ -116,6 +117,7 @@ class _UserAssignedIdentityState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserAssignedIdentity resources.
+
         :param pulumi.Input[_builtins.str] client_id: The ID of the app associated with the Identity.
         :param pulumi.Input[_builtins.str] isolation_scope: The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
@@ -295,6 +297,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`.
         * Where `{userAssignedIdentityName}` is the name of the User Assigned Identity. For example `userAssignedIdentityValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] isolation_scope: The isolation scope for the User Assigned Identity. The only possible value is `Regional`.
@@ -347,6 +350,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         * Where `{subscriptionId}` is the ID of the Azure Subscription where the User Assigned Identity exists. For example `12345678-1234-9876-4563-123456789012`.
         * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`.
         * Where `{userAssignedIdentityName}` is the name of the User Assigned Identity. For example `userAssignedIdentityValue`.
+
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.

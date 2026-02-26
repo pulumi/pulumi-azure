@@ -53,6 +53,7 @@ class PoolArgs:
                  windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None):
         """
         The set of arguments for constructing a Pool resource.
+
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -540,6 +541,7 @@ class _PoolState:
                  windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
+
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
                
@@ -1123,6 +1125,7 @@ class Pool(pulumi.CustomResource):
         $ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
@@ -1251,6 +1254,7 @@ class Pool(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class NamespaceSchemaGroupArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceSchemaGroup resource.
+
         :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] schema_type: Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
@@ -98,6 +99,7 @@ class _NamespaceSchemaGroupState:
                  schema_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NamespaceSchemaGroup resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] namespace_id: Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] schema_compatibility: Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
@@ -213,6 +215,7 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         $ pulumi import azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/schemaGroups/group1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this schema group. Changing this forces a new resource to be created.
@@ -264,6 +267,7 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/schemaGroups/group1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceSchemaGroupArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class EventhubNamespaceDisasterRecoveryConfigArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventhubNamespaceDisasterRecoveryConfig resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
@@ -94,6 +95,7 @@ class _EventhubNamespaceDisasterRecoveryConfigState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
@@ -212,6 +214,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         $ pulumi import azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/disasterRecoveryConfigs/config1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
@@ -268,6 +271,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/disasterRecoveryConfigs/config1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventhubNamespaceDisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class VolumeGroupArgs:
                  protocol_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeGroup resource.
+
         :param pulumi.Input[_builtins.str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeGroupEncryptionArgs'] encryption: An `encryption` block as defined below.
                
@@ -153,6 +154,7 @@ class _VolumeGroupState:
                  protocol_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VolumeGroup resources.
+
         :param pulumi.Input[_builtins.str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeGroupEncryptionArgs'] encryption: An `encryption` block as defined below.
                
@@ -405,6 +407,7 @@ class VolumeGroup(pulumi.CustomResource):
         $ pulumi import azure:elasticsan/volumeGroup:VolumeGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1/volumeGroups/vg1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
@@ -548,6 +551,7 @@ class VolumeGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:elasticsan/volumeGroup:VolumeGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1/volumeGroups/vg1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeGroupArgs args: The arguments to use to populate this resource's properties.

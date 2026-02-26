@@ -36,6 +36,7 @@ class FileSystemArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
+
         :param pulumi.Input['FileSystemMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
@@ -251,6 +252,7 @@ class _FileSystemState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FileSystem resources.
+
         :param pulumi.Input['FileSystemEncryptionKeyArgs'] encryption_key: An `encryption_key` block as defined below.
                
                > **Note:** Removing `encryption_key` forces a new resource to be created.
@@ -539,6 +541,7 @@ class FileSystem(pulumi.CustomResource):
         $ pulumi import azure:managedlustre/fileSystem:FileSystem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageCache/amlFilesystems/amlFilesystem1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']] encryption_key: An `encryption_key` block as defined below.
@@ -613,6 +616,7 @@ class FileSystem(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:managedlustre/fileSystem:FileSystem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageCache/amlFilesystems/amlFilesystem1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FileSystemArgs args: The arguments to use to populate this resource's properties.

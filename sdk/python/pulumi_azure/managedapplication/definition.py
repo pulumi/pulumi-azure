@@ -35,6 +35,7 @@ class DefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Definition resource.
+
         :param pulumi.Input[_builtins.str] display_name: Specifies the managed application definition display name.
         :param pulumi.Input[_builtins.str] lock_level: Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
@@ -236,6 +237,7 @@ class _DefinitionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Definition resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: One or more `authorization` block defined below.
         :param pulumi.Input[_builtins.str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[_builtins.str] description: Specifies the managed application definition description.
@@ -484,6 +486,7 @@ class Definition(pulumi.CustomResource):
         $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefinitionAuthorizationArgs', 'DefinitionAuthorizationArgsDict']]]] authorizations: One or more `authorization` block defined below.
@@ -548,6 +551,7 @@ class Definition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DefinitionArgs args: The arguments to use to populate this resource's properties.

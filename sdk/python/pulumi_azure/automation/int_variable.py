@@ -27,6 +27,7 @@ class IntVariableArgs:
                  value: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a IntVariable resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Automation Variable.
@@ -129,6 +130,7 @@ class _IntVariableState:
                  value: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering IntVariable resources.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Automation Variable.
         :param pulumi.Input[_builtins.bool] encrypted: Specifies if the Automation Variable is encrypted. Defaults to `false`.
@@ -267,6 +269,7 @@ class IntVariable(pulumi.CustomResource):
         $ pulumi import azure:automation/intVariable:IntVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -313,6 +316,7 @@ class IntVariable(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:automation/intVariable:IntVariable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/tfex-example-rg/providers/Microsoft.Automation/automationAccounts/tfex-example-account/variables/tfex-example-var
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntVariableArgs args: The arguments to use to populate this resource's properties.

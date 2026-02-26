@@ -26,6 +26,7 @@ class IPGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IPGroup resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: A list of CIDRs or IP addresses.
                
@@ -119,6 +120,7 @@ class _IPGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IPGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: A list of CIDRs or IP addresses.
                
                > **Note:** The AzureRM Terraform provider provides cidr support via the standalone resource network.IPGroupCIDR and in-line within this resource using the `cidrs` property. You cannot use both methods simultaneously. If cidrs are set via the resource `network.IPGroupCIDR` then `ignore_changes` should be used in the ip group configuration.
@@ -284,6 +286,7 @@ class IPGroup(pulumi.CustomResource):
         $ pulumi import azure:network/iPGroup:IPGroup ipgroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/ipGroups/myIpGroup
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: A list of CIDRs or IP addresses.
@@ -340,6 +343,7 @@ class IPGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/iPGroup:IPGroup ipgroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/ipGroups/myIpGroup
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IPGroupArgs args: The arguments to use to populate this resource's properties.

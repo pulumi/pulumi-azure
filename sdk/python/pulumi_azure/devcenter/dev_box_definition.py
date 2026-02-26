@@ -28,6 +28,7 @@ class DevBoxDefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DevBoxDefinition resource.
+
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] image_reference_id: The ID of the image for the Dev Center Dev Box Definition.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU for the Dev Center Dev Box Definition.
@@ -149,6 +150,7 @@ class _DevBoxDefinitionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DevBoxDefinition resources.
+
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] hibernate_support_enabled: Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
                
@@ -317,6 +319,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         $ pulumi import azure:devcenter/devBoxDefinition:DevBoxDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/devBoxDefinitions/et1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
@@ -376,6 +379,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:devcenter/devBoxDefinition:DevBoxDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/devBoxDefinitions/et1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DevBoxDefinitionArgs args: The arguments to use to populate this resource's properties.

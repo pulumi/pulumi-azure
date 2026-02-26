@@ -33,6 +33,7 @@ class ManagedRedisArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedRedis resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Managed Redis instance should exist. Changing this forces a new Managed Redis instance to be created.
         :param pulumi.Input[_builtins.str] sku_name: The features and specification of the Managed Redis instance to deploy. Possible values are `Balanced_B0`, `Balanced_B1`, `Balanced_B10`, `Balanced_B100`, `Balanced_B1000`, `Balanced_B150`, `Balanced_B20`, `Balanced_B250`, `Balanced_B3`, `Balanced_B350`, `Balanced_B5`, `Balanced_B50`, `Balanced_B500`, `Balanced_B700`, `ComputeOptimized_X10`, `ComputeOptimized_X100`, `ComputeOptimized_X150`, `ComputeOptimized_X20`, `ComputeOptimized_X250`, `ComputeOptimized_X3`, `ComputeOptimized_X350`, `ComputeOptimized_X5`, `ComputeOptimized_X50`, `ComputeOptimized_X500`, `ComputeOptimized_X700`, `FlashOptimized_A1000`, `FlashOptimized_A1500`, `FlashOptimized_A2000`, `FlashOptimized_A250`, `FlashOptimized_A4500`, `FlashOptimized_A500`, `FlashOptimized_A700`, `MemoryOptimized_M10`, `MemoryOptimized_M100`, `MemoryOptimized_M1000`, `MemoryOptimized_M150`, `MemoryOptimized_M1500`, `MemoryOptimized_M20`, `MemoryOptimized_M2000`, `MemoryOptimized_M250`, `MemoryOptimized_M350`, `MemoryOptimized_M50`, `MemoryOptimized_M500` and `MemoryOptimized_M700`. `Balanced_B3` SKU or higher is required for geo-replication.
                
@@ -216,6 +217,7 @@ class _ManagedRedisState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ManagedRedis resources.
+
         :param pulumi.Input['ManagedRedisCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input['ManagedRedisDefaultDatabaseArgs'] default_database: A `default_database` block as defined below.
                
@@ -528,6 +530,7 @@ class ManagedRedis(pulumi.CustomResource):
         $ pulumi import azure:managedredis/managedRedis:ManagedRedis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
@@ -665,6 +668,7 @@ class ManagedRedis(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:managedredis/managedRedis:ManagedRedis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedRedisArgs args: The arguments to use to populate this resource's properties.

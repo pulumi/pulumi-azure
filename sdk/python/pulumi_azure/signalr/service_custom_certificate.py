@@ -24,6 +24,7 @@ class ServiceCustomCertificateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceCustomCertificate resource.
+
         :param pulumi.Input[_builtins.str] custom_certificate_id: The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
                
                > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
@@ -87,6 +88,7 @@ class _ServiceCustomCertificateState:
                  signalr_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceCustomCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate_version: The certificate version of the SignalR Custom Certificate service.
         :param pulumi.Input[_builtins.str] custom_certificate_id: The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
                
@@ -256,6 +258,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         $ pulumi import azure:signalr/serviceCustomCertificate:ServiceCustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customCertificates/cert1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_certificate_id: The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
@@ -359,6 +362,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:signalr/serviceCustomCertificate:ServiceCustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customCertificates/cert1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceCustomCertificateArgs args: The arguments to use to populate this resource's properties.

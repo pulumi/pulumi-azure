@@ -29,6 +29,7 @@ class IntegrationAccountBatchConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountBatchConfiguration resource.
+
         :param pulumi.Input[_builtins.str] batch_group_name: The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs'] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
@@ -129,6 +130,7 @@ class _IntegrationAccountBatchConfigurationState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountBatchConfiguration resources.
+
         :param pulumi.Input[_builtins.str] batch_group_name: The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
@@ -277,6 +279,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] batch_group_name: The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
@@ -333,6 +336,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountBatchConfigurationArgs args: The arguments to use to populate this resource's properties.

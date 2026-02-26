@@ -27,6 +27,7 @@ class SqlPoolExtendedAuditingPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolExtendedAuditingPolicy resource.
+
         :param pulumi.Input[_builtins.str] sql_pool_id: The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -130,6 +131,7 @@ class _SqlPoolExtendedAuditingPolicyState:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlPoolExtendedAuditingPolicy resources.
+
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[_builtins.str] sql_pool_id: The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
@@ -295,6 +297,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
         $ pulumi import azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/extendedAuditingSettings/default
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
@@ -368,6 +371,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/extendedAuditingSettings/default
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlPoolExtendedAuditingPolicyArgs args: The arguments to use to populate this resource's properties.

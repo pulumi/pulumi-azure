@@ -27,6 +27,7 @@ class TagRulesArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagRules resource.
+
         :param pulumi.Input[_builtins.str] monitor_id: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         :param pulumi.Input['TagRulesLogRuleArgs'] log_rule: Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
         :param pulumi.Input['TagRulesMetricRuleArgs'] metric_rule: Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
@@ -98,6 +99,7 @@ class _TagRulesState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagRules resources.
+
         :param pulumi.Input['TagRulesLogRuleArgs'] log_rule: Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
         :param pulumi.Input['TagRulesMetricRuleArgs'] metric_rule: Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         :param pulumi.Input[_builtins.str] monitor_id: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
@@ -243,6 +245,7 @@ class TagRules(pulumi.CustomResource):
         $ pulumi import azure:dynatrace/tagRules:TagRules example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Dynatrace.Observability/monitors/monitor1/tagRules/tagRules1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']] log_rule: Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
@@ -326,6 +329,7 @@ class TagRules(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dynatrace/tagRules:TagRules example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Dynatrace.Observability/monitors/monitor1/tagRules/tagRules1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagRulesArgs args: The arguments to use to populate this resource's properties.

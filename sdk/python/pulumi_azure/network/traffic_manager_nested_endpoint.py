@@ -36,6 +36,7 @@ class TrafficManagerNestedEndpointArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficManagerNestedEndpoint resource.
+
         :param pulumi.Input[_builtins.int] minimum_child_endpoints: This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
                
                > **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
@@ -253,6 +254,7 @@ class _TrafficManagerNestedEndpointState:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerNestedEndpoint resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
@@ -549,6 +551,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         $ pulumi import azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/NestedEndpoints/example-endpoint
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerNestedEndpointCustomHeaderArgs', 'TrafficManagerNestedEndpointCustomHeaderArgsDict']]]] custom_headers: One or more `custom_header` blocks as defined below.
@@ -646,6 +649,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/NestedEndpoints/example-endpoint
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficManagerNestedEndpointArgs args: The arguments to use to populate this resource's properties.

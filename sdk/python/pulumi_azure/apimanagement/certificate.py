@@ -28,6 +28,7 @@ class CertificateArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
                
@@ -161,6 +162,7 @@ class _CertificateState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] data: The base-64 encoded certificate data, which must be a PFX file.
         :param pulumi.Input[_builtins.str] expiration: The Expiration Date of this Certificate, formatted as an RFC3339 string.
@@ -445,6 +447,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/certificates/certificate1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
@@ -571,6 +574,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/certificates/certificate1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

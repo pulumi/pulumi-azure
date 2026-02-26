@@ -30,6 +30,7 @@ class LinkedServiceAzureSearchArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkedServiceAzureSearch resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] search_service_key: The key of the Azure Search Service.
         :param pulumi.Input[_builtins.str] url: The URL of the Search Service endpoint (e.g. <https://{searchServiceName}.search.windows.net>).
@@ -184,6 +185,7 @@ class _LinkedServiceAzureSearchState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceAzureSearch resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
                
                The following supported arguments are specific to Azure Search Linked Service:
@@ -399,6 +401,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
         $ pulumi import azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
@@ -460,6 +463,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceAzureSearchArgs args: The arguments to use to populate this resource's properties.

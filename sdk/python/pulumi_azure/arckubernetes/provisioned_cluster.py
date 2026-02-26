@@ -31,6 +31,7 @@ class ProvisionedClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedCluster resource.
+
         :param pulumi.Input['ProvisionedClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         :param pulumi.Input[_builtins.bool] arc_agent_auto_upgrade_enabled: Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
@@ -172,6 +173,7 @@ class _ProvisionedClusterState:
                  total_node_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ProvisionedCluster resources.
+
         :param pulumi.Input[_builtins.str] agent_version: The version of the agent running on the cluster resource.
         :param pulumi.Input[_builtins.bool] arc_agent_auto_upgrade_enabled: Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
         :param pulumi.Input[_builtins.str] arc_agent_desired_version: The version of the Arc agents to be installed on the cluster.
@@ -462,6 +464,7 @@ class ProvisionedCluster(pulumi.CustomResource):
         $ pulumi import azure:arckubernetes/provisionedCluster:ProvisionedCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/cluster1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] arc_agent_auto_upgrade_enabled: Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
@@ -525,6 +528,7 @@ class ProvisionedCluster(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:arckubernetes/provisionedCluster:ProvisionedCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/cluster1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProvisionedClusterArgs args: The arguments to use to populate this resource's properties.

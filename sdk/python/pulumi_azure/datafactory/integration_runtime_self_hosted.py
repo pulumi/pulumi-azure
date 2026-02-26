@@ -28,6 +28,7 @@ class IntegrationRuntimeSelfHostedArgs:
                  self_contained_interactive_authoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
@@ -117,6 +118,7 @@ class _IntegrationRuntimeSelfHostedState:
                  self_contained_interactive_authoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationRuntimeSelfHosted resources.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
@@ -273,6 +275,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         $ pulumi import azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationRuntimes/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -322,6 +325,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationRuntimes/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeSelfHostedArgs args: The arguments to use to populate this resource's properties.

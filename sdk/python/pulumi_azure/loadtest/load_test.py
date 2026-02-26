@@ -30,6 +30,7 @@ class LoadTestArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadTest resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[_builtins.str] description: Description of the resource.
         :param pulumi.Input['LoadTestEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
@@ -150,6 +151,7 @@ class _LoadTestState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LoadTest resources.
+
         :param pulumi.Input[_builtins.str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[_builtins.str] description: Description of the resource.
         :param pulumi.Input['LoadTestEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
@@ -328,6 +330,7 @@ class LoadTest(pulumi.CustomResource):
         * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`.
         * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the resource.
@@ -384,6 +387,7 @@ class LoadTest(pulumi.CustomResource):
         * Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`.
         * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`.
         * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
+
 
         :param str resource_name: The name of the resource.
         :param LoadTestArgs args: The arguments to use to populate this resource's properties.

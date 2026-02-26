@@ -30,6 +30,7 @@ class NamespaceArgs:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
@@ -180,6 +181,7 @@ class _NamespaceState:
                  zone_redundancy_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
@@ -384,6 +386,7 @@ class Namespace(pulumi.CustomResource):
         $ pulumi import azure:notificationhub/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`. Changing this forces a new resource to be created.
@@ -436,6 +439,7 @@ class Namespace(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:notificationhub/namespace:Namespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

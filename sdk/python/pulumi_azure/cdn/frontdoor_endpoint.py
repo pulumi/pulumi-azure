@@ -25,6 +25,7 @@ class FrontdoorEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorEndpoint resource.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
         :param pulumi.Input[_builtins.bool] enabled: Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
@@ -97,6 +98,7 @@ class _FrontdoorEndpointState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorEndpoint resources.
+
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
         :param pulumi.Input[_builtins.bool] enabled: Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] host_name: The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
@@ -218,6 +220,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         $ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
@@ -262,6 +265,7 @@ class FrontdoorEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorEndpointArgs args: The arguments to use to populate this resource's properties.

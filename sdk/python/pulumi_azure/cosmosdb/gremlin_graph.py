@@ -36,6 +36,7 @@ class GremlinGraphArgs:
                  unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None):
         """
         The set of arguments for constructing a GremlinGraph resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
@@ -256,6 +257,7 @@ class _GremlinGraphState:
                  unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None):
         """
         Input properties used for looking up and filtering GremlinGraph resources.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] analytical_storage_ttl: The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
                
@@ -539,6 +541,7 @@ class GremlinGraph(pulumi.CustomResource):
         $ pulumi import azure:cosmosdb/gremlinGraph:GremlinGraph example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1/graphs/graphs1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
@@ -621,6 +624,7 @@ class GremlinGraph(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:cosmosdb/gremlinGraph:GremlinGraph example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1/graphs/graphs1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GremlinGraphArgs args: The arguments to use to populate this resource's properties.

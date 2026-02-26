@@ -28,6 +28,7 @@ class RegistryCredentialSetArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryCredentialSet resource.
+
         :param pulumi.Input['RegistryCredentialSetAuthenticationCredentialsArgs'] authentication_credentials: A `authentication_credentials` block as defined below.
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry. Changing this forces a new Container Registry Credential Set to be created.
         :param pulumi.Input['RegistryCredentialSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -112,6 +113,7 @@ class _RegistryCredentialSetState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryCredentialSet resources.
+
         :param pulumi.Input['RegistryCredentialSetAuthenticationCredentialsArgs'] authentication_credentials: A `authentication_credentials` block as defined below.
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry. Changing this forces a new Container Registry Credential Set to be created.
         :param pulumi.Input['RegistryCredentialSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -313,6 +315,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
         $ pulumi import azure:containerservice/registryCredentialSet:RegistryCredentialSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/credentialSets/credentialSet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']] authentication_credentials: A `authentication_credentials` block as defined below.
@@ -437,6 +440,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/registryCredentialSet:RegistryCredentialSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/credentialSets/credentialSet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistryCredentialSetArgs args: The arguments to use to populate this resource's properties.

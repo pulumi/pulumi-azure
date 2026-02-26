@@ -33,6 +33,7 @@ class FlowletDataFlowArgs:
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
         """
         The set of arguments for constructing a FlowletDataFlow resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Flowlet Data Flow.
@@ -200,6 +201,7 @@ class _FlowletDataFlowState:
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
         """
         Input properties used for looking up and filtering FlowletDataFlow resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Flowlet Data Flow.
@@ -524,6 +526,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         $ pulumi import azure:datafactory/flowletDataFlow:FlowletDataFlow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/dataflows/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
@@ -696,6 +699,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/flowletDataFlow:FlowletDataFlow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/dataflows/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FlowletDataFlowArgs args: The arguments to use to populate this resource's properties.

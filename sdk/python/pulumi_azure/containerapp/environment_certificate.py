@@ -29,6 +29,7 @@ class EnvironmentCertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentCertificate resource.
+
         :param pulumi.Input[_builtins.str] container_app_environment_id: The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
                
@@ -149,6 +150,7 @@ class _EnvironmentCertificateState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
                
                > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
@@ -456,6 +458,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         $ pulumi import azure:containerapp/environmentCertificate:EnvironmentCertificate example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/certificates/mycertificate"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
@@ -590,6 +593,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerapp/environmentCertificate:EnvironmentCertificate example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/certificates/mycertificate"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentCertificateArgs args: The arguments to use to populate this resource's properties.

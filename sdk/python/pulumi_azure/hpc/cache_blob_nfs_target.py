@@ -30,6 +30,7 @@ class CacheBlobNfsTargetArgs:
                  write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CacheBlobNfsTarget resource.
+
         :param pulumi.Input[_builtins.str] cache_name: The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
         :param pulumi.Input[_builtins.str] namespace_path: The client-facing file path of the HPC Cache Blob NFS Target.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
@@ -181,6 +182,7 @@ class _CacheBlobNfsTargetState:
                  write_back_timer_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CacheBlobNfsTarget resources.
+
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[_builtins.str] cache_name: The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
@@ -356,6 +358,7 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
         $ pulumi import azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
@@ -392,6 +395,7 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CacheBlobNfsTargetArgs args: The arguments to use to populate this resource's properties.

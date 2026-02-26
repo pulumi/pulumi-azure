@@ -33,6 +33,7 @@ class MonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input['MonitorIdentityArgs'] identity: The kind of managed identity assigned to this resource. A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] marketplace_subscription: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. Possible values are `Active` and `Suspended`. Changing this forces a new resource to be created.
         :param pulumi.Input['MonitorPlanArgs'] plan: Billing plan information. A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -196,6 +197,7 @@ class _MonitorState:
                  user: Optional[pulumi.Input['MonitorUserArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyArgs']]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
         :param pulumi.Input['MonitorIdentityArgs'] identity: The kind of managed identity assigned to this resource. A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
@@ -417,6 +419,7 @@ class Monitor(pulumi.CustomResource):
         $ pulumi import azure:dynatrace/monitor:Monitor example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Dynatrace.Observability/monitors/monitor1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorEnvironmentPropertyArgs', 'MonitorEnvironmentPropertyArgsDict']]]] environment_properties: Properties of the Dynatrace environment. An `environment_properties` block as defined below.
@@ -486,6 +489,7 @@ class Monitor(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dynatrace/monitor:Monitor example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Dynatrace.Observability/monitors/monitor1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

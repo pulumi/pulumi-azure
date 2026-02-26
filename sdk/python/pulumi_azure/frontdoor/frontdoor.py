@@ -34,6 +34,7 @@ class FrontdoorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Frontdoor resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]] backend_pools: A `backend_pool` block as defined below.
@@ -224,6 +225,7 @@ class _FrontdoorState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Frontdoor resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] backend_pool_health_probes_map: A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] backend_pool_load_balancing_settings_map: A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
@@ -605,6 +607,7 @@ class Frontdoor(pulumi.CustomResource):
         $ pulumi import azure:frontdoor/frontdoor:Frontdoor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
@@ -701,6 +704,7 @@ class Frontdoor(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:frontdoor/frontdoor:Frontdoor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FrontdoorArgs args: The arguments to use to populate this resource's properties.

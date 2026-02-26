@@ -36,6 +36,7 @@ class InsightsArgs:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Insights resource.
+
         :param pulumi.Input[_builtins.str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
@@ -289,6 +290,7 @@ class _InsightsState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Insights resources.
+
         :param pulumi.Input[_builtins.str] app_id: The App ID associated with this Application Insights component.
         :param pulumi.Input[_builtins.str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] connection_string: The Connection String for this Application Insights component. (Sensitive)
@@ -651,6 +653,7 @@ class Insights(pulumi.CustomResource):
         $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
@@ -739,6 +742,7 @@ class Insights(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param InsightsArgs args: The arguments to use to populate this resource's properties.

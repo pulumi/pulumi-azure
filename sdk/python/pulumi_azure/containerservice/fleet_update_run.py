@@ -28,6 +28,7 @@ class FleetUpdateRunArgs:
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]] = None):
         """
         The set of arguments for constructing a FleetUpdateRun resource.
+
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
         :param pulumi.Input['FleetUpdateRunManagedClusterUpdateArgs'] managed_cluster_update: A `managed_cluster_update` block as defined below.
         :param pulumi.Input[_builtins.str] fleet_update_strategy_id: The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
@@ -114,6 +115,7 @@ class _FleetUpdateRunState:
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateRunStageArgs']]]] = None):
         """
         Input properties used for looking up and filtering FleetUpdateRun resources.
+
         :param pulumi.Input[_builtins.str] fleet_update_strategy_id: The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
         :param pulumi.Input['FleetUpdateRunManagedClusterUpdateArgs'] managed_cluster_update: A `managed_cluster_update` block as defined below.
@@ -274,6 +276,7 @@ class FleetUpdateRun(pulumi.CustomResource):
         $ pulumi import azure:containerservice/fleetUpdateRun:FleetUpdateRun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.ContainerService/fleets/fleet1/updateRuns/updateRun1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_update_strategy_id: The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
@@ -357,6 +360,7 @@ class FleetUpdateRun(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/fleetUpdateRun:FleetUpdateRun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.ContainerService/fleets/fleet1/updateRuns/updateRun1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetUpdateRunArgs args: The arguments to use to populate this resource's properties.

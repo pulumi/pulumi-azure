@@ -28,6 +28,7 @@ class ClusterManagedPrivateEndpointArgs:
                  request_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterManagedPrivateEndpoint resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] group_id: The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_link_resource_id: The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
@@ -144,6 +145,7 @@ class _ClusterManagedPrivateEndpointState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterManagedPrivateEndpoint resources.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] group_id: The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
@@ -318,6 +320,7 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         $ pulumi import azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/managedPrivateEndpoints/managedPrivateEndpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto Cluster. Changing this forces a new resource to be created.
@@ -385,6 +388,7 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/managedPrivateEndpoints/managedPrivateEndpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ClusterManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.

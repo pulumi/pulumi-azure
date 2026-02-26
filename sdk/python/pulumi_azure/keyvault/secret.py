@@ -30,6 +30,7 @@ class SecretArgs:
                  value_wo_version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Secret resource.
+
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_type: Specifies the content type for the Key Vault Secret.
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -195,6 +196,7 @@ class _SecretState:
                  versionless_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Secret resources.
+
         :param pulumi.Input[_builtins.str] content_type: Specifies the content type for the Key Vault Secret.
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
@@ -468,6 +470,7 @@ class Secret(pulumi.CustomResource):
         $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_type: Specifies the content type for the Key Vault Secret.
@@ -539,6 +542,7 @@ class Secret(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:keyvault/secret:Secret example "https://example-keyvault.vault.azure.net/secrets/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

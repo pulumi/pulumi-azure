@@ -27,6 +27,7 @@ class SubscriptionPricingArgs:
                  subplan: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionPricing resource.
+
         :param pulumi.Input[_builtins.str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]] extensions: One or more `extension` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_type: The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
@@ -98,6 +99,7 @@ class _SubscriptionPricingState:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionPricing resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]] extensions: One or more `extension` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_type: The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
         :param pulumi.Input[_builtins.str] subplan: Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
@@ -233,6 +235,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPricingExtensionArgs', 'SubscriptionPricingExtensionArgsDict']]]] extensions: One or more `extension` blocks as defined below.
@@ -306,6 +309,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionPricingArgs args: The arguments to use to populate this resource's properties.

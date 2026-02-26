@@ -37,6 +37,7 @@ class ChannelsRegistrationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ChannelsRegistration resource.
+
         :param pulumi.Input[_builtins.str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
@@ -306,6 +307,7 @@ class _ChannelsRegistrationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ChannelsRegistration resources.
+
         :param pulumi.Input[_builtins.str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
                
                > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
@@ -611,6 +613,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         $ pulumi import azure:bot/channelsRegistration:ChannelsRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
@@ -670,6 +673,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:bot/channelsRegistration:ChannelsRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ChannelsRegistrationArgs args: The arguments to use to populate this resource's properties.

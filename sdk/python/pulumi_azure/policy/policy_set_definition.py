@@ -32,6 +32,7 @@ class PolicySetDefinitionArgs:
                  policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None):
         """
         The set of arguments for constructing a PolicySetDefinition resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of this Policy Set Definition.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[_builtins.str] policy_type: The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
@@ -181,6 +182,7 @@ class _PolicySetDefinitionState:
                  policy_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicySetDefinition resources.
+
         :param pulumi.Input[_builtins.str] description: The description of this Policy Set Definition.
         :param pulumi.Input[_builtins.str] display_name: The display name of this Policy Set Definition.
         :param pulumi.Input[_builtins.str] metadata: The metadata for the Policy Set Definition in JSON format.
@@ -388,6 +390,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of this Policy Set Definition.
@@ -457,6 +460,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/policySetDefinitionName
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicySetDefinitionArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class DataFlowArgs:
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]]] = None):
         """
         The set of arguments for constructing a DataFlow resource.
+
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: One or more `sink` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
@@ -198,6 +199,7 @@ class _DataFlowState:
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]]] = None):
         """
         Input properties used for looking up and filtering DataFlow resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Data Flow.
         :param pulumi.Input[_builtins.str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Data Flow.
@@ -528,6 +530,7 @@ class DataFlow(pulumi.CustomResource):
         $ pulumi import azure:datafactory/dataFlow:DataFlow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/dataflows/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Data Flow.
@@ -706,6 +709,7 @@ class DataFlow(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:datafactory/dataFlow:DataFlow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/dataflows/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataFlowArgs args: The arguments to use to populate this resource's properties.

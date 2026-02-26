@@ -24,6 +24,7 @@ class PrivateLinkArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateLink resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Resource Management Private Link. Changing this forces a new Resource Management Private Link to be created.
@@ -79,6 +80,7 @@ class _PrivateLinkState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLink resources.
+
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Resource Management Private Link. Changing this forces a new Resource Management Private Link to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
@@ -170,6 +172,7 @@ class PrivateLink(pulumi.CustomResource):
         $ pulumi import azure:management/privateLink:PrivateLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Authorization/resourceManagementPrivateLinks/link1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
@@ -214,6 +217,7 @@ class PrivateLink(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:management/privateLink:PrivateLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Authorization/resourceManagementPrivateLinks/link1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class ActivityLogAlertArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ActivityLogAlert resource.
+
         :param pulumi.Input['ActivityLogAlertCriteriaArgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
@@ -181,6 +182,7 @@ class _ActivityLogAlertState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ActivityLogAlert resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input['ActivityLogAlertCriteriaArgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of this activity log alert.
@@ -395,6 +397,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         $ pulumi import azure:monitoring/activityLogAlert:ActivityLogAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/activityLogAlerts/myalertname
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]] actions: One or more `action` blocks as defined below.
@@ -472,6 +475,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/activityLogAlert:ActivityLogAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/activityLogAlerts/myalertname
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ActivityLogAlertArgs args: The arguments to use to populate this resource's properties.

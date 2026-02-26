@@ -26,6 +26,7 @@ class FleetUpdateStrategyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetUpdateStrategy resource.
+
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FleetUpdateStrategyStageArgs']]] stages: One or more `stage` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
@@ -80,6 +81,7 @@ class _FleetUpdateStrategyState:
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['FleetUpdateStrategyStageArgs']]]] = None):
         """
         Input properties used for looking up and filtering FleetUpdateStrategy resources.
+
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FleetUpdateStrategyStageArgs']]] stages: One or more `stage` blocks as defined below.
@@ -181,6 +183,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         $ pulumi import azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.ContainerService/fleets/fleet1/updateStrategies/updateStrategy1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
@@ -235,6 +238,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.ContainerService/fleets/fleet1/updateStrategies/updateStrategy1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetUpdateStrategyArgs args: The arguments to use to populate this resource's properties.

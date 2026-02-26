@@ -25,6 +25,7 @@ class FirewallRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
+
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the Mongo Cluster Firewall Rule.
         :param pulumi.Input[_builtins.str] mongo_cluster_id: The ID of the Mongo Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] start_ip_address: The start IP address of the Mongo Cluster Firewall Rule.
@@ -94,6 +95,7 @@ class _FirewallRuleState:
                  start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallRule resources.
+
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the Mongo Cluster Firewall Rule.
         :param pulumi.Input[_builtins.str] mongo_cluster_id: The ID of the Mongo Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Mongo Cluster Firewall Rule. Changing this forces a new resource to be created.
@@ -213,6 +215,7 @@ class FirewallRule(pulumi.CustomResource):
         $ pulumi import azure:mongocluster/firewallRule:FirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/cluster1/firewallRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the Mongo Cluster Firewall Rule.
@@ -270,6 +273,7 @@ class FirewallRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mongocluster/firewallRule:FirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/mongoClusters/cluster1/firewallRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

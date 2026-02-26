@@ -28,6 +28,7 @@ class IntegrationAccountPartnerArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IntegrationAccountPartner resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]] business_identities: A `business_identity` block as documented below.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
@@ -113,6 +114,7 @@ class _IntegrationAccountPartnerState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountPartner resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountPartnerBusinessIdentityArgs']]] business_identities: A `business_identity` block as documented below.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Partner.
@@ -245,6 +247,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         $ pulumi import azure:logicapps/integrationAccountPartner:IntegrationAccountPartner example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/partners/partner1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]] business_identities: A `business_identity` block as documented below.
@@ -300,6 +303,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:logicapps/integrationAccountPartner:IntegrationAccountPartner example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/partners/partner1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountPartnerArgs args: The arguments to use to populate this resource's properties.

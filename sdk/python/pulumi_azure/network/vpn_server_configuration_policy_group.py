@@ -28,6 +28,7 @@ class VpnServerConfigurationPolicyGroupArgs:
                  priority: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a VpnServerConfigurationPolicyGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]] policies: One or more `policy` blocks as documented below.
         :param pulumi.Input[_builtins.str] vpn_server_configuration_id: The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] is_default: Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -114,6 +115,7 @@ class _VpnServerConfigurationPolicyGroupState:
                  vpn_server_configuration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpnServerConfigurationPolicyGroup resources.
+
         :param pulumi.Input[_builtins.bool] is_default: Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]] policies: One or more `policy` blocks as documented below.
@@ -253,6 +255,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         $ pulumi import azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnServerConfigurations/serverConfiguration1/configurationPolicyGroups/configurationPolicyGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_default: Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -315,6 +318,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnServerConfigurations/serverConfiguration1/configurationPolicyGroups/configurationPolicyGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VpnServerConfigurationPolicyGroupArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class AssignmentArgs:
                  skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Assignment resource.
+
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
@@ -234,6 +235,7 @@ class _AssignmentState:
                  skip_service_principal_aad_check: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Assignment resources.
+
         :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
                
@@ -595,6 +597,7 @@ class Assignment(pulumi.CustomResource):
 
         > **Note:** for cross tenant scenarios, the format of `resource id` is composed of Azure resource ID and tenantId. for example:
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
@@ -779,6 +782,7 @@ class Assignment(pulumi.CustomResource):
         * for scope `Storage Account`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
 
         > **Note:** for cross tenant scenarios, the format of `resource id` is composed of Azure resource ID and tenantId. for example:
+
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.

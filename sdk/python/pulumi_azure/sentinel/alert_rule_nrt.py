@@ -42,6 +42,7 @@ class AlertRuleNrtArgs:
                  techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AlertRuleNrt resource.
+
         :param pulumi.Input[_builtins.str] display_name: The friendly name of this Sentinel NRT Alert Rule.
         :param pulumi.Input['AlertRuleNrtEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -353,6 +354,7 @@ class _AlertRuleNrtState:
                  techniques: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleNrt resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideArgs']]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[_builtins.str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -716,6 +718,7 @@ class AlertRuleNrt(pulumi.CustomResource):
         $ pulumi import azure:sentinel/alertRuleNrt:AlertRuleNrt example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict']]]] alert_details_overrides: An `alert_details_override` block as defined below.
@@ -790,6 +793,7 @@ class AlertRuleNrt(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/alertRuleNrt:AlertRuleNrt example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleNrtArgs args: The arguments to use to populate this resource's properties.

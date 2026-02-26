@@ -30,6 +30,7 @@ class TriggerRecurrenceArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TriggerRecurrence resource.
+
         :param pulumi.Input[_builtins.str] frequency: Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
         :param pulumi.Input[_builtins.int] interval: Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -151,6 +152,7 @@ class _TriggerRecurrenceState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TriggerRecurrence resources.
+
         :param pulumi.Input[_builtins.str] frequency: Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
         :param pulumi.Input[_builtins.int] interval: Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
         :param pulumi.Input[_builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -310,6 +312,7 @@ class TriggerRecurrence(pulumi.CustomResource):
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] frequency: Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
@@ -360,6 +363,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         ```
 
         > **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
+
 
         :param str resource_name: The name of the resource.
         :param TriggerRecurrenceArgs args: The arguments to use to populate this resource's properties.

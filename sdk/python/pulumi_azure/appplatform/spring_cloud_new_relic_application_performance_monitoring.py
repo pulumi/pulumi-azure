@@ -33,6 +33,7 @@ class SpringCloudNewRelicApplicationPerformanceMonitoringArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudNewRelicApplicationPerformanceMonitoring resource.
+
         :param pulumi.Input[_builtins.str] app_name: Specifies the application name used to report data to New Relic.
         :param pulumi.Input[_builtins.str] license_key: Specifies the license key associated with the New Relic account. This key binds your agent's data to your account in New Relic service.
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
@@ -230,6 +231,7 @@ class _SpringCloudNewRelicApplicationPerformanceMonitoringState:
                  spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudNewRelicApplicationPerformanceMonitoring resources.
+
         :param pulumi.Input[_builtins.bool] agent_enabled: Specifies whether enable the agent. Defaults to `true`.
         :param pulumi.Input[_builtins.str] app_name: Specifies the application name used to report data to New Relic.
         :param pulumi.Input[_builtins.int] app_server_port: Specifies the port number to differentiate JVMs for the same app on the same machine.
@@ -481,6 +483,7 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
         $ pulumi import azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] agent_enabled: Specifies whether enable the agent. Defaults to `true`.
@@ -550,6 +553,7 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
         ```sh
         $ pulumi import azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudNewRelicApplicationPerformanceMonitoringArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class AlertRuleAnomalyBuiltInArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertRuleAnomalyBuiltIn resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Should the Built-in Anomaly Alert Rule be enabled?
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         :param pulumi.Input[_builtins.str] mode: mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
@@ -129,6 +130,7 @@ class _AlertRuleAnomalyBuiltInState:
                  threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInThresholdObservationArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleAnomalyBuiltIn resources.
+
         :param pulumi.Input[_builtins.int] anomaly_settings_version: The version of the Anomaly Security ML Analytics Settings.
         :param pulumi.Input[_builtins.str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[_builtins.str] description: The description of the threshold observation.
@@ -444,6 +446,7 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         $ pulumi import azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/setting1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The Display Name of the built-in Anomaly Alert Rule.
@@ -500,6 +503,7 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/setting1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleAnomalyBuiltInArgs args: The arguments to use to populate this resource's properties.

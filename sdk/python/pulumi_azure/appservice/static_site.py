@@ -31,6 +31,7 @@ class StaticSiteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StaticSite resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['StaticSiteIdentityArgs'] identity: An `identity` block as defined below.
@@ -168,6 +169,7 @@ class _StaticSiteState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering StaticSite resources.
+
         :param pulumi.Input[_builtins.str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[_builtins.str] default_host_name: The default host name of the Static Web App.
@@ -366,6 +368,7 @@ class StaticSite(pulumi.CustomResource):
         $ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
@@ -412,6 +415,7 @@ class StaticSite(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StaticSiteArgs args: The arguments to use to populate this resource's properties.

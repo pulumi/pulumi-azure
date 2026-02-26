@@ -30,6 +30,7 @@ class TagRuleArgs:
                  subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagRule resource.
+
         :param pulumi.Input[_builtins.str] monitor_id: Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
         :param pulumi.Input[_builtins.bool] activity_log_enabled: Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] azure_active_directory_log_enabled: Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
@@ -149,6 +150,7 @@ class _TagRuleState:
                  subscription_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TagRule resources.
+
         :param pulumi.Input[_builtins.bool] activity_log_enabled: Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] azure_active_directory_log_enabled: Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]] log_tag_filters: A `log_tag_filter` block as defined below.
@@ -329,6 +331,7 @@ class TagRule(pulumi.CustomResource):
         $ pulumi import azure:newrelic/tagRule:TagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1/tagRules/ruleSet1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activity_log_enabled: Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
@@ -402,6 +405,7 @@ class TagRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:newrelic/tagRule:TagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1/tagRules/ruleSet1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagRuleArgs args: The arguments to use to populate this resource's properties.

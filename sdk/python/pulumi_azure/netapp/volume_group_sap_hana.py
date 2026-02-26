@@ -30,6 +30,7 @@ class VolumeGroupSapHanaArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeGroupSapHana resource.
+
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -145,6 +146,7 @@ class _VolumeGroupSapHanaState:
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]] = None):
         """
         Input properties used for looking up and filtering VolumeGroupSapHana resources.
+
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -677,6 +679,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         $ pulumi import azure:netapp/volumeGroupSapHana:VolumeGroupSapHana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mytest-rg/providers/Microsoft.NetApp/netAppAccounts/netapp-account-test/volumeGroups/netapp-volumegroup-test
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -1102,6 +1105,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:netapp/volumeGroupSapHana:VolumeGroupSapHana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mytest-rg/providers/Microsoft.NetApp/netAppAccounts/netapp-account-test/volumeGroups/netapp-volumegroup-test
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VolumeGroupSapHanaArgs args: The arguments to use to populate this resource's properties.

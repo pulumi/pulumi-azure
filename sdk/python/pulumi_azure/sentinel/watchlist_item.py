@@ -24,6 +24,7 @@ class WatchlistItemArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WatchlistItem resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The key value pairs of the Sentinel Watchlist Item.
         :param pulumi.Input[_builtins.str] watchlist_id: The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
         :param pulumi.Input[_builtins.str] name: The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
@@ -78,6 +79,7 @@ class _WatchlistItemState:
                  watchlist_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WatchlistItem resources.
+
         :param pulumi.Input[_builtins.str] name: The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The key value pairs of the Sentinel Watchlist Item.
         :param pulumi.Input[_builtins.str] watchlist_id: The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
@@ -183,6 +185,7 @@ class WatchlistItem(pulumi.CustomResource):
         $ pulumi import azure:sentinel/watchlistItem:WatchlistItem example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1/watchlistItems/item1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
@@ -241,6 +244,7 @@ class WatchlistItem(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/watchlistItem:WatchlistItem example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1/watchlistItems/item1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WatchlistItemArgs args: The arguments to use to populate this resource's properties.

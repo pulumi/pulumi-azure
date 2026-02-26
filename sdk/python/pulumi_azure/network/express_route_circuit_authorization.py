@@ -24,6 +24,7 @@ class ExpressRouteCircuitAuthorizationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
+
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -80,6 +81,7 @@ class _ExpressRouteCircuitAuthorizationState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteCircuitAuthorization resources.
+
         :param pulumi.Input[_builtins.str] authorization_key: The Authorization Key.
         :param pulumi.Input[_builtins.str] authorization_use_status: The authorization use status.
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
@@ -216,6 +218,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         $ pulumi import azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization auth1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/authorizations/auth1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
@@ -275,6 +278,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization auth1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/authorizations/auth1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitAuthorizationArgs args: The arguments to use to populate this resource's properties.

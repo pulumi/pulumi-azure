@@ -31,6 +31,7 @@ class NamedValueArgs:
                  value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None):
         """
         The set of arguments for constructing a NamedValue resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Management Named Value.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
@@ -168,6 +169,7 @@ class _NamedValueState:
                  value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None):
         """
         Input properties used for looking up and filtering NamedValue resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] display_name: The display name of this API Management Named Value.
         :param pulumi.Input[_builtins.str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
@@ -352,6 +354,7 @@ class NamedValue(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
@@ -412,6 +415,7 @@ class NamedValue(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NamedValueArgs args: The arguments to use to populate this resource's properties.

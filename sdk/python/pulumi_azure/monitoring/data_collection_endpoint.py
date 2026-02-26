@@ -28,6 +28,7 @@ class DataCollectionEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataCollectionEndpoint resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Data Collection Endpoint.
         :param pulumi.Input[_builtins.str] kind: The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
@@ -151,6 +152,7 @@ class _DataCollectionEndpointState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataCollectionEndpoint resources.
+
         :param pulumi.Input[_builtins.str] configuration_access_endpoint: The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Data Collection Endpoint.
         :param pulumi.Input[_builtins.str] immutable_id: The immutable ID of the Data Collection Endpoint.
@@ -372,6 +374,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         $ pulumi import azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionEndpoints/endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Data Collection Endpoint.
@@ -426,6 +429,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionEndpoints/endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DataCollectionEndpointArgs args: The arguments to use to populate this resource's properties.

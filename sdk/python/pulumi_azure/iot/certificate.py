@@ -26,6 +26,7 @@ class CertificateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] certificate_content: The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         :param pulumi.Input[_builtins.str] iothub_name: The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created.
@@ -111,6 +112,7 @@ class _CertificateState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] certificate_content: The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         :param pulumi.Input[_builtins.str] iothub_name: The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] is_verified: Is the certificate verified? Defaults to `false`.
@@ -238,6 +240,7 @@ class Certificate(pulumi.CustomResource):
         $ pulumi import azure:iot/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/example/certificates/example
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_content: The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
@@ -288,6 +291,7 @@ class Certificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:iot/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/example/certificates/example
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

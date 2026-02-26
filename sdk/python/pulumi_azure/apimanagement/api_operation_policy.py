@@ -27,6 +27,7 @@ class ApiOperationPolicyArgs:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiOperationPolicy resource.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] operation_id: The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
@@ -127,6 +128,7 @@ class _ApiOperationPolicyState:
                  xml_link: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiOperationPolicy resources.
+
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] api_name: The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] operation_id: The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
@@ -293,6 +295,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
         $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -367,6 +370,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:apimanagement/apiOperationPolicy:ApiOperationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiOperationPolicyArgs args: The arguments to use to populate this resource's properties.

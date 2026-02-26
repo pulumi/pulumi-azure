@@ -35,6 +35,7 @@ class ThreeTierVirtualInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThreeTierVirtualInstance resource.
+
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Three Tier Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -229,6 +230,7 @@ class _ThreeTierVirtualInstanceState:
                  three_tier_configuration: Optional[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ThreeTierVirtualInstance resources.
+
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Three Tier Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
         :param pulumi.Input['ThreeTierVirtualInstanceIdentityArgs'] identity: An `identity` block as defined below.
@@ -695,6 +697,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         $ pulumi import azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Workloads/sapVirtualInstances/vis1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
@@ -979,6 +982,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Workloads/sapVirtualInstances/vis1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThreeTierVirtualInstanceArgs args: The arguments to use to populate this resource's properties.

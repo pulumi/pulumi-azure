@@ -30,6 +30,7 @@ class DatastoreBlobstorageArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DatastoreBlobstorage resource.
+
         :param pulumi.Input[_builtins.str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[_builtins.str] account_key: The access key of the Storage Account. Conflicts with `shared_access_signature`.
@@ -188,6 +189,7 @@ class _DatastoreBlobstorageState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DatastoreBlobstorage resources.
+
         :param pulumi.Input[_builtins.str] account_key: The access key of the Storage Account. Conflicts with `shared_access_signature`.
         :param pulumi.Input[_builtins.str] description: Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[_builtins.bool] is_default: Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
@@ -418,6 +420,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_key: The access key of the Storage Account. Conflicts with `shared_access_signature`.
@@ -507,6 +510,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/mlw1/dataStores/datastore1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatastoreBlobstorageArgs args: The arguments to use to populate this resource's properties.

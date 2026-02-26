@@ -25,6 +25,7 @@ class ManagedPrivateEndpointArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
+
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
                > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
@@ -102,6 +103,7 @@ class _ManagedPrivateEndpointState:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
@@ -246,6 +248,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         $ pulumi import azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -324,6 +327,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.

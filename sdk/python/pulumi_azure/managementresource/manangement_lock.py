@@ -25,6 +25,7 @@ class ManangementLockArgs:
                  notes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManangementLock resource.
+
         :param pulumi.Input[_builtins.str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
                
                > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
@@ -99,6 +100,7 @@ class _ManangementLockState:
                  scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManangementLock resources.
+
         :param pulumi.Input[_builtins.str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
                
                > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
@@ -254,6 +256,7 @@ class ManangementLock(pulumi.CustomResource):
         $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
@@ -340,6 +343,7 @@ class ManangementLock(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManangementLockArgs args: The arguments to use to populate this resource's properties.

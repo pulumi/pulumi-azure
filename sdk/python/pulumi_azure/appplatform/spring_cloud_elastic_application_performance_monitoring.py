@@ -27,6 +27,7 @@ class SpringCloudElasticApplicationPerformanceMonitoringArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudElasticApplicationPerformanceMonitoring resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_packages: Specifies a list of the packages which should be used to determine whether a stack trace frame is an in-app frame or a library frame. This is a comma separated list of package names.
         :param pulumi.Input[_builtins.str] server_url: Specifies the server URL. The URL must be fully qualified, including protocol (http or https) and port.
         :param pulumi.Input[_builtins.str] service_name: Specifies the service name which is used to keep all the errors and transactions of your service together and is the primary filter in the Elastic APM user interface.
@@ -127,6 +128,7 @@ class _SpringCloudElasticApplicationPerformanceMonitoringState:
                  spring_cloud_service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudElasticApplicationPerformanceMonitoring resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_packages: Specifies a list of the packages which should be used to determine whether a stack trace frame is an in-app frame or a library frame. This is a comma separated list of package names.
         :param pulumi.Input[_builtins.bool] globally_enabled: Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Application Performance Monitoring resource for Elastic. Changing this forces a new resource to be created.
@@ -281,6 +283,7 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_packages: Specifies a list of the packages which should be used to determine whether a stack trace frame is an in-app frame or a library frame. This is a comma separated list of package names.
@@ -343,6 +346,7 @@ class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AppPlatform/spring/service1/apms/apm1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudElasticApplicationPerformanceMonitoringArgs args: The arguments to use to populate this resource's properties.

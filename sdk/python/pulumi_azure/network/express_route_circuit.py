@@ -36,6 +36,7 @@ class ExpressRouteCircuitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExpressRouteCircuit resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[_builtins.bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
@@ -264,6 +265,7 @@ class _ExpressRouteCircuitState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteCircuit resources.
+
         :param pulumi.Input[_builtins.bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         :param pulumi.Input[_builtins.str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[_builtins.float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
@@ -567,6 +569,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         $ pulumi import azure:network/expressRouteCircuit:ExpressRouteCircuit myExpressRoute /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
@@ -637,6 +640,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/expressRouteCircuit:ExpressRouteCircuit myExpressRoute /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.

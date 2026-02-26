@@ -29,6 +29,7 @@ class VirtualWanArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualWan resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] allow_branch_to_branch_traffic: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] disable_vpn_encryption: Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
@@ -164,6 +165,7 @@ class _VirtualWanState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualWan resources.
+
         :param pulumi.Input[_builtins.bool] allow_branch_to_branch_traffic: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] disable_vpn_encryption: Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -335,6 +337,7 @@ class VirtualWan(pulumi.CustomResource):
         $ pulumi import azure:network/virtualWan:VirtualWan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualWans/testvwan
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_branch_to_branch_traffic: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
@@ -384,6 +387,7 @@ class VirtualWan(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/virtualWan:VirtualWan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualWans/testvwan
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualWanArgs args: The arguments to use to populate this resource's properties.

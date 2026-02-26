@@ -28,6 +28,7 @@ class NetworkManagerRoutingRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerRoutingRule resource.
+
         :param pulumi.Input['NetworkManagerRoutingRuleDestinationArgs'] destination: A `destination` block as defined below.
         :param pulumi.Input['NetworkManagerRoutingRuleNextHopArgs'] next_hop: A `next_hop` block as defined below.
         :param pulumi.Input[_builtins.str] rule_collection_id: The ID of the Network Manager Routing Rule Collection to which this rule belongs. Changing this forces a new resource to be created.
@@ -113,6 +114,7 @@ class _NetworkManagerRoutingRuleState:
                  rule_collection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerRoutingRule resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the routing rule.
         :param pulumi.Input['NetworkManagerRoutingRuleDestinationArgs'] destination: A `destination` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Network Manager Routing Rule. Changing this forces a new resource to be created.
@@ -265,6 +267,7 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
         $ pulumi import azure:network/networkManagerRoutingRule:NetworkManagerRoutingRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/routingConfigurations/conf1/ruleCollections/collection1/rules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the routing rule.
@@ -340,6 +343,7 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/networkManagerRoutingRule:NetworkManagerRoutingRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/manager1/routingConfigurations/conf1/ruleCollections/collection1/rules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerRoutingRuleArgs args: The arguments to use to populate this resource's properties.

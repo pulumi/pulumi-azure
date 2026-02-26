@@ -27,6 +27,7 @@ class SpringCloudCertificateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SpringCloudCertificate resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
@@ -130,6 +131,7 @@ class _SpringCloudCertificateState:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[_builtins.str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
@@ -264,6 +266,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/spring1/certificates/cert1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
@@ -291,6 +294,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/spring1/certificates/cert1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringCloudCertificateArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class VirtualNetworkRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRule resource.
+
         :param pulumi.Input[_builtins.str] server_id: The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet from which the SQL server will accept communications.
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
@@ -99,6 +100,7 @@ class _VirtualNetworkRuleState:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkRule resources.
+
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
                
                > **Note:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
@@ -228,6 +230,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         $ pulumi import azure:mssql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/virtualNetworkRules/vnetrulename
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
@@ -293,6 +296,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/virtualNetworkRules/vnetrulename
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.

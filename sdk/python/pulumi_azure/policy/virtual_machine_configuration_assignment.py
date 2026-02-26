@@ -27,6 +27,7 @@ class VirtualMachineConfigurationAssignmentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineConfigurationAssignment resource.
+
         :param pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs'] configuration: A `configuration` block as defined below.
         :param pulumi.Input[_builtins.str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
@@ -97,6 +98,7 @@ class _VirtualMachineConfigurationAssignmentState:
                  virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineConfigurationAssignment resources.
+
         :param pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationArgs'] configuration: A `configuration` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
@@ -279,6 +281,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         $ pulumi import azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/assignment1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']] configuration: A `configuration` block as defined below.
@@ -399,6 +402,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/assignment1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineConfigurationAssignmentArgs args: The arguments to use to populate this resource's properties.

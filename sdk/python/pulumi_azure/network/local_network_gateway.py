@@ -31,6 +31,7 @@ class LocalNetworkGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocalNetworkGateway resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The list of string CIDRs representing the address spaces the gateway exposes.
         :param pulumi.Input['LocalNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
@@ -170,6 +171,7 @@ class _LocalNetworkGatewayState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LocalNetworkGateway resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The list of string CIDRs representing the address spaces the gateway exposes.
         :param pulumi.Input['LocalNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[_builtins.str] gateway_address: The gateway IP address to connect with.
@@ -347,6 +349,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         $ pulumi import azure:network/localNetworkGateway:LocalNetworkGateway lng1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/localNetworkGateways/lng1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The list of string CIDRs representing the address spaces the gateway exposes.
@@ -400,6 +403,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:network/localNetworkGateway:LocalNetworkGateway lng1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/localNetworkGateways/lng1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LocalNetworkGatewayArgs args: The arguments to use to populate this resource's properties.

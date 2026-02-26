@@ -25,6 +25,7 @@ class ResourceProviderRegistrationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceProviderRegistration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]] features: A list of `feature` blocks as defined below.
                
                > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
@@ -69,6 +70,7 @@ class _ResourceProviderRegistrationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceProviderRegistration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]] features: A list of `feature` blocks as defined below.
                
                > **Note:** The `feature` block allows a Preview Feature to be explicitly Registered or Unregistered for this Resource Provider - once a Feature has been explicitly Registered or Unregistered, it must be specified in the Terraform Configuration (it's not possible to reset this to the default, unspecified, state).
@@ -162,6 +164,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         $ pulumi import azure:core/resourceProviderRegistration:ResourceProviderRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceProviderRegistrationFeatureArgs', 'ResourceProviderRegistrationFeatureArgsDict']]]] features: A list of `feature` blocks as defined below.
@@ -221,6 +224,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:core/resourceProviderRegistration:ResourceProviderRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceProviderRegistrationArgs args: The arguments to use to populate this resource's properties.

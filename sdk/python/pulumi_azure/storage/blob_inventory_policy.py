@@ -25,6 +25,7 @@ class BlobInventoryPolicyArgs:
                  storage_account_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a BlobInventoryPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
         """
@@ -63,6 +64,7 @@ class _BlobInventoryPolicyState:
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BlobInventoryPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
         """
@@ -160,6 +162,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BlobInventoryPolicyRuleArgs', 'BlobInventoryPolicyRuleArgsDict']]]] rules: One or more `rules` blocks as defined below.
@@ -225,6 +228,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BlobInventoryPolicyArgs args: The arguments to use to populate this resource's properties.

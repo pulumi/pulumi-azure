@@ -26,6 +26,7 @@ class SharedPrivateLinkResourceArgs:
                  request_message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
+
         :param pulumi.Input[_builtins.str] subresource_name: Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
                > **Note:** The available sub resource can be retrieved by using `webpubsub_get_private_link_resource` data source.
@@ -120,6 +121,7 @@ class _SharedPrivateLinkResourceState:
                  web_pubsub_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SharedPrivateLinkResource resources.
+
         :param pulumi.Input[_builtins.str] name: Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         :param pulumi.Input[_builtins.str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
@@ -288,6 +290,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         $ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/sharedPrivateLinkResources/resource1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -360,6 +363,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/sharedPrivateLinkResources/resource1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.

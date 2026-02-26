@@ -28,6 +28,7 @@ class AlertRuleFusionArgs:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None):
         """
         The set of arguments for constructing a AlertRuleFusion resource.
+
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
@@ -114,6 +115,7 @@ class _AlertRuleFusionState:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleFusion resources.
+
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[_builtins.bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
@@ -242,6 +244,7 @@ class AlertRuleFusion(pulumi.CustomResource):
         $ pulumi import azure:sentinel/alertRuleFusion:AlertRuleFusion example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
@@ -292,6 +295,7 @@ class AlertRuleFusion(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:sentinel/alertRuleFusion:AlertRuleFusion example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertRuleFusionArgs args: The arguments to use to populate this resource's properties.

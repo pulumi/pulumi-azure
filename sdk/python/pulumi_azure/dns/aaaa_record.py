@@ -28,6 +28,7 @@ class AaaaRecordArgs:
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AaaaRecord resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[_builtins.str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -150,6 +151,7 @@ class _AaaaRecordState:
                  zone_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AaaaRecord resources.
+
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS AAAA Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS AAAA Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] records: List of IPv6 Addresses. Conflicts with `target_resource_id`.
@@ -357,6 +359,7 @@ class AaaaRecord(pulumi.CustomResource):
         $ pulumi import azure:dns/aaaaRecord:AaaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/AAAA/myrecord1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS AAAA Record. Changing this forces a new resource to be created.
@@ -440,6 +443,7 @@ class AaaaRecord(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:dns/aaaaRecord:AaaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/AAAA/myrecord1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AaaaRecordArgs args: The arguments to use to populate this resource's properties.

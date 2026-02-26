@@ -40,6 +40,7 @@ class DeploymentArgs:
                  web_application_firewall: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[_builtins.str] sku: Specifies the NGINX Deployment SKU.
                
@@ -333,6 +334,7 @@ class _DeploymentState:
                  web_application_firewall: Optional[pulumi.Input['DeploymentWebApplicationFirewallArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[_builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
@@ -742,6 +744,7 @@ class Deployment(pulumi.CustomResource):
         $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
@@ -841,6 +844,7 @@ class Deployment(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
                  azuread_authentication_only: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ManagedInstanceActiveDirectoryAdministrator resource.
+
         :param pulumi.Input[_builtins.str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
@@ -110,6 +111,7 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceActiveDirectoryAdministrator resources.
+
         :param pulumi.Input[_builtins.bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         :param pulumi.Input[_builtins.str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
@@ -269,6 +271,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         $ pulumi import azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/mymanagedinstance/administrators/activeDirectory
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
@@ -351,6 +354,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/mymanagedinstance/administrators/activeDirectory
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceActiveDirectoryAdministratorArgs args: The arguments to use to populate this resource's properties.

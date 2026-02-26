@@ -29,6 +29,7 @@ class SqlPoolWorkloadGroupArgs:
                  query_execution_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SqlPoolWorkloadGroup resource.
+
         :param pulumi.Input[_builtins.int] max_resource_percent: The workload group cap percentage resource.
         :param pulumi.Input[_builtins.int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[_builtins.str] sql_pool_id: The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
@@ -162,6 +163,7 @@ class _SqlPoolWorkloadGroupState:
                  sql_pool_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SqlPoolWorkloadGroup resources.
+
         :param pulumi.Input[_builtins.str] importance: The workload group importance level. Defaults to `normal`.
         :param pulumi.Input[_builtins.int] max_resource_percent: The workload group cap percentage resource.
         :param pulumi.Input[_builtins.float] max_resource_percent_per_request: The workload group request maximum grant percentage. Defaults to `3`.
@@ -356,6 +358,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         $ pulumi import azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] importance: The workload group importance level. Defaults to `normal`.
@@ -428,6 +431,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/workloadGroups/workloadGroup1
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlPoolWorkloadGroupArgs args: The arguments to use to populate this resource's properties.

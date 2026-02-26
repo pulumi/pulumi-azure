@@ -26,6 +26,7 @@ class TableArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
@@ -82,6 +83,7 @@ class _TableState:
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Table.
@@ -188,6 +190,7 @@ class Table(pulumi.CustomResource):
         $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
@@ -232,6 +235,7 @@ class Table(pulumi.CustomResource):
         ```sh
         $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
