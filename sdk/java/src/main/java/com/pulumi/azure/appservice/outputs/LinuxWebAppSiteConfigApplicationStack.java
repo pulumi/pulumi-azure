@@ -56,7 +56,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String javaServerVersion;
     /**
-     * @return The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+     * @return The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
      * 
      * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
@@ -79,7 +79,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String phpVersion;
     /**
-     * @return The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     private @Nullable String pythonVersion;
@@ -151,7 +151,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaServerVersion);
     }
     /**
-     * @return The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+     * @return The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
      * 
      * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
@@ -180,7 +180,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.phpVersion);
     }
     /**
-     * @return The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     public Optional<String> pythonVersion() {

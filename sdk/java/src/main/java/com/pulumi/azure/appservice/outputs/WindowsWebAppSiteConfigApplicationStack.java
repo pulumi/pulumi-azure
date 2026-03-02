@@ -86,7 +86,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     /**
      * @return The version of Java to use when `currentStack` is set to `java`.
      * 
-     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
      * 
      */
     private @Nullable String javaVersion;
@@ -212,7 +212,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     /**
      * @return The version of Java to use when `currentStack` is set to `java`.
      * 
-     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
      * 
      */
     public Optional<String> javaVersion() {

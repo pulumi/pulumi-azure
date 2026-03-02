@@ -36,10 +36,17 @@ public final class ApplicationGatewaySslProfile {
      */
     private @Nullable List<String> trustedClientCertificateNames;
     /**
+     * @deprecated
+     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+    private @Nullable Boolean verifyClientCertIssuerDn;
+    /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
-    private @Nullable Boolean verifyClientCertIssuerDn;
+    private @Nullable Boolean verifyClientCertificateIssuerDn;
     /**
      * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
      * 
@@ -76,11 +83,20 @@ public final class ApplicationGatewaySslProfile {
         return this.trustedClientCertificateNames == null ? List.of() : this.trustedClientCertificateNames;
     }
     /**
+     * @deprecated
+     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
+    public Optional<Boolean> verifyClientCertIssuerDn() {
+        return Optional.ofNullable(this.verifyClientCertIssuerDn);
+    }
+    /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
-    public Optional<Boolean> verifyClientCertIssuerDn() {
-        return Optional.ofNullable(this.verifyClientCertIssuerDn);
+    public Optional<Boolean> verifyClientCertificateIssuerDn() {
+        return Optional.ofNullable(this.verifyClientCertificateIssuerDn);
     }
     /**
      * @return Specify the method to check client certificate revocation status. Possible value is `OCSP`.
@@ -104,6 +120,7 @@ public final class ApplicationGatewaySslProfile {
         private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
         private @Nullable List<String> trustedClientCertificateNames;
         private @Nullable Boolean verifyClientCertIssuerDn;
+        private @Nullable Boolean verifyClientCertificateIssuerDn;
         private @Nullable String verifyClientCertificateRevocation;
         public Builder() {}
         public Builder(ApplicationGatewaySslProfile defaults) {
@@ -113,6 +130,7 @@ public final class ApplicationGatewaySslProfile {
     	      this.sslPolicy = defaults.sslPolicy;
     	      this.trustedClientCertificateNames = defaults.trustedClientCertificateNames;
     	      this.verifyClientCertIssuerDn = defaults.verifyClientCertIssuerDn;
+    	      this.verifyClientCertificateIssuerDn = defaults.verifyClientCertificateIssuerDn;
     	      this.verifyClientCertificateRevocation = defaults.verifyClientCertificateRevocation;
         }
 
@@ -152,6 +170,12 @@ public final class ApplicationGatewaySslProfile {
             return this;
         }
         @CustomType.Setter
+        public Builder verifyClientCertificateIssuerDn(@Nullable Boolean verifyClientCertificateIssuerDn) {
+
+            this.verifyClientCertificateIssuerDn = verifyClientCertificateIssuerDn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder verifyClientCertificateRevocation(@Nullable String verifyClientCertificateRevocation) {
 
             this.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
@@ -164,6 +188,7 @@ public final class ApplicationGatewaySslProfile {
             _resultValue.sslPolicy = sslPolicy;
             _resultValue.trustedClientCertificateNames = trustedClientCertificateNames;
             _resultValue.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
+            _resultValue.verifyClientCertificateIssuerDn = verifyClientCertificateIssuerDn;
             _resultValue.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
             return _resultValue;
         }

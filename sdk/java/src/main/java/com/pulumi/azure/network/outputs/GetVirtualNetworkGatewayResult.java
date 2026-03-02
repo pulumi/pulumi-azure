@@ -22,6 +22,11 @@ public final class GetVirtualNetworkGatewayResult {
      * 
      */
     private Boolean activeActive;
+    /**
+     * @return Will BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway.
+     * 
+     */
+    private Boolean bgpEnabled;
     private List<GetVirtualNetworkGatewayBgpSetting> bgpSettings;
     private List<GetVirtualNetworkGatewayCustomRoute> customRoutes;
     /**
@@ -33,10 +38,11 @@ public final class GetVirtualNetworkGatewayResult {
      */
     private String defaultLocalNetworkGatewayId;
     /**
-     * @return Will BGP (Border Gateway Protocol) will be enabled
-     * for this Virtual Network Gateway.
+     * @deprecated
+     *  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /*  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider */
     private Boolean enableBgp;
     /**
      * @return The Generation of the Virtual Network Gateway.
@@ -64,7 +70,7 @@ public final class GetVirtualNetworkGatewayResult {
      */
     private String name;
     /**
-     * @return Whether a private IP will be used for this  gateway for connections.
+     * @return Whether a private IP will be used for this gateway for connections.
      * 
      */
     private Boolean privateIpAddressEnabled;
@@ -103,6 +109,13 @@ public final class GetVirtualNetworkGatewayResult {
     public Boolean activeActive() {
         return this.activeActive;
     }
+    /**
+     * @return Will BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway.
+     * 
+     */
+    public Boolean bgpEnabled() {
+        return this.bgpEnabled;
+    }
     public List<GetVirtualNetworkGatewayBgpSetting> bgpSettings() {
         return this.bgpSettings;
     }
@@ -120,10 +133,11 @@ public final class GetVirtualNetworkGatewayResult {
         return this.defaultLocalNetworkGatewayId;
     }
     /**
-     * @return Will BGP (Border Gateway Protocol) will be enabled
-     * for this Virtual Network Gateway.
+     * @deprecated
+     *  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /*  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider */
     public Boolean enableBgp() {
         return this.enableBgp;
     }
@@ -163,7 +177,7 @@ public final class GetVirtualNetworkGatewayResult {
         return this.name;
     }
     /**
-     * @return Whether a private IP will be used for this  gateway for connections.
+     * @return Whether a private IP will be used for this gateway for connections.
      * 
      */
     public Boolean privateIpAddressEnabled() {
@@ -218,6 +232,7 @@ public final class GetVirtualNetworkGatewayResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean activeActive;
+        private Boolean bgpEnabled;
         private List<GetVirtualNetworkGatewayBgpSetting> bgpSettings;
         private List<GetVirtualNetworkGatewayCustomRoute> customRoutes;
         private String defaultLocalNetworkGatewayId;
@@ -238,6 +253,7 @@ public final class GetVirtualNetworkGatewayResult {
         public Builder(GetVirtualNetworkGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeActive = defaults.activeActive;
+    	      this.bgpEnabled = defaults.bgpEnabled;
     	      this.bgpSettings = defaults.bgpSettings;
     	      this.customRoutes = defaults.customRoutes;
     	      this.defaultLocalNetworkGatewayId = defaults.defaultLocalNetworkGatewayId;
@@ -262,6 +278,14 @@ public final class GetVirtualNetworkGatewayResult {
               throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "activeActive");
             }
             this.activeActive = activeActive;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bgpEnabled(Boolean bgpEnabled) {
+            if (bgpEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "bgpEnabled");
+            }
+            this.bgpEnabled = bgpEnabled;
             return this;
         }
         @CustomType.Setter
@@ -407,6 +431,7 @@ public final class GetVirtualNetworkGatewayResult {
         public GetVirtualNetworkGatewayResult build() {
             final var _resultValue = new GetVirtualNetworkGatewayResult();
             _resultValue.activeActive = activeActive;
+            _resultValue.bgpEnabled = bgpEnabled;
             _resultValue.bgpSettings = bgpSettings;
             _resultValue.customRoutes = customRoutes;
             _resultValue.defaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;

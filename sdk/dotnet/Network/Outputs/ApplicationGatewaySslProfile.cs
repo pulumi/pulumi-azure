@@ -29,10 +29,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         /// </summary>
         public readonly ImmutableArray<string> TrustedClientCertificateNames;
+        public readonly bool? VerifyClientCertIssuerDn;
         /// <summary>
         /// Should client certificate issuer DN be verified? Defaults to `False`.
         /// </summary>
-        public readonly bool? VerifyClientCertIssuerDn;
+        public readonly bool? VerifyClientCertificateIssuerDn;
         /// <summary>
         /// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
         /// </summary>
@@ -50,6 +51,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             bool? verifyClientCertIssuerDn,
 
+            bool? verifyClientCertificateIssuerDn,
+
             string? verifyClientCertificateRevocation)
         {
             Id = id;
@@ -57,6 +60,7 @@ namespace Pulumi.Azure.Network.Outputs
             SslPolicy = sslPolicy;
             TrustedClientCertificateNames = trustedClientCertificateNames;
             VerifyClientCertIssuerDn = verifyClientCertIssuerDn;
+            VerifyClientCertificateIssuerDn = verifyClientCertificateIssuerDn;
             VerifyClientCertificateRevocation = verifyClientCertificateRevocation;
         }
     }

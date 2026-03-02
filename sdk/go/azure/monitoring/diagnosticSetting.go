@@ -133,7 +133,7 @@ type DiagnosticSetting struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
-	// Deprecated: `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+	// Deprecated: `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
 	Metrics DiagnosticSettingMetricArrayOutput `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -210,7 +210,7 @@ type diagnosticSettingState struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// Deprecated: `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+	// Deprecated: `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -255,7 +255,7 @@ type DiagnosticSettingState struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// Deprecated: `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+	// Deprecated: `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -304,7 +304,7 @@ type diagnosticSettingArgs struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// Deprecated: `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+	// Deprecated: `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -350,7 +350,7 @@ type DiagnosticSettingArgs struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// Deprecated: `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+	// Deprecated: `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -499,7 +499,7 @@ func (o DiagnosticSettingOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+// Deprecated: `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
 func (o DiagnosticSettingOutput) Metrics() DiagnosticSettingMetricArrayOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingMetricArrayOutput { return v.Metrics }).(DiagnosticSettingMetricArrayOutput)
 }

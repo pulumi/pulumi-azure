@@ -27,7 +27,11 @@ public final class GetServiceResult {
     /**
      * @return Does the Private Link Service support the Proxy Protocol?
      * 
+     * @deprecated
+     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     private Boolean enableProxyProtocol;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -54,6 +58,7 @@ public final class GetServiceResult {
      * 
      */
     private List<GetServiceNatIpConfiguration> natIpConfigurations;
+    private Boolean proxyProtocolEnabled;
     private String resourceGroupName;
     /**
      * @return A mapping of tags to assign to the resource.
@@ -84,7 +89,11 @@ public final class GetServiceResult {
     /**
      * @return Does the Private Link Service support the Proxy Protocol?
      * 
+     * @deprecated
+     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     public Boolean enableProxyProtocol() {
         return this.enableProxyProtocol;
     }
@@ -123,6 +132,9 @@ public final class GetServiceResult {
     public List<GetServiceNatIpConfiguration> natIpConfigurations() {
         return this.natIpConfigurations;
     }
+    public Boolean proxyProtocolEnabled() {
+        return this.proxyProtocolEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -158,6 +170,7 @@ public final class GetServiceResult {
         private String location;
         private String name;
         private List<GetServiceNatIpConfiguration> natIpConfigurations;
+        private Boolean proxyProtocolEnabled;
         private String resourceGroupName;
         private Map<String,String> tags;
         private List<String> visibilitySubscriptionIds;
@@ -172,6 +185,7 @@ public final class GetServiceResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.natIpConfigurations = defaults.natIpConfigurations;
+    	      this.proxyProtocolEnabled = defaults.proxyProtocolEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.tags = defaults.tags;
     	      this.visibilitySubscriptionIds = defaults.visibilitySubscriptionIds;
@@ -251,6 +265,14 @@ public final class GetServiceResult {
             return natIpConfigurations(List.of(natIpConfigurations));
         }
         @CustomType.Setter
+        public Builder proxyProtocolEnabled(Boolean proxyProtocolEnabled) {
+            if (proxyProtocolEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "proxyProtocolEnabled");
+            }
+            this.proxyProtocolEnabled = proxyProtocolEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetServiceResult", "resourceGroupName");
@@ -287,6 +309,7 @@ public final class GetServiceResult {
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.natIpConfigurations = natIpConfigurations;
+            _resultValue.proxyProtocolEnabled = proxyProtocolEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.tags = tags;
             _resultValue.visibilitySubscriptionIds = visibilitySubscriptionIds;
