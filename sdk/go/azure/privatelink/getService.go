@@ -72,6 +72,8 @@ type GetServiceResult struct {
 	// The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// Does the Private Link Service support the Proxy Protocol?
+	//
+	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableProxyProtocol bool `pulumi:"enableProxyProtocol"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -82,8 +84,9 @@ type GetServiceResult struct {
 	// The name of private link service NAT IP configuration.
 	Name string `pulumi:"name"`
 	// The `natIpConfiguration` block as defined below.
-	NatIpConfigurations []GetServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
-	ResourceGroupName   string                         `pulumi:"resourceGroupName"`
+	NatIpConfigurations  []GetServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
+	ProxyProtocolEnabled bool                           `pulumi:"proxyProtocolEnabled"`
+	ResourceGroupName    string                         `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
@@ -137,6 +140,8 @@ func (o GetServiceResultOutput) AutoApprovalSubscriptionIds() pulumi.StringArray
 }
 
 // Does the Private Link Service support the Proxy Protocol?
+//
+// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o GetServiceResultOutput) EnableProxyProtocol() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServiceResult) bool { return v.EnableProxyProtocol }).(pulumi.BoolOutput)
 }
@@ -164,6 +169,10 @@ func (o GetServiceResultOutput) Name() pulumi.StringOutput {
 // The `natIpConfiguration` block as defined below.
 func (o GetServiceResultOutput) NatIpConfigurations() GetServiceNatIpConfigurationArrayOutput {
 	return o.ApplyT(func(v GetServiceResult) []GetServiceNatIpConfiguration { return v.NatIpConfigurations }).(GetServiceNatIpConfigurationArrayOutput)
+}
+
+func (o GetServiceResultOutput) ProxyProtocolEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceResult) bool { return v.ProxyProtocolEnabled }).(pulumi.BoolOutput)
 }
 
 func (o GetServiceResultOutput) ResourceGroupName() pulumi.StringOutput {

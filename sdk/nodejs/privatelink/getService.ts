@@ -65,6 +65,8 @@ export interface GetServiceResult {
     readonly autoApprovalSubscriptionIds: string[];
     /**
      * Does the Private Link Service support the Proxy Protocol?
+     *
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     readonly enableProxyProtocol: boolean;
     /**
@@ -87,6 +89,7 @@ export interface GetServiceResult {
      * The `natIpConfiguration` block as defined below.
      */
     readonly natIpConfigurations: outputs.privatelink.GetServiceNatIpConfiguration[];
+    readonly proxyProtocolEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * A mapping of tags to assign to the resource.

@@ -11705,7 +11705,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+         * The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
          *
          * > **Note:** The value `21` is currently in Preview for `javaVersion`.
          */
@@ -13850,7 +13850,7 @@ export namespace appservice {
          */
         javaServerVersion?: string;
         /**
-         * The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+         * The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
          *
          * > **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          *
@@ -13870,7 +13870,7 @@ export namespace appservice {
          */
         phpVersion?: string;
         /**
-         * The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -15036,7 +15036,7 @@ export namespace appservice {
          */
         phpVersion?: string;
         /**
-         * The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -16870,7 +16870,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
+         * The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -18973,7 +18973,7 @@ export namespace appservice {
         /**
          * The version of Java to use when `currentStack` is set to `java`. 
          *
-         * > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+         * > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
          */
         javaVersion?: string;
         /**
@@ -50759,7 +50759,7 @@ export namespace managedredis {
          */
         evictionPolicy?: string;
         /**
-         * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+         * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azure.managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
          *
          * !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          */
@@ -52679,7 +52679,7 @@ export namespace monitoring {
          */
         categoryGroup?: string;
         /**
-         * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favour of `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: outputs.monitoring.DiagnosticSettingEnabledLogRetentionPolicy;
     }
@@ -52702,7 +52702,7 @@ export namespace monitoring {
         category: string;
         enabled?: boolean;
         /**
-         * @deprecated `retentionPolicy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favour of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: outputs.monitoring.DiagnosticSettingMetricRetentionPolicy;
     }
@@ -56481,9 +56481,13 @@ export namespace network {
          */
         trustedClientCertificateNames?: string[];
         /**
+         * @deprecated the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
+         */
+        verifyClientCertIssuerDn: boolean;
+        /**
          * Should client certificate issuer DN be verified? Defaults to `false`.
          */
-        verifyClientCertIssuerDn?: boolean;
+        verifyClientCertificateIssuerDn: boolean;
         /**
          * Specify the method to check client certificate revocation status. Possible value is `OCSP`.
          */

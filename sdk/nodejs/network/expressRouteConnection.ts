@@ -124,9 +124,9 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      */
     declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
-     * Is Internet security enabled for this Express Route Connection?
+     * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    declare public readonly enableInternetSecurity: pulumi.Output<boolean | undefined>;
+    declare public readonly enableInternetSecurity: pulumi.Output<boolean>;
     /**
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
@@ -139,6 +139,10 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
     declare public readonly expressRouteGatewayId: pulumi.Output<string>;
+    /**
+     * Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+     */
+    declare public readonly internetSecurityEnabled: pulumi.Output<boolean>;
     /**
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */
@@ -174,6 +178,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["expressRouteCircuitPeeringId"] = state?.expressRouteCircuitPeeringId;
             resourceInputs["expressRouteGatewayBypassEnabled"] = state?.expressRouteGatewayBypassEnabled;
             resourceInputs["expressRouteGatewayId"] = state?.expressRouteGatewayId;
+            resourceInputs["internetSecurityEnabled"] = state?.internetSecurityEnabled;
             resourceInputs["name"] = state?.name;
             resourceInputs["privateLinkFastPathEnabled"] = state?.privateLinkFastPathEnabled;
             resourceInputs["routing"] = state?.routing;
@@ -191,6 +196,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["expressRouteCircuitPeeringId"] = args?.expressRouteCircuitPeeringId;
             resourceInputs["expressRouteGatewayBypassEnabled"] = args?.expressRouteGatewayBypassEnabled;
             resourceInputs["expressRouteGatewayId"] = args?.expressRouteGatewayId;
+            resourceInputs["internetSecurityEnabled"] = args?.internetSecurityEnabled;
             resourceInputs["name"] = args?.name;
             resourceInputs["privateLinkFastPathEnabled"] = args?.privateLinkFastPathEnabled;
             resourceInputs["routing"] = args?.routing;
@@ -210,7 +216,7 @@ export interface ExpressRouteConnectionState {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
-     * Is Internet security enabled for this Express Route Connection?
+     * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableInternetSecurity?: pulumi.Input<boolean>;
     /**
@@ -225,6 +231,10 @@ export interface ExpressRouteConnectionState {
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
     expressRouteGatewayId?: pulumi.Input<string>;
+    /**
+     * Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+     */
+    internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */
@@ -252,7 +262,7 @@ export interface ExpressRouteConnectionArgs {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
-     * Is Internet security enabled for this Express Route Connection?
+     * @deprecated the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableInternetSecurity?: pulumi.Input<boolean>;
     /**
@@ -267,6 +277,10 @@ export interface ExpressRouteConnectionArgs {
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
     expressRouteGatewayId: pulumi.Input<string>;
+    /**
+     * Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+     */
+    internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */

@@ -211,7 +211,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The version of Java to use when `currentStack` is set to `java`.
      * 
-     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
      * 
      */
     @Import(name="javaVersion")
@@ -220,7 +220,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The version of Java to use when `currentStack` is set to `java`.
      * 
-     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+     * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -592,7 +592,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param javaVersion The version of Java to use when `currentStack` is set to `java`.
          * 
-         * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+         * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param javaVersion The version of Java to use when `currentStack` is set to `java`.
          * 
-         * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+         * &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
          * 
          * @return builder
          * 

@@ -41,6 +41,8 @@ class ServicePlanArgs:
                > **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
                
                > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+               
+               > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
         :param pulumi.Input[_builtins.str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
                
                > **Note:** Requires an Isolated SKU for `appservice.EnvironmentV3`, supported values include `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`, `I4v2`, `I4mv2`, `I5v2`, `I5mv2`, and `I6v2`.
@@ -112,6 +114,8 @@ class ServicePlanArgs:
         > **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
 
         > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+
+        > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
         """
         return pulumi.get(self, "sku_name")
 
@@ -271,6 +275,8 @@ class _ServicePlanState:
                > **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
                
                > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+               
+               > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[_builtins.int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region.
@@ -439,6 +445,8 @@ class _ServicePlanState:
         > **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
 
         > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+
+        > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
         """
         return pulumi.get(self, "sku_name")
 
@@ -559,6 +567,8 @@ class ServicePlan(pulumi.CustomResource):
                > **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
                
                > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+               
+               > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[_builtins.int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region.
@@ -713,6 +723,8 @@ class ServicePlan(pulumi.CustomResource):
                > **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
                
                > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+               
+               > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[_builtins.int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region.
@@ -832,6 +844,8 @@ class ServicePlan(pulumi.CustomResource):
         > **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
 
         > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+
+        > **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
         """
         return pulumi.get(self, "sku_name")
 
