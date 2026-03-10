@@ -1938,10 +1938,10 @@ index b92c74966d..7446a650aa 100644
  
  ---
 diff --git a/website/docs/r/iothub.html.markdown b/website/docs/r/iothub.html.markdown
-index 8a032e402f..f66ab5a873 100644
+index 1407a046a1..d01f1981b5 100644
 --- a/website/docs/r/iothub.html.markdown
 +++ b/website/docs/r/iothub.html.markdown
-@@ -161,6 +161,10 @@ The following arguments are supported:
+@@ -160,6 +160,10 @@ The following arguments are supported:
  
  * `network_rule_set` - (Optional) A `network_rule_set` block as defined below.
  
@@ -1952,7 +1952,7 @@ index 8a032e402f..f66ab5a873 100644
  * `route` - (Optional) A `route` block as defined below.
  
  * `enrichment` - (Optional) A `enrichment` block as defined below.
-@@ -255,6 +259,26 @@ A `ip_rule` block supports the following:
+@@ -254,6 +258,26 @@ A `ip_rule` block supports the following:
  
  ---
  
@@ -4702,13 +4702,13 @@ index 0e31c3541e..a6079eb72e 100644
  
 --> **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 +-> **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
- 
--~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
++
 +~> **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
  
--~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+-~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 +~> **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-+
+ 
+-~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 +* `vm_agent_platform_updates_enabled` - (Optional) Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
  
  * `vtpm_enabled` - (Optional) Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
