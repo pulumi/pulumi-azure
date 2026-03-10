@@ -164,18 +164,16 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.authorizationKey);
     }
     /**
-     * Is Internet security enabled for this Express Route Connection?
+     * @deprecated
+     * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="enableInternetSecurity", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableInternetSecurity;
+    private Output<Boolean> enableInternetSecurity;
 
-    /**
-     * @return Is Internet security enabled for this Express Route Connection?
-     * 
-     */
-    public Output<Optional<Boolean>> enableInternetSecurity() {
-        return Codegen.optional(this.enableInternetSecurity);
+    public Output<Boolean> enableInternetSecurity() {
+        return this.enableInternetSecurity;
     }
     /**
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
@@ -218,6 +216,20 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
      */
     public Output<String> expressRouteGatewayId() {
         return this.expressRouteGatewayId;
+    }
+    /**
+     * Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+     * 
+     */
+    @Export(name="internetSecurityEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> internetSecurityEnabled;
+
+    /**
+     * @return Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> internetSecurityEnabled() {
+        return this.internetSecurityEnabled;
     }
     /**
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.

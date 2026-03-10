@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricArgs>? _metrics;
-        [Obsolete(@"`Metric` has been deprecated in favor of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
+        [Obsolete(@"`Metric` has been deprecated in favour of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.DiagnosticSettingMetricArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricArgs>());
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricGetArgs>? _metrics;
-        [Obsolete(@"`Metric` has been deprecated in favor of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
+        [Obsolete(@"`Metric` has been deprecated in favour of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.DiagnosticSettingMetricGetArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricGetArgs>());

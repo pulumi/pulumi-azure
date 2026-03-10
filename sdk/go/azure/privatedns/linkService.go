@@ -152,8 +152,8 @@ type LinkService struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayOutput `pulumi:"autoApprovalSubscriptionIds"`
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress pulumi.StringPtrOutput `pulumi:"destinationIpAddress"`
-	// Should the Private Link Service support the Proxy Protocol?
-	EnableProxyProtocol pulumi.BoolPtrOutput `pulumi:"enableProxyProtocol"`
+	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableProxyProtocol pulumi.BoolOutput `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -164,6 +164,8 @@ type LinkService struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayOutput `pulumi:"natIpConfigurations"`
+	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+	ProxyProtocolEnabled pulumi.BoolOutput `pulumi:"proxyProtocolEnabled"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -216,7 +218,7 @@ type linkServiceState struct {
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress *string `pulumi:"destinationIpAddress"`
-	// Should the Private Link Service support the Proxy Protocol?
+	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns []string `pulumi:"fqdns"`
@@ -228,6 +230,8 @@ type linkServiceState struct {
 	Name *string `pulumi:"name"`
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations []LinkServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
+	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+	ProxyProtocolEnabled *bool `pulumi:"proxyProtocolEnabled"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -245,7 +249,7 @@ type LinkServiceState struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress pulumi.StringPtrInput
-	// Should the Private Link Service support the Proxy Protocol?
+	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayInput
@@ -257,6 +261,8 @@ type LinkServiceState struct {
 	Name pulumi.StringPtrInput
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayInput
+	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+	ProxyProtocolEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -276,7 +282,7 @@ type linkServiceArgs struct {
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress *string `pulumi:"destinationIpAddress"`
-	// Should the Private Link Service support the Proxy Protocol?
+	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns []string `pulumi:"fqdns"`
@@ -288,6 +294,8 @@ type linkServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations []LinkServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
+	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+	ProxyProtocolEnabled *bool `pulumi:"proxyProtocolEnabled"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -304,7 +312,7 @@ type LinkServiceArgs struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress pulumi.StringPtrInput
-	// Should the Private Link Service support the Proxy Protocol?
+	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayInput
@@ -316,6 +324,8 @@ type LinkServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayInput
+	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+	ProxyProtocolEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
@@ -428,9 +438,9 @@ func (o LinkServiceOutput) DestinationIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringPtrOutput { return v.DestinationIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Should the Private Link Service support the Proxy Protocol?
-func (o LinkServiceOutput) EnableProxyProtocol() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LinkService) pulumi.BoolPtrOutput { return v.EnableProxyProtocol }).(pulumi.BoolPtrOutput)
+// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+func (o LinkServiceOutput) EnableProxyProtocol() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LinkService) pulumi.BoolOutput { return v.EnableProxyProtocol }).(pulumi.BoolOutput)
 }
 
 // List of FQDNs allowed for the Private Link Service.
@@ -456,6 +466,11 @@ func (o LinkServiceOutput) Name() pulumi.StringOutput {
 // One or more (up to 8) `natIpConfiguration` block as defined below.
 func (o LinkServiceOutput) NatIpConfigurations() LinkServiceNatIpConfigurationArrayOutput {
 	return o.ApplyT(func(v *LinkService) LinkServiceNatIpConfigurationArrayOutput { return v.NatIpConfigurations }).(LinkServiceNatIpConfigurationArrayOutput)
+}
+
+// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+func (o LinkServiceOutput) ProxyProtocolEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LinkService) pulumi.BoolOutput { return v.ProxyProtocolEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.

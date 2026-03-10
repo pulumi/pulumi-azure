@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .name("example-dg")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .grafanaMajorVersion("11")
+ *             .grafanaMajorVersion("12")
  *             .publicNetworkAccessEnabled(false)
  *             .azureMonitorWorkspaceIntegrations(GrafanaAzureMonitorWorkspaceIntegrationArgs.builder()
  *                 .resourceId(exampleWorkspace.id())

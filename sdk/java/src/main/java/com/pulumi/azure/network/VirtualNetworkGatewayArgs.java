@@ -40,6 +40,21 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     * 
+     */
+    @Import(name="bgpEnabled")
+    private @Nullable Output<Boolean> bgpEnabled;
+
+    /**
+     * @return If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> bgpEnabled() {
+        return Optional.ofNullable(this.bgpEnabled);
+    }
+
+    /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      * 
      */
@@ -130,16 +145,20 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     * @deprecated
+     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="enableBgp")
     private @Nullable Output<Boolean> enableBgp;
 
     /**
-     * @return If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     * @deprecated
+     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enableBgp() {
         return Optional.ofNullable(this.enableBgp);
     }
@@ -385,6 +404,7 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
 
     private VirtualNetworkGatewayArgs(VirtualNetworkGatewayArgs $) {
         this.activeActive = $.activeActive;
+        this.bgpEnabled = $.bgpEnabled;
         this.bgpRouteTranslationForNatEnabled = $.bgpRouteTranslationForNatEnabled;
         this.bgpSettings = $.bgpSettings;
         this.customRoute = $.customRoute;
@@ -446,6 +466,27 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
          */
         public Builder activeActive(Boolean activeActive) {
             return activeActive(Output.of(activeActive));
+        }
+
+        /**
+         * @param bgpEnabled If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpEnabled(@Nullable Output<Boolean> bgpEnabled) {
+            $.bgpEnabled = bgpEnabled;
+            return this;
+        }
+
+        /**
+         * @param bgpEnabled If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpEnabled(Boolean bgpEnabled) {
+            return bgpEnabled(Output.of(bgpEnabled));
         }
 
         /**
@@ -575,22 +616,26 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enableBgp If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableBgp(@Nullable Output<Boolean> enableBgp) {
             $.enableBgp = enableBgp;
             return this;
         }
 
         /**
-         * @param enableBgp If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableBgp(Boolean enableBgp) {
             return enableBgp(Output.of(enableBgp));
         }

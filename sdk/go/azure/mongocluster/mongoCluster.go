@@ -42,66 +42,11 @@ import (
 //				Location:              example.Location,
 //				AdministratorUsername: pulumi.String("adminTerraform"),
 //				AdministratorPassword: pulumi.String("QAZwsx123"),
-//				ShardCount:            pulumi.Int(1),
 //				ComputeTier:           pulumi.String("Free"),
 //				HighAvailabilityMode:  pulumi.String("Disabled"),
-//				StorageSizeInGb:       pulumi.Int(32),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Preview Feature GeoReplicas)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mongocluster"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("East US"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMongoCluster, err := mongocluster.NewMongoCluster(ctx, "example", &mongocluster.MongoClusterArgs{
-//				Name:                  pulumi.String("example-mc"),
-//				ResourceGroupName:     example.Name,
-//				Location:              example.Location,
-//				AdministratorUsername: pulumi.String("adminTerraform"),
-//				AdministratorPassword: pulumi.String("QAZwsx123"),
 //				ShardCount:            pulumi.Int(1),
-//				ComputeTier:           pulumi.String("M30"),
-//				HighAvailabilityMode:  pulumi.String("ZoneRedundantPreferred"),
-//				StorageSizeInGb:       pulumi.Int(64),
-//				PreviewFeatures: pulumi.StringArray{
-//					pulumi.String("GeoReplicas"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mongocluster.NewMongoCluster(ctx, "example_geo_replica", &mongocluster.MongoClusterArgs{
-//				Name:              pulumi.String("example-mc-geo"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("Central US"),
-//				SourceServerId:    exampleMongoCluster.ID(),
-//				SourceLocation:    exampleMongoCluster.Location,
-//				CreateMode:        pulumi.String("GeoReplica"),
+//				StorageSizeInGb:       pulumi.Int(32),
+//				Version:               pulumi.String("8.0"),
 //			})
 //			if err != nil {
 //				return err
@@ -180,6 +125,8 @@ type MongoCluster struct {
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+	//
+	// > **Note:** `version` is required when `createMode` is `Default`.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
@@ -281,6 +228,8 @@ type mongoClusterState struct {
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+	//
+	// > **Note:** `version` is required when `createMode` is `Default`.
 	Version *string `pulumi:"version"`
 }
 
@@ -336,6 +285,8 @@ type MongoClusterState struct {
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+	//
+	// > **Note:** `version` is required when `createMode` is `Default`.
 	Version pulumi.StringPtrInput
 }
 
@@ -393,6 +344,8 @@ type mongoClusterArgs struct {
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+	//
+	// > **Note:** `version` is required when `createMode` is `Default`.
 	Version *string `pulumi:"version"`
 }
 
@@ -447,6 +400,8 @@ type MongoClusterArgs struct {
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
 	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+	//
+	// > **Note:** `version` is required when `createMode` is `Default`.
 	Version pulumi.StringPtrInput
 }
 
@@ -654,6 +609,8 @@ func (o MongoClusterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+//
+// > **Note:** `version` is required when `createMode` is `Default`.
 func (o MongoClusterOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }

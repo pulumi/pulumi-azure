@@ -74,6 +74,8 @@ class MongoClusterArgs:
         :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+               
+               > **Note:** `version` is required when `create_mode` is `Default`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_password is not None:
@@ -382,6 +384,8 @@ class MongoClusterArgs:
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+
+        > **Note:** `version` is required when `create_mode` is `Default`.
         """
         return pulumi.get(self, "version")
 
@@ -448,6 +452,8 @@ class _MongoClusterState:
         :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+               
+               > **Note:** `version` is required when `create_mode` is `Default`.
         """
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
@@ -771,6 +777,8 @@ class _MongoClusterState:
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+
+        > **Note:** `version` is required when `create_mode` is `Default`.
         """
         return pulumi.get(self, "version")
 
@@ -831,39 +839,11 @@ class MongoCluster(pulumi.CustomResource):
             location=example.location,
             administrator_username="adminTerraform",
             administrator_password="QAZwsx123",
-            shard_count=1,
             compute_tier="Free",
             high_availability_mode="Disabled",
-            storage_size_in_gb=32)
-        ```
-
-        ### Preview Feature GeoReplicas)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        example_mongo_cluster = azure.mongocluster.MongoCluster("example",
-            name="example-mc",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_username="adminTerraform",
-            administrator_password="QAZwsx123",
             shard_count=1,
-            compute_tier="M30",
-            high_availability_mode="ZoneRedundantPreferred",
-            storage_size_in_gb=64,
-            preview_features=["GeoReplicas"])
-        example_geo_replica = azure.mongocluster.MongoCluster("example_geo_replica",
-            name="example-mc-geo",
-            resource_group_name=example.name,
-            location="Central US",
-            source_server_id=example_mongo_cluster.id,
-            source_location=example_mongo_cluster.location,
-            create_mode="GeoReplica")
+            storage_size_in_gb=32,
+            version="8.0")
         ```
 
         ## API Providers
@@ -912,6 +892,8 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+               
+               > **Note:** `version` is required when `create_mode` is `Default`.
         """
         ...
     @overload
@@ -937,39 +919,11 @@ class MongoCluster(pulumi.CustomResource):
             location=example.location,
             administrator_username="adminTerraform",
             administrator_password="QAZwsx123",
-            shard_count=1,
             compute_tier="Free",
             high_availability_mode="Disabled",
-            storage_size_in_gb=32)
-        ```
-
-        ### Preview Feature GeoReplicas)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="East US")
-        example_mongo_cluster = azure.mongocluster.MongoCluster("example",
-            name="example-mc",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_username="adminTerraform",
-            administrator_password="QAZwsx123",
             shard_count=1,
-            compute_tier="M30",
-            high_availability_mode="ZoneRedundantPreferred",
-            storage_size_in_gb=64,
-            preview_features=["GeoReplicas"])
-        example_geo_replica = azure.mongocluster.MongoCluster("example_geo_replica",
-            name="example-mc-geo",
-            resource_group_name=example.name,
-            location="Central US",
-            source_server_id=example_mongo_cluster.id,
-            source_location=example_mongo_cluster.location,
-            create_mode="GeoReplica")
+            storage_size_in_gb=32,
+            version="8.0")
         ```
 
         ## API Providers
@@ -1133,6 +1087,8 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_type: The storage type for the MongoDB Cluster. Possible values are `PremiumSSD` and `PremiumSSDv2`. Defaults to `PremiumSSD`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] version: The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+               
+               > **Note:** `version` is required when `create_mode` is `Default`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1350,6 +1306,8 @@ class MongoCluster(pulumi.CustomResource):
     def version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+
+        > **Note:** `version` is required when `create_mode` is `Default`.
         """
         return pulumi.get(self, "version")
 

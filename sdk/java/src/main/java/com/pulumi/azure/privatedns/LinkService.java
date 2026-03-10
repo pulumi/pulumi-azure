@@ -188,18 +188,16 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.destinationIpAddress);
     }
     /**
-     * Should the Private Link Service support the Proxy Protocol?
+     * @deprecated
+     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="enableProxyProtocol", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableProxyProtocol;
+    private Output<Boolean> enableProxyProtocol;
 
-    /**
-     * @return Should the Private Link Service support the Proxy Protocol?
-     * 
-     */
-    public Output<Optional<Boolean>> enableProxyProtocol() {
-        return Codegen.optional(this.enableProxyProtocol);
+    public Output<Boolean> enableProxyProtocol() {
+        return this.enableProxyProtocol;
     }
     /**
      * List of FQDNs allowed for the Private Link Service.
@@ -270,6 +268,20 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      */
     public Output<List<LinkServiceNatIpConfiguration>> natIpConfigurations() {
         return this.natIpConfigurations;
+    }
+    /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * 
+     */
+    @Export(name="proxyProtocolEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> proxyProtocolEnabled;
+
+    /**
+     * @return Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> proxyProtocolEnabled() {
+        return this.proxyProtocolEnabled;
     }
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.

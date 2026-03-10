@@ -97,12 +97,16 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates if the Power BI service is allowed to access or not.
      * 
+     * &gt; **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
+     * 
      */
     @Import(name="powerBiServiceEnabled")
     private @Nullable Output<Boolean> powerBiServiceEnabled;
 
     /**
      * @return Indicates if the Power BI service is allowed to access or not.
+     * 
+     * &gt; **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
      * 
      */
     public Optional<Output<Boolean>> powerBiServiceEnabled() {
@@ -346,6 +350,8 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param powerBiServiceEnabled Indicates if the Power BI service is allowed to access or not.
          * 
+         * &gt; **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
+         * 
          * @return builder
          * 
          */
@@ -356,6 +362,8 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param powerBiServiceEnabled Indicates if the Power BI service is allowed to access or not.
+         * 
+         * &gt; **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
          * 
          * @return builder
          * 

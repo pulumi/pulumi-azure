@@ -30,8 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleEventHub = new azure.eventhub.EventHub("example", {
  *     name: "example-eh",
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: example.name,
+ *     namespaceId: exampleEventHubNamespace.id,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });

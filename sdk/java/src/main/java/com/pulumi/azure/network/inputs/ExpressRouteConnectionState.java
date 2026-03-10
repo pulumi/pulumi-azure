@@ -34,16 +34,20 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Is Internet security enabled for this Express Route Connection?
+     * @deprecated
+     * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="enableInternetSecurity")
     private @Nullable Output<Boolean> enableInternetSecurity;
 
     /**
-     * @return Is Internet security enabled for this Express Route Connection?
+     * @deprecated
+     * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enableInternetSecurity() {
         return Optional.ofNullable(this.enableInternetSecurity);
     }
@@ -91,6 +95,21 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> expressRouteGatewayId() {
         return Optional.ofNullable(this.expressRouteGatewayId);
+    }
+
+    /**
+     * Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+     * 
+     */
+    @Import(name="internetSecurityEnabled")
+    private @Nullable Output<Boolean> internetSecurityEnabled;
+
+    /**
+     * @return Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> internetSecurityEnabled() {
+        return Optional.ofNullable(this.internetSecurityEnabled);
     }
 
     /**
@@ -165,6 +184,7 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
         this.expressRouteCircuitPeeringId = $.expressRouteCircuitPeeringId;
         this.expressRouteGatewayBypassEnabled = $.expressRouteGatewayBypassEnabled;
         this.expressRouteGatewayId = $.expressRouteGatewayId;
+        this.internetSecurityEnabled = $.internetSecurityEnabled;
         this.name = $.name;
         this.privateLinkFastPathEnabled = $.privateLinkFastPathEnabled;
         this.routing = $.routing;
@@ -211,22 +231,26 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enableInternetSecurity Is Internet security enabled for this Express Route Connection?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableInternetSecurity(@Nullable Output<Boolean> enableInternetSecurity) {
             $.enableInternetSecurity = enableInternetSecurity;
             return this;
         }
 
         /**
-         * @param enableInternetSecurity Is Internet security enabled for this Express Route Connection?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableInternetSecurity(Boolean enableInternetSecurity) {
             return enableInternetSecurity(Output.of(enableInternetSecurity));
         }
@@ -292,6 +316,27 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
          */
         public Builder expressRouteGatewayId(String expressRouteGatewayId) {
             return expressRouteGatewayId(Output.of(expressRouteGatewayId));
+        }
+
+        /**
+         * @param internetSecurityEnabled Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder internetSecurityEnabled(@Nullable Output<Boolean> internetSecurityEnabled) {
+            $.internetSecurityEnabled = internetSecurityEnabled;
+            return this;
+        }
+
+        /**
+         * @param internetSecurityEnabled Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder internetSecurityEnabled(Boolean internetSecurityEnabled) {
+            return internetSecurityEnabled(Output.of(internetSecurityEnabled));
         }
 
         /**

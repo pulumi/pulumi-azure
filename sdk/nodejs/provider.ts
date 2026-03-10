@@ -130,6 +130,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientSecretFilePath"] = args?.clientSecretFilePath ? pulumi.secret(args.clientSecretFilePath) : undefined;
             resourceInputs["disableCorrelationRequestId"] = pulumi.output(args?.disableCorrelationRequestId).apply(JSON.stringify);
             resourceInputs["disableTerraformPartnerId"] = pulumi.output(args?.disableTerraformPartnerId).apply(JSON.stringify);
+            resourceInputs["enhancedValidation"] = pulumi.output(args?.enhancedValidation).apply(JSON.stringify);
             resourceInputs["environment"] = (args?.environment) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
             resourceInputs["features"] = pulumi.output(args?.features).apply(JSON.stringify);
             resourceInputs["metadataHost"] = (args?.metadataHost) ?? utilities.getEnv("ARM_METADATA_HOSTNAME");
@@ -212,6 +213,7 @@ export interface ProviderArgs {
      * This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
      */
     disableTerraformPartnerId?: pulumi.Input<boolean>;
+    enhancedValidation?: pulumi.Input<inputs.ProviderEnhancedValidation>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
      */

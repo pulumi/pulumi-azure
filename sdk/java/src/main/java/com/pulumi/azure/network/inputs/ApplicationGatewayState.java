@@ -119,16 +119,20 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * @deprecated
+     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="enableHttp2")
     private @Nullable Output<Boolean> enableHttp2;
 
     /**
-     * @return Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * @deprecated
+     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enableHttp2() {
         return Optional.ofNullable(this.enableHttp2);
     }
@@ -236,6 +240,21 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
      */
     public Optional<Output<ApplicationGatewayGlobalArgs>> global() {
         return Optional.ofNullable(this.global);
+    }
+
+    /**
+     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * 
+     */
+    @Import(name="http2Enabled")
+    private @Nullable Output<Boolean> http2Enabled;
+
+    /**
+     * @return Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> http2Enabled() {
+        return Optional.ofNullable(this.http2Enabled);
     }
 
     /**
@@ -573,6 +592,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         this.frontendPorts = $.frontendPorts;
         this.gatewayIpConfigurations = $.gatewayIpConfigurations;
         this.global = $.global;
+        this.http2Enabled = $.http2Enabled;
         this.httpListeners = $.httpListeners;
         this.identity = $.identity;
         this.location = $.location;
@@ -760,22 +780,26 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableHttp2 Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableHttp2(@Nullable Output<Boolean> enableHttp2) {
             $.enableHttp2 = enableHttp2;
             return this;
         }
 
         /**
-         * @param enableHttp2 Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableHttp2(Boolean enableHttp2) {
             return enableHttp2(Output.of(enableHttp2));
         }
@@ -955,6 +979,27 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
          */
         public Builder global(ApplicationGatewayGlobalArgs global) {
             return global(Output.of(global));
+        }
+
+        /**
+         * @param http2Enabled Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder http2Enabled(@Nullable Output<Boolean> http2Enabled) {
+            $.http2Enabled = http2Enabled;
+            return this;
+        }
+
+        /**
+         * @param http2Enabled Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder http2Enabled(Boolean http2Enabled) {
+            return http2Enabled(Output.of(http2Enabled));
         }
 
         /**

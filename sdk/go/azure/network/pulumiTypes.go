@@ -4621,8 +4621,10 @@ type ApplicationGatewaySslProfile struct {
 	SslPolicy *ApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
-	// Should client certificate issuer DN be verified? Defaults to `false`.
+	// Deprecated: the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
 	VerifyClientCertIssuerDn *bool `pulumi:"verifyClientCertIssuerDn"`
+	// Should client certificate issuer DN be verified? Defaults to `false`.
+	VerifyClientCertificateIssuerDn *bool `pulumi:"verifyClientCertificateIssuerDn"`
 	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
 	VerifyClientCertificateRevocation *string `pulumi:"verifyClientCertificateRevocation"`
 }
@@ -4647,8 +4649,10 @@ type ApplicationGatewaySslProfileArgs struct {
 	SslPolicy ApplicationGatewaySslProfileSslPolicyPtrInput `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
-	// Should client certificate issuer DN be verified? Defaults to `false`.
+	// Deprecated: the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
 	VerifyClientCertIssuerDn pulumi.BoolPtrInput `pulumi:"verifyClientCertIssuerDn"`
+	// Should client certificate issuer DN be verified? Defaults to `false`.
+	VerifyClientCertificateIssuerDn pulumi.BoolPtrInput `pulumi:"verifyClientCertificateIssuerDn"`
 	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
 	VerifyClientCertificateRevocation pulumi.StringPtrInput `pulumi:"verifyClientCertificateRevocation"`
 }
@@ -4724,9 +4728,14 @@ func (o ApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() pulu
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) []string { return v.TrustedClientCertificateNames }).(pulumi.StringArrayOutput)
 }
 
-// Should client certificate issuer DN be verified? Defaults to `false`.
+// Deprecated: the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
 func (o ApplicationGatewaySslProfileOutput) VerifyClientCertIssuerDn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) *bool { return v.VerifyClientCertIssuerDn }).(pulumi.BoolPtrOutput)
+}
+
+// Should client certificate issuer DN be verified? Defaults to `false`.
+func (o ApplicationGatewaySslProfileOutput) VerifyClientCertificateIssuerDn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewaySslProfile) *bool { return v.VerifyClientCertificateIssuerDn }).(pulumi.BoolPtrOutput)
 }
 
 // Specify the method to check client certificate revocation status. Possible value is `OCSP`.

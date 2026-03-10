@@ -67,6 +67,8 @@ disableTerraformPartnerId: Optional[bool]
 This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 """
 
+enhancedValidation: Optional[str]
+
 environment: str
 """
 The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.

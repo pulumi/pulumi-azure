@@ -233,6 +233,8 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
      * 
+     * &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
+     * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
@@ -243,6 +245,8 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`) can only be used with App Service Environments
      * 
      * &gt; **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
+     * 
+     * &gt; **Note:** Hosting Azure Functions on Linux using the Consumption plan will be retired after September 30, 2028. It is recommended to use the Flex Consumption plan for Linux Function Apps. See [here](https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan) for more information.
      * 
      */
     public Output<String> skuName() {

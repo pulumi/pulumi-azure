@@ -49,8 +49,7 @@ namespace Pulumi.Azure.Healthcare
     ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "example-eh",
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = example.Name,
+    ///         NamespaceId = exampleEventHubNamespace.Id,
     ///         PartitionCount = 1,
     ///         MessageRetention = 1,
     ///     });

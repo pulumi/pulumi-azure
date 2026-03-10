@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     name: "example-dg",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     grafanaMajorVersion: "11",
+ *     grafanaMajorVersion: "12",
  *     publicNetworkAccessEnabled: false,
  *     azureMonitorWorkspaceIntegrations: [{
  *         resourceId: exampleWorkspace.id,

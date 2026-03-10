@@ -15993,7 +15993,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     java_version: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+    The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
 
     > **Note:** The value `21` is currently in Preview for `java_version`.
     """
@@ -16032,7 +16032,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
         :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0`, `9.0` and `10.0`.
-        :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+        :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
                
                > **Note:** The value `21` is currently in Preview for `java_version`.
         :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18`, `20`, `22` and `24`.
@@ -16086,7 +16086,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+        The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
 
         > **Note:** The value `21` is currently in Preview for `java_version`.
         """
@@ -25877,7 +25877,7 @@ class LinuxWebAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     java_version: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+    The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
 
     > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
 
@@ -25897,7 +25897,7 @@ class LinuxWebAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     python_version: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+    The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
     """
     ruby_version: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -25933,7 +25933,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
                
                > **Note:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         :param pulumi.Input[_builtins.str] java_server_version: The Version of the `java_server` to use.
-        :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+        :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
                
                > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
                
@@ -25944,7 +25944,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
                
                > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
-        :param pulumi.Input[_builtins.str] python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param pulumi.Input[_builtins.str] python_version: The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[_builtins.str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image_name is not None:
@@ -26078,7 +26078,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+        The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
 
         > **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
 
@@ -26122,7 +26122,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -31311,7 +31311,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
     """
     python_version: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+    The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
     """
     ruby_version: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -31356,7 +31356,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
                
                > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
-        :param pulumi.Input[_builtins.str] python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param pulumi.Input[_builtins.str] python_version: The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[_builtins.str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image_name is not None:
@@ -31532,7 +31532,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -39973,7 +39973,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     java_version: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
+    The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
     """
     node_version: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -40005,7 +40005,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
-        :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
+        :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
         :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
         :param pulumi.Input[_builtins.str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
                
@@ -40042,7 +40042,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
+        The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -49575,7 +49575,7 @@ class WindowsWebAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     The version of Java to use when `current_stack` is set to `java`. 
 
-    > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+    > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
     """
     node_version: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -49646,7 +49646,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.bool] java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param pulumi.Input[_builtins.str] java_version: The version of Java to use when `current_stack` is set to `java`. 
                
-               > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+               > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
         :param pulumi.Input[_builtins.str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
                
                > **Note:** This property conflicts with `java_version`.
@@ -49834,7 +49834,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         """
         The version of Java to use when `current_stack` is set to `java`. 
 
-        > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+        > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
         """
         return pulumi.get(self, "java_version")
 

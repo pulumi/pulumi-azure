@@ -166,12 +166,16 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * Indicates if the Power BI service is allowed to access or not.
      * 
+     * &gt; **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
+     * 
      */
     @Export(name="powerBiServiceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> powerBiServiceEnabled;
 
     /**
      * @return Indicates if the Power BI service is allowed to access or not.
+     * 
+     * &gt; **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
      * 
      */
     public Output<Optional<Boolean>> powerBiServiceEnabled() {

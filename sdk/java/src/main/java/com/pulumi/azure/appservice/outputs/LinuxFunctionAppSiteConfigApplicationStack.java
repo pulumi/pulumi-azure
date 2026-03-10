@@ -25,7 +25,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
      */
     private @Nullable String dotnetVersion;
     /**
-     * @return The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+     * @return The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
      * 
      * &gt; **Note:** The value `21` is currently in Preview for `javaVersion`.
      * 
@@ -73,7 +73,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.dotnetVersion);
     }
     /**
-     * @return The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+     * @return The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`, `25`.
      * 
      * &gt; **Note:** The value `21` is currently in Preview for `javaVersion`.
      * 

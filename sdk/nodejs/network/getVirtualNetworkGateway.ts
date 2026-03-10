@@ -59,6 +59,10 @@ export interface GetVirtualNetworkGatewayResult {
      * Is this an Active-Active Gateway?
      */
     readonly activeActive: boolean;
+    /**
+     * Will BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway.
+     */
+    readonly bgpEnabled: boolean;
     readonly bgpSettings: outputs.network.GetVirtualNetworkGatewayBgpSetting[];
     readonly customRoutes: outputs.network.GetVirtualNetworkGatewayCustomRoute[];
     /**
@@ -69,8 +73,7 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly defaultLocalNetworkGatewayId: string;
     /**
-     * Will BGP (Border Gateway Protocol) will be enabled
-     * for this Virtual Network Gateway.
+     * @deprecated  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
      */
     readonly enableBgp: boolean;
     /**
@@ -94,7 +97,7 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly name: string;
     /**
-     * Whether a private IP will be used for this  gateway for connections.
+     * Whether a private IP will be used for this gateway for connections.
      */
     readonly privateIpAddressEnabled: boolean;
     readonly resourceGroupName: string;
