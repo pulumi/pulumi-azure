@@ -329,6 +329,9 @@ namespace Pulumi.Azure
         [Input("disableTerraformPartnerId", json: true)]
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
+        [Input("enhancedValidation", json: true)]
+        public Input<Inputs.ProviderEnhancedValidationArgs>? EnhancedValidation { get; set; }
+
         /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `MetadataHost` is specified.
         /// </summary>

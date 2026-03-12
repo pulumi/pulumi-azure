@@ -25,42 +25,11 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     administratorUsername: "adminTerraform",
  *     administratorPassword: "QAZwsx123",
- *     shardCount: 1,
  *     computeTier: "Free",
  *     highAvailabilityMode: "Disabled",
- *     storageSizeInGb: 32,
- * });
- * ```
- *
- * ### Preview Feature GeoReplicas)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-rg",
- *     location: "East US",
- * });
- * const exampleMongoCluster = new azure.mongocluster.MongoCluster("example", {
- *     name: "example-mc",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     administratorUsername: "adminTerraform",
- *     administratorPassword: "QAZwsx123",
  *     shardCount: 1,
- *     computeTier: "M30",
- *     highAvailabilityMode: "ZoneRedundantPreferred",
- *     storageSizeInGb: 64,
- *     previewFeatures: ["GeoReplicas"],
- * });
- * const exampleGeoReplica = new azure.mongocluster.MongoCluster("example_geo_replica", {
- *     name: "example-mc-geo",
- *     resourceGroupName: example.name,
- *     location: "Central US",
- *     sourceServerId: exampleMongoCluster.id,
- *     sourceLocation: exampleMongoCluster.location,
- *     createMode: "GeoReplica",
+ *     storageSizeInGb: 32,
+ *     version: "8.0",
  * });
  * ```
  *
@@ -203,6 +172,8 @@ export class MongoCluster extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+     *
+     * > **Note:** `version` is required when `createMode` is `Default`.
      */
     declare public readonly version: pulumi.Output<string | undefined>;
 
@@ -380,6 +351,8 @@ export interface MongoClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+     *
+     * > **Note:** `version` is required when `createMode` is `Default`.
      */
     version?: pulumi.Input<string>;
 }
@@ -480,6 +453,8 @@ export interface MongoClusterArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+     *
+     * > **Note:** `version` is required when `createMode` is `Default`.
      */
     version?: pulumi.Input<string>;
 }

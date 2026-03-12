@@ -2877,6 +2877,8 @@ class ApplicationGatewaySslProfile(dict):
             suggest = "trusted_client_certificate_names"
         elif key == "verifyClientCertIssuerDn":
             suggest = "verify_client_cert_issuer_dn"
+        elif key == "verifyClientCertificateIssuerDn":
+            suggest = "verify_client_certificate_issuer_dn"
         elif key == "verifyClientCertificateRevocation":
             suggest = "verify_client_certificate_revocation"
 
@@ -2897,13 +2899,14 @@ class ApplicationGatewaySslProfile(dict):
                  ssl_policy: Optional['outputs.ApplicationGatewaySslProfileSslPolicy'] = None,
                  trusted_client_certificate_names: Optional[Sequence[_builtins.str]] = None,
                  verify_client_cert_issuer_dn: Optional[_builtins.bool] = None,
+                 verify_client_certificate_issuer_dn: Optional[_builtins.bool] = None,
                  verify_client_certificate_revocation: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: The name of the SSL Profile that is unique within this Application Gateway.
         :param _builtins.str id: The ID of the Rewrite Rule Set
         :param 'ApplicationGatewaySslProfileSslPolicyArgs' ssl_policy: a `ssl_policy` block as defined below.
         :param Sequence[_builtins.str] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
-        :param _builtins.bool verify_client_cert_issuer_dn: Should client certificate issuer DN be verified? Defaults to `false`.
+        :param _builtins.bool verify_client_certificate_issuer_dn: Should client certificate issuer DN be verified? Defaults to `false`.
         :param _builtins.str verify_client_certificate_revocation: Specify the method to check client certificate revocation status. Possible value is `OCSP`.
         """
         pulumi.set(__self__, "name", name)
@@ -2915,6 +2918,8 @@ class ApplicationGatewaySslProfile(dict):
             pulumi.set(__self__, "trusted_client_certificate_names", trusted_client_certificate_names)
         if verify_client_cert_issuer_dn is not None:
             pulumi.set(__self__, "verify_client_cert_issuer_dn", verify_client_cert_issuer_dn)
+        if verify_client_certificate_issuer_dn is not None:
+            pulumi.set(__self__, "verify_client_certificate_issuer_dn", verify_client_certificate_issuer_dn)
         if verify_client_certificate_revocation is not None:
             pulumi.set(__self__, "verify_client_certificate_revocation", verify_client_certificate_revocation)
 
@@ -2952,11 +2957,17 @@ class ApplicationGatewaySslProfile(dict):
 
     @_builtins.property
     @pulumi.getter(name="verifyClientCertIssuerDn")
+    @_utilities.deprecated("""the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider""")
     def verify_client_cert_issuer_dn(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "verify_client_cert_issuer_dn")
+
+    @_builtins.property
+    @pulumi.getter(name="verifyClientCertificateIssuerDn")
+    def verify_client_certificate_issuer_dn(self) -> Optional[_builtins.bool]:
         """
         Should client certificate issuer DN be verified? Defaults to `false`.
         """
-        return pulumi.get(self, "verify_client_cert_issuer_dn")
+        return pulumi.get(self, "verify_client_certificate_issuer_dn")
 
     @_builtins.property
     @pulumi.getter(name="verifyClientCertificateRevocation")

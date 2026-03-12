@@ -63,68 +63,11 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .administratorUsername("adminTerraform")
  *             .administratorPassword("QAZwsx123")
- *             .shardCount(1)
  *             .computeTier("Free")
  *             .highAvailabilityMode("Disabled")
- *             .storageSizeInGb(32)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Preview Feature GeoReplicas)
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.mongocluster.MongoCluster;
- * import com.pulumi.azure.mongocluster.MongoClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-rg")
- *             .location("East US")
- *             .build());
- * 
- *         var exampleMongoCluster = new MongoCluster("exampleMongoCluster", MongoClusterArgs.builder()
- *             .name("example-mc")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .administratorUsername("adminTerraform")
- *             .administratorPassword("QAZwsx123")
  *             .shardCount(1)
- *             .computeTier("M30")
- *             .highAvailabilityMode("ZoneRedundantPreferred")
- *             .storageSizeInGb(64)
- *             .previewFeatures("GeoReplicas")
- *             .build());
- * 
- *         var exampleGeoReplica = new MongoCluster("exampleGeoReplica", MongoClusterArgs.builder()
- *             .name("example-mc-geo")
- *             .resourceGroupName(example.name())
- *             .location("Central US")
- *             .sourceServerId(exampleMongoCluster.id())
- *             .sourceLocation(exampleMongoCluster.location())
- *             .createMode("GeoReplica")
+ *             .storageSizeInGb(32)
+ *             .version("8.0")
  *             .build());
  * 
  *     }
@@ -473,12 +416,16 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
     /**
      * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      * 
+     * &gt; **Note:** `version` is required when `createMode` is `Default`.
+     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
      * @return The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+     * 
+     * &gt; **Note:** `version` is required when `createMode` is `Default`.
      * 
      */
     public Output<Optional<String>> version() {

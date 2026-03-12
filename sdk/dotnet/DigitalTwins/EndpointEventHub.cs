@@ -46,8 +46,7 @@ namespace Pulumi.Azure.DigitalTwins
     ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "example-eh",
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = example.Name,
+    ///         NamespaceId = exampleEventHubNamespace.Id,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,
     ///     });

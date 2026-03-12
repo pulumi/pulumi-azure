@@ -27,7 +27,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
+    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, proxy_protocol_enabled=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -52,6 +52,9 @@ class GetServiceResult:
         if nat_ip_configurations and not isinstance(nat_ip_configurations, list):
             raise TypeError("Expected argument 'nat_ip_configurations' to be a list")
         pulumi.set(__self__, "nat_ip_configurations", nat_ip_configurations)
+        if proxy_protocol_enabled and not isinstance(proxy_protocol_enabled, bool):
+            raise TypeError("Expected argument 'proxy_protocol_enabled' to be a bool")
+        pulumi.set(__self__, "proxy_protocol_enabled", proxy_protocol_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -80,6 +83,7 @@ class GetServiceResult:
 
     @_builtins.property
     @pulumi.getter(name="enableProxyProtocol")
+    @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
     def enable_proxy_protocol(self) -> _builtins.bool:
         """
         Does the Private Link Service support the Proxy Protocol?
@@ -127,6 +131,11 @@ class GetServiceResult:
         return pulumi.get(self, "nat_ip_configurations")
 
     @_builtins.property
+    @pulumi.getter(name="proxyProtocolEnabled")
+    def proxy_protocol_enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "proxy_protocol_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
@@ -162,6 +171,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             location=self.location,
             name=self.name,
             nat_ip_configurations=self.nat_ip_configurations,
+            proxy_protocol_enabled=self.proxy_protocol_enabled,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
             visibility_subscription_ids=self.visibility_subscription_ids)
@@ -210,6 +220,7 @@ def get_service(name: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         nat_ip_configurations=pulumi.get(__ret__, 'nat_ip_configurations'),
+        proxy_protocol_enabled=pulumi.get(__ret__, 'proxy_protocol_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         visibility_subscription_ids=pulumi.get(__ret__, 'visibility_subscription_ids'))
@@ -255,6 +266,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         nat_ip_configurations=pulumi.get(__response__, 'nat_ip_configurations'),
+        proxy_protocol_enabled=pulumi.get(__response__, 'proxy_protocol_enabled'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         tags=pulumi.get(__response__, 'tags'),
         visibility_subscription_ids=pulumi.get(__response__, 'visibility_subscription_ids')))

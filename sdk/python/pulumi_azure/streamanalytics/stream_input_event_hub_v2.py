@@ -393,8 +393,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
             capacity=1)
         example_event_hub = azure.eventhub.EventHub("example",
             name="example-eventhub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=1)
         example_consumer_group = azure.eventhub.ConsumerGroup("example",
@@ -475,8 +474,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
             capacity=1)
         example_event_hub = azure.eventhub.EventHub("example",
             name="example-eventhub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=1)
         example_consumer_group = azure.eventhub.ConsumerGroup("example",

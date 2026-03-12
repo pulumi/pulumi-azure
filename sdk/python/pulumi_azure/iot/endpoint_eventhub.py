@@ -373,8 +373,7 @@ class EndpointEventhub(pulumi.CustomResource):
             sku="Basic")
         example_event_hub = azure.eventhub.EventHub("example",
             name="exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=1)
         example_authorization_rule = azure.eventhub.AuthorizationRule("example",
@@ -455,8 +454,7 @@ class EndpointEventhub(pulumi.CustomResource):
             sku="Basic")
         example_event_hub = azure.eventhub.EventHub("example",
             name="exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=1)
         example_authorization_rule = azure.eventhub.AuthorizationRule("example",

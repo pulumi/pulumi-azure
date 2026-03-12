@@ -96,6 +96,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('disableTerraformPartnerId')
 
     @_builtins.property
+    def enhanced_validation(self) -> Optional[str]:
+        return __config__.get('enhancedValidation')
+
+    @_builtins.property
     def environment(self) -> str:
         """
         The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.

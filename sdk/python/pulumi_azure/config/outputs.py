@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'EnhancedValidation',
     'Features',
     'FeaturesApiManagement',
     'FeaturesAppConfiguration',
@@ -37,6 +38,37 @@ __all__ = [
     'FeaturesVirtualMachine',
     'FeaturesVirtualMachineScaleSet',
 ]
+
+@pulumi.output_type
+class EnhancedValidation(dict):
+    def __init__(__self__, *,
+                 locations: Optional[_builtins.bool] = None,
+                 resource_providers: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool locations: Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        :param _builtins.bool resource_providers: Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if resource_providers is not None:
+            pulumi.set(__self__, "resource_providers", resource_providers)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Optional[_builtins.bool]:
+        """
+        Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        """
+        return pulumi.get(self, "locations")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceProviders")
+    def resource_providers(self) -> Optional[_builtins.bool]:
+        """
+        Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        """
+        return pulumi.get(self, "resource_providers")
+
 
 @pulumi.output_type
 class Features(dict):

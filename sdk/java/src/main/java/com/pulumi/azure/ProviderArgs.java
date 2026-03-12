@@ -3,6 +3,7 @@
 
 package com.pulumi.azure;
 
+import com.pulumi.azure.inputs.ProviderEnhancedValidationArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -174,6 +175,13 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> disableTerraformPartnerId() {
         return Optional.ofNullable(this.disableTerraformPartnerId);
+    }
+
+    @Import(name="enhancedValidation", json=true)
+    private @Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation;
+
+    public Optional<Output<ProviderEnhancedValidationArgs>> enhancedValidation() {
+        return Optional.ofNullable(this.enhancedValidation);
     }
 
     /**
@@ -490,6 +498,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.clientSecretFilePath = $.clientSecretFilePath;
         this.disableCorrelationRequestId = $.disableCorrelationRequestId;
         this.disableTerraformPartnerId = $.disableTerraformPartnerId;
+        this.enhancedValidation = $.enhancedValidation;
         this.environment = $.environment;
         this.features = $.features;
         this.metadataHost = $.metadataHost;
@@ -751,6 +760,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder disableTerraformPartnerId(Boolean disableTerraformPartnerId) {
             return disableTerraformPartnerId(Output.of(disableTerraformPartnerId));
+        }
+
+        public Builder enhancedValidation(@Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation) {
+            $.enhancedValidation = enhancedValidation;
+            return this;
+        }
+
+        public Builder enhancedValidation(ProviderEnhancedValidationArgs enhancedValidation) {
+            return enhancedValidation(Output.of(enhancedValidation));
         }
 
         /**

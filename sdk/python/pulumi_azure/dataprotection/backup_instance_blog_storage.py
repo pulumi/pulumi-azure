@@ -309,7 +309,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DataProtection` - 2024-04-01
+        * `Microsoft.DataProtection` - 2025-07-01
 
         ## Import
 
@@ -386,7 +386,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DataProtection` - 2024-04-01
+        * `Microsoft.DataProtection` - 2025-07-01
 
         ## Import
 

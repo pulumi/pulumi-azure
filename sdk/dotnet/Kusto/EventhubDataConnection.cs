@@ -61,8 +61,7 @@ namespace Pulumi.Azure.Kusto
     ///     var eventhub = new Azure.EventHub.EventHub("eventhub", new()
     ///     {
     ///         Name = "my-eventhub",
-    ///         NamespaceName = eventhubNs.Name,
-    ///         ResourceGroupName = example.Name,
+    ///         NamespaceId = eventhubNs.Id,
     ///         PartitionCount = 1,
     ///         MessageRetention = 1,
     ///     });

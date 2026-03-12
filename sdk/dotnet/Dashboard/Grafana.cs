@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Dashboard
     ///         Name = "example-dg",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
-    ///         GrafanaMajorVersion = "11",
+    ///         GrafanaMajorVersion = "12",
     ///         ApiKeyEnabled = true,
     ///         DeterministicOutboundIpEnabled = true,
     ///         PublicNetworkAccessEnabled = false,
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Dashboard
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Which major version of Grafana to deploy. Possible values are `10`, `11`.
+        /// Which major version of Grafana to deploy. Possible values are `11`, `12`.
         /// </summary>
         [Output("grafanaMajorVersion")]
         public Output<string> GrafanaMajorVersion { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Dashboard
         public Input<bool>? DeterministicOutboundIpEnabled { get; set; }
 
         /// <summary>
-        /// Which major version of Grafana to deploy. Possible values are `10`, `11`.
+        /// Which major version of Grafana to deploy. Possible values are `11`, `12`.
         /// </summary>
         [Input("grafanaMajorVersion", required: true)]
         public Input<string> GrafanaMajorVersion { get; set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Which major version of Grafana to deploy. Possible values are `10`, `11`.
+        /// Which major version of Grafana to deploy. Possible values are `11`, `12`.
         /// </summary>
         [Input("grafanaMajorVersion")]
         public Input<string>? GrafanaMajorVersion { get; set; }

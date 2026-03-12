@@ -133,9 +133,9 @@ export class LinkService extends pulumi.CustomResource {
      */
     declare public readonly destinationIpAddress: pulumi.Output<string | undefined>;
     /**
-     * Should the Private Link Service support the Proxy Protocol?
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    declare public readonly enableProxyProtocol: pulumi.Output<boolean | undefined>;
+    declare public readonly enableProxyProtocol: pulumi.Output<boolean>;
     /**
      * List of FQDNs allowed for the Private Link Service.
      */
@@ -156,6 +156,10 @@ export class LinkService extends pulumi.CustomResource {
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     declare public readonly natIpConfigurations: pulumi.Output<outputs.privatedns.LinkServiceNatIpConfiguration[]>;
+    /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     */
+    declare public readonly proxyProtocolEnabled: pulumi.Output<boolean>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
@@ -193,6 +197,7 @@ export class LinkService extends pulumi.CustomResource {
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["natIpConfigurations"] = state?.natIpConfigurations;
+            resourceInputs["proxyProtocolEnabled"] = state?.proxyProtocolEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["visibilitySubscriptionIds"] = state?.visibilitySubscriptionIds;
@@ -212,6 +217,7 @@ export class LinkService extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["natIpConfigurations"] = args?.natIpConfigurations;
+            resourceInputs["proxyProtocolEnabled"] = args?.proxyProtocolEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["visibilitySubscriptionIds"] = args?.visibilitySubscriptionIds;
@@ -239,7 +245,7 @@ export interface LinkServiceState {
      */
     destinationIpAddress?: pulumi.Input<string>;
     /**
-     * Should the Private Link Service support the Proxy Protocol?
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableProxyProtocol?: pulumi.Input<boolean>;
     /**
@@ -262,6 +268,10 @@ export interface LinkServiceState {
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     natIpConfigurations?: pulumi.Input<pulumi.Input<inputs.privatedns.LinkServiceNatIpConfiguration>[]>;
+    /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     */
+    proxyProtocolEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
@@ -291,7 +301,7 @@ export interface LinkServiceArgs {
      */
     destinationIpAddress?: pulumi.Input<string>;
     /**
-     * Should the Private Link Service support the Proxy Protocol?
+     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableProxyProtocol?: pulumi.Input<boolean>;
     /**
@@ -314,6 +324,10 @@ export interface LinkServiceArgs {
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     natIpConfigurations: pulumi.Input<pulumi.Input<inputs.privatedns.LinkServiceNatIpConfiguration>[]>;
+    /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     */
+    proxyProtocolEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */

@@ -93,7 +93,7 @@ class ManagedRedisDefaultDatabaseArgsDict(TypedDict):
     """
     geo_replication_group_name: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurerm_managed_redis_database_geo_replication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+    The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 
     !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
     """
@@ -148,7 +148,7 @@ class ManagedRedisDefaultDatabaseArgs:
                
                !> **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
-        :param pulumi.Input[_builtins.str] geo_replication_group_name: The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurerm_managed_redis_database_geo_replication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+        :param pulumi.Input[_builtins.str] geo_replication_group_name: The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
                
                !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         :param pulumi.Input[_builtins.str] id: The ID of the Managed Redis Database Instance.
@@ -238,7 +238,7 @@ class ManagedRedisDefaultDatabaseArgs:
     @pulumi.getter(name="geoReplicationGroupName")
     def geo_replication_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurerm_managed_redis_database_geo_replication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+        The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 
         !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         """

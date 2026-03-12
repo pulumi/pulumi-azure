@@ -368,12 +368,16 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      * 
+     * &gt; **Note:** `version` is required when `createMode` is `Default`.
+     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
      * @return The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+     * 
+     * &gt; **Note:** `version` is required when `createMode` is `Default`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -933,6 +937,8 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param version The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
          * 
+         * &gt; **Note:** `version` is required when `createMode` is `Default`.
+         * 
          * @return builder
          * 
          */
@@ -943,6 +949,8 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+         * 
+         * &gt; **Note:** `version` is required when `createMode` is `Default`.
          * 
          * @return builder
          * 

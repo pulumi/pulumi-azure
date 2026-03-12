@@ -41,8 +41,7 @@ namespace Pulumi.Azure.Iot
     ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "exampleEventHub",
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = example.Name,
+    ///         NamespaceId = exampleEventHubNamespace.Id,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,
     ///     });

@@ -70,11 +70,10 @@ import (
 //				return err
 //			}
 //			eventhub, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
-//				Name:              pulumi.String("my-eventhub"),
-//				NamespaceName:     eventhubNs.Name,
-//				ResourceGroupName: example.Name,
-//				PartitionCount:    pulumi.Int(1),
-//				MessageRetention:  pulumi.Int(1),
+//				Name:             pulumi.String("my-eventhub"),
+//				NamespaceId:      eventhubNs.ID(),
+//				PartitionCount:   pulumi.Int(1),
+//				MessageRetention: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

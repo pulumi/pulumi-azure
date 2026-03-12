@@ -31,6 +31,7 @@ class ProviderArgs:
                  client_secret_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_correlation_request_id: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enhanced_validation: Optional[pulumi.Input['ProviderEnhancedValidationArgs']] = None,
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
                  features: Optional[pulumi.Input['ProviderFeaturesArgs']] = None,
                  metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
@@ -106,6 +107,8 @@ class ProviderArgs:
             pulumi.set(__self__, "disable_correlation_request_id", disable_correlation_request_id)
         if disable_terraform_partner_id is not None:
             pulumi.set(__self__, "disable_terraform_partner_id", disable_terraform_partner_id)
+        if enhanced_validation is not None:
+            pulumi.set(__self__, "enhanced_validation", enhanced_validation)
         if environment is None:
             environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
         if environment is not None:
@@ -288,6 +291,15 @@ class ProviderArgs:
     @disable_terraform_partner_id.setter
     def disable_terraform_partner_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "disable_terraform_partner_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enhancedValidation")
+    def enhanced_validation(self) -> Optional[pulumi.Input['ProviderEnhancedValidationArgs']]:
+        return pulumi.get(self, "enhanced_validation")
+
+    @enhanced_validation.setter
+    def enhanced_validation(self, value: Optional[pulumi.Input['ProviderEnhancedValidationArgs']]):
+        pulumi.set(self, "enhanced_validation", value)
 
     @_builtins.property
     @pulumi.getter
@@ -545,6 +557,7 @@ class Provider(pulumi.ProviderResource):
                  client_secret_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_correlation_request_id: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enhanced_validation: Optional[pulumi.Input[Union['ProviderEnhancedValidationArgs', 'ProviderEnhancedValidationArgsDict']]] = None,
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
                  features: Optional[pulumi.Input[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
@@ -644,6 +657,7 @@ class Provider(pulumi.ProviderResource):
                  client_secret_file_path: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_correlation_request_id: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enhanced_validation: Optional[pulumi.Input[Union['ProviderEnhancedValidationArgs', 'ProviderEnhancedValidationArgsDict']]] = None,
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
                  features: Optional[pulumi.Input[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
@@ -684,6 +698,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["client_secret_file_path"] = None if client_secret_file_path is None else pulumi.Output.secret(client_secret_file_path)
             __props__.__dict__["disable_correlation_request_id"] = pulumi.Output.from_input(disable_correlation_request_id).apply(pulumi.runtime.to_json) if disable_correlation_request_id is not None else None
             __props__.__dict__["disable_terraform_partner_id"] = pulumi.Output.from_input(disable_terraform_partner_id).apply(pulumi.runtime.to_json) if disable_terraform_partner_id is not None else None
+            __props__.__dict__["enhanced_validation"] = pulumi.Output.from_input(enhanced_validation).apply(pulumi.runtime.to_json) if enhanced_validation is not None else None
             if environment is None:
                 environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__.__dict__["environment"] = environment

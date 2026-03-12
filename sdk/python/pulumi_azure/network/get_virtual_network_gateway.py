@@ -27,10 +27,13 @@ class GetVirtualNetworkGatewayResult:
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, id=None, ip_configurations=None, location=None, name=None, private_ip_address_enabled=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None):
+    def __init__(__self__, active_active=None, bgp_enabled=None, bgp_settings=None, custom_routes=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, id=None, ip_configurations=None, location=None, name=None, private_ip_address_enabled=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
+        if bgp_enabled and not isinstance(bgp_enabled, bool):
+            raise TypeError("Expected argument 'bgp_enabled' to be a bool")
+        pulumi.set(__self__, "bgp_enabled", bgp_enabled)
         if bgp_settings and not isinstance(bgp_settings, list):
             raise TypeError("Expected argument 'bgp_settings' to be a list")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -89,6 +92,14 @@ class GetVirtualNetworkGatewayResult:
         return pulumi.get(self, "active_active")
 
     @_builtins.property
+    @pulumi.getter(name="bgpEnabled")
+    def bgp_enabled(self) -> _builtins.bool:
+        """
+        Will BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway.
+        """
+        return pulumi.get(self, "bgp_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="bgpSettings")
     def bgp_settings(self) -> Sequence['outputs.GetVirtualNetworkGatewayBgpSettingResult']:
         return pulumi.get(self, "bgp_settings")
@@ -111,11 +122,8 @@ class GetVirtualNetworkGatewayResult:
 
     @_builtins.property
     @pulumi.getter(name="enableBgp")
+    @_utilities.deprecated(""" the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in 5.0 of the AzureRM provider""")
     def enable_bgp(self) -> _builtins.bool:
-        """
-        Will BGP (Border Gateway Protocol) will be enabled
-        for this Virtual Network Gateway.
-        """
         return pulumi.get(self, "enable_bgp")
 
     @_builtins.property
@@ -162,7 +170,7 @@ class GetVirtualNetworkGatewayResult:
     @pulumi.getter(name="privateIpAddressEnabled")
     def private_ip_address_enabled(self) -> _builtins.bool:
         """
-        Whether a private IP will be used for this  gateway for connections.
+        Whether a private IP will be used for this gateway for connections.
         """
         return pulumi.get(self, "private_ip_address_enabled")
 
@@ -219,6 +227,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             yield self
         return GetVirtualNetworkGatewayResult(
             active_active=self.active_active,
+            bgp_enabled=self.bgp_enabled,
             bgp_settings=self.bgp_settings,
             custom_routes=self.custom_routes,
             default_local_network_gateway_id=self.default_local_network_gateway_id,
@@ -273,6 +282,7 @@ def get_virtual_network_gateway(name: Optional[_builtins.str] = None,
 
     return AwaitableGetVirtualNetworkGatewayResult(
         active_active=pulumi.get(__ret__, 'active_active'),
+        bgp_enabled=pulumi.get(__ret__, 'bgp_enabled'),
         bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
         custom_routes=pulumi.get(__ret__, 'custom_routes'),
         default_local_network_gateway_id=pulumi.get(__ret__, 'default_local_network_gateway_id'),
@@ -324,6 +334,7 @@ def get_virtual_network_gateway_output(name: Optional[pulumi.Input[_builtins.str
     __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway', __args__, opts=opts, typ=GetVirtualNetworkGatewayResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayResult(
         active_active=pulumi.get(__response__, 'active_active'),
+        bgp_enabled=pulumi.get(__response__, 'bgp_enabled'),
         bgp_settings=pulumi.get(__response__, 'bgp_settings'),
         custom_routes=pulumi.get(__response__, 'custom_routes'),
         default_local_network_gateway_id=pulumi.get(__response__, 'default_local_network_gateway_id'),
