@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.Id)
+//			ctx.Export("privateDnsCnameRecordId", pulumi.Any(exampleAzurermPrivateDnsCnameRecord.Id))
 //			return nil
 //		})
 //	}

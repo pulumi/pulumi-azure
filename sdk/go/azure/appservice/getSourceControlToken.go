@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleAzurermAppServiceGithubToken.Id)
+//			ctx.Export("id", pulumi.Any(exampleAzurermAppServiceGithubToken.Id))
 //			return nil
 //		})
 //	}

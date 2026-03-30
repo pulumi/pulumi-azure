@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("notes", example.Notes)
+//			ctx.Export("notes", pulumi.Any(example.Notes))
 //			return nil
 //		})
 //	}

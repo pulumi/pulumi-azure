@@ -45,9 +45,9 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewApiSchema(ctx, "example", &apimanagement.ApiSchemaArgs{
-//				ApiName:           pulumi.String(example.Name),
-//				ApiManagementName: pulumi.String(example.ApiManagementName),
-//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				ApiName:           pulumi.String(pulumi.String(example.Name)),
+//				ApiManagementName: pulumi.String(pulumi.String(example.ApiManagementName)),
+//				ResourceGroupName: pulumi.String(pulumi.String(example.ResourceGroupName)),
 //				SchemaId:          pulumi.String("example-schema"),
 //				ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
 //				Value:             pulumi.String(invokeFile.Result),

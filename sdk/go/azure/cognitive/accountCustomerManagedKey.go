@@ -73,7 +73,7 @@ import (
 //				Name:                   pulumi.String("example-vault"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               pulumi.String(current.TenantId),
+//				TenantId:               pulumi.String(pulumi.String(current.TenantId)),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{

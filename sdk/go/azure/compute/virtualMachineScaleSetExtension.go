@@ -84,7 +84,7 @@ import (
 //				Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:                     pulumi.String("CustomScript"),
 //				TypeHandlerVersion:       pulumi.String("2.0"),
-//				Settings:                 pulumi.String(json0),
+//				Settings:                 pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

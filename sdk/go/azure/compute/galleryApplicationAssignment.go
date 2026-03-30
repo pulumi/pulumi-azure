@@ -113,7 +113,7 @@ import (
 //			}
 //			_, err = compute.NewGalleryApplicationAssignment(ctx, "example", &compute.GalleryApplicationAssignmentArgs{
 //				GalleryApplicationVersionId: exampleGalleryApplicationVersion.ID(),
-//				VirtualMachineId:            pulumi.String(example.Id),
+//				VirtualMachineId:            pulumi.String(pulumi.String(example.Id)),
 //			})
 //			if err != nil {
 //				return err

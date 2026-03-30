@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("firstDiskId", existingAzurermManagedDisk.Disk[0].Id)
+//			ctx.Export("firstDiskId", pulumi.Any(existingAzurermManagedDisk.Disk[0].Id))
 //			return nil
 //		})
 //	}

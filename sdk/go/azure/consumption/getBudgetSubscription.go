@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleAzurermConsumptionBudget.Id)
+//			ctx.Export("id", pulumi.Any(exampleAzurermConsumptionBudget.Id))
 //			return nil
 //		})
 //	}

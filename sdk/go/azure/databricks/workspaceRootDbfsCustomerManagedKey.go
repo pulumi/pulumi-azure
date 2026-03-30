@@ -45,7 +45,7 @@ import (
 //				Name:                    pulumi.String("examplekeyvault"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(current.TenantId),
+//				TenantId:                pulumi.String(pulumi.String(current.TenantId)),
 //				SkuName:                 pulumi.String("premium"),
 //				PurgeProtectionEnabled:  pulumi.Bool(true),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -56,7 +56,7 @@ import (
 //			terraform, err := keyvault.NewAccessPolicy(ctx, "terraform", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   exampleKeyVault.TenantId,
-//				ObjectId:   pulumi.String(current.ObjectId),
+//				ObjectId:   pulumi.String(pulumi.String(current.ObjectId)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),

@@ -57,8 +57,8 @@ import (
 //			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
 //				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyDefinitionId: pulumi.String(example.Id),
-//				Parameters:         pulumi.String(json0),
+//				PolicyDefinitionId: pulumi.String(pulumi.String(example.Id)),
+//				Parameters:         pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

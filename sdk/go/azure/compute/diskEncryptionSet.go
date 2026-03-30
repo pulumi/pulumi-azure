@@ -48,7 +48,7 @@ import (
 //				Name:                     pulumi.String("des-example-keyvault"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
-//				TenantId:                 pulumi.String(current.TenantId),
+//				TenantId:                 pulumi.String(pulumi.String(current.TenantId)),
 //				SkuName:                  pulumi.String("premium"),
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				PurgeProtectionEnabled:   pulumi.Bool(true),
@@ -58,8 +58,8 @@ import (
 //			}
 //			example_user, err := keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
+//				TenantId:   pulumi.String(pulumi.String(current.TenantId)),
+//				ObjectId:   pulumi.String(pulumi.String(current.ObjectId)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
@@ -178,7 +178,7 @@ import (
 //				Name:                     pulumi.String("des-example-keyvault"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
-//				TenantId:                 pulumi.String(current.TenantId),
+//				TenantId:                 pulumi.String(pulumi.String(current.TenantId)),
 //				SkuName:                  pulumi.String("premium"),
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				PurgeProtectionEnabled:   pulumi.Bool(true),
@@ -188,8 +188,8 @@ import (
 //			}
 //			example_user, err := keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
+//				TenantId:   pulumi.String(pulumi.String(current.TenantId)),
+//				ObjectId:   pulumi.String(pulumi.String(current.ObjectId)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),

@@ -111,8 +111,8 @@ import (
 //				Name:          pulumi.String("example-function-app-function"),
 //				FunctionAppId: exampleLinuxFunctionApp.ID(),
 //				Language:      pulumi.String("Python"),
-//				TestData:      pulumi.String(json0),
-//				ConfigJson:    pulumi.String(json1),
+//				TestData:      pulumi.String(pulumi.String(json0)),
+//				ConfigJson:    pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err
@@ -231,8 +231,8 @@ import (
 //						Content: pulumi.String(invokeFile.Result),
 //					},
 //				},
-//				TestData:   pulumi.String(json0),
-//				ConfigJson: pulumi.String(json1),
+//				TestData:   pulumi.String(pulumi.String(json0)),
+//				ConfigJson: pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err

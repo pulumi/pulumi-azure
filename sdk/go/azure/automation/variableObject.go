@@ -59,7 +59,7 @@ import (
 //				Name:                  pulumi.String("tfex-example-var"),
 //				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
-//				Value:                 pulumi.String(json0),
+//				Value:                 pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

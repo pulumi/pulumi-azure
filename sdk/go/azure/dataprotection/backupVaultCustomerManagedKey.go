@@ -61,7 +61,7 @@ import (
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
 //				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 pulumi.String(current.TenantId),
+//				TenantId:                 pulumi.String(pulumi.String(current.TenantId)),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				PurgeProtectionEnabled:   pulumi.Bool(true),
 //				SkuName:                  pulumi.String("standard"),

@@ -38,8 +38,8 @@ import (
 //			_, err = keyvault.NewManagedHardwareSecurityModuleRoleAssignment(ctx, "example", &keyvault.ManagedHardwareSecurityModuleRoleAssignmentArgs{
 //				Name:             pulumi.String("a9dbe818-56e7-5878-c0ce-a1477692c1d6"),
 //				ManagedHsmId:     pulumi.Any(exampleAzurermKeyVaultManagedHardwareSecurityModule.Id),
-//				Scope:            pulumi.Any(user.Scope),
-//				RoleDefinitionId: pulumi.String(user.ResourceManagerId),
+//				Scope:            pulumi.String(pulumi.Any(user.Scope)),
+//				RoleDefinitionId: pulumi.String(pulumi.String(user.ResourceManagerId)),
 //				PrincipalId:      pulumi.Any(current.ObjectId),
 //			})
 //			if err != nil {

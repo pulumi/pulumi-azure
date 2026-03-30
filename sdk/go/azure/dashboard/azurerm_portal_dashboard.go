@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleAzurermDashboard.Id)
+//			ctx.Export("id", pulumi.Any(exampleAzurermDashboard.Id))
 //			return nil
 //		})
 //	}

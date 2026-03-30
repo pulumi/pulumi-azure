@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("stringVars", exampleAzurermAutomationVariableString.String)
+//			ctx.Export("stringVars", pulumi.Any(exampleAzurermAutomationVariableString.String))
 //			return nil
 //		})
 //	}

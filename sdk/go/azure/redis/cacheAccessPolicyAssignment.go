@@ -61,7 +61,7 @@ import (
 //				Name:             pulumi.String("example"),
 //				RedisCacheId:     exampleCache.ID(),
 //				AccessPolicyName: pulumi.String("Data Contributor"),
-//				ObjectId:         pulumi.String(test.ObjectId),
+//				ObjectId:         pulumi.String(pulumi.String(test.ObjectId)),
 //				ObjectIdAlias:    pulumi.String("ServicePrincipal"),
 //			})
 //			if err != nil {

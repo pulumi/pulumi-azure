@@ -104,8 +104,8 @@ import (
 //						Type:         pulumi.String("tsg"),
 //					},
 //				},
-//				TemplateData: pulumi.String(json0),
-//				Localized:    pulumi.String(json1),
+//				TemplateData: pulumi.String(pulumi.String(json0)),
+//				Localized:    pulumi.String(pulumi.String(json1)),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

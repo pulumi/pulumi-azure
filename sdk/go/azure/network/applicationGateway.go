@@ -112,24 +112,24 @@ import (
 //				},
 //				FrontendPorts: network.ApplicationGatewayFrontendPortArray{
 //					&network.ApplicationGatewayFrontendPortArgs{
-//						Name: pulumi.String(frontendPortName),
+//						Name: pulumi.String(pulumi.String(frontendPortName)),
 //						Port: pulumi.Int(80),
 //					},
 //				},
 //				FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
 //					&network.ApplicationGatewayFrontendIpConfigurationArgs{
-//						Name:              pulumi.String(frontendIpConfigurationName),
+//						Name:              pulumi.String(pulumi.String(frontendIpConfigurationName)),
 //						PublicIpAddressId: examplePublicIp.ID(),
 //					},
 //				},
 //				BackendAddressPools: network.ApplicationGatewayBackendAddressPoolArray{
 //					&network.ApplicationGatewayBackendAddressPoolArgs{
-//						Name: pulumi.String(backendAddressPoolName),
+//						Name: pulumi.String(pulumi.String(backendAddressPoolName)),
 //					},
 //				},
 //				BackendHttpSettings: network.ApplicationGatewayBackendHttpSettingArray{
 //					&network.ApplicationGatewayBackendHttpSettingArgs{
-//						Name:                pulumi.String(httpSettingName),
+//						Name:                pulumi.String(pulumi.String(httpSettingName)),
 //						CookieBasedAffinity: pulumi.String("Disabled"),
 //						Path:                pulumi.String("/path1/"),
 //						Port:                pulumi.Int(80),
@@ -139,20 +139,20 @@ import (
 //				},
 //				HttpListeners: network.ApplicationGatewayHttpListenerArray{
 //					&network.ApplicationGatewayHttpListenerArgs{
-//						Name:                        pulumi.String(listenerName),
-//						FrontendIpConfigurationName: pulumi.String(frontendIpConfigurationName),
-//						FrontendPortName:            pulumi.String(frontendPortName),
+//						Name:                        pulumi.String(pulumi.String(listenerName)),
+//						FrontendIpConfigurationName: pulumi.String(pulumi.String(frontendIpConfigurationName)),
+//						FrontendPortName:            pulumi.String(pulumi.String(frontendPortName)),
 //						Protocol:                    pulumi.String("Http"),
 //					},
 //				},
 //				RequestRoutingRules: network.ApplicationGatewayRequestRoutingRuleArray{
 //					&network.ApplicationGatewayRequestRoutingRuleArgs{
-//						Name:                    pulumi.String(requestRoutingRuleName),
+//						Name:                    pulumi.String(pulumi.String(requestRoutingRuleName)),
 //						Priority:                pulumi.Int(9),
 //						RuleType:                pulumi.String("Basic"),
-//						HttpListenerName:        pulumi.String(listenerName),
-//						BackendAddressPoolName:  pulumi.String(backendAddressPoolName),
-//						BackendHttpSettingsName: pulumi.String(httpSettingName),
+//						HttpListenerName:        pulumi.String(pulumi.String(listenerName)),
+//						BackendAddressPoolName:  pulumi.String(pulumi.String(backendAddressPoolName)),
+//						BackendHttpSettingsName: pulumi.String(pulumi.String(httpSettingName)),
 //					},
 //				},
 //			})

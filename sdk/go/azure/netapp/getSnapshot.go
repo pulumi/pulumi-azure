@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("netappSnapshotId", example.Id)
+//			ctx.Export("netappSnapshotId", pulumi.Any(example.Id))
 //			return nil
 //		})
 //	}

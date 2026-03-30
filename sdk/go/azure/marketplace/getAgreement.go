@@ -35,8 +35,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("azurermMarketplaceAgreementId", id)
-//			ctx.Export("azurermMarketplaceAgreementAccepted", accepted)
+//			ctx.Export("azurermMarketplaceAgreementId", pulumi.Any(id))
+//			ctx.Export("azurermMarketplaceAgreementAccepted", pulumi.Any(accepted))
 //			return nil
 //		})
 //	}
