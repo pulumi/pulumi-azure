@@ -41,8 +41,8 @@ import (
 //			ctx.Export("office365LocalBreakoutCategory", example.Office365LocalBreakoutCategory)
 //			ctx.Export("sku", example.Sku)
 //			ctx.Export("tags", example.Tags)
-//			ctx.Export("virtualHubs", example.VirtualHubs)
-//			ctx.Export("vpnSites", example.VpnSites)
+//			ctx.Export("virtualHubs", pulumi.Any(example.VirtualHubs))
+//			ctx.Export("vpnSites", pulumi.Any(example.VpnSites))
 //			return nil
 //		})
 //	}

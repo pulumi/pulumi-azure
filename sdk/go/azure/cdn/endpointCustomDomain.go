@@ -89,8 +89,8 @@ import (
 //			}
 //			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
 //				Name:              pulumi.String("example"),
-//				ZoneName:          pulumi.String(example.Name),
-//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				ZoneName:          pulumi.String(pulumi.String(example.Name)),
+//				ResourceGroupName: pulumi.String(pulumi.String(example.ResourceGroupName)),
 //				Ttl:               pulumi.Int(3600),
 //				TargetResourceId:  exampleEndpoint.ID(),
 //			})

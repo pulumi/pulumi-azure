@@ -120,8 +120,8 @@ import (
 //					"configuration.backupStorageLocation.bucket":                exampleContainer.Name,
 //					"configuration.backupStorageLocation.config.resourceGroup":  example.Name,
 //					"configuration.backupStorageLocation.config.storageAccount": exampleAccount.Name,
-//					"configuration.backupStorageLocation.config.subscriptionId": pulumi.String(current.SubscriptionId),
-//					"credentials.tenantId":                                      pulumi.String(current.TenantId),
+//					"configuration.backupStorageLocation.config.subscriptionId": pulumi.String(pulumi.String(current.SubscriptionId)),
+//					"credentials.tenantId":                                      pulumi.String(pulumi.String(current.TenantId)),
 //				},
 //			})
 //			if err != nil {

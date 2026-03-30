@@ -151,7 +151,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              pulumi.String(primary.Id),
+//				Scope:              pulumi.String(pulumi.String(primary.Id)),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId: pulumi.String(exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil

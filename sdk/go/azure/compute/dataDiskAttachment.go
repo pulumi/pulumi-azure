@@ -88,7 +88,7 @@ import (
 //				return err
 //			}
 //			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String(vmName),
+//				Name:              pulumi.String(pulumi.String(vmName)),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
@@ -108,7 +108,7 @@ import (
 //					ManagedDiskType: pulumi.String("Standard_LRS"),
 //				},
 //				OsProfile: &compute.VirtualMachineOsProfileArgs{
-//					ComputerName:  pulumi.String(vmName),
+//					ComputerName:  pulumi.String(pulumi.String(vmName)),
 //					AdminUsername: pulumi.String("testadmin"),
 //					AdminPassword: pulumi.String("Password1234!"),
 //				},

@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.Id)
+//			ctx.Export("servicebusAuthorizationRuleId", pulumi.Any(exampleAzuremServicebusTopicAuthorizationRule.Id))
 //			return nil
 //		})
 //	}

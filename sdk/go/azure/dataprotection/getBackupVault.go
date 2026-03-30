@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.Id)
+//			ctx.Export("azurermDataProtectionBackupVaultId", pulumi.Any(exampleAzurermVpnGateway.Id))
 //			ctx.Export("azurermDataProtectionBackupVaultPrincipalId", example.Identities[0].PrincipalId)
 //			return nil
 //		})

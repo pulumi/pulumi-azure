@@ -44,7 +44,7 @@ import (
 //			exampleGroup, err := azuread.NewGroup(ctx, "example", &azuread.GroupArgs{
 //				DisplayName: pulumi.String("example-adg"),
 //				Owners: pulumi.StringArray{
-//					pulumi.String(current.ObjectId),
+//					pulumi.String(pulumi.String(current.ObjectId)),
 //				},
 //				SecurityEnabled: pulumi.Bool(true),
 //			})

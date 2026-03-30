@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", existingAzurermMaintenanceConfiguration.Id)
+//			ctx.Export("id", pulumi.Any(existingAzurermMaintenanceConfiguration.Id))
 //			return nil
 //		})
 //	}

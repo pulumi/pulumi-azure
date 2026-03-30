@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("servicebusSubscription", exampleAzurermServicebusNamespace)
+//			ctx.Export("servicebusSubscription", pulumi.Any(exampleAzurermServicebusNamespace))
 //			return nil
 //		})
 //	}

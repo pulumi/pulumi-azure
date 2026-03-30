@@ -92,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:            pulumi.String(primary.Id),
+//				Scope:            pulumi.String(pulumi.String(primary.Id)),
 //				RoleDefinitionId: pulumi.Sprintf("%v%v", primary.Id, monitoringReader.Id),
 //				PrincipalId:      pulumi.Any(exampleAzurermNewRelicMonitor.Identity[0].PrincipalId),
 //			})

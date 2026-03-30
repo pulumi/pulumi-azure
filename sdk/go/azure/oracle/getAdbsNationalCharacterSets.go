@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleAzurermOracleAdbsNationalCharacterSets)
+//			ctx.Export("example", pulumi.Any(exampleAzurermOracleAdbsNationalCharacterSets))
 //			return nil
 //		})
 //	}

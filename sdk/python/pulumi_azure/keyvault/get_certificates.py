@@ -110,7 +110,7 @@ def get_certificates(include_pending: Optional[_builtins.bool] = None,
 
     example = azure.keyvault.get_certificates(key_vault_id=existing["id"])
     example_get_certificate = {__key: azure.keyvault.get_certificate(name=__key,
-        key_vault_id=existing["id"]) for __key, __value in std.toset(input=example.names).result}
+        key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 
@@ -146,7 +146,7 @@ def get_certificates_output(include_pending: Optional[pulumi.Input[Optional[_bui
 
     example = azure.keyvault.get_certificates(key_vault_id=existing["id"])
     example_get_certificate = {__key: azure.keyvault.get_certificate(name=__key,
-        key_vault_id=existing["id"]) for __key, __value in std.toset(input=example.names).result}
+        key_vault_id=existing["id"]) for __key, __value in enumerate(std.toset(input=example.names).result)}
     ```
 
 

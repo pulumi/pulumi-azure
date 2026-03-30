@@ -42,8 +42,8 @@ import (
 //			failoverLocation := "North Europe"
 //			// # Primary SQL Managed Instance
 //			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(primaryName),
-//				Location: pulumi.String(primaryLocation),
+//				Name:     pulumi.String(pulumi.String(primaryName)),
+//				Location: pulumi.String(pulumi.String(primaryLocation)),
 //			})
 //			if err != nil {
 //				return err
@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primary", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String(primaryName),
+//				Name:              pulumi.String(pulumi.String(primaryName)),
 //				Location:          primary.Location,
 //				ResourceGroupName: primary.Name,
 //				AddressSpaces: pulumi.StringArray{
@@ -76,7 +76,7 @@ import (
 //				return err
 //			}
 //			primarySubnet, err := network.NewSubnet(ctx, "primary", &network.SubnetArgs{
-//				Name:               pulumi.String(primaryName),
+//				Name:               pulumi.String(pulumi.String(primaryName)),
 //				ResourceGroupName:  primary.Name,
 //				VirtualNetworkName: primaryVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -100,7 +100,7 @@ import (
 //				return err
 //			}
 //			primaryNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "primary", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String(primaryName),
+//				Name:              pulumi.String(pulumi.String(primaryName)),
 //				Location:          primary.Location,
 //				ResourceGroupName: primary.Name,
 //			})
@@ -115,7 +115,7 @@ import (
 //				return err
 //			}
 //			primaryRouteTable, err := network.NewRouteTable(ctx, "primary", &network.RouteTableArgs{
-//				Name:              pulumi.String(primaryName),
+//				Name:              pulumi.String(pulumi.String(primaryName)),
 //				Location:          primary.Location,
 //				ResourceGroupName: primary.Name,
 //			})
@@ -130,7 +130,7 @@ import (
 //				return err
 //			}
 //			primaryManagedInstance, err := mssql.NewManagedInstance(ctx, "primary", &mssql.ManagedInstanceArgs{
-//				Name:                       pulumi.String(primaryName),
+//				Name:                       pulumi.String(pulumi.String(primaryName)),
 //				ResourceGroupName:          primary.Name,
 //				Location:                   primary.Location,
 //				AdministratorLogin:         pulumi.String("mradministrator"),
@@ -149,14 +149,14 @@ import (
 //			}
 //			// # Secondary (Fail-over) SQL Managed Instance
 //			failover, err := core.NewResourceGroup(ctx, "failover", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(failoverName),
-//				Location: pulumi.String(failoverLocation),
+//				Name:     pulumi.String(pulumi.String(failoverName)),
+//				Location: pulumi.String(pulumi.String(failoverLocation)),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			failoverVirtualNetwork, err := network.NewVirtualNetwork(ctx, "failover", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String(failoverName),
+//				Name:              pulumi.String(pulumi.String(failoverName)),
 //				Location:          failover.Location,
 //				ResourceGroupName: failover.Name,
 //				AddressSpaces: pulumi.StringArray{
@@ -200,7 +200,7 @@ import (
 //				return err
 //			}
 //			failoverNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "failover", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String(failoverName),
+//				Name:              pulumi.String(pulumi.String(failoverName)),
 //				Location:          failover.Location,
 //				ResourceGroupName: failover.Name,
 //			})
@@ -215,7 +215,7 @@ import (
 //				return err
 //			}
 //			failoverRouteTable, err := network.NewRouteTable(ctx, "failover", &network.RouteTableArgs{
-//				Name:              pulumi.String(failoverName),
+//				Name:              pulumi.String(pulumi.String(failoverName)),
 //				Location:          failover.Location,
 //				ResourceGroupName: failover.Name,
 //			})
@@ -230,7 +230,7 @@ import (
 //				return err
 //			}
 //			failoverManagedInstance, err := mssql.NewManagedInstance(ctx, "failover", &mssql.ManagedInstanceArgs{
-//				Name:                       pulumi.String(failoverName),
+//				Name:                       pulumi.String(pulumi.String(failoverName)),
 //				ResourceGroupName:          failover.Name,
 //				Location:                   failover.Location,
 //				AdministratorLogin:         pulumi.String("mradministrator"),

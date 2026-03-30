@@ -40,9 +40,9 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              pulumi.String(primary.Id),
+//				Scope:              pulumi.String(pulumi.String(primary.Id)),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId:        pulumi.String(example.ObjectId),
+//				PrincipalId:        pulumi.String(pulumi.String(example.ObjectId)),
 //			})
 //			if err != nil {
 //				return err
@@ -79,7 +79,7 @@ import (
 //			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
 //				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Name:             pulumi.String("my-custom-role-definition"),
-//				Scope:            pulumi.String(primary.Id),
+//				Scope:            pulumi.String(pulumi.String(primary.Id)),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -89,7 +89,7 @@ import (
 //					},
 //				},
 //				AssignableScopes: pulumi.StringArray{
-//					pulumi.String(primary.Id),
+//					pulumi.String(pulumi.String(primary.Id)),
 //				},
 //			})
 //			if err != nil {
@@ -97,9 +97,9 @@ import (
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Scope:            pulumi.String(primary.Id),
+//				Scope:            pulumi.String(pulumi.String(primary.Id)),
 //				RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-//				PrincipalId:      pulumi.String(example.ObjectId),
+//				PrincipalId:      pulumi.String(pulumi.String(example.ObjectId)),
 //			})
 //			if err != nil {
 //				return err
@@ -136,7 +136,7 @@ import (
 //			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
 //				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Name:             pulumi.String("my-custom-role-definition"),
-//				Scope:            pulumi.String(primary.Id),
+//				Scope:            pulumi.String(pulumi.String(primary.Id)),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -146,7 +146,7 @@ import (
 //					},
 //				},
 //				AssignableScopes: pulumi.StringArray{
-//					pulumi.String(primary.Id),
+//					pulumi.String(pulumi.String(primary.Id)),
 //				},
 //			})
 //			if err != nil {
@@ -154,9 +154,9 @@ import (
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Scope:            pulumi.String(primary.Id),
+//				Scope:            pulumi.String(pulumi.String(primary.Id)),
 //				RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-//				PrincipalId:      pulumi.String(example.ObjectId),
+//				PrincipalId:      pulumi.String(pulumi.String(example.ObjectId)),
 //			})
 //			if err != nil {
 //				return err
@@ -200,7 +200,7 @@ import (
 //			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
 //				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Name:             pulumi.String("my-custom-role-definition"),
-//				Scope:            pulumi.String(primary.Id),
+//				Scope:            pulumi.String(pulumi.String(primary.Id)),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -210,7 +210,7 @@ import (
 //					},
 //				},
 //				AssignableScopes: pulumi.StringArray{
-//					pulumi.String(primary.Id),
+//					pulumi.String(pulumi.String(primary.Id)),
 //				},
 //			})
 //			if err != nil {
@@ -220,7 +220,7 @@ import (
 //				Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Scope:            pulumi.Any(primaryAzurermManagementGroup.Id),
 //				RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-//				PrincipalId:      pulumi.String(example.ObjectId),
+//				PrincipalId:      pulumi.String(pulumi.String(example.ObjectId)),
 //			})
 //			if err != nil {
 //				return err
@@ -275,8 +275,8 @@ import (
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				RoleDefinitionName: pulumi.String("Role Based Access Control Administrator"),
-//				Scope:              pulumi.String(primary.Id),
-//				PrincipalId:        pulumi.String(example.ObjectId),
+//				Scope:              pulumi.String(pulumi.String(primary.Id)),
+//				PrincipalId:        pulumi.String(pulumi.String(example.ObjectId)),
 //				PrincipalType:      pulumi.String("ServicePrincipal"),
 //				Description:        pulumi.String("Role Based Access Control Administrator role assignment with ABAC Condition."),
 //				ConditionVersion:   pulumi.String("2.0"),

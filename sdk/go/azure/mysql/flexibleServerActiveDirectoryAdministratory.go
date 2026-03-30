@@ -71,8 +71,8 @@ import (
 //				ServerId:   exampleFlexibleServer.ID(),
 //				IdentityId: exampleUserAssignedIdentity.ID(),
 //				Login:      pulumi.String("sqladmin"),
-//				ObjectId:   pulumi.String(current.ClientId),
-//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(pulumi.String(current.ClientId)),
+//				TenantId:   pulumi.String(pulumi.String(current.TenantId)),
 //			})
 //			if err != nil {
 //				return err

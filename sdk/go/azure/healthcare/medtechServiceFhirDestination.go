@@ -108,7 +108,7 @@ import (
 //				EventhubNamespaceName:     exampleEventHubNamespace.Name,
 //				EventhubName:              exampleEventHub.Name,
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
-//				DeviceMappingJson:         pulumi.String(json0),
+//				DeviceMappingJson:         pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -148,7 +148,7 @@ import (
 //				MedtechServiceId:                  exampleMedtechService.ID(),
 //				DestinationFhirServiceId:          exampleFhirService.ID(),
 //				DestinationIdentityResolutionType: pulumi.String("Create"),
-//				DestinationFhirMappingJson:        pulumi.String(json1),
+//				DestinationFhirMappingJson:        pulumi.String(pulumi.String(json1)),
 //			})
 //			if err != nil {
 //				return err
