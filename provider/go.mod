@@ -1,11 +1,11 @@
 module github.com/pulumi/pulumi-azure/provider/v6
 
-go 1.25.6
+go 1.25.8
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
 	github.com/hashicorp/go-azure-helpers v0.76.2
-	github.com/hashicorp/go-azure-sdk/sdk v0.20260212.1143955
+	github.com/hashicorp/go-azure-sdk/sdk v0.20260312.1165223
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.6.0
@@ -109,7 +109,7 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.28.0 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-sdk/resource-manager v0.20260212.1143955 // indirect
+	github.com/hashicorp/go-azure-sdk/resource-manager v0.20260312.1165223 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.5.0 // indirect

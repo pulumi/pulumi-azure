@@ -26115,6 +26115,10 @@
                 "current": "azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate",
                 "majorVersion": 6
             },
+            "azurerm_container_app_environment_storage": {
+                "current": "azure:containerapp/getEnvironmentStorage:getEnvironmentStorage",
+                "majorVersion": 6
+            },
             "azurerm_container_group": {
                 "current": "azure:containerservice/getGroup:getGroup",
                 "majorVersion": 6,
@@ -27558,6 +27562,9 @@
                                 }
                             }
                         }
+                    },
+                    "bootstrap_profile": {
+                        "maxItemsOne": false
                     },
                     "identity": {
                         "maxItemsOne": false,
