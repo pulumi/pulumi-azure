@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobTemplateContainerReadinessProbe {
     /**
-     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
      * 
      */
     private @Nullable Integer failureCountThreshold;
@@ -68,7 +68,7 @@ public final class JobTemplateContainerReadinessProbe {
 
     private JobTemplateContainerReadinessProbe() {}
     /**
-     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
      * 
      */
     public Optional<Integer> failureCountThreshold() {

@@ -79,7 +79,9 @@ type WorkspaceTable struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan pulumi.StringPtrOutput `pulumi:"plan"`
-	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+	// The table's retention in days. Possible values are between `4` and `730`.
+	//
+	// > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
@@ -130,7 +132,9 @@ type workspaceTableState struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan *string `pulumi:"plan"`
-	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+	// The table's retention in days. Possible values are between `4` and `730`.
+	//
+	// > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
@@ -149,7 +153,9 @@ type WorkspaceTableState struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan pulumi.StringPtrInput
-	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+	// The table's retention in days. Possible values are between `4` and `730`.
+	//
+	// > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
 	RetentionInDays pulumi.IntPtrInput
 	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
@@ -172,7 +178,9 @@ type workspaceTableArgs struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan *string `pulumi:"plan"`
-	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+	// The table's retention in days. Possible values are between `4` and `730`.
+	//
+	// > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
@@ -192,7 +200,9 @@ type WorkspaceTableArgs struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan pulumi.StringPtrInput
-	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+	// The table's retention in days. Possible values are between `4` and `730`.
+	//
+	// > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
 	RetentionInDays pulumi.IntPtrInput
 	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
@@ -303,7 +313,9 @@ func (o WorkspaceTableOutput) Plan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTable) pulumi.StringPtrOutput { return v.Plan }).(pulumi.StringPtrOutput)
 }
 
-// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+// The table's retention in days. Possible values are between `4` and `730`.
+//
+// > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
 func (o WorkspaceTableOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTable) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

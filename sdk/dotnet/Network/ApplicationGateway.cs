@@ -206,11 +206,8 @@ namespace Pulumi.Azure.Network
         [Output("customErrorConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorConfiguration>> CustomErrorConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
-        /// </summary>
         [Output("enableHttp2")]
-        public Output<bool?> EnableHttp2 { get; private set; } = null!;
+        public Output<bool> EnableHttp2 { get; private set; } = null!;
 
         /// <summary>
         /// Is FIPS enabled on the Application Gateway?
@@ -253,6 +250,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("global")]
         public Output<Outputs.ApplicationGatewayGlobal?> Global { get; private set; } = null!;
+
+        /// <summary>
+        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
+        /// </summary>
+        [Output("http2Enabled")]
+        public Output<bool> Http2Enabled { get; private set; } = null!;
 
         /// <summary>
         /// One or more `HttpListener` blocks as defined below.
@@ -482,9 +485,6 @@ namespace Pulumi.Azure.Network
             set => _customErrorConfigurations = value;
         }
 
-        /// <summary>
-        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
-        /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
@@ -547,6 +547,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("global")]
         public Input<Inputs.ApplicationGatewayGlobalArgs>? Global { get; set; }
+
+        /// <summary>
+        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
+        /// </summary>
+        [Input("http2Enabled")]
+        public Input<bool>? Http2Enabled { get; set; }
 
         [Input("httpListeners", required: true)]
         private InputList<Inputs.ApplicationGatewayHttpListenerArgs>? _httpListeners;
@@ -810,9 +816,6 @@ namespace Pulumi.Azure.Network
             set => _customErrorConfigurations = value;
         }
 
-        /// <summary>
-        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
-        /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
@@ -875,6 +878,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("global")]
         public Input<Inputs.ApplicationGatewayGlobalGetArgs>? Global { get; set; }
+
+        /// <summary>
+        /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
+        /// </summary>
+        [Input("http2Enabled")]
+        public Input<bool>? Http2Enabled { get; set; }
 
         [Input("httpListeners")]
         private InputList<Inputs.ApplicationGatewayHttpListenerGetArgs>? _httpListeners;

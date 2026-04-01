@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Purview.Outputs
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
         /// 
-        /// &gt; **Note:** This is required when `Type` is set to `UserAssigned`.
+        /// &gt; **Note:** This is required when `Type` is set to `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Purview.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 

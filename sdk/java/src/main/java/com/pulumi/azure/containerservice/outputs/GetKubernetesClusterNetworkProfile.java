@@ -32,6 +32,11 @@ public final class GetKubernetesClusterNetworkProfile {
      */
     private String networkPolicy;
     /**
+     * @return The outbound (egress) routing method which is used for cluster egress traffic.
+     * 
+     */
+    private String outboundType;
+    /**
      * @return The CIDR used for pod IP addresses.
      * 
      */
@@ -75,6 +80,13 @@ public final class GetKubernetesClusterNetworkProfile {
         return this.networkPolicy;
     }
     /**
+     * @return The outbound (egress) routing method which is used for cluster egress traffic.
+     * 
+     */
+    public String outboundType() {
+        return this.outboundType;
+    }
+    /**
      * @return The CIDR used for pod IP addresses.
      * 
      */
@@ -103,6 +115,7 @@ public final class GetKubernetesClusterNetworkProfile {
         private String loadBalancerSku;
         private String networkPlugin;
         private String networkPolicy;
+        private String outboundType;
         private String podCidr;
         private String serviceCidr;
         public Builder() {}
@@ -113,6 +126,7 @@ public final class GetKubernetesClusterNetworkProfile {
     	      this.loadBalancerSku = defaults.loadBalancerSku;
     	      this.networkPlugin = defaults.networkPlugin;
     	      this.networkPolicy = defaults.networkPolicy;
+    	      this.outboundType = defaults.outboundType;
     	      this.podCidr = defaults.podCidr;
     	      this.serviceCidr = defaults.serviceCidr;
         }
@@ -158,6 +172,14 @@ public final class GetKubernetesClusterNetworkProfile {
             return this;
         }
         @CustomType.Setter
+        public Builder outboundType(String outboundType) {
+            if (outboundType == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "outboundType");
+            }
+            this.outboundType = outboundType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder podCidr(String podCidr) {
             if (podCidr == null) {
               throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "podCidr");
@@ -180,6 +202,7 @@ public final class GetKubernetesClusterNetworkProfile {
             _resultValue.loadBalancerSku = loadBalancerSku;
             _resultValue.networkPlugin = networkPlugin;
             _resultValue.networkPolicy = networkPolicy;
+            _resultValue.outboundType = outboundType;
             _resultValue.podCidr = podCidr;
             _resultValue.serviceCidr = serviceCidr;
             return _resultValue;

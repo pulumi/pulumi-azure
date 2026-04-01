@@ -25,7 +25,7 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
     /**
      * @return The maximum number or percentage of nodes which can be unavailable during the upgrade.
      * 
-     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `maxSurge` or `maxUnavailable`.
      * 
      */
     private @Nullable String maxUnavailable;
@@ -58,7 +58,7 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
     /**
      * @return The maximum number or percentage of nodes which can be unavailable during the upgrade.
      * 
-     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+     * &gt; **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `maxSurge` or `maxUnavailable`.
      * 
      */
     public Optional<String> maxUnavailable() {

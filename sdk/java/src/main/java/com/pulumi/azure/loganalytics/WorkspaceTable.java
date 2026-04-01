@@ -116,14 +116,18 @@ public class WorkspaceTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.plan);
     }
     /**
-     * The table&#39;s retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+     * The table&#39;s retention in days. Possible values are between `4` and `730`.
+     * 
+     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      * 
      */
     @Export(name="retentionInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionInDays;
 
     /**
-     * @return The table&#39;s retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+     * @return The table&#39;s retention in days. Possible values are between `4` and `730`.
+     * 
+     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      * 
      */
     public Output<Optional<Integer>> retentionInDays() {

@@ -68,7 +68,9 @@ type LookupVirtualNetworkGatewayArgs struct {
 // A collection of values returned by getVirtualNetworkGateway.
 type LookupVirtualNetworkGatewayResult struct {
 	// Is this an Active-Active Gateway?
-	ActiveActive bool                                  `pulumi:"activeActive"`
+	ActiveActive bool `pulumi:"activeActive"`
+	// Will BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway.
+	BgpEnabled   bool                                  `pulumi:"bgpEnabled"`
 	BgpSettings  []GetVirtualNetworkGatewayBgpSetting  `pulumi:"bgpSettings"`
 	CustomRoutes []GetVirtualNetworkGatewayCustomRoute `pulumi:"customRoutes"`
 	// The ID of the local network gateway
@@ -76,8 +78,7 @@ type LookupVirtualNetworkGatewayResult struct {
 	// gateway is created will be routed (*forced tunneling*). Refer to the
 	// [Azure documentation on forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	DefaultLocalNetworkGatewayId string `pulumi:"defaultLocalNetworkGatewayId"`
-	// Will BGP (Border Gateway Protocol) will be enabled
-	// for this Virtual Network Gateway.
+	// Deprecated:  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
 	EnableBgp bool `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network Gateway.
 	Generation string `pulumi:"generation"`
@@ -89,7 +90,7 @@ type LookupVirtualNetworkGatewayResult struct {
 	Location string `pulumi:"location"`
 	// The user-defined name of the root certificate.
 	Name string `pulumi:"name"`
-	// Whether a private IP will be used for this  gateway for connections.
+	// Whether a private IP will be used for this gateway for connections.
 	PrivateIpAddressEnabled bool   `pulumi:"privateIpAddressEnabled"`
 	ResourceGroupName       string `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the Virtual Network Gateway.
@@ -145,6 +146,11 @@ func (o LookupVirtualNetworkGatewayResultOutput) ActiveActive() pulumi.BoolOutpu
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.ActiveActive }).(pulumi.BoolOutput)
 }
 
+// Will BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway.
+func (o LookupVirtualNetworkGatewayResultOutput) BgpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.BgpEnabled }).(pulumi.BoolOutput)
+}
+
 func (o LookupVirtualNetworkGatewayResultOutput) BgpSettings() GetVirtualNetworkGatewayBgpSettingArrayOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) []GetVirtualNetworkGatewayBgpSetting { return v.BgpSettings }).(GetVirtualNetworkGatewayBgpSettingArrayOutput)
 }
@@ -161,8 +167,7 @@ func (o LookupVirtualNetworkGatewayResultOutput) DefaultLocalNetworkGatewayId() 
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.DefaultLocalNetworkGatewayId }).(pulumi.StringOutput)
 }
 
-// Will BGP (Border Gateway Protocol) will be enabled
-// for this Virtual Network Gateway.
+// Deprecated:  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
 func (o LookupVirtualNetworkGatewayResultOutput) EnableBgp() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.EnableBgp }).(pulumi.BoolOutput)
 }
@@ -194,7 +199,7 @@ func (o LookupVirtualNetworkGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether a private IP will be used for this  gateway for connections.
+// Whether a private IP will be used for this gateway for connections.
 func (o LookupVirtualNetworkGatewayResultOutput) PrivateIpAddressEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.PrivateIpAddressEnabled }).(pulumi.BoolOutput)
 }

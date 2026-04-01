@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class AppTemplateContainerLivenessProbeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         /// </summary>
         [Input("failureCountThreshold")]
         public Input<int>? FailureCountThreshold { get; set; }

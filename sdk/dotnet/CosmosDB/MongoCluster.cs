@@ -35,56 +35,11 @@ namespace Pulumi.Azure.CosmosDB
     ///         Location = example.Location,
     ///         AdministratorUsername = "adminTerraform",
     ///         AdministratorPassword = "QAZwsx123",
-    ///         ShardCount = 1,
     ///         ComputeTier = "Free",
     ///         HighAvailabilityMode = "Disabled",
-    ///         StorageSizeInGb = 32,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Preview Feature GeoReplicas)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-rg",
-    ///         Location = "East US",
-    ///     });
-    /// 
-    ///     var exampleMongoCluster = new Azure.MongoCluster.MongoCluster("example", new()
-    ///     {
-    ///         Name = "example-mc",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AdministratorUsername = "adminTerraform",
-    ///         AdministratorPassword = "QAZwsx123",
     ///         ShardCount = 1,
-    ///         ComputeTier = "M30",
-    ///         HighAvailabilityMode = "ZoneRedundantPreferred",
-    ///         StorageSizeInGb = 64,
-    ///         PreviewFeatures = new[]
-    ///         {
-    ///             "GeoReplicas",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleGeoReplica = new Azure.MongoCluster.MongoCluster("example_geo_replica", new()
-    ///     {
-    ///         Name = "example-mc-geo",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "Central US",
-    ///         SourceServerId = exampleMongoCluster.Id,
-    ///         SourceLocation = exampleMongoCluster.Location,
-    ///         CreateMode = "GeoReplica",
+    ///         StorageSizeInGb = 32,
+    ///         Version = "8.0",
     ///     });
     /// 
     /// });
@@ -249,6 +204,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+        /// 
+        /// &gt; **Note:** `Version` is required when `CreateMode` is `Default`.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -470,6 +427,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+        /// 
+        /// &gt; **Note:** `Version` is required when `CreateMode` is `Default`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -660,6 +619,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
+        /// 
+        /// &gt; **Note:** `Version` is required when `CreateMode` is `Default`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

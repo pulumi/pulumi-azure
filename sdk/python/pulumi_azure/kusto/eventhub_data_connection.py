@@ -565,8 +565,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             sku="Standard")
         eventhub = azure.eventhub.EventHub("eventhub",
             name="my-eventhub",
-            namespace_name=eventhub_ns.name,
-            resource_group_name=example.name,
+            namespace_id=eventhub_ns.id,
             partition_count=1,
             message_retention=1)
         consumer_group = azure.eventhub.ConsumerGroup("consumer_group",
@@ -662,8 +661,7 @@ class EventhubDataConnection(pulumi.CustomResource):
             sku="Standard")
         eventhub = azure.eventhub.EventHub("eventhub",
             name="my-eventhub",
-            namespace_name=eventhub_ns.name,
-            resource_group_name=example.name,
+            namespace_id=eventhub_ns.id,
             partition_count=1,
             message_retention=1)
         consumer_group = azure.eventhub.ConsumerGroup("consumer_group",

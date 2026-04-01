@@ -48,8 +48,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "example-eventhub",
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NamespaceId = exampleEventHubNamespace.Id,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,
     ///     });

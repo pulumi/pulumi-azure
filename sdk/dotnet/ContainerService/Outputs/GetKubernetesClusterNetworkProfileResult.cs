@@ -31,6 +31,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string NetworkPolicy;
         /// <summary>
+        /// The outbound (egress) routing method which is used for cluster egress traffic.
+        /// </summary>
+        public readonly string OutboundType;
+        /// <summary>
         /// The CIDR used for pod IP addresses.
         /// </summary>
         public readonly string PodCidr;
@@ -51,6 +55,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string networkPolicy,
 
+            string outboundType,
+
             string podCidr,
 
             string serviceCidr)
@@ -60,6 +66,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             LoadBalancerSku = loadBalancerSku;
             NetworkPlugin = networkPlugin;
             NetworkPolicy = networkPolicy;
+            OutboundType = outboundType;
             PodCidr = podCidr;
             ServiceCidr = serviceCidr;
         }

@@ -180,7 +180,7 @@ type ManagedRedisDefaultDatabase struct {
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
 	// Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 	//
 	// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	GeoReplicationGroupName *string `pulumi:"geoReplicationGroupName"`
@@ -222,7 +222,7 @@ type ManagedRedisDefaultDatabaseArgs struct {
 	ClusteringPolicy pulumi.StringPtrInput `pulumi:"clusteringPolicy"`
 	// Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
 	EvictionPolicy pulumi.StringPtrInput `pulumi:"evictionPolicy"`
-	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 	//
 	// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	GeoReplicationGroupName pulumi.StringPtrInput `pulumi:"geoReplicationGroupName"`
@@ -341,7 +341,7 @@ func (o ManagedRedisDefaultDatabaseOutput) EvictionPolicy() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 //
 // !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabaseOutput) GeoReplicationGroupName() pulumi.StringPtrOutput {
@@ -449,7 +449,7 @@ func (o ManagedRedisDefaultDatabasePtrOutput) EvictionPolicy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azurermManagedRedisDatabaseGeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
+// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 //
 // !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabasePtrOutput) GeoReplicationGroupName() pulumi.StringPtrOutput {

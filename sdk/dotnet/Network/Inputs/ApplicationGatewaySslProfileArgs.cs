@@ -42,11 +42,14 @@ namespace Pulumi.Azure.Network.Inputs
             set => _trustedClientCertificateNames = value;
         }
 
+        [Input("verifyClientCertIssuerDn")]
+        public Input<bool>? VerifyClientCertIssuerDn { get; set; }
+
         /// <summary>
         /// Should client certificate issuer DN be verified? Defaults to `False`.
         /// </summary>
-        [Input("verifyClientCertIssuerDn")]
-        public Input<bool>? VerifyClientCertIssuerDn { get; set; }
+        [Input("verifyClientCertificateIssuerDn")]
+        public Input<bool>? VerifyClientCertificateIssuerDn { get; set; }
 
         /// <summary>
         /// Specify the method to check client certificate revocation status. Possible value is `OCSP`.

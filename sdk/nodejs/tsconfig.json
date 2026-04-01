@@ -448,6 +448,7 @@
         "containerapp/getApp.ts",
         "containerapp/getEnvironment.ts",
         "containerapp/getEnvironmentCertificate.ts",
+        "containerapp/getEnvironmentStorage.ts",
         "containerapp/index.ts",
         "containerapp/job.ts",
         "containerservice/clusterTrustedAccessRoleBinding.ts",

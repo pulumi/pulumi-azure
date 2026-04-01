@@ -144,7 +144,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+     * The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
      * 
      * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
@@ -155,7 +155,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+     * @return The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
      * 
      * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
@@ -205,14 +205,14 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     public Optional<Output<String>> pythonVersion() {
@@ -447,7 +447,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
          * 
          * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          * 
@@ -462,7 +462,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
+         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, `17`, `21` and `25`.
          * 
          * &gt; **Note:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          * 
@@ -526,7 +526,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param pythonVersion The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * @param pythonVersion The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param pythonVersion The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * @param pythonVersion The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          * 
          * @return builder
          * 

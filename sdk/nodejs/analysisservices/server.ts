@@ -104,6 +104,8 @@ export class Server extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
+     *
+     * > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
      */
     declare public readonly powerBiServiceEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -204,6 +206,8 @@ export interface ServerState {
     name?: pulumi.Input<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
+     *
+     * > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
      */
     powerBiServiceEnabled?: pulumi.Input<boolean>;
     /**
@@ -254,6 +258,8 @@ export interface ServerArgs {
     name?: pulumi.Input<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
+     *
+     * > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
      */
     powerBiServiceEnabled?: pulumi.Input<boolean>;
     /**

@@ -169,6 +169,10 @@ namespace Pulumi.Azure.Network
         /// Is this an Active-Active Gateway?
         /// </summary>
         public readonly bool ActiveActive;
+        /// <summary>
+        /// Will BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway.
+        /// </summary>
+        public readonly bool BgpEnabled;
         public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayBgpSettingResult> BgpSettings;
         public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayCustomRouteResult> CustomRoutes;
         /// <summary>
@@ -178,10 +182,6 @@ namespace Pulumi.Azure.Network
         /// [Azure documentation on forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         /// </summary>
         public readonly string DefaultLocalNetworkGatewayId;
-        /// <summary>
-        /// Will BGP (Border Gateway Protocol) will be enabled
-        /// for this Virtual Network Gateway.
-        /// </summary>
         public readonly bool EnableBgp;
         /// <summary>
         /// The Generation of the Virtual Network Gateway.
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Whether a private IP will be used for this  gateway for connections.
+        /// Whether a private IP will be used for this gateway for connections.
         /// </summary>
         public readonly bool PrivateIpAddressEnabled;
         public readonly string ResourceGroupName;
@@ -232,6 +232,8 @@ namespace Pulumi.Azure.Network
         [OutputConstructor]
         private GetVirtualNetworkGatewayResult(
             bool activeActive,
+
+            bool bgpEnabled,
 
             ImmutableArray<Outputs.GetVirtualNetworkGatewayBgpSettingResult> bgpSettings,
 
@@ -266,6 +268,7 @@ namespace Pulumi.Azure.Network
             string vpnType)
         {
             ActiveActive = activeActive;
+            BgpEnabled = bgpEnabled;
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
             DefaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;

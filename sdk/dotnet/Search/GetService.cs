@@ -176,6 +176,10 @@ namespace Pulumi.Azure.Search
         /// </summary>
         public readonly string CustomerManagedKeyEncryptionComplianceStatus;
         /// <summary>
+        /// The endpoint used to connect to this Search Service.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -221,6 +225,8 @@ namespace Pulumi.Azure.Search
         private GetServiceResult(
             string customerManagedKeyEncryptionComplianceStatus,
 
+            string endpoint,
+
             string id,
 
             ImmutableArray<Outputs.GetServiceIdentityResult> identities,
@@ -244,6 +250,7 @@ namespace Pulumi.Azure.Search
             ImmutableDictionary<string, string> tags)
         {
             CustomerManagedKeyEncryptionComplianceStatus = customerManagedKeyEncryptionComplianceStatus;
+            Endpoint = endpoint;
             Id = id;
             Identities = identities;
             Name = name;

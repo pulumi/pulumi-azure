@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterAciConnectorLinux;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterAgentPoolProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl;
+import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterBootstrapProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterIdentity;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterIngressApplicationGateway;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterKeyManagementService;
@@ -56,6 +57,11 @@ public final class GetKubernetesClusterResult {
      * 
      */
     private Boolean azurePolicyEnabled;
+    /**
+     * @return A `bootstrapProfile` block as documented below.
+     * 
+     */
+    private List<GetKubernetesClusterBootstrapProfile> bootstrapProfiles;
     /**
      * @return Contains the current version of Kubernetes running on the Cluster.
      * 
@@ -269,6 +275,13 @@ public final class GetKubernetesClusterResult {
      */
     public Boolean azurePolicyEnabled() {
         return this.azurePolicyEnabled;
+    }
+    /**
+     * @return A `bootstrapProfile` block as documented below.
+     * 
+     */
+    public List<GetKubernetesClusterBootstrapProfile> bootstrapProfiles() {
+        return this.bootstrapProfiles;
     }
     /**
      * @return Contains the current version of Kubernetes running on the Cluster.
@@ -536,6 +549,7 @@ public final class GetKubernetesClusterResult {
         private List<String> apiServerAuthorizedIpRanges;
         private List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls;
         private Boolean azurePolicyEnabled;
+        private List<GetKubernetesClusterBootstrapProfile> bootstrapProfiles;
         private String currentKubernetesVersion;
         private String diskEncryptionSetId;
         private String dnsPrefix;
@@ -581,6 +595,7 @@ public final class GetKubernetesClusterResult {
     	      this.apiServerAuthorizedIpRanges = defaults.apiServerAuthorizedIpRanges;
     	      this.azureActiveDirectoryRoleBasedAccessControls = defaults.azureActiveDirectoryRoleBasedAccessControls;
     	      this.azurePolicyEnabled = defaults.azurePolicyEnabled;
+    	      this.bootstrapProfiles = defaults.bootstrapProfiles;
     	      this.currentKubernetesVersion = defaults.currentKubernetesVersion;
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.dnsPrefix = defaults.dnsPrefix;
@@ -671,6 +686,17 @@ public final class GetKubernetesClusterResult {
             }
             this.azurePolicyEnabled = azurePolicyEnabled;
             return this;
+        }
+        @CustomType.Setter
+        public Builder bootstrapProfiles(List<GetKubernetesClusterBootstrapProfile> bootstrapProfiles) {
+            if (bootstrapProfiles == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "bootstrapProfiles");
+            }
+            this.bootstrapProfiles = bootstrapProfiles;
+            return this;
+        }
+        public Builder bootstrapProfiles(GetKubernetesClusterBootstrapProfile... bootstrapProfiles) {
+            return bootstrapProfiles(List.of(bootstrapProfiles));
         }
         @CustomType.Setter
         public Builder currentKubernetesVersion(String currentKubernetesVersion) {
@@ -1020,6 +1046,7 @@ public final class GetKubernetesClusterResult {
             _resultValue.apiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             _resultValue.azureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             _resultValue.azurePolicyEnabled = azurePolicyEnabled;
+            _resultValue.bootstrapProfiles = bootstrapProfiles;
             _resultValue.currentKubernetesVersion = currentKubernetesVersion;
             _resultValue.diskEncryptionSetId = diskEncryptionSetId;
             _resultValue.dnsPrefix = dnsPrefix;

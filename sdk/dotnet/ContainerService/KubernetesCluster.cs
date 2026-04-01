@@ -67,7 +67,7 @@ namespace Pulumi.Azure.ContainerService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ContainerService` - 2025-07-01
+    /// * `Microsoft.ContainerService` - 2025-10-01
     /// 
     /// ## Import
     /// 

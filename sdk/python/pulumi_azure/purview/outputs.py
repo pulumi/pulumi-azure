@@ -48,10 +48,10 @@ class AccountIdentity(dict):
                  principal_id: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[_builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`.
+               > **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
         :param _builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param _builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -67,7 +67,7 @@ class AccountIdentity(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -77,7 +77,7 @@ class AccountIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

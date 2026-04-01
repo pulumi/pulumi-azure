@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-07-01
+ * * `Microsoft.ContainerService` - 2025-10-01
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +74,10 @@ export interface GetKubernetesClusterResult {
      * Is Azure Policy enabled on this managed Kubernetes Cluster?
      */
     readonly azurePolicyEnabled: boolean;
+    /**
+     * A `bootstrapProfile` block as documented below.
+     */
+    readonly bootstrapProfiles: outputs.containerservice.GetKubernetesClusterBootstrapProfile[];
     /**
      * Contains the current version of Kubernetes running on the Cluster.
      */
@@ -237,7 +241,7 @@ export interface GetKubernetesClusterResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-07-01
+ * * `Microsoft.ContainerService` - 2025-10-01
  */
 export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

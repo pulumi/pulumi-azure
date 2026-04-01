@@ -1580,7 +1580,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2025-07-01
+        * `Microsoft.ContainerService` - 2025-10-01
 
         ## Import
 
@@ -1711,7 +1711,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.ContainerService` - 2025-07-01
+        * `Microsoft.ContainerService` - 2025-10-01
 
         ## Import
 

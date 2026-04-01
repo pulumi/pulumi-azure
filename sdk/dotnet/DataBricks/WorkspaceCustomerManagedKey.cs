@@ -61,7 +61,7 @@ namespace Pulumi.Azure.DataBricks
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Databricks` - 2024-05-01, 2022-10-01-preview
+    /// * `Microsoft.Databricks` - 2026-01-01
     /// 
     /// * `Microsoft.Network` - 2025-01-01, 2023-09-01
     /// 

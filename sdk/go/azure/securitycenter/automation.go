@@ -52,11 +52,10 @@ import (
 //				return err
 //			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
-//				Name:              pulumi.String("acceptanceTestEventHub"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: example.Name,
-//				PartitionCount:    pulumi.Int(2),
-//				MessageRetention:  pulumi.Int(2),
+//				Name:             pulumi.String("acceptanceTestEventHub"),
+//				NamespaceId:      exampleEventHubNamespace.ID(),
+//				PartitionCount:   pulumi.Int(2),
+//				MessageRetention: pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err

@@ -61,16 +61,20 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
     }
 
     /**
-     * Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated
+     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="parentId")
     private @Nullable Output<String> parentId;
 
     /**
-     * @return Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated
+     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<String>> parentId() {
         return Optional.ofNullable(this.parentId);
     }
@@ -109,6 +113,21 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         return Optional.ofNullable(this.subject);
     }
 
+    /**
+     * Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * 
+     */
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    /**
+     * @return Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+
     private FederatedIdentityCredentialState() {}
 
     private FederatedIdentityCredentialState(FederatedIdentityCredentialState $) {
@@ -118,6 +137,7 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         this.parentId = $.parentId;
         this.resourceGroupName = $.resourceGroupName;
         this.subject = $.subject;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -202,22 +222,26 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         }
 
         /**
-         * @param parentId Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder parentId(@Nullable Output<String> parentId) {
             $.parentId = parentId;
             return this;
         }
 
         /**
-         * @param parentId Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder parentId(String parentId) {
             return parentId(Output.of(parentId));
         }
@@ -266,6 +290,27 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
          */
         public Builder subject(String subject) {
             return subject(Output.of(subject));
+        }
+
+        /**
+         * @param userAssignedIdentityId Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityId Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public FederatedIdentityCredentialState build() {

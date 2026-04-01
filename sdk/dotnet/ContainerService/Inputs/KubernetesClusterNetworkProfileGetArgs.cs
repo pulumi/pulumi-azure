@@ -81,9 +81,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Network plugin to use for networking. Currently supported values are `Azure`, `Kubenet` and `None`. Changing this forces a new resource to be created.
+        /// Network plugin to use for networking. Currently supported values are `Azure`, `Kubenet` and `None`
         /// 
         /// &gt; **Note:** When `NetworkPlugin` is set to `Azure` - the `PodCidr` field must not be set, unless specifying `NetworkPluginMode` to `Overlay`.
+        /// 
+        /// &gt; **Note:** Changing `NetworkPlugin` forces a new resource to be created, except when upgrading from `Kubenet` to `Azure` with `NetworkPluginMode` set to `Overlay`.
         /// </summary>
         [Input("networkPlugin", required: true)]
         public Input<string> NetworkPlugin { get; set; } = null!;
@@ -117,7 +119,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? OutboundType { get; set; }
 
         /// <summary>
-        /// The CIDR to use for pod IP addresses. This field can only be set when `NetworkPlugin` is set to `Kubenet` or `NetworkPluginMode` is set to `Overlay`. Changing this forces a new resource to be created.
+        /// The CIDR to use for pod IP addresses. This field can only be set when `NetworkPlugin` is set to `Kubenet` or `NetworkPluginMode` is set to `Overlay`.
+        /// 
+        /// &gt; **Note:** Once `PodCidr` has been set, changing it forces a new resource to be created.
         /// </summary>
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
@@ -126,7 +130,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<string>? _podCidrs;
 
         /// <summary>
-        /// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        /// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+        /// 
+        /// &gt; **Note:** Once `PodCidrs` has been set, changing it forces a new resource to be created.
         /// </summary>
         public InputList<string> PodCidrs
         {

@@ -55,7 +55,6 @@ class VaultArgs:
         :param pulumi.Input['VaultMonitoringArgs'] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[_builtins.str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -79,6 +78,9 @@ class VaultArgs:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if soft_delete_enabled is not None:
+            warnings.warn("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""", DeprecationWarning)
+            pulumi.log.warn("""soft_delete_enabled is deprecated: `soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
         if soft_delete_enabled is not None:
             pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if storage_mode_type is not None:
@@ -226,10 +228,8 @@ class VaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="softDeleteEnabled")
+    @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
     def soft_delete_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Is soft delete enable for this Vault? Defaults to `true`.
-        """
         return pulumi.get(self, "soft_delete_enabled")
 
     @soft_delete_enabled.setter
@@ -298,7 +298,6 @@ class _VaultState:
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
-        :param pulumi.Input[_builtins.bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[_builtins.str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -324,6 +323,9 @@ class _VaultState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if soft_delete_enabled is not None:
+            warnings.warn("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""", DeprecationWarning)
+            pulumi.log.warn("""soft_delete_enabled is deprecated: `soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
         if soft_delete_enabled is not None:
             pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if storage_mode_type is not None:
@@ -471,10 +473,8 @@ class _VaultState:
 
     @_builtins.property
     @pulumi.getter(name="softDeleteEnabled")
+    @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
     def soft_delete_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Is soft delete enable for this Vault? Defaults to `true`.
-        """
         return pulumi.get(self, "soft_delete_enabled")
 
     @soft_delete_enabled.setter
@@ -543,8 +543,7 @@ class Vault(pulumi.CustomResource):
             name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
-            soft_delete_enabled=True)
+            sku="Standard")
         ```
 
         ## API Providers
@@ -582,7 +581,6 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
-        :param pulumi.Input[_builtins.bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[_builtins.str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -608,8 +606,7 @@ class Vault(pulumi.CustomResource):
             name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
-            sku="Standard",
-            soft_delete_enabled=True)
+            sku="Standard")
         ```
 
         ## API Providers
@@ -732,7 +729,6 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
-        :param pulumi.Input[_builtins.bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[_builtins.str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -852,10 +848,8 @@ class Vault(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="softDeleteEnabled")
+    @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
     def soft_delete_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Is soft delete enable for this Vault? Defaults to `true`.
-        """
         return pulumi.get(self, "soft_delete_enabled")
 
     @_builtins.property

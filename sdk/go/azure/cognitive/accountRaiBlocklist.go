@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Cognitive Account Rai Blocklist.
+// Manages a Microsoft Foundry "Guardrails + Controls" blocklist. Microsoft Foundry was previously known as "Cognitive Account".
 //
 // ## Example Usage
 //
@@ -83,6 +83,8 @@ type AccountRaiBlocklist struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccountRaiBlocklist registers a new resource with the given unique name, arguments, and options.
@@ -124,6 +126,8 @@ type accountRaiBlocklistState struct {
 	Description *string `pulumi:"description"`
 	// The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
 	Name *string `pulumi:"name"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccountRaiBlocklistState struct {
@@ -133,6 +137,8 @@ type AccountRaiBlocklistState struct {
 	Description pulumi.StringPtrInput
 	// The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AccountRaiBlocklistState) ElementType() reflect.Type {
@@ -146,6 +152,8 @@ type accountRaiBlocklistArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
 	Name *string `pulumi:"name"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccountRaiBlocklist resource.
@@ -156,6 +164,8 @@ type AccountRaiBlocklistArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
 	Name pulumi.StringPtrInput
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (AccountRaiBlocklistArgs) ElementType() reflect.Type {
@@ -258,6 +268,11 @@ func (o AccountRaiBlocklistOutput) Description() pulumi.StringPtrOutput {
 // The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
 func (o AccountRaiBlocklistOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountRaiBlocklist) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o AccountRaiBlocklistOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AccountRaiBlocklist) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type AccountRaiBlocklistArrayOutput struct{ *pulumi.OutputState }

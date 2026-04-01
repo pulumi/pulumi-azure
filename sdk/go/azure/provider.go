@@ -176,7 +176,8 @@ type providerArgs struct {
 	// This will disable the x-ms-correlation-request-id header.
 	DisableCorrelationRequestId *bool `pulumi:"disableCorrelationRequestId"`
 	// This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
-	DisableTerraformPartnerId *bool `pulumi:"disableTerraformPartnerId"`
+	DisableTerraformPartnerId *bool                       `pulumi:"disableTerraformPartnerId"`
+	EnhancedValidation        *ProviderEnhancedValidation `pulumi:"enhancedValidation"`
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
 	Environment *string           `pulumi:"environment"`
 	Features    *ProviderFeatures `pulumi:"features"`
@@ -243,6 +244,7 @@ type ProviderArgs struct {
 	DisableCorrelationRequestId pulumi.BoolPtrInput
 	// This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
 	DisableTerraformPartnerId pulumi.BoolPtrInput
+	EnhancedValidation        ProviderEnhancedValidationPtrInput
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
 	Environment pulumi.StringPtrInput
 	Features    ProviderFeaturesPtrInput
