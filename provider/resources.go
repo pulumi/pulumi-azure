@@ -490,10 +490,9 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 
 	_, err = auth.NewAuthorizerFromCredentials(context.Background(), authConfig, env.MicrosoftGraph)
 	if err != nil {
-		return fmt.Errorf("failed to load application credentials: "+
-			"Details: %v\n\n"+
+		return fmt.Errorf("failed to load application credentials: %w\n\n"+
 			"\tPlease make sure you have signed in via 'az login' or configured another authentication method.\n\n"+
-			"\tSee https://www.pulumi.com/registry/packages/azure/installation-configuration/ for more information.", err)
+			"\tSee https://www.pulumi.com/registry/packages/azure/installation-configuration/ for more information", err)
 	}
 	return nil
 }
