@@ -34,7 +34,6 @@ namespace Pulumi.Azure.RecoveryServices
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
-    ///         SoftDeleteEnabled = true,
     ///     });
     /// 
     /// });
@@ -130,9 +129,6 @@ namespace Pulumi.Azure.RecoveryServices
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
 
-        /// <summary>
-        /// Is soft delete enable for this Vault? Defaults to `True`.
-        /// </summary>
         [Output("softDeleteEnabled")]
         public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
 
@@ -266,9 +262,6 @@ namespace Pulumi.Azure.RecoveryServices
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
-        /// <summary>
-        /// Is soft delete enable for this Vault? Defaults to `True`.
-        /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
 
@@ -370,9 +363,6 @@ namespace Pulumi.Azure.RecoveryServices
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
-        /// <summary>
-        /// Is soft delete enable for this Vault? Defaults to `True`.
-        /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
 

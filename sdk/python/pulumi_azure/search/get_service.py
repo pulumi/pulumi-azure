@@ -27,10 +27,13 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, customer_managed_key_encryption_compliance_status=None, id=None, identities=None, name=None, partition_count=None, primary_key=None, public_network_access_enabled=None, query_keys=None, replica_count=None, resource_group_name=None, secondary_key=None, tags=None):
+    def __init__(__self__, customer_managed_key_encryption_compliance_status=None, endpoint=None, id=None, identities=None, name=None, partition_count=None, primary_key=None, public_network_access_enabled=None, query_keys=None, replica_count=None, resource_group_name=None, secondary_key=None, tags=None):
         if customer_managed_key_encryption_compliance_status and not isinstance(customer_managed_key_encryption_compliance_status, str):
             raise TypeError("Expected argument 'customer_managed_key_encryption_compliance_status' to be a str")
         pulumi.set(__self__, "customer_managed_key_encryption_compliance_status", customer_managed_key_encryption_compliance_status)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -72,6 +75,14 @@ class GetServiceResult:
         Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         """
         return pulumi.get(self, "customer_managed_key_encryption_compliance_status")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        The endpoint used to connect to this Search Service.
+        """
+        return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
@@ -166,6 +177,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             customer_managed_key_encryption_compliance_status=self.customer_managed_key_encryption_compliance_status,
+            endpoint=self.endpoint,
             id=self.id,
             identities=self.identities,
             name=self.name,
@@ -217,6 +229,7 @@ def get_service(name: Optional[_builtins.str] = None,
 
     return AwaitableGetServiceResult(
         customer_managed_key_encryption_compliance_status=pulumi.get(__ret__, 'customer_managed_key_encryption_compliance_status'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
         name=pulumi.get(__ret__, 'name'),
@@ -265,6 +278,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:search/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         customer_managed_key_encryption_compliance_status=pulumi.get(__response__, 'customer_managed_key_encryption_compliance_status'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
         name=pulumi.get(__response__, 'name'),

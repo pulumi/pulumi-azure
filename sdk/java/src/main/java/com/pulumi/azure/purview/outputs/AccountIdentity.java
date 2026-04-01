@@ -16,7 +16,7 @@ public final class AccountIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -31,7 +31,7 @@ public final class AccountIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     private String type;
@@ -40,7 +40,7 @@ public final class AccountIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {
@@ -61,7 +61,7 @@ public final class AccountIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     public String type() {

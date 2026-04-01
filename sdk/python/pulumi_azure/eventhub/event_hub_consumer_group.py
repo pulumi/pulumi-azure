@@ -231,8 +231,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             })
         example_event_hub = azure.eventhub.EventHub("example",
             name="acceptanceTestEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=2)
         example_consumer_group = azure.eventhub.ConsumerGroup("example",
@@ -296,8 +295,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             })
         example_event_hub = azure.eventhub.EventHub("example",
             name="acceptanceTestEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=2)
         example_consumer_group = azure.eventhub.ConsumerGroup("example",

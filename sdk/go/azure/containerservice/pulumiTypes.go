@@ -13911,9 +13911,11 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** This property can only be set when `networkPlugin` is set to `azure`.
 	NetworkMode *string `pulumi:"networkMode"`
-	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
 	//
 	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+	//
+	// > **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 	//
@@ -13931,9 +13933,13 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** For more information on supported `outboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType *string `pulumi:"outboundType"`
-	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+	//
+	// > **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
-	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+	//
+	// > **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
 	PodCidrs []string `pulumi:"podCidrs"`
 	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr *string `pulumi:"serviceCidr"`
@@ -13985,9 +13991,11 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** This property can only be set when `networkPlugin` is set to `azure`.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
-	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
 	//
 	// > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+	//
+	// > **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
 	//
@@ -14005,9 +14013,13 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** For more information on supported `outboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
-	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+	//
+	// > **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+	//
+	// > **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
 	PodCidrs pulumi.StringArrayInput `pulumi:"podCidrs"`
 	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
@@ -14154,9 +14166,11 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkMode() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
-// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
 //
 // > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+//
+// > **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
@@ -14186,12 +14200,16 @@ func (o KubernetesClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOu
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
 
-// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+//
+// > **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+//
+// > **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) PodCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.PodCidrs }).(pulumi.StringArrayOutput)
 }
@@ -14326,9 +14344,11 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
 //
 // > **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+//
+// > **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -14378,7 +14398,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+//
+// > **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -14388,7 +14410,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+//
+// > **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) PodCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -16546,7 +16570,7 @@ type KubernetesClusterNodePoolUpgradeSettings struct {
 	MaxSurge *string `pulumi:"maxSurge"`
 	// The maximum number or percentage of nodes which can be unavailable during the upgrade.
 	//
-	// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+	// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `maxSurge` or `maxUnavailable`.
 	MaxUnavailable *string `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
 	NodeSoakDurationInMinutes *int `pulumi:"nodeSoakDurationInMinutes"`
@@ -16572,7 +16596,7 @@ type KubernetesClusterNodePoolUpgradeSettingsArgs struct {
 	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
 	// The maximum number or percentage of nodes which can be unavailable during the upgrade.
 	//
-	// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+	// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `maxSurge` or `maxUnavailable`.
 	MaxUnavailable pulumi.StringPtrInput `pulumi:"maxUnavailable"`
 	// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
 	NodeSoakDurationInMinutes pulumi.IntPtrInput `pulumi:"nodeSoakDurationInMinutes"`
@@ -16669,7 +16693,7 @@ func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxSurge() pulumi.String
 
 // The maximum number or percentage of nodes which can be unavailable during the upgrade.
 //
-// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `maxSurge` or `maxUnavailable`.
 func (o KubernetesClusterNodePoolUpgradeSettingsOutput) MaxUnavailable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolUpgradeSettings) *string { return v.MaxUnavailable }).(pulumi.StringPtrOutput)
 }
@@ -16730,7 +16754,7 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.Str
 
 // The maximum number or percentage of nodes which can be unavailable during the upgrade.
 //
-// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified.
+// > **Note:** Exactly one of `maxSurge` or `maxUnavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `maxSurge` or `maxUnavailable`.
 func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxUnavailable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolUpgradeSettings) *string {
 		if v == nil {
@@ -23941,6 +23965,112 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutpu
 	}).(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput)
 }
 
+type GetKubernetesClusterBootstrapProfile struct {
+	// The source from which artifacts are pulled during bootstrap.
+	ArtifactSource string `pulumi:"artifactSource"`
+	// The ID of the Azure Container Registry used for caching artifacts during bootstrap.
+	ContainerRegistryId string `pulumi:"containerRegistryId"`
+}
+
+// GetKubernetesClusterBootstrapProfileInput is an input type that accepts GetKubernetesClusterBootstrapProfileArgs and GetKubernetesClusterBootstrapProfileOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterBootstrapProfileInput` via:
+//
+//	GetKubernetesClusterBootstrapProfileArgs{...}
+type GetKubernetesClusterBootstrapProfileInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterBootstrapProfileOutput() GetKubernetesClusterBootstrapProfileOutput
+	ToGetKubernetesClusterBootstrapProfileOutputWithContext(context.Context) GetKubernetesClusterBootstrapProfileOutput
+}
+
+type GetKubernetesClusterBootstrapProfileArgs struct {
+	// The source from which artifacts are pulled during bootstrap.
+	ArtifactSource pulumi.StringInput `pulumi:"artifactSource"`
+	// The ID of the Azure Container Registry used for caching artifacts during bootstrap.
+	ContainerRegistryId pulumi.StringInput `pulumi:"containerRegistryId"`
+}
+
+func (GetKubernetesClusterBootstrapProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterBootstrapProfileArgs) ToGetKubernetesClusterBootstrapProfileOutput() GetKubernetesClusterBootstrapProfileOutput {
+	return i.ToGetKubernetesClusterBootstrapProfileOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterBootstrapProfileArgs) ToGetKubernetesClusterBootstrapProfileOutputWithContext(ctx context.Context) GetKubernetesClusterBootstrapProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterBootstrapProfileOutput)
+}
+
+// GetKubernetesClusterBootstrapProfileArrayInput is an input type that accepts GetKubernetesClusterBootstrapProfileArray and GetKubernetesClusterBootstrapProfileArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterBootstrapProfileArrayInput` via:
+//
+//	GetKubernetesClusterBootstrapProfileArray{ GetKubernetesClusterBootstrapProfileArgs{...} }
+type GetKubernetesClusterBootstrapProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterBootstrapProfileArrayOutput() GetKubernetesClusterBootstrapProfileArrayOutput
+	ToGetKubernetesClusterBootstrapProfileArrayOutputWithContext(context.Context) GetKubernetesClusterBootstrapProfileArrayOutput
+}
+
+type GetKubernetesClusterBootstrapProfileArray []GetKubernetesClusterBootstrapProfileInput
+
+func (GetKubernetesClusterBootstrapProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterBootstrapProfileArray) ToGetKubernetesClusterBootstrapProfileArrayOutput() GetKubernetesClusterBootstrapProfileArrayOutput {
+	return i.ToGetKubernetesClusterBootstrapProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterBootstrapProfileArray) ToGetKubernetesClusterBootstrapProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterBootstrapProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterBootstrapProfileArrayOutput)
+}
+
+type GetKubernetesClusterBootstrapProfileOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterBootstrapProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterBootstrapProfileOutput) ToGetKubernetesClusterBootstrapProfileOutput() GetKubernetesClusterBootstrapProfileOutput {
+	return o
+}
+
+func (o GetKubernetesClusterBootstrapProfileOutput) ToGetKubernetesClusterBootstrapProfileOutputWithContext(ctx context.Context) GetKubernetesClusterBootstrapProfileOutput {
+	return o
+}
+
+// The source from which artifacts are pulled during bootstrap.
+func (o GetKubernetesClusterBootstrapProfileOutput) ArtifactSource() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterBootstrapProfile) string { return v.ArtifactSource }).(pulumi.StringOutput)
+}
+
+// The ID of the Azure Container Registry used for caching artifacts during bootstrap.
+func (o GetKubernetesClusterBootstrapProfileOutput) ContainerRegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterBootstrapProfile) string { return v.ContainerRegistryId }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterBootstrapProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterBootstrapProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterBootstrapProfileArrayOutput) ToGetKubernetesClusterBootstrapProfileArrayOutput() GetKubernetesClusterBootstrapProfileArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterBootstrapProfileArrayOutput) ToGetKubernetesClusterBootstrapProfileArrayOutputWithContext(ctx context.Context) GetKubernetesClusterBootstrapProfileArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterBootstrapProfileArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterBootstrapProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterBootstrapProfile {
+		return vs[0].([]GetKubernetesClusterBootstrapProfile)[vs[1].(int)]
+	}).(GetKubernetesClusterBootstrapProfileOutput)
+}
+
 type GetKubernetesClusterIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -25376,6 +25506,8 @@ type GetKubernetesClusterNetworkProfile struct {
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Network policy to be used with Azure CNI. e.g. `calico` or `azure`
 	NetworkPolicy string `pulumi:"networkPolicy"`
+	// The outbound (egress) routing method which is used for cluster egress traffic.
+	OutboundType string `pulumi:"outboundType"`
 	// The CIDR used for pod IP addresses.
 	PodCidr string `pulumi:"podCidr"`
 	// Network range used by the Kubernetes service.
@@ -25403,6 +25535,8 @@ type GetKubernetesClusterNetworkProfileArgs struct {
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Network policy to be used with Azure CNI. e.g. `calico` or `azure`
 	NetworkPolicy pulumi.StringInput `pulumi:"networkPolicy"`
+	// The outbound (egress) routing method which is used for cluster egress traffic.
+	OutboundType pulumi.StringInput `pulumi:"outboundType"`
 	// The CIDR used for pod IP addresses.
 	PodCidr pulumi.StringInput `pulumi:"podCidr"`
 	// Network range used by the Kubernetes service.
@@ -25482,6 +25616,11 @@ func (o GetKubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringO
 // Network policy to be used with Azure CNI. e.g. `calico` or `azure`
 func (o GetKubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.NetworkPolicy }).(pulumi.StringOutput)
+}
+
+// The outbound (egress) routing method which is used for cluster egress traffic.
+func (o GetKubernetesClusterNetworkProfileOutput) OutboundType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterNetworkProfile) string { return v.OutboundType }).(pulumi.StringOutput)
 }
 
 // The CIDR used for pod IP addresses.
@@ -26585,6 +26724,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileUpgradeSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlInput)(nil)).Elem(), GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayInput)(nil)).Elem(), GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterBootstrapProfileInput)(nil)).Elem(), GetKubernetesClusterBootstrapProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterBootstrapProfileArrayInput)(nil)).Elem(), GetKubernetesClusterBootstrapProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterIdentityInput)(nil)).Elem(), GetKubernetesClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterIngressApplicationGatewayInput)(nil)).Elem(), GetKubernetesClusterIngressApplicationGatewayArgs{})
@@ -26875,6 +27016,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileUpgradeSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterBootstrapProfileOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterBootstrapProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterIngressApplicationGatewayOutput{})

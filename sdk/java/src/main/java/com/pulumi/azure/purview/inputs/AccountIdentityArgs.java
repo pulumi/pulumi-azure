@@ -20,7 +20,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
      * 
-     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -67,14 +67,14 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -111,7 +111,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
          * 
-         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
          * 
-         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
          * 
-         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

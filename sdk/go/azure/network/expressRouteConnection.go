@@ -137,14 +137,16 @@ type ExpressRouteConnection struct {
 
 	// The authorization key to establish the Express Route Connection.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// Is Internet security enabled for this Express Route Connection?
-	EnableInternetSecurity pulumi.BoolPtrOutput `pulumi:"enableInternetSecurity"`
+	// Deprecated: the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableInternetSecurity pulumi.BoolOutput `pulumi:"enableInternetSecurity"`
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId pulumi.StringOutput `pulumi:"expressRouteCircuitPeeringId"`
 	// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
 	ExpressRouteGatewayBypassEnabled pulumi.BoolPtrOutput `pulumi:"expressRouteGatewayBypassEnabled"`
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId pulumi.StringOutput `pulumi:"expressRouteGatewayId"`
+	// Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+	InternetSecurityEnabled pulumi.BoolOutput `pulumi:"internetSecurityEnabled"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
@@ -193,7 +195,7 @@ func GetExpressRouteConnection(ctx *pulumi.Context,
 type expressRouteConnectionState struct {
 	// The authorization key to establish the Express Route Connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Is Internet security enabled for this Express Route Connection?
+	// Deprecated: the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId *string `pulumi:"expressRouteCircuitPeeringId"`
@@ -201,6 +203,8 @@ type expressRouteConnectionState struct {
 	ExpressRouteGatewayBypassEnabled *bool `pulumi:"expressRouteGatewayBypassEnabled"`
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId *string `pulumi:"expressRouteGatewayId"`
+	// Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
@@ -214,7 +218,7 @@ type expressRouteConnectionState struct {
 type ExpressRouteConnectionState struct {
 	// The authorization key to establish the Express Route Connection.
 	AuthorizationKey pulumi.StringPtrInput
-	// Is Internet security enabled for this Express Route Connection?
+	// Deprecated: the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId pulumi.StringPtrInput
@@ -222,6 +226,8 @@ type ExpressRouteConnectionState struct {
 	ExpressRouteGatewayBypassEnabled pulumi.BoolPtrInput
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId pulumi.StringPtrInput
+	// Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+	InternetSecurityEnabled pulumi.BoolPtrInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
@@ -239,7 +245,7 @@ func (ExpressRouteConnectionState) ElementType() reflect.Type {
 type expressRouteConnectionArgs struct {
 	// The authorization key to establish the Express Route Connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Is Internet security enabled for this Express Route Connection?
+	// Deprecated: the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId string `pulumi:"expressRouteCircuitPeeringId"`
@@ -247,6 +253,8 @@ type expressRouteConnectionArgs struct {
 	ExpressRouteGatewayBypassEnabled *bool `pulumi:"expressRouteGatewayBypassEnabled"`
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId string `pulumi:"expressRouteGatewayId"`
+	// Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
@@ -261,7 +269,7 @@ type expressRouteConnectionArgs struct {
 type ExpressRouteConnectionArgs struct {
 	// The authorization key to establish the Express Route Connection.
 	AuthorizationKey pulumi.StringPtrInput
-	// Is Internet security enabled for this Express Route Connection?
+	// Deprecated: the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableInternetSecurity pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteCircuitPeeringId pulumi.StringInput
@@ -269,6 +277,8 @@ type ExpressRouteConnectionArgs struct {
 	ExpressRouteGatewayBypassEnabled pulumi.BoolPtrInput
 	// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 	ExpressRouteGatewayId pulumi.StringInput
+	// Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+	InternetSecurityEnabled pulumi.BoolPtrInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
@@ -371,9 +381,9 @@ func (o ExpressRouteConnectionOutput) AuthorizationKey() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
 }
 
-// Is Internet security enabled for this Express Route Connection?
-func (o ExpressRouteConnectionOutput) EnableInternetSecurity() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.BoolPtrOutput { return v.EnableInternetSecurity }).(pulumi.BoolPtrOutput)
+// Deprecated: the `enableInternetSecurity` property has been deprecated in favour of the `internetSecurityEnabled` property and will be removed in v5.0 of the AzureRM Provider
+func (o ExpressRouteConnectionOutput) EnableInternetSecurity() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.BoolOutput { return v.EnableInternetSecurity }).(pulumi.BoolOutput)
 }
 
 // The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
@@ -389,6 +399,11 @@ func (o ExpressRouteConnectionOutput) ExpressRouteGatewayBypassEnabled() pulumi.
 // The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
 func (o ExpressRouteConnectionOutput) ExpressRouteGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringOutput { return v.ExpressRouteGatewayId }).(pulumi.StringOutput)
+}
+
+// Is Internet security enabled for this Express Route Connection? Defaults to `false`.
+func (o ExpressRouteConnectionOutput) InternetSecurityEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.BoolOutput { return v.InternetSecurityEnabled }).(pulumi.BoolOutput)
 }
 
 // The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.

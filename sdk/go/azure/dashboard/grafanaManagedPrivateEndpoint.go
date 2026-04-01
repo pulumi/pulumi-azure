@@ -52,7 +52,7 @@ import (
 //				Name:                       pulumi.String("example-dg"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
-//				GrafanaMajorVersion:        pulumi.String("11"),
+//				GrafanaMajorVersion:        pulumi.String("12"),
 //				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //				AzureMonitorWorkspaceIntegrations: dashboard.GrafanaAzureMonitorWorkspaceIntegrationArray{
 //					&dashboard.GrafanaAzureMonitorWorkspaceIntegrationArgs{

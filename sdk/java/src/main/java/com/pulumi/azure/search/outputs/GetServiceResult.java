@@ -22,6 +22,11 @@ public final class GetServiceResult {
      */
     private String customerManagedKeyEncryptionComplianceStatus;
     /**
+     * @return The endpoint used to connect to this Search Service.
+     * 
+     */
+    private String endpoint;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -80,6 +85,13 @@ public final class GetServiceResult {
      */
     public String customerManagedKeyEncryptionComplianceStatus() {
         return this.customerManagedKeyEncryptionComplianceStatus;
+    }
+    /**
+     * @return The endpoint used to connect to this Search Service.
+     * 
+     */
+    public String endpoint() {
+        return this.endpoint;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -165,6 +177,7 @@ public final class GetServiceResult {
     @CustomType.Builder
     public static final class Builder {
         private String customerManagedKeyEncryptionComplianceStatus;
+        private String endpoint;
         private String id;
         private List<GetServiceIdentity> identities;
         private String name;
@@ -180,6 +193,7 @@ public final class GetServiceResult {
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customerManagedKeyEncryptionComplianceStatus = defaults.customerManagedKeyEncryptionComplianceStatus;
+    	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.name = defaults.name;
@@ -199,6 +213,14 @@ public final class GetServiceResult {
               throw new MissingRequiredPropertyException("GetServiceResult", "customerManagedKeyEncryptionComplianceStatus");
             }
             this.customerManagedKeyEncryptionComplianceStatus = customerManagedKeyEncryptionComplianceStatus;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpoint(String endpoint) {
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
@@ -298,6 +320,7 @@ public final class GetServiceResult {
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.customerManagedKeyEncryptionComplianceStatus = customerManagedKeyEncryptionComplianceStatus;
+            _resultValue.endpoint = endpoint;
             _resultValue.id = id;
             _resultValue.identities = identities;
             _resultValue.name = name;

@@ -80,7 +80,9 @@ export class WorkspaceTable extends pulumi.CustomResource {
      */
     declare public readonly plan: pulumi.Output<string | undefined>;
     /**
-     * The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+     * The table's retention in days. Possible values are between `4` and `730`.
+     *
+     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
     declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
@@ -145,7 +147,9 @@ export interface WorkspaceTableState {
      */
     plan?: pulumi.Input<string>;
     /**
-     * The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+     * The table's retention in days. Possible values are between `4` and `730`.
+     *
+     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
     retentionInDays?: pulumi.Input<number>;
     /**
@@ -177,7 +181,9 @@ export interface WorkspaceTableArgs {
      */
     plan?: pulumi.Input<string>;
     /**
-     * The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+     * The table's retention in days. Possible values are between `4` and `730`.
+     *
+     * > **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      */
     retentionInDays?: pulumi.Input<number>;
     /**

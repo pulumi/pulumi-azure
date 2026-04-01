@@ -16,6 +16,7 @@ from .environment_storage import *
 from .get_app import *
 from .get_environment import *
 from .get_environment_certificate import *
+from .get_environment_storage import *
 from .job import *
 from ._inputs import *
 from . import outputs

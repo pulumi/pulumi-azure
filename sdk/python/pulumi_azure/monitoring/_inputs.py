@@ -7527,8 +7527,8 @@ class DiagnosticSettingEnabledLogArgs:
         if category_group is not None:
             pulumi.set(__self__, "category_group", category_group)
         if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+            warnings.warn("""`retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""")
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
 
@@ -7564,7 +7564,7 @@ class DiagnosticSettingEnabledLogArgs:
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']]:
         return pulumi.get(self, "retention_policy")
 
@@ -7654,8 +7654,8 @@ class DiagnosticSettingMetricArgs:
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
+            warnings.warn("""`retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
 
@@ -7679,7 +7679,7 @@ class DiagnosticSettingMetricArgs:
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
+    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']]:
         return pulumi.get(self, "retention_policy")
 

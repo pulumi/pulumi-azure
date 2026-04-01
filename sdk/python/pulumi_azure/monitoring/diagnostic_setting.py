@@ -80,8 +80,8 @@ class DiagnosticSettingArgs:
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if metrics is not None:
-            warnings.warn("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
+            warnings.warn("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
@@ -191,7 +191,7 @@ class DiagnosticSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
+    @_utilities.deprecated("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]:
         return pulumi.get(self, "metrics")
 
@@ -303,8 +303,8 @@ class _DiagnosticSettingState:
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if metrics is not None:
-            warnings.warn("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
+            warnings.warn("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
         if name is not None:
@@ -404,7 +404,7 @@ class _DiagnosticSettingState:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
+    @_utilities.deprecated("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]:
         return pulumi.get(self, "metrics")
 
@@ -826,7 +826,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
+    @_utilities.deprecated("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
     def metrics(self) -> pulumi.Output[Sequence['outputs.DiagnosticSettingMetric']]:
         return pulumi.get(self, "metrics")
 

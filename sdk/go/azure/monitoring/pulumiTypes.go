@@ -14413,7 +14413,7 @@ type DiagnosticSettingEnabledLog struct {
 	//
 	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup *string `pulumi:"categoryGroup"`
-	// Deprecated: `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+	// Deprecated: `retentionPolicy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy *DiagnosticSettingEnabledLogRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -14439,7 +14439,7 @@ type DiagnosticSettingEnabledLogArgs struct {
 	//
 	// > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// Deprecated: `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+	// Deprecated: `retentionPolicy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy DiagnosticSettingEnabledLogRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -14510,7 +14510,7 @@ func (o DiagnosticSettingEnabledLogOutput) CategoryGroup() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+// Deprecated: `retentionPolicy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention
 func (o DiagnosticSettingEnabledLogOutput) RetentionPolicy() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *DiagnosticSettingEnabledLogRetentionPolicy {
 		return v.RetentionPolicy
@@ -14791,7 +14791,7 @@ func (o DiagnosticSettingEnabledMetricArrayOutput) Index(i pulumi.IntInput) Diag
 type DiagnosticSettingMetric struct {
 	Category string `pulumi:"category"`
 	Enabled  *bool  `pulumi:"enabled"`
-	// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+	// Deprecated: `retentionPolicy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy *DiagnosticSettingMetricRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -14809,7 +14809,7 @@ type DiagnosticSettingMetricInput interface {
 type DiagnosticSettingMetricArgs struct {
 	Category pulumi.StringInput  `pulumi:"category"`
 	Enabled  pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+	// Deprecated: `retentionPolicy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -14872,7 +14872,7 @@ func (o DiagnosticSettingMetricOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+// Deprecated: `retentionPolicy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 func (o DiagnosticSettingMetricOutput) RetentionPolicy() DiagnosticSettingMetricRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) *DiagnosticSettingMetricRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
 }

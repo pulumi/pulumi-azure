@@ -51,16 +51,20 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the Private Link Service support the Proxy Protocol?
+     * @deprecated
+     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="enableProxyProtocol")
     private @Nullable Output<Boolean> enableProxyProtocol;
 
     /**
-     * @return Should the Private Link Service support the Proxy Protocol?
+     * @deprecated
+     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> enableProxyProtocol() {
         return Optional.ofNullable(this.enableProxyProtocol);
     }
@@ -141,6 +145,21 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * 
+     */
+    @Import(name="proxyProtocolEnabled")
+    private @Nullable Output<Boolean> proxyProtocolEnabled;
+
+    /**
+     * @return Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> proxyProtocolEnabled() {
+        return Optional.ofNullable(this.proxyProtocolEnabled);
+    }
+
+    /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -200,6 +219,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.natIpConfigurations = $.natIpConfigurations;
+        this.proxyProtocolEnabled = $.proxyProtocolEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.visibilitySubscriptionIds = $.visibilitySubscriptionIds;
@@ -276,22 +296,26 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableProxyProtocol Should the Private Link Service support the Proxy Protocol?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableProxyProtocol(@Nullable Output<Boolean> enableProxyProtocol) {
             $.enableProxyProtocol = enableProxyProtocol;
             return this;
         }
 
         /**
-         * @param enableProxyProtocol Should the Private Link Service support the Proxy Protocol?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableProxyProtocol(Boolean enableProxyProtocol) {
             return enableProxyProtocol(Output.of(enableProxyProtocol));
         }
@@ -429,6 +453,27 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder natIpConfigurations(LinkServiceNatIpConfigurationArgs... natIpConfigurations) {
             return natIpConfigurations(List.of(natIpConfigurations));
+        }
+
+        /**
+         * @param proxyProtocolEnabled Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyProtocolEnabled(@Nullable Output<Boolean> proxyProtocolEnabled) {
+            $.proxyProtocolEnabled = proxyProtocolEnabled;
+            return this;
+        }
+
+        /**
+         * @param proxyProtocolEnabled Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyProtocolEnabled(Boolean proxyProtocolEnabled) {
+            return proxyProtocolEnabled(Output.of(proxyProtocolEnabled));
         }
 
         /**

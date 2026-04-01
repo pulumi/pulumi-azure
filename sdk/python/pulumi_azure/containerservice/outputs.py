@@ -141,6 +141,7 @@ __all__ = [
     'GetKubernetesClusterAgentPoolProfileResult',
     'GetKubernetesClusterAgentPoolProfileUpgradeSettingResult',
     'GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult',
+    'GetKubernetesClusterBootstrapProfileResult',
     'GetKubernetesClusterIdentityResult',
     'GetKubernetesClusterIngressApplicationGatewayResult',
     'GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult',
@@ -6626,9 +6627,11 @@ class KubernetesClusterNetworkProfile(dict):
                  service_cidr: Optional[_builtins.str] = None,
                  service_cidrs: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+        :param _builtins.str network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
                
                > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
+               
+               > **Note:** Changing `network_plugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `network_plugin_mode` set to `overlay`.
         :param 'KubernetesClusterNetworkProfileAdvancedNetworkingArgs' advanced_networking: An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
         :param _builtins.str dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -6664,8 +6667,12 @@ class KubernetesClusterNetworkProfile(dict):
         :param _builtins.str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
                
                > **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
-        :param _builtins.str pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
-        :param Sequence[_builtins.str] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        :param _builtins.str pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`.
+               
+               > **Note:** Once `pod_cidr` has been set, changing it forces a new resource to be created.
+        :param Sequence[_builtins.str] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+               
+               > **Note:** Once `pod_cidrs` has been set, changing it forces a new resource to be created.
         :param _builtins.str service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] service_cidrs: A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
                
@@ -6707,9 +6714,11 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="networkPlugin")
     def network_plugin(self) -> _builtins.str:
         """
-        Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+        Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
 
         > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
+
+        > **Note:** Changing `network_plugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `network_plugin_mode` set to `overlay`.
         """
         return pulumi.get(self, "network_plugin")
 
@@ -6829,7 +6838,9 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="podCidr")
     def pod_cidr(self) -> Optional[_builtins.str]:
         """
-        The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
+        The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`.
+
+        > **Note:** Once `pod_cidr` has been set, changing it forces a new resource to be created.
         """
         return pulumi.get(self, "pod_cidr")
 
@@ -6837,7 +6848,9 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="podCidrs")
     def pod_cidrs(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+
+        > **Note:** Once `pod_cidrs` has been set, changing it forces a new resource to be created.
         """
         return pulumi.get(self, "pod_cidrs")
 
@@ -7967,7 +7980,7 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         :param _builtins.str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param _builtins.str max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
                
-               > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+               > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `max_surge` or `max_unavailable`.
         :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
         :param _builtins.str undrainable_node_behavior: Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
@@ -8004,7 +8017,7 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         """
         The maximum number or percentage of nodes which can be unavailable during the upgrade.
 
-        > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+        > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `max_surge` or `max_unavailable`.
         """
         return pulumi.get(self, "max_unavailable")
 
@@ -10813,6 +10826,35 @@ class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict)
 
 
 @pulumi.output_type
+class GetKubernetesClusterBootstrapProfileResult(dict):
+    def __init__(__self__, *,
+                 artifact_source: _builtins.str,
+                 container_registry_id: _builtins.str):
+        """
+        :param _builtins.str artifact_source: The source from which artifacts are pulled during bootstrap.
+        :param _builtins.str container_registry_id: The ID of the Azure Container Registry used for caching artifacts during bootstrap.
+        """
+        pulumi.set(__self__, "artifact_source", artifact_source)
+        pulumi.set(__self__, "container_registry_id", container_registry_id)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactSource")
+    def artifact_source(self) -> _builtins.str:
+        """
+        The source from which artifacts are pulled during bootstrap.
+        """
+        return pulumi.get(self, "artifact_source")
+
+    @_builtins.property
+    @pulumi.getter(name="containerRegistryId")
+    def container_registry_id(self) -> _builtins.str:
+        """
+        The ID of the Azure Container Registry used for caching artifacts during bootstrap.
+        """
+        return pulumi.get(self, "container_registry_id")
+
+
+@pulumi.output_type
 class GetKubernetesClusterIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[_builtins.str],
@@ -11340,6 +11382,7 @@ class GetKubernetesClusterNetworkProfileResult(dict):
                  load_balancer_sku: _builtins.str,
                  network_plugin: _builtins.str,
                  network_policy: _builtins.str,
+                 outbound_type: _builtins.str,
                  pod_cidr: _builtins.str,
                  service_cidr: _builtins.str):
         """
@@ -11347,6 +11390,7 @@ class GetKubernetesClusterNetworkProfileResult(dict):
         :param _builtins.str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
         :param _builtins.str network_plugin: Network plugin used such as `azure` or `kubenet`.
         :param _builtins.str network_policy: Network policy to be used with Azure CNI. e.g. `calico` or `azure`
+        :param _builtins.str outbound_type: The outbound (egress) routing method which is used for cluster egress traffic.
         :param _builtins.str pod_cidr: The CIDR used for pod IP addresses.
         :param _builtins.str service_cidr: Network range used by the Kubernetes service.
         """
@@ -11355,6 +11399,7 @@ class GetKubernetesClusterNetworkProfileResult(dict):
         pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
         pulumi.set(__self__, "network_plugin", network_plugin)
         pulumi.set(__self__, "network_policy", network_policy)
+        pulumi.set(__self__, "outbound_type", outbound_type)
         pulumi.set(__self__, "pod_cidr", pod_cidr)
         pulumi.set(__self__, "service_cidr", service_cidr)
 
@@ -11394,6 +11439,14 @@ class GetKubernetesClusterNetworkProfileResult(dict):
         Network policy to be used with Azure CNI. e.g. `calico` or `azure`
         """
         return pulumi.get(self, "network_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="outboundType")
+    def outbound_type(self) -> _builtins.str:
+        """
+        The outbound (egress) routing method which is used for cluster egress traffic.
+        """
+        return pulumi.get(self, "outbound_type")
 
     @_builtins.property
     @pulumi.getter(name="podCidr")

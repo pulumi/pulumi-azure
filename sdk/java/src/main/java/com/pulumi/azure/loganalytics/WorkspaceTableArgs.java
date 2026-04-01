@@ -52,14 +52,18 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The table&#39;s retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+     * The table&#39;s retention in days. Possible values are between `4` and `730`.
+     * 
+     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      * 
      */
     @Import(name="retentionInDays")
     private @Nullable Output<Integer> retentionInDays;
 
     /**
-     * @return The table&#39;s retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+     * @return The table&#39;s retention in days. Possible values are between `4` and `730`.
+     * 
+     * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
      * 
      */
     public Optional<Output<Integer>> retentionInDays() {
@@ -179,7 +183,9 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param retentionInDays The table&#39;s retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+         * @param retentionInDays The table&#39;s retention in days. Possible values are between `4` and `730`.
+         * 
+         * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
          * 
          * @return builder
          * 
@@ -190,7 +196,9 @@ public final class WorkspaceTableArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param retentionInDays The table&#39;s retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
+         * @param retentionInDays The table&#39;s retention in days. Possible values are between `4` and `730`.
+         * 
+         * &gt; **Note:** The `retentionInDays` is fixed to `30` when `plan` is `Basic`. More details could be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure?tabs=portal%2Cportal-1#analytics-long-term-and-total-retention).
          * 
          * @return builder
          * 

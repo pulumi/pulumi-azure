@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cognitive
 {
     /// <summary>
-    /// Manages a Cognitive Account Rai Blocklist.
+    /// Manages a Microsoft Foundry "Guardrails + Controls" blocklist. Microsoft Foundry was previously known as "Cognitive Account".
     /// 
     /// ## Example Usage
     /// 
@@ -83,6 +83,12 @@ namespace Pulumi.Azure.Cognitive
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AccountRaiBlocklist resource with the given unique name, arguments, and options.
@@ -147,6 +153,18 @@ namespace Pulumi.Azure.Cognitive
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public AccountRaiBlocklistArgs()
         {
         }
@@ -172,6 +190,18 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public AccountRaiBlocklistState()
         {

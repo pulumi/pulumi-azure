@@ -67,7 +67,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The version of Java to use when `CurrentStack` is set to `Java`. 
         /// 
-        /// &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+        /// &gt; **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>

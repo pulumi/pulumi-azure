@@ -8379,9 +8379,11 @@ class KubernetesClusterMonitorMetricsArgs:
 class KubernetesClusterNetworkProfileArgsDict(TypedDict):
     network_plugin: pulumi.Input[_builtins.str]
     """
-    Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+    Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
 
     > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
+
+    > **Note:** Changing `network_plugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `network_plugin_mode` set to `overlay`.
     """
     advanced_networking: NotRequired[pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict']]
     """
@@ -8453,11 +8455,15 @@ class KubernetesClusterNetworkProfileArgsDict(TypedDict):
     """
     pod_cidr: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
+    The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`.
+
+    > **Note:** Once `pod_cidr` has been set, changing it forces a new resource to be created.
     """
     pod_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+    A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+
+    > **Note:** Once `pod_cidrs` has been set, changing it forces a new resource to be created.
     """
     service_cidr: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -8490,9 +8496,11 @@ class KubernetesClusterNetworkProfileArgs:
                  service_cidr: Optional[pulumi.Input[_builtins.str]] = None,
                  service_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
                
                > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
+               
+               > **Note:** Changing `network_plugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `network_plugin_mode` set to `overlay`.
         :param pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs'] advanced_networking: An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
         :param pulumi.Input[_builtins.str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -8528,8 +8536,12 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[_builtins.str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
                
                > **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
-        :param pulumi.Input[_builtins.str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`.
+               
+               > **Note:** Once `pod_cidr` has been set, changing it forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+               
+               > **Note:** Once `pod_cidrs` has been set, changing it forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_cidrs: A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
                
@@ -8571,9 +8583,11 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="networkPlugin")
     def network_plugin(self) -> pulumi.Input[_builtins.str]:
         """
-        Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+        Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
 
         > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
+
+        > **Note:** Changing `network_plugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `network_plugin_mode` set to `overlay`.
         """
         return pulumi.get(self, "network_plugin")
 
@@ -8741,7 +8755,9 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="podCidr")
     def pod_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
+        The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`.
+
+        > **Note:** Once `pod_cidr` has been set, changing it forces a new resource to be created.
         """
         return pulumi.get(self, "pod_cidr")
 
@@ -8753,7 +8769,9 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="podCidrs")
     def pod_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+
+        > **Note:** Once `pod_cidrs` has been set, changing it forces a new resource to be created.
         """
         return pulumi.get(self, "pod_cidrs")
 
@@ -10154,7 +10172,7 @@ class KubernetesClusterNodePoolUpgradeSettingsArgsDict(TypedDict):
     """
     The maximum number or percentage of nodes which can be unavailable during the upgrade.
 
-    > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+    > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `max_surge` or `max_unavailable`.
     """
     node_soak_duration_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
     """
@@ -10178,7 +10196,7 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
         :param pulumi.Input[_builtins.str] max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         :param pulumi.Input[_builtins.str] max_unavailable: The maximum number or percentage of nodes which can be unavailable during the upgrade.
                
-               > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+               > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `max_surge` or `max_unavailable`.
         :param pulumi.Input[_builtins.int] node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
         :param pulumi.Input[_builtins.str] undrainable_node_behavior: Specifies the action when a node is undrainable during upgrade. Possible values are `Cordon` and `Schedule`. Unsetting this after configuring it will force a new resource to be created.
         """
@@ -10223,7 +10241,7 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
         """
         The maximum number or percentage of nodes which can be unavailable during the upgrade.
 
-        > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified.
+        > **Note:** Exactly one of `max_surge` or `max_unavailable` must be specified, unless `priority` is set to `Spot`. Spot node pools do not support `max_surge` or `max_unavailable`.
         """
         return pulumi.get(self, "max_unavailable")
 

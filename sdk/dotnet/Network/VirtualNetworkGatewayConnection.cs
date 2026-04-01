@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Network
     ///         Type = "Vpn",
     ///         VpnType = "RouteBased",
     ///         ActiveActive = false,
-    ///         EnableBgp = false,
+    ///         BgpEnabled = false,
     ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
@@ -283,6 +283,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> AuthorizationKey { get; private set; } = null!;
 
         /// <summary>
+        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
+        /// </summary>
+        [Output("bgpEnabled")]
+        public Output<bool> BgpEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         /// </summary>
         [Output("connectionMode")]
@@ -315,9 +321,6 @@ namespace Pulumi.Azure.Network
         [Output("egressNatRuleIds")]
         public Output<ImmutableArray<string>> EgressNatRuleIds { get; private set; } = null!;
 
-        /// <summary>
-        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
-        /// </summary>
         [Output("enableBgp")]
         public Output<bool> EnableBgp { get; private set; } = null!;
 
@@ -501,6 +504,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
+        /// </summary>
+        [Input("bgpEnabled")]
+        public Input<bool>? BgpEnabled { get; set; }
+
+        /// <summary>
         /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         /// </summary>
         [Input("connectionMode")]
@@ -539,9 +548,6 @@ namespace Pulumi.Azure.Network
             set => _egressNatRuleIds = value;
         }
 
-        /// <summary>
-        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
-        /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 
@@ -704,6 +710,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
+        /// </summary>
+        [Input("bgpEnabled")]
+        public Input<bool>? BgpEnabled { get; set; }
+
+        /// <summary>
         /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         /// </summary>
         [Input("connectionMode")]
@@ -742,9 +754,6 @@ namespace Pulumi.Azure.Network
             set => _egressNatRuleIds = value;
         }
 
-        /// <summary>
-        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
-        /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 

@@ -90,6 +90,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The endpoint used to connect to this Search Service.
+     * 
+     */
+    @Import(name="endpoint")
+    private @Nullable Output<String> endpoint;
+
+    /**
+     * @return The endpoint used to connect to this Search Service.
+     * 
+     */
+    public Optional<Output<String>> endpoint() {
+        return Optional.ofNullable(this.endpoint);
+    }
+
+    /**
      * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
      * 
      * &gt; **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
@@ -360,6 +375,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.authenticationFailureMode = $.authenticationFailureMode;
         this.customerManagedKeyEncryptionComplianceStatus = $.customerManagedKeyEncryptionComplianceStatus;
         this.customerManagedKeyEnforcementEnabled = $.customerManagedKeyEnforcementEnabled;
+        this.endpoint = $.endpoint;
         this.hostingMode = $.hostingMode;
         this.identity = $.identity;
         this.localAuthenticationEnabled = $.localAuthenticationEnabled;
@@ -498,6 +514,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customerManagedKeyEnforcementEnabled(Boolean customerManagedKeyEnforcementEnabled) {
             return customerManagedKeyEnforcementEnabled(Output.of(customerManagedKeyEnforcementEnabled));
+        }
+
+        /**
+         * @param endpoint The endpoint used to connect to this Search Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoint(@Nullable Output<String> endpoint) {
+            $.endpoint = endpoint;
+            return this;
+        }
+
+        /**
+         * @param endpoint The endpoint used to connect to this Search Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoint(String endpoint) {
+            return endpoint(Output.of(endpoint));
         }
 
         /**

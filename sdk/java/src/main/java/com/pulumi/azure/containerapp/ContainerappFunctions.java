@@ -10,9 +10,12 @@ import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
 import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificateArgs;
 import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificatePlainArgs;
 import com.pulumi.azure.containerapp.inputs.GetEnvironmentPlainArgs;
+import com.pulumi.azure.containerapp.inputs.GetEnvironmentStorageArgs;
+import com.pulumi.azure.containerapp.inputs.GetEnvironmentStoragePlainArgs;
 import com.pulumi.azure.containerapp.outputs.GetAppResult;
 import com.pulumi.azure.containerapp.outputs.GetEnvironmentCertificateResult;
 import com.pulumi.azure.containerapp.outputs.GetEnvironmentResult;
+import com.pulumi.azure.containerapp.outputs.GetEnvironmentStorageResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -780,5 +783,275 @@ public final class ContainerappFunctions {
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", TypeShape.of(GetEnvironmentCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container App Environment Storage.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .name("existing-environment")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
+     *             .name("existing-storage")
+     *             .containerAppEnvironmentId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App` - 2025-07-01
+     * 
+     */
+    public static Output<GetEnvironmentStorageResult> getEnvironmentStorage(GetEnvironmentStorageArgs args) {
+        return getEnvironmentStorage(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Container App Environment Storage.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .name("existing-environment")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
+     *             .name("existing-storage")
+     *             .containerAppEnvironmentId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App` - 2025-07-01
+     * 
+     */
+    public static CompletableFuture<GetEnvironmentStorageResult> getEnvironmentStoragePlain(GetEnvironmentStoragePlainArgs args) {
+        return getEnvironmentStoragePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Container App Environment Storage.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .name("existing-environment")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
+     *             .name("existing-storage")
+     *             .containerAppEnvironmentId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App` - 2025-07-01
+     * 
+     */
+    public static Output<GetEnvironmentStorageResult> getEnvironmentStorage(GetEnvironmentStorageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerapp/getEnvironmentStorage:getEnvironmentStorage", TypeShape.of(GetEnvironmentStorageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container App Environment Storage.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .name("existing-environment")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
+     *             .name("existing-storage")
+     *             .containerAppEnvironmentId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App` - 2025-07-01
+     * 
+     */
+    public static Output<GetEnvironmentStorageResult> getEnvironmentStorage(GetEnvironmentStorageArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:containerapp/getEnvironmentStorage:getEnvironmentStorage", TypeShape.of(GetEnvironmentStorageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container App Environment Storage.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
+     * import com.pulumi.azure.containerapp.inputs.GetEnvironmentStorageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .name("existing-environment")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *         final var exampleGetEnvironmentStorage = ContainerappFunctions.getEnvironmentStorage(GetEnvironmentStorageArgs.builder()
+     *             .name("existing-storage")
+     *             .containerAppEnvironmentId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App` - 2025-07-01
+     * 
+     */
+    public static CompletableFuture<GetEnvironmentStorageResult> getEnvironmentStoragePlain(GetEnvironmentStoragePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:containerapp/getEnvironmentStorage:getEnvironmentStorage", TypeShape.of(GetEnvironmentStorageResult.class), args, Utilities.withVersion(options));
     }
 }

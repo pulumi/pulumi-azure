@@ -91,7 +91,7 @@ import (
 //				Type:              pulumi.String("Vpn"),
 //				VpnType:           pulumi.String("RouteBased"),
 //				ActiveActive:      pulumi.Bool(false),
-//				EnableBgp:         pulumi.Bool(false),
+//				BgpEnabled:        pulumi.Bool(false),
 //				Sku:               pulumi.String("Basic"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
@@ -301,6 +301,8 @@ type VirtualNetworkGatewayConnection struct {
 
 	// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	BgpEnabled pulumi.BoolOutput `pulumi:"bgpEnabled"`
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
@@ -314,7 +316,7 @@ type VirtualNetworkGatewayConnection struct {
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayOutput `pulumi:"egressNatRuleIds"`
-	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrOutput `pulumi:"expressRouteCircuitId"`
@@ -410,6 +412,8 @@ func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 type virtualNetworkGatewayConnectionState struct {
 	// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	BgpEnabled *bool `pulumi:"bgpEnabled"`
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode *string `pulumi:"connectionMode"`
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
@@ -423,7 +427,7 @@ type virtualNetworkGatewayConnectionState struct {
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
-	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
@@ -470,6 +474,8 @@ type virtualNetworkGatewayConnectionState struct {
 type VirtualNetworkGatewayConnectionState struct {
 	// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
 	AuthorizationKey pulumi.StringPtrInput
+	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	BgpEnabled pulumi.BoolPtrInput
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode pulumi.StringPtrInput
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
@@ -483,7 +489,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayInput
-	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableBgp pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrInput
@@ -534,6 +540,8 @@ func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
 type virtualNetworkGatewayConnectionArgs struct {
 	// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	BgpEnabled *bool `pulumi:"bgpEnabled"`
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode *string `pulumi:"connectionMode"`
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
@@ -547,7 +555,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
-	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId *string `pulumi:"expressRouteCircuitId"`
@@ -595,6 +603,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 type VirtualNetworkGatewayConnectionArgs struct {
 	// The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
 	AuthorizationKey pulumi.StringPtrInput
+	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	BgpEnabled pulumi.BoolPtrInput
 	// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 	ConnectionMode pulumi.StringPtrInput
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
@@ -608,7 +618,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	DpdTimeoutSeconds pulumi.IntPtrInput
 	// A list of the egress NAT Rule Ids.
 	EgressNatRuleIds pulumi.StringArrayInput
-	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableBgp pulumi.BoolPtrInput
 	// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
 	ExpressRouteCircuitId pulumi.StringPtrInput
@@ -744,6 +754,11 @@ func (o VirtualNetworkGatewayConnectionOutput) AuthorizationKey() pulumi.StringP
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
 }
 
+// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+func (o VirtualNetworkGatewayConnectionOutput) BgpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolOutput { return v.BgpEnabled }).(pulumi.BoolOutput)
+}
+
 // Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
 func (o VirtualNetworkGatewayConnectionOutput) ConnectionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.ConnectionMode }).(pulumi.StringPtrOutput)
@@ -774,7 +789,7 @@ func (o VirtualNetworkGatewayConnectionOutput) EgressNatRuleIds() pulumi.StringA
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringArrayOutput { return v.EgressNatRuleIds }).(pulumi.StringArrayOutput)
 }
 
-// If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o VirtualNetworkGatewayConnectionOutput) EnableBgp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolOutput { return v.EnableBgp }).(pulumi.BoolOutput)
 }

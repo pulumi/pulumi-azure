@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// The maximum number or percentage of nodes which can be unavailable during the upgrade.
         /// 
-        /// &gt; **Note:** Exactly one of `MaxSurge` or `MaxUnavailable` must be specified.
+        /// &gt; **Note:** Exactly one of `MaxSurge` or `MaxUnavailable` must be specified, unless `Priority` is set to `Spot`. Spot node pools do not support `MaxSurge` or `MaxUnavailable`.
         /// </summary>
         public readonly string? MaxUnavailable;
         /// <summary>

@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2025-07-01
+// * `Microsoft.ContainerService` - 2025-10-01
 func LookupKubernetesCluster(ctx *pulumi.Context, args *LookupKubernetesClusterArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKubernetesClusterResult
@@ -76,6 +76,8 @@ type LookupKubernetesClusterResult struct {
 	AzureActiveDirectoryRoleBasedAccessControls []GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControls"`
 	// Is Azure Policy enabled on this managed Kubernetes Cluster?
 	AzurePolicyEnabled bool `pulumi:"azurePolicyEnabled"`
+	// A `bootstrapProfile` block as documented below.
+	BootstrapProfiles []GetKubernetesClusterBootstrapProfile `pulumi:"bootstrapProfiles"`
 	// Contains the current version of Kubernetes running on the Cluster.
 	CurrentKubernetesVersion string `pulumi:"currentKubernetesVersion"`
 	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
@@ -215,6 +217,13 @@ func (o LookupKubernetesClusterResultOutput) AzureActiveDirectoryRoleBasedAccess
 // Is Azure Policy enabled on this managed Kubernetes Cluster?
 func (o LookupKubernetesClusterResultOutput) AzurePolicyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) bool { return v.AzurePolicyEnabled }).(pulumi.BoolOutput)
+}
+
+// A `bootstrapProfile` block as documented below.
+func (o LookupKubernetesClusterResultOutput) BootstrapProfiles() GetKubernetesClusterBootstrapProfileArrayOutput {
+	return o.ApplyT(func(v LookupKubernetesClusterResult) []GetKubernetesClusterBootstrapProfile {
+		return v.BootstrapProfiles
+	}).(GetKubernetesClusterBootstrapProfileArrayOutput)
 }
 
 // Contains the current version of Kubernetes running on the Cluster.

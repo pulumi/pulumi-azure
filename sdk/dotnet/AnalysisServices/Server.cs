@@ -109,6 +109,8 @@ namespace Pulumi.Azure.AnalysisServices
 
         /// <summary>
         /// Indicates if the Power BI service is allowed to access or not.
+        /// 
+        /// &gt; **Note:** `PowerBiServiceEnabled` is required when `Ipv4FirewallRule` is defined.
         /// </summary>
         [Output("powerBiServiceEnabled")]
         public Output<bool?> PowerBiServiceEnabled { get; private set; } = null!;
@@ -247,6 +249,8 @@ namespace Pulumi.Azure.AnalysisServices
 
         /// <summary>
         /// Indicates if the Power BI service is allowed to access or not.
+        /// 
+        /// &gt; **Note:** `PowerBiServiceEnabled` is required when `Ipv4FirewallRule` is defined.
         /// </summary>
         [Input("powerBiServiceEnabled")]
         public Input<bool>? PowerBiServiceEnabled { get; set; }
@@ -343,6 +347,8 @@ namespace Pulumi.Azure.AnalysisServices
 
         /// <summary>
         /// Indicates if the Power BI service is allowed to access or not.
+        /// 
+        /// &gt; **Note:** `PowerBiServiceEnabled` is required when `Ipv4FirewallRule` is defined.
         /// </summary>
         [Input("powerBiServiceEnabled")]
         public Input<bool>? PowerBiServiceEnabled { get; set; }

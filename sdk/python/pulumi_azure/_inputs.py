@@ -15,6 +15,8 @@ else:
 from . import _utilities
 
 __all__ = [
+    'ProviderEnhancedValidationArgs',
+    'ProviderEnhancedValidationArgsDict',
     'ProviderFeaturesArgs',
     'ProviderFeaturesArgsDict',
     'ProviderFeaturesApiManagementArgs',
@@ -56,6 +58,55 @@ __all__ = [
     'ProviderFeaturesVirtualMachineScaleSetArgs',
     'ProviderFeaturesVirtualMachineScaleSetArgsDict',
 ]
+
+class ProviderEnhancedValidationArgsDict(TypedDict):
+    locations: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+    """
+    resource_providers: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+    """
+
+@pulumi.input_type
+class ProviderEnhancedValidationArgs:
+    def __init__(__self__, *,
+                 locations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_providers: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] locations: Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        :param pulumi.Input[_builtins.bool] resource_providers: Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if resource_providers is not None:
+            pulumi.set(__self__, "resource_providers", resource_providers)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceProviders")
+    def resource_providers(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        """
+        return pulumi.get(self, "resource_providers")
+
+    @resource_providers.setter
+    def resource_providers(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "resource_providers", value)
+
 
 class ProviderFeaturesArgsDict(TypedDict):
     api_management: NotRequired[pulumi.Input['ProviderFeaturesApiManagementArgsDict']]

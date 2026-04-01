@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class JobTemplateContainerLivenessProbe
     {
         /// <summary>
-        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         /// </summary>
         public readonly int? FailureCountThreshold;
         /// <summary>

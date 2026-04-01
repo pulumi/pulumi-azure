@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .audience("foo")
  *             .issuer("https://foo")
- *             .parentId(exampleUserAssignedIdentity.id())
+ *             .userAssignedIdentityId(exampleUserAssignedIdentity.id())
  *             .subject("foo")
  *             .build());
  * 
@@ -129,16 +129,14 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
         return this.name;
     }
     /**
-     * Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * @deprecated
+     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
-    /**
-     * @return Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
@@ -167,6 +165,20 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      */
     public Output<String> subject() {
         return this.subject;
+    }
+    /**
+     * Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * 
+     */
+    @Export(name="userAssignedIdentityId", refs={String.class}, tree="[0]")
+    private Output<String> userAssignedIdentityId;
+
+    /**
+     * @return Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
+     * 
+     */
+    public Output<String> userAssignedIdentityId() {
+        return this.userAssignedIdentityId;
     }
 
     /**

@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     activeActive: false,
- *     enableBgp: false,
+ *     bgpEnabled: false,
  *     sku: "Basic",
  *     ipConfigurations: [{
  *         publicIpAddressId: examplePublicIp.id,
@@ -222,6 +222,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     */
+    declare public readonly bgpEnabled: pulumi.Output<boolean>;
+    /**
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
     declare public readonly connectionMode: pulumi.Output<string | undefined>;
@@ -245,7 +249,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     declare public readonly egressNatRuleIds: pulumi.Output<string[] | undefined>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     declare public readonly enableBgp: pulumi.Output<boolean>;
     /**
@@ -339,6 +343,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
             resourceInputs["authorizationKey"] = state?.authorizationKey;
+            resourceInputs["bgpEnabled"] = state?.bgpEnabled;
             resourceInputs["connectionMode"] = state?.connectionMode;
             resourceInputs["connectionProtocol"] = state?.connectionProtocol;
             resourceInputs["customBgpAddresses"] = state?.customBgpAddresses;
@@ -375,6 +380,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
             resourceInputs["authorizationKey"] = args?.authorizationKey ? pulumi.secret(args.authorizationKey) : undefined;
+            resourceInputs["bgpEnabled"] = args?.bgpEnabled;
             resourceInputs["connectionMode"] = args?.connectionMode;
             resourceInputs["connectionProtocol"] = args?.connectionProtocol;
             resourceInputs["customBgpAddresses"] = args?.customBgpAddresses;
@@ -416,6 +422,10 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     */
+    bgpEnabled?: pulumi.Input<boolean>;
+    /**
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
     connectionMode?: pulumi.Input<string>;
@@ -439,7 +449,7 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableBgp?: pulumi.Input<boolean>;
     /**
@@ -529,6 +539,10 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     */
+    bgpEnabled?: pulumi.Input<boolean>;
+    /**
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
     connectionMode?: pulumi.Input<string>;
@@ -552,7 +566,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableBgp?: pulumi.Input<boolean>;
     /**

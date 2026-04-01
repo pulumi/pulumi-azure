@@ -95,6 +95,8 @@ type Server struct {
 	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates if the Power BI service is allowed to access or not.
+	//
+	// > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
 	PowerBiServiceEnabled pulumi.BoolPtrOutput `pulumi:"powerBiServiceEnabled"`
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
 	QuerypoolConnectionMode pulumi.StringPtrOutput `pulumi:"querypoolConnectionMode"`
@@ -162,6 +164,8 @@ type serverState struct {
 	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Indicates if the Power BI service is allowed to access or not.
+	//
+	// > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
 	PowerBiServiceEnabled *bool `pulumi:"powerBiServiceEnabled"`
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
@@ -187,6 +191,8 @@ type ServerState struct {
 	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Indicates if the Power BI service is allowed to access or not.
+	//
+	// > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
 	PowerBiServiceEnabled pulumi.BoolPtrInput
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
 	QuerypoolConnectionMode pulumi.StringPtrInput
@@ -216,6 +222,8 @@ type serverArgs struct {
 	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Indicates if the Power BI service is allowed to access or not.
+	//
+	// > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
 	PowerBiServiceEnabled *bool `pulumi:"powerBiServiceEnabled"`
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
@@ -240,6 +248,8 @@ type ServerArgs struct {
 	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Indicates if the Power BI service is allowed to access or not.
+	//
+	// > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
 	PowerBiServiceEnabled pulumi.BoolPtrInput
 	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
 	QuerypoolConnectionMode pulumi.StringPtrInput
@@ -364,6 +374,8 @@ func (o ServerOutput) Name() pulumi.StringOutput {
 }
 
 // Indicates if the Power BI service is allowed to access or not.
+//
+// > **Note:** `powerBiServiceEnabled` is required when `ipv4FirewallRule` is defined.
 func (o ServerOutput) PowerBiServiceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.PowerBiServiceEnabled }).(pulumi.BoolPtrOutput)
 }

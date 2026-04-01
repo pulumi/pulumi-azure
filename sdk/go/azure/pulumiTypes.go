@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ProviderEnhancedValidation struct {
+	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+	Locations *bool `pulumi:"locations"`
+	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+	ResourceProviders *bool `pulumi:"resourceProviders"`
+}
+
+// ProviderEnhancedValidationInput is an input type that accepts ProviderEnhancedValidationArgs and ProviderEnhancedValidationOutput values.
+// You can construct a concrete instance of `ProviderEnhancedValidationInput` via:
+//
+//	ProviderEnhancedValidationArgs{...}
+type ProviderEnhancedValidationInput interface {
+	pulumi.Input
+
+	ToProviderEnhancedValidationOutput() ProviderEnhancedValidationOutput
+	ToProviderEnhancedValidationOutputWithContext(context.Context) ProviderEnhancedValidationOutput
+}
+
+type ProviderEnhancedValidationArgs struct {
+	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+	Locations pulumi.BoolPtrInput `pulumi:"locations"`
+	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+	ResourceProviders pulumi.BoolPtrInput `pulumi:"resourceProviders"`
+}
+
+func (ProviderEnhancedValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderEnhancedValidation)(nil)).Elem()
+}
+
+func (i ProviderEnhancedValidationArgs) ToProviderEnhancedValidationOutput() ProviderEnhancedValidationOutput {
+	return i.ToProviderEnhancedValidationOutputWithContext(context.Background())
+}
+
+func (i ProviderEnhancedValidationArgs) ToProviderEnhancedValidationOutputWithContext(ctx context.Context) ProviderEnhancedValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderEnhancedValidationOutput)
+}
+
+func (i ProviderEnhancedValidationArgs) ToProviderEnhancedValidationPtrOutput() ProviderEnhancedValidationPtrOutput {
+	return i.ToProviderEnhancedValidationPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderEnhancedValidationArgs) ToProviderEnhancedValidationPtrOutputWithContext(ctx context.Context) ProviderEnhancedValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderEnhancedValidationOutput).ToProviderEnhancedValidationPtrOutputWithContext(ctx)
+}
+
+// ProviderEnhancedValidationPtrInput is an input type that accepts ProviderEnhancedValidationArgs, ProviderEnhancedValidationPtr and ProviderEnhancedValidationPtrOutput values.
+// You can construct a concrete instance of `ProviderEnhancedValidationPtrInput` via:
+//
+//	        ProviderEnhancedValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderEnhancedValidationPtrInput interface {
+	pulumi.Input
+
+	ToProviderEnhancedValidationPtrOutput() ProviderEnhancedValidationPtrOutput
+	ToProviderEnhancedValidationPtrOutputWithContext(context.Context) ProviderEnhancedValidationPtrOutput
+}
+
+type providerEnhancedValidationPtrType ProviderEnhancedValidationArgs
+
+func ProviderEnhancedValidationPtr(v *ProviderEnhancedValidationArgs) ProviderEnhancedValidationPtrInput {
+	return (*providerEnhancedValidationPtrType)(v)
+}
+
+func (*providerEnhancedValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderEnhancedValidation)(nil)).Elem()
+}
+
+func (i *providerEnhancedValidationPtrType) ToProviderEnhancedValidationPtrOutput() ProviderEnhancedValidationPtrOutput {
+	return i.ToProviderEnhancedValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *providerEnhancedValidationPtrType) ToProviderEnhancedValidationPtrOutputWithContext(ctx context.Context) ProviderEnhancedValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderEnhancedValidationPtrOutput)
+}
+
+type ProviderEnhancedValidationOutput struct{ *pulumi.OutputState }
+
+func (ProviderEnhancedValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderEnhancedValidation)(nil)).Elem()
+}
+
+func (o ProviderEnhancedValidationOutput) ToProviderEnhancedValidationOutput() ProviderEnhancedValidationOutput {
+	return o
+}
+
+func (o ProviderEnhancedValidationOutput) ToProviderEnhancedValidationOutputWithContext(ctx context.Context) ProviderEnhancedValidationOutput {
+	return o
+}
+
+func (o ProviderEnhancedValidationOutput) ToProviderEnhancedValidationPtrOutput() ProviderEnhancedValidationPtrOutput {
+	return o.ToProviderEnhancedValidationPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderEnhancedValidationOutput) ToProviderEnhancedValidationPtrOutputWithContext(ctx context.Context) ProviderEnhancedValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderEnhancedValidation) *ProviderEnhancedValidation {
+		return &v
+	}).(ProviderEnhancedValidationPtrOutput)
+}
+
+// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+func (o ProviderEnhancedValidationOutput) Locations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderEnhancedValidation) *bool { return v.Locations }).(pulumi.BoolPtrOutput)
+}
+
+// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+func (o ProviderEnhancedValidationOutput) ResourceProviders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderEnhancedValidation) *bool { return v.ResourceProviders }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderEnhancedValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderEnhancedValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderEnhancedValidation)(nil)).Elem()
+}
+
+func (o ProviderEnhancedValidationPtrOutput) ToProviderEnhancedValidationPtrOutput() ProviderEnhancedValidationPtrOutput {
+	return o
+}
+
+func (o ProviderEnhancedValidationPtrOutput) ToProviderEnhancedValidationPtrOutputWithContext(ctx context.Context) ProviderEnhancedValidationPtrOutput {
+	return o
+}
+
+func (o ProviderEnhancedValidationPtrOutput) Elem() ProviderEnhancedValidationOutput {
+	return o.ApplyT(func(v *ProviderEnhancedValidation) ProviderEnhancedValidation {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderEnhancedValidation
+		return ret
+	}).(ProviderEnhancedValidationOutput)
+}
+
+// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+func (o ProviderEnhancedValidationPtrOutput) Locations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderEnhancedValidation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Locations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+func (o ProviderEnhancedValidationPtrOutput) ResourceProviders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderEnhancedValidation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceProviders
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeatures struct {
 	ApiManagement            *ProviderFeaturesApiManagement            `pulumi:"apiManagement"`
 	AppConfiguration         *ProviderFeaturesAppConfiguration         `pulumi:"appConfiguration"`
@@ -3323,6 +3479,8 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ScaleToZeroBeforeDeleti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderEnhancedValidationInput)(nil)).Elem(), ProviderEnhancedValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderEnhancedValidationPtrInput)(nil)).Elem(), ProviderEnhancedValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesInput)(nil)).Elem(), ProviderFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPtrInput)(nil)).Elem(), ProviderFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApiManagementInput)(nil)).Elem(), ProviderFeaturesApiManagementArgs{})
@@ -3363,6 +3521,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesVirtualMachinePtrInput)(nil)).Elem(), ProviderFeaturesVirtualMachineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesVirtualMachineScaleSetInput)(nil)).Elem(), ProviderFeaturesVirtualMachineScaleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesVirtualMachineScaleSetPtrInput)(nil)).Elem(), ProviderFeaturesVirtualMachineScaleSetArgs{})
+	pulumi.RegisterOutputType(ProviderEnhancedValidationOutput{})
+	pulumi.RegisterOutputType(ProviderEnhancedValidationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesApiManagementOutput{})

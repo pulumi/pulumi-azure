@@ -483,7 +483,7 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `PaloAltoNetworks.Cloudngfw` - 2025-05-23
+        * `PaloAltoNetworks.Cloudngfw` - 2025-10-08
 
         ## Import
 
@@ -594,7 +594,7 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `PaloAltoNetworks.Cloudngfw` - 2025-05-23
+        * `PaloAltoNetworks.Cloudngfw` - 2025-10-08
 
         ## Import
 

@@ -2541,7 +2541,7 @@ func (o AppTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) AppTemplate
 }
 
 type AppTemplateContainerLivenessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []AppTemplateContainerLivenessProbeHeader `pulumi:"headers"`
@@ -2575,7 +2575,7 @@ type AppTemplateContainerLivenessProbeInput interface {
 }
 
 type AppTemplateContainerLivenessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers AppTemplateContainerLivenessProbeHeaderArrayInput `pulumi:"headers"`
@@ -2648,7 +2648,7 @@ func (o AppTemplateContainerLivenessProbeOutput) ToAppTemplateContainerLivenessP
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 func (o AppTemplateContainerLivenessProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerLivenessProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }
@@ -2825,7 +2825,7 @@ func (o AppTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.IntIn
 }
 
 type AppTemplateContainerReadinessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []AppTemplateContainerReadinessProbeHeader `pulumi:"headers"`
@@ -2859,7 +2859,7 @@ type AppTemplateContainerReadinessProbeInput interface {
 }
 
 type AppTemplateContainerReadinessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers AppTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
@@ -2932,7 +2932,7 @@ func (o AppTemplateContainerReadinessProbeOutput) ToAppTemplateContainerReadines
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
 func (o AppTemplateContainerReadinessProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerReadinessProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }
@@ -3111,7 +3111,7 @@ func (o AppTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.IntI
 }
 
 type AppTemplateContainerStartupProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []AppTemplateContainerStartupProbeHeader `pulumi:"headers"`
@@ -3145,7 +3145,7 @@ type AppTemplateContainerStartupProbeInput interface {
 }
 
 type AppTemplateContainerStartupProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers AppTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
@@ -3218,7 +3218,7 @@ func (o AppTemplateContainerStartupProbeOutput) ToAppTemplateContainerStartupPro
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
 func (o AppTemplateContainerStartupProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerStartupProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }
@@ -7282,7 +7282,7 @@ func (o JobTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) JobTemplate
 }
 
 type JobTemplateContainerLivenessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []JobTemplateContainerLivenessProbeHeader `pulumi:"headers"`
@@ -7316,7 +7316,7 @@ type JobTemplateContainerLivenessProbeInput interface {
 }
 
 type JobTemplateContainerLivenessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers JobTemplateContainerLivenessProbeHeaderArrayInput `pulumi:"headers"`
@@ -7389,7 +7389,7 @@ func (o JobTemplateContainerLivenessProbeOutput) ToJobTemplateContainerLivenessP
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 func (o JobTemplateContainerLivenessProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }
@@ -7566,7 +7566,7 @@ func (o JobTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.IntIn
 }
 
 type JobTemplateContainerReadinessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []JobTemplateContainerReadinessProbeHeader `pulumi:"headers"`
@@ -7600,7 +7600,7 @@ type JobTemplateContainerReadinessProbeInput interface {
 }
 
 type JobTemplateContainerReadinessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers JobTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
@@ -7673,7 +7673,7 @@ func (o JobTemplateContainerReadinessProbeOutput) ToJobTemplateContainerReadines
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
 func (o JobTemplateContainerReadinessProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }
@@ -7852,7 +7852,7 @@ func (o JobTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.IntI
 }
 
 type JobTemplateContainerStartupProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []JobTemplateContainerStartupProbeHeader `pulumi:"headers"`
@@ -7886,7 +7886,7 @@ type JobTemplateContainerStartupProbeInput interface {
 }
 
 type JobTemplateContainerStartupProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers JobTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
@@ -7959,7 +7959,7 @@ func (o JobTemplateContainerStartupProbeOutput) ToJobTemplateContainerStartupPro
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
 func (o JobTemplateContainerStartupProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }

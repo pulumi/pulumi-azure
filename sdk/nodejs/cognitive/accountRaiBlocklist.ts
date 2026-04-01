@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Cognitive Account Rai Blocklist.
+ * Manages a Microsoft Foundry "Guardrails + Controls" blocklist. Microsoft Foundry was previously known as "Cognitive Account".
  *
  * ## Example Usage
  *
@@ -86,6 +86,10 @@ export class AccountRaiBlocklist extends pulumi.CustomResource {
      * The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AccountRaiBlocklist resource with the given unique name, arguments, and options.
@@ -103,6 +107,7 @@ export class AccountRaiBlocklist extends pulumi.CustomResource {
             resourceInputs["cognitiveAccountId"] = state?.cognitiveAccountId;
             resourceInputs["description"] = state?.description;
             resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AccountRaiBlocklistArgs | undefined;
             if (args?.cognitiveAccountId === undefined && !opts.urn) {
@@ -111,6 +116,7 @@ export class AccountRaiBlocklist extends pulumi.CustomResource {
             resourceInputs["cognitiveAccountId"] = args?.cognitiveAccountId;
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountRaiBlocklist.__pulumiType, name, resourceInputs, opts);
@@ -133,6 +139,10 @@ export interface AccountRaiBlocklistState {
      * The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -151,4 +161,8 @@ export interface AccountRaiBlocklistArgs {
      * The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -198,16 +198,20 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is soft delete enable for this Vault? Defaults to `true`.
+     * @deprecated
+     * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
      * 
      */
+    @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
     @Import(name="softDeleteEnabled")
     private @Nullable Output<Boolean> softDeleteEnabled;
 
     /**
-     * @return Is soft delete enable for this Vault? Defaults to `true`.
+     * @deprecated
+     * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
      * 
      */
+    @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
     public Optional<Output<Boolean>> softDeleteEnabled() {
         return Optional.ofNullable(this.softDeleteEnabled);
     }
@@ -523,22 +527,26 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param softDeleteEnabled Is soft delete enable for this Vault? Defaults to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
+         * 
          */
+        @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
         public Builder softDeleteEnabled(@Nullable Output<Boolean> softDeleteEnabled) {
             $.softDeleteEnabled = softDeleteEnabled;
             return this;
         }
 
         /**
-         * @param softDeleteEnabled Is soft delete enable for this Vault? Defaults to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
+         * 
          */
+        @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
         public Builder softDeleteEnabled(Boolean softDeleteEnabled) {
             return softDeleteEnabled(Output.of(softDeleteEnabled));
         }

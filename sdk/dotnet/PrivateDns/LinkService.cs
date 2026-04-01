@@ -155,11 +155,8 @@ namespace Pulumi.Azure.PrivateDns
         [Output("destinationIpAddress")]
         public Output<string?> DestinationIpAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// Should the Private Link Service support the Proxy Protocol?
-        /// </summary>
         [Output("enableProxyProtocol")]
-        public Output<bool?> EnableProxyProtocol { get; private set; } = null!;
+        public Output<bool> EnableProxyProtocol { get; private set; } = null!;
 
         /// <summary>
         /// List of FQDNs allowed for the Private Link Service.
@@ -190,6 +187,12 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Output("natIpConfigurations")]
         public Output<ImmutableArray<Outputs.LinkServiceNatIpConfiguration>> NatIpConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the Private Link Service support the Proxy Protocol? Defaults to `False`.
+        /// </summary>
+        [Output("proxyProtocolEnabled")]
+        public Output<bool> ProxyProtocolEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
@@ -275,9 +278,6 @@ namespace Pulumi.Azure.PrivateDns
         [Input("destinationIpAddress")]
         public Input<string>? DestinationIpAddress { get; set; }
 
-        /// <summary>
-        /// Should the Private Link Service support the Proxy Protocol?
-        /// </summary>
         [Input("enableProxyProtocol")]
         public Input<bool>? EnableProxyProtocol { get; set; }
 
@@ -328,6 +328,12 @@ namespace Pulumi.Azure.PrivateDns
             get => _natIpConfigurations ?? (_natIpConfigurations = new InputList<Inputs.LinkServiceNatIpConfigurationArgs>());
             set => _natIpConfigurations = value;
         }
+
+        /// <summary>
+        /// Should the Private Link Service support the Proxy Protocol? Defaults to `False`.
+        /// </summary>
+        [Input("proxyProtocolEnabled")]
+        public Input<bool>? ProxyProtocolEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
@@ -393,9 +399,6 @@ namespace Pulumi.Azure.PrivateDns
         [Input("destinationIpAddress")]
         public Input<string>? DestinationIpAddress { get; set; }
 
-        /// <summary>
-        /// Should the Private Link Service support the Proxy Protocol?
-        /// </summary>
         [Input("enableProxyProtocol")]
         public Input<bool>? EnableProxyProtocol { get; set; }
 
@@ -446,6 +449,12 @@ namespace Pulumi.Azure.PrivateDns
             get => _natIpConfigurations ?? (_natIpConfigurations = new InputList<Inputs.LinkServiceNatIpConfigurationGetArgs>());
             set => _natIpConfigurations = value;
         }
+
+        /// <summary>
+        /// Should the Private Link Service support the Proxy Protocol? Defaults to `False`.
+        /// </summary>
+        [Input("proxyProtocolEnabled")]
+        public Input<bool>? ProxyProtocolEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.

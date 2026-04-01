@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-07-01
+        /// * `Microsoft.ContainerService` - 2025-10-01
         /// </summary>
         public static Task<GetKubernetesClusterResult> InvokeAsync(GetKubernetesClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? new GetKubernetesClusterArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-07-01
+        /// * `Microsoft.ContainerService` - 2025-10-01
         /// </summary>
         public static Output<GetKubernetesClusterResult> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-07-01
+        /// * `Microsoft.ContainerService` - 2025-10-01
         /// </summary>
         public static Output<GetKubernetesClusterResult> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());
@@ -173,6 +173,10 @@ namespace Pulumi.Azure.ContainerService
         /// Is Azure Policy enabled on this managed Kubernetes Cluster?
         /// </summary>
         public readonly bool AzurePolicyEnabled;
+        /// <summary>
+        /// A `BootstrapProfile` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterBootstrapProfileResult> BootstrapProfiles;
         /// <summary>
         /// Contains the current version of Kubernetes running on the Cluster.
         /// </summary>
@@ -328,6 +332,8 @@ namespace Pulumi.Azure.ContainerService
 
             bool azurePolicyEnabled,
 
+            ImmutableArray<Outputs.GetKubernetesClusterBootstrapProfileResult> bootstrapProfiles,
+
             string currentKubernetesVersion,
 
             string diskEncryptionSetId,
@@ -407,6 +413,7 @@ namespace Pulumi.Azure.ContainerService
             ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             AzureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             AzurePolicyEnabled = azurePolicyEnabled;
+            BootstrapProfiles = bootstrapProfiles;
             CurrentKubernetesVersion = currentKubernetesVersion;
             DiskEncryptionSetId = diskEncryptionSetId;
             DnsPrefix = dnsPrefix;

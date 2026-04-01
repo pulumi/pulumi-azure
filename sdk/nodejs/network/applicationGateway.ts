@@ -162,9 +162,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     declare public readonly customErrorConfigurations: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
     /**
-     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      */
-    declare public readonly enableHttp2: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHttp2: pulumi.Output<boolean>;
     /**
      * Is FIPS enabled on the Application Gateway?
      */
@@ -193,6 +193,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * A `global` block as defined below.
      */
     declare public readonly global: pulumi.Output<outputs.network.ApplicationGatewayGlobal | undefined>;
+    /**
+     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     */
+    declare public readonly http2Enabled: pulumi.Output<boolean>;
     /**
      * One or more `httpListener` blocks as defined below.
      */
@@ -306,6 +310,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["frontendPorts"] = state?.frontendPorts;
             resourceInputs["gatewayIpConfigurations"] = state?.gatewayIpConfigurations;
             resourceInputs["global"] = state?.global;
+            resourceInputs["http2Enabled"] = state?.http2Enabled;
             resourceInputs["httpListeners"] = state?.httpListeners;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["location"] = state?.location;
@@ -369,6 +374,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["frontendPorts"] = args?.frontendPorts;
             resourceInputs["gatewayIpConfigurations"] = args?.gatewayIpConfigurations;
             resourceInputs["global"] = args?.global;
+            resourceInputs["http2Enabled"] = args?.http2Enabled;
             resourceInputs["httpListeners"] = args?.httpListeners;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
@@ -421,7 +427,7 @@ export interface ApplicationGatewayState {
      */
     customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
     /**
-     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableHttp2?: pulumi.Input<boolean>;
     /**
@@ -452,6 +458,10 @@ export interface ApplicationGatewayState {
      * A `global` block as defined below.
      */
     global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal>;
+    /**
+     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     */
+    http2Enabled?: pulumi.Input<boolean>;
     /**
      * One or more `httpListener` blocks as defined below.
      */
@@ -565,7 +575,7 @@ export interface ApplicationGatewayArgs {
      */
     customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
     /**
-     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableHttp2?: pulumi.Input<boolean>;
     /**
@@ -596,6 +606,10 @@ export interface ApplicationGatewayArgs {
      * A `global` block as defined below.
      */
     global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal>;
+    /**
+     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     */
+    http2Enabled?: pulumi.Input<boolean>;
     /**
      * One or more `httpListener` blocks as defined below.
      */

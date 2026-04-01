@@ -159,6 +159,8 @@ type Service struct {
 	CustomerManagedKeyEncryptionComplianceStatus pulumi.StringOutput `pulumi:"customerManagedKeyEncryptionComplianceStatus"`
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnforcementEnabled"`
+	// The endpoint used to connect to this Search Service.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 	//
 	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
@@ -258,6 +260,8 @@ type serviceState struct {
 	CustomerManagedKeyEncryptionComplianceStatus *string `pulumi:"customerManagedKeyEncryptionComplianceStatus"`
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled *bool `pulumi:"customerManagedKeyEnforcementEnabled"`
+	// The endpoint used to connect to this Search Service.
+	Endpoint *string `pulumi:"endpoint"`
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 	//
 	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
@@ -317,6 +321,8 @@ type ServiceState struct {
 	CustomerManagedKeyEncryptionComplianceStatus pulumi.StringPtrInput
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrInput
+	// The endpoint used to connect to this Search Service.
+	Endpoint pulumi.StringPtrInput
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
 	//
 	// > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
@@ -579,6 +585,11 @@ func (o ServiceOutput) CustomerManagedKeyEncryptionComplianceStatus() pulumi.Str
 // Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 func (o ServiceOutput) CustomerManagedKeyEnforcementEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.CustomerManagedKeyEnforcementEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The endpoint used to connect to this Search Service.
+func (o ServiceOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
 // Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.

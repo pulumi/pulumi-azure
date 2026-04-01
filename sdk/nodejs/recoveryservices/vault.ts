@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
- *     softDeleteEnabled: true,
  * });
  * ```
  *
@@ -122,7 +121,7 @@ export class Vault extends pulumi.CustomResource {
      */
     declare public readonly sku: pulumi.Output<string>;
     /**
-     * Is soft delete enable for this Vault? Defaults to `true`.
+     * @deprecated `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
      */
     declare public readonly softDeleteEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -244,7 +243,7 @@ export interface VaultState {
      */
     sku?: pulumi.Input<string>;
     /**
-     * Is soft delete enable for this Vault? Defaults to `true`.
+     * @deprecated `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
      */
     softDeleteEnabled?: pulumi.Input<boolean>;
     /**
@@ -312,7 +311,7 @@ export interface VaultArgs {
      */
     sku: pulumi.Input<string>;
     /**
-     * Is soft delete enable for this Vault? Defaults to `true`.
+     * @deprecated `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
      */
     softDeleteEnabled?: pulumi.Input<boolean>;
     /**

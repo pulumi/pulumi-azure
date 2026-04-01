@@ -132,6 +132,10 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly customerManagedKeyEnforcementEnabled: pulumi.Output<boolean | undefined>;
     /**
+     * The endpoint used to connect to this Search Service.
+     */
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    /**
      * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
      *
      * > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
@@ -225,6 +229,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["authenticationFailureMode"] = state?.authenticationFailureMode;
             resourceInputs["customerManagedKeyEncryptionComplianceStatus"] = state?.customerManagedKeyEncryptionComplianceStatus;
             resourceInputs["customerManagedKeyEnforcementEnabled"] = state?.customerManagedKeyEnforcementEnabled;
+            resourceInputs["endpoint"] = state?.endpoint;
             resourceInputs["hostingMode"] = state?.hostingMode;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
@@ -266,6 +271,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["customerManagedKeyEncryptionComplianceStatus"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["queryKeys"] = undefined /*out*/;
             resourceInputs["secondaryKey"] = undefined /*out*/;
@@ -301,6 +307,10 @@ export interface ServiceState {
      * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
      */
     customerManagedKeyEnforcementEnabled?: pulumi.Input<boolean>;
+    /**
+     * The endpoint used to connect to this Search Service.
+     */
+    endpoint?: pulumi.Input<string>;
     /**
      * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
      *

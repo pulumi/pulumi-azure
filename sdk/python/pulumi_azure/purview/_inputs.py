@@ -24,13 +24,13 @@ __all__ = [
 class AccountIdentityArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+    Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
     """
     identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
 
-    > **Note:** This is required when `type` is set to `UserAssigned`.
+    > **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
     """
     principal_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -49,10 +49,10 @@ class AccountIdentityArgs:
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`.
+               > **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -68,7 +68,7 @@ class AccountIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `SystemAssigned` and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -82,7 +82,7 @@ class AccountIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

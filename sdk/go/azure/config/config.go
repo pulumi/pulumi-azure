@@ -63,6 +63,9 @@ func GetDisableCorrelationRequestId(ctx *pulumi.Context) bool {
 func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableTerraformPartnerId")
 }
+func GetEnhancedValidation(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:enhancedValidation")
+}
 
 // The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
 func GetEnvironment(ctx *pulumi.Context) string {

@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Network
     ///         Type = "Vpn",
     ///         VpnType = "RouteBased",
     ///         ActiveActive = false,
-    ///         EnableBgp = false,
+    ///         BgpEnabled = false,
     ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
@@ -153,6 +153,12 @@ namespace Pulumi.Azure.Network
         public Output<bool> ActiveActive { get; private set; } = null!;
 
         /// <summary>
+        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
+        /// </summary>
+        [Output("bgpEnabled")]
+        public Output<bool> BgpEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Is BGP Route Translation for NAT enabled? Defaults to `False`.
         /// </summary>
         [Output("bgpRouteTranslationForNatEnabled")]
@@ -188,9 +194,6 @@ namespace Pulumi.Azure.Network
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
 
-        /// <summary>
-        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
-        /// </summary>
         [Output("enableBgp")]
         public Output<bool> EnableBgp { get; private set; } = null!;
 
@@ -343,6 +346,12 @@ namespace Pulumi.Azure.Network
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
+        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
+        /// </summary>
+        [Input("bgpEnabled")]
+        public Input<bool>? BgpEnabled { get; set; }
+
+        /// <summary>
         /// Is BGP Route Translation for NAT enabled? Defaults to `False`.
         /// </summary>
         [Input("bgpRouteTranslationForNatEnabled")]
@@ -378,9 +387,6 @@ namespace Pulumi.Azure.Network
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        /// <summary>
-        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
-        /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 
@@ -513,6 +519,12 @@ namespace Pulumi.Azure.Network
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
+        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
+        /// </summary>
+        [Input("bgpEnabled")]
+        public Input<bool>? BgpEnabled { get; set; }
+
+        /// <summary>
         /// Is BGP Route Translation for NAT enabled? Defaults to `False`.
         /// </summary>
         [Input("bgpRouteTranslationForNatEnabled")]
@@ -548,9 +560,6 @@ namespace Pulumi.Azure.Network
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        /// <summary>
-        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
-        /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 

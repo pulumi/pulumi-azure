@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     activeActive: false,
- *     enableBgp: false,
+ *     bgpEnabled: false,
  *     sku: "Basic",
  *     ipConfigurations: [{
  *         name: "vnetGatewayConfig",
@@ -136,6 +136,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     declare public readonly activeActive: pulumi.Output<boolean>;
     /**
+     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     */
+    declare public readonly bgpEnabled: pulumi.Output<boolean>;
+    /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      */
     declare public readonly bgpRouteTranslationForNatEnabled: pulumi.Output<boolean | undefined>;
@@ -160,7 +164,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     declare public readonly enableBgp: pulumi.Output<boolean>;
     /**
@@ -244,6 +248,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayState | undefined;
             resourceInputs["activeActive"] = state?.activeActive;
+            resourceInputs["bgpEnabled"] = state?.bgpEnabled;
             resourceInputs["bgpRouteTranslationForNatEnabled"] = state?.bgpRouteTranslationForNatEnabled;
             resourceInputs["bgpSettings"] = state?.bgpSettings;
             resourceInputs["customRoute"] = state?.customRoute;
@@ -281,6 +286,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["activeActive"] = args?.activeActive;
+            resourceInputs["bgpEnabled"] = args?.bgpEnabled;
             resourceInputs["bgpRouteTranslationForNatEnabled"] = args?.bgpRouteTranslationForNatEnabled;
             resourceInputs["bgpSettings"] = args?.bgpSettings;
             resourceInputs["customRoute"] = args?.customRoute;
@@ -318,6 +324,10 @@ export interface VirtualNetworkGatewayState {
      */
     activeActive?: pulumi.Input<boolean>;
     /**
+     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     */
+    bgpEnabled?: pulumi.Input<boolean>;
+    /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      */
     bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean>;
@@ -342,7 +352,7 @@ export interface VirtualNetworkGatewayState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableBgp?: pulumi.Input<boolean>;
     /**
@@ -422,6 +432,10 @@ export interface VirtualNetworkGatewayArgs {
      */
     activeActive?: pulumi.Input<boolean>;
     /**
+     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     */
+    bgpEnabled?: pulumi.Input<boolean>;
+    /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      */
     bgpRouteTranslationForNatEnabled?: pulumi.Input<boolean>;
@@ -446,7 +460,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      */
     enableBgp?: pulumi.Input<boolean>;
     /**

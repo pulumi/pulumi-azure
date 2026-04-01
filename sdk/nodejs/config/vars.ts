@@ -127,6 +127,14 @@ Object.defineProperty(exports, "disableTerraformPartnerId", {
     enumerable: true,
 });
 
+export declare const enhancedValidation: outputs.config.EnhancedValidation | undefined;
+Object.defineProperty(exports, "enhancedValidation", {
+    get() {
+        return __config.getObject<outputs.config.EnhancedValidation>("enhancedValidation");
+    },
+    enumerable: true,
+});
+
 /**
  * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
  */

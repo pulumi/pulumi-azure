@@ -272,18 +272,16 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customErrorConfigurations);
     }
     /**
-     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * @deprecated
+     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="enableHttp2", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableHttp2;
+    private Output<Boolean> enableHttp2;
 
-    /**
-     * @return Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> enableHttp2() {
-        return Codegen.optional(this.enableHttp2);
+    public Output<Boolean> enableHttp2() {
+        return this.enableHttp2;
     }
     /**
      * Is FIPS enabled on the Application Gateway?
@@ -382,6 +380,20 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ApplicationGatewayGlobal>> global() {
         return Codegen.optional(this.global);
+    }
+    /**
+     * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * 
+     */
+    @Export(name="http2Enabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> http2Enabled;
+
+    /**
+     * @return Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> http2Enabled() {
+        return this.http2Enabled;
     }
     /**
      * One or more `httpListener` blocks as defined below.

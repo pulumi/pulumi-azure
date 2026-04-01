@@ -11,11 +11,12 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Cognitive Account Rai Blocklist.
+ * Manages a Microsoft Foundry &#34;Guardrails + Controls&#34; blocklist. Microsoft Foundry was previously known as &#34;Cognitive Account&#34;.
  * 
  * ## Example Usage
  * 
@@ -128,6 +129,20 @@ public class AccountRaiBlocklist extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * A mapping of tags assigned to the resource.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A mapping of tags assigned to the resource.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
     }
 
     /**

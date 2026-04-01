@@ -125,11 +125,8 @@ namespace Pulumi.Azure.Network
         [Output("authorizationKey")]
         public Output<string?> AuthorizationKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Is Internet security enabled for this Express Route Connection?
-        /// </summary>
         [Output("enableInternetSecurity")]
-        public Output<bool?> EnableInternetSecurity { get; private set; } = null!;
+        public Output<bool> EnableInternetSecurity { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
@@ -148,6 +145,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("expressRouteGatewayId")]
         public Output<string> ExpressRouteGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// Is Internet security enabled for this Express Route Connection? Defaults to `False`.
+        /// </summary>
+        [Output("internetSecurityEnabled")]
+        public Output<bool> InternetSecurityEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
@@ -222,9 +225,6 @@ namespace Pulumi.Azure.Network
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
 
-        /// <summary>
-        /// Is Internet security enabled for this Express Route Connection?
-        /// </summary>
         [Input("enableInternetSecurity")]
         public Input<bool>? EnableInternetSecurity { get; set; }
 
@@ -245,6 +245,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("expressRouteGatewayId", required: true)]
         public Input<string> ExpressRouteGatewayId { get; set; } = null!;
+
+        /// <summary>
+        /// Is Internet security enabled for this Express Route Connection? Defaults to `False`.
+        /// </summary>
+        [Input("internetSecurityEnabled")]
+        public Input<bool>? InternetSecurityEnabled { get; set; }
 
         /// <summary>
         /// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
@@ -281,9 +287,6 @@ namespace Pulumi.Azure.Network
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
 
-        /// <summary>
-        /// Is Internet security enabled for this Express Route Connection?
-        /// </summary>
         [Input("enableInternetSecurity")]
         public Input<bool>? EnableInternetSecurity { get; set; }
 
@@ -304,6 +307,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("expressRouteGatewayId")]
         public Input<string>? ExpressRouteGatewayId { get; set; }
+
+        /// <summary>
+        /// Is Internet security enabled for this Express Route Connection? Defaults to `False`.
+        /// </summary>
+        [Input("internetSecurityEnabled")]
+        public Input<bool>? InternetSecurityEnabled { get; set; }
 
         /// <summary>
         /// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.

@@ -133,7 +133,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
     /**
-     * @deprecated `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
     declare public readonly metrics: pulumi.Output<outputs.monitoring.DiagnosticSettingMetric[]>;
     /**
@@ -248,7 +248,7 @@ export interface DiagnosticSettingState {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * @deprecated `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
     metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
     /**
@@ -318,7 +318,7 @@ export interface DiagnosticSettingArgs {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * @deprecated `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
+     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
     metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
     /**

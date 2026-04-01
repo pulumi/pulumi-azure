@@ -363,7 +363,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-01-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args) {
@@ -412,7 +412,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-01-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args) {
@@ -461,7 +461,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-01-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOptions options) {
@@ -510,7 +510,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-01-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOutputOptions options) {
@@ -559,7 +559,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2024-01-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args, InvokeOptions options) {

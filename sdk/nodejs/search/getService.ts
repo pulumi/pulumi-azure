@@ -63,6 +63,10 @@ export interface GetServiceResult {
      */
     readonly customerManagedKeyEncryptionComplianceStatus: string;
     /**
+     * The endpoint used to connect to this Search Service.
+     */
+    readonly endpoint: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

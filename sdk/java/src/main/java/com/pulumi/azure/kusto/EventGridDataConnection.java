@@ -102,8 +102,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("eventhub-example")
- *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(example.name())
+ *             .namespaceId(exampleEventHubNamespace.id())
  *             .partitionCount(1)
  *             .messageRetention(1)
  *             .build());

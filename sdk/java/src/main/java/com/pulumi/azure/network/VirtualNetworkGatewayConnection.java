@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .type("Vpn")
  *             .vpnType("RouteBased")
  *             .activeActive(false)
- *             .enableBgp(false)
+ *             .bgpEnabled(false)
  *             .sku("Basic")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .publicIpAddressId(examplePublicIp.id())
@@ -307,6 +307,20 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.authorizationKey);
     }
     /**
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     * 
+     */
+    @Export(name="bgpEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> bgpEnabled;
+
+    /**
+     * @return If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> bgpEnabled() {
+        return this.bgpEnabled;
+    }
+    /**
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      * 
      */
@@ -383,16 +397,14 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.egressNatRuleIds);
     }
     /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
+     * @deprecated
+     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="enableBgp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableBgp;
 
-    /**
-     * @return If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
-     * 
-     */
     public Output<Boolean> enableBgp() {
         return this.enableBgp;
     }

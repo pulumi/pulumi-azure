@@ -169,18 +169,22 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+     * Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
      * 
      * &gt; **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+     * 
+     * &gt; **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
      * 
      */
     @Import(name="networkPlugin", required=true)
     private Output<String> networkPlugin;
 
     /**
-     * @return Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+     * @return Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
      * 
      * &gt; **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+     * 
+     * &gt; **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
      * 
      */
     public Output<String> networkPlugin() {
@@ -253,14 +257,18 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+     * The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+     * 
+     * &gt; **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
      * 
      */
     @Import(name="podCidr")
     private @Nullable Output<String> podCidr;
 
     /**
-     * @return The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+     * @return The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+     * 
+     * &gt; **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> podCidr() {
@@ -268,14 +276,18 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+     * 
+     * &gt; **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
      * 
      */
     @Import(name="podCidrs")
     private @Nullable Output<List<String>> podCidrs;
 
     /**
-     * @return A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * @return A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+     * 
+     * &gt; **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> podCidrs() {
@@ -566,9 +578,11 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param networkPlugin Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+         * @param networkPlugin Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
          * 
          * &gt; **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+         * 
+         * &gt; **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
          * 
          * @return builder
          * 
@@ -579,9 +593,11 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param networkPlugin Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+         * @param networkPlugin Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`
          * 
          * &gt; **Note:** When `networkPlugin` is set to `azure` - the `podCidr` field must not be set, unless specifying `networkPluginMode` to `overlay`.
+         * 
+         * &gt; **Note:** Changing `networkPlugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `networkPluginMode` set to `overlay`.
          * 
          * @return builder
          * 
@@ -674,7 +690,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param podCidr The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+         * @param podCidr The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+         * 
+         * &gt; **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -685,7 +703,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param podCidr The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
+         * @param podCidr The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`.
+         * 
+         * &gt; **Note:** Once `podCidr` has been set, changing it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -695,7 +715,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+         * 
+         * &gt; **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -706,7 +728,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+         * 
+         * &gt; **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -716,7 +740,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * @param podCidrs A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected.
+         * 
+         * &gt; **Note:** Once `podCidrs` has been set, changing it forces a new resource to be created.
          * 
          * @return builder
          * 

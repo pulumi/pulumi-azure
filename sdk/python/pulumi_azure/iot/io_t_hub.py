@@ -758,8 +758,7 @@ class IoTHub(pulumi.CustomResource):
             sku="Basic")
         example_event_hub = azure.eventhub.EventHub("example",
             name="example-eventhub",
-            resource_group_name=example.name,
-            namespace_name=example_event_hub_namespace.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=1)
         example_authorization_rule = azure.eventhub.AuthorizationRule("example",
@@ -903,8 +902,7 @@ class IoTHub(pulumi.CustomResource):
             sku="Basic")
         example_event_hub = azure.eventhub.EventHub("example",
             name="example-eventhub",
-            resource_group_name=example.name,
-            namespace_name=example_event_hub_namespace.name,
+            namespace_id=example_event_hub_namespace.id,
             partition_count=2,
             message_retention=1)
         example_authorization_rule = azure.eventhub.AuthorizationRule("example",

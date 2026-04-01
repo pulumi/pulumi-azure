@@ -55,6 +55,11 @@ export const getEnvironmentCertificate: typeof import("./getEnvironmentCertifica
 export const getEnvironmentCertificateOutput: typeof import("./getEnvironmentCertificate").getEnvironmentCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentCertificate","getEnvironmentCertificateOutput"], () => require("./getEnvironmentCertificate"));
 
+export { GetEnvironmentStorageArgs, GetEnvironmentStorageResult, GetEnvironmentStorageOutputArgs } from "./getEnvironmentStorage";
+export const getEnvironmentStorage: typeof import("./getEnvironmentStorage").getEnvironmentStorage = null as any;
+export const getEnvironmentStorageOutput: typeof import("./getEnvironmentStorage").getEnvironmentStorageOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentStorage","getEnvironmentStorageOutput"], () => require("./getEnvironmentStorage"));
+
 export { JobArgs, JobState } from "./job";
 export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;

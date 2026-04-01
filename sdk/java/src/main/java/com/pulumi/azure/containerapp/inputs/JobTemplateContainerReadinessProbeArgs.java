@@ -20,14 +20,14 @@ public final class JobTemplateContainerReadinessProbeArgs extends com.pulumi.res
     public static final JobTemplateContainerReadinessProbeArgs Empty = new JobTemplateContainerReadinessProbeArgs();
 
     /**
-     * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+     * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
      * 
      */
     @Import(name="failureCountThreshold")
     private @Nullable Output<Integer> failureCountThreshold;
 
     /**
-     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
      * 
      */
     public Optional<Output<Integer>> failureCountThreshold() {
@@ -203,7 +203,7 @@ public final class JobTemplateContainerReadinessProbeArgs extends com.pulumi.res
         }
 
         /**
-         * @param failureCountThreshold The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * @param failureCountThreshold The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class JobTemplateContainerReadinessProbeArgs extends com.pulumi.res
         }
 
         /**
-         * @param failureCountThreshold The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * @param failureCountThreshold The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
          * 
          * @return builder
          * 

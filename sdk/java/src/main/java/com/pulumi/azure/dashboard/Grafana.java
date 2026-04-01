@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .name("example-dg")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
- *             .grafanaMajorVersion("11")
+ *             .grafanaMajorVersion("12")
  *             .apiKeyEnabled(true)
  *             .deterministicOutboundIpEnabled(true)
  *             .publicNetworkAccessEnabled(false)
@@ -163,14 +163,14 @@ public class Grafana extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Which major version of Grafana to deploy. Possible values are `10`, `11`.
+     * Which major version of Grafana to deploy. Possible values are `11`, `12`.
      * 
      */
     @Export(name="grafanaMajorVersion", refs={String.class}, tree="[0]")
     private Output<String> grafanaMajorVersion;
 
     /**
-     * @return Which major version of Grafana to deploy. Possible values are `10`, `11`.
+     * @return Which major version of Grafana to deploy. Possible values are `11`, `12`.
      * 
      */
     public Output<String> grafanaMajorVersion() {

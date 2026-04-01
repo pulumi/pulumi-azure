@@ -240,6 +240,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerManagedKeyEnforcementEnabled);
     }
     /**
+     * The endpoint used to connect to this Search Service.
+     * 
+     */
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
+    private Output<String> endpoint;
+
+    /**
+     * @return The endpoint used to connect to this Search Service.
+     * 
+     */
+    public Output<String> endpoint() {
+        return this.endpoint;
+    }
+    /**
      * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `HighDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
      * 
      * &gt; **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
