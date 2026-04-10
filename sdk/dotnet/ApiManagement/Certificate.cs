@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Name = "example-cert",
     ///         ApiManagementName = exampleService.Name,
     ///         ResourceGroupName = example.Name,
-    ///         Data = Std.Filebase64.Invoke(new()
+    ///         Data = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             Contents = Std.Index.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "example_cert.pfx",
     ///             }).Apply(invoke =&gt; invoke.Result),

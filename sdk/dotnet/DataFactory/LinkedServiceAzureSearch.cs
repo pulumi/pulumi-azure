@@ -48,7 +48,7 @@ namespace Pulumi.Azure.DataFactory
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
-    ///         Url = Std.Join.Invoke(new()
+    ///         Url = Std.Index.Join.Invoke(new()
     ///         {
     ///             Separator = "",
     ///             Input = new[]

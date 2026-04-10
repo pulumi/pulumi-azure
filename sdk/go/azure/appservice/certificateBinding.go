@@ -104,7 +104,8 @@ import (
 //					Input:  exampleCNameRecord.Fqdn,
 //					Cutset: pulumi.String("."),
 //				}, nil).ApplyT(func(invoke std.TrimResult) (*string, error) {
-//					return invoke.Result, nil
+//					val := invoke.Result
+//					return &val, nil
 //				}).(pulumi.StringPtrOutput)),
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,

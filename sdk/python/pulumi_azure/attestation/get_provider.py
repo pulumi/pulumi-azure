@@ -127,7 +127,7 @@ def get_provider(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azurerm as azurerm
 
-    example = azurerm.index.attestation(name="example-attestationprovider",
+    example = azurerm.attestation(name="example-attestationprovider",
         resource_group_name="example-resource-group")
     pulumi.export("id", example["id"])
     ```
@@ -169,7 +169,7 @@ def get_provider_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     import pulumi
     import pulumi_azurerm as azurerm
 
-    example = azurerm.index.attestation(name="example-attestationprovider",
+    example = azurerm.attestation(name="example-attestationprovider",
         resource_group_name="example-resource-group")
     pulumi.export("id", example["id"])
     ```

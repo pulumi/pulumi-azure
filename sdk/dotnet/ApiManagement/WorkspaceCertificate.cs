@@ -50,7 +50,7 @@ namespace Pulumi.Azure.ApiManagement
     ///     {
     ///         Name = "example-cert",
     ///         ApiManagementWorkspaceId = exampleWorkspace.Id,
-    ///         CertificateDataBase64 = Std.Filebase64.Invoke(new()
+    ///         CertificateDataBase64 = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),

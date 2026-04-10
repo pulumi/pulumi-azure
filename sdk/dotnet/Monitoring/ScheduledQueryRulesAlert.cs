@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Monitoring
     ///         DataSourceId = exampleInsights.Id,
     ///         Description = "Query may access data within multiple resources",
     ///         Enabled = true,
-    ///         Query = Std.Format.Invoke(new()
+    ///         Query = Std.Index.Format.Invoke(new()
     ///         {
     ///             Input = @"let a=requests
     ///   | where toint(resultCode) &gt;= 500

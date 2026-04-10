@@ -42,7 +42,7 @@ namespace Pulumi.Azure.LogicApps
     ///         Name = "example-ias",
     ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///         Content = Std.File.Invoke(new()
+    ///         Content = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "testdata/integration_account_schema_content.xsd",
     ///         }).Apply(invoke =&gt; invoke.Result),

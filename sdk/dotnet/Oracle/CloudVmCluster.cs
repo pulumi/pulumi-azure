@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Oracle
     ///         }).ToList(),
     ///         SshPublicKeys = new[]
     ///         {
-    ///             Std.File.Invoke(new()
+    ///             Std.Index.File.Invoke(new()
     ///             {
     ///                 Input = "~/.ssh/id_rsa.pub",
     ///             }).Apply(invoke =&gt; invoke.Result),

@@ -213,7 +213,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
             name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
-        example_uuid = random.index.Uuid("example")
+        example_uuid = random.Uuid("example")
         example_private_link_association = azure.management.PrivateLinkAssociation("example",
             name=example_uuid["result"],
             management_group_id=example_azurerm_management_group["id"],
@@ -271,7 +271,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
             name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
-        example_uuid = random.index.Uuid("example")
+        example_uuid = random.Uuid("example")
         example_private_link_association = azure.management.PrivateLinkAssociation("example",
             name=example_uuid["result"],
             management_group_id=example_azurerm_management_group["id"],

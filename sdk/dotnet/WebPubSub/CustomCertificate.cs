@@ -104,7 +104,7 @@ namespace Pulumi.Azure.WebPubSub
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             Contents = Std.Index.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "certificate-to-import.pfx",
     ///             }).Apply(invoke =&gt; invoke.Result),

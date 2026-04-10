@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Pim
     ///         Name = "Reader",
     ///     });
     /// 
-    ///     var exampleStatic = new Time.Static("example");
+    ///     var exampleStatic = new Time.Index.Static("example");
     /// 
     ///     var exampleEligibleRoleAssignment = new Azure.Pim.EligibleRoleAssignment("example", new()
     ///     {
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Pim
     ///         Name = "Example-Management-Group",
     ///     });
     /// 
-    ///     var exampleStatic = new Time.Static("example");
+    ///     var exampleStatic = new Time.Index.Static("example");
     /// 
     ///     var exampleEligibleRoleAssignment = new Azure.Pim.EligibleRoleAssignment("example", new()
     ///     {

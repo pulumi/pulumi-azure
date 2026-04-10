@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getSecret({
  *     name: __key,
  *     keyVaultId: existing.id,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
@@ -82,7 +82,7 @@ export interface GetSecretsResult {
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getSecret({
  *     name: __key,
  *     keyVaultId: existing.id,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsResult> {

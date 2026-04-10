@@ -212,7 +212,7 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.index.Id("server",
+        server = random.Id("server",
             keepers={
                 aziId: 1,
             },
@@ -281,7 +281,7 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        server = random.index.Id("server",
+        server = random.Id("server",
             keepers={
                 aziId: 1,
             },

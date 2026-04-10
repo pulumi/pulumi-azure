@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Cdn
     ///         Name = "example-customDomain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
-    ///         HostName = Std.Join.Invoke(new()
+    ///         HostName = Std.Index.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]

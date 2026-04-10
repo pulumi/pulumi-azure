@@ -185,7 +185,7 @@ class CustomCertificate(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_web_pubsub_service = azurerm.index.WebPubsubService("example",
+        example_web_pubsub_service = azurerm.WebPubsubService("example",
             name=example-webpubsub,
             location=test_azurerm_resource_group.location,
             resource_group_name=test_azurerm_resource_group.name,
@@ -291,7 +291,7 @@ class CustomCertificate(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_web_pubsub_service = azurerm.index.WebPubsubService("example",
+        example_web_pubsub_service = azurerm.WebPubsubService("example",
             name=example-webpubsub,
             location=test_azurerm_resource_group.location,
             resource_group_name=test_azurerm_resource_group.name,

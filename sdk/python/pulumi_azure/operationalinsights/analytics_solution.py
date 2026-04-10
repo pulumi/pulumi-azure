@@ -282,7 +282,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="k8s-log-analytics-test",
             location="West Europe")
-        workspace = random.index.Id("workspace",
+        workspace = random.Id("workspace",
             keepers={
                 groupName: example.name,
             },
@@ -349,7 +349,7 @@ class AnalyticsSolution(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="k8s-log-analytics-test",
             location="West Europe")
-        workspace = random.index.Id("workspace",
+        workspace = random.Id("workspace",
             keepers={
                 groupName: example.name,
             },

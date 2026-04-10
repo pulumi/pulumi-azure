@@ -374,7 +374,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_sql_server = azurerm.index.SqlServer("example",
+        example_sql_server = azurerm.SqlServer("example",
             name=mysqlserver,
             resource_group_name=example.name,
             location=example.location,
@@ -455,7 +455,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_sql_server = azurerm.index.SqlServer("example",
+        example_sql_server = azurerm.SqlServer("example",
             name=mysqlserver,
             resource_group_name=example.name,
             location=example.location,

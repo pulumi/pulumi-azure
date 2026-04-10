@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Name = "example-policy-fragment",
     ///         ApiManagementWorkspaceId = exampleWorkspace.Id,
     ///         XmlFormat = "xml",
-    ///         XmlContent = Std.File.Invoke(new()
+    ///         XmlContent = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "policy-fragment-1.xml",
     ///         }).Apply(invoke =&gt; invoke.Result),

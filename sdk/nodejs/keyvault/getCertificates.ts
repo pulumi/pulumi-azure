@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getCertificate({
  *     name: __key,
  *     keyVaultId: existing.id,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getCertificates(args: GetCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatesResult> {
@@ -91,7 +91,7 @@ export interface GetCertificatesResult {
  * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getCertificate({
  *     name: __key,
  *     keyVaultId: existing.id,
- * }) })));
+ * }) }), {}));
  * ```
  */
 export function getCertificatesOutput(args: GetCertificatesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificatesResult> {

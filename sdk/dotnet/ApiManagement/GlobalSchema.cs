@@ -45,7 +45,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ApiManagementName = exampleService.Name,
     ///         ResourceGroupName = example.Name,
     ///         Type = "xml",
-    ///         Value = Std.File.Invoke(new()
+    ///         Value = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "api_management_api_schema.xml",
     ///         }).Apply(invoke =&gt; invoke.Result),

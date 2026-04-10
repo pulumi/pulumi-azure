@@ -81,7 +81,7 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("example", new()
     ///     {
-    ///         Hostname = Std.Trim.Invoke(new()
+    ///         Hostname = Std.Index.Trim.Invoke(new()
     ///         {
     ///             Input = exampleCNameRecord.Fqdn,
     ///             Cutset = ".",

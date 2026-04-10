@@ -39,12 +39,12 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleApplication = new AzureAD.Application("example", new()
+    ///     var exampleApplication = new AzureAD.Index.Application("example", new()
     ///     {
     ///         DisplayName = "acctestam-example",
     ///     });
     /// 
-    ///     var exampleApplicationPassword = new AzureAD.ApplicationPassword("example", new()
+    ///     var exampleApplicationPassword = new AzureAD.Index.ApplicationPassword("example", new()
     ///     {
     ///         ApplicationObjectId = exampleApplication.ObjectId,
     ///         EndDateRelative = "36h",

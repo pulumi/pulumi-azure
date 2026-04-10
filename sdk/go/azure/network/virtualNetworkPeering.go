@@ -144,7 +144,8 @@ import (
 // Triggers: pulumi.StringMap{
 // "remote_address_space": pulumi.String(example_2.AddressSpaces.ApplyT(func(addressSpaces interface{}) (std.JoinResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // },
 // })
@@ -166,7 +167,8 @@ import (
 // Triggers: pulumi.StringMap{
 // "remote_address_space": pulumi.String(example_1.AddressSpaces.ApplyT(func(addressSpaces interface{}) (std.JoinResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // },
 // })

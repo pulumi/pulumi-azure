@@ -109,7 +109,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         Name = "example-resource",
     ///         Location = exampleAzurermResourceGroup.Location,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-    ///         DefaultIdentityType = Std.Join.Invoke(new()
+    ///         DefaultIdentityType = Std.Index.Join.Invoke(new()
     ///         {
     ///             Separator = "=",
     ///             Input = new[]

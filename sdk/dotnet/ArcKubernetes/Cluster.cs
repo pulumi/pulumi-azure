@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ArcKubernetes
     ///         Name = "example-akcc",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
-    ///         AgentPublicKeyCertificate = Std.Filebase64.Invoke(new()
+    ///         AgentPublicKeyCertificate = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testdata/public.cer",
     ///         }).Apply(invoke =&gt; invoke.Result),

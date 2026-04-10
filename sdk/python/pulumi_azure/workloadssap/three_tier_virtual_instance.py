@@ -445,10 +445,10 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_tls as tls
 
-        example_private_key = tls.index.PrivateKey("example",
+        example_private_key = tls.PrivateKey("example",
             algorithm=RSA,
             rsa_bits=4096)
-        example = tls.index.public_key(private_key_pem=example_private_key["privateKeyPem"])
+        example = tls.public_key(private_key_pem=example_private_key["privateKeyPem"])
         current = azure.core.get_subscription()
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -731,10 +731,10 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_tls as tls
 
-        example_private_key = tls.index.PrivateKey("example",
+        example_private_key = tls.PrivateKey("example",
             algorithm=RSA,
             rsa_bits=4096)
-        example = tls.index.public_key(private_key_pem=example_private_key["privateKeyPem"])
+        example = tls.public_key(private_key_pem=example_private_key["privateKeyPem"])
         current = azure.core.get_subscription()
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",

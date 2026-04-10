@@ -30,7 +30,7 @@ namespace Pulumi.Azure.KeyVault
         ///         KeyVaultId = existing.Id,
         ///     });
         /// 
-        ///     var exampleGetCertificate = Std.Toset.Invoke(new()
+        ///     var exampleGetCertificate = Std.Index.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getCertificatesResult =&gt; getCertificatesResult.Names),
         ///     }).Apply(invoke =&gt; );
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.KeyVault
         ///         KeyVaultId = existing.Id,
         ///     });
         /// 
-        ///     var exampleGetCertificate = Std.Toset.Invoke(new()
+        ///     var exampleGetCertificate = Std.Index.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getCertificatesResult =&gt; getCertificatesResult.Names),
         ///     }).Apply(invoke =&gt; );
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.KeyVault
         ///         KeyVaultId = existing.Id,
         ///     });
         /// 
-        ///     var exampleGetCertificate = Std.Toset.Invoke(new()
+        ///     var exampleGetCertificate = Std.Index.Toset.Invoke(new()
         ///     {
         ///         Input = example.Apply(getCertificatesResult =&gt; getCertificatesResult.Names),
         ///     }).Apply(invoke =&gt; );

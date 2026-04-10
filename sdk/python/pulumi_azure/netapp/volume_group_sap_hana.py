@@ -281,7 +281,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example = random.index.String("example",
+        example = random.String("example",
             length=12,
             special=True)
         admin_username = "exampleadmin"
@@ -708,7 +708,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example = random.index.String("example",
+        example = random.String("example",
             length=12,
             special=True)
         admin_username = "exampleadmin"

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ResourceGroupName = example.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
     ///         SchemaId = "example-schema",
     ///         ContentType = "application/vnd.ms-azure-apim.xsd+xml",
-    ///         Value = Std.File.Invoke(new()
+    ///         Value = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "api_management_api_schema.xml",
     ///         }).Apply(invoke =&gt; invoke.Result),
