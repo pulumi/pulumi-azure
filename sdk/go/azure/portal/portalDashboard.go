@@ -218,7 +218,7 @@ import (
 //				Tags: map[string]interface{}{
 //					"source": "terraform",
 //				},
-//				DashboardProperties: dash_template.Rendered,
+//				DashboardProperties: dash_template.(map[string]interface{})["rendered"],
 //			})
 //			if err != nil {
 //				return err

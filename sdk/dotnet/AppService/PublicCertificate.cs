@@ -55,7 +55,7 @@ namespace Pulumi.Azure.AppService
     ///         AppServiceName = exampleAppService.Name,
     ///         CertificateName = "example-public-certificate",
     ///         CertificateLocation = "Unknown",
-    ///         Blob = Std.Filebase64.Invoke(new()
+    ///         Blob = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "app_service_public_certificate.cer",
     ///         }).Apply(invoke =&gt; invoke.Result),

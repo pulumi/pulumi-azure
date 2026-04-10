@@ -84,7 +84,7 @@ import (
 //					return &example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Server: exampleWorkspace.ConnectivityEndpoints.ApplyT(func(connectivityEndpoints map[string]string) (string, error) {
-//					return connectivityEndpoints.SqlOnDemand, nil
+//					return connectivityEndpoints["sqlOnDemand"], nil
 //				}).(pulumi.StringOutput),
 //				User:     exampleWorkspace.SqlAdministratorLogin,
 //				Password: exampleWorkspace.SqlAdministratorLoginPassword,

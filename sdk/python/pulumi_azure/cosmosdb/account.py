@@ -1263,7 +1263,7 @@ class Account(pulumi.CustomResource):
         rg = azure.core.ResourceGroup("rg",
             name="sample-rg",
             location="westus")
-        ri = random.index.Integer("ri",
+        ri = random.Integer("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
@@ -1393,7 +1393,7 @@ class Account(pulumi.CustomResource):
         rg = azure.core.ResourceGroup("rg",
             name="sample-rg",
             location="westus")
-        ri = random.index.Integer("ri",
+        ri = random.Integer("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",

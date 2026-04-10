@@ -242,7 +242,8 @@ import (
 // Triggers: pulumi.StringMap{
 // "source_port_ranges": pulumi.String(exampleNetworkManagerAdminRule.SourcePortRanges.ApplyT(func(sourcePortRanges interface{}) (std.JoinResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // },
 // }, pulumi.DependsOn([]pulumi.Resource{

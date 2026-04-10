@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Cdn
     ///         Name = "contoso-custom-domain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
-    ///         HostName = Std.Join.Invoke(new()
+    ///         HostName = Std.Index.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Cdn
     ///         Name = "fabrikam-custom-domain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
-    ///         HostName = Std.Join.Invoke(new()
+    ///         HostName = Std.Index.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]

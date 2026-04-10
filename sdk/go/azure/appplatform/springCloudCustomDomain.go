@@ -82,7 +82,8 @@ import (
 //						exampleCNameRecord.ZoneName,
 //					},
 //				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					return invoke.Result, nil
+//					val := invoke.Result
+//					return &val, nil
 //				}).(pulumi.StringPtrOutput)),
 //				SpringCloudAppId: exampleSpringCloudApp.ID(),
 //			})

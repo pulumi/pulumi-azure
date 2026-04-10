@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Batch
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount2.Name,
-    ///         BatchCertificate = Std.Filebase64.Invoke(new()
+    ///         BatchCertificate = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "certificate.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),

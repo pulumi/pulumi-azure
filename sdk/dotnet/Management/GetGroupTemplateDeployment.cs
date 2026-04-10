@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Management
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["id"] = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.Id),
-        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         ["exampleOutput"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
         ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Management
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["id"] = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.Id),
-        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         ["exampleOutput"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
         ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Management
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["id"] = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.Id),
-        ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
+        ///         ["exampleOutput"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
         ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),

@@ -101,11 +101,11 @@ namespace Pulumi.Azure.Management
     ///         Name = "example",
     ///         Location = "West Europe",
     ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         TemplateContent = Std.File.Invoke(new()
+    ///         TemplateContent = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "templates/example-deploy-template.json",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         ParametersContent = Std.File.Invoke(new()
+    ///         ParametersContent = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "templates/example-deploy-params.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

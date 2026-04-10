@@ -119,7 +119,7 @@ import (
 //			}
 //			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "example_custom_https_0", &frontdoor.CustomHttpsConfigurationArgs{
 //				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
-//					return frontendEndpointsMap.ExampleFrontendEndpoint1, nil
+//					return frontendEndpointsMap["exampleFrontendEndpoint1"], nil
 //				}).(pulumi.StringOutput),
 //				CustomHttpsProvisioningEnabled: pulumi.Bool(false),
 //			})
@@ -128,7 +128,7 @@ import (
 //			}
 //			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "example_custom_https_1", &frontdoor.CustomHttpsConfigurationArgs{
 //				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
-//					return frontendEndpointsMap.ExampleFrontendEndpoint2, nil
+//					return frontendEndpointsMap["exampleFrontendEndpoint2"], nil
 //				}).(pulumi.StringOutput),
 //				CustomHttpsProvisioningEnabled: pulumi.Bool(true),
 //				CustomHttpsConfiguration: &frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs{

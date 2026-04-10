@@ -113,7 +113,8 @@ import (
 //						exampleZone.Name,
 //					},
 //				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					return invoke.Result, nil
+//					val := invoke.Result
+//					return &val, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),

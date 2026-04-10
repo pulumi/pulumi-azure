@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Network
     ///             Name = "nva",
     ///             ResourceGroupName = example.Select(__item =&gt; __item.Name).ToList()[range.Value],
     ///             VirtualNetworkName = vnet.Select(__item =&gt; __item.Name).ToList()[range.Value],
-    ///             AddressPrefix = Std.Cidrsubnet.Invoke(new()
+    ///             AddressPrefix = Std.Index.Cidrsubnet.Invoke(new()
     ///             {
     ///                 Input = vnet[range.Value].AddressSpace[range.Value],
     ///                 Newbits = 13,
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Network
     ///         RemoteVirtualNetworkId = example_2.Id,
     ///         Triggers = 
     ///         {
-    ///             { "remote_address_space", example_2.AddressSpaces.Apply(addressSpaces =&gt; Std.Join.Invoke(new()
+    ///             { "remote_address_space", example_2.AddressSpaces.Apply(addressSpaces =&gt; Std.Index.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
     ///                 Input = addressSpaces,
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
     ///         RemoteVirtualNetworkId = example_1.Id,
     ///         Triggers = 
     ///         {
-    ///             { "remote_address_space", example_1.AddressSpaces.Apply(addressSpaces =&gt; Std.Join.Invoke(new()
+    ///             { "remote_address_space", example_1.AddressSpaces.Apply(addressSpaces =&gt; Std.Index.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
     ///                 Input = addressSpaces,

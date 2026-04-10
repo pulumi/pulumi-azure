@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Compute
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
     ///             {
     ///                 Username = "adminuser",
-    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 PublicKey = Std.Index.File.Invoke(new()
     ///                 {
     ///                     Input = "~/.ssh/id_rsa.pub",
     ///                 }).Apply(invoke =&gt; invoke.Result),

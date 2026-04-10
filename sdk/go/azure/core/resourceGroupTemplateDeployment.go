@@ -91,7 +91,8 @@ import (
 // ctx.Export("armExampleOutput", std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
 // Input: example.OutputContent,
 // }, nil).ApplyT(func(invoke std.JsondecodeResult) (*interface{}, error) {
-// return invoke.Result.ExampleOutput.Value, nil
+// val := invoke.Result.ExampleOutput.Value
+// return &val, nil
 // }).(pulumi.Interface{}PtrOutput))
 // return nil
 // })

@@ -33,7 +33,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
 //			// The name of the Arc Machine.
-//			arcMachineName := cfg.RequireObject("arcMachineName")
+//			var arcMachineName interface{}
+//			cfg.RequireObject("arcMachineName", &arcMachineName)
 //			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 //				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),

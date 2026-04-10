@@ -110,7 +110,8 @@ import (
 // ParentCustomIpPrefixId: global.ID(),
 // Cidr: pulumi.String(global.Cidr.ApplyT(func(cidr string) (std.CidrsubnetResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
+// val := invoke.Result
+// return &val, nil
 // }).(pulumi.StringPtrOutput)),
 // Zones: pulumi.StringArray{
 // pulumi.String("1"),

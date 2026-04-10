@@ -214,7 +214,7 @@ def get_soa_record(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azurerm as azurerm
 
-    example = azurerm.index.PrivateDnsSoaRecord("example",
+    example = azurerm.PrivateDnsSoaRecord("example",
         zone_name=test-zone,
         resource_group_name=test-rg)
     pulumi.export("privateDnsSoaRecordId", example_azurerm_private_dns_soa_record["id"])
@@ -269,7 +269,7 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] 
     import pulumi
     import pulumi_azurerm as azurerm
 
-    example = azurerm.index.PrivateDnsSoaRecord("example",
+    example = azurerm.PrivateDnsSoaRecord("example",
         zone_name=test-zone,
         resource_group_name=test-rg)
     pulumi.export("privateDnsSoaRecordId", example_azurerm_private_dns_soa_record["id"])

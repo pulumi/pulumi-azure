@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Iot
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         IotDpsName = exampleIotHubDps.Name,
-    ///         CertificateContent = Std.Filebase64.Invoke(new()
+    ///         CertificateContent = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.cer",
     ///         }).Apply(invoke =&gt; invoke.Result),

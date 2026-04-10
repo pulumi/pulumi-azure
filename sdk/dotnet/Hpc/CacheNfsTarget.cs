@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Hpc
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
     ///             {
     ///                 Username = "adminuser",
-    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 PublicKey = Std.Index.File.Invoke(new()
     ///                 {
     ///                     Input = "~/.ssh/id_rsa.pub",
     ///                 }).Apply(invoke =&gt; invoke.Result),
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Hpc
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
-    ///         CustomData = Std.Base64encode.Invoke(new()
+    ///         CustomData = Std.Index.Base64encode.Invoke(new()
     ///         {
     ///             Input = customData,
     ///         }).Apply(invoke =&gt; invoke.Result),

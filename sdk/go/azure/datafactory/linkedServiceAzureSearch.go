@@ -66,7 +66,8 @@ import (
 //						pulumi.String(".search.windows.net"),
 //					},
 //				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					return invoke.Result, nil
+//					val := invoke.Result
+//					return &val, nil
 //				}).(pulumi.StringPtrOutput)),
 //				SearchServiceKey: exampleService.PrimaryKey,
 //			})

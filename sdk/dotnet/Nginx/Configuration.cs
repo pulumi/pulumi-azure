@@ -110,7 +110,7 @@ namespace Pulumi.Azure.Nginx
     ///         {
     ///             new Azure.Nginx.Inputs.ConfigurationConfigFileArgs
     ///             {
-    ///                 Content = Std.Base64encode.Invoke(new()
+    ///                 Content = Std.Index.Base64encode.Invoke(new()
     ///                 {
     ///                     Input = @"http {
     ///     server {
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Nginx
     ///             },
     ///             new Azure.Nginx.Inputs.ConfigurationConfigFileArgs
     ///             {
-    ///                 Content = Std.Base64encode.Invoke(new()
+    ///                 Content = Std.Index.Base64encode.Invoke(new()
     ///                 {
     ///                     Input = @"location /bbb {
     ///  default_type text/html;

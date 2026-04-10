@@ -43,7 +43,7 @@ namespace Pulumi.Azure.LogicApps
     ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         AssemblyName = "TestAssembly",
-    ///         Content = Std.Filebase64.Invoke(new()
+    ///         Content = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testdata/log4net.dll",
     ///         }).Apply(invoke =&gt; invoke.Result),

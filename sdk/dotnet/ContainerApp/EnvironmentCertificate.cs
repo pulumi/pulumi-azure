@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ContainerApp
     ///     {
     ///         Name = "myfriendlyname",
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         CertificateBlobBase64 = Std.Filebase64.Invoke(new()
+    ///         CertificateBlobBase64 = Std.Index.Filebase64.Invoke(new()
     ///         {
     ///             Input = "path/to/certificate_file.pfx",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             Contents = Std.Index.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "path/to/certificate_file.pfx",
     ///             }).Apply(invoke =&gt; invoke.Result),

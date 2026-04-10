@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     algorithm: "RSA",
  *     rsaBits: 4096,
  * });
- * const example = tls.index.PublicKey({
+ * const example = tls.PublicKey({
  *     privateKeyPem: examplePrivateKey.privateKeyPem,
  * });
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {

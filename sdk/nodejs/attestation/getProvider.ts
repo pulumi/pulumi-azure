@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azurerm from "@pulumi/azurerm";
  *
- * const example = azurerm.index.Attestation({
+ * const example = azurerm.Attestation({
  *     name: "example-attestationprovider",
  *     resourceGroupName: "example-resource-group",
  * });
@@ -85,7 +85,7 @@ export interface GetProviderResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azurerm from "@pulumi/azurerm";
  *
- * const example = azurerm.index.Attestation({
+ * const example = azurerm.Attestation({
  *     name: "example-attestationprovider",
  *     resourceGroupName: "example-resource-group",
  * });

@@ -64,7 +64,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
     ///             {
     ///                 Username = "adminuser",
-    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 PublicKey = Std.Index.File.Invoke(new()
     ///                 {
     ///                     Input = "~/.ssh/id_rsa.pub",
     ///                 }).Apply(invoke =&gt; invoke.Result),

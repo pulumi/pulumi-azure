@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Automation
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["variable"] = Std.Jsondecode.Invoke(new()
+        ///         ["variable"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
         ///         }).Apply(invoke =&gt; invoke.Result),
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Automation
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["variable"] = Std.Jsondecode.Invoke(new()
+        ///         ["variable"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
         ///         }).Apply(invoke =&gt; invoke.Result),
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Automation
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["variable"] = Std.Jsondecode.Invoke(new()
+        ///         ["variable"] = Std.Index.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getVariableObjectResult =&gt; getVariableObjectResult.Value),
         ///         }).Apply(invoke =&gt; invoke.Result),

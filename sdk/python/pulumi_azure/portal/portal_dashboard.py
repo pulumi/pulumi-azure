@@ -375,7 +375,7 @@ class PortalDashboard(pulumi.CustomResource):
 
         dash_template = not_implemented("The template_file data resource is not yet supported.")
         #...
-        my_board = azurerm.index.Dashboard("my-board",
+        my_board = azurerm.Dashboard("my-board",
             name=my-cool-dashboard,
             resource_group_name=example.name,
             location=example.location,
@@ -577,7 +577,7 @@ class PortalDashboard(pulumi.CustomResource):
 
         dash_template = not_implemented("The template_file data resource is not yet supported.")
         #...
-        my_board = azurerm.index.Dashboard("my-board",
+        my_board = azurerm.Dashboard("my-board",
             name=my-cool-dashboard,
             resource_group_name=example.name,
             location=example.location,

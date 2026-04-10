@@ -60,7 +60,7 @@ namespace Pulumi.Azure.DevTest
     ///         Location = example.Location,
     ///         Size = "Standard_DS2",
     ///         Username = "exampleuser99",
-    ///         SshKey = Std.File.Invoke(new()
+    ///         SshKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

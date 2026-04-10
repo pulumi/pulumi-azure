@@ -85,7 +85,7 @@ namespace Pulumi.Azure.CustomIp
     ///         Location = test.Location,
     ///         ResourceGroupName = test.Name,
     ///         ParentCustomIpPrefixId = @global.Id,
-    ///         Cidr = @global.Cidr.Apply(cidr =&gt; Std.Cidrsubnet.Invoke(new()
+    ///         Cidr = @global.Cidr.Apply(cidr =&gt; Std.Index.Cidrsubnet.Invoke(new()
     ///         {
     ///             Input = cidr,
     ///             Newbits = 16,

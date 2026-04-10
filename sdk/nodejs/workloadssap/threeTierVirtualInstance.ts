@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     algorithm: "RSA",
  *     rsaBits: 4096,
  * });
- * const example = tls.index.PublicKey({
+ * const example = tls.PublicKey({
  *     privateKeyPem: examplePrivateKey.privateKeyPem,
  * });
  * const current = azure.core.getSubscription({});
