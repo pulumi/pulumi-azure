@@ -77,14 +77,14 @@ public final class BgpConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of virtual network connection.
+     * The ID of virtual network connection. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualNetworkConnectionId")
     private @Nullable Output<String> virtualNetworkConnectionId;
 
     /**
-     * @return The ID of virtual network connection.
+     * @return The ID of virtual network connection. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> virtualNetworkConnectionId() {
@@ -204,7 +204,7 @@ public final class BgpConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param virtualNetworkConnectionId The ID of virtual network connection.
+         * @param virtualNetworkConnectionId The ID of virtual network connection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class BgpConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param virtualNetworkConnectionId The ID of virtual network connection.
+         * @param virtualNetworkConnectionId The ID of virtual network connection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

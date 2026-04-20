@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetApplicationGatewayAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayAutoscaleConfiguration;
+import com.pulumi.azure.network.outputs.GetApplicationGatewayBackend;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendAddressPool;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendHttpSetting;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayCustomErrorConfiguration;
@@ -14,12 +15,14 @@ import com.pulumi.azure.network.outputs.GetApplicationGatewayGatewayIpConfigurat
 import com.pulumi.azure.network.outputs.GetApplicationGatewayGlobal;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayHttpListener;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayIdentity;
+import com.pulumi.azure.network.outputs.GetApplicationGatewayListener;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayPrivateEndpointConnection;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayPrivateLinkConfiguration;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayProbe;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayRedirectConfiguration;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayRequestRoutingRule;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayRewriteRuleSet;
+import com.pulumi.azure.network.outputs.GetApplicationGatewayRoutingRule;
 import com.pulumi.azure.network.outputs.GetApplicationGatewaySkus;
 import com.pulumi.azure.network.outputs.GetApplicationGatewaySslCertificate;
 import com.pulumi.azure.network.outputs.GetApplicationGatewaySslPolicy;
@@ -58,6 +61,11 @@ public final class GetApplicationGatewayResult {
      * 
      */
     private List<GetApplicationGatewayBackendHttpSetting> backendHttpSettings;
+    /**
+     * @return One or more `backend` blocks as defined below.
+     * 
+     */
+    private List<GetApplicationGatewayBackend> backends;
     /**
      * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
@@ -119,6 +127,11 @@ public final class GetApplicationGatewayResult {
      */
     private List<GetApplicationGatewayIdentity> identities;
     /**
+     * @return One or more `listener` blocks as defined below.
+     * 
+     */
+    private List<GetApplicationGatewayListener> listeners;
+    /**
      * @return The Azure region where the Application Gateway exists.
      * 
      */
@@ -155,6 +168,11 @@ public final class GetApplicationGatewayResult {
      * 
      */
     private List<GetApplicationGatewayRewriteRuleSet> rewriteRuleSets;
+    /**
+     * @return One or more `routingRule` blocks as defined below.
+     * 
+     */
+    private List<GetApplicationGatewayRoutingRule> routingRules;
     /**
      * @return A `sku` block as defined below.
      * 
@@ -234,6 +252,13 @@ public final class GetApplicationGatewayResult {
      */
     public List<GetApplicationGatewayBackendHttpSetting> backendHttpSettings() {
         return this.backendHttpSettings;
+    }
+    /**
+     * @return One or more `backend` blocks as defined below.
+     * 
+     */
+    public List<GetApplicationGatewayBackend> backends() {
+        return this.backends;
     }
     /**
      * @return One or more `customErrorConfiguration` blocks as defined below.
@@ -320,6 +345,13 @@ public final class GetApplicationGatewayResult {
         return this.identities;
     }
     /**
+     * @return One or more `listener` blocks as defined below.
+     * 
+     */
+    public List<GetApplicationGatewayListener> listeners() {
+        return this.listeners;
+    }
+    /**
      * @return The Azure region where the Application Gateway exists.
      * 
      */
@@ -373,6 +405,13 @@ public final class GetApplicationGatewayResult {
      */
     public List<GetApplicationGatewayRewriteRuleSet> rewriteRuleSets() {
         return this.rewriteRuleSets;
+    }
+    /**
+     * @return One or more `routingRule` blocks as defined below.
+     * 
+     */
+    public List<GetApplicationGatewayRoutingRule> routingRules() {
+        return this.routingRules;
     }
     /**
      * @return A `sku` block as defined below.
@@ -458,6 +497,7 @@ public final class GetApplicationGatewayResult {
         private List<GetApplicationGatewayAutoscaleConfiguration> autoscaleConfigurations;
         private List<GetApplicationGatewayBackendAddressPool> backendAddressPools;
         private List<GetApplicationGatewayBackendHttpSetting> backendHttpSettings;
+        private List<GetApplicationGatewayBackend> backends;
         private List<GetApplicationGatewayCustomErrorConfiguration> customErrorConfigurations;
         private Boolean fipsEnabled;
         private String firewallPolicyId;
@@ -470,6 +510,7 @@ public final class GetApplicationGatewayResult {
         private List<GetApplicationGatewayHttpListener> httpListeners;
         private String id;
         private List<GetApplicationGatewayIdentity> identities;
+        private List<GetApplicationGatewayListener> listeners;
         private String location;
         private String name;
         private List<GetApplicationGatewayPrivateEndpointConnection> privateEndpointConnections;
@@ -479,6 +520,7 @@ public final class GetApplicationGatewayResult {
         private List<GetApplicationGatewayRequestRoutingRule> requestRoutingRules;
         private String resourceGroupName;
         private List<GetApplicationGatewayRewriteRuleSet> rewriteRuleSets;
+        private List<GetApplicationGatewayRoutingRule> routingRules;
         private List<GetApplicationGatewaySkus> skus;
         private List<GetApplicationGatewaySslCertificate> sslCertificates;
         private List<GetApplicationGatewaySslPolicy> sslPolicies;
@@ -496,6 +538,7 @@ public final class GetApplicationGatewayResult {
     	      this.autoscaleConfigurations = defaults.autoscaleConfigurations;
     	      this.backendAddressPools = defaults.backendAddressPools;
     	      this.backendHttpSettings = defaults.backendHttpSettings;
+    	      this.backends = defaults.backends;
     	      this.customErrorConfigurations = defaults.customErrorConfigurations;
     	      this.fipsEnabled = defaults.fipsEnabled;
     	      this.firewallPolicyId = defaults.firewallPolicyId;
@@ -508,6 +551,7 @@ public final class GetApplicationGatewayResult {
     	      this.httpListeners = defaults.httpListeners;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
+    	      this.listeners = defaults.listeners;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.privateEndpointConnections = defaults.privateEndpointConnections;
@@ -517,6 +561,7 @@ public final class GetApplicationGatewayResult {
     	      this.requestRoutingRules = defaults.requestRoutingRules;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.rewriteRuleSets = defaults.rewriteRuleSets;
+    	      this.routingRules = defaults.routingRules;
     	      this.skus = defaults.skus;
     	      this.sslCertificates = defaults.sslCertificates;
     	      this.sslPolicies = defaults.sslPolicies;
@@ -572,6 +617,17 @@ public final class GetApplicationGatewayResult {
         }
         public Builder backendHttpSettings(GetApplicationGatewayBackendHttpSetting... backendHttpSettings) {
             return backendHttpSettings(List.of(backendHttpSettings));
+        }
+        @CustomType.Setter
+        public Builder backends(List<GetApplicationGatewayBackend> backends) {
+            if (backends == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "backends");
+            }
+            this.backends = backends;
+            return this;
+        }
+        public Builder backends(GetApplicationGatewayBackend... backends) {
+            return backends(List.of(backends));
         }
         @CustomType.Setter
         public Builder customErrorConfigurations(List<GetApplicationGatewayCustomErrorConfiguration> customErrorConfigurations) {
@@ -691,6 +747,17 @@ public final class GetApplicationGatewayResult {
             return identities(List.of(identities));
         }
         @CustomType.Setter
+        public Builder listeners(List<GetApplicationGatewayListener> listeners) {
+            if (listeners == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "listeners");
+            }
+            this.listeners = listeners;
+            return this;
+        }
+        public Builder listeners(GetApplicationGatewayListener... listeners) {
+            return listeners(List.of(listeners));
+        }
+        @CustomType.Setter
         public Builder location(String location) {
             if (location == null) {
               throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "location");
@@ -779,6 +846,17 @@ public final class GetApplicationGatewayResult {
         }
         public Builder rewriteRuleSets(GetApplicationGatewayRewriteRuleSet... rewriteRuleSets) {
             return rewriteRuleSets(List.of(rewriteRuleSets));
+        }
+        @CustomType.Setter
+        public Builder routingRules(List<GetApplicationGatewayRoutingRule> routingRules) {
+            if (routingRules == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "routingRules");
+            }
+            this.routingRules = routingRules;
+            return this;
+        }
+        public Builder routingRules(GetApplicationGatewayRoutingRule... routingRules) {
+            return routingRules(List.of(routingRules));
         }
         @CustomType.Setter
         public Builder skus(List<GetApplicationGatewaySkus> skus) {
@@ -893,6 +971,7 @@ public final class GetApplicationGatewayResult {
             _resultValue.autoscaleConfigurations = autoscaleConfigurations;
             _resultValue.backendAddressPools = backendAddressPools;
             _resultValue.backendHttpSettings = backendHttpSettings;
+            _resultValue.backends = backends;
             _resultValue.customErrorConfigurations = customErrorConfigurations;
             _resultValue.fipsEnabled = fipsEnabled;
             _resultValue.firewallPolicyId = firewallPolicyId;
@@ -905,6 +984,7 @@ public final class GetApplicationGatewayResult {
             _resultValue.httpListeners = httpListeners;
             _resultValue.id = id;
             _resultValue.identities = identities;
+            _resultValue.listeners = listeners;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.privateEndpointConnections = privateEndpointConnections;
@@ -914,6 +994,7 @@ public final class GetApplicationGatewayResult {
             _resultValue.requestRoutingRules = requestRoutingRules;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.rewriteRuleSets = rewriteRuleSets;
+            _resultValue.routingRules = routingRules;
             _resultValue.skus = skus;
             _resultValue.sslCertificates = sslCertificates;
             _resultValue.sslPolicies = sslPolicies;

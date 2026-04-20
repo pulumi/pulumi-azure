@@ -29,7 +29,7 @@ public final class GetApplicationGatewayHttpListener {
      */
     private String frontendIpConfigurationId;
     /**
-     * @return The Name of the Frontend IP Configuration used for this HTTP Listener.
+     * @return The Name of the Frontend IP Configuration used for this Listener.
      * 
      */
     private String frontendIpConfigurationName;
@@ -39,7 +39,7 @@ public final class GetApplicationGatewayHttpListener {
      */
     private String frontendPortId;
     /**
-     * @return The Name of the Frontend Port used for this HTTP Listener.
+     * @return The Name of the Frontend Port used for this Listener.
      * 
      */
     private String frontendPortName;
@@ -49,7 +49,7 @@ public final class GetApplicationGatewayHttpListener {
      */
     private String hostName;
     /**
-     * @return A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+     * @return A list of Hostname(s) used for this Listener.
      * 
      */
     private List<String> hostNames;
@@ -79,7 +79,7 @@ public final class GetApplicationGatewayHttpListener {
      */
     private String sslCertificateId;
     /**
-     * @return The name of the associated SSL Certificate which is used for this HTTP Listener.
+     * @return The name of the associated SSL Certificate which is used for this Listener.
      * 
      */
     private String sslCertificateName;
@@ -89,7 +89,7 @@ public final class GetApplicationGatewayHttpListener {
      */
     private String sslProfileId;
     /**
-     * @return The name of the associated SSL Profile which is used for this HTTP Listener.
+     * @return The name of the associated SSL Profile which is used for this Listener.
      * 
      */
     private String sslProfileName;
@@ -117,7 +117,7 @@ public final class GetApplicationGatewayHttpListener {
         return this.frontendIpConfigurationId;
     }
     /**
-     * @return The Name of the Frontend IP Configuration used for this HTTP Listener.
+     * @return The Name of the Frontend IP Configuration used for this Listener.
      * 
      */
     public String frontendIpConfigurationName() {
@@ -131,7 +131,7 @@ public final class GetApplicationGatewayHttpListener {
         return this.frontendPortId;
     }
     /**
-     * @return The Name of the Frontend Port used for this HTTP Listener.
+     * @return The Name of the Frontend Port used for this Listener.
      * 
      */
     public String frontendPortName() {
@@ -145,7 +145,7 @@ public final class GetApplicationGatewayHttpListener {
         return this.hostName;
     }
     /**
-     * @return A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+     * @return A list of Hostname(s) used for this Listener.
      * 
      */
     public List<String> hostNames() {
@@ -187,7 +187,7 @@ public final class GetApplicationGatewayHttpListener {
         return this.sslCertificateId;
     }
     /**
-     * @return The name of the associated SSL Certificate which is used for this HTTP Listener.
+     * @return The name of the associated SSL Certificate which is used for this Listener.
      * 
      */
     public String sslCertificateName() {
@@ -201,7 +201,7 @@ public final class GetApplicationGatewayHttpListener {
         return this.sslProfileId;
     }
     /**
-     * @return The name of the associated SSL Profile which is used for this HTTP Listener.
+     * @return The name of the associated SSL Profile which is used for this Listener.
      * 
      */
     public String sslProfileName() {

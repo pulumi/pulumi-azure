@@ -15,65 +15,64 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// Should Add permissions be enabled for this SAS?
         /// </summary>
-        [Input("add", required: true)]
-        public Input<bool> Add { get; set; } = null!;
+        [Input("add")]
+        public Input<bool>? Add { get; set; }
 
         /// <summary>
         /// Should Create permissions be enabled for this SAS?
         /// </summary>
-        [Input("create", required: true)]
-        public Input<bool> Create { get; set; } = null!;
+        [Input("create")]
+        public Input<bool>? Create { get; set; }
 
         /// <summary>
         /// Should Delete permissions be enabled for this SAS?
         /// </summary>
-        [Input("delete", required: true)]
-        public Input<bool> Delete { get; set; } = null!;
+        [Input("delete")]
+        public Input<bool>? Delete { get; set; }
 
         /// <summary>
         /// Should Filter by Index Tags permissions be enabled for this SAS?
-        /// 
-        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-        /// for additional details on the fields above.
         /// </summary>
-        [Input("filter", required: true)]
-        public Input<bool> Filter { get; set; } = null!;
+        [Input("filter")]
+        public Input<bool>? Filter { get; set; }
 
         /// <summary>
         /// Should List permissions be enabled for this SAS?
         /// </summary>
-        [Input("list", required: true)]
-        public Input<bool> List { get; set; } = null!;
+        [Input("list")]
+        public Input<bool>? List { get; set; }
 
         /// <summary>
         /// Should Process permissions be enabled for this SAS?
         /// </summary>
-        [Input("process", required: true)]
-        public Input<bool> Process { get; set; } = null!;
+        [Input("process")]
+        public Input<bool>? Process { get; set; }
 
         /// <summary>
         /// Should Read permissions be enabled for this SAS?
         /// </summary>
-        [Input("read", required: true)]
-        public Input<bool> Read { get; set; } = null!;
+        [Input("read")]
+        public Input<bool>? Read { get; set; }
 
         /// <summary>
         /// Should Get / Set Index Tags permissions be enabled for this SAS?
         /// </summary>
-        [Input("tag", required: true)]
-        public Input<bool> Tag { get; set; } = null!;
+        [Input("tag")]
+        public Input<bool>? Tag { get; set; }
 
         /// <summary>
         /// Should Update permissions be enabled for this SAS?
         /// </summary>
-        [Input("update", required: true)]
-        public Input<bool> Update { get; set; } = null!;
+        [Input("update")]
+        public Input<bool>? Update { get; set; }
 
         /// <summary>
         /// Should Write permissions be enabled for this SAS?
+        /// 
+        /// &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
         /// </summary>
-        [Input("write", required: true)]
-        public Input<bool> Write { get; set; } = null!;
+        [Input("write")]
+        public Input<bool>? Write { get; set; }
 
         public GetAccountSASPermissionsInputArgs()
         {

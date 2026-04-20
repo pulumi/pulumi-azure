@@ -113,12 +113,16 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
     /**
      * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * 
      */
     @Export(name="publicIpPrefixId", refs={String.class}, tree="[0]")
     private Output<String> publicIpPrefixId;
 
     /**
      * @return The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      * 
      */
     public Output<String> publicIpPrefixId() {

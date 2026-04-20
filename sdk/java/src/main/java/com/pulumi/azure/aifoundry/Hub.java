@@ -20,7 +20,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an AI Foundry Hub.
+ * Manages a Microsoft Foundry Hub (classic) resource.
+ * 
+ * &gt; **Note:** Hub‑based projects are considered legacy and are not compatible with the new Foundry experience. Microsoft recommends using the new Microsoft Foundry resource, which should be provisioned using
+ * `azure.cognitive.Account`.
  * 
  * ## Example Usage
  * 

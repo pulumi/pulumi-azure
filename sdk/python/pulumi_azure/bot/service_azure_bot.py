@@ -62,6 +62,8 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[_builtins.str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+               
+               > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
@@ -306,6 +308,8 @@ class ServiceAzureBotArgs:
     def microsoft_app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+
+        > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         """
         return pulumi.get(self, "microsoft_app_type")
 
@@ -406,6 +410,8 @@ class _ServiceAzureBotState:
         :param pulumi.Input[_builtins.str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+               
+               > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -631,6 +637,8 @@ class _ServiceAzureBotState:
     def microsoft_app_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+
+        > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         """
         return pulumi.get(self, "microsoft_app_type")
 
@@ -742,45 +750,6 @@ class ServiceAzureBot(pulumi.CustomResource):
         """
         Manages an Azure Bot Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
-            location=example.location,
-            resource_group_name=example.name,
-            application_type="web")
-        example_api_key = azure.appinsights.ApiKey("example",
-            name="example-appinsightsapikey",
-            application_insights_id=example_insights.id,
-            read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
-            ])
-        current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("example",
-            name="exampleazurebot",
-            resource_group_name=example.name,
-            location="global",
-            microsoft_app_id=current.client_id,
-            sku="F0",
-            endpoint="https://example.com",
-            developer_app_insights_api_key=example_api_key.api_key,
-            developer_app_insights_application_id=example_insights.app_id,
-            tags={
-                "environment": "test",
-            })
-        ```
-
         ## Import
 
         Azure Bot Services can be imported using the `resource id`, e.g.
@@ -809,6 +778,8 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+               
+               > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -824,45 +795,6 @@ class ServiceAzureBot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Bot Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_insights = azure.appinsights.Insights("example",
-            name="example-appinsights",
-            location=example.location,
-            resource_group_name=example.name,
-            application_type="web")
-        example_api_key = azure.appinsights.ApiKey("example",
-            name="example-appinsightsapikey",
-            application_insights_id=example_insights.id,
-            read_permissions=[
-                "aggregate",
-                "api",
-                "draft",
-                "extendqueries",
-                "search",
-            ])
-        current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("example",
-            name="exampleazurebot",
-            resource_group_name=example.name,
-            location="global",
-            microsoft_app_id=current.client_id,
-            sku="F0",
-            endpoint="https://example.com",
-            developer_app_insights_api_key=example_api_key.api_key,
-            developer_app_insights_application_id=example_insights.app_id,
-            tags={
-                "environment": "test",
-            })
-        ```
 
         ## Import
 
@@ -1002,6 +934,8 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+               
+               > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -1152,9 +1086,11 @@ class ServiceAzureBot(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppType")
-    def microsoft_app_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def microsoft_app_type(self) -> pulumi.Output[_builtins.str]:
         """
         The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+
+        > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         """
         return pulumi.get(self, "microsoft_app_type")
 

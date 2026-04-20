@@ -89,6 +89,8 @@ type GetClusterNodePoolResult struct {
 	Name string `pulumi:"name"`
 	// The current number of Nodes in the Node Pool.
 	NodeCount int `pulumi:"nodeCount"`
+	// The current node image version running on this Node Pool.
+	NodeImageVersion string `pulumi:"nodeImageVersion"`
 	// A map of Kubernetes Labels applied to each Node in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// Do nodes in this Node Pool have a Public IP Address?
@@ -212,6 +214,11 @@ func (o GetClusterNodePoolResultOutput) Name() pulumi.StringOutput {
 // The current number of Nodes in the Node Pool.
 func (o GetClusterNodePoolResultOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) int { return v.NodeCount }).(pulumi.IntOutput)
+}
+
+// The current node image version running on this Node Pool.
+func (o GetClusterNodePoolResultOutput) NodeImageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.NodeImageVersion }).(pulumi.StringOutput)
 }
 
 // A map of Kubernetes Labels applied to each Node in this Node Pool.

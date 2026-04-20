@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -32,16 +34,20 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
     /**
      * Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+     * 
      */
-    @Import(name="publicIpAddressId", required=true)
-    private Output<String> publicIpAddressId;
+    @Import(name="publicIpAddressId")
+    private @Nullable Output<String> publicIpAddressId;
 
     /**
      * @return Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+     * 
      */
-    public Output<String> publicIpAddressId() {
-        return this.publicIpAddressId;
+    public Optional<Output<String>> publicIpAddressId() {
+        return Optional.ofNullable(this.publicIpAddressId);
     }
 
     /**
@@ -113,16 +119,20 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         /**
          * @param publicIpAddressId Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+         * 
          * @return builder
          * 
          */
-        public Builder publicIpAddressId(Output<String> publicIpAddressId) {
+        public Builder publicIpAddressId(@Nullable Output<String> publicIpAddressId) {
             $.publicIpAddressId = publicIpAddressId;
             return this;
         }
 
         /**
          * @param publicIpAddressId Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
          * 
          * @return builder
          * 
@@ -159,9 +169,6 @@ public final class BastionHostIpConfigurationArgs extends com.pulumi.resources.R
         public BastionHostIpConfigurationArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("BastionHostIpConfigurationArgs", "name");
-            }
-            if ($.publicIpAddressId == null) {
-                throw new MissingRequiredPropertyException("BastionHostIpConfigurationArgs", "publicIpAddressId");
             }
             if ($.subnetId == null) {
                 throw new MissingRequiredPropertyException("BastionHostIpConfigurationArgs", "subnetId");

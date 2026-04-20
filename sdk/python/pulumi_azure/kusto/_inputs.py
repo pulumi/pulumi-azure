@@ -38,6 +38,14 @@ class AttachedDatabaseConfigurationSharingArgsDict(TypedDict):
     """
     List of external tables to include in the follower database.
     """
+    functions_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of functions to exclude from the follower database.
+    """
+    functions_to_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of functions to include in the follower database.
+    """
     materialized_views_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     List of materialized views exclude from the follower database.
@@ -60,6 +68,8 @@ class AttachedDatabaseConfigurationSharingArgs:
     def __init__(__self__, *,
                  external_tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_tables_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  materialized_views_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  materialized_views_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -67,6 +77,8 @@ class AttachedDatabaseConfigurationSharingArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_excludes: List of external tables exclude from the follower database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_includes: List of external tables to include in the follower database.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] functions_to_excludes: List of functions to exclude from the follower database.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] functions_to_includes: List of functions to include in the follower database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] materialized_views_to_excludes: List of materialized views exclude from the follower database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] materialized_views_to_includes: List of materialized views to include in the follower database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tables_to_excludes: List of tables to exclude from the follower database.
@@ -76,6 +88,10 @@ class AttachedDatabaseConfigurationSharingArgs:
             pulumi.set(__self__, "external_tables_to_excludes", external_tables_to_excludes)
         if external_tables_to_includes is not None:
             pulumi.set(__self__, "external_tables_to_includes", external_tables_to_includes)
+        if functions_to_excludes is not None:
+            pulumi.set(__self__, "functions_to_excludes", functions_to_excludes)
+        if functions_to_includes is not None:
+            pulumi.set(__self__, "functions_to_includes", functions_to_includes)
         if materialized_views_to_excludes is not None:
             pulumi.set(__self__, "materialized_views_to_excludes", materialized_views_to_excludes)
         if materialized_views_to_includes is not None:
@@ -108,6 +124,30 @@ class AttachedDatabaseConfigurationSharingArgs:
     @external_tables_to_includes.setter
     def external_tables_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_includes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="functionsToExcludes")
+    def functions_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of functions to exclude from the follower database.
+        """
+        return pulumi.get(self, "functions_to_excludes")
+
+    @functions_to_excludes.setter
+    def functions_to_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "functions_to_excludes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="functionsToIncludes")
+    def functions_to_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of functions to include in the follower database.
+        """
+        return pulumi.get(self, "functions_to_includes")
+
+    @functions_to_includes.setter
+    def functions_to_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "functions_to_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToExcludes")

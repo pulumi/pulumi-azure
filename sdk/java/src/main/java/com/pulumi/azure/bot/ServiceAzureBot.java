@@ -20,79 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Bot Service.
  * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.appinsights.Insights;
- * import com.pulumi.azure.appinsights.InsightsArgs;
- * import com.pulumi.azure.appinsights.ApiKey;
- * import com.pulumi.azure.appinsights.ApiKeyArgs;
- * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.bot.ServiceAzureBot;
- * import com.pulumi.azure.bot.ServiceAzureBotArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleInsights = new Insights("exampleInsights", InsightsArgs.builder()
- *             .name("example-appinsights")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .applicationType("web")
- *             .build());
- * 
- *         var exampleApiKey = new ApiKey("exampleApiKey", ApiKeyArgs.builder()
- *             .name("example-appinsightsapikey")
- *             .applicationInsightsId(exampleInsights.id())
- *             .readPermissions(            
- *                 "aggregate",
- *                 "api",
- *                 "draft",
- *                 "extendqueries",
- *                 "search")
- *             .build());
- * 
- *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
- * 
- *         var exampleServiceAzureBot = new ServiceAzureBot("exampleServiceAzureBot", ServiceAzureBotArgs.builder()
- *             .name("exampleazurebot")
- *             .resourceGroupName(example.name())
- *             .location("global")
- *             .microsoftAppId(current.clientId())
- *             .sku("F0")
- *             .endpoint("https://example.com")
- *             .developerAppInsightsApiKey(exampleApiKey.apiKey())
- *             .developerAppInsightsApplicationId(exampleInsights.appId())
- *             .tags(Map.of("environment", "test"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ## Import
  * 
  * Azure Bot Services can be imported using the `resource id`, e.g.
@@ -307,16 +234,20 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
     /**
      * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+     * 
      */
     @Export(name="microsoftAppType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> microsoftAppType;
+    private Output<String> microsoftAppType;
 
     /**
      * @return The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+     * 
      */
-    public Output<Optional<String>> microsoftAppType() {
-        return Codegen.optional(this.microsoftAppType);
+    public Output<String> microsoftAppType() {
+        return this.microsoftAppType;
     }
     /**
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.

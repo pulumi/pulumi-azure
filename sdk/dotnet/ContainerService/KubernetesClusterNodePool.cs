@@ -196,6 +196,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<int> NodeCount { get; private set; } = null!;
 
         /// <summary>
+        /// The current node image version running on this Node Pool.
+        /// </summary>
+        [Output("nodeImageVersion")]
+        public Output<string> NodeImageVersion { get; private set; } = null!;
+
+        /// <summary>
         /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         /// </summary>
         [Output("nodeLabels")]
@@ -246,7 +252,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> OsDiskType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        /// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
         /// 
         /// &gt; **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         /// </summary>
@@ -577,7 +583,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        /// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
         /// 
         /// &gt; **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         /// </summary>
@@ -819,6 +825,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
+        /// <summary>
+        /// The current node image version running on this Node Pool.
+        /// </summary>
+        [Input("nodeImageVersion")]
+        public Input<string>? NodeImageVersion { get; set; }
+
         [Input("nodeLabels")]
         private InputMap<string>? _nodeLabels;
 
@@ -882,7 +894,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        /// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
         /// 
         /// &gt; **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         /// </summary>

@@ -12,7 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AI Foundry Hub.
+// Manages a Microsoft Foundry Hub (classic) resource.
+//
+// > **Note:** Hub‑based projects are considered legacy and are not compatible with the new Foundry experience. Microsoft recommends using the new Microsoft Foundry resource, which should be provisioned using
+// `cognitive.Account`.
 //
 // ## Example Usage
 //

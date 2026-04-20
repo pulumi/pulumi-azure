@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Storage
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Storage` - 2023-05-01
+        /// * `Microsoft.Storage` - 2025-06-01
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Storage
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Storage` - 2023-05-01
+        /// * `Microsoft.Storage` - 2025-06-01
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Storage
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Storage` - 2023-05-01
+        /// * `Microsoft.Storage` - 2025-06-01
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -258,6 +258,10 @@ namespace Pulumi.Azure.Storage
         /// The quota of the File Share in GB.
         /// </summary>
         public readonly int Quota;
+        /// <summary>
+        /// The ID that is supposed to be used as the `Scope` of an `AzurermRoleAssignmet` for this File Share.
+        /// </summary>
+        public readonly string RbacScopeId;
         public readonly string ResourceManagerId;
         public readonly string? StorageAccountId;
         public readonly string? StorageAccountName;
@@ -274,6 +278,8 @@ namespace Pulumi.Azure.Storage
 
             int quota,
 
+            string rbacScopeId,
+
             string resourceManagerId,
 
             string? storageAccountId,
@@ -285,6 +291,7 @@ namespace Pulumi.Azure.Storage
             Metadata = metadata;
             Name = name;
             Quota = quota;
+            RbacScopeId = rbacScopeId;
             ResourceManagerId = resourceManagerId;
             StorageAccountId = storageAccountId;
             StorageAccountName = storageAccountName;

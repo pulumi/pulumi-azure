@@ -32,6 +32,7 @@ from .resource_group_template_deployment import *
 from .resource_policy_assignment import *
 from .resource_policy_exemption import *
 from .resource_policy_remediation import *
+from .resource_provider_feature_registration import *
 from .resource_provider_registration import *
 from .subscription import *
 from .subscription_cost_management_export import *

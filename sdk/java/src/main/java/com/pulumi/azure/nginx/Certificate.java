@@ -100,7 +100,6 @@ import javax.annotation.Nullable;
  *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
  *             .location(example.location())
  *             .managedResourceGroup("example")
- *             .diagnoseSupportEnabled(true)
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
  *                 .ipAddresses(examplePublicIp.id())
  *                 .build())

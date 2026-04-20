@@ -120,6 +120,25 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+     * 
+     * &gt; **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+     * 
+     */
+    @Import(name="generalPurposeV2Enabled")
+    private @Nullable Output<Boolean> generalPurposeV2Enabled;
+
+    /**
+     * @return Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+     * 
+     * &gt; **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+     * 
+     */
+    public Optional<Output<Boolean>> generalPurposeV2Enabled() {
+        return Optional.ofNullable(this.generalPurposeV2Enabled);
+    }
+
+    /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      * 
      */
@@ -180,14 +199,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
      */
     @Import(name="maintenanceConfigurationName")
     private @Nullable Output<String> maintenanceConfigurationName;
 
     /**
-     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
      */
     public Optional<Output<String>> maintenanceConfigurationName() {
@@ -421,6 +440,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.collation = $.collation;
         this.databaseFormat = $.databaseFormat;
         this.dnsZonePartnerId = $.dnsZonePartnerId;
+        this.generalPurposeV2Enabled = $.generalPurposeV2Enabled;
         this.hybridSecondaryUsage = $.hybridSecondaryUsage;
         this.identity = $.identity;
         this.licenseType = $.licenseType;
@@ -595,6 +615,31 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param generalPurposeV2Enabled Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+         * 
+         * &gt; **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generalPurposeV2Enabled(@Nullable Output<Boolean> generalPurposeV2Enabled) {
+            $.generalPurposeV2Enabled = generalPurposeV2Enabled;
+            return this;
+        }
+
+        /**
+         * @param generalPurposeV2Enabled Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+         * 
+         * &gt; **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generalPurposeV2Enabled(Boolean generalPurposeV2Enabled) {
+            return generalPurposeV2Enabled(Output.of(generalPurposeV2Enabled));
+        }
+
+        /**
          * @param hybridSecondaryUsage Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
          * 
          * @return builder
@@ -679,7 +724,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
          * 
          * @return builder
          * 
@@ -690,7 +735,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
          * 
          * @return builder
          * 

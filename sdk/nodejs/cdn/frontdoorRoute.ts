@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Front Door (standard/premium) Route.
  *
+ * > **Note:** The `azure.cdn.FrontdoorRoute` resource must **explicitly** reference its associated `azure.cdn.FrontdoorOrigin` resource(s). This can be achieved either by using a `dependsOn` meta-argument that points to the `azure.cdn.FrontdoorOrigin` resource(s), or by specifying the `azure.cdn.FrontdoorOrigin` IDs via the `cdnFrontdoorOriginIds` field.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -188,9 +190,11 @@ export class FrontdoorRoute extends pulumi.CustomResource {
      */
     declare public readonly cdnFrontdoorOriginGroupId: pulumi.Output<string>;
     /**
-     * One or more Front Door Origin resource IDs that this Front Door Route will link to.
+     * One or more Front Door Origin resource IDs for this Front Door Route.
+     *
+     * > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      */
-    declare public readonly cdnFrontdoorOriginIds: pulumi.Output<string[]>;
+    declare public readonly cdnFrontdoorOriginIds: pulumi.Output<string[] | undefined>;
     /**
      * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      */
@@ -267,9 +271,6 @@ export class FrontdoorRoute extends pulumi.CustomResource {
             if (args?.cdnFrontdoorOriginGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorOriginGroupId'");
             }
-            if (args?.cdnFrontdoorOriginIds === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cdnFrontdoorOriginIds'");
-            }
             if (args?.patternsToMatches === undefined && !opts.urn) {
                 throw new Error("Missing required property 'patternsToMatches'");
             }
@@ -319,7 +320,9 @@ export interface FrontdoorRouteState {
      */
     cdnFrontdoorOriginGroupId?: pulumi.Input<string>;
     /**
-     * One or more Front Door Origin resource IDs that this Front Door Route will link to.
+     * One or more Front Door Origin resource IDs for this Front Door Route.
+     *
+     * > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      */
     cdnFrontdoorOriginIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -387,9 +390,11 @@ export interface FrontdoorRouteArgs {
      */
     cdnFrontdoorOriginGroupId: pulumi.Input<string>;
     /**
-     * One or more Front Door Origin resource IDs that this Front Door Route will link to.
+     * One or more Front Door Origin resource IDs for this Front Door Route.
+     *
+     * > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      */
-    cdnFrontdoorOriginIds: pulumi.Input<pulumi.Input<string>[]>;
+    cdnFrontdoorOriginIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      */

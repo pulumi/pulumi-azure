@@ -88,7 +88,6 @@ import (
 //				ResourceGroupName:       example.Name,
 //				Sku:                     pulumi.String("standardv3_Monthly"),
 //				Location:                example.Location,
-//				DiagnoseSupportEnabled:  pulumi.Bool(true),
 //				AutomaticUpgradeChannel: pulumi.String("stable"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
@@ -139,7 +138,7 @@ type Deployment struct {
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint pulumi.StringOutput `pulumi:"dataplaneApiEndpoint"`
-	// Should the metrics be exported to Azure Monitor?
+	// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrOutput `pulumi:"email"`
@@ -223,7 +222,7 @@ type deploymentState struct {
 	Capacity *int `pulumi:"capacity"`
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint *string `pulumi:"dataplaneApiEndpoint"`
-	// Should the metrics be exported to Azure Monitor?
+	// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
@@ -272,7 +271,7 @@ type DeploymentState struct {
 	Capacity pulumi.IntPtrInput
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint pulumi.StringPtrInput
-	// Should the metrics be exported to Azure Monitor?
+	// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
@@ -323,7 +322,7 @@ type deploymentArgs struct {
 	//
 	// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
-	// Should the metrics be exported to Azure Monitor?
+	// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email *string `pulumi:"email"`
@@ -367,7 +366,7 @@ type DeploymentArgs struct {
 	//
 	// > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
-	// Should the metrics be exported to Azure Monitor?
+	// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
 	Email pulumi.StringPtrInput
@@ -510,7 +509,7 @@ func (o DeploymentOutput) DataplaneApiEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DataplaneApiEndpoint }).(pulumi.StringOutput)
 }
 
-// Should the metrics be exported to Azure Monitor?
+// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 func (o DeploymentOutput) DiagnoseSupportEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.DiagnoseSupportEnabled }).(pulumi.BoolPtrOutput)
 }

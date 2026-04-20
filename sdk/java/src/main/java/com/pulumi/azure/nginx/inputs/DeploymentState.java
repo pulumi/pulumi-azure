@@ -91,16 +91,20 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the metrics be exported to Azure Monitor?
+     * @deprecated
+     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
+    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
     @Import(name="diagnoseSupportEnabled")
     private @Nullable Output<Boolean> diagnoseSupportEnabled;
 
     /**
-     * @return Should the metrics be exported to Azure Monitor?
+     * @deprecated
+     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
+    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
     public Optional<Output<Boolean>> diagnoseSupportEnabled() {
         return Optional.ofNullable(this.diagnoseSupportEnabled);
     }
@@ -488,22 +492,26 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnoseSupportEnabled Should the metrics be exported to Azure Monitor?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+         * 
          */
+        @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
         public Builder diagnoseSupportEnabled(@Nullable Output<Boolean> diagnoseSupportEnabled) {
             $.diagnoseSupportEnabled = diagnoseSupportEnabled;
             return this;
         }
 
         /**
-         * @param diagnoseSupportEnabled Should the metrics be exported to Azure Monitor?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
+         * 
          */
+        @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
         public Builder diagnoseSupportEnabled(Boolean diagnoseSupportEnabled) {
             return diagnoseSupportEnabled(Output.of(diagnoseSupportEnabled));
         }

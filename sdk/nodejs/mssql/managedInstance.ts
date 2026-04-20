@@ -280,6 +280,12 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
+     * Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+     *
+     * > **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+     */
+    declare public readonly generalPurposeV2Enabled: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      */
     declare public readonly hybridSecondaryUsage: pulumi.Output<string | undefined>;
@@ -296,7 +302,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      */
     declare public readonly maintenanceConfigurationName: pulumi.Output<string | undefined>;
     /**
@@ -381,6 +387,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["dnsZone"] = state?.dnsZone;
             resourceInputs["dnsZonePartnerId"] = state?.dnsZonePartnerId;
             resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["generalPurposeV2Enabled"] = state?.generalPurposeV2Enabled;
             resourceInputs["hybridSecondaryUsage"] = state?.hybridSecondaryUsage;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["licenseType"] = state?.licenseType;
@@ -426,6 +433,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["collation"] = args?.collation;
             resourceInputs["databaseFormat"] = args?.databaseFormat;
             resourceInputs["dnsZonePartnerId"] = args?.dnsZonePartnerId;
+            resourceInputs["generalPurposeV2Enabled"] = args?.generalPurposeV2Enabled;
             resourceInputs["hybridSecondaryUsage"] = args?.hybridSecondaryUsage;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["licenseType"] = args?.licenseType;
@@ -498,6 +506,12 @@ export interface ManagedInstanceState {
      */
     fqdn?: pulumi.Input<string>;
     /**
+     * Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+     *
+     * > **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+     */
+    generalPurposeV2Enabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      */
     hybridSecondaryUsage?: pulumi.Input<string>;
@@ -514,7 +528,7 @@ export interface ManagedInstanceState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      */
     maintenanceConfigurationName?: pulumi.Input<string>;
     /**
@@ -612,6 +626,12 @@ export interface ManagedInstanceArgs {
      */
     dnsZonePartnerId?: pulumi.Input<string>;
     /**
+     * Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+     *
+     * > **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+     */
+    generalPurposeV2Enabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      */
     hybridSecondaryUsage?: pulumi.Input<string>;
@@ -628,7 +648,7 @@ export interface ManagedInstanceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      */
     maintenanceConfigurationName?: pulumi.Input<string>;
     /**

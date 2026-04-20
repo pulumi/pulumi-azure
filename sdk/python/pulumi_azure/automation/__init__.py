@@ -35,6 +35,7 @@ from .powershell72_module import *
 from .python3_package import *
 from .run_book import *
 from .runtime_environment import *
+from .runtime_environment_package import *
 from .schedule import *
 from .software_update_configuration import *
 from .source_control import *

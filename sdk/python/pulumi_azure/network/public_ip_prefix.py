@@ -42,10 +42,10 @@ class PublicIpPrefixArgs:
         :param pulumi.Input[_builtins.int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
-               > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
-        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+               > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -151,9 +151,7 @@ class PublicIpPrefixArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-
-        > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -165,7 +163,9 @@ class PublicIpPrefixArgs:
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+
+        > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         """
         return pulumi.get(self, "sku_tier")
 
@@ -228,10 +228,10 @@ class _PublicIpPrefixState:
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
-               > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
-        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+               > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -352,9 +352,7 @@ class _PublicIpPrefixState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-
-        > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -366,7 +364,9 @@ class _PublicIpPrefixState:
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+
+        > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         """
         return pulumi.get(self, "sku_tier")
 
@@ -468,10 +468,10 @@ class PublicIpPrefix(pulumi.CustomResource):
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
-               > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
-        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+               > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -607,10 +607,10 @@ class PublicIpPrefix(pulumi.CustomResource):
                
                > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
-               > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
-        :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+               > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -697,9 +697,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-
-        > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+        The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -707,7 +705,9 @@ class PublicIpPrefix(pulumi.CustomResource):
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+
+        > **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         """
         return pulumi.get(self, "sku_tier")
 

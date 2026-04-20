@@ -881,6 +881,12 @@ class StandardSiteConfigArgsDict(TypedDict):
     """
     Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
     """
+    ip_restriction_default_action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action to take when no `ip_restriction` rules match. Possible values are `Allow` and `Deny`.
+
+    > **Note:** If `ip_restriction_default_action` is not configured, it is implicitly set to `Allow` when no `ip_restriction` rules are defined and `Deny` when at least one `ip_restriction` rule is defined.
+    """
     ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgsDict']]]]
     """
     A list of `ip_restriction` objects representing IP restrictions as defined below.
@@ -907,6 +913,10 @@ class StandardSiteConfigArgsDict(TypedDict):
     runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+    """
+    scm_ip_restriction_default_action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action to take when no `scm_ip_restriction` rules match. Possible values are `Allow` and `Deny`.
     """
     scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgsDict']]]]
     """
@@ -955,12 +965,14 @@ class StandardSiteConfigArgs:
                  ftps_state: Optional[pulumi.Input[_builtins.str]] = None,
                  health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
                  http2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[_builtins.str]] = None,
                  min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
                  pre_warmed_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[_builtins.str]] = None,
                  scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_min_tls_version: Optional[pulumi.Input[_builtins.str]] = None,
                  scm_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -978,6 +990,9 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[_builtins.str] ftps_state: State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param pulumi.Input[_builtins.str] health_check_path: Path which will be checked for this Logic App health.
         :param pulumi.Input[_builtins.bool] http2_enabled: Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] ip_restriction_default_action: The action to take when no `ip_restriction` rules match. Possible values are `Allow` and `Deny`.
+               
+               > **Note:** If `ip_restriction_default_action` is not configured, it is implicitly set to `Allow` when no `ip_restriction` rules are defined and `Deny` when at least one `ip_restriction` rule is defined.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
                
                > **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
@@ -989,6 +1004,7 @@ class StandardSiteConfigArgs:
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param pulumi.Input[_builtins.bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] scm_ip_restriction_default_action: The action to take when no `scm_ip_restriction` rules match. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
                
                > **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
@@ -1021,6 +1037,8 @@ class StandardSiteConfigArgs:
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         if linux_fx_version is not None:
@@ -1036,6 +1054,8 @@ class StandardSiteConfigArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
         if scm_ip_restrictions is not None:
             pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
         if scm_min_tls_version is not None:
@@ -1160,6 +1180,20 @@ class StandardSiteConfigArgs:
         pulumi.set(self, "http2_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action to take when no `ip_restriction` rules match. Possible values are `Allow` and `Deny`.
+
+        > **Note:** If `ip_restriction_default_action` is not configured, it is implicitly set to `Allow` when no `ip_restriction` rules are defined and `Deny` when at least one `ip_restriction` rule is defined.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]:
         """
@@ -1234,6 +1268,18 @@ class StandardSiteConfigArgs:
     @runtime_scale_monitoring_enabled.setter
     def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action to take when no `scm_ip_restriction` rules match. Possible values are `Allow` and `Deny`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="scmIpRestrictions")

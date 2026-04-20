@@ -72,6 +72,8 @@ type LookupElasticPoolArgs struct {
 type LookupElasticPoolResult struct {
 	// The type of enclave being used by the elastic pool.
 	EnclaveType string `pulumi:"enclaveType"`
+	// Specifies the number of high availability replicas for the elastic pool.
+	HighAvailabilityReplicaCount int `pulumi:"highAvailabilityReplicaCount"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The license type to apply for this elastic pool.
@@ -139,6 +141,11 @@ func (o LookupElasticPoolResultOutput) ToLookupElasticPoolResultOutputWithContex
 // The type of enclave being used by the elastic pool.
 func (o LookupElasticPoolResultOutput) EnclaveType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.EnclaveType }).(pulumi.StringOutput)
+}
+
+// Specifies the number of high availability replicas for the elastic pool.
+func (o LookupElasticPoolResultOutput) HighAvailabilityReplicaCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) int { return v.HighAvailabilityReplicaCount }).(pulumi.IntOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

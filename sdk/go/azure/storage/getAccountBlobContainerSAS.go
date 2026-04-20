@@ -118,8 +118,8 @@ type GetAccountBlobContainerSASArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Single IPv4 address or range (connected with a dash) of IPv4 addresses.
 	IpAddress *string `pulumi:"ipAddress"`
-	// A `permissions` block as defined below.
-	Permissions GetAccountBlobContainerSASPermissions `pulumi:"permissions"`
+	// Should Permissions permissions be enabled for this SAS?
+	Permissions *GetAccountBlobContainerSASPermissions `pulumi:"permissions"`
 	// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
 	Start string `pulumi:"start"`
 }
@@ -136,9 +136,9 @@ type GetAccountBlobContainerSASResult struct {
 	Expiry             string  `pulumi:"expiry"`
 	HttpsOnly          *bool   `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string                                `pulumi:"id"`
-	IpAddress   *string                               `pulumi:"ipAddress"`
-	Permissions GetAccountBlobContainerSASPermissions `pulumi:"permissions"`
+	Id          string                                 `pulumi:"id"`
+	IpAddress   *string                                `pulumi:"ipAddress"`
+	Permissions *GetAccountBlobContainerSASPermissions `pulumi:"permissions"`
 	// The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
 	Sas   string `pulumi:"sas"`
 	Start string `pulumi:"start"`
@@ -177,8 +177,8 @@ type GetAccountBlobContainerSASOutputArgs struct {
 	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
 	// Single IPv4 address or range (connected with a dash) of IPv4 addresses.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// A `permissions` block as defined below.
-	Permissions GetAccountBlobContainerSASPermissionsInput `pulumi:"permissions"`
+	// Should Permissions permissions be enabled for this SAS?
+	Permissions GetAccountBlobContainerSASPermissionsPtrInput `pulumi:"permissions"`
 	// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
 	Start pulumi.StringInput `pulumi:"start"`
 }
@@ -247,8 +247,8 @@ func (o GetAccountBlobContainerSASResultOutput) IpAddress() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GetAccountBlobContainerSASResult) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o GetAccountBlobContainerSASResultOutput) Permissions() GetAccountBlobContainerSASPermissionsOutput {
-	return o.ApplyT(func(v GetAccountBlobContainerSASResult) GetAccountBlobContainerSASPermissions { return v.Permissions }).(GetAccountBlobContainerSASPermissionsOutput)
+func (o GetAccountBlobContainerSASResultOutput) Permissions() GetAccountBlobContainerSASPermissionsPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASResult) *GetAccountBlobContainerSASPermissions { return v.Permissions }).(GetAccountBlobContainerSASPermissionsPtrOutput)
 }
 
 // The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.

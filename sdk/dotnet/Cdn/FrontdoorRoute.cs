@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Route.
     /// 
+    /// &gt; **Note:** The `azure.cdn.FrontdoorRoute` resource must **explicitly** reference its associated `azure.cdn.FrontdoorOrigin` resource(s). This can be achieved either by using a `DependsOn` meta-argument that points to the `azure.cdn.FrontdoorOrigin` resource(s), or by specifying the `azure.cdn.FrontdoorOrigin` IDs via the `CdnFrontdoorOriginIds` field.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -230,7 +232,9 @@ namespace Pulumi.Azure.Cdn
         public Output<string> CdnFrontdoorOriginGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        /// One or more Front Door Origin resource IDs for this Front Door Route.
+        /// 
+        /// &gt; **Note:** The `CdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `DependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `CdnFrontdoorOriginIds` field or the `DependsOn` meta-argument to the configuration post-import.
         /// </summary>
         [Output("cdnFrontdoorOriginIds")]
         public Output<ImmutableArray<string>> CdnFrontdoorOriginIds { get; private set; } = null!;
@@ -371,11 +375,13 @@ namespace Pulumi.Azure.Cdn
         [Input("cdnFrontdoorOriginGroupId", required: true)]
         public Input<string> CdnFrontdoorOriginGroupId { get; set; } = null!;
 
-        [Input("cdnFrontdoorOriginIds", required: true)]
+        [Input("cdnFrontdoorOriginIds")]
         private InputList<string>? _cdnFrontdoorOriginIds;
 
         /// <summary>
-        /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        /// One or more Front Door Origin resource IDs for this Front Door Route.
+        /// 
+        /// &gt; **Note:** The `CdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `DependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `CdnFrontdoorOriginIds` field or the `DependsOn` meta-argument to the configuration post-import.
         /// </summary>
         public InputList<string> CdnFrontdoorOriginIds
         {
@@ -503,7 +509,9 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _cdnFrontdoorOriginIds;
 
         /// <summary>
-        /// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        /// One or more Front Door Origin resource IDs for this Front Door Route.
+        /// 
+        /// &gt; **Note:** The `CdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `DependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `CdnFrontdoorOriginIds` field or the `DependsOn` meta-argument to the configuration post-import.
         /// </summary>
         public InputList<string> CdnFrontdoorOriginIds
         {

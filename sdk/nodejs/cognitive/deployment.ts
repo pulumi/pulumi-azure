@@ -102,7 +102,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The name of RAI policy.
      */
-    declare public readonly raiPolicyName: pulumi.Output<string | undefined>;
+    declare public readonly raiPolicyName: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */

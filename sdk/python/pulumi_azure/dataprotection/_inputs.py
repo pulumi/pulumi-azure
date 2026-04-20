@@ -23,6 +23,8 @@ __all__ = [
     'BackupPolicyBlobStorageRetentionRuleCriteriaArgsDict',
     'BackupPolicyBlobStorageRetentionRuleLifeCycleArgs',
     'BackupPolicyBlobStorageRetentionRuleLifeCycleArgsDict',
+    'BackupPolicyDataLakeStorageRetentionRuleArgs',
+    'BackupPolicyDataLakeStorageRetentionRuleArgsDict',
     'BackupPolicyDiskRetentionRuleArgs',
     'BackupPolicyDiskRetentionRuleArgsDict',
     'BackupPolicyDiskRetentionRuleCriteriaArgs',
@@ -479,6 +481,159 @@ class BackupPolicyBlobStorageRetentionRuleLifeCycleArgs:
     @duration.setter
     def duration(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "duration", value)
+
+
+class BackupPolicyDataLakeStorageRetentionRuleArgsDict(TypedDict):
+    duration: pulumi.Input[_builtins.str]
+    """
+    The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the retention rule. Changing this forces a new resource to be created.
+    """
+    absolute_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+    """
+    days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of days of the week on which the retention rule applies. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+    """
+    months_of_years: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of months of the year on which the retention rule applies. Possible values include `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+    """
+    scheduled_backup_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+
+    > **Note:** At least one of `absolute_criteria` or `days_of_week` must be specified. `weeks_of_month` and `months_of_year` are optional and can be supplied together. Multiple intervals may be set using multiple `retention_rule` blocks.
+    """
+    weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of weeks of the month on which the retention rule applies. Possible values include `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class BackupPolicyDataLakeStorageRetentionRuleArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 absolute_criteria: Optional[pulumi.Input[_builtins.str]] = None,
+                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 months_of_years: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scheduled_backup_times: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the retention rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] absolute_criteria: Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Specifies a list of days of the week on which the retention rule applies. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] months_of_years: Specifies a list of months of the year on which the retention rule applies. Possible values include `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+               
+               > **Note:** At least one of `absolute_criteria` or `days_of_week` must be specified. `weeks_of_month` and `months_of_year` are optional and can be supplied together. Multiple intervals may be set using multiple `retention_rule` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] weeks_of_months: Specifies a list of weeks of the month on which the retention rule applies. Possible values include `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "name", name)
+        if absolute_criteria is not None:
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+        if days_of_weeks is not None:
+            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        if months_of_years is not None:
+            pulumi.set(__self__, "months_of_years", months_of_years)
+        if scheduled_backup_times is not None:
+            pulumi.set(__self__, "scheduled_backup_times", scheduled_backup_times)
+        if weeks_of_months is not None:
+            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[_builtins.str]:
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the name of the retention rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="absoluteCriteria")
+    def absolute_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "absolute_criteria")
+
+    @absolute_criteria.setter
+    def absolute_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "absolute_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of days of the week on which the retention rule applies. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @days_of_weeks.setter
+    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "days_of_weeks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monthsOfYears")
+    def months_of_years(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of months of the year on which the retention rule applies. Possible values include `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "months_of_years")
+
+    @months_of_years.setter
+    def months_of_years(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "months_of_years", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledBackupTimes")
+    def scheduled_backup_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+
+        > **Note:** At least one of `absolute_criteria` or `days_of_week` must be specified. `weeks_of_month` and `months_of_year` are optional and can be supplied together. Multiple intervals may be set using multiple `retention_rule` blocks.
+        """
+        return pulumi.get(self, "scheduled_backup_times")
+
+    @scheduled_backup_times.setter
+    def scheduled_backup_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "scheduled_backup_times", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weeksOfMonths")
+    def weeks_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of weeks of the month on which the retention rule applies. Possible values include `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "weeks_of_months")
+
+    @weeks_of_months.setter
+    def weeks_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "weeks_of_months", value)
 
 
 class BackupPolicyDiskRetentionRuleArgsDict(TypedDict):

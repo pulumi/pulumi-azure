@@ -120,7 +120,7 @@ export class BgpConnection extends pulumi.CustomResource {
      */
     declare public readonly virtualHubId: pulumi.Output<string>;
     /**
-     * The ID of virtual network connection.
+     * The ID of virtual network connection. Changing this forces a new resource to be created.
      */
     declare public readonly virtualNetworkConnectionId: pulumi.Output<string | undefined>;
 
@@ -185,7 +185,7 @@ export interface BgpConnectionState {
      */
     virtualHubId?: pulumi.Input<string>;
     /**
-     * The ID of virtual network connection.
+     * The ID of virtual network connection. Changing this forces a new resource to be created.
      */
     virtualNetworkConnectionId?: pulumi.Input<string>;
 }
@@ -211,7 +211,7 @@ export interface BgpConnectionArgs {
      */
     virtualHubId: pulumi.Input<string>;
     /**
-     * The ID of virtual network connection.
+     * The ID of virtual network connection. Changing this forces a new resource to be created.
      */
     virtualNetworkConnectionId?: pulumi.Input<string>;
 }

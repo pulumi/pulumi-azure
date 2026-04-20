@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class BastionHostIpConfiguration {
@@ -18,8 +20,10 @@ public final class BastionHostIpConfiguration {
     /**
      * @return Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+     * 
      */
-    private String publicIpAddressId;
+    private @Nullable String publicIpAddressId;
     /**
      * @return Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
      * 
@@ -39,9 +43,11 @@ public final class BastionHostIpConfiguration {
     /**
      * @return Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+     * 
      */
-    public String publicIpAddressId() {
-        return this.publicIpAddressId;
+    public Optional<String> publicIpAddressId() {
+        return Optional.ofNullable(this.publicIpAddressId);
     }
     /**
      * @return Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
@@ -63,7 +69,7 @@ public final class BastionHostIpConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String name;
-        private String publicIpAddressId;
+        private @Nullable String publicIpAddressId;
         private String subnetId;
         public Builder() {}
         public Builder(BastionHostIpConfiguration defaults) {
@@ -82,10 +88,8 @@ public final class BastionHostIpConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder publicIpAddressId(String publicIpAddressId) {
-            if (publicIpAddressId == null) {
-              throw new MissingRequiredPropertyException("BastionHostIpConfiguration", "publicIpAddressId");
-            }
+        public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
+
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }

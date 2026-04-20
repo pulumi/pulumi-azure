@@ -54,7 +54,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Storage` - 2023-05-01
+// * `Microsoft.Storage` - 2025-06-01
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupShareResult
@@ -92,6 +92,8 @@ type LookupShareResult struct {
 	Name     string            `pulumi:"name"`
 	// The quota of the File Share in GB.
 	Quota int `pulumi:"quota"`
+	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	RbacScopeId string `pulumi:"rbacScopeId"`
 	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 	ResourceManagerId  string  `pulumi:"resourceManagerId"`
 	StorageAccountId   *string `pulumi:"storageAccountId"`
@@ -164,6 +166,11 @@ func (o LookupShareResultOutput) Name() pulumi.StringOutput {
 // The quota of the File Share in GB.
 func (o LookupShareResultOutput) Quota() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupShareResult) int { return v.Quota }).(pulumi.IntOutput)
+}
+
+// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+func (o LookupShareResultOutput) RbacScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.RbacScopeId }).(pulumi.StringOutput)
 }
 
 // Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.

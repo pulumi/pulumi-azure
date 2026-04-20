@@ -297,10 +297,10 @@ namespace Pulumi.Azure.Storage
         public string? IpAddress { get; set; }
 
         /// <summary>
-        /// A `Permissions` block as defined below.
+        /// Should Permissions permissions be enabled for this SAS?
         /// </summary>
-        [Input("permissions", required: true)]
-        public Inputs.GetAccountBlobContainerSASPermissionsArgs Permissions { get; set; } = null!;
+        [Input("permissions")]
+        public Inputs.GetAccountBlobContainerSASPermissionsArgs? Permissions { get; set; }
 
         /// <summary>
         /// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
@@ -389,10 +389,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// A `Permissions` block as defined below.
+        /// Should Permissions permissions be enabled for this SAS?
         /// </summary>
-        [Input("permissions", required: true)]
-        public Input<Inputs.GetAccountBlobContainerSASPermissionsInputArgs> Permissions { get; set; } = null!;
+        [Input("permissions")]
+        public Input<Inputs.GetAccountBlobContainerSASPermissionsInputArgs>? Permissions { get; set; }
 
         /// <summary>
         /// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
@@ -424,7 +424,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         public readonly string? IpAddress;
-        public readonly Outputs.GetAccountBlobContainerSASPermissionsResult Permissions;
+        public readonly Outputs.GetAccountBlobContainerSASPermissionsResult? Permissions;
         /// <summary>
         /// The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `Sas`.
         /// </summary>
@@ -455,7 +455,7 @@ namespace Pulumi.Azure.Storage
 
             string? ipAddress,
 
-            Outputs.GetAccountBlobContainerSASPermissionsResult permissions,
+            Outputs.GetAccountBlobContainerSASPermissionsResult? permissions,
 
             string sas,
 

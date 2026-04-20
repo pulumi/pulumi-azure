@@ -50,6 +50,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
+        /// The default action taken when no `IpRestriction` rules match.
+        /// </summary>
+        public readonly string IpRestrictionDefaultAction;
+        /// <summary>
         /// A list of `IpRestriction` objects representing IP restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardSiteConfigIpRestrictionResult> IpRestrictions;
@@ -70,6 +74,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
         /// </summary>
         public readonly bool RuntimeScaleMonitoringEnabled;
+        /// <summary>
+        /// The default action taken when no `ScmIpRestriction` rules match.
+        /// </summary>
+        public readonly string ScmIpRestrictionDefaultAction;
         /// <summary>
         /// A list of `ScmIpRestriction` objects representing SCM IP restrictions as defined below.
         /// </summary>
@@ -119,6 +127,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             bool http2Enabled,
 
+            string ipRestrictionDefaultAction,
+
             ImmutableArray<Outputs.GetStandardSiteConfigIpRestrictionResult> ipRestrictions,
 
             string linuxFxVersion,
@@ -130,6 +140,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
             bool publicNetworkAccessEnabled,
 
             bool runtimeScaleMonitoringEnabled,
+
+            string scmIpRestrictionDefaultAction,
 
             ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> scmIpRestrictions,
 
@@ -154,12 +166,14 @@ namespace Pulumi.Azure.LogicApps.Outputs
             FtpsState = ftpsState;
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
+            IpRestrictionDefaultAction = ipRestrictionDefaultAction;
             IpRestrictions = ipRestrictions;
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
             PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            ScmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             ScmIpRestrictions = scmIpRestrictions;
             ScmMinTlsVersion = scmMinTlsVersion;
             ScmType = scmType;

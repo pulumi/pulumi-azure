@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * NAT Gateway can be imported using the `resource id`, e.g.
+ * A NAT Gateway can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
@@ -93,7 +93,7 @@ export class NatGateway extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
-     * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+     * The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
     declare public readonly skuName: pulumi.Output<string | undefined>;
     /**
@@ -101,9 +101,11 @@ export class NatGateway extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
      *
-     * > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+     *
+     * > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
      */
     declare public readonly zones: pulumi.Output<string[] | undefined>;
 
@@ -172,7 +174,7 @@ export interface NatGatewayState {
      */
     resourceGuid?: pulumi.Input<string>;
     /**
-     * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+     * The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -180,9 +182,11 @@ export interface NatGatewayState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
      *
-     * > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+     *
+     * > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -208,7 +212,7 @@ export interface NatGatewayArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+     * The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -216,9 +220,11 @@ export interface NatGatewayArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
      *
-     * > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+     *
+     * > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

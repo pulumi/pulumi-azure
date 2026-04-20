@@ -1796,6 +1796,10 @@ type StandardSiteConfig struct {
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+	//
+	// > **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+	IpRestrictionDefaultAction *string `pulumi:"ipRestrictionDefaultAction"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	//
 	// > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -1814,6 +1818,8 @@ type StandardSiteConfig struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
+	// The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+	ScmIpRestrictionDefaultAction *string `pulumi:"scmIpRestrictionDefaultAction"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	//
 	// > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
@@ -1866,6 +1872,10 @@ type StandardSiteConfigArgs struct {
 	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
+	// The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+	//
+	// > **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+	IpRestrictionDefaultAction pulumi.StringPtrInput `pulumi:"ipRestrictionDefaultAction"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	//
 	// > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -1884,6 +1894,8 @@ type StandardSiteConfigArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
+	// The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+	ScmIpRestrictionDefaultAction pulumi.StringPtrInput `pulumi:"scmIpRestrictionDefaultAction"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	//
 	// > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
@@ -2028,6 +2040,13 @@ func (o StandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+//
+// > **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+func (o StandardSiteConfigOutput) IpRestrictionDefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.IpRestrictionDefaultAction }).(pulumi.StringPtrOutput)
+}
+
 // A list of `ipRestriction` objects representing IP restrictions as defined below.
 //
 // > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -2062,6 +2081,11 @@ func (o StandardSiteConfigOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOut
 // Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 func (o StandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+func (o StandardSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringPtrOutput)
 }
 
 // A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -2219,6 +2243,18 @@ func (o StandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+//
+// > **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+func (o StandardSiteConfigPtrOutput) IpRestrictionDefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpRestrictionDefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
 // A list of `ipRestriction` objects representing IP restrictions as defined below.
 //
 // > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -2283,6 +2319,16 @@ func (o StandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.Bool
 		}
 		return v.RuntimeScaleMonitoringEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+func (o StandardSiteConfigPtrOutput) ScmIpRestrictionDefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmIpRestrictionDefaultAction
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -4951,6 +4997,8 @@ type GetStandardSiteConfig struct {
 	HealthCheckPath string `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled.
 	Http2Enabled bool `pulumi:"http2Enabled"`
+	// The default action taken when no `ipRestriction` rules match.
+	IpRestrictionDefaultAction string `pulumi:"ipRestrictionDefaultAction"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	IpRestrictions []GetStandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the Logic App.
@@ -4963,6 +5011,8 @@ type GetStandardSiteConfig struct {
 	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
 	RuntimeScaleMonitoringEnabled bool `pulumi:"runtimeScaleMonitoringEnabled"`
+	// The default action taken when no `scmIpRestriction` rules match.
+	ScmIpRestrictionDefaultAction string `pulumi:"scmIpRestrictionDefaultAction"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	ScmIpRestrictions []GetStandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS required for SSL requests to the SCM site.
@@ -5009,6 +5059,8 @@ type GetStandardSiteConfigArgs struct {
 	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled.
 	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// The default action taken when no `ipRestriction` rules match.
+	IpRestrictionDefaultAction pulumi.StringInput `pulumi:"ipRestrictionDefaultAction"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	IpRestrictions GetStandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the Logic App.
@@ -5021,6 +5073,8 @@ type GetStandardSiteConfigArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolInput `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
 	RuntimeScaleMonitoringEnabled pulumi.BoolInput `pulumi:"runtimeScaleMonitoringEnabled"`
+	// The default action taken when no `scmIpRestriction` rules match.
+	ScmIpRestrictionDefaultAction pulumi.StringInput `pulumi:"scmIpRestrictionDefaultAction"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	ScmIpRestrictions GetStandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The minimum version of TLS required for SSL requests to the SCM site.
@@ -5108,6 +5162,11 @@ func (o GetStandardSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
 }
 
+// The default action taken when no `ipRestriction` rules match.
+func (o GetStandardSiteConfigOutput) IpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.IpRestrictionDefaultAction }).(pulumi.StringOutput)
+}
+
 // A list of `ipRestriction` objects representing IP restrictions as defined below.
 func (o GetStandardSiteConfigOutput) IpRestrictions() GetStandardSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v GetStandardSiteConfig) []GetStandardSiteConfigIpRestriction { return v.IpRestrictions }).(GetStandardSiteConfigIpRestrictionArrayOutput)
@@ -5136,6 +5195,11 @@ func (o GetStandardSiteConfigOutput) PublicNetworkAccessEnabled() pulumi.BoolOut
 // Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
 func (o GetStandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolOutput)
+}
+
+// The default action taken when no `scmIpRestriction` rules match.
+func (o GetStandardSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringOutput)
 }
 
 // A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.

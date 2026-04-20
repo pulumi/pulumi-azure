@@ -27,7 +27,7 @@ class GetBastionHostResult:
     """
     A collection of values returned by getBastionHost.
     """
-    def __init__(__self__, copy_paste_enabled=None, dns_name=None, file_copy_enabled=None, id=None, ip_configurations=None, ip_connect_enabled=None, location=None, name=None, resource_group_name=None, scale_units=None, session_recording_enabled=None, shareable_link_enabled=None, sku=None, tags=None, tunneling_enabled=None, zones=None):
+    def __init__(__self__, copy_paste_enabled=None, dns_name=None, file_copy_enabled=None, id=None, ip_configurations=None, ip_connect_enabled=None, location=None, name=None, private_only_enabled=None, resource_group_name=None, scale_units=None, session_recording_enabled=None, shareable_link_enabled=None, sku=None, tags=None, tunneling_enabled=None, zones=None):
         if copy_paste_enabled and not isinstance(copy_paste_enabled, bool):
             raise TypeError("Expected argument 'copy_paste_enabled' to be a bool")
         pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
@@ -52,6 +52,9 @@ class GetBastionHostResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_only_enabled and not isinstance(private_only_enabled, bool):
+            raise TypeError("Expected argument 'private_only_enabled' to be a bool")
+        pulumi.set(__self__, "private_only_enabled", private_only_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -142,6 +145,14 @@ class GetBastionHostResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="privateOnlyEnabled")
+    def private_only_enabled(self) -> _builtins.bool:
+        """
+        Whether Private-Only deployment is enabled for the Bastion Host.
+        """
+        return pulumi.get(self, "private_only_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
@@ -217,6 +228,7 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
             ip_connect_enabled=self.ip_connect_enabled,
             location=self.location,
             name=self.name,
+            private_only_enabled=self.private_only_enabled,
             resource_group_name=self.resource_group_name,
             scale_units=self.scale_units,
             session_recording_enabled=self.session_recording_enabled,
@@ -270,6 +282,7 @@ def get_bastion_host(name: Optional[_builtins.str] = None,
         ip_connect_enabled=pulumi.get(__ret__, 'ip_connect_enabled'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        private_only_enabled=pulumi.get(__ret__, 'private_only_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         scale_units=pulumi.get(__ret__, 'scale_units'),
         session_recording_enabled=pulumi.get(__ret__, 'session_recording_enabled'),
@@ -320,6 +333,7 @@ def get_bastion_host_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         ip_connect_enabled=pulumi.get(__response__, 'ip_connect_enabled'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        private_only_enabled=pulumi.get(__response__, 'private_only_enabled'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         scale_units=pulumi.get(__response__, 'scale_units'),
         session_recording_enabled=pulumi.get(__response__, 'session_recording_enabled'),

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? ObservabilityEnabled;
         /// <summary>
-        /// Is security enabled? Defaults to `False`.
+        /// Is security enabled? Defaults to `False`. This can only be enabled (set to `True`) when `NetworkPlugin` is set to `Azure` and `NetworkDataPlane` is set to `Cilium`.
         /// </summary>
         public readonly bool? SecurityEnabled;
 

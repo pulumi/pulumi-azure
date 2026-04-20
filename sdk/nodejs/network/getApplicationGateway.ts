@@ -72,6 +72,10 @@ export interface GetApplicationGatewayResult {
      */
     readonly backendHttpSettings: outputs.network.GetApplicationGatewayBackendHttpSetting[];
     /**
+     * One or more `backend` blocks as defined below.
+     */
+    readonly backends: outputs.network.GetApplicationGatewayBackend[];
+    /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     readonly customErrorConfigurations: outputs.network.GetApplicationGatewayCustomErrorConfiguration[];
@@ -120,6 +124,10 @@ export interface GetApplicationGatewayResult {
      */
     readonly identities: outputs.network.GetApplicationGatewayIdentity[];
     /**
+     * One or more `listener` blocks as defined below.
+     */
+    readonly listeners: outputs.network.GetApplicationGatewayListener[];
+    /**
      * The Azure region where the Application Gateway exists.
      */
     readonly location: string;
@@ -149,6 +157,10 @@ export interface GetApplicationGatewayResult {
      * One or more `rewriteRuleSet` blocks as defined below.
      */
     readonly rewriteRuleSets: outputs.network.GetApplicationGatewayRewriteRuleSet[];
+    /**
+     * One or more `routingRule` blocks as defined below.
+     */
+    readonly routingRules: outputs.network.GetApplicationGatewayRoutingRule[];
     /**
      * A `sku` block as defined below.
      */

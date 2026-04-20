@@ -95,11 +95,13 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(followerCluster.name())
- *             .clusterResourceId(followedCluster.id())
+ *             .clusterId(followedCluster.id())
  *             .databaseName(exampleDatabase.name())
  *             .sharing(AttachedDatabaseConfigurationSharingArgs.builder()
  *                 .externalTablesToExcludes("ExternalTable2")
  *                 .externalTablesToIncludes("ExternalTable1")
+ *                 .functionsToExcludes("Function2")
+ *                 .functionsToIncludes("Function1")
  *                 .materializedViewsToExcludes("MaterializedViewTable2")
  *                 .materializedViewsToIncludes("MaterializedViewTable1")
  *                 .tablesToExcludes("Table2")
@@ -197,6 +199,38 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      */
     public Output<String> databaseName() {
         return this.databaseName;
+    }
+    /**
+     * The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+     * 
+     */
+    @Export(name="databaseNameOverride", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> databaseNameOverride;
+
+    /**
+     * @return The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+     * 
+     */
+    public Output<Optional<String>> databaseNameOverride() {
+        return Codegen.optional(this.databaseNameOverride);
+    }
+    /**
+     * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     * 
+     * &gt; **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+     * 
+     */
+    @Export(name="databaseNamePrefix", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> databaseNamePrefix;
+
+    /**
+     * @return Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     * 
+     * &gt; **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+     * 
+     */
+    public Output<Optional<String>> databaseNamePrefix() {
+        return Codegen.optional(this.databaseNamePrefix);
     }
     /**
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.

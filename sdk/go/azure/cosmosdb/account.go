@@ -205,7 +205,8 @@ type Account struct {
 	Kind                          pulumi.StringPtrOutput        `pulumi:"kind"`
 	LocalAuthenticationDisabled   pulumi.BoolPtrOutput          `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location        pulumi.StringOutput    `pulumi:"location"`
+	Location pulumi.StringOutput `pulumi:"location"`
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	//
@@ -343,7 +344,8 @@ type accountState struct {
 	Kind                          *string              `pulumi:"kind"`
 	LocalAuthenticationDisabled   *bool                `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location        *string `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	//
@@ -425,7 +427,8 @@ type AccountState struct {
 	Kind                          pulumi.StringPtrInput
 	LocalAuthenticationDisabled   pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location        pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	//
@@ -509,7 +512,8 @@ type accountArgs struct {
 	Kind                          *string              `pulumi:"kind"`
 	LocalAuthenticationDisabled   *bool                `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location        *string `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	//
@@ -562,7 +566,8 @@ type AccountArgs struct {
 	Kind                          pulumi.StringPtrInput
 	LocalAuthenticationDisabled   pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location        pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	//
@@ -769,6 +774,7 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 func (o AccountOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }

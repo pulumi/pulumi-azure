@@ -8,6 +8,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -22,6 +23,11 @@ public final class ScheduledQueryRulesAlertV2Action {
      * 
      */
     private @Nullable Map<String,String> customProperties;
+    /**
+     * @return Custom subject override for all email ids in Azure action group.
+     * 
+     */
+    private @Nullable String emailSubject;
 
     private ScheduledQueryRulesAlertV2Action() {}
     /**
@@ -38,6 +44,13 @@ public final class ScheduledQueryRulesAlertV2Action {
     public Map<String,String> customProperties() {
         return this.customProperties == null ? Map.of() : this.customProperties;
     }
+    /**
+     * @return Custom subject override for all email ids in Azure action group.
+     * 
+     */
+    public Optional<String> emailSubject() {
+        return Optional.ofNullable(this.emailSubject);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class ScheduledQueryRulesAlertV2Action {
     public static final class Builder {
         private @Nullable List<String> actionGroups;
         private @Nullable Map<String,String> customProperties;
+        private @Nullable String emailSubject;
         public Builder() {}
         public Builder(ScheduledQueryRulesAlertV2Action defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionGroups = defaults.actionGroups;
     	      this.customProperties = defaults.customProperties;
+    	      this.emailSubject = defaults.emailSubject;
         }
 
         @CustomType.Setter
@@ -72,10 +87,17 @@ public final class ScheduledQueryRulesAlertV2Action {
             this.customProperties = customProperties;
             return this;
         }
+        @CustomType.Setter
+        public Builder emailSubject(@Nullable String emailSubject) {
+
+            this.emailSubject = emailSubject;
+            return this;
+        }
         public ScheduledQueryRulesAlertV2Action build() {
             final var _resultValue = new ScheduledQueryRulesAlertV2Action();
             _resultValue.actionGroups = actionGroups;
             _resultValue.customProperties = customProperties;
+            _resultValue.emailSubject = emailSubject;
             return _resultValue;
         }
     }

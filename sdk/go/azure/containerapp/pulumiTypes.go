@@ -3511,9 +3511,13 @@ func (o AppTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) App
 
 type AppTemplateCustomScaleRule struct {
 	// Zero or more `authentication` blocks as defined below.
+	//
+	// * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
 	Authentications []AppTemplateCustomScaleRuleAuthentication `pulumi:"authentications"`
 	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
 	CustomRuleType string `pulumi:"customRuleType"`
+	// ID of the System or User Managed Identity used to execute scale rule.
+	IdentityId *string `pulumi:"identityId"`
 	// A map of string key-value pairs to configure the Custom Scale Rule.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Scaling Rule
@@ -3533,9 +3537,13 @@ type AppTemplateCustomScaleRuleInput interface {
 
 type AppTemplateCustomScaleRuleArgs struct {
 	// Zero or more `authentication` blocks as defined below.
+	//
+	// * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
 	Authentications AppTemplateCustomScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
 	// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
 	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
+	// ID of the System or User Managed Identity used to execute scale rule.
+	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// A map of string key-value pairs to configure the Custom Scale Rule.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// The name of the Scaling Rule
@@ -3594,6 +3602,8 @@ func (o AppTemplateCustomScaleRuleOutput) ToAppTemplateCustomScaleRuleOutputWith
 }
 
 // Zero or more `authentication` blocks as defined below.
+//
+// * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
 func (o AppTemplateCustomScaleRuleOutput) Authentications() AppTemplateCustomScaleRuleAuthenticationArrayOutput {
 	return o.ApplyT(func(v AppTemplateCustomScaleRule) []AppTemplateCustomScaleRuleAuthentication {
 		return v.Authentications
@@ -3603,6 +3613,11 @@ func (o AppTemplateCustomScaleRuleOutput) Authentications() AppTemplateCustomSca
 // The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
 func (o AppTemplateCustomScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateCustomScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
+}
+
+// ID of the System or User Managed Identity used to execute scale rule.
+func (o AppTemplateCustomScaleRuleOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateCustomScaleRule) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
 
 // A map of string key-value pairs to configure the Custom Scale Rule.
@@ -5759,6 +5774,8 @@ type JobEventTriggerConfigScaleRule struct {
 	Authentications []JobEventTriggerConfigScaleRuleAuthentication `pulumi:"authentications"`
 	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 	CustomRuleType string `pulumi:"customRuleType"`
+	// ID of the System or User Managed Identity used to execute scale rule.
+	IdentityId *string `pulumi:"identityId"`
 	// Metadata properties to describe the scale rule.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Name of the scale rule.
@@ -5781,6 +5798,8 @@ type JobEventTriggerConfigScaleRuleArgs struct {
 	Authentications JobEventTriggerConfigScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
 	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
+	// ID of the System or User Managed Identity used to execute scale rule.
+	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// Metadata properties to describe the scale rule.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// Name of the scale rule.
@@ -5848,6 +5867,11 @@ func (o JobEventTriggerConfigScaleRuleOutput) Authentications() JobEventTriggerC
 // Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 func (o JobEventTriggerConfigScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
+}
+
+// ID of the System or User Managed Identity used to execute scale rule.
+func (o JobEventTriggerConfigScaleRuleOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
 
 // Metadata properties to describe the scale rule.
@@ -11664,7 +11688,9 @@ func (o GetAppTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) 
 type GetAppTemplateCustomScaleRule struct {
 	Authentications []GetAppTemplateCustomScaleRuleAuthentication `pulumi:"authentications"`
 	CustomRuleType  string                                        `pulumi:"customRuleType"`
-	Metadata        map[string]string                             `pulumi:"metadata"`
+	// ID of the System or User Managed Identity used to execute scale rule.
+	IdentityId string            `pulumi:"identityId"`
+	Metadata   map[string]string `pulumi:"metadata"`
 	// The name of the Container App.
 	Name string `pulumi:"name"`
 }
@@ -11683,7 +11709,9 @@ type GetAppTemplateCustomScaleRuleInput interface {
 type GetAppTemplateCustomScaleRuleArgs struct {
 	Authentications GetAppTemplateCustomScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
 	CustomRuleType  pulumi.StringInput                                    `pulumi:"customRuleType"`
-	Metadata        pulumi.StringMapInput                                 `pulumi:"metadata"`
+	// ID of the System or User Managed Identity used to execute scale rule.
+	IdentityId pulumi.StringInput    `pulumi:"identityId"`
+	Metadata   pulumi.StringMapInput `pulumi:"metadata"`
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -11747,6 +11775,11 @@ func (o GetAppTemplateCustomScaleRuleOutput) Authentications() GetAppTemplateCus
 
 func (o GetAppTemplateCustomScaleRuleOutput) CustomRuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateCustomScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
+}
+
+// ID of the System or User Managed Identity used to execute scale rule.
+func (o GetAppTemplateCustomScaleRuleOutput) IdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateCustomScaleRule) string { return v.IdentityId }).(pulumi.StringOutput)
 }
 
 func (o GetAppTemplateCustomScaleRuleOutput) Metadata() pulumi.StringMapOutput {

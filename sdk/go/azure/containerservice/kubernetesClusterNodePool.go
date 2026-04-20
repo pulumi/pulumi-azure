@@ -138,6 +138,8 @@ type KubernetesClusterNodePool struct {
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      pulumi.StringOutput `pulumi:"name"`
 	NodeCount pulumi.IntOutput    `pulumi:"nodeCount"`
+	// The current node image version running on this Node Pool.
+	NodeImageVersion pulumi.StringOutput `pulumi:"nodeImageVersion"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
@@ -156,7 +158,7 @@ type KubernetesClusterNodePool struct {
 	OsDiskSizeGb pulumi.IntOutput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
 	OsDiskType pulumi.StringPtrOutput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku pulumi.StringOutput `pulumi:"osSku"`
@@ -280,6 +282,8 @@ type kubernetesClusterNodePoolState struct {
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      *string `pulumi:"name"`
 	NodeCount *int    `pulumi:"nodeCount"`
+	// The current node image version running on this Node Pool.
+	NodeImageVersion *string `pulumi:"nodeImageVersion"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
@@ -298,7 +302,7 @@ type kubernetesClusterNodePoolState struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku *string `pulumi:"osSku"`
@@ -390,6 +394,8 @@ type KubernetesClusterNodePoolState struct {
 	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      pulumi.StringPtrInput
 	NodeCount pulumi.IntPtrInput
+	// The current node image version running on this Node Pool.
+	NodeImageVersion pulumi.StringPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
 	// A `nodeNetworkProfile` block as documented below.
@@ -408,7 +414,7 @@ type KubernetesClusterNodePoolState struct {
 	OsDiskSizeGb pulumi.IntPtrInput
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
 	OsDiskType pulumi.StringPtrInput
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku pulumi.StringPtrInput
@@ -522,7 +528,7 @@ type kubernetesClusterNodePoolArgs struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku *string `pulumi:"osSku"`
@@ -633,7 +639,7 @@ type KubernetesClusterNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
 	OsDiskType pulumi.StringPtrInput
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku pulumi.StringPtrInput
@@ -869,6 +875,11 @@ func (o KubernetesClusterNodePoolOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntOutput { return v.NodeCount }).(pulumi.IntOutput)
 }
 
+// The current node image version running on this Node Pool.
+func (o KubernetesClusterNodePoolOutput) NodeImageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.NodeImageVersion }).(pulumi.StringOutput)
+}
+
 // A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 func (o KubernetesClusterNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringMapOutput { return v.NodeLabels }).(pulumi.StringMapOutput)
@@ -913,7 +924,7 @@ func (o KubernetesClusterNodePoolOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 //
 // > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 func (o KubernetesClusterNodePoolOutput) OsSku() pulumi.StringOutput {

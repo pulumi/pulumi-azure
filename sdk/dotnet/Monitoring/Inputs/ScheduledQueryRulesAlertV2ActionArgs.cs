@@ -36,6 +36,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
             set => _customProperties = value;
         }
 
+        /// <summary>
+        /// Custom subject override for all email ids in Azure action group.
+        /// </summary>
+        [Input("emailSubject")]
+        public Input<string>? EmailSubject { get; set; }
+
         public ScheduledQueryRulesAlertV2ActionArgs()
         {
         }

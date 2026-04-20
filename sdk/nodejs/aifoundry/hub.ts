@@ -7,7 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an AI Foundry Hub.
+ * Manages a Microsoft Foundry Hub (classic) resource.
+ *
+ * > **Note:** Hub‑based projects are considered legacy and are not compatible with the new Foundry experience. Microsoft recommends using the new Microsoft Foundry resource, which should be provisioned using
+ * `azure.cognitive.Account`.
  *
  * ## Example Usage
  *

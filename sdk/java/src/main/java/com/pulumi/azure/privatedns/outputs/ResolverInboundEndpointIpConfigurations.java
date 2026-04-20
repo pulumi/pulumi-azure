@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverInboundEndpointIpConfigurations {
     /**
-     * @return Private IP address of the IP configuration.
+     * @return Private IP address of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String privateIpAddress;
     /**
-     * @return Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+     * @return Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String privateIpAllocationMethod;
     /**
-     * @return The subnet ID of the IP configuration.
+     * @return The subnet ID of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     private String subnetId;
 
     private ResolverInboundEndpointIpConfigurations() {}
     /**
-     * @return Private IP address of the IP configuration.
+     * @return Private IP address of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
     /**
-     * @return Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+     * @return Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> privateIpAllocationMethod() {
         return Optional.ofNullable(this.privateIpAllocationMethod);
     }
     /**
-     * @return The subnet ID of the IP configuration.
+     * @return The subnet ID of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public String subnetId() {

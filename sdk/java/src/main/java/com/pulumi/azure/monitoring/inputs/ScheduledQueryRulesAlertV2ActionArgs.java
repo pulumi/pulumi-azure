@@ -47,11 +47,27 @@ public final class ScheduledQueryRulesAlertV2ActionArgs extends com.pulumi.resou
         return Optional.ofNullable(this.customProperties);
     }
 
+    /**
+     * Custom subject override for all email ids in Azure action group.
+     * 
+     */
+    @Import(name="emailSubject")
+    private @Nullable Output<String> emailSubject;
+
+    /**
+     * @return Custom subject override for all email ids in Azure action group.
+     * 
+     */
+    public Optional<Output<String>> emailSubject() {
+        return Optional.ofNullable(this.emailSubject);
+    }
+
     private ScheduledQueryRulesAlertV2ActionArgs() {}
 
     private ScheduledQueryRulesAlertV2ActionArgs(ScheduledQueryRulesAlertV2ActionArgs $) {
         this.actionGroups = $.actionGroups;
         this.customProperties = $.customProperties;
+        this.emailSubject = $.emailSubject;
     }
 
     public static Builder builder() {
@@ -122,6 +138,27 @@ public final class ScheduledQueryRulesAlertV2ActionArgs extends com.pulumi.resou
          */
         public Builder customProperties(Map<String,String> customProperties) {
             return customProperties(Output.of(customProperties));
+        }
+
+        /**
+         * @param emailSubject Custom subject override for all email ids in Azure action group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailSubject(@Nullable Output<String> emailSubject) {
+            $.emailSubject = emailSubject;
+            return this;
+        }
+
+        /**
+         * @param emailSubject Custom subject override for all email ids in Azure action group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailSubject(String emailSubject) {
+            return emailSubject(Output.of(emailSubject));
         }
 
         public ScheduledQueryRulesAlertV2ActionArgs build() {

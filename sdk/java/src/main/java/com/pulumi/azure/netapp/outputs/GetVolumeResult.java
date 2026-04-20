@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp.outputs;
 
+import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionAdvancedRansomware;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionReplication;
 import com.pulumi.core.annotations.CustomType;
@@ -23,6 +24,11 @@ public final class GetVolumeResult {
      */
     private String acceptGrowCapacityPoolForShortTermCloneSplit;
     private String accountName;
+    /**
+     * @return An Advanced Ransomware Protection (ARP) data protection block.
+     * 
+     */
+    private List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares;
     /**
      * @return A data protecion backup policy block
      * 
@@ -119,6 +125,13 @@ public final class GetVolumeResult {
     }
     public String accountName() {
         return this.accountName;
+    }
+    /**
+     * @return An Advanced Ransomware Protection (ARP) data protection block.
+     * 
+     */
+    public List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares() {
+        return this.dataProtectionAdvancedRansomwares;
     }
     /**
      * @return A data protecion backup policy block
@@ -259,6 +272,7 @@ public final class GetVolumeResult {
     public static final class Builder {
         private String acceptGrowCapacityPoolForShortTermCloneSplit;
         private String accountName;
+        private List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares;
         private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
         private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
         private String encryptionKeySource;
@@ -285,6 +299,7 @@ public final class GetVolumeResult {
     	      Objects.requireNonNull(defaults);
     	      this.acceptGrowCapacityPoolForShortTermCloneSplit = defaults.acceptGrowCapacityPoolForShortTermCloneSplit;
     	      this.accountName = defaults.accountName;
+    	      this.dataProtectionAdvancedRansomwares = defaults.dataProtectionAdvancedRansomwares;
     	      this.dataProtectionBackupPolicies = defaults.dataProtectionBackupPolicies;
     	      this.dataProtectionReplications = defaults.dataProtectionReplications;
     	      this.encryptionKeySource = defaults.encryptionKeySource;
@@ -323,6 +338,17 @@ public final class GetVolumeResult {
             }
             this.accountName = accountName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dataProtectionAdvancedRansomwares(List<GetVolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomwares) {
+            if (dataProtectionAdvancedRansomwares == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "dataProtectionAdvancedRansomwares");
+            }
+            this.dataProtectionAdvancedRansomwares = dataProtectionAdvancedRansomwares;
+            return this;
+        }
+        public Builder dataProtectionAdvancedRansomwares(GetVolumeDataProtectionAdvancedRansomware... dataProtectionAdvancedRansomwares) {
+            return dataProtectionAdvancedRansomwares(List.of(dataProtectionAdvancedRansomwares));
         }
         @CustomType.Setter
         public Builder dataProtectionBackupPolicies(List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies) {
@@ -506,6 +532,7 @@ public final class GetVolumeResult {
             final var _resultValue = new GetVolumeResult();
             _resultValue.acceptGrowCapacityPoolForShortTermCloneSplit = acceptGrowCapacityPoolForShortTermCloneSplit;
             _resultValue.accountName = accountName;
+            _resultValue.dataProtectionAdvancedRansomwares = dataProtectionAdvancedRansomwares;
             _resultValue.dataProtectionBackupPolicies = dataProtectionBackupPolicies;
             _resultValue.dataProtectionReplications = dataProtectionReplications;
             _resultValue.encryptionKeySource = encryptionKeySource;

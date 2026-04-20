@@ -27,10 +27,13 @@ class GetElasticPoolResult:
     """
     A collection of values returned by getElasticPool.
     """
-    def __init__(__self__, enclave_type=None, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, skus=None, tags=None, zone_redundant=None):
+    def __init__(__self__, enclave_type=None, high_availability_replica_count=None, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, skus=None, tags=None, zone_redundant=None):
         if enclave_type and not isinstance(enclave_type, str):
             raise TypeError("Expected argument 'enclave_type' to be a str")
         pulumi.set(__self__, "enclave_type", enclave_type)
+        if high_availability_replica_count and not isinstance(high_availability_replica_count, int):
+            raise TypeError("Expected argument 'high_availability_replica_count' to be a int")
+        pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -78,6 +81,14 @@ class GetElasticPoolResult:
         The type of enclave being used by the elastic pool.
         """
         return pulumi.get(self, "enclave_type")
+
+    @_builtins.property
+    @pulumi.getter(name="highAvailabilityReplicaCount")
+    def high_availability_replica_count(self) -> _builtins.int:
+        """
+        Specifies the number of high availability replicas for the elastic pool.
+        """
+        return pulumi.get(self, "high_availability_replica_count")
 
     @_builtins.property
     @pulumi.getter
@@ -185,6 +196,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             yield self
         return GetElasticPoolResult(
             enclave_type=self.enclave_type,
+            high_availability_replica_count=self.high_availability_replica_count,
             id=self.id,
             license_type=self.license_type,
             location=self.location,
@@ -240,6 +252,7 @@ def get_elastic_pool(name: Optional[_builtins.str] = None,
 
     return AwaitableGetElasticPoolResult(
         enclave_type=pulumi.get(__ret__, 'enclave_type'),
+        high_availability_replica_count=pulumi.get(__ret__, 'high_availability_replica_count'),
         id=pulumi.get(__ret__, 'id'),
         license_type=pulumi.get(__ret__, 'license_type'),
         location=pulumi.get(__ret__, 'location'),
@@ -292,6 +305,7 @@ def get_elastic_pool_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:mssql/getElasticPool:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult)
     return __ret__.apply(lambda __response__: GetElasticPoolResult(
         enclave_type=pulumi.get(__response__, 'enclave_type'),
+        high_availability_replica_count=pulumi.get(__response__, 'high_availability_replica_count'),
         id=pulumi.get(__response__, 'id'),
         license_type=pulumi.get(__response__, 'license_type'),
         location=pulumi.get(__response__, 'location'),

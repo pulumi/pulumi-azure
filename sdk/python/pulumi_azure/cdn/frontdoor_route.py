@@ -23,11 +23,11 @@ class FrontdoorRouteArgs:
     def __init__(__self__, *,
                  cdn_frontdoor_endpoint_id: pulumi.Input[_builtins.str],
                  cdn_frontdoor_origin_group_id: pulumi.Input[_builtins.str],
-                 cdn_frontdoor_origin_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  supported_protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cdn_frontdoor_origin_path: Optional[pulumi.Input[_builtins.str]] = None,
                  cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -40,7 +40,6 @@ class FrontdoorRouteArgs:
 
         :param pulumi.Input[_builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs that this Front Door Route will link to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] patterns_to_matches: The route patterns of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_protocols: One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
                
@@ -49,6 +48,9 @@ class FrontdoorRouteArgs:
                
                > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs for this Front Door Route.
+               
+               > **Note:** The `cdn_frontdoor_origin_ids` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `depends_on` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdn_frontdoor_origin_ids` field or the `depends_on` meta-argument to the configuration post-import.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[_builtins.bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
@@ -61,13 +63,14 @@ class FrontdoorRouteArgs:
         """
         pulumi.set(__self__, "cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
         pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
-        pulumi.set(__self__, "cdn_frontdoor_origin_ids", cdn_frontdoor_origin_ids)
         pulumi.set(__self__, "patterns_to_matches", patterns_to_matches)
         pulumi.set(__self__, "supported_protocols", supported_protocols)
         if cache is not None:
             pulumi.set(__self__, "cache", cache)
         if cdn_frontdoor_custom_domain_ids is not None:
             pulumi.set(__self__, "cdn_frontdoor_custom_domain_ids", cdn_frontdoor_custom_domain_ids)
+        if cdn_frontdoor_origin_ids is not None:
+            pulumi.set(__self__, "cdn_frontdoor_origin_ids", cdn_frontdoor_origin_ids)
         if cdn_frontdoor_origin_path is not None:
             pulumi.set(__self__, "cdn_frontdoor_origin_path", cdn_frontdoor_origin_path)
         if cdn_frontdoor_rule_set_ids is not None:
@@ -106,18 +109,6 @@ class FrontdoorRouteArgs:
     @cdn_frontdoor_origin_group_id.setter
     def cdn_frontdoor_origin_group_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cdn_frontdoor_origin_group_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cdnFrontdoorOriginIds")
-    def cdn_frontdoor_origin_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        One or more Front Door Origin resource IDs that this Front Door Route will link to.
-        """
-        return pulumi.get(self, "cdn_frontdoor_origin_ids")
-
-    @cdn_frontdoor_origin_ids.setter
-    def cdn_frontdoor_origin_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "cdn_frontdoor_origin_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="patternsToMatches")
@@ -170,6 +161,20 @@ class FrontdoorRouteArgs:
     @cdn_frontdoor_custom_domain_ids.setter
     def cdn_frontdoor_custom_domain_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cdn_frontdoor_custom_domain_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cdnFrontdoorOriginIds")
+    def cdn_frontdoor_origin_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more Front Door Origin resource IDs for this Front Door Route.
+
+        > **Note:** The `cdn_frontdoor_origin_ids` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `depends_on` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdn_frontdoor_origin_ids` field or the `depends_on` meta-argument to the configuration post-import.
+        """
+        return pulumi.get(self, "cdn_frontdoor_origin_ids")
+
+    @cdn_frontdoor_origin_ids.setter
+    def cdn_frontdoor_origin_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "cdn_frontdoor_origin_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginPath")
@@ -284,7 +289,9 @@ class _FrontdoorRouteState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs for this Front Door Route.
+               
+               > **Note:** The `cdn_frontdoor_origin_ids` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `depends_on` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdn_frontdoor_origin_ids` field or the `depends_on` meta-argument to the configuration post-import.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[_builtins.bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
@@ -382,7 +389,9 @@ class _FrontdoorRouteState:
     @pulumi.getter(name="cdnFrontdoorOriginIds")
     def cdn_frontdoor_origin_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        One or more Front Door Origin resource IDs for this Front Door Route.
+
+        > **Note:** The `cdn_frontdoor_origin_ids` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `depends_on` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdn_frontdoor_origin_ids` field or the `depends_on` meta-argument to the configuration post-import.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_ids")
 
@@ -527,6 +536,8 @@ class FrontdoorRoute(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Route.
 
+        > **Note:** The `cdn.FrontdoorRoute` resource must **explicitly** reference its associated `cdn.FrontdoorOrigin` resource(s). This can be achieved either by using a `depends_on` meta-argument that points to the `cdn.FrontdoorOrigin` resource(s), or by specifying the `cdn.FrontdoorOrigin` IDs via the `cdn_frontdoor_origin_ids` field.
+
         ## Example Usage
 
         ```python
@@ -652,7 +663,9 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs for this Front Door Route.
+               
+               > **Note:** The `cdn_frontdoor_origin_ids` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `depends_on` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdn_frontdoor_origin_ids` field or the `depends_on` meta-argument to the configuration post-import.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[_builtins.bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
@@ -675,6 +688,8 @@ class FrontdoorRoute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Route.
+
+        > **Note:** The `cdn.FrontdoorRoute` resource must **explicitly** reference its associated `cdn.FrontdoorOrigin` resource(s). This can be achieved either by using a `depends_on` meta-argument that points to the `cdn.FrontdoorOrigin` resource(s), or by specifying the `cdn.FrontdoorOrigin` IDs via the `cdn_frontdoor_origin_ids` field.
 
         ## Example Usage
 
@@ -839,8 +854,6 @@ class FrontdoorRoute(pulumi.CustomResource):
             if cdn_frontdoor_origin_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_origin_group_id'")
             __props__.__dict__["cdn_frontdoor_origin_group_id"] = cdn_frontdoor_origin_group_id
-            if cdn_frontdoor_origin_ids is None and not opts.urn:
-                raise TypeError("Missing required property 'cdn_frontdoor_origin_ids'")
             __props__.__dict__["cdn_frontdoor_origin_ids"] = cdn_frontdoor_origin_ids
             __props__.__dict__["cdn_frontdoor_origin_path"] = cdn_frontdoor_origin_path
             __props__.__dict__["cdn_frontdoor_rule_set_ids"] = cdn_frontdoor_rule_set_ids
@@ -892,7 +905,9 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_endpoint_id: The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The resource ID of the Front Door Origin Group where this Front Door Route should be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_origin_ids: One or more Front Door Origin resource IDs for this Front Door Route.
+               
+               > **Note:** The `cdn_frontdoor_origin_ids` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `depends_on` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdn_frontdoor_origin_ids` field or the `depends_on` meta-argument to the configuration post-import.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[_builtins.bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
@@ -963,9 +978,11 @@ class FrontdoorRoute(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorOriginIds")
-    def cdn_frontdoor_origin_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def cdn_frontdoor_origin_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        One or more Front Door Origin resource IDs that this Front Door Route will link to.
+        One or more Front Door Origin resource IDs for this Front Door Route.
+
+        > **Note:** The `cdn_frontdoor_origin_ids` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `depends_on` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdn_frontdoor_origin_ids` field or the `depends_on` meta-argument to the configuration post-import.
         """
         return pulumi.get(self, "cdn_frontdoor_origin_ids")
 

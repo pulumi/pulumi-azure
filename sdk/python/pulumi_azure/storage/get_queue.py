@@ -137,7 +137,7 @@ def get_queue(metadata: Optional[Mapping[str, _builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2023-05-01
+    * `Microsoft.Storage` - 2025-06-01
 
 
     :param Mapping[str, _builtins.str] metadata: A mapping of MetaData for this Queue.
@@ -186,7 +186,7 @@ def get_queue_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, _buil
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2023-05-01
+    * `Microsoft.Storage` - 2025-06-01
 
 
     :param Mapping[str, _builtins.str] metadata: A mapping of MetaData for this Queue.

@@ -82,8 +82,10 @@ type LookupBastionHostResult struct {
 	// The Azure Region where the Bastion Host exists.
 	Location string `pulumi:"location"`
 	// The name of the IP configuration.
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name string `pulumi:"name"`
+	// Whether Private-Only deployment is enabled for the Bastion Host.
+	PrivateOnlyEnabled bool   `pulumi:"privateOnlyEnabled"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	// The number of scale units provisioned for the Bastion Host.
 	ScaleUnits int `pulumi:"scaleUnits"`
 	// Is Session Recording feature enabled for the Bastion Host.
@@ -174,6 +176,11 @@ func (o LookupBastionHostResultOutput) Location() pulumi.StringOutput {
 // The name of the IP configuration.
 func (o LookupBastionHostResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBastionHostResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether Private-Only deployment is enabled for the Bastion Host.
+func (o LookupBastionHostResultOutput) PrivateOnlyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) bool { return v.PrivateOnlyEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupBastionHostResultOutput) ResourceGroupName() pulumi.StringOutput {

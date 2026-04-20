@@ -185,6 +185,10 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string EnclaveType;
         /// <summary>
+        /// Specifies the number of high availability replicas for the elastic pool.
+        /// </summary>
+        public readonly int HighAvailabilityReplicaCount;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -235,6 +239,8 @@ namespace Pulumi.Azure.MSSql
         private GetElasticPoolResult(
             string enclaveType,
 
+            int highAvailabilityReplicaCount,
+
             string id,
 
             string licenseType,
@@ -262,6 +268,7 @@ namespace Pulumi.Azure.MSSql
             bool zoneRedundant)
         {
             EnclaveType = enclaveType;
+            HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
             Id = id;
             LicenseType = licenseType;
             Location = location;

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.appconfiguration;
 
+import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureCustomFilterArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureTargetingFilterArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureTimewindowFilterArgs;
 import com.pulumi.core.Output;
@@ -35,6 +36,21 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
      */
     public Output<String> configurationStoreId() {
         return this.configurationStoreId;
+    }
+
+    /**
+     * A `customFilter` block as defined below.
+     * 
+     */
+    @Import(name="customFilters")
+    private @Nullable Output<List<ConfigurationFeatureCustomFilterArgs>> customFilters;
+
+    /**
+     * @return A `customFilter` block as defined below.
+     * 
+     */
+    public Optional<Output<List<ConfigurationFeatureCustomFilterArgs>>> customFilters() {
+        return Optional.ofNullable(this.customFilters);
     }
 
     /**
@@ -198,6 +214,7 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
 
     private ConfigurationFeatureArgs(ConfigurationFeatureArgs $) {
         this.configurationStoreId = $.configurationStoreId;
+        this.customFilters = $.customFilters;
         this.description = $.description;
         this.enabled = $.enabled;
         this.etag = $.etag;
@@ -248,6 +265,37 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
          */
         public Builder configurationStoreId(String configurationStoreId) {
             return configurationStoreId(Output.of(configurationStoreId));
+        }
+
+        /**
+         * @param customFilters A `customFilter` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFilters(@Nullable Output<List<ConfigurationFeatureCustomFilterArgs>> customFilters) {
+            $.customFilters = customFilters;
+            return this;
+        }
+
+        /**
+         * @param customFilters A `customFilter` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFilters(List<ConfigurationFeatureCustomFilterArgs> customFilters) {
+            return customFilters(Output.of(customFilters));
+        }
+
+        /**
+         * @param customFilters A `customFilter` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFilters(ConfigurationFeatureCustomFilterArgs... customFilters) {
+            return customFilters(List.of(customFilters));
         }
 
         /**

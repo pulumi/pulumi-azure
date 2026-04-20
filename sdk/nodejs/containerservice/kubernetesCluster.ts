@@ -302,9 +302,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nodeResourceGroupId: pulumi.Output<string>;
     /**
-     * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     *
+     * !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
-    declare public readonly oidcIssuerEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly oidcIssuerEnabled: pulumi.Output<boolean>;
     /**
      * The OIDC issuer URL that is associated with the cluster.
      */
@@ -826,7 +828,9 @@ export interface KubernetesClusterState {
      */
     nodeResourceGroupId?: pulumi.Input<string>;
     /**
-     * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     *
+     * !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
     oidcIssuerEnabled?: pulumi.Input<boolean>;
     /**
@@ -1150,7 +1154,9 @@ export interface KubernetesClusterArgs {
      */
     nodeResourceGroup?: pulumi.Input<string>;
     /**
-     * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     *
+     * !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
     oidcIssuerEnabled?: pulumi.Input<boolean>;
     /**

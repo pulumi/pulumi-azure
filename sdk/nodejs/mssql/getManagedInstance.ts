@@ -76,6 +76,10 @@ export interface GetManagedInstanceResult {
      */
     readonly fqdn: string;
     /**
+     * Whether the SQL Managed Instance is using the Next-gen General Purpose service tier
+     */
+    readonly generalPurposeV2Enabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

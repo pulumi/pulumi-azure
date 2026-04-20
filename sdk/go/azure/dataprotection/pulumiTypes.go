@@ -568,6 +568,163 @@ func (o BackupPolicyBlobStorageRetentionRuleLifeCycleOutput) Duration() pulumi.S
 	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
 }
 
+type BackupPolicyDataLakeStorageRetentionRule struct {
+	// Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
+	// Specifies a list of days of the week on which the retention rule applies. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration string `pulumi:"duration"`
+	// Specifies a list of months of the year on which the retention rule applies. Possible values include `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears []string `pulumi:"monthsOfYears"`
+	// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one of `absoluteCriteria` or `daysOfWeek` must be specified. `weeksOfMonth` and `monthsOfYear` are optional and can be supplied together. Multiple intervals may be set using multiple `retentionRule` blocks.
+	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
+	// Specifies a list of weeks of the month on which the retention rule applies. Possible values include `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyDataLakeStorageRetentionRuleInput is an input type that accepts BackupPolicyDataLakeStorageRetentionRuleArgs and BackupPolicyDataLakeStorageRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyDataLakeStorageRetentionRuleInput` via:
+//
+//	BackupPolicyDataLakeStorageRetentionRuleArgs{...}
+type BackupPolicyDataLakeStorageRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyDataLakeStorageRetentionRuleOutput() BackupPolicyDataLakeStorageRetentionRuleOutput
+	ToBackupPolicyDataLakeStorageRetentionRuleOutputWithContext(context.Context) BackupPolicyDataLakeStorageRetentionRuleOutput
+}
+
+type BackupPolicyDataLakeStorageRetentionRuleArgs struct {
+	// Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
+	// Specifies a list of days of the week on which the retention rule applies. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// Specifies a list of months of the year on which the retention rule applies. Possible values include `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
+	// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one of `absoluteCriteria` or `daysOfWeek` must be specified. `weeksOfMonth` and `monthsOfYear` are optional and can be supplied together. Multiple intervals may be set using multiple `retentionRule` blocks.
+	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
+	// Specifies a list of weeks of the month on which the retention rule applies. Possible values include `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyDataLakeStorageRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDataLakeStorageRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyDataLakeStorageRetentionRuleArgs) ToBackupPolicyDataLakeStorageRetentionRuleOutput() BackupPolicyDataLakeStorageRetentionRuleOutput {
+	return i.ToBackupPolicyDataLakeStorageRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyDataLakeStorageRetentionRuleArgs) ToBackupPolicyDataLakeStorageRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyDataLakeStorageRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDataLakeStorageRetentionRuleOutput)
+}
+
+// BackupPolicyDataLakeStorageRetentionRuleArrayInput is an input type that accepts BackupPolicyDataLakeStorageRetentionRuleArray and BackupPolicyDataLakeStorageRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyDataLakeStorageRetentionRuleArrayInput` via:
+//
+//	BackupPolicyDataLakeStorageRetentionRuleArray{ BackupPolicyDataLakeStorageRetentionRuleArgs{...} }
+type BackupPolicyDataLakeStorageRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyDataLakeStorageRetentionRuleArrayOutput() BackupPolicyDataLakeStorageRetentionRuleArrayOutput
+	ToBackupPolicyDataLakeStorageRetentionRuleArrayOutputWithContext(context.Context) BackupPolicyDataLakeStorageRetentionRuleArrayOutput
+}
+
+type BackupPolicyDataLakeStorageRetentionRuleArray []BackupPolicyDataLakeStorageRetentionRuleInput
+
+func (BackupPolicyDataLakeStorageRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyDataLakeStorageRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyDataLakeStorageRetentionRuleArray) ToBackupPolicyDataLakeStorageRetentionRuleArrayOutput() BackupPolicyDataLakeStorageRetentionRuleArrayOutput {
+	return i.ToBackupPolicyDataLakeStorageRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyDataLakeStorageRetentionRuleArray) ToBackupPolicyDataLakeStorageRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyDataLakeStorageRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDataLakeStorageRetentionRuleArrayOutput)
+}
+
+type BackupPolicyDataLakeStorageRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyDataLakeStorageRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyDataLakeStorageRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) ToBackupPolicyDataLakeStorageRetentionRuleOutput() BackupPolicyDataLakeStorageRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) ToBackupPolicyDataLakeStorageRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyDataLakeStorageRetentionRuleOutput {
+	return o
+}
+
+// Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyDataLakeStorageRetentionRule) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of days of the week on which the retention rule applies. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyDataLakeStorageRetentionRule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyDataLakeStorageRetentionRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// Specifies a list of months of the year on which the retention rule applies. Possible values include `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyDataLakeStorageRetentionRule) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyDataLakeStorageRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+//
+// > **Note:** At least one of `absoluteCriteria` or `daysOfWeek` must be specified. `weeksOfMonth` and `monthsOfYear` are optional and can be supplied together. Multiple intervals may be set using multiple `retentionRule` blocks.
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) ScheduledBackupTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyDataLakeStorageRetentionRule) []string { return v.ScheduledBackupTimes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of weeks of the month on which the retention rule applies. Possible values include `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+func (o BackupPolicyDataLakeStorageRetentionRuleOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyDataLakeStorageRetentionRule) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyDataLakeStorageRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyDataLakeStorageRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyDataLakeStorageRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyDataLakeStorageRetentionRuleArrayOutput) ToBackupPolicyDataLakeStorageRetentionRuleArrayOutput() BackupPolicyDataLakeStorageRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyDataLakeStorageRetentionRuleArrayOutput) ToBackupPolicyDataLakeStorageRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyDataLakeStorageRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyDataLakeStorageRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyDataLakeStorageRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyDataLakeStorageRetentionRule {
+		return vs[0].([]BackupPolicyDataLakeStorageRetentionRule)[vs[1].(int)]
+	}).(BackupPolicyDataLakeStorageRetentionRuleOutput)
+}
+
 type BackupPolicyDiskRetentionRule struct {
 	// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
 	Criteria BackupPolicyDiskRetentionRuleCriteria `pulumi:"criteria"`
@@ -3012,6 +3169,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDataLakeStorageRetentionRuleInput)(nil)).Elem(), BackupPolicyDataLakeStorageRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDataLakeStorageRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyDataLakeStorageRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleCriteriaArgs{})
@@ -3055,6 +3214,8 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyDataLakeStorageRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyDataLakeStorageRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleCriteriaOutput{})

@@ -24,6 +24,8 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      * 
+     * !&gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
+     * 
      */
     @Import(name="allocationMethod", required=true)
     private Output<String> allocationMethod;
@@ -32,6 +34,8 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
      * @return Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
      * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
+     * 
+     * !&gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
      * 
      */
     public Output<String> allocationMethod() {
@@ -154,7 +158,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
-     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+     * &gt; **Note** Only `Static` IP address allocation is supported for IPv6.
      * 
      */
     @Import(name="ipVersion")
@@ -163,7 +167,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
-     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+     * &gt; **Note** Only `Static` IP address allocation is supported for IPv6.
      * 
      */
     public Optional<Output<String>> ipVersion() {
@@ -246,18 +250,22 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
+     * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
+     * 
+     * !&gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+     * @return The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
+     * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
+     * 
+     * !&gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -363,6 +371,8 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
          * 
+         * !&gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
+         * 
          * @return builder
          * 
          */
@@ -375,6 +385,8 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
          * @param allocationMethod Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
          * 
          * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
+         * 
+         * !&gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
          * 
          * @return builder
          * 
@@ -541,7 +553,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
          * 
-         * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+         * &gt; **Note** Only `Static` IP address allocation is supported for IPv6.
          * 
          * @return builder
          * 
@@ -554,7 +566,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
          * 
-         * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+         * &gt; **Note** Only `Static` IP address allocation is supported for IPv6.
          * 
          * @return builder
          * 
@@ -669,9 +681,11 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+         * @param sku The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
+         * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
+         * 
+         * !&gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
          * 
          * @return builder
          * 
@@ -682,9 +696,11 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+         * @param sku The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
+         * &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `allocationMethod` to be set to `Static`.
+         * 
+         * !&gt; **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
          * 
          * @return builder
          * 

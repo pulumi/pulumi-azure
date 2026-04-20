@@ -150,6 +150,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Private-Only deployment is enabled for the Bastion Host.
+        /// </summary>
+        [Output("privateOnlyEnabled")]
+        public Output<bool> PrivateOnlyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -444,6 +450,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether Private-Only deployment is enabled for the Bastion Host.
+        /// </summary>
+        [Input("privateOnlyEnabled")]
+        public Input<bool>? PrivateOnlyEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.

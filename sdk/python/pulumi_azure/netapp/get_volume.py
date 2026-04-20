@@ -27,13 +27,16 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, accept_grow_capacity_pool_for_short_term_clone_split=None, account_name=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, large_volume_enabled=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+    def __init__(__self__, accept_grow_capacity_pool_for_short_term_clone_split=None, account_name=None, data_protection_advanced_ransomwares=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, large_volume_enabled=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
         if accept_grow_capacity_pool_for_short_term_clone_split and not isinstance(accept_grow_capacity_pool_for_short_term_clone_split, str):
             raise TypeError("Expected argument 'accept_grow_capacity_pool_for_short_term_clone_split' to be a str")
         pulumi.set(__self__, "accept_grow_capacity_pool_for_short_term_clone_split", accept_grow_capacity_pool_for_short_term_clone_split)
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if data_protection_advanced_ransomwares and not isinstance(data_protection_advanced_ransomwares, list):
+            raise TypeError("Expected argument 'data_protection_advanced_ransomwares' to be a list")
+        pulumi.set(__self__, "data_protection_advanced_ransomwares", data_protection_advanced_ransomwares)
         if data_protection_backup_policies and not isinstance(data_protection_backup_policies, list):
             raise TypeError("Expected argument 'data_protection_backup_policies' to be a list")
         pulumi.set(__self__, "data_protection_backup_policies", data_protection_backup_policies)
@@ -110,6 +113,14 @@ class GetVolumeResult:
     @pulumi.getter(name="accountName")
     def account_name(self) -> _builtins.str:
         return pulumi.get(self, "account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="dataProtectionAdvancedRansomwares")
+    def data_protection_advanced_ransomwares(self) -> Sequence['outputs.GetVolumeDataProtectionAdvancedRansomwareResult']:
+        """
+        An Advanced Ransomware Protection (ARP) data protection block.
+        """
+        return pulumi.get(self, "data_protection_advanced_ransomwares")
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionBackupPolicies")
@@ -273,6 +284,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         return GetVolumeResult(
             accept_grow_capacity_pool_for_short_term_clone_split=self.accept_grow_capacity_pool_for_short_term_clone_split,
             account_name=self.account_name,
+            data_protection_advanced_ransomwares=self.data_protection_advanced_ransomwares,
             data_protection_backup_policies=self.data_protection_backup_policies,
             data_protection_replications=self.data_protection_replications,
             encryption_key_source=self.encryption_key_source,
@@ -323,7 +335,7 @@ def get_volume(account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-06-01
+    * `Microsoft.NetApp` - 2025-12-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -344,6 +356,7 @@ def get_volume(account_name: Optional[_builtins.str] = None,
     return AwaitableGetVolumeResult(
         accept_grow_capacity_pool_for_short_term_clone_split=pulumi.get(__ret__, 'accept_grow_capacity_pool_for_short_term_clone_split'),
         account_name=pulumi.get(__ret__, 'account_name'),
+        data_protection_advanced_ransomwares=pulumi.get(__ret__, 'data_protection_advanced_ransomwares'),
         data_protection_backup_policies=pulumi.get(__ret__, 'data_protection_backup_policies'),
         data_protection_replications=pulumi.get(__ret__, 'data_protection_replications'),
         encryption_key_source=pulumi.get(__ret__, 'encryption_key_source'),
@@ -392,7 +405,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[_builtins.str]] = None
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-06-01
+    * `Microsoft.NetApp` - 2025-12-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -412,6 +425,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[_builtins.str]] = None
     return __ret__.apply(lambda __response__: GetVolumeResult(
         accept_grow_capacity_pool_for_short_term_clone_split=pulumi.get(__response__, 'accept_grow_capacity_pool_for_short_term_clone_split'),
         account_name=pulumi.get(__response__, 'account_name'),
+        data_protection_advanced_ransomwares=pulumi.get(__response__, 'data_protection_advanced_ransomwares'),
         data_protection_backup_policies=pulumi.get(__response__, 'data_protection_backup_policies'),
         data_protection_replications=pulumi.get(__response__, 'data_protection_replications'),
         encryption_key_source=pulumi.get(__response__, 'encryption_key_source'),

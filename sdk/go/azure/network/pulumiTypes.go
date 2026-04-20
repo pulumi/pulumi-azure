@@ -284,6 +284,184 @@ func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) MinCapacity() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+type ApplicationGatewayBackend struct {
+	// Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
+	ClientIpPreservationEnabled *bool `pulumi:"clientIpPreservationEnabled"`
+	// Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
+	HostName *string `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Backend Settings Collection.
+	Name string `pulumi:"name"`
+	// The port which should be used for this Backend Settings Collection.
+	Port int `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId *string `pulumi:"probeId"`
+	// The name of an associated Probe.
+	ProbeName *string `pulumi:"probeName"`
+	// The Protocol which should be used. Possible values are `Tcp` and `Tls`.
+	Protocol string `pulumi:"protocol"`
+	// The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	// A list of `trustedRootCertificate` names.
+	TrustedRootCertificateNames []string `pulumi:"trustedRootCertificateNames"`
+}
+
+// ApplicationGatewayBackendInput is an input type that accepts ApplicationGatewayBackendArgs and ApplicationGatewayBackendOutput values.
+// You can construct a concrete instance of `ApplicationGatewayBackendInput` via:
+//
+//	ApplicationGatewayBackendArgs{...}
+type ApplicationGatewayBackendInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendOutput() ApplicationGatewayBackendOutput
+	ToApplicationGatewayBackendOutputWithContext(context.Context) ApplicationGatewayBackendOutput
+}
+
+type ApplicationGatewayBackendArgs struct {
+	// Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
+	ClientIpPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIpPreservationEnabled"`
+	// Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the Backend Settings Collection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The port which should be used for this Backend Settings Collection.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId pulumi.StringPtrInput `pulumi:"probeId"`
+	// The name of an associated Probe.
+	ProbeName pulumi.StringPtrInput `pulumi:"probeName"`
+	// The Protocol which should be used. Possible values are `Tcp` and `Tls`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	// A list of `trustedRootCertificate` names.
+	TrustedRootCertificateNames pulumi.StringArrayInput `pulumi:"trustedRootCertificateNames"`
+}
+
+func (ApplicationGatewayBackendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (i ApplicationGatewayBackendArgs) ToApplicationGatewayBackendOutput() ApplicationGatewayBackendOutput {
+	return i.ToApplicationGatewayBackendOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayBackendArgs) ToApplicationGatewayBackendOutputWithContext(ctx context.Context) ApplicationGatewayBackendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendOutput)
+}
+
+// ApplicationGatewayBackendArrayInput is an input type that accepts ApplicationGatewayBackendArray and ApplicationGatewayBackendArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayBackendArrayInput` via:
+//
+//	ApplicationGatewayBackendArray{ ApplicationGatewayBackendArgs{...} }
+type ApplicationGatewayBackendArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendArrayOutput() ApplicationGatewayBackendArrayOutput
+	ToApplicationGatewayBackendArrayOutputWithContext(context.Context) ApplicationGatewayBackendArrayOutput
+}
+
+type ApplicationGatewayBackendArray []ApplicationGatewayBackendInput
+
+func (ApplicationGatewayBackendArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (i ApplicationGatewayBackendArray) ToApplicationGatewayBackendArrayOutput() ApplicationGatewayBackendArrayOutput {
+	return i.ToApplicationGatewayBackendArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayBackendArray) ToApplicationGatewayBackendArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendArrayOutput)
+}
+
+type ApplicationGatewayBackendOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendOutput) ToApplicationGatewayBackendOutput() ApplicationGatewayBackendOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendOutput) ToApplicationGatewayBackendOutputWithContext(ctx context.Context) ApplicationGatewayBackendOutput {
+	return o
+}
+
+// Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
+func (o ApplicationGatewayBackendOutput) ClientIpPreservationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) *bool { return v.ClientIpPreservationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
+func (o ApplicationGatewayBackendOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayBackendOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Backend Settings Collection.
+func (o ApplicationGatewayBackendOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The port which should be used for this Backend Settings Collection.
+func (o ApplicationGatewayBackendOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The ID of the associated Probe.
+func (o ApplicationGatewayBackendOutput) ProbeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) *string { return v.ProbeId }).(pulumi.StringPtrOutput)
+}
+
+// The name of an associated Probe.
+func (o ApplicationGatewayBackendOutput) ProbeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) *string { return v.ProbeName }).(pulumi.StringPtrOutput)
+}
+
+// The Protocol which should be used. Possible values are `Tcp` and `Tls`.
+func (o ApplicationGatewayBackendOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
+func (o ApplicationGatewayBackendOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// A list of `trustedRootCertificate` names.
+func (o ApplicationGatewayBackendOutput) TrustedRootCertificateNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackend) []string { return v.TrustedRootCertificateNames }).(pulumi.StringArrayOutput)
+}
+
+type ApplicationGatewayBackendArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayBackendArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (o ApplicationGatewayBackendArrayOutput) ToApplicationGatewayBackendArrayOutput() ApplicationGatewayBackendArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendArrayOutput) ToApplicationGatewayBackendArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayBackendOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayBackend {
+		return vs[0].([]ApplicationGatewayBackend)[vs[1].(int)]
+	}).(ApplicationGatewayBackendOutput)
+}
+
 type ApplicationGatewayBackendAddressPool struct {
 	// A list of FQDN's which should be part of the Backend Address Pool.
 	Fqdns []string `pulumi:"fqdns"`
@@ -2108,6 +2286,214 @@ func (o ApplicationGatewayIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationGatewayListener struct {
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
+	// The Name of the Frontend IP Configuration used for this Listener.
+	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId *string `pulumi:"frontendPortId"`
+	// The Name of the Frontend Port use for this Listener.
+	FrontendPortName string `pulumi:"frontendPortName"`
+	// A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
+	//
+	// > **Note:** `hostNames` cannot be set when `protocol` is set to `Tcp`.
+	HostNames []string `pulumi:"hostNames"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The Name of the Listener.
+	Name string `pulumi:"name"`
+	// The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
+	Protocol string `pulumi:"protocol"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId *string `pulumi:"sslCertificateId"`
+	// The name of the associated SSL Certificate which should be used for this Listener.
+	//
+	// > **Note:** `sslCertificateName` must be set when `protocol` is set to `Tls`.
+	SslCertificateName *string `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Profile.
+	SslProfileId *string `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which should be used for this Listener.
+	SslProfileName *string `pulumi:"sslProfileName"`
+}
+
+// ApplicationGatewayListenerInput is an input type that accepts ApplicationGatewayListenerArgs and ApplicationGatewayListenerOutput values.
+// You can construct a concrete instance of `ApplicationGatewayListenerInput` via:
+//
+//	ApplicationGatewayListenerArgs{...}
+type ApplicationGatewayListenerInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayListenerOutput() ApplicationGatewayListenerOutput
+	ToApplicationGatewayListenerOutputWithContext(context.Context) ApplicationGatewayListenerOutput
+}
+
+type ApplicationGatewayListenerArgs struct {
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"frontendIpConfigurationId"`
+	// The Name of the Frontend IP Configuration used for this Listener.
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId pulumi.StringPtrInput `pulumi:"frontendPortId"`
+	// The Name of the Frontend Port use for this Listener.
+	FrontendPortName pulumi.StringInput `pulumi:"frontendPortName"`
+	// A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
+	//
+	// > **Note:** `hostNames` cannot be set when `protocol` is set to `Tcp`.
+	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The Name of the Listener.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId pulumi.StringPtrInput `pulumi:"sslCertificateId"`
+	// The name of the associated SSL Certificate which should be used for this Listener.
+	//
+	// > **Note:** `sslCertificateName` must be set when `protocol` is set to `Tls`.
+	SslCertificateName pulumi.StringPtrInput `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Profile.
+	SslProfileId pulumi.StringPtrInput `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which should be used for this Listener.
+	SslProfileName pulumi.StringPtrInput `pulumi:"sslProfileName"`
+}
+
+func (ApplicationGatewayListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayListener)(nil)).Elem()
+}
+
+func (i ApplicationGatewayListenerArgs) ToApplicationGatewayListenerOutput() ApplicationGatewayListenerOutput {
+	return i.ToApplicationGatewayListenerOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayListenerArgs) ToApplicationGatewayListenerOutputWithContext(ctx context.Context) ApplicationGatewayListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayListenerOutput)
+}
+
+// ApplicationGatewayListenerArrayInput is an input type that accepts ApplicationGatewayListenerArray and ApplicationGatewayListenerArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayListenerArrayInput` via:
+//
+//	ApplicationGatewayListenerArray{ ApplicationGatewayListenerArgs{...} }
+type ApplicationGatewayListenerArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayListenerArrayOutput() ApplicationGatewayListenerArrayOutput
+	ToApplicationGatewayListenerArrayOutputWithContext(context.Context) ApplicationGatewayListenerArrayOutput
+}
+
+type ApplicationGatewayListenerArray []ApplicationGatewayListenerInput
+
+func (ApplicationGatewayListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayListener)(nil)).Elem()
+}
+
+func (i ApplicationGatewayListenerArray) ToApplicationGatewayListenerArrayOutput() ApplicationGatewayListenerArrayOutput {
+	return i.ToApplicationGatewayListenerArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayListenerArray) ToApplicationGatewayListenerArrayOutputWithContext(ctx context.Context) ApplicationGatewayListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayListenerArrayOutput)
+}
+
+type ApplicationGatewayListenerOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayListener)(nil)).Elem()
+}
+
+func (o ApplicationGatewayListenerOutput) ToApplicationGatewayListenerOutput() ApplicationGatewayListenerOutput {
+	return o
+}
+
+func (o ApplicationGatewayListenerOutput) ToApplicationGatewayListenerOutputWithContext(ctx context.Context) ApplicationGatewayListenerOutput {
+	return o
+}
+
+// The ID of the associated Frontend Configuration.
+func (o ApplicationGatewayListenerOutput) FrontendIpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) *string { return v.FrontendIpConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Frontend IP Configuration used for this Listener.
+func (o ApplicationGatewayListenerOutput) FrontendIpConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) string { return v.FrontendIpConfigurationName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Frontend Port.
+func (o ApplicationGatewayListenerOutput) FrontendPortId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) *string { return v.FrontendPortId }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Frontend Port use for this Listener.
+func (o ApplicationGatewayListenerOutput) FrontendPortName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) string { return v.FrontendPortName }).(pulumi.StringOutput)
+}
+
+// A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
+//
+// > **Note:** `hostNames` cannot be set when `protocol` is set to `Tcp`.
+func (o ApplicationGatewayListenerOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) []string { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayListenerOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Listener.
+func (o ApplicationGatewayListenerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
+func (o ApplicationGatewayListenerOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The ID of the associated SSL Certificate.
+func (o ApplicationGatewayListenerOutput) SslCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) *string { return v.SslCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the associated SSL Certificate which should be used for this Listener.
+//
+// > **Note:** `sslCertificateName` must be set when `protocol` is set to `Tls`.
+func (o ApplicationGatewayListenerOutput) SslCertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) *string { return v.SslCertificateName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the associated SSL Profile.
+func (o ApplicationGatewayListenerOutput) SslProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) *string { return v.SslProfileId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the associated SSL Profile which should be used for this Listener.
+func (o ApplicationGatewayListenerOutput) SslProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayListener) *string { return v.SslProfileName }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationGatewayListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayListener)(nil)).Elem()
+}
+
+func (o ApplicationGatewayListenerArrayOutput) ToApplicationGatewayListenerArrayOutput() ApplicationGatewayListenerArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayListenerArrayOutput) ToApplicationGatewayListenerArrayOutputWithContext(ctx context.Context) ApplicationGatewayListenerArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayListenerArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayListener {
+		return vs[0].([]ApplicationGatewayListener)[vs[1].(int)]
+	}).(ApplicationGatewayListenerOutput)
+}
+
 type ApplicationGatewayPrivateEndpointConnection struct {
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
@@ -2473,29 +2859,45 @@ func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) In
 }
 
 type ApplicationGatewayProbe struct {
-	// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+	// The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+	//
+	// > **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
 	Host *string `pulumi:"host"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+	// The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
 	Interval int `pulumi:"interval"`
 	// A `match` block as defined above.
+	//
+	// > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
 	Match *ApplicationGatewayProbeMatch `pulumi:"match"`
 	// The minimum number of servers that are always marked as healthy. Defaults to `0`.
 	MinimumServers *int `pulumi:"minimumServers"`
-	// The Name of the Probe.
+	// The name of the Probe.
 	Name string `pulumi:"name"`
-	// The Path used for this Probe.
-	Path string `pulumi:"path"`
+	// The relative URL path of the Probe. Valid value starts with `/`.
+	//
+	// > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
+	Path *string `pulumi:"path"`
 	// Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+	//
+	// > **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
 	PickHostNameFromBackendHttpSettings *bool `pulumi:"pickHostNameFromBackendHttpSettings"`
-	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+	// Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+	//
+	// > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
 	Port *int `pulumi:"port"`
-	// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+	// The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
 	Protocol string `pulumi:"protocol"`
-	// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+	// Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+	//
+	// > **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+	ProxyProtocolHeaderEnabled *bool `pulumi:"proxyProtocolHeaderEnabled"`
+	// The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+	//
+	// > **Note:** The `timeout` value should not be greater than the `interval` value.
 	Timeout int `pulumi:"timeout"`
-	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+	// The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
 	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
 }
 
@@ -2511,29 +2913,45 @@ type ApplicationGatewayProbeInput interface {
 }
 
 type ApplicationGatewayProbeArgs struct {
-	// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+	// The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+	//
+	// > **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+	// The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
 	Interval pulumi.IntInput `pulumi:"interval"`
 	// A `match` block as defined above.
+	//
+	// > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
 	Match ApplicationGatewayProbeMatchPtrInput `pulumi:"match"`
 	// The minimum number of servers that are always marked as healthy. Defaults to `0`.
 	MinimumServers pulumi.IntPtrInput `pulumi:"minimumServers"`
-	// The Name of the Probe.
+	// The name of the Probe.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Path used for this Probe.
-	Path pulumi.StringInput `pulumi:"path"`
+	// The relative URL path of the Probe. Valid value starts with `/`.
+	//
+	// > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+	//
+	// > **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
 	PickHostNameFromBackendHttpSettings pulumi.BoolPtrInput `pulumi:"pickHostNameFromBackendHttpSettings"`
-	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+	// Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+	//
+	// > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+	// The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+	// Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+	//
+	// > **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+	ProxyProtocolHeaderEnabled pulumi.BoolPtrInput `pulumi:"proxyProtocolHeaderEnabled"`
+	// The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+	//
+	// > **Note:** The `timeout` value should not be greater than the `interval` value.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
-	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+	// The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
 	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
 }
 
@@ -2588,7 +3006,9 @@ func (o ApplicationGatewayProbeOutput) ToApplicationGatewayProbeOutputWithContex
 	return o
 }
 
-// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+// The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+//
+// > **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
 func (o ApplicationGatewayProbeOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
@@ -2598,12 +3018,14 @@ func (o ApplicationGatewayProbeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+// The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
 func (o ApplicationGatewayProbeOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) int { return v.Interval }).(pulumi.IntOutput)
 }
 
 // A `match` block as defined above.
+//
+// > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
 func (o ApplicationGatewayProbeOutput) Match() ApplicationGatewayProbeMatchPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *ApplicationGatewayProbeMatch { return v.Match }).(ApplicationGatewayProbeMatchPtrOutput)
 }
@@ -2613,37 +3035,52 @@ func (o ApplicationGatewayProbeOutput) MinimumServers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *int { return v.MinimumServers }).(pulumi.IntPtrOutput)
 }
 
-// The Name of the Probe.
+// The name of the Probe.
 func (o ApplicationGatewayProbeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Path used for this Probe.
-func (o ApplicationGatewayProbeOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayProbe) string { return v.Path }).(pulumi.StringOutput)
+// The relative URL path of the Probe. Valid value starts with `/`.
+//
+// > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
+func (o ApplicationGatewayProbeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+//
+// > **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
 func (o ApplicationGatewayProbeOutput) PickHostNameFromBackendHttpSettings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *bool { return v.PickHostNameFromBackendHttpSettings }).(pulumi.BoolPtrOutput)
 }
 
-// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+// Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+//
+// > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
 func (o ApplicationGatewayProbeOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+// The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
 func (o ApplicationGatewayProbeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+// Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+//
+// > **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+func (o ApplicationGatewayProbeOutput) ProxyProtocolHeaderEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayProbe) *bool { return v.ProxyProtocolHeaderEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+//
+// > **Note:** The `timeout` value should not be greater than the `interval` value.
 func (o ApplicationGatewayProbeOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+// The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
 func (o ApplicationGatewayProbeOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
@@ -4036,6 +4473,175 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Reroute() pulum
 		}
 		return v.Reroute
 	}).(pulumi.BoolPtrOutput)
+}
+
+type ApplicationGatewayRoutingRule struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which should be used for this Routing Rule.
+	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend Settings.
+	BackendId *string `pulumi:"backendId"`
+	// The Name of the Backend Settings which should be used for this Routing Rule.
+	BackendName string `pulumi:"backendName"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The ID of the associated Listener.
+	ListenerId *string `pulumi:"listenerId"`
+	// The Name of the Listener which should be used for this Routing Rule.
+	ListenerName string `pulumi:"listenerName"`
+	// The Name of this Routing Rule.
+	Name string `pulumi:"name"`
+	// The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
+	Priority int `pulumi:"priority"`
+}
+
+// ApplicationGatewayRoutingRuleInput is an input type that accepts ApplicationGatewayRoutingRuleArgs and ApplicationGatewayRoutingRuleOutput values.
+// You can construct a concrete instance of `ApplicationGatewayRoutingRuleInput` via:
+//
+//	ApplicationGatewayRoutingRuleArgs{...}
+type ApplicationGatewayRoutingRuleInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRoutingRuleOutput() ApplicationGatewayRoutingRuleOutput
+	ToApplicationGatewayRoutingRuleOutputWithContext(context.Context) ApplicationGatewayRoutingRuleOutput
+}
+
+type ApplicationGatewayRoutingRuleArgs struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId pulumi.StringPtrInput `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which should be used for this Routing Rule.
+	BackendAddressPoolName pulumi.StringInput `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend Settings.
+	BackendId pulumi.StringPtrInput `pulumi:"backendId"`
+	// The Name of the Backend Settings which should be used for this Routing Rule.
+	BackendName pulumi.StringInput `pulumi:"backendName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The ID of the associated Listener.
+	ListenerId pulumi.StringPtrInput `pulumi:"listenerId"`
+	// The Name of the Listener which should be used for this Routing Rule.
+	ListenerName pulumi.StringInput `pulumi:"listenerName"`
+	// The Name of this Routing Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (ApplicationGatewayRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (i ApplicationGatewayRoutingRuleArgs) ToApplicationGatewayRoutingRuleOutput() ApplicationGatewayRoutingRuleOutput {
+	return i.ToApplicationGatewayRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayRoutingRuleArgs) ToApplicationGatewayRoutingRuleOutputWithContext(ctx context.Context) ApplicationGatewayRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRoutingRuleOutput)
+}
+
+// ApplicationGatewayRoutingRuleArrayInput is an input type that accepts ApplicationGatewayRoutingRuleArray and ApplicationGatewayRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayRoutingRuleArrayInput` via:
+//
+//	ApplicationGatewayRoutingRuleArray{ ApplicationGatewayRoutingRuleArgs{...} }
+type ApplicationGatewayRoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRoutingRuleArrayOutput() ApplicationGatewayRoutingRuleArrayOutput
+	ToApplicationGatewayRoutingRuleArrayOutputWithContext(context.Context) ApplicationGatewayRoutingRuleArrayOutput
+}
+
+type ApplicationGatewayRoutingRuleArray []ApplicationGatewayRoutingRuleInput
+
+func (ApplicationGatewayRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (i ApplicationGatewayRoutingRuleArray) ToApplicationGatewayRoutingRuleArrayOutput() ApplicationGatewayRoutingRuleArrayOutput {
+	return i.ToApplicationGatewayRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayRoutingRuleArray) ToApplicationGatewayRoutingRuleArrayOutputWithContext(ctx context.Context) ApplicationGatewayRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayRoutingRuleArrayOutput)
+}
+
+type ApplicationGatewayRoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (o ApplicationGatewayRoutingRuleOutput) ToApplicationGatewayRoutingRuleOutput() ApplicationGatewayRoutingRuleOutput {
+	return o
+}
+
+func (o ApplicationGatewayRoutingRuleOutput) ToApplicationGatewayRoutingRuleOutputWithContext(ctx context.Context) ApplicationGatewayRoutingRuleOutput {
+	return o
+}
+
+// The ID of the associated Backend Address Pool.
+func (o ApplicationGatewayRoutingRuleOutput) BackendAddressPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) *string { return v.BackendAddressPoolId }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Backend Address Pool which should be used for this Routing Rule.
+func (o ApplicationGatewayRoutingRuleOutput) BackendAddressPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) string { return v.BackendAddressPoolName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Backend Settings.
+func (o ApplicationGatewayRoutingRuleOutput) BackendId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) *string { return v.BackendId }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Backend Settings which should be used for this Routing Rule.
+func (o ApplicationGatewayRoutingRuleOutput) BackendName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) string { return v.BackendName }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayRoutingRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the associated Listener.
+func (o ApplicationGatewayRoutingRuleOutput) ListenerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Listener which should be used for this Routing Rule.
+func (o ApplicationGatewayRoutingRuleOutput) ListenerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) string { return v.ListenerName }).(pulumi.StringOutput)
+}
+
+// The Name of this Routing Rule.
+func (o ApplicationGatewayRoutingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
+func (o ApplicationGatewayRoutingRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type ApplicationGatewayRoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (o ApplicationGatewayRoutingRuleArrayOutput) ToApplicationGatewayRoutingRuleArrayOutput() ApplicationGatewayRoutingRuleArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRoutingRuleArrayOutput) ToApplicationGatewayRoutingRuleArrayOutputWithContext(ctx context.Context) ApplicationGatewayRoutingRuleArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRoutingRuleArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayRoutingRule {
+		return vs[0].([]ApplicationGatewayRoutingRule)[vs[1].(int)]
+	}).(ApplicationGatewayRoutingRuleOutput)
 }
 
 type ApplicationGatewaySku struct {
@@ -27669,6 +28275,184 @@ func (o GetApplicationGatewayAutoscaleConfigurationArrayOutput) Index(i pulumi.I
 	}).(GetApplicationGatewayAutoscaleConfigurationOutput)
 }
 
+type GetApplicationGatewayBackend struct {
+	// Whether client IP preservation is enabled for the Backend Settings.
+	ClientIpPreservationEnabled bool `pulumi:"clientIpPreservationEnabled"`
+	// The Hostname which is used for this HTTP Listener.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// Custom port which is used for probing the backend servers.
+	Port int `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId string `pulumi:"probeId"`
+	// The name of the associated HTTP Probe.
+	ProbeName string `pulumi:"probeName"`
+	// The Protocol used for this Probe.
+	Protocol string `pulumi:"protocol"`
+	// The request timeout in seconds for the Backend Settings.
+	TimeoutInSeconds int `pulumi:"timeoutInSeconds"`
+	// A list of `trustedRootCertificate` names.
+	TrustedRootCertificateNames []string `pulumi:"trustedRootCertificateNames"`
+}
+
+// GetApplicationGatewayBackendInput is an input type that accepts GetApplicationGatewayBackendArgs and GetApplicationGatewayBackendOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendInput` via:
+//
+//	GetApplicationGatewayBackendArgs{...}
+type GetApplicationGatewayBackendInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendOutput() GetApplicationGatewayBackendOutput
+	ToGetApplicationGatewayBackendOutputWithContext(context.Context) GetApplicationGatewayBackendOutput
+}
+
+type GetApplicationGatewayBackendArgs struct {
+	// Whether client IP preservation is enabled for the Backend Settings.
+	ClientIpPreservationEnabled pulumi.BoolInput `pulumi:"clientIpPreservationEnabled"`
+	// The Hostname which is used for this HTTP Listener.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Custom port which is used for probing the backend servers.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId pulumi.StringInput `pulumi:"probeId"`
+	// The name of the associated HTTP Probe.
+	ProbeName pulumi.StringInput `pulumi:"probeName"`
+	// The Protocol used for this Probe.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The request timeout in seconds for the Backend Settings.
+	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
+	// A list of `trustedRootCertificate` names.
+	TrustedRootCertificateNames pulumi.StringArrayInput `pulumi:"trustedRootCertificateNames"`
+}
+
+func (GetApplicationGatewayBackendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendArgs) ToGetApplicationGatewayBackendOutput() GetApplicationGatewayBackendOutput {
+	return i.ToGetApplicationGatewayBackendOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendArgs) ToGetApplicationGatewayBackendOutputWithContext(ctx context.Context) GetApplicationGatewayBackendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendOutput)
+}
+
+// GetApplicationGatewayBackendArrayInput is an input type that accepts GetApplicationGatewayBackendArray and GetApplicationGatewayBackendArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendArrayInput` via:
+//
+//	GetApplicationGatewayBackendArray{ GetApplicationGatewayBackendArgs{...} }
+type GetApplicationGatewayBackendArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendArrayOutput() GetApplicationGatewayBackendArrayOutput
+	ToGetApplicationGatewayBackendArrayOutputWithContext(context.Context) GetApplicationGatewayBackendArrayOutput
+}
+
+type GetApplicationGatewayBackendArray []GetApplicationGatewayBackendInput
+
+func (GetApplicationGatewayBackendArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendArray) ToGetApplicationGatewayBackendArrayOutput() GetApplicationGatewayBackendArrayOutput {
+	return i.ToGetApplicationGatewayBackendArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendArray) ToGetApplicationGatewayBackendArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendArrayOutput)
+}
+
+type GetApplicationGatewayBackendOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendOutput) ToGetApplicationGatewayBackendOutput() GetApplicationGatewayBackendOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendOutput) ToGetApplicationGatewayBackendOutputWithContext(ctx context.Context) GetApplicationGatewayBackendOutput {
+	return o
+}
+
+// Whether client IP preservation is enabled for the Backend Settings.
+func (o GetApplicationGatewayBackendOutput) ClientIpPreservationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) bool { return v.ClientIpPreservationEnabled }).(pulumi.BoolOutput)
+}
+
+// The Hostname which is used for this HTTP Listener.
+func (o GetApplicationGatewayBackendOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayBackendOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayBackendOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom port which is used for probing the backend servers.
+func (o GetApplicationGatewayBackendOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The ID of the associated Probe.
+func (o GetApplicationGatewayBackendOutput) ProbeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.ProbeId }).(pulumi.StringOutput)
+}
+
+// The name of the associated HTTP Probe.
+func (o GetApplicationGatewayBackendOutput) ProbeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.ProbeName }).(pulumi.StringOutput)
+}
+
+// The Protocol used for this Probe.
+func (o GetApplicationGatewayBackendOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The request timeout in seconds for the Backend Settings.
+func (o GetApplicationGatewayBackendOutput) TimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) int { return v.TimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// A list of `trustedRootCertificate` names.
+func (o GetApplicationGatewayBackendOutput) TrustedRootCertificateNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackend) []string { return v.TrustedRootCertificateNames }).(pulumi.StringArrayOutput)
+}
+
+type GetApplicationGatewayBackendArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackend)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendArrayOutput) ToGetApplicationGatewayBackendArrayOutput() GetApplicationGatewayBackendArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendArrayOutput) ToGetApplicationGatewayBackendArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayBackendOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayBackend {
+		return vs[0].([]GetApplicationGatewayBackend)[vs[1].(int)]
+	}).(GetApplicationGatewayBackendOutput)
+}
+
 type GetApplicationGatewayBackendAddressPool struct {
 	// A list of FQDNs which are part of the Backend Address Pool.
 	Fqdns []string `pulumi:"fqdns"`
@@ -28859,15 +29643,15 @@ type GetApplicationGatewayHttpListener struct {
 	FirewallPolicyId string `pulumi:"firewallPolicyId"`
 	// The ID of the associated Frontend Configuration.
 	FrontendIpConfigurationId string `pulumi:"frontendIpConfigurationId"`
-	// The Name of the Frontend IP Configuration used for this HTTP Listener.
+	// The Name of the Frontend IP Configuration used for this Listener.
 	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
 	// The ID of the associated Frontend Port.
 	FrontendPortId string `pulumi:"frontendPortId"`
-	// The Name of the Frontend Port used for this HTTP Listener.
+	// The Name of the Frontend Port used for this Listener.
 	FrontendPortName string `pulumi:"frontendPortName"`
 	// The Hostname which is used for this HTTP Listener.
 	HostName string `pulumi:"hostName"`
-	// A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+	// A list of Hostname(s) used for this Listener.
 	HostNames []string `pulumi:"hostNames"`
 	// The ID of the Rewrite Rule Set
 	Id string `pulumi:"id"`
@@ -28879,11 +29663,11 @@ type GetApplicationGatewayHttpListener struct {
 	RequireSni bool `pulumi:"requireSni"`
 	// The ID of the associated SSL Certificate.
 	SslCertificateId string `pulumi:"sslCertificateId"`
-	// The name of the associated SSL Certificate which is used for this HTTP Listener.
+	// The name of the associated SSL Certificate which is used for this Listener.
 	SslCertificateName string `pulumi:"sslCertificateName"`
 	// The ID of the associated SSL Profile.
 	SslProfileId string `pulumi:"sslProfileId"`
-	// The name of the associated SSL Profile which is used for this HTTP Listener.
+	// The name of the associated SSL Profile which is used for this Listener.
 	SslProfileName string `pulumi:"sslProfileName"`
 }
 
@@ -28905,15 +29689,15 @@ type GetApplicationGatewayHttpListenerArgs struct {
 	FirewallPolicyId pulumi.StringInput `pulumi:"firewallPolicyId"`
 	// The ID of the associated Frontend Configuration.
 	FrontendIpConfigurationId pulumi.StringInput `pulumi:"frontendIpConfigurationId"`
-	// The Name of the Frontend IP Configuration used for this HTTP Listener.
+	// The Name of the Frontend IP Configuration used for this Listener.
 	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
 	// The ID of the associated Frontend Port.
 	FrontendPortId pulumi.StringInput `pulumi:"frontendPortId"`
-	// The Name of the Frontend Port used for this HTTP Listener.
+	// The Name of the Frontend Port used for this Listener.
 	FrontendPortName pulumi.StringInput `pulumi:"frontendPortName"`
 	// The Hostname which is used for this HTTP Listener.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+	// A list of Hostname(s) used for this Listener.
 	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringInput `pulumi:"id"`
@@ -28925,11 +29709,11 @@ type GetApplicationGatewayHttpListenerArgs struct {
 	RequireSni pulumi.BoolInput `pulumi:"requireSni"`
 	// The ID of the associated SSL Certificate.
 	SslCertificateId pulumi.StringInput `pulumi:"sslCertificateId"`
-	// The name of the associated SSL Certificate which is used for this HTTP Listener.
+	// The name of the associated SSL Certificate which is used for this Listener.
 	SslCertificateName pulumi.StringInput `pulumi:"sslCertificateName"`
 	// The ID of the associated SSL Profile.
 	SslProfileId pulumi.StringInput `pulumi:"sslProfileId"`
-	// The name of the associated SSL Profile which is used for this HTTP Listener.
+	// The name of the associated SSL Profile which is used for this Listener.
 	SslProfileName pulumi.StringInput `pulumi:"sslProfileName"`
 }
 
@@ -29001,7 +29785,7 @@ func (o GetApplicationGatewayHttpListenerOutput) FrontendIpConfigurationId() pul
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendIpConfigurationId }).(pulumi.StringOutput)
 }
 
-// The Name of the Frontend IP Configuration used for this HTTP Listener.
+// The Name of the Frontend IP Configuration used for this Listener.
 func (o GetApplicationGatewayHttpListenerOutput) FrontendIpConfigurationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendIpConfigurationName }).(pulumi.StringOutput)
 }
@@ -29011,7 +29795,7 @@ func (o GetApplicationGatewayHttpListenerOutput) FrontendPortId() pulumi.StringO
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendPortId }).(pulumi.StringOutput)
 }
 
-// The Name of the Frontend Port used for this HTTP Listener.
+// The Name of the Frontend Port used for this Listener.
 func (o GetApplicationGatewayHttpListenerOutput) FrontendPortName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendPortName }).(pulumi.StringOutput)
 }
@@ -29021,7 +29805,7 @@ func (o GetApplicationGatewayHttpListenerOutput) HostName() pulumi.StringOutput 
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+// A list of Hostname(s) used for this Listener.
 func (o GetApplicationGatewayHttpListenerOutput) HostNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) []string { return v.HostNames }).(pulumi.StringArrayOutput)
 }
@@ -29051,7 +29835,7 @@ func (o GetApplicationGatewayHttpListenerOutput) SslCertificateId() pulumi.Strin
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslCertificateId }).(pulumi.StringOutput)
 }
 
-// The name of the associated SSL Certificate which is used for this HTTP Listener.
+// The name of the associated SSL Certificate which is used for this Listener.
 func (o GetApplicationGatewayHttpListenerOutput) SslCertificateName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslCertificateName }).(pulumi.StringOutput)
 }
@@ -29061,7 +29845,7 @@ func (o GetApplicationGatewayHttpListenerOutput) SslProfileId() pulumi.StringOut
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslProfileId }).(pulumi.StringOutput)
 }
 
-// The name of the associated SSL Profile which is used for this HTTP Listener.
+// The name of the associated SSL Profile which is used for this Listener.
 func (o GetApplicationGatewayHttpListenerOutput) SslProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslProfileName }).(pulumi.StringOutput)
 }
@@ -29317,6 +30101,202 @@ func (o GetApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) GetAp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayIdentity {
 		return vs[0].([]GetApplicationGatewayIdentity)[vs[1].(int)]
 	}).(GetApplicationGatewayIdentityOutput)
+}
+
+type GetApplicationGatewayListener struct {
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId string `pulumi:"frontendIpConfigurationId"`
+	// The Name of the Frontend IP Configuration used for this Listener.
+	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId string `pulumi:"frontendPortId"`
+	// The Name of the Frontend Port used for this Listener.
+	FrontendPortName string `pulumi:"frontendPortName"`
+	// A list of Hostname(s) used for this Listener.
+	HostNames []string `pulumi:"hostNames"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The Protocol used for this Probe.
+	Protocol string `pulumi:"protocol"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId string `pulumi:"sslCertificateId"`
+	// The name of the associated SSL Certificate which is used for this Listener.
+	SslCertificateName string `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Profile.
+	SslProfileId string `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which is used for this Listener.
+	SslProfileName string `pulumi:"sslProfileName"`
+}
+
+// GetApplicationGatewayListenerInput is an input type that accepts GetApplicationGatewayListenerArgs and GetApplicationGatewayListenerOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayListenerInput` via:
+//
+//	GetApplicationGatewayListenerArgs{...}
+type GetApplicationGatewayListenerInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayListenerOutput() GetApplicationGatewayListenerOutput
+	ToGetApplicationGatewayListenerOutputWithContext(context.Context) GetApplicationGatewayListenerOutput
+}
+
+type GetApplicationGatewayListenerArgs struct {
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId pulumi.StringInput `pulumi:"frontendIpConfigurationId"`
+	// The Name of the Frontend IP Configuration used for this Listener.
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId pulumi.StringInput `pulumi:"frontendPortId"`
+	// The Name of the Frontend Port used for this Listener.
+	FrontendPortName pulumi.StringInput `pulumi:"frontendPortName"`
+	// A list of Hostname(s) used for this Listener.
+	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Protocol used for this Probe.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId pulumi.StringInput `pulumi:"sslCertificateId"`
+	// The name of the associated SSL Certificate which is used for this Listener.
+	SslCertificateName pulumi.StringInput `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Profile.
+	SslProfileId pulumi.StringInput `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which is used for this Listener.
+	SslProfileName pulumi.StringInput `pulumi:"sslProfileName"`
+}
+
+func (GetApplicationGatewayListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayListener)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayListenerArgs) ToGetApplicationGatewayListenerOutput() GetApplicationGatewayListenerOutput {
+	return i.ToGetApplicationGatewayListenerOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayListenerArgs) ToGetApplicationGatewayListenerOutputWithContext(ctx context.Context) GetApplicationGatewayListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayListenerOutput)
+}
+
+// GetApplicationGatewayListenerArrayInput is an input type that accepts GetApplicationGatewayListenerArray and GetApplicationGatewayListenerArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayListenerArrayInput` via:
+//
+//	GetApplicationGatewayListenerArray{ GetApplicationGatewayListenerArgs{...} }
+type GetApplicationGatewayListenerArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayListenerArrayOutput() GetApplicationGatewayListenerArrayOutput
+	ToGetApplicationGatewayListenerArrayOutputWithContext(context.Context) GetApplicationGatewayListenerArrayOutput
+}
+
+type GetApplicationGatewayListenerArray []GetApplicationGatewayListenerInput
+
+func (GetApplicationGatewayListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayListener)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayListenerArray) ToGetApplicationGatewayListenerArrayOutput() GetApplicationGatewayListenerArrayOutput {
+	return i.ToGetApplicationGatewayListenerArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayListenerArray) ToGetApplicationGatewayListenerArrayOutputWithContext(ctx context.Context) GetApplicationGatewayListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayListenerArrayOutput)
+}
+
+type GetApplicationGatewayListenerOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayListener)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayListenerOutput) ToGetApplicationGatewayListenerOutput() GetApplicationGatewayListenerOutput {
+	return o
+}
+
+func (o GetApplicationGatewayListenerOutput) ToGetApplicationGatewayListenerOutputWithContext(ctx context.Context) GetApplicationGatewayListenerOutput {
+	return o
+}
+
+// The ID of the associated Frontend Configuration.
+func (o GetApplicationGatewayListenerOutput) FrontendIpConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.FrontendIpConfigurationId }).(pulumi.StringOutput)
+}
+
+// The Name of the Frontend IP Configuration used for this Listener.
+func (o GetApplicationGatewayListenerOutput) FrontendIpConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.FrontendIpConfigurationName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Frontend Port.
+func (o GetApplicationGatewayListenerOutput) FrontendPortId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.FrontendPortId }).(pulumi.StringOutput)
+}
+
+// The Name of the Frontend Port used for this Listener.
+func (o GetApplicationGatewayListenerOutput) FrontendPortName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.FrontendPortName }).(pulumi.StringOutput)
+}
+
+// A list of Hostname(s) used for this Listener.
+func (o GetApplicationGatewayListenerOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) []string { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayListenerOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayListenerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Protocol used for this Probe.
+func (o GetApplicationGatewayListenerOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The ID of the associated SSL Certificate.
+func (o GetApplicationGatewayListenerOutput) SslCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.SslCertificateId }).(pulumi.StringOutput)
+}
+
+// The name of the associated SSL Certificate which is used for this Listener.
+func (o GetApplicationGatewayListenerOutput) SslCertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.SslCertificateName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated SSL Profile.
+func (o GetApplicationGatewayListenerOutput) SslProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.SslProfileId }).(pulumi.StringOutput)
+}
+
+// The name of the associated SSL Profile which is used for this Listener.
+func (o GetApplicationGatewayListenerOutput) SslProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayListener) string { return v.SslProfileName }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayListener)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayListenerArrayOutput) ToGetApplicationGatewayListenerArrayOutput() GetApplicationGatewayListenerArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayListenerArrayOutput) ToGetApplicationGatewayListenerArrayOutputWithContext(ctx context.Context) GetApplicationGatewayListenerArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayListenerArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayListener {
+		return vs[0].([]GetApplicationGatewayListener)[vs[1].(int)]
+	}).(GetApplicationGatewayListenerOutput)
 }
 
 type GetApplicationGatewayPrivateEndpointConnection struct {
@@ -29698,6 +30678,8 @@ type GetApplicationGatewayProbe struct {
 	Port int `pulumi:"port"`
 	// The Protocol used for this Probe.
 	Protocol string `pulumi:"protocol"`
+	// Whether the proxy protocol header is enabled for this Probe.
+	ProxyProtocolHeaderEnabled bool `pulumi:"proxyProtocolHeaderEnabled"`
 	// The Timeout used for this Probe, indicating when a probe becomes unhealthy.
 	Timeout int `pulumi:"timeout"`
 	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which will be attempted before a node is deemed unhealthy.
@@ -29736,6 +30718,8 @@ type GetApplicationGatewayProbeArgs struct {
 	Port pulumi.IntInput `pulumi:"port"`
 	// The Protocol used for this Probe.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Whether the proxy protocol header is enabled for this Probe.
+	ProxyProtocolHeaderEnabled pulumi.BoolInput `pulumi:"proxyProtocolHeaderEnabled"`
 	// The Timeout used for this Probe, indicating when a probe becomes unhealthy.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
 	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which will be attempted before a node is deemed unhealthy.
@@ -29841,6 +30825,11 @@ func (o GetApplicationGatewayProbeOutput) Port() pulumi.IntOutput {
 // The Protocol used for this Probe.
 func (o GetApplicationGatewayProbeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayProbe) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Whether the proxy protocol header is enabled for this Probe.
+func (o GetApplicationGatewayProbeOutput) ProxyProtocolHeaderEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) bool { return v.ProxyProtocolHeaderEnabled }).(pulumi.BoolOutput)
 }
 
 // The Timeout used for this Probe, indicating when a probe becomes unhealthy.
@@ -31101,6 +32090,175 @@ func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 		return vs[0].([]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl)[vs[1].(int)]
 	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput)
+}
+
+type GetApplicationGatewayRoutingRule struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which is used for this Routing Rule.
+	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend Settings.
+	BackendId string `pulumi:"backendId"`
+	// The Name of the Backend Settings which is used for this Routing Rule.
+	BackendName string `pulumi:"backendName"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The ID of the associated Listener.
+	ListenerId string `pulumi:"listenerId"`
+	// The Name of the Listener which is used for this Routing Rule.
+	ListenerName string `pulumi:"listenerName"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The Priority of this Routing Rule.
+	Priority int `pulumi:"priority"`
+}
+
+// GetApplicationGatewayRoutingRuleInput is an input type that accepts GetApplicationGatewayRoutingRuleArgs and GetApplicationGatewayRoutingRuleOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRoutingRuleInput` via:
+//
+//	GetApplicationGatewayRoutingRuleArgs{...}
+type GetApplicationGatewayRoutingRuleInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRoutingRuleOutput() GetApplicationGatewayRoutingRuleOutput
+	ToGetApplicationGatewayRoutingRuleOutputWithContext(context.Context) GetApplicationGatewayRoutingRuleOutput
+}
+
+type GetApplicationGatewayRoutingRuleArgs struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which is used for this Routing Rule.
+	BackendAddressPoolName pulumi.StringInput `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend Settings.
+	BackendId pulumi.StringInput `pulumi:"backendId"`
+	// The Name of the Backend Settings which is used for this Routing Rule.
+	BackendName pulumi.StringInput `pulumi:"backendName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The ID of the associated Listener.
+	ListenerId pulumi.StringInput `pulumi:"listenerId"`
+	// The Name of the Listener which is used for this Routing Rule.
+	ListenerName pulumi.StringInput `pulumi:"listenerName"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Priority of this Routing Rule.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (GetApplicationGatewayRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRoutingRuleArgs) ToGetApplicationGatewayRoutingRuleOutput() GetApplicationGatewayRoutingRuleOutput {
+	return i.ToGetApplicationGatewayRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRoutingRuleArgs) ToGetApplicationGatewayRoutingRuleOutputWithContext(ctx context.Context) GetApplicationGatewayRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRoutingRuleOutput)
+}
+
+// GetApplicationGatewayRoutingRuleArrayInput is an input type that accepts GetApplicationGatewayRoutingRuleArray and GetApplicationGatewayRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRoutingRuleArrayInput` via:
+//
+//	GetApplicationGatewayRoutingRuleArray{ GetApplicationGatewayRoutingRuleArgs{...} }
+type GetApplicationGatewayRoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRoutingRuleArrayOutput() GetApplicationGatewayRoutingRuleArrayOutput
+	ToGetApplicationGatewayRoutingRuleArrayOutputWithContext(context.Context) GetApplicationGatewayRoutingRuleArrayOutput
+}
+
+type GetApplicationGatewayRoutingRuleArray []GetApplicationGatewayRoutingRuleInput
+
+func (GetApplicationGatewayRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRoutingRuleArray) ToGetApplicationGatewayRoutingRuleArrayOutput() GetApplicationGatewayRoutingRuleArrayOutput {
+	return i.ToGetApplicationGatewayRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRoutingRuleArray) ToGetApplicationGatewayRoutingRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRoutingRuleArrayOutput)
+}
+
+type GetApplicationGatewayRoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRoutingRuleOutput) ToGetApplicationGatewayRoutingRuleOutput() GetApplicationGatewayRoutingRuleOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRoutingRuleOutput) ToGetApplicationGatewayRoutingRuleOutputWithContext(ctx context.Context) GetApplicationGatewayRoutingRuleOutput {
+	return o
+}
+
+// The ID of the associated Backend Address Pool.
+func (o GetApplicationGatewayRoutingRuleOutput) BackendAddressPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.BackendAddressPoolId }).(pulumi.StringOutput)
+}
+
+// The Name of the Backend Address Pool which is used for this Routing Rule.
+func (o GetApplicationGatewayRoutingRuleOutput) BackendAddressPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.BackendAddressPoolName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Backend Settings.
+func (o GetApplicationGatewayRoutingRuleOutput) BackendId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.BackendId }).(pulumi.StringOutput)
+}
+
+// The Name of the Backend Settings which is used for this Routing Rule.
+func (o GetApplicationGatewayRoutingRuleOutput) BackendName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.BackendName }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayRoutingRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Listener.
+func (o GetApplicationGatewayRoutingRuleOutput) ListenerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.ListenerId }).(pulumi.StringOutput)
+}
+
+// The Name of the Listener which is used for this Routing Rule.
+func (o GetApplicationGatewayRoutingRuleOutput) ListenerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.ListenerName }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayRoutingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Priority of this Routing Rule.
+func (o GetApplicationGatewayRoutingRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRoutingRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type GetApplicationGatewayRoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRoutingRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRoutingRuleArrayOutput) ToGetApplicationGatewayRoutingRuleArrayOutput() GetApplicationGatewayRoutingRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRoutingRuleArrayOutput) ToGetApplicationGatewayRoutingRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRoutingRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRoutingRuleArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRoutingRule {
+		return vs[0].([]GetApplicationGatewayRoutingRule)[vs[1].(int)]
+	}).(GetApplicationGatewayRoutingRuleOutput)
 }
 
 type GetApplicationGatewaySkus struct {
@@ -38469,6 +39627,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAuthenticationCertificateArrayInput)(nil)).Elem(), ApplicationGatewayAuthenticationCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAutoscaleConfigurationInput)(nil)).Elem(), ApplicationGatewayAutoscaleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAutoscaleConfigurationPtrInput)(nil)).Elem(), ApplicationGatewayAutoscaleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendInput)(nil)).Elem(), ApplicationGatewayBackendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendArrayInput)(nil)).Elem(), ApplicationGatewayBackendArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendAddressPoolInput)(nil)).Elem(), ApplicationGatewayBackendAddressPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendAddressPoolArrayInput)(nil)).Elem(), ApplicationGatewayBackendAddressPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendHttpSettingInput)(nil)).Elem(), ApplicationGatewayBackendHttpSettingArgs{})
@@ -38493,6 +39653,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput)(nil)).Elem(), ApplicationGatewayHttpListenerCustomErrorConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayIdentityInput)(nil)).Elem(), ApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayIdentityPtrInput)(nil)).Elem(), ApplicationGatewayIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayListenerInput)(nil)).Elem(), ApplicationGatewayListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayListenerArrayInput)(nil)).Elem(), ApplicationGatewayListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnectionInput)(nil)).Elem(), ApplicationGatewayPrivateEndpointConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnectionArrayInput)(nil)).Elem(), ApplicationGatewayPrivateEndpointConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateLinkConfigurationInput)(nil)).Elem(), ApplicationGatewayPrivateLinkConfigurationArgs{})
@@ -38519,6 +39681,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput)(nil)).Elem(), ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayRewriteRuleSetRewriteRuleUrlInput)(nil)).Elem(), ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput)(nil)).Elem(), ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayRoutingRuleInput)(nil)).Elem(), ApplicationGatewayRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayRoutingRuleArrayInput)(nil)).Elem(), ApplicationGatewayRoutingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySkuInput)(nil)).Elem(), ApplicationGatewaySkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySkuPtrInput)(nil)).Elem(), ApplicationGatewaySkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewaySslCertificateInput)(nil)).Elem(), ApplicationGatewaySslCertificateArgs{})
@@ -38819,6 +39983,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificateArrayInput)(nil)).Elem(), GetApplicationGatewayAuthenticationCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAutoscaleConfigurationInput)(nil)).Elem(), GetApplicationGatewayAutoscaleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAutoscaleConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayAutoscaleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendInput)(nil)).Elem(), GetApplicationGatewayBackendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendArrayInput)(nil)).Elem(), GetApplicationGatewayBackendArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendAddressPoolInput)(nil)).Elem(), GetApplicationGatewayBackendAddressPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendAddressPoolArrayInput)(nil)).Elem(), GetApplicationGatewayBackendAddressPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingArgs{})
@@ -38843,6 +40009,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayHttpListenerCustomErrorConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityInput)(nil)).Elem(), GetApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityArrayInput)(nil)).Elem(), GetApplicationGatewayIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayListenerInput)(nil)).Elem(), GetApplicationGatewayListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayListenerArrayInput)(nil)).Elem(), GetApplicationGatewayListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateEndpointConnectionInput)(nil)).Elem(), GetApplicationGatewayPrivateEndpointConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateEndpointConnectionArrayInput)(nil)).Elem(), GetApplicationGatewayPrivateEndpointConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfigurationInput)(nil)).Elem(), GetApplicationGatewayPrivateLinkConfigurationArgs{})
@@ -38869,6 +40037,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleUrlInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRoutingRuleInput)(nil)).Elem(), GetApplicationGatewayRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRoutingRuleArrayInput)(nil)).Elem(), GetApplicationGatewayRoutingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySkusInput)(nil)).Elem(), GetApplicationGatewaySkusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySkusArrayInput)(nil)).Elem(), GetApplicationGatewaySkusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslCertificateInput)(nil)).Elem(), GetApplicationGatewaySslCertificateArgs{})
@@ -38986,6 +40156,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayAutoscaleConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayAutoscaleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayBackendArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingOutput{})
@@ -39010,6 +40182,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayListenerOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayListenerArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayPrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayPrivateEndpointConnectionArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayPrivateLinkConfigurationOutput{})
@@ -39036,6 +40210,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayRoutingRuleOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayRoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySkuOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySkuPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewaySslCertificateOutput{})
@@ -39336,6 +40512,8 @@ func init() {
 	pulumi.RegisterOutputType(GetApplicationGatewayAuthenticationCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayAutoscaleConfigurationOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayAutoscaleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendAddressPoolOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingOutput{})
@@ -39360,6 +40538,8 @@ func init() {
 	pulumi.RegisterOutputType(GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayListenerOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayListenerArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayPrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayPrivateEndpointConnectionArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayPrivateLinkConfigurationOutput{})
@@ -39386,6 +40566,8 @@ func init() {
 	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRoutingRuleOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewaySkusOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewaySkusArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewaySslCertificateOutput{})

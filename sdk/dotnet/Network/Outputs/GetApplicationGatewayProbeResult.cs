@@ -54,6 +54,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
+        /// Whether the proxy protocol header is enabled for this Probe.
+        /// </summary>
+        public readonly bool ProxyProtocolHeaderEnabled;
+        /// <summary>
         /// The Timeout used for this Probe, indicating when a probe becomes unhealthy.
         /// </summary>
         public readonly int Timeout;
@@ -84,6 +88,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string protocol,
 
+            bool proxyProtocolHeaderEnabled,
+
             int timeout,
 
             int unhealthyThreshold)
@@ -98,6 +104,7 @@ namespace Pulumi.Azure.Network.Outputs
             PickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
             Port = port;
             Protocol = protocol;
+            ProxyProtocolHeaderEnabled = proxyProtocolHeaderEnabled;
             Timeout = timeout;
             UnhealthyThreshold = unhealthyThreshold;
         }

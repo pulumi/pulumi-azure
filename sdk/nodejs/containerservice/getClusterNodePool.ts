@@ -97,6 +97,10 @@ export interface GetClusterNodePoolResult {
      */
     readonly nodeCount: number;
     /**
+     * The current node image version running on this Node Pool.
+     */
+    readonly nodeImageVersion: string;
+    /**
      * A map of Kubernetes Labels applied to each Node in this Node Pool.
      */
     readonly nodeLabels: {[key: string]: string};

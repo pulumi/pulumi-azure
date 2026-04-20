@@ -86,7 +86,6 @@ namespace Pulumi.Azure.Nginx
     ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
     ///         Location = example.Location,
     ///         ManagedResourceGroup = "example",
-    ///         DiagnoseSupportEnabled = true,
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
     ///         {
     ///             IpAddresses = new[]

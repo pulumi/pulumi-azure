@@ -93,6 +93,8 @@ type ConfigurationFeature struct {
 
 	// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 	ConfigurationStoreId pulumi.StringOutput `pulumi:"configurationStoreId"`
+	// A `customFilter` block as defined below.
+	CustomFilters ConfigurationFeatureCustomFilterArrayOutput `pulumi:"customFilters"`
 	// The description of the App Configuration Feature.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The status of the App Configuration Feature. By default, this is set to false.
@@ -151,6 +153,8 @@ func GetConfigurationFeature(ctx *pulumi.Context,
 type configurationFeatureState struct {
 	// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 	ConfigurationStoreId *string `pulumi:"configurationStoreId"`
+	// A `customFilter` block as defined below.
+	CustomFilters []ConfigurationFeatureCustomFilter `pulumi:"customFilters"`
 	// The description of the App Configuration Feature.
 	Description *string `pulumi:"description"`
 	// The status of the App Configuration Feature. By default, this is set to false.
@@ -177,6 +181,8 @@ type configurationFeatureState struct {
 type ConfigurationFeatureState struct {
 	// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 	ConfigurationStoreId pulumi.StringPtrInput
+	// A `customFilter` block as defined below.
+	CustomFilters ConfigurationFeatureCustomFilterArrayInput
 	// The description of the App Configuration Feature.
 	Description pulumi.StringPtrInput
 	// The status of the App Configuration Feature. By default, this is set to false.
@@ -207,6 +213,8 @@ func (ConfigurationFeatureState) ElementType() reflect.Type {
 type configurationFeatureArgs struct {
 	// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 	ConfigurationStoreId string `pulumi:"configurationStoreId"`
+	// A `customFilter` block as defined below.
+	CustomFilters []ConfigurationFeatureCustomFilter `pulumi:"customFilters"`
 	// The description of the App Configuration Feature.
 	Description *string `pulumi:"description"`
 	// The status of the App Configuration Feature. By default, this is set to false.
@@ -234,6 +242,8 @@ type configurationFeatureArgs struct {
 type ConfigurationFeatureArgs struct {
 	// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 	ConfigurationStoreId pulumi.StringInput
+	// A `customFilter` block as defined below.
+	CustomFilters ConfigurationFeatureCustomFilterArrayInput
 	// The description of the App Configuration Feature.
 	Description pulumi.StringPtrInput
 	// The status of the App Configuration Feature. By default, this is set to false.
@@ -347,6 +357,11 @@ func (o ConfigurationFeatureOutput) ToConfigurationFeatureOutputWithContext(ctx 
 // Specifies the id of the App Configuration. Changing this forces a new resource to be created.
 func (o ConfigurationFeatureOutput) ConfigurationStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationFeature) pulumi.StringOutput { return v.ConfigurationStoreId }).(pulumi.StringOutput)
+}
+
+// A `customFilter` block as defined below.
+func (o ConfigurationFeatureOutput) CustomFilters() ConfigurationFeatureCustomFilterArrayOutput {
+	return o.ApplyT(func(v *ConfigurationFeature) ConfigurationFeatureCustomFilterArrayOutput { return v.CustomFilters }).(ConfigurationFeatureCustomFilterArrayOutput)
 }
 
 // The description of the App Configuration Feature.

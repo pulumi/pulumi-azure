@@ -17,7 +17,9 @@ type BastionHostIpConfiguration struct {
 	// The name of the IP configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
-	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	//
+	// > **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
@@ -39,7 +41,9 @@ type BastionHostIpConfigurationArgs struct {
 	// The name of the IP configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
-	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	//
+	// > **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
@@ -129,8 +133,10 @@ func (o BastionHostIpConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
-func (o BastionHostIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
-	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+//
+// > **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
+func (o BastionHostIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BastionHostIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
 // Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
@@ -175,12 +181,14 @@ func (o BastionHostIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+//
+// > **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
 func (o BastionHostIpConfigurationPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHostIpConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PublicIpAddressId
+		return v.PublicIpAddressId
 	}).(pulumi.StringPtrOutput)
 }
 

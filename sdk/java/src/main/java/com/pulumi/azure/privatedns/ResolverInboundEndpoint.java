@@ -122,56 +122,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint")
 public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ipConfigurations", refs={ResolverInboundEndpointIpConfigurations.class}, tree="[0]")
     private Output<ResolverInboundEndpointIpConfigurations> ipConfigurations;
 
     /**
-     * @return One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ResolverInboundEndpointIpConfigurations> ipConfigurations() {
         return this.ipConfigurations;
     }
     /**
-     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="privateDnsResolverId", refs={String.class}, tree="[0]")
     private Output<String> privateDnsResolverId;
 
     /**
-     * @return Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> privateDnsResolverId() {

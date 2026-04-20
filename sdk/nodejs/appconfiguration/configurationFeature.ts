@@ -88,6 +88,10 @@ export class ConfigurationFeature extends pulumi.CustomResource {
      */
     declare public readonly configurationStoreId: pulumi.Output<string>;
     /**
+     * A `customFilter` block as defined below.
+     */
+    declare public readonly customFilters: pulumi.Output<outputs.appconfiguration.ConfigurationFeatureCustomFilter[] | undefined>;
+    /**
      * The description of the App Configuration Feature.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -143,6 +147,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ConfigurationFeatureState | undefined;
             resourceInputs["configurationStoreId"] = state?.configurationStoreId;
+            resourceInputs["customFilters"] = state?.customFilters;
             resourceInputs["description"] = state?.description;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["etag"] = state?.etag;
@@ -160,6 +165,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
                 throw new Error("Missing required property 'configurationStoreId'");
             }
             resourceInputs["configurationStoreId"] = args?.configurationStoreId;
+            resourceInputs["customFilters"] = args?.customFilters;
             resourceInputs["description"] = args?.description;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["etag"] = args?.etag;
@@ -185,6 +191,10 @@ export interface ConfigurationFeatureState {
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      */
     configurationStoreId?: pulumi.Input<string>;
+    /**
+     * A `customFilter` block as defined below.
+     */
+    customFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureCustomFilter>[]>;
     /**
      * The description of the App Configuration Feature.
      */
@@ -236,6 +246,10 @@ export interface ConfigurationFeatureArgs {
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      */
     configurationStoreId: pulumi.Input<string>;
+    /**
+     * A `customFilter` block as defined below.
+     */
+    customFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureCustomFilter>[]>;
     /**
      * The description of the App Configuration Feature.
      */

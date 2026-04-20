@@ -80,6 +80,7 @@ import * as utilities from "../utilities";
  *             key: "value",
  *             key2: "value2",
  *         },
+ *         emailSubject: "Email Header",
  *     },
  *     identity: {
  *         type: "UserAssigned",

@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Network
         public Output<string> VirtualHubId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of virtual network connection.
+        /// The ID of virtual network connection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualNetworkConnectionId")]
         public Output<string?> VirtualNetworkConnectionId { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Network
         public Input<string> VirtualHubId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of virtual network connection.
+        /// The ID of virtual network connection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkConnectionId")]
         public Input<string>? VirtualNetworkConnectionId { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? VirtualHubId { get; set; }
 
         /// <summary>
-        /// The ID of virtual network connection.
+        /// The ID of virtual network connection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkConnectionId")]
         public Input<string>? VirtualNetworkConnectionId { get; set; }

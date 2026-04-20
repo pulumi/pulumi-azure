@@ -15,12 +15,18 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     {
         /// <summary>
         /// Zero or more `Authentication` blocks as defined below.
+        /// 
+        /// * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateCustomScaleRuleAuthentication> Authentications;
         /// <summary>
         /// The Custom rule type. Possible values include: `Activemq`, `artemis-queue`, `Kafka`, `Pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `Cassandra`, `Cpu`, `Cron`, `Datadog`, `Elasticsearch`, `External`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `Graphite`, `Http`, `huawei-cloudeye`, `Ibmmq`, `Influxdb`, `kubernetes-workload`, `Liiklus`, `Memory`, `metrics-api`, `Mongodb`, `Mssql`, `Mysql`, `nats-jetstream`, `Stan`, `Tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `Postgresql`, `Predictkube`, `Prometheus`, `Rabbitmq`, `Redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
         /// </summary>
         public readonly string CustomRuleType;
+        /// <summary>
+        /// ID of the System or User Managed Identity used to execute scale rule.
+        /// </summary>
+        public readonly string? IdentityId;
         /// <summary>
         /// A map of string key-value pairs to configure the Custom Scale Rule.
         /// </summary>
@@ -36,12 +42,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string customRuleType,
 
+            string? identityId,
+
             ImmutableDictionary<string, string> metadata,
 
             string name)
         {
             Authentications = authentications;
             CustomRuleType = customRuleType;
+            IdentityId = identityId;
             Metadata = metadata;
             Name = name;
         }

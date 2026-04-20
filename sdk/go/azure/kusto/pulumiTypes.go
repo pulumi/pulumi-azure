@@ -18,6 +18,10 @@ type AttachedDatabaseConfigurationSharing struct {
 	ExternalTablesToExcludes []string `pulumi:"externalTablesToExcludes"`
 	// List of external tables to include in the follower database.
 	ExternalTablesToIncludes []string `pulumi:"externalTablesToIncludes"`
+	// List of functions to exclude from the follower database.
+	FunctionsToExcludes []string `pulumi:"functionsToExcludes"`
+	// List of functions to include in the follower database.
+	FunctionsToIncludes []string `pulumi:"functionsToIncludes"`
 	// List of materialized views exclude from the follower database.
 	MaterializedViewsToExcludes []string `pulumi:"materializedViewsToExcludes"`
 	// List of materialized views to include in the follower database.
@@ -44,6 +48,10 @@ type AttachedDatabaseConfigurationSharingArgs struct {
 	ExternalTablesToExcludes pulumi.StringArrayInput `pulumi:"externalTablesToExcludes"`
 	// List of external tables to include in the follower database.
 	ExternalTablesToIncludes pulumi.StringArrayInput `pulumi:"externalTablesToIncludes"`
+	// List of functions to exclude from the follower database.
+	FunctionsToExcludes pulumi.StringArrayInput `pulumi:"functionsToExcludes"`
+	// List of functions to include in the follower database.
+	FunctionsToIncludes pulumi.StringArrayInput `pulumi:"functionsToIncludes"`
 	// List of materialized views exclude from the follower database.
 	MaterializedViewsToExcludes pulumi.StringArrayInput `pulumi:"materializedViewsToExcludes"`
 	// List of materialized views to include in the follower database.
@@ -141,6 +149,16 @@ func (o AttachedDatabaseConfigurationSharingOutput) ExternalTablesToIncludes() p
 	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.ExternalTablesToIncludes }).(pulumi.StringArrayOutput)
 }
 
+// List of functions to exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) FunctionsToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.FunctionsToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of functions to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingOutput) FunctionsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.FunctionsToIncludes }).(pulumi.StringArrayOutput)
+}
+
 // List of materialized views exclude from the follower database.
 func (o AttachedDatabaseConfigurationSharingOutput) MaterializedViewsToExcludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AttachedDatabaseConfigurationSharing) []string { return v.MaterializedViewsToExcludes }).(pulumi.StringArrayOutput)
@@ -202,6 +220,26 @@ func (o AttachedDatabaseConfigurationSharingPtrOutput) ExternalTablesToIncludes(
 			return nil
 		}
 		return v.ExternalTablesToIncludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of functions to exclude from the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) FunctionsToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionsToExcludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of functions to include in the follower database.
+func (o AttachedDatabaseConfigurationSharingPtrOutput) FunctionsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfigurationSharing) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionsToIncludes
 	}).(pulumi.StringArrayOutput)
 }
 

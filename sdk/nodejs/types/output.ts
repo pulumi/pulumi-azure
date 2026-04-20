@@ -2387,6 +2387,17 @@ export namespace apimanagement {
 }
 
 export namespace appconfiguration {
+    export interface ConfigurationFeatureCustomFilter {
+        /**
+         * The name of the parameter, this could be any string.
+         */
+        name: string;
+        /**
+         * One or more `parameters` blocks as defined below.
+         */
+        parameters?: {[key: string]: string};
+    }
+
     export interface ConfigurationFeatureTargetingFilter {
         /**
          * A number representing the percentage of the entire user base.
@@ -25942,8 +25953,10 @@ export namespace compute {
         name: string;
         /**
          * Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+         *
+         * > **Note:** `publicIpAddressId` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `publicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`privateOnlyEnabled` will be `true`).
          */
-        publicIpAddressId: string;
+        publicIpAddressId?: string;
         /**
          * Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
          *
@@ -31395,12 +31408,18 @@ export namespace containerapp {
     export interface AppTemplateCustomScaleRule {
         /**
          * Zero or more `authentication` blocks as defined below.
+         *
+         * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
          */
         authentications?: outputs.containerapp.AppTemplateCustomScaleRuleAuthentication[];
         /**
          * The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
          */
         customRuleType: string;
+        /**
+         * ID of the System or User Managed Identity used to execute scale rule.
+         */
+        identityId?: string;
         /**
          * A map of string key-value pairs to configure the Custom Scale Rule.
          */
@@ -32153,6 +32172,10 @@ export namespace containerapp {
     export interface GetAppTemplateCustomScaleRule {
         authentications: outputs.containerapp.GetAppTemplateCustomScaleRuleAuthentication[];
         customRuleType: string;
+        /**
+         * ID of the System or User Managed Identity used to execute scale rule.
+         */
+        identityId: string;
         metadata: {[key: string]: string};
         /**
          * The name of the Container App.
@@ -32333,6 +32356,10 @@ export namespace containerapp {
          * Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
          */
         customRuleType: string;
+        /**
+         * ID of the System or User Managed Identity used to execute scale rule.
+         */
+        identityId?: string;
         /**
          * Metadata properties to describe the scale rule.
          */
@@ -33020,7 +33047,7 @@ export namespace containerservice {
          */
         localAuthReference?: string;
         /**
-         * Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+         * Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
          */
         provider?: string;
         /**
@@ -34335,7 +34362,7 @@ export namespace containerservice {
          */
         osDiskType?: string;
         /**
-         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+         * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
          *
          * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
          */
@@ -35064,7 +35091,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterNetworkProfile {
         /**
-         * An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+         * An `advancedNetworking` block as defined below.
          */
         advancedNetworking?: outputs.containerservice.KubernetesClusterNetworkProfileAdvancedNetworking;
         /**
@@ -35169,7 +35196,7 @@ export namespace containerservice {
          */
         observabilityEnabled?: boolean;
         /**
-         * Is security enabled? Defaults to `false`.
+         * Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
          */
         securityEnabled?: boolean;
     }
@@ -39807,6 +39834,39 @@ export namespace dataprotection {
         duration: string;
     }
 
+    export interface BackupPolicyDataLakeStorageRetentionRule {
+        /**
+         * Specifies the absolute criteria for the retention rule. Possible values include `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth`, and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+         */
+        absoluteCriteria?: string;
+        /**
+         * Specifies a list of days of the week on which the retention rule applies. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`. Changing this forces a new resource to be created.
+         */
+        daysOfWeeks?: string[];
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: string;
+        /**
+         * Specifies a list of months of the year on which the retention rule applies. Possible values include `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, and `December`. Changing this forces a new resource to be created.
+         */
+        monthsOfYears?: string[];
+        /**
+         * Specifies the name of the retention rule. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+         *
+         * > **Note:** At least one of `absoluteCriteria` or `daysOfWeek` must be specified. `weeksOfMonth` and `monthsOfYear` are optional and can be supplied together. Multiple intervals may be set using multiple `retentionRule` blocks.
+         */
+        scheduledBackupTimes?: string[];
+        /**
+         * Specifies a list of weeks of the month on which the retention rule applies. Possible values include `First`, `Second`, `Third`, `Fourth`, and `Last`. Changing this forces a new resource to be created.
+         */
+        weeksOfMonths?: string[];
+    }
+
     export interface BackupPolicyDiskRetentionRule {
         /**
          * A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
@@ -40485,6 +40545,436 @@ export namespace devcenter {
         type: string;
     }
 
+    export interface GetManagedDevOpsPoolAzureDevopsOrganization {
+        /**
+         * One or more `organization` blocks as defined below.
+         */
+        organizations: outputs.devcenter.GetManagedDevOpsPoolAzureDevopsOrganizationOrganization[];
+        /**
+         * A `permission` block as defined below.
+         */
+        permissions: outputs.devcenter.GetManagedDevOpsPoolAzureDevopsOrganizationPermission[];
+    }
+
+    export interface GetManagedDevOpsPoolAzureDevopsOrganizationOrganization {
+        /**
+         * Maximum numbers of machines in this organization out of the `maximumConcurrency` of the pool.
+         */
+        parallelism: number;
+        /**
+         * A list of projects in which the pool should be created.
+         */
+        projects: string[];
+        /**
+         * The URL of the Azure DevOps organization.
+         */
+        url: string;
+    }
+
+    export interface GetManagedDevOpsPoolAzureDevopsOrganizationPermission {
+        /**
+         * An `administratorAccount` block as defined below.
+         */
+        administratorAccounts: outputs.devcenter.GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount[];
+        /**
+         * The type of Azure DevOps pool permission.
+         */
+        kind: string;
+    }
+
+    export interface GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+        /**
+         * A list of group email addresses.
+         */
+        groups: string[];
+        /**
+         * A list of user email addresses.
+         */
+        users: string[];
+    }
+
+    export interface GetManagedDevOpsPoolIdentity {
+        /**
+         * A list of User Assigned Identity IDs assigned to this Managed DevOps Pool.
+         */
+        identityIds: string[];
+        /**
+         * The type of Managed Service Identity that is configured on this Managed DevOps Pool.
+         */
+        type: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgent {
+        /**
+         * An `automaticResourcePrediction` block as defined below.
+         */
+        automaticResourcePredictions: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction[];
+        /**
+         * The amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete.
+         */
+        gracePeriodTimeSpan: string;
+        /**
+         * A `manualResourcePrediction` block as defined below.
+         */
+        manualResourcePredictions: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePrediction[];
+        /**
+         * The maximum duration an agent in a `stateful` pool can run before it is shut down and discarded.
+         */
+        maximumAgentLifetime: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+        /**
+         * The desired balance between cost and performance.
+         */
+        predictionPreference: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+        /**
+         * A number of agents available 24/7 all week.
+         */
+        allWeekSchedule: number;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        fridaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        mondaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        saturdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        sundaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        thursdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule[];
+        /**
+         * The time zone for the predictions data to be provisioned at.
+         */
+        timeZoneName: string;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        tuesdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        wednesdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule[];
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgent {
+        /**
+         * An `automaticResourcePrediction` block as defined below.
+         */
+        automaticResourcePredictions: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction[];
+        /**
+         * A `manualResourcePrediction` block as defined below.
+         */
+        manualResourcePredictions: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePrediction[];
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+        /**
+         * The desired balance between cost and performance.
+         */
+        predictionPreference: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+        /**
+         * A number of agents available 24/7 all week.
+         */
+        allWeekSchedule: number;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        fridaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        mondaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        saturdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        sundaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        thursdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule[];
+        /**
+         * The time zone for the predictions data to be provisioned at.
+         */
+        timeZoneName: string;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        tuesdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        wednesdaySchedules: outputs.devcenter.GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule[];
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule {
+        /**
+         * The number of standby agents provisioned at this time.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface GetManagedDevOpsPoolVirtualMachineScaleSetFabric {
+        /**
+         * One or more `image` blocks as defined below.
+         */
+        images: outputs.devcenter.GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage[];
+        /**
+         * The storage account type for the OS disk.
+         */
+        osDiskStorageAccountType: string;
+        /**
+         * A `security` block as defined below.
+         */
+        securities: outputs.devcenter.GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity[];
+        /**
+         * The Azure SKU of the machines in the pool.
+         */
+        skuName: string;
+        /**
+         * A `storage` block as defined below.
+         */
+        storages: outputs.devcenter.GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage[];
+        /**
+         * The ID of the subnet associated with the Managed DevOps Pool.
+         */
+        subnetId: string;
+    }
+
+    export interface GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage {
+        /**
+         * A list of image aliases.
+         */
+        aliases: string[];
+        /**
+         * The percentage of the buffer allocated to this image.
+         */
+        buffer: string;
+        /**
+         * The resource id of the image.
+         */
+        id: string;
+        /**
+         * The image name from a well-known set of images made available to customers.
+         */
+        wellKnownImageName: string;
+    }
+
+    export interface GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+        /**
+         * Whether the agent runs in interactive mode.
+         */
+        interactiveLogonEnabled: boolean;
+        /**
+         * A `keyVaultManagement` block as defined below.
+         */
+        keyVaultManagements: outputs.devcenter.GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement[];
+    }
+
+    export interface GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+        /**
+         * The location where the certificates are stored.
+         */
+        certificateStoreLocation: string;
+        /**
+         * The certificate store name.
+         */
+        certificateStoreName: string;
+        /**
+         * Whether the keys of the certificates are exportable.
+         */
+        keyExportEnabled: boolean;
+        /**
+         * A list of certificates installed on the machines in the Managed DevOps Pool.
+         */
+        keyVaultCertificateIds: string[];
+    }
+
+    export interface GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+        /**
+         * The type of caching for the data disk.
+         */
+        caching: string;
+        /**
+         * The initial disk size in gigabytes.
+         */
+        diskSizeInGb: number;
+        /**
+         * The drive letter for the data disk.
+         */
+        driveLetter: string;
+        /**
+         * The storage account type of the data disk.
+         */
+        storageAccountType: string;
+    }
+
     export interface GetProjectEnvironmentTypeIdentity {
         /**
          * The list of User Assigned Managed Identity IDs assigned to this Dev Center Project Environment Type.
@@ -40532,6 +41022,464 @@ export namespace devcenter {
          * The type of Managed Service Identity that is configured on this Dev Center Project.
          */
         type: string;
+    }
+
+    export interface ManagedDevOpsPoolAzureDevopsOrganization {
+        /**
+         * One or more `organization` blocks as defined below.
+         */
+        organizations: outputs.devcenter.ManagedDevOpsPoolAzureDevopsOrganizationOrganization[];
+        /**
+         * A `permission` block as defined below. Changing this forces a new resource to be created.
+         */
+        permission?: outputs.devcenter.ManagedDevOpsPoolAzureDevopsOrganizationPermission;
+    }
+
+    export interface ManagedDevOpsPoolAzureDevopsOrganizationOrganization {
+        /**
+         * Specifies how many machines can be created at maximum in this organization out of the `maximumConcurrency` of the pool. Possible values range between `1` and `10000`.
+         *
+         * > **Note:** The sum of `parallelism` across orgs should be equal to `maximumConcurrency`.
+         */
+        parallelism: number;
+        /**
+         * List of projects in which the pool should be created.
+         *
+         * > **Note:** Please refer to [Azure DevOps Project Names](https://learn.microsoft.com/azure/devops/organizations/settings/naming-restrictions?view=azure-devops#project-names) for more information on project naming restrictions.
+         */
+        projects?: string[];
+        /**
+         * The Azure DevOps organization URL in which the pool should be created. It must end with a letter or number.
+         */
+        url: string;
+    }
+
+    export interface ManagedDevOpsPoolAzureDevopsOrganizationPermission {
+        /**
+         * An `administratorAccount` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+         */
+        administratorAccount?: outputs.devcenter.ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount;
+        /**
+         * Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+         */
+        kind: string;
+    }
+
+    export interface ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+        /**
+         * Specifies a list of group email addresses. Changing this forces a new resource to be created.
+         */
+        groups?: string[];
+        /**
+         * Specifies a list of user email addresses. Changing this forces a new resource to be created.
+         *
+         * > **Note:** At least one of `groups` and `users` must be specified.
+         */
+        users?: string[];
+    }
+
+    export interface ManagedDevOpsPoolIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs.
+         */
+        identityIds: string[];
+        /**
+         * The type of managed service identity. The only possible value is `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgent {
+        /**
+         * An `automaticResourcePrediction` block as defined below.
+         */
+        automaticResourcePrediction?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction;
+        /**
+         * Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+         */
+        gracePeriodTimeSpan?: string;
+        /**
+         * A `manualResourcePrediction` block as defined below.
+         */
+        manualResourcePrediction?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePrediction;
+        /**
+         * Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+         *
+         * > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+         */
+        maximumAgentLifetime?: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+        /**
+         * Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+         */
+        predictionPreference?: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+        /**
+         * A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+         */
+        allWeekSchedule?: number;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        fridaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        mondaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        saturdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        sundaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        thursdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule[];
+        /**
+         * Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+         *
+         * > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+         */
+        timeZoneName?: string;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        tuesdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         *
+         * > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+         *
+         * > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+         */
+        wednesdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule[];
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgent {
+        /**
+         * An `automaticResourcePrediction` block as defined below.
+         */
+        automaticResourcePrediction?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction;
+        /**
+         * A `manualResourcePrediction` block as defined below.
+         *
+         * > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+         */
+        manualResourcePrediction?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePrediction;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+        /**
+         * Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+         */
+        predictionPreference?: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+        /**
+         * A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+         */
+        allWeekSchedule?: number;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        fridaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        mondaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        saturdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        sundaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        thursdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule[];
+        /**
+         * Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+         *
+         * > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+         */
+        timeZoneName?: string;
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         */
+        tuesdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule[];
+        /**
+         * One or more `dailySchedule` blocks as defined below.
+         *
+         * > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+         *
+         * > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+         */
+        wednesdaySchedules?: outputs.devcenter.ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule[];
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule {
+        /**
+         * The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+         */
+        count: number;
+        /**
+         * The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+         */
+        time: string;
+    }
+
+    export interface ManagedDevOpsPoolVirtualMachineScaleSetFabric {
+        /**
+         * One or more `image` blocks as defined below.
+         */
+        images: outputs.devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabricImage[];
+        /**
+         * The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+         */
+        osDiskStorageAccountType?: string;
+        /**
+         * A `security` block as defined below.
+         */
+        security?: outputs.devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity;
+        /**
+         * The Azure SKU name of the machines in the pool.
+         *
+         * > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+         */
+        skuName: string;
+        /**
+         * A `storage` block as defined below.
+         */
+        storage?: outputs.devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage;
+        /**
+         * The subnet ID on which to put all machines created in the pool.
+         */
+        subnetId?: string;
+    }
+
+    export interface ManagedDevOpsPoolVirtualMachineScaleSetFabricImage {
+        /**
+         * List of aliases to reference the image by.
+         */
+        aliases?: string[];
+        /**
+         * The percentage of the buffer to be allocated to this image. Possible values are `*` or between `0` and `100`. Defaults to `*`.
+         */
+        buffer?: string;
+        /**
+         * The resource id of the image.
+         */
+        id?: string;
+        /**
+         * The image to use from a well-known set of images made available to customers.
+         *
+         * > **Note:** More information about supported images can be found in [list of Azure Pipelines image predefined aliases](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-images?view=azure-devops&tabs=arm#azure-pipelines-images). You can optionally specify a version in your `wellKnownImageName`, for example `windows-2022/latest` or `windows-2022/20250427.1.0`. If you don't specify a version, latest is used.
+         *
+         * > **Note:** Exactly one of `id` or `wellKnownImageName` are required per `image`
+         */
+        wellKnownImageName?: string;
+    }
+
+    export interface ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+        /**
+         * Specifies whether the agent should run in interactive mode. Defaults to `false`.
+         */
+        interactiveLogonEnabled?: boolean;
+        /**
+         * A `keyVaultManagement` block as defined below.
+         */
+        keyVaultManagement?: outputs.devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement;
+    }
+
+    export interface ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+        /**
+         * Specifies where to store certificates on the machine.
+         */
+        certificateStoreLocation?: string;
+        /**
+         * Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+         */
+        certificateStoreName?: string;
+        /**
+         * Defines if the key of the certificates should be exportable. Defaults to `false`.
+         */
+        keyExportEnabled?: boolean;
+        /**
+         * A list of `versionlessId` from Azure Key vault certificates to install on all machines in the pool.
+         */
+        keyVaultCertificateIds: string[];
+    }
+
+    export interface ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+        /**
+         * The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+         */
+        caching?: string;
+        /**
+         * The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+         */
+        diskSizeInGb: number;
+        /**
+         * The drive letter for the data disk.
+         */
+        driveLetter?: string;
+        /**
+         * The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+         */
+        storageAccountType?: string;
     }
 
     export interface ProjectEnvironmentTypeIdentity {
@@ -48753,6 +49701,14 @@ export namespace kusto {
          */
         externalTablesToIncludes?: string[];
         /**
+         * List of functions to exclude from the follower database.
+         */
+        functionsToExcludes?: string[];
+        /**
+         * List of functions to include in the follower database.
+         */
+        functionsToIncludes?: string[];
+        /**
          * List of materialized views exclude from the follower database.
          */
         materializedViewsToExcludes?: string[];
@@ -49366,6 +50322,10 @@ export namespace logicapps {
          */
         http2Enabled: boolean;
         /**
+         * The default action taken when no `ipRestriction` rules match.
+         */
+        ipRestrictionDefaultAction: string;
+        /**
          * A list of `ipRestriction` objects representing IP restrictions as defined below.
          */
         ipRestrictions: outputs.logicapps.GetStandardSiteConfigIpRestriction[];
@@ -49389,6 +50349,10 @@ export namespace logicapps {
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
          */
         runtimeScaleMonitoringEnabled: boolean;
+        /**
+         * The default action taken when no `scmIpRestriction` rules match.
+         */
+        scmIpRestrictionDefaultAction: string;
         /**
          * A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
          */
@@ -49760,6 +50724,12 @@ export namespace logicapps {
          */
         http2Enabled?: boolean;
         /**
+         * The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+         *
+         * > **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
          * A list of `ipRestriction` objects representing IP restrictions as defined below.
          *
          * > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -49789,6 +50759,10 @@ export namespace logicapps {
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
          */
         runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+         */
+        scmIpRestrictionDefaultAction?: string;
         /**
          * A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
          *
@@ -53653,6 +54627,10 @@ export namespace monitoring {
          * Specifies the properties of an alert payload.
          */
         customProperties?: {[key: string]: string};
+        /**
+         * Custom subject override for all email ids in Azure action group.
+         */
+        emailSubject?: string;
     }
 
     export interface ScheduledQueryRulesAlertV2Criteria {
@@ -53926,7 +54904,7 @@ export namespace mssql {
          */
         name: string;
         /**
-         * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+         * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `Hyperscale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
          */
         tier: string;
     }
@@ -54967,6 +55945,13 @@ export namespace netapp {
         snapshotsToKeep: number;
     }
 
+    export interface GetVolumeDataProtectionAdvancedRansomware {
+        /**
+         * Whether the Advanced Ransomware Protection feature is enabled.
+         */
+        protectionEnabled: boolean;
+    }
+
     export interface GetVolumeDataProtectionBackupPolicy {
         /**
          * The Resource ID of the backup policy.
@@ -55368,6 +56353,17 @@ export namespace netapp {
          * The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
          */
         tieringPolicy: string;
+    }
+
+    export interface VolumeDataProtectionAdvancedRansomware {
+        /**
+         * Enable or disable the Advanced Ransomware Protection feature.
+         *
+         * > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+         *
+         * > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+         */
+        protectionEnabled: boolean;
     }
 
     export interface VolumeDataProtectionBackupPolicy {
@@ -55803,6 +56799,49 @@ export namespace network {
         minCapacity: number;
     }
 
+    export interface ApplicationGatewayBackend {
+        /**
+         * Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
+         */
+        clientIpPreservationEnabled?: boolean;
+        /**
+         * Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
+         */
+        hostName?: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of the Backend Settings Collection.
+         */
+        name: string;
+        /**
+         * The port which should be used for this Backend Settings Collection.
+         */
+        port: number;
+        /**
+         * The ID of the associated Probe.
+         */
+        probeId: string;
+        /**
+         * The name of an associated Probe.
+         */
+        probeName?: string;
+        /**
+         * The Protocol which should be used. Possible values are `Tcp` and `Tls`.
+         */
+        protocol: string;
+        /**
+         * The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
+         */
+        timeoutInSeconds?: number;
+        /**
+         * A list of `trustedRootCertificate` names.
+         */
+        trustedRootCertificateNames?: string[];
+    }
+
     export interface ApplicationGatewayBackendAddressPool {
         /**
          * A list of FQDN's which should be part of the Backend Address Pool.
@@ -56099,6 +57138,61 @@ export namespace network {
         type: string;
     }
 
+    export interface ApplicationGatewayListener {
+        /**
+         * The ID of the associated Frontend Configuration.
+         */
+        frontendIpConfigurationId: string;
+        /**
+         * The Name of the Frontend IP Configuration used for this Listener.
+         */
+        frontendIpConfigurationName: string;
+        /**
+         * The ID of the associated Frontend Port.
+         */
+        frontendPortId: string;
+        /**
+         * The Name of the Frontend Port use for this Listener.
+         */
+        frontendPortName: string;
+        /**
+         * A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
+         *
+         * > **Note:** `hostNames` cannot be set when `protocol` is set to `Tcp`.
+         */
+        hostNames?: string[];
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The Name of the Listener.
+         */
+        name: string;
+        /**
+         * The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
+         */
+        protocol: string;
+        /**
+         * The ID of the associated SSL Certificate.
+         */
+        sslCertificateId: string;
+        /**
+         * The name of the associated SSL Certificate which should be used for this Listener.
+         *
+         * > **Note:** `sslCertificateName` must be set when `protocol` is set to `Tls`.
+         */
+        sslCertificateName?: string;
+        /**
+         * The ID of the associated SSL Profile.
+         */
+        sslProfileId: string;
+        /**
+         * The name of the associated SSL Profile which should be used for this Listener.
+         */
+        sslProfileName?: string;
+    }
+
     export interface ApplicationGatewayPrivateEndpointConnection {
         /**
          * The ID of the Rewrite Rule Set
@@ -56156,7 +57250,9 @@ export namespace network {
 
     export interface ApplicationGatewayProbe {
         /**
-         * The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+         * The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+         *
+         * > **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
          */
         host?: string;
         /**
@@ -56164,11 +57260,13 @@ export namespace network {
          */
         id: string;
         /**
-         * The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+         * The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
          */
         interval: number;
         /**
          * A `match` block as defined above.
+         *
+         * > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
          */
         match?: outputs.network.ApplicationGatewayProbeMatch;
         /**
@@ -56176,31 +57274,45 @@ export namespace network {
          */
         minimumServers?: number;
         /**
-         * The Name of the Probe.
+         * The name of the Probe.
          */
         name: string;
         /**
-         * The Path used for this Probe.
+         * The relative URL path of the Probe. Valid value starts with `/`.
+         *
+         * > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
          */
-        path: string;
+        path?: string;
         /**
          * Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+         *
+         * > **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
          */
         pickHostNameFromBackendHttpSettings?: boolean;
         /**
-         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+         * Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+         *
+         * > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
          */
         port?: number;
         /**
-         * The Protocol used for this Probe. Possible values are `Http` and `Https`.
+         * The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
          */
         protocol: string;
         /**
-         * The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+         * Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+         *
+         * > **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+         */
+        proxyProtocolHeaderEnabled?: boolean;
+        /**
+         * The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+         *
+         * > **Note:** The `timeout` value should not be greater than the `interval` value.
          */
         timeout: number;
         /**
-         * The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+         * The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
          */
         unhealthyThreshold: number;
     }
@@ -56421,6 +57533,45 @@ export namespace network {
          * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
          */
         reroute?: boolean;
+    }
+
+    export interface ApplicationGatewayRoutingRule {
+        /**
+         * The ID of the associated Backend Address Pool.
+         */
+        backendAddressPoolId: string;
+        /**
+         * The Name of the Backend Address Pool which should be used for this Routing Rule.
+         */
+        backendAddressPoolName: string;
+        /**
+         * The ID of the associated Backend Settings.
+         */
+        backendId: string;
+        /**
+         * The Name of the Backend Settings which should be used for this Routing Rule.
+         */
+        backendName: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The ID of the associated Listener.
+         */
+        listenerId: string;
+        /**
+         * The Name of the Listener which should be used for this Routing Rule.
+         */
+        listenerName: string;
+        /**
+         * The Name of this Routing Rule.
+         */
+        name: string;
+        /**
+         * The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
+         */
+        priority: number;
     }
 
     export interface ApplicationGatewaySku {
@@ -57514,6 +58665,49 @@ export namespace network {
         minCapacity: number;
     }
 
+    export interface GetApplicationGatewayBackend {
+        /**
+         * Whether client IP preservation is enabled for the Backend Settings.
+         */
+        clientIpPreservationEnabled: boolean;
+        /**
+         * The Hostname which is used for this HTTP Listener.
+         */
+        hostName: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * Custom port which is used for probing the backend servers.
+         */
+        port: number;
+        /**
+         * The ID of the associated Probe.
+         */
+        probeId: string;
+        /**
+         * The name of the associated HTTP Probe.
+         */
+        probeName: string;
+        /**
+         * The Protocol used for this Probe.
+         */
+        protocol: string;
+        /**
+         * The request timeout in seconds for the Backend Settings.
+         */
+        timeoutInSeconds: number;
+        /**
+         * A list of `trustedRootCertificate` names.
+         */
+        trustedRootCertificateNames: string[];
+    }
+
     export interface GetApplicationGatewayBackendAddressPool {
         /**
          * A list of FQDNs which are part of the Backend Address Pool.
@@ -57727,7 +58921,7 @@ export namespace network {
          */
         frontendIpConfigurationId: string;
         /**
-         * The Name of the Frontend IP Configuration used for this HTTP Listener.
+         * The Name of the Frontend IP Configuration used for this Listener.
          */
         frontendIpConfigurationName: string;
         /**
@@ -57735,7 +58929,7 @@ export namespace network {
          */
         frontendPortId: string;
         /**
-         * The Name of the Frontend Port used for this HTTP Listener.
+         * The Name of the Frontend Port used for this Listener.
          */
         frontendPortName: string;
         /**
@@ -57743,7 +58937,7 @@ export namespace network {
          */
         hostName: string;
         /**
-         * A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+         * A list of Hostname(s) used for this Listener.
          */
         hostNames: string[];
         /**
@@ -57767,7 +58961,7 @@ export namespace network {
          */
         sslCertificateId: string;
         /**
-         * The name of the associated SSL Certificate which is used for this HTTP Listener.
+         * The name of the associated SSL Certificate which is used for this Listener.
          */
         sslCertificateName: string;
         /**
@@ -57775,7 +58969,7 @@ export namespace network {
          */
         sslProfileId: string;
         /**
-         * The name of the associated SSL Profile which is used for this HTTP Listener.
+         * The name of the associated SSL Profile which is used for this Listener.
          */
         sslProfileName: string;
     }
@@ -57806,6 +59000,57 @@ export namespace network {
          * The type of Managed Service Identity that is configured on this Application Gateway.
          */
         type: string;
+    }
+
+    export interface GetApplicationGatewayListener {
+        /**
+         * The ID of the associated Frontend Configuration.
+         */
+        frontendIpConfigurationId: string;
+        /**
+         * The Name of the Frontend IP Configuration used for this Listener.
+         */
+        frontendIpConfigurationName: string;
+        /**
+         * The ID of the associated Frontend Port.
+         */
+        frontendPortId: string;
+        /**
+         * The Name of the Frontend Port used for this Listener.
+         */
+        frontendPortName: string;
+        /**
+         * A list of Hostname(s) used for this Listener.
+         */
+        hostNames: string[];
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The Protocol used for this Probe.
+         */
+        protocol: string;
+        /**
+         * The ID of the associated SSL Certificate.
+         */
+        sslCertificateId: string;
+        /**
+         * The name of the associated SSL Certificate which is used for this Listener.
+         */
+        sslCertificateName: string;
+        /**
+         * The ID of the associated SSL Profile.
+         */
+        sslProfileId: string;
+        /**
+         * The name of the associated SSL Profile which is used for this Listener.
+         */
+        sslProfileName: string;
     }
 
     export interface GetApplicationGatewayPrivateEndpointConnection {
@@ -57898,6 +59143,10 @@ export namespace network {
          * The Protocol used for this Probe.
          */
         protocol: string;
+        /**
+         * Whether the proxy protocol header is enabled for this Probe.
+         */
+        proxyProtocolHeaderEnabled: boolean;
         /**
          * The Timeout used for this Probe, indicating when a probe becomes unhealthy.
          */
@@ -58118,6 +59367,45 @@ export namespace network {
          * Whether the URL path map is reevaluated after this rewrite has been applied.
          */
         reroute: boolean;
+    }
+
+    export interface GetApplicationGatewayRoutingRule {
+        /**
+         * The ID of the associated Backend Address Pool.
+         */
+        backendAddressPoolId: string;
+        /**
+         * The Name of the Backend Address Pool which is used for this Routing Rule.
+         */
+        backendAddressPoolName: string;
+        /**
+         * The ID of the associated Backend Settings.
+         */
+        backendId: string;
+        /**
+         * The Name of the Backend Settings which is used for this Routing Rule.
+         */
+        backendName: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The ID of the associated Listener.
+         */
+        listenerId: string;
+        /**
+         * The Name of the Listener which is used for this Routing Rule.
+         */
+        listenerName: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The Priority of this Routing Rule.
+         */
+        priority: number;
     }
 
     export interface GetApplicationGatewaySkus {
@@ -64263,15 +65551,15 @@ export namespace privatedns {
 
     export interface ResolverInboundEndpointIpConfigurations {
         /**
-         * Private IP address of the IP configuration.
+         * Private IP address of the IP configuration. Changing this forces a new resource to be created.
          */
         privateIpAddress: string;
         /**
-         * Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+         * Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
          */
         privateIpAllocationMethod?: string;
         /**
-         * The subnet ID of the IP configuration.
+         * The subnet ID of the IP configuration. Changing this forces a new resource to be created.
          */
         subnetId: string;
     }
@@ -68452,30 +69740,61 @@ export namespace storage {
         /**
          * Should Add permissions be enabled for this SAS?
          */
-        add: boolean;
+        add?: boolean;
         /**
          * Should Create permissions be enabled for this SAS?
          */
-        create: boolean;
+        create?: boolean;
         /**
          * Should Delete permissions be enabled for this SAS?
          */
-        delete: boolean;
+        delete?: boolean;
+        /**
+         * Should Delete version permissions be enabled for this SAS?
+         */
+        deleteVersion?: boolean;
+        /**
+         * Should Execute permissions be enabled for this SAS?
+         */
+        execute?: boolean;
+        /**
+         * Should Find permissions be enabled for this SAS?
+         */
+        find?: boolean;
         /**
          * Should List permissions be enabled for this SAS?
-         *
-         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-         * for additional details on the fields above.
          */
-        list: boolean;
+        list?: boolean;
+        /**
+         * Should Move permissions be enabled for this SAS?
+         */
+        move?: boolean;
+        /**
+         * Should Ownership permissions be enabled for this SAS?
+         */
+        ownership?: boolean;
+        /**
+         * Should Permissions permissions be enabled for this SAS?
+         */
+        permissions?: boolean;
         /**
          * Should Read permissions be enabled for this SAS?
          */
-        read: boolean;
+        read?: boolean;
+        /**
+         * Should Set Immutability Policy permissions be enabled for this SAS?
+         */
+        setImmutabilityPolicy?: boolean;
+        /**
+         * Should Tags permissions be enabled for this SAS?
+         */
+        tags?: boolean;
         /**
          * Should Write permissions be enabled for this SAS?
+         *
+         * > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
          */
-        write: boolean;
+        write?: boolean;
     }
 
     export interface GetAccountCustomDomain {
@@ -68508,46 +69827,45 @@ export namespace storage {
         /**
          * Should Add permissions be enabled for this SAS?
          */
-        add: boolean;
+        add?: boolean;
         /**
          * Should Create permissions be enabled for this SAS?
          */
-        create: boolean;
+        create?: boolean;
         /**
          * Should Delete permissions be enabled for this SAS?
          */
-        delete: boolean;
+        delete?: boolean;
         /**
          * Should Filter by Index Tags permissions be enabled for this SAS?
-         *
-         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-         * for additional details on the fields above.
          */
-        filter: boolean;
+        filter?: boolean;
         /**
          * Should List permissions be enabled for this SAS?
          */
-        list: boolean;
+        list?: boolean;
         /**
          * Should Process permissions be enabled for this SAS?
          */
-        process: boolean;
+        process?: boolean;
         /**
          * Should Read permissions be enabled for this SAS?
          */
-        read: boolean;
+        read?: boolean;
         /**
          * Should Get / Set Index Tags permissions be enabled for this SAS?
          */
-        tag: boolean;
+        tag?: boolean;
         /**
          * Should Update permissions be enabled for this SAS?
          */
-        update: boolean;
+        update?: boolean;
         /**
          * Should Write permissions be enabled for this SAS?
+         *
+         * > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
          */
-        write: boolean;
+        write?: boolean;
     }
 
     export interface GetAccountSASResourceTypes {

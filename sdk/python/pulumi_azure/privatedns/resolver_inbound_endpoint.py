@@ -29,10 +29,10 @@ class ResolverInboundEndpointArgs:
         """
         The set of arguments for constructing a ResolverInboundEndpoint resource.
 
-        :param pulumi.Input['ResolverInboundEndpointIpConfigurationsArgs'] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        :param pulumi.Input['ResolverInboundEndpointIpConfigurationsArgs'] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -48,7 +48,7 @@ class ResolverInboundEndpointArgs:
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> pulumi.Input['ResolverInboundEndpointIpConfigurationsArgs']:
         """
-        One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        One `ip_configurations` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -60,7 +60,7 @@ class ResolverInboundEndpointArgs:
     @pulumi.getter(name="privateDnsResolverId")
     def private_dns_resolver_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_resolver_id")
 
@@ -72,7 +72,7 @@ class ResolverInboundEndpointArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -84,7 +84,7 @@ class ResolverInboundEndpointArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -116,10 +116,10 @@ class _ResolverInboundEndpointState:
         """
         Input properties used for looking up and filtering ResolverInboundEndpoint resources.
 
-        :param pulumi.Input['ResolverInboundEndpointIpConfigurationsArgs'] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        :param pulumi.Input['ResolverInboundEndpointIpConfigurationsArgs'] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
         """
         if ip_configurations is not None:
@@ -137,7 +137,7 @@ class _ResolverInboundEndpointState:
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> Optional[pulumi.Input['ResolverInboundEndpointIpConfigurationsArgs']]:
         """
-        One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        One `ip_configurations` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -149,7 +149,7 @@ class _ResolverInboundEndpointState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -161,7 +161,7 @@ class _ResolverInboundEndpointState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -173,7 +173,7 @@ class _ResolverInboundEndpointState:
     @pulumi.getter(name="privateDnsResolverId")
     def private_dns_resolver_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_resolver_id")
 
@@ -271,10 +271,10 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ResolverInboundEndpointIpConfigurationsArgs', 'ResolverInboundEndpointIpConfigurationsArgsDict']] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        :param pulumi.Input[Union['ResolverInboundEndpointIpConfigurationsArgs', 'ResolverInboundEndpointIpConfigurationsArgsDict']] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
         """
         ...
@@ -406,10 +406,10 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ResolverInboundEndpointIpConfigurationsArgs', 'ResolverInboundEndpointIpConfigurationsArgsDict']] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        :param pulumi.Input[Union['ResolverInboundEndpointIpConfigurationsArgs', 'ResolverInboundEndpointIpConfigurationsArgsDict']] ip_configurations: One `ip_configurations` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -427,7 +427,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> pulumi.Output['outputs.ResolverInboundEndpointIpConfigurations']:
         """
-        One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        One `ip_configurations` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -435,7 +435,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -443,7 +443,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -451,7 +451,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="privateDnsResolverId")
     def private_dns_resolver_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_resolver_id")
 

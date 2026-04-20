@@ -63,6 +63,13 @@ public final class StandardSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
+     * @return The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     * &gt; **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+     * 
+     */
+    private @Nullable String ipRestrictionDefaultAction;
+    /**
      * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
      * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -100,6 +107,11 @@ public final class StandardSiteConfig {
      * 
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    /**
+     * @return The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     */
+    private @Nullable String scmIpRestrictionDefaultAction;
     /**
      * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
@@ -207,6 +219,15 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
+     * @return The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     * &gt; **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+     * 
+     */
+    public Optional<String> ipRestrictionDefaultAction() {
+        return Optional.ofNullable(this.ipRestrictionDefaultAction);
+    }
+    /**
      * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
      * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -255,6 +276,13 @@ public final class StandardSiteConfig {
      */
     public Optional<Boolean> runtimeScaleMonitoringEnabled() {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
+    }
+    /**
+     * @return The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     */
+    public Optional<String> scmIpRestrictionDefaultAction() {
+        return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
      * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -330,12 +358,14 @@ public final class StandardSiteConfig {
         private @Nullable String ftpsState;
         private @Nullable String healthCheckPath;
         private @Nullable Boolean http2Enabled;
+        private @Nullable String ipRestrictionDefaultAction;
         private @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions;
         private @Nullable String linuxFxVersion;
         private @Nullable String minTlsVersion;
         private @Nullable Integer preWarmedInstanceCount;
         private @Nullable Boolean publicNetworkAccessEnabled;
         private @Nullable Boolean runtimeScaleMonitoringEnabled;
+        private @Nullable String scmIpRestrictionDefaultAction;
         private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
         private @Nullable String scmMinTlsVersion;
         private @Nullable String scmType;
@@ -355,12 +385,14 @@ public final class StandardSiteConfig {
     	      this.ftpsState = defaults.ftpsState;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
+    	      this.ipRestrictionDefaultAction = defaults.ipRestrictionDefaultAction;
     	      this.ipRestrictions = defaults.ipRestrictions;
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
     	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
+    	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
     	      this.scmMinTlsVersion = defaults.scmMinTlsVersion;
     	      this.scmType = defaults.scmType;
@@ -425,6 +457,12 @@ public final class StandardSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder ipRestrictionDefaultAction(@Nullable String ipRestrictionDefaultAction) {
+
+            this.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<StandardSiteConfigIpRestriction> ipRestrictions) {
 
             this.ipRestrictions = ipRestrictions;
@@ -461,6 +499,12 @@ public final class StandardSiteConfig {
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
 
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmIpRestrictionDefaultAction(@Nullable String scmIpRestrictionDefaultAction) {
+
+            this.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             return this;
         }
         @CustomType.Setter
@@ -519,12 +563,14 @@ public final class StandardSiteConfig {
             _resultValue.ftpsState = ftpsState;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;
+            _resultValue.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
             _resultValue.ipRestrictions = ipRestrictions;
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.minTlsVersion = minTlsVersion;
             _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
             _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;
             _resultValue.scmMinTlsVersion = scmMinTlsVersion;
             _resultValue.scmType = scmType;

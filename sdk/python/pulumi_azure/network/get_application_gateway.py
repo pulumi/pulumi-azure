@@ -27,7 +27,7 @@ class GetApplicationGatewayResult:
     """
     A collection of values returned by getApplicationGateway.
     """
-    def __init__(__self__, authentication_certificates=None, autoscale_configurations=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, fips_enabled=None, firewall_policy_id=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, globals=None, http2_enabled=None, http_listeners=None, id=None, identities=None, location=None, name=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, skus=None, ssl_certificates=None, ssl_policies=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, url_path_maps=None, waf_configurations=None, zones=None):
+    def __init__(__self__, authentication_certificates=None, autoscale_configurations=None, backend_address_pools=None, backend_http_settings=None, backends=None, custom_error_configurations=None, fips_enabled=None, firewall_policy_id=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, globals=None, http2_enabled=None, http_listeners=None, id=None, identities=None, listeners=None, location=None, name=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, routing_rules=None, skus=None, ssl_certificates=None, ssl_policies=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, url_path_maps=None, waf_configurations=None, zones=None):
         if authentication_certificates and not isinstance(authentication_certificates, list):
             raise TypeError("Expected argument 'authentication_certificates' to be a list")
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
@@ -40,6 +40,9 @@ class GetApplicationGatewayResult:
         if backend_http_settings and not isinstance(backend_http_settings, list):
             raise TypeError("Expected argument 'backend_http_settings' to be a list")
         pulumi.set(__self__, "backend_http_settings", backend_http_settings)
+        if backends and not isinstance(backends, list):
+            raise TypeError("Expected argument 'backends' to be a list")
+        pulumi.set(__self__, "backends", backends)
         if custom_error_configurations and not isinstance(custom_error_configurations, list):
             raise TypeError("Expected argument 'custom_error_configurations' to be a list")
         pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
@@ -76,6 +79,9 @@ class GetApplicationGatewayResult:
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
         pulumi.set(__self__, "identities", identities)
+        if listeners and not isinstance(listeners, list):
+            raise TypeError("Expected argument 'listeners' to be a list")
+        pulumi.set(__self__, "listeners", listeners)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -103,6 +109,9 @@ class GetApplicationGatewayResult:
         if rewrite_rule_sets and not isinstance(rewrite_rule_sets, list):
             raise TypeError("Expected argument 'rewrite_rule_sets' to be a list")
         pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
+        if routing_rules and not isinstance(routing_rules, list):
+            raise TypeError("Expected argument 'routing_rules' to be a list")
+        pulumi.set(__self__, "routing_rules", routing_rules)
         if skus and not isinstance(skus, list):
             raise TypeError("Expected argument 'skus' to be a list")
         pulumi.set(__self__, "skus", skus)
@@ -165,6 +174,14 @@ class GetApplicationGatewayResult:
         One or more `backend_http_settings` blocks as defined below.
         """
         return pulumi.get(self, "backend_http_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def backends(self) -> Sequence['outputs.GetApplicationGatewayBackendResult']:
+        """
+        One or more `backend` blocks as defined below.
+        """
+        return pulumi.get(self, "backends")
 
     @_builtins.property
     @pulumi.getter(name="customErrorConfigurations")
@@ -264,6 +281,14 @@ class GetApplicationGatewayResult:
 
     @_builtins.property
     @pulumi.getter
+    def listeners(self) -> Sequence['outputs.GetApplicationGatewayListenerResult']:
+        """
+        One or more `listener` blocks as defined below.
+        """
+        return pulumi.get(self, "listeners")
+
+    @_builtins.property
+    @pulumi.getter
     def location(self) -> _builtins.str:
         """
         The Azure region where the Application Gateway exists.
@@ -327,6 +352,14 @@ class GetApplicationGatewayResult:
         One or more `rewrite_rule_set` blocks as defined below.
         """
         return pulumi.get(self, "rewrite_rule_sets")
+
+    @_builtins.property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Sequence['outputs.GetApplicationGatewayRoutingRuleResult']:
+        """
+        One or more `routing_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "routing_rules")
 
     @_builtins.property
     @pulumi.getter
@@ -419,6 +452,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             autoscale_configurations=self.autoscale_configurations,
             backend_address_pools=self.backend_address_pools,
             backend_http_settings=self.backend_http_settings,
+            backends=self.backends,
             custom_error_configurations=self.custom_error_configurations,
             fips_enabled=self.fips_enabled,
             firewall_policy_id=self.firewall_policy_id,
@@ -431,6 +465,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             http_listeners=self.http_listeners,
             id=self.id,
             identities=self.identities,
+            listeners=self.listeners,
             location=self.location,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
@@ -440,6 +475,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             request_routing_rules=self.request_routing_rules,
             resource_group_name=self.resource_group_name,
             rewrite_rule_sets=self.rewrite_rule_sets,
+            routing_rules=self.routing_rules,
             skus=self.skus,
             ssl_certificates=self.ssl_certificates,
             ssl_policies=self.ssl_policies,
@@ -491,6 +527,7 @@ def get_application_gateway(name: Optional[_builtins.str] = None,
         autoscale_configurations=pulumi.get(__ret__, 'autoscale_configurations'),
         backend_address_pools=pulumi.get(__ret__, 'backend_address_pools'),
         backend_http_settings=pulumi.get(__ret__, 'backend_http_settings'),
+        backends=pulumi.get(__ret__, 'backends'),
         custom_error_configurations=pulumi.get(__ret__, 'custom_error_configurations'),
         fips_enabled=pulumi.get(__ret__, 'fips_enabled'),
         firewall_policy_id=pulumi.get(__ret__, 'firewall_policy_id'),
@@ -503,6 +540,7 @@ def get_application_gateway(name: Optional[_builtins.str] = None,
         http_listeners=pulumi.get(__ret__, 'http_listeners'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
+        listeners=pulumi.get(__ret__, 'listeners'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
@@ -512,6 +550,7 @@ def get_application_gateway(name: Optional[_builtins.str] = None,
         request_routing_rules=pulumi.get(__ret__, 'request_routing_rules'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         rewrite_rule_sets=pulumi.get(__ret__, 'rewrite_rule_sets'),
+        routing_rules=pulumi.get(__ret__, 'routing_rules'),
         skus=pulumi.get(__ret__, 'skus'),
         ssl_certificates=pulumi.get(__ret__, 'ssl_certificates'),
         ssl_policies=pulumi.get(__ret__, 'ssl_policies'),
@@ -560,6 +599,7 @@ def get_application_gateway_output(name: Optional[pulumi.Input[_builtins.str]] =
         autoscale_configurations=pulumi.get(__response__, 'autoscale_configurations'),
         backend_address_pools=pulumi.get(__response__, 'backend_address_pools'),
         backend_http_settings=pulumi.get(__response__, 'backend_http_settings'),
+        backends=pulumi.get(__response__, 'backends'),
         custom_error_configurations=pulumi.get(__response__, 'custom_error_configurations'),
         fips_enabled=pulumi.get(__response__, 'fips_enabled'),
         firewall_policy_id=pulumi.get(__response__, 'firewall_policy_id'),
@@ -572,6 +612,7 @@ def get_application_gateway_output(name: Optional[pulumi.Input[_builtins.str]] =
         http_listeners=pulumi.get(__response__, 'http_listeners'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
+        listeners=pulumi.get(__response__, 'listeners'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
@@ -581,6 +622,7 @@ def get_application_gateway_output(name: Optional[pulumi.Input[_builtins.str]] =
         request_routing_rules=pulumi.get(__response__, 'request_routing_rules'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         rewrite_rule_sets=pulumi.get(__response__, 'rewrite_rule_sets'),
+        routing_rules=pulumi.get(__response__, 'routing_rules'),
         skus=pulumi.get(__response__, 'skus'),
         ssl_certificates=pulumi.get(__response__, 'ssl_certificates'),
         ssl_policies=pulumi.get(__response__, 'ssl_policies'),

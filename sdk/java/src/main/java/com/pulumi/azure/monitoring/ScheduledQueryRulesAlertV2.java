@@ -134,6 +134,7 @@ import javax.annotation.Nullable;
  *                     Map.entry("key", "value"),
  *                     Map.entry("key2", "value2")
  *                 ))
+ *                 .emailSubject("Email Header")
  *                 .build())
  *             .identity(ScheduledQueryRulesAlertV2IdentityArgs.builder()
  *                 .type("UserAssigned")

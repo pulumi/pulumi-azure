@@ -1887,6 +1887,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "automation/runtimeEnvironmentPackage",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/runtimeEnvironmentPackage:RuntimeEnvironmentPackage": "RuntimeEnvironmentPackage"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "automation/schedule",
   "fqn": "pulumi_azure.automation",
   "classes": {
@@ -2823,6 +2831,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerapp/environmentManagedCertificate",
+  "fqn": "pulumi_azure.containerapp",
+  "classes": {
+   "azure:containerapp/environmentManagedCertificate:EnvironmentManagedCertificate": "EnvironmentManagedCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerapp/environmentStorage",
   "fqn": "pulumi_azure.containerapp",
   "classes": {
@@ -2835,6 +2851,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerapp",
   "classes": {
    "azure:containerapp/job:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerservice/clusterDeploymentSafeguard",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/clusterDeploymentSafeguard:ClusterDeploymentSafeguard": "ClusterDeploymentSafeguard"
   }
  },
  {
@@ -3123,6 +3147,14 @@ _utilities.register(
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/resourcePolicyRemediation:ResourcePolicyRemediation": "ResourcePolicyRemediation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/resourceProviderFeatureRegistration",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourceProviderFeatureRegistration:ResourceProviderFeatureRegistration": "ResourceProviderFeatureRegistration"
   }
  },
  {
@@ -3951,6 +3983,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/backupInstanceDataLakeStorage",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage": "BackupInstanceDataLakeStorage"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dataprotection/backupInstanceDisk",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -3995,6 +4035,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage": "BackupPolicyBlobStorage"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupPolicyDataLakeStorage",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyDataLakeStorage:BackupPolicyDataLakeStorage": "BackupPolicyDataLakeStorage"
   }
  },
  {
@@ -4219,6 +4267,14 @@ _utilities.register(
   "fqn": "pulumi_azure.devcenter",
   "classes": {
    "azure:devcenter/gallery:Gallery": "Gallery"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "devcenter/managedDevOpsPool",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/managedDevOpsPool:ManagedDevOpsPool": "ManagedDevOpsPool"
   }
  },
  {
@@ -4531,6 +4587,14 @@ _utilities.register(
   "fqn": "pulumi_azure.eventgrid",
   "classes": {
    "azure:eventgrid/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "eventgrid/namespaceTopic",
+  "fqn": "pulumi_azure.eventgrid",
+  "classes": {
+   "azure:eventgrid/namespaceTopic:NamespaceTopic": "NamespaceTopic"
   }
  },
  {

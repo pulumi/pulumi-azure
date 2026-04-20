@@ -50,6 +50,21 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
     }
 
     /**
+     * ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    @Import(name="identityId")
+    private @Nullable Output<String> identityId;
+
+    /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    public Optional<Output<String>> identityId() {
+        return Optional.ofNullable(this.identityId);
+    }
+
+    /**
      * Metadata properties to describe the scale rule.
      * 
      */
@@ -84,6 +99,7 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
     private JobEventTriggerConfigScaleRuleArgs(JobEventTriggerConfigScaleRuleArgs $) {
         this.authentications = $.authentications;
         this.customRuleType = $.customRuleType;
+        this.identityId = $.identityId;
         this.metadata = $.metadata;
         this.name = $.name;
     }
@@ -156,6 +172,27 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
          */
         public Builder customRuleType(String customRuleType) {
             return customRuleType(Output.of(customRuleType));
+        }
+
+        /**
+         * @param identityId ID of the System or User Managed Identity used to execute scale rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityId(@Nullable Output<String> identityId) {
+            $.identityId = identityId;
+            return this;
+        }
+
+        /**
+         * @param identityId ID of the System or User Managed Identity used to execute scale rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityId(String identityId) {
+            return identityId(Output.of(identityId));
         }
 
         /**

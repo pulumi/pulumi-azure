@@ -72,7 +72,7 @@ export interface GetDeploymentResult {
      */
     readonly dataplaneApiEndpoint: string;
     /**
-     * Whether metrics are exported to Azure Monitor.
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      */
     readonly diagnoseSupportEnabled: boolean;
     /**

@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Search.Inputs
 
     public sealed class ServiceQueryKeyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("key")]
+        private Input<string>? _key;
+
         /// <summary>
         /// The value of this Query Key.
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.

@@ -6,6 +6,7 @@ package com.pulumi.azure.appconfiguration;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appconfiguration.ConfigurationFeatureArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureState;
+import com.pulumi.azure.appconfiguration.outputs.ConfigurationFeatureCustomFilter;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationFeatureTargetingFilter;
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationFeatureTimewindowFilter;
 import com.pulumi.core.Output;
@@ -118,6 +119,20 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      */
     public Output<String> configurationStoreId() {
         return this.configurationStoreId;
+    }
+    /**
+     * A `customFilter` block as defined below.
+     * 
+     */
+    @Export(name="customFilters", refs={List.class,ConfigurationFeatureCustomFilter.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ConfigurationFeatureCustomFilter>> customFilters;
+
+    /**
+     * @return A `customFilter` block as defined below.
+     * 
+     */
+    public Output<Optional<List<ConfigurationFeatureCustomFilter>>> customFilters() {
+        return Codegen.optional(this.customFilters);
     }
     /**
      * The description of the App Configuration Feature.

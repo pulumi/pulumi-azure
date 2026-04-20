@@ -104,7 +104,6 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .sku("standardv3_Monthly")
  *             .location(example.location())
- *             .diagnoseSupportEnabled(true)
  *             .automaticUpgradeChannel("stable")
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
  *                 .ipAddresses(examplePublicIp.id())
@@ -200,16 +199,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.dataplaneApiEndpoint;
     }
     /**
-     * Should the metrics be exported to Azure Monitor?
+     * @deprecated
+     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
+    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
     @Export(name="diagnoseSupportEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> diagnoseSupportEnabled;
 
-    /**
-     * @return Should the metrics be exported to Azure Monitor?
-     * 
-     */
     public Output<Optional<Boolean>> diagnoseSupportEnabled() {
         return Codegen.optional(this.diagnoseSupportEnabled);
     }

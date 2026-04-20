@@ -32,12 +32,16 @@ public final class NatGatewayPublicIpPrefixAssociationArgs extends com.pulumi.re
     /**
      * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * 
      */
     @Import(name="publicIpPrefixId", required=true)
     private Output<String> publicIpPrefixId;
 
     /**
      * @return The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      * 
      */
     public Output<String> publicIpPrefixId() {
@@ -93,6 +97,8 @@ public final class NatGatewayPublicIpPrefixAssociationArgs extends com.pulumi.re
         /**
          * @param publicIpPrefixId The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+         * 
          * @return builder
          * 
          */
@@ -103,6 +109,8 @@ public final class NatGatewayPublicIpPrefixAssociationArgs extends com.pulumi.re
 
         /**
          * @param publicIpPrefixId The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
          * 
          * @return builder
          * 

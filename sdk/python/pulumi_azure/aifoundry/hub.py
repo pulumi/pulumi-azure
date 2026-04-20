@@ -608,7 +608,10 @@ class Hub(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages an AI Foundry Hub.
+        Manages a Microsoft Foundry Hub (classic) resource.
+
+        > **Note:** Hub‑based projects are considered legacy and are not compatible with the new Foundry experience. Microsoft recommends using the new Microsoft Foundry resource, which should be provisioned using
+        `cognitive.Account`.
 
         ## Example Usage
 
@@ -704,7 +707,10 @@ class Hub(pulumi.CustomResource):
                  args: HubArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AI Foundry Hub.
+        Manages a Microsoft Foundry Hub (classic) resource.
+
+        > **Note:** Hub‑based projects are considered legacy and are not compatible with the new Foundry experience. Microsoft recommends using the new Microsoft Foundry resource, which should be provisioned using
+        `cognitive.Account`.
 
         ## Example Usage
 

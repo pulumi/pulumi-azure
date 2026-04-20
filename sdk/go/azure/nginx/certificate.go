@@ -86,12 +86,11 @@ import (
 //				return err
 //			}
 //			exampleDeployment, err := nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
-//				Name:                   pulumi.String("example-nginx"),
-//				ResourceGroupName:      example.Name,
-//				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
-//				Location:               example.Location,
-//				ManagedResourceGroup:   pulumi.String("example"),
-//				DiagnoseSupportEnabled: pulumi.Bool(true),
+//				Name:                 pulumi.String("example-nginx"),
+//				ResourceGroupName:    example.Name,
+//				Sku:                  pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
+//				Location:             example.Location,
+//				ManagedResourceGroup: pulumi.String("example"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
 //						examplePublicIp.ID(),

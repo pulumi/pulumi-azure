@@ -87,6 +87,8 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
     declare public readonly natGatewayId: pulumi.Output<string>;
     /**
      * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      */
     declare public readonly publicIpPrefixId: pulumi.Output<string>;
 
@@ -131,6 +133,8 @@ export interface NatGatewayPublicIpPrefixAssociationState {
     natGatewayId?: pulumi.Input<string>;
     /**
      * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      */
     publicIpPrefixId?: pulumi.Input<string>;
 }
@@ -145,6 +149,8 @@ export interface NatGatewayPublicIpPrefixAssociationArgs {
     natGatewayId: pulumi.Input<string>;
     /**
      * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      */
     publicIpPrefixId: pulumi.Input<string>;
 }

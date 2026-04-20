@@ -84,7 +84,6 @@ namespace Pulumi.Azure.Nginx
     ///         ResourceGroupName = example.Name,
     ///         Sku = "standardv3_Monthly",
     ///         Location = example.Location,
-    ///         DiagnoseSupportEnabled = true,
     ///         AutomaticUpgradeChannel = "stable",
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
     ///         {
@@ -151,9 +150,6 @@ namespace Pulumi.Azure.Nginx
         [Output("dataplaneApiEndpoint")]
         public Output<string> DataplaneApiEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// Should the metrics be exported to Azure Monitor?
-        /// </summary>
         [Output("diagnoseSupportEnabled")]
         public Output<bool?> DiagnoseSupportEnabled { get; private set; } = null!;
 
@@ -317,9 +313,6 @@ namespace Pulumi.Azure.Nginx
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
-        /// <summary>
-        /// Should the metrics be exported to Azure Monitor?
-        /// </summary>
         [Input("diagnoseSupportEnabled")]
         public Input<bool>? DiagnoseSupportEnabled { get; set; }
 
@@ -463,9 +456,6 @@ namespace Pulumi.Azure.Nginx
         [Input("dataplaneApiEndpoint")]
         public Input<string>? DataplaneApiEndpoint { get; set; }
 
-        /// <summary>
-        /// Should the metrics be exported to Azure Monitor?
-        /// </summary>
         [Input("diagnoseSupportEnabled")]
         public Input<bool>? DiagnoseSupportEnabled { get; set; }
 

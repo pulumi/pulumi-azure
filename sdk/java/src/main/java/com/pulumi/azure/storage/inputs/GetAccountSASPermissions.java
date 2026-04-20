@@ -4,9 +4,10 @@
 package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeArgs {
@@ -17,156 +18,154 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
      * Should Add permissions be enabled for this SAS?
      * 
      */
-    @Import(name="add", required=true)
-    private Boolean add;
+    @Import(name="add")
+    private @Nullable Boolean add;
 
     /**
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    public Boolean add() {
-        return this.add;
+    public Optional<Boolean> add() {
+        return Optional.ofNullable(this.add);
     }
 
     /**
      * Should Create permissions be enabled for this SAS?
      * 
      */
-    @Import(name="create", required=true)
-    private Boolean create;
+    @Import(name="create")
+    private @Nullable Boolean create;
 
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    public Boolean create() {
-        return this.create;
+    public Optional<Boolean> create() {
+        return Optional.ofNullable(this.create);
     }
 
     /**
      * Should Delete permissions be enabled for this SAS?
      * 
      */
-    @Import(name="delete", required=true)
-    private Boolean delete;
+    @Import(name="delete")
+    private @Nullable Boolean delete;
 
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    public Boolean delete() {
-        return this.delete;
+    public Optional<Boolean> delete() {
+        return Optional.ofNullable(this.delete);
     }
 
     /**
      * Should Filter by Index Tags permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-     * for additional details on the fields above.
-     * 
      */
-    @Import(name="filter", required=true)
-    private Boolean filter;
+    @Import(name="filter")
+    private @Nullable Boolean filter;
 
     /**
      * @return Should Filter by Index Tags permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-     * for additional details on the fields above.
-     * 
      */
-    public Boolean filter() {
-        return this.filter;
+    public Optional<Boolean> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     /**
      * Should List permissions be enabled for this SAS?
      * 
      */
-    @Import(name="list", required=true)
-    private Boolean list;
+    @Import(name="list")
+    private @Nullable Boolean list;
 
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
      */
-    public Boolean list() {
-        return this.list;
+    public Optional<Boolean> list() {
+        return Optional.ofNullable(this.list);
     }
 
     /**
      * Should Process permissions be enabled for this SAS?
      * 
      */
-    @Import(name="process", required=true)
-    private Boolean process;
+    @Import(name="process")
+    private @Nullable Boolean process;
 
     /**
      * @return Should Process permissions be enabled for this SAS?
      * 
      */
-    public Boolean process() {
-        return this.process;
+    public Optional<Boolean> process() {
+        return Optional.ofNullable(this.process);
     }
 
     /**
      * Should Read permissions be enabled for this SAS?
      * 
      */
-    @Import(name="read", required=true)
-    private Boolean read;
+    @Import(name="read")
+    private @Nullable Boolean read;
 
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    public Boolean read() {
-        return this.read;
+    public Optional<Boolean> read() {
+        return Optional.ofNullable(this.read);
     }
 
     /**
      * Should Get / Set Index Tags permissions be enabled for this SAS?
      * 
      */
-    @Import(name="tag", required=true)
-    private Boolean tag;
+    @Import(name="tag")
+    private @Nullable Boolean tag;
 
     /**
      * @return Should Get / Set Index Tags permissions be enabled for this SAS?
      * 
      */
-    public Boolean tag() {
-        return this.tag;
+    public Optional<Boolean> tag() {
+        return Optional.ofNullable(this.tag);
     }
 
     /**
      * Should Update permissions be enabled for this SAS?
      * 
      */
-    @Import(name="update", required=true)
-    private Boolean update;
+    @Import(name="update")
+    private @Nullable Boolean update;
 
     /**
      * @return Should Update permissions be enabled for this SAS?
      * 
      */
-    public Boolean update() {
-        return this.update;
+    public Optional<Boolean> update() {
+        return Optional.ofNullable(this.update);
     }
 
     /**
      * Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+     * 
      */
-    @Import(name="write", required=true)
-    private Boolean write;
+    @Import(name="write")
+    private @Nullable Boolean write;
 
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+     * 
      */
-    public Boolean write() {
-        return this.write;
+    public Optional<Boolean> write() {
+        return Optional.ofNullable(this.write);
     }
 
     private GetAccountSASPermissions() {}
@@ -208,7 +207,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder add(Boolean add) {
+        public Builder add(@Nullable Boolean add) {
             $.add = add;
             return this;
         }
@@ -219,7 +218,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder create(Boolean create) {
+        public Builder create(@Nullable Boolean create) {
             $.create = create;
             return this;
         }
@@ -230,7 +229,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder delete(Boolean delete) {
+        public Builder delete(@Nullable Boolean delete) {
             $.delete = delete;
             return this;
         }
@@ -238,13 +237,10 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
         /**
          * @param filter Should Filter by Index Tags permissions be enabled for this SAS?
          * 
-         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-         * for additional details on the fields above.
-         * 
          * @return builder
          * 
          */
-        public Builder filter(Boolean filter) {
+        public Builder filter(@Nullable Boolean filter) {
             $.filter = filter;
             return this;
         }
@@ -255,7 +251,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder list(Boolean list) {
+        public Builder list(@Nullable Boolean list) {
             $.list = list;
             return this;
         }
@@ -266,7 +262,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder process(Boolean process) {
+        public Builder process(@Nullable Boolean process) {
             $.process = process;
             return this;
         }
@@ -277,7 +273,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder read(Boolean read) {
+        public Builder read(@Nullable Boolean read) {
             $.read = read;
             return this;
         }
@@ -288,7 +284,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder tag(Boolean tag) {
+        public Builder tag(@Nullable Boolean tag) {
             $.tag = tag;
             return this;
         }
@@ -299,7 +295,7 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder update(Boolean update) {
+        public Builder update(@Nullable Boolean update) {
             $.update = update;
             return this;
         }
@@ -307,45 +303,17 @@ public final class GetAccountSASPermissions extends com.pulumi.resources.InvokeA
         /**
          * @param write Should Write permissions be enabled for this SAS?
          * 
+         * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+         * 
          * @return builder
          * 
          */
-        public Builder write(Boolean write) {
+        public Builder write(@Nullable Boolean write) {
             $.write = write;
             return this;
         }
 
         public GetAccountSASPermissions build() {
-            if ($.add == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "add");
-            }
-            if ($.create == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "create");
-            }
-            if ($.delete == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "delete");
-            }
-            if ($.filter == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "filter");
-            }
-            if ($.list == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "list");
-            }
-            if ($.process == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "process");
-            }
-            if ($.read == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "read");
-            }
-            if ($.tag == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "tag");
-            }
-            if ($.update == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "update");
-            }
-            if ($.write == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPermissions", "write");
-            }
             return $;
         }
     }

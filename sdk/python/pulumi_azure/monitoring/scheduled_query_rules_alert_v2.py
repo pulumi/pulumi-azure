@@ -846,6 +846,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                     "key": "value",
                     "key2": "value2",
                 },
+                "email_subject": "Email Header",
             },
             identity={
                 "type": "UserAssigned",
@@ -980,6 +981,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                     "key": "value",
                     "key2": "value2",
                 },
+                "email_subject": "Email Header",
             },
             identity={
                 "type": "UserAssigned",

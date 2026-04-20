@@ -134,6 +134,10 @@ export class BastionHost extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Whether Private-Only deployment is enabled for the Bastion Host.
+     */
+    declare public /*out*/ readonly privateOnlyEnabled: pulumi.Output<boolean>;
+    /**
      * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -201,6 +205,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["kerberosEnabled"] = state?.kerberosEnabled;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
+            resourceInputs["privateOnlyEnabled"] = state?.privateOnlyEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["scaleUnits"] = state?.scaleUnits;
             resourceInputs["sessionRecordingEnabled"] = state?.sessionRecordingEnabled;
@@ -232,6 +237,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["zones"] = args?.zones;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["privateOnlyEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BastionHost.__pulumiType, name, resourceInputs, opts);
@@ -280,6 +286,10 @@ export interface BastionHostState {
      * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether Private-Only deployment is enabled for the Bastion Host.
+     */
+    privateOnlyEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      */

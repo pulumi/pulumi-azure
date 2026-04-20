@@ -47,6 +47,36 @@ public final class AttachedDatabaseConfigurationSharingArgs extends com.pulumi.r
     }
 
     /**
+     * List of functions to exclude from the follower database.
+     * 
+     */
+    @Import(name="functionsToExcludes")
+    private @Nullable Output<List<String>> functionsToExcludes;
+
+    /**
+     * @return List of functions to exclude from the follower database.
+     * 
+     */
+    public Optional<Output<List<String>>> functionsToExcludes() {
+        return Optional.ofNullable(this.functionsToExcludes);
+    }
+
+    /**
+     * List of functions to include in the follower database.
+     * 
+     */
+    @Import(name="functionsToIncludes")
+    private @Nullable Output<List<String>> functionsToIncludes;
+
+    /**
+     * @return List of functions to include in the follower database.
+     * 
+     */
+    public Optional<Output<List<String>>> functionsToIncludes() {
+        return Optional.ofNullable(this.functionsToIncludes);
+    }
+
+    /**
      * List of materialized views exclude from the follower database.
      * 
      */
@@ -111,6 +141,8 @@ public final class AttachedDatabaseConfigurationSharingArgs extends com.pulumi.r
     private AttachedDatabaseConfigurationSharingArgs(AttachedDatabaseConfigurationSharingArgs $) {
         this.externalTablesToExcludes = $.externalTablesToExcludes;
         this.externalTablesToIncludes = $.externalTablesToIncludes;
+        this.functionsToExcludes = $.functionsToExcludes;
+        this.functionsToIncludes = $.functionsToIncludes;
         this.materializedViewsToExcludes = $.materializedViewsToExcludes;
         this.materializedViewsToIncludes = $.materializedViewsToIncludes;
         this.tablesToExcludes = $.tablesToExcludes;
@@ -195,6 +227,68 @@ public final class AttachedDatabaseConfigurationSharingArgs extends com.pulumi.r
          */
         public Builder externalTablesToIncludes(String... externalTablesToIncludes) {
             return externalTablesToIncludes(List.of(externalTablesToIncludes));
+        }
+
+        /**
+         * @param functionsToExcludes List of functions to exclude from the follower database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionsToExcludes(@Nullable Output<List<String>> functionsToExcludes) {
+            $.functionsToExcludes = functionsToExcludes;
+            return this;
+        }
+
+        /**
+         * @param functionsToExcludes List of functions to exclude from the follower database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionsToExcludes(List<String> functionsToExcludes) {
+            return functionsToExcludes(Output.of(functionsToExcludes));
+        }
+
+        /**
+         * @param functionsToExcludes List of functions to exclude from the follower database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionsToExcludes(String... functionsToExcludes) {
+            return functionsToExcludes(List.of(functionsToExcludes));
+        }
+
+        /**
+         * @param functionsToIncludes List of functions to include in the follower database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionsToIncludes(@Nullable Output<List<String>> functionsToIncludes) {
+            $.functionsToIncludes = functionsToIncludes;
+            return this;
+        }
+
+        /**
+         * @param functionsToIncludes List of functions to include in the follower database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionsToIncludes(List<String> functionsToIncludes) {
+            return functionsToIncludes(Output.of(functionsToIncludes));
+        }
+
+        /**
+         * @param functionsToIncludes List of functions to include in the follower database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionsToIncludes(String... functionsToIncludes) {
+            return functionsToIncludes(List.of(functionsToIncludes));
         }
 
         /**

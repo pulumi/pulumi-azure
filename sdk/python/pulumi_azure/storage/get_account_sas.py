@@ -93,7 +93,7 @@ class GetAccountSASResult:
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> 'outputs.GetAccountSASPermissionsResult':
+    def permissions(self) -> Optional['outputs.GetAccountSASPermissionsResult']:
         return pulumi.get(self, "permissions")
 
     @_builtins.property
@@ -212,7 +212,7 @@ def get_account_sas(connection_string: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
+    :param _builtins.str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `storage.Account` resource.
     :param _builtins.str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
            
            > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
@@ -253,7 +253,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[_builtins.st
                            expiry: Optional[pulumi.Input[_builtins.str]] = None,
                            https_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                            ip_addresses: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           permissions: Optional[pulumi.Input[Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict']]] = None,
+                           permissions: Optional[pulumi.Input[Optional[Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict']]]] = None,
                            resource_types: Optional[pulumi.Input[Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict']]] = None,
                            services: Optional[pulumi.Input[Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict']]] = None,
                            signed_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -317,7 +317,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[_builtins.st
     ```
 
 
-    :param _builtins.str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
+    :param _builtins.str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `storage.Account` resource.
     :param _builtins.str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
            
            > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.

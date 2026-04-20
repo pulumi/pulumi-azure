@@ -26,6 +26,7 @@ class ElasticPoolArgs:
                  server_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ElasticPoolSkuArgs'],
                  enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -48,6 +49,9 @@ class ElasticPoolArgs:
                > **Note:** `enclave_type` is not supported for DC-series SKUs.
                
                > **Note:** The default value for `enclave_type` field is unset not `Default`.
+        :param pulumi.Input[_builtins.int] high_availability_replica_count: Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+               
+               > **Note:** The `high_availability_replica_count` property is only supported for `Hyperscale` tier elastic pools.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
@@ -65,6 +69,8 @@ class ElasticPoolArgs:
         pulumi.set(__self__, "sku", sku)
         if enclave_type is not None:
             pulumi.set(__self__, "enclave_type", enclave_type)
+        if high_availability_replica_count is not None:
+            pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -147,6 +153,20 @@ class ElasticPoolArgs:
     @enclave_type.setter
     def enclave_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "enclave_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="highAvailabilityReplicaCount")
+    def high_availability_replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+
+        > **Note:** The `high_availability_replica_count` property is only supported for `Hyperscale` tier elastic pools.
+        """
+        return pulumi.get(self, "high_availability_replica_count")
+
+    @high_availability_replica_count.setter
+    def high_availability_replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "high_availability_replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
@@ -251,6 +271,7 @@ class ElasticPoolArgs:
 class _ElasticPoolState:
     def __init__(__self__, *,
                  enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -273,6 +294,9 @@ class _ElasticPoolState:
                > **Note:** `enclave_type` is not supported for DC-series SKUs.
                
                > **Note:** The default value for `enclave_type` field is unset not `Default`.
+        :param pulumi.Input[_builtins.int] high_availability_replica_count: Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+               
+               > **Note:** The `high_availability_replica_count` property is only supported for `Hyperscale` tier elastic pools.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
@@ -290,6 +314,8 @@ class _ElasticPoolState:
         """
         if enclave_type is not None:
             pulumi.set(__self__, "enclave_type", enclave_type)
+        if high_availability_replica_count is not None:
+            pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -332,6 +358,20 @@ class _ElasticPoolState:
     @enclave_type.setter
     def enclave_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "enclave_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="highAvailabilityReplicaCount")
+    def high_availability_replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+
+        > **Note:** The `high_availability_replica_count` property is only supported for `Hyperscale` tier elastic pools.
+        """
+        return pulumi.get(self, "high_availability_replica_count")
+
+    @high_availability_replica_count.setter
+    def high_availability_replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "high_availability_replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
@@ -487,6 +527,7 @@ class ElasticPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -563,6 +604,9 @@ class ElasticPool(pulumi.CustomResource):
                > **Note:** `enclave_type` is not supported for DC-series SKUs.
                
                > **Note:** The default value for `enclave_type` field is unset not `Default`.
+        :param pulumi.Input[_builtins.int] high_availability_replica_count: Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+               
+               > **Note:** The `high_availability_replica_count` property is only supported for `Hyperscale` tier elastic pools.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
@@ -654,6 +698,7 @@ class ElasticPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -676,6 +721,7 @@ class ElasticPool(pulumi.CustomResource):
             __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
             __props__.__dict__["enclave_type"] = enclave_type
+            __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
@@ -707,6 +753,7 @@ class ElasticPool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enclave_type: Optional[pulumi.Input[_builtins.str]] = None,
+            high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
             license_type: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -733,6 +780,9 @@ class ElasticPool(pulumi.CustomResource):
                > **Note:** `enclave_type` is not supported for DC-series SKUs.
                
                > **Note:** The default value for `enclave_type` field is unset not `Default`.
+        :param pulumi.Input[_builtins.int] high_availability_replica_count: Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+               
+               > **Note:** The `high_availability_replica_count` property is only supported for `Hyperscale` tier elastic pools.
         :param pulumi.Input[_builtins.str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
@@ -753,6 +803,7 @@ class ElasticPool(pulumi.CustomResource):
         __props__ = _ElasticPoolState.__new__(_ElasticPoolState)
 
         __props__.__dict__["enclave_type"] = enclave_type
+        __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
@@ -780,6 +831,16 @@ class ElasticPool(pulumi.CustomResource):
         > **Note:** The default value for `enclave_type` field is unset not `Default`.
         """
         return pulumi.get(self, "enclave_type")
+
+    @_builtins.property
+    @pulumi.getter(name="highAvailabilityReplicaCount")
+    def high_availability_replica_count(self) -> pulumi.Output[_builtins.int]:
+        """
+        Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+
+        > **Note:** The `high_availability_replica_count` property is only supported for `Hyperscale` tier elastic pools.
+        """
+        return pulumi.get(self, "high_availability_replica_count")
 
     @_builtins.property
     @pulumi.getter(name="licenseType")

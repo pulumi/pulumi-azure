@@ -130,7 +130,7 @@ type BgpConnection struct {
 	PeerIp pulumi.StringOutput `pulumi:"peerIp"`
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
-	// The ID of virtual network connection.
+	// The ID of virtual network connection. Changing this forces a new resource to be created.
 	VirtualNetworkConnectionId pulumi.StringPtrOutput `pulumi:"virtualNetworkConnectionId"`
 }
 
@@ -181,7 +181,7 @@ type bgpConnectionState struct {
 	PeerIp *string `pulumi:"peerIp"`
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
-	// The ID of virtual network connection.
+	// The ID of virtual network connection. Changing this forces a new resource to be created.
 	VirtualNetworkConnectionId *string `pulumi:"virtualNetworkConnectionId"`
 }
 
@@ -194,7 +194,7 @@ type BgpConnectionState struct {
 	PeerIp pulumi.StringPtrInput
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
-	// The ID of virtual network connection.
+	// The ID of virtual network connection. Changing this forces a new resource to be created.
 	VirtualNetworkConnectionId pulumi.StringPtrInput
 }
 
@@ -211,7 +211,7 @@ type bgpConnectionArgs struct {
 	PeerIp string `pulumi:"peerIp"`
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
-	// The ID of virtual network connection.
+	// The ID of virtual network connection. Changing this forces a new resource to be created.
 	VirtualNetworkConnectionId *string `pulumi:"virtualNetworkConnectionId"`
 }
 
@@ -225,7 +225,7 @@ type BgpConnectionArgs struct {
 	PeerIp pulumi.StringInput
 	// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput
-	// The ID of virtual network connection.
+	// The ID of virtual network connection. Changing this forces a new resource to be created.
 	VirtualNetworkConnectionId pulumi.StringPtrInput
 }
 
@@ -336,7 +336,7 @@ func (o BgpConnectionOutput) VirtualHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BgpConnection) pulumi.StringOutput { return v.VirtualHubId }).(pulumi.StringOutput)
 }
 
-// The ID of virtual network connection.
+// The ID of virtual network connection. Changing this forces a new resource to be created.
 func (o BgpConnectionOutput) VirtualNetworkConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BgpConnection) pulumi.StringPtrOutput { return v.VirtualNetworkConnectionId }).(pulumi.StringPtrOutput)
 }

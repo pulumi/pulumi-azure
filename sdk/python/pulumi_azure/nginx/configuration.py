@@ -250,7 +250,6 @@ class Configuration(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="publicpreview_Monthly_gmz7xq9ge3py",
             location=example.location,
-            diagnose_support_enabled=True,
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
             },
@@ -366,7 +365,6 @@ class Configuration(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="publicpreview_Monthly_gmz7xq9ge3py",
             location=example.location,
-            diagnose_support_enabled=True,
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
             },

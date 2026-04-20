@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Kusto
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         ClusterName = followerCluster.Name,
-    ///         ClusterResourceId = followedCluster.Id,
+    ///         ClusterId = followedCluster.Id,
     ///         DatabaseName = exampleDatabase.Name,
     ///         Sharing = new Azure.Kusto.Inputs.AttachedDatabaseConfigurationSharingArgs
     ///         {
@@ -85,6 +85,14 @@ namespace Pulumi.Azure.Kusto
     ///             ExternalTablesToIncludes = new[]
     ///             {
     ///                 "ExternalTable1",
+    ///             },
+    ///             FunctionsToExcludes = new[]
+    ///             {
+    ///                 "Function2",
+    ///             },
+    ///             FunctionsToIncludes = new[]
+    ///             {
+    ///                 "Function1",
     ///             },
     ///             MaterializedViewsToExcludes = new[]
     ///             {
@@ -152,6 +160,20 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        [Output("databaseNameOverride")]
+        public Output<string?> DatabaseNameOverride { get; private set; } = null!;
+
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// 
+        /// &gt; **Note:** Exactly one of  `DatabaseNameOverride` and `DatabaseNamePrefix` can be specified.
+        /// </summary>
+        [Output("databaseNamePrefix")]
+        public Output<string?> DatabaseNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
@@ -251,6 +273,20 @@ namespace Pulumi.Azure.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        [Input("databaseNameOverride")]
+        public Input<string>? DatabaseNameOverride { get; set; }
+
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// 
+        /// &gt; **Note:** Exactly one of  `DatabaseNameOverride` and `DatabaseNamePrefix` can be specified.
+        /// </summary>
+        [Input("databaseNamePrefix")]
+        public Input<string>? DatabaseNamePrefix { get; set; }
+
+        /// <summary>
         /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         /// </summary>
         [Input("defaultPrincipalModificationKind")]
@@ -320,6 +356,20 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        [Input("databaseNameOverride")]
+        public Input<string>? DatabaseNameOverride { get; set; }
+
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// 
+        /// &gt; **Note:** Exactly one of  `DatabaseNameOverride` and `DatabaseNamePrefix` can be specified.
+        /// </summary>
+        [Input("databaseNamePrefix")]
+        public Input<string>? DatabaseNamePrefix { get; set; }
 
         /// <summary>
         /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.

@@ -5,9 +5,10 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,96 +19,214 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
      * Should Add permissions be enabled for this SAS?
      * 
      */
-    @Import(name="add", required=true)
-    private Output<Boolean> add;
+    @Import(name="add")
+    private @Nullable Output<Boolean> add;
 
     /**
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    public Output<Boolean> add() {
-        return this.add;
+    public Optional<Output<Boolean>> add() {
+        return Optional.ofNullable(this.add);
     }
 
     /**
      * Should Create permissions be enabled for this SAS?
      * 
      */
-    @Import(name="create", required=true)
-    private Output<Boolean> create;
+    @Import(name="create")
+    private @Nullable Output<Boolean> create;
 
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    public Output<Boolean> create() {
-        return this.create;
+    public Optional<Output<Boolean>> create() {
+        return Optional.ofNullable(this.create);
     }
 
     /**
      * Should Delete permissions be enabled for this SAS?
      * 
      */
-    @Import(name="delete", required=true)
-    private Output<Boolean> delete;
+    @Import(name="delete")
+    private @Nullable Output<Boolean> delete;
 
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    public Output<Boolean> delete() {
-        return this.delete;
+    public Optional<Output<Boolean>> delete() {
+        return Optional.ofNullable(this.delete);
+    }
+
+    /**
+     * Should Delete version permissions be enabled for this SAS?
+     * 
+     */
+    @Import(name="deleteVersion")
+    private @Nullable Output<Boolean> deleteVersion;
+
+    /**
+     * @return Should Delete version permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> deleteVersion() {
+        return Optional.ofNullable(this.deleteVersion);
+    }
+
+    /**
+     * Should Execute permissions be enabled for this SAS?
+     * 
+     */
+    @Import(name="execute")
+    private @Nullable Output<Boolean> execute;
+
+    /**
+     * @return Should Execute permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> execute() {
+        return Optional.ofNullable(this.execute);
+    }
+
+    /**
+     * Should Find permissions be enabled for this SAS?
+     * 
+     */
+    @Import(name="find")
+    private @Nullable Output<Boolean> find;
+
+    /**
+     * @return Should Find permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> find() {
+        return Optional.ofNullable(this.find);
     }
 
     /**
      * Should List permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-     * for additional details on the fields above.
-     * 
      */
-    @Import(name="list", required=true)
-    private Output<Boolean> list;
+    @Import(name="list")
+    private @Nullable Output<Boolean> list;
 
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-     * for additional details on the fields above.
+     */
+    public Optional<Output<Boolean>> list() {
+        return Optional.ofNullable(this.list);
+    }
+
+    /**
+     * Should Move permissions be enabled for this SAS?
      * 
      */
-    public Output<Boolean> list() {
-        return this.list;
+    @Import(name="move")
+    private @Nullable Output<Boolean> move;
+
+    /**
+     * @return Should Move permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> move() {
+        return Optional.ofNullable(this.move);
+    }
+
+    /**
+     * Should Ownership permissions be enabled for this SAS?
+     * 
+     */
+    @Import(name="ownership")
+    private @Nullable Output<Boolean> ownership;
+
+    /**
+     * @return Should Ownership permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> ownership() {
+        return Optional.ofNullable(this.ownership);
+    }
+
+    /**
+     * Should Permissions permissions be enabled for this SAS?
+     * 
+     */
+    @Import(name="permissions")
+    private @Nullable Output<Boolean> permissions;
+
+    /**
+     * @return Should Permissions permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
 
     /**
      * Should Read permissions be enabled for this SAS?
      * 
      */
-    @Import(name="read", required=true)
-    private Output<Boolean> read;
+    @Import(name="read")
+    private @Nullable Output<Boolean> read;
 
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    public Output<Boolean> read() {
-        return this.read;
+    public Optional<Output<Boolean>> read() {
+        return Optional.ofNullable(this.read);
+    }
+
+    /**
+     * Should Set Immutability Policy permissions be enabled for this SAS?
+     * 
+     */
+    @Import(name="setImmutabilityPolicy")
+    private @Nullable Output<Boolean> setImmutabilityPolicy;
+
+    /**
+     * @return Should Set Immutability Policy permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> setImmutabilityPolicy() {
+        return Optional.ofNullable(this.setImmutabilityPolicy);
+    }
+
+    /**
+     * Should Tags permissions be enabled for this SAS?
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Boolean> tags;
+
+    /**
+     * @return Should Tags permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Output<Boolean>> tags() {
+        return Optional.ofNullable(this.tags);
     }
 
     /**
      * Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+     * 
      */
-    @Import(name="write", required=true)
-    private Output<Boolean> write;
+    @Import(name="write")
+    private @Nullable Output<Boolean> write;
 
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+     * 
      */
-    public Output<Boolean> write() {
-        return this.write;
+    public Optional<Output<Boolean>> write() {
+        return Optional.ofNullable(this.write);
     }
 
     private GetAccountBlobContainerSASPermissionsArgs() {}
@@ -116,8 +235,16 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
         this.add = $.add;
         this.create = $.create;
         this.delete = $.delete;
+        this.deleteVersion = $.deleteVersion;
+        this.execute = $.execute;
+        this.find = $.find;
         this.list = $.list;
+        this.move = $.move;
+        this.ownership = $.ownership;
+        this.permissions = $.permissions;
         this.read = $.read;
+        this.setImmutabilityPolicy = $.setImmutabilityPolicy;
+        this.tags = $.tags;
         this.write = $.write;
     }
 
@@ -145,7 +272,7 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder add(Output<Boolean> add) {
+        public Builder add(@Nullable Output<Boolean> add) {
             $.add = add;
             return this;
         }
@@ -166,7 +293,7 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder create(Output<Boolean> create) {
+        public Builder create(@Nullable Output<Boolean> create) {
             $.create = create;
             return this;
         }
@@ -187,7 +314,7 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder delete(Output<Boolean> delete) {
+        public Builder delete(@Nullable Output<Boolean> delete) {
             $.delete = delete;
             return this;
         }
@@ -203,24 +330,81 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
         }
 
         /**
-         * @param list Should List permissions be enabled for this SAS?
-         * 
-         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-         * for additional details on the fields above.
+         * @param deleteVersion Should Delete version permissions be enabled for this SAS?
          * 
          * @return builder
          * 
          */
-        public Builder list(Output<Boolean> list) {
+        public Builder deleteVersion(@Nullable Output<Boolean> deleteVersion) {
+            $.deleteVersion = deleteVersion;
+            return this;
+        }
+
+        /**
+         * @param deleteVersion Should Delete version permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteVersion(Boolean deleteVersion) {
+            return deleteVersion(Output.of(deleteVersion));
+        }
+
+        /**
+         * @param execute Should Execute permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder execute(@Nullable Output<Boolean> execute) {
+            $.execute = execute;
+            return this;
+        }
+
+        /**
+         * @param execute Should Execute permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder execute(Boolean execute) {
+            return execute(Output.of(execute));
+        }
+
+        /**
+         * @param find Should Find permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder find(@Nullable Output<Boolean> find) {
+            $.find = find;
+            return this;
+        }
+
+        /**
+         * @param find Should Find permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder find(Boolean find) {
+            return find(Output.of(find));
+        }
+
+        /**
+         * @param list Should List permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder list(@Nullable Output<Boolean> list) {
             $.list = list;
             return this;
         }
 
         /**
          * @param list Should List permissions be enabled for this SAS?
-         * 
-         * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-         * for additional details on the fields above.
          * 
          * @return builder
          * 
@@ -230,12 +414,75 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
         }
 
         /**
+         * @param move Should Move permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder move(@Nullable Output<Boolean> move) {
+            $.move = move;
+            return this;
+        }
+
+        /**
+         * @param move Should Move permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder move(Boolean move) {
+            return move(Output.of(move));
+        }
+
+        /**
+         * @param ownership Should Ownership permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownership(@Nullable Output<Boolean> ownership) {
+            $.ownership = ownership;
+            return this;
+        }
+
+        /**
+         * @param ownership Should Ownership permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ownership(Boolean ownership) {
+            return ownership(Output.of(ownership));
+        }
+
+        /**
+         * @param permissions Should Permissions permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permissions(@Nullable Output<Boolean> permissions) {
+            $.permissions = permissions;
+            return this;
+        }
+
+        /**
+         * @param permissions Should Permissions permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permissions(Boolean permissions) {
+            return permissions(Output.of(permissions));
+        }
+
+        /**
          * @param read Should Read permissions be enabled for this SAS?
          * 
          * @return builder
          * 
          */
-        public Builder read(Output<Boolean> read) {
+        public Builder read(@Nullable Output<Boolean> read) {
             $.read = read;
             return this;
         }
@@ -251,18 +498,64 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
         }
 
         /**
-         * @param write Should Write permissions be enabled for this SAS?
+         * @param setImmutabilityPolicy Should Set Immutability Policy permissions be enabled for this SAS?
          * 
          * @return builder
          * 
          */
-        public Builder write(Output<Boolean> write) {
+        public Builder setImmutabilityPolicy(@Nullable Output<Boolean> setImmutabilityPolicy) {
+            $.setImmutabilityPolicy = setImmutabilityPolicy;
+            return this;
+        }
+
+        /**
+         * @param setImmutabilityPolicy Should Set Immutability Policy permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder setImmutabilityPolicy(Boolean setImmutabilityPolicy) {
+            return setImmutabilityPolicy(Output.of(setImmutabilityPolicy));
+        }
+
+        /**
+         * @param tags Should Tags permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Boolean> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Should Tags permissions be enabled for this SAS?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Boolean tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param write Should Write permissions be enabled for this SAS?
+         * 
+         * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder write(@Nullable Output<Boolean> write) {
             $.write = write;
             return this;
         }
 
         /**
          * @param write Should Write permissions be enabled for this SAS?
+         * 
+         * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
          * 
          * @return builder
          * 
@@ -272,24 +565,6 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
         }
 
         public GetAccountBlobContainerSASPermissionsArgs build() {
-            if ($.add == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "add");
-            }
-            if ($.create == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "create");
-            }
-            if ($.delete == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "delete");
-            }
-            if ($.list == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "list");
-            }
-            if ($.read == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "read");
-            }
-            if ($.write == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "write");
-            }
             return $;
         }
     }

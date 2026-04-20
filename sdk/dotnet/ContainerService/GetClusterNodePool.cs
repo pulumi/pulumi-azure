@@ -216,6 +216,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly int NodeCount;
         /// <summary>
+        /// The current node image version running on this Node Pool.
+        /// </summary>
+        public readonly string NodeImageVersion;
+        /// <summary>
         /// A map of Kubernetes Labels applied to each Node in this Node Pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string> NodeLabels;
@@ -305,6 +309,8 @@ namespace Pulumi.Azure.ContainerService
 
             int nodeCount,
 
+            string nodeImageVersion,
+
             ImmutableDictionary<string, string> nodeLabels,
 
             bool nodePublicIpEnabled,
@@ -350,6 +356,7 @@ namespace Pulumi.Azure.ContainerService
             Mode = mode;
             Name = name;
             NodeCount = nodeCount;
+            NodeImageVersion = nodeImageVersion;
             NodeLabels = nodeLabels;
             NodePublicIpEnabled = nodePublicIpEnabled;
             NodePublicIpPrefixId = nodePublicIpPrefixId;

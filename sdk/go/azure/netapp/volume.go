@@ -38,6 +38,8 @@ type Volume struct {
 	CoolAccess VolumeCoolAccessPtrOutput `pulumi:"coolAccess"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrOutput `pulumi:"createFromSnapshotResourceId"`
+	// A `dataProtectionAdvancedRansomware` block as defined below.
+	DataProtectionAdvancedRansomware VolumeDataProtectionAdvancedRansomwarePtrOutput `pulumi:"dataProtectionAdvancedRansomware"`
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrOutput `pulumi:"dataProtectionBackupPolicy"`
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
@@ -171,6 +173,8 @@ type volumeState struct {
 	CoolAccess *VolumeCoolAccess `pulumi:"coolAccess"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
+	// A `dataProtectionAdvancedRansomware` block as defined below.
+	DataProtectionAdvancedRansomware *VolumeDataProtectionAdvancedRansomware `pulumi:"dataProtectionAdvancedRansomware"`
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy *VolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicy"`
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
@@ -254,6 +258,8 @@ type VolumeState struct {
 	CoolAccess VolumeCoolAccessPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
+	// A `dataProtectionAdvancedRansomware` block as defined below.
+	DataProtectionAdvancedRansomware VolumeDataProtectionAdvancedRansomwarePtrInput
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrInput
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
@@ -341,6 +347,8 @@ type volumeArgs struct {
 	CoolAccess *VolumeCoolAccess `pulumi:"coolAccess"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
+	// A `dataProtectionAdvancedRansomware` block as defined below.
+	DataProtectionAdvancedRansomware *VolumeDataProtectionAdvancedRansomware `pulumi:"dataProtectionAdvancedRansomware"`
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy *VolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicy"`
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
@@ -423,6 +431,8 @@ type VolumeArgs struct {
 	CoolAccess VolumeCoolAccessPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
+	// A `dataProtectionAdvancedRansomware` block as defined below.
+	DataProtectionAdvancedRansomware VolumeDataProtectionAdvancedRansomwarePtrInput
 	// A `dataProtectionBackupPolicy` block as defined below.
 	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrInput
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
@@ -603,6 +613,13 @@ func (o VolumeOutput) CoolAccess() VolumeCoolAccessPtrOutput {
 // Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
 func (o VolumeOutput) CreateFromSnapshotResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.CreateFromSnapshotResourceId }).(pulumi.StringPtrOutput)
+}
+
+// A `dataProtectionAdvancedRansomware` block as defined below.
+func (o VolumeOutput) DataProtectionAdvancedRansomware() VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeDataProtectionAdvancedRansomwarePtrOutput {
+		return v.DataProtectionAdvancedRansomware
+	}).(VolumeDataProtectionAdvancedRansomwarePtrOutput)
 }
 
 // A `dataProtectionBackupPolicy` block as defined below.

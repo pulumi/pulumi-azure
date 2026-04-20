@@ -82,6 +82,40 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
     }
 
     /**
+     * The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+     * 
+     */
+    @Import(name="databaseNameOverride")
+    private @Nullable Output<String> databaseNameOverride;
+
+    /**
+     * @return The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+     * 
+     */
+    public Optional<Output<String>> databaseNameOverride() {
+        return Optional.ofNullable(this.databaseNameOverride);
+    }
+
+    /**
+     * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     * 
+     * &gt; **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+     * 
+     */
+    @Import(name="databaseNamePrefix")
+    private @Nullable Output<String> databaseNamePrefix;
+
+    /**
+     * @return Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     * 
+     * &gt; **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+     * 
+     */
+    public Optional<Output<String>> databaseNamePrefix() {
+        return Optional.ofNullable(this.databaseNamePrefix);
+    }
+
+    /**
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      * 
      */
@@ -163,6 +197,8 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
         this.clusterName = $.clusterName;
         this.clusterResourceId = $.clusterResourceId;
         this.databaseName = $.databaseName;
+        this.databaseNameOverride = $.databaseNameOverride;
+        this.databaseNamePrefix = $.databaseNamePrefix;
         this.defaultPrincipalModificationKind = $.defaultPrincipalModificationKind;
         this.location = $.location;
         this.name = $.name;
@@ -274,6 +310,52 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
          */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        /**
+         * @param databaseNameOverride The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseNameOverride(@Nullable Output<String> databaseNameOverride) {
+            $.databaseNameOverride = databaseNameOverride;
+            return this;
+        }
+
+        /**
+         * @param databaseNameOverride The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseNameOverride(String databaseNameOverride) {
+            return databaseNameOverride(Output.of(databaseNameOverride));
+        }
+
+        /**
+         * @param databaseNamePrefix Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+         * 
+         * &gt; **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseNamePrefix(@Nullable Output<String> databaseNamePrefix) {
+            $.databaseNamePrefix = databaseNamePrefix;
+            return this;
+        }
+
+        /**
+         * @param databaseNamePrefix Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+         * 
+         * &gt; **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseNamePrefix(String databaseNamePrefix) {
+            return databaseNamePrefix(Output.of(databaseNamePrefix));
         }
 
         /**

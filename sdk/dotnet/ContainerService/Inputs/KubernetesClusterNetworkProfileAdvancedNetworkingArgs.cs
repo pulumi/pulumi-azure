@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? ObservabilityEnabled { get; set; }
 
         /// <summary>
-        /// Is security enabled? Defaults to `False`.
+        /// Is security enabled? Defaults to `False`. This can only be enabled (set to `True`) when `NetworkPlugin` is set to `Azure` and `NetworkDataPlane` is set to `Cilium`.
         /// </summary>
         [Input("securityEnabled")]
         public Input<bool>? SecurityEnabled { get; set; }

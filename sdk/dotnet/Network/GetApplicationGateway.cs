@@ -182,6 +182,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingResult> BackendHttpSettings;
         /// <summary>
+        /// One or more `Backend` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendResult> Backends;
+        /// <summary>
         /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayCustomErrorConfigurationResult> CustomErrorConfigurations;
@@ -230,6 +234,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayIdentityResult> Identities;
         /// <summary>
+        /// One or more `Listener` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayListenerResult> Listeners;
+        /// <summary>
         /// The Azure region where the Application Gateway exists.
         /// </summary>
         public readonly string Location;
@@ -259,6 +267,10 @@ namespace Pulumi.Azure.Network
         /// One or more `RewriteRuleSet` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayRewriteRuleSetResult> RewriteRuleSets;
+        /// <summary>
+        /// One or more `RoutingRule` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayRoutingRuleResult> RoutingRules;
         /// <summary>
         /// A `Sku` block as defined below.
         /// </summary>
@@ -310,6 +322,8 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingResult> backendHttpSettings,
 
+            ImmutableArray<Outputs.GetApplicationGatewayBackendResult> backends,
+
             ImmutableArray<Outputs.GetApplicationGatewayCustomErrorConfigurationResult> customErrorConfigurations,
 
             bool fipsEnabled,
@@ -334,6 +348,8 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<Outputs.GetApplicationGatewayIdentityResult> identities,
 
+            ImmutableArray<Outputs.GetApplicationGatewayListenerResult> listeners,
+
             string location,
 
             string name,
@@ -351,6 +367,8 @@ namespace Pulumi.Azure.Network
             string resourceGroupName,
 
             ImmutableArray<Outputs.GetApplicationGatewayRewriteRuleSetResult> rewriteRuleSets,
+
+            ImmutableArray<Outputs.GetApplicationGatewayRoutingRuleResult> routingRules,
 
             ImmutableArray<Outputs.GetApplicationGatewaySkusResult> skus,
 
@@ -376,6 +394,7 @@ namespace Pulumi.Azure.Network
             AutoscaleConfigurations = autoscaleConfigurations;
             BackendAddressPools = backendAddressPools;
             BackendHttpSettings = backendHttpSettings;
+            Backends = backends;
             CustomErrorConfigurations = customErrorConfigurations;
             FipsEnabled = fipsEnabled;
             FirewallPolicyId = firewallPolicyId;
@@ -388,6 +407,7 @@ namespace Pulumi.Azure.Network
             HttpListeners = httpListeners;
             Id = id;
             Identities = identities;
+            Listeners = listeners;
             Location = location;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
@@ -397,6 +417,7 @@ namespace Pulumi.Azure.Network
             RequestRoutingRules = requestRoutingRules;
             ResourceGroupName = resourceGroupName;
             RewriteRuleSets = rewriteRuleSets;
+            RoutingRules = routingRules;
             Skus = skus;
             SslCertificates = sslCertificates;
             SslPolicies = sslPolicies;

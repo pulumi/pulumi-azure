@@ -12,6 +12,7 @@ from .environment import *
 from .environment_certificate import *
 from .environment_custom_domain import *
 from .environment_dapr_component import *
+from .environment_managed_certificate import *
 from .environment_storage import *
 from .get_app import *
 from .get_environment import *

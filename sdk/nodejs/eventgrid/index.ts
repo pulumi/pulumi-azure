@@ -55,6 +55,11 @@ export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
 utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
+export { NamespaceTopicArgs, NamespaceTopicState } from "./namespaceTopic";
+export type NamespaceTopic = import("./namespaceTopic").NamespaceTopic;
+export const NamespaceTopic: typeof import("./namespaceTopic").NamespaceTopic = null as any;
+utilities.lazyLoad(exports, ["NamespaceTopic"], () => require("./namespaceTopic"));
+
 export { PartnerConfigurationArgs, PartnerConfigurationState } from "./partnerConfiguration";
 export type PartnerConfiguration = import("./partnerConfiguration").PartnerConfiguration;
 export const PartnerConfiguration: typeof import("./partnerConfiguration").PartnerConfiguration = null as any;
@@ -99,6 +104,8 @@ const _module = {
                 return new EventSubscription(name, <any>undefined, { urn })
             case "azure:eventgrid/namespace:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "azure:eventgrid/namespaceTopic:NamespaceTopic":
+                return new NamespaceTopic(name, <any>undefined, { urn })
             case "azure:eventgrid/partnerConfiguration:PartnerConfiguration":
                 return new PartnerConfiguration(name, <any>undefined, { urn })
             case "azure:eventgrid/partnerNamespace:PartnerNamespace":
@@ -120,6 +127,7 @@ pulumi.runtime.registerResourceModule("azure", "eventgrid/domain", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/domainTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/namespace", _module)
+pulumi.runtime.registerResourceModule("azure", "eventgrid/namespaceTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/partnerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/partnerNamespace", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/partnerRegistration", _module)

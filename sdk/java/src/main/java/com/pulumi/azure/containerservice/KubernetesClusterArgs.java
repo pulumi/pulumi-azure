@@ -687,14 +687,18 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * 
+     * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
      */
     @Import(name="oidcIssuerEnabled")
     private @Nullable Output<Boolean> oidcIssuerEnabled;
 
     /**
-     * @return Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * 
+     * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> oidcIssuerEnabled() {
@@ -2108,7 +2112,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param oidcIssuerEnabled Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+         * 
+         * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2119,7 +2125,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param oidcIssuerEnabled Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+         * 
+         * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterNetworkProfile
     {
         /// <summary>
-        /// An `AdvancedNetworking` block as defined below. This can only be specified when `NetworkPlugin` is set to `Azure` and `NetworkDataPlane` is set to `Cilium`.
+        /// An `AdvancedNetworking` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterNetworkProfileAdvancedNetworking? AdvancedNetworking;
         /// <summary>

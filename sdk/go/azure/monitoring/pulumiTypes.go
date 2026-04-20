@@ -16568,6 +16568,8 @@ type ScheduledQueryRulesAlertV2Action struct {
 	ActionGroups []string `pulumi:"actionGroups"`
 	// Specifies the properties of an alert payload.
 	CustomProperties map[string]string `pulumi:"customProperties"`
+	// Custom subject override for all email ids in Azure action group.
+	EmailSubject *string `pulumi:"emailSubject"`
 }
 
 // ScheduledQueryRulesAlertV2ActionInput is an input type that accepts ScheduledQueryRulesAlertV2ActionArgs and ScheduledQueryRulesAlertV2ActionOutput values.
@@ -16586,6 +16588,8 @@ type ScheduledQueryRulesAlertV2ActionArgs struct {
 	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
 	// Specifies the properties of an alert payload.
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
+	// Custom subject override for all email ids in Azure action group.
+	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
 }
 
 func (ScheduledQueryRulesAlertV2ActionArgs) ElementType() reflect.Type {
@@ -16675,6 +16679,11 @@ func (o ScheduledQueryRulesAlertV2ActionOutput) CustomProperties() pulumi.String
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Action) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
+// Custom subject override for all email ids in Azure action group.
+func (o ScheduledQueryRulesAlertV2ActionOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Action) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
+}
+
 type ScheduledQueryRulesAlertV2ActionPtrOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertV2ActionPtrOutput) ElementType() reflect.Type {
@@ -16717,6 +16726,16 @@ func (o ScheduledQueryRulesAlertV2ActionPtrOutput) CustomProperties() pulumi.Str
 		}
 		return v.CustomProperties
 	}).(pulumi.StringMapOutput)
+}
+
+// Custom subject override for all email ids in Azure action group.
+func (o ScheduledQueryRulesAlertV2ActionPtrOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubject
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduledQueryRulesAlertV2Criteria struct {

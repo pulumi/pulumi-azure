@@ -15,6 +15,11 @@ import java.util.Objects;
 public final class GetAppTemplateCustomScaleRule {
     private List<GetAppTemplateCustomScaleRuleAuthentication> authentications;
     private String customRuleType;
+    /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    private String identityId;
     private Map<String,String> metadata;
     /**
      * @return The name of the Container App.
@@ -28,6 +33,13 @@ public final class GetAppTemplateCustomScaleRule {
     }
     public String customRuleType() {
         return this.customRuleType;
+    }
+    /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    public String identityId() {
+        return this.identityId;
     }
     public Map<String,String> metadata() {
         return this.metadata;
@@ -51,6 +63,7 @@ public final class GetAppTemplateCustomScaleRule {
     public static final class Builder {
         private List<GetAppTemplateCustomScaleRuleAuthentication> authentications;
         private String customRuleType;
+        private String identityId;
         private Map<String,String> metadata;
         private String name;
         public Builder() {}
@@ -58,6 +71,7 @@ public final class GetAppTemplateCustomScaleRule {
     	      Objects.requireNonNull(defaults);
     	      this.authentications = defaults.authentications;
     	      this.customRuleType = defaults.customRuleType;
+    	      this.identityId = defaults.identityId;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
         }
@@ -82,6 +96,14 @@ public final class GetAppTemplateCustomScaleRule {
             return this;
         }
         @CustomType.Setter
+        public Builder identityId(String identityId) {
+            if (identityId == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateCustomScaleRule", "identityId");
+            }
+            this.identityId = identityId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
             if (metadata == null) {
               throw new MissingRequiredPropertyException("GetAppTemplateCustomScaleRule", "metadata");
@@ -101,6 +123,7 @@ public final class GetAppTemplateCustomScaleRule {
             final var _resultValue = new GetAppTemplateCustomScaleRule();
             _resultValue.authentications = authentications;
             _resultValue.customRuleType = customRuleType;
+            _resultValue.identityId = identityId;
             _resultValue.metadata = metadata;
             _resultValue.name = name;
             return _resultValue;

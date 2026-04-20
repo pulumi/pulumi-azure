@@ -62,6 +62,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .sku("F0")
  *             .microsoftAppId(current.clientId())
+ *             .microsoftAppType("SingleTenant")
+ *             .microsoftAppTenantId(current.tenantId())
  *             .build());
  * 
  *     }
@@ -227,6 +229,52 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      */
     public Output<String> microsoftAppId() {
         return this.microsoftAppId;
+    }
+    /**
+     * The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="microsoftAppTenantId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> microsoftAppTenantId;
+
+    /**
+     * @return The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> microsoftAppTenantId() {
+        return Codegen.optional(this.microsoftAppTenantId);
+    }
+    /**
+     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+     * 
+     */
+    @Export(name="microsoftAppType", refs={String.class}, tree="[0]")
+    private Output<String> microsoftAppType;
+
+    /**
+     * @return The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+     * 
+     */
+    public Output<String> microsoftAppType() {
+        return this.microsoftAppType;
+    }
+    /**
+     * The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="microsoftAppUserAssignedIdentityId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> microsoftAppUserAssignedIdentityId;
+
+    /**
+     * @return The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> microsoftAppUserAssignedIdentityId() {
+        return Codegen.optional(this.microsoftAppUserAssignedIdentityId);
     }
     /**
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.

@@ -103,7 +103,7 @@ func GetAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getAccountSAS.
 type GetAccountSASArgs struct {
-	// The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `storage.Account` resource.
+	// The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `storage.Account` resource.
 	ConnectionString string `pulumi:"connectionString"`
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	//
@@ -114,7 +114,7 @@ type GetAccountSASArgs struct {
 	// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
 	IpAddresses *string `pulumi:"ipAddresses"`
 	// A `permissions` block as defined below.
-	Permissions GetAccountSASPermissions `pulumi:"permissions"`
+	Permissions *GetAccountSASPermissions `pulumi:"permissions"`
 	// A `resourceTypes` block as defined below.
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// A `services` block as defined below.
@@ -133,7 +133,7 @@ type GetAccountSASResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id            string                     `pulumi:"id"`
 	IpAddresses   *string                    `pulumi:"ipAddresses"`
-	Permissions   GetAccountSASPermissions   `pulumi:"permissions"`
+	Permissions   *GetAccountSASPermissions  `pulumi:"permissions"`
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// The computed Account Shared Access Signature (SAS).
 	Sas           string                `pulumi:"sas"`
@@ -153,7 +153,7 @@ func GetAccountSASOutput(ctx *pulumi.Context, args GetAccountSASOutputArgs, opts
 
 // A collection of arguments for invoking getAccountSAS.
 type GetAccountSASOutputArgs struct {
-	// The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `storage.Account` resource.
+	// The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `storage.Account` resource.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	//
@@ -164,7 +164,7 @@ type GetAccountSASOutputArgs struct {
 	// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
 	IpAddresses pulumi.StringPtrInput `pulumi:"ipAddresses"`
 	// A `permissions` block as defined below.
-	Permissions GetAccountSASPermissionsInput `pulumi:"permissions"`
+	Permissions GetAccountSASPermissionsPtrInput `pulumi:"permissions"`
 	// A `resourceTypes` block as defined below.
 	ResourceTypes GetAccountSASResourceTypesInput `pulumi:"resourceTypes"`
 	// A `services` block as defined below.
@@ -215,8 +215,8 @@ func (o GetAccountSASResultOutput) IpAddresses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAccountSASResult) *string { return v.IpAddresses }).(pulumi.StringPtrOutput)
 }
 
-func (o GetAccountSASResultOutput) Permissions() GetAccountSASPermissionsOutput {
-	return o.ApplyT(func(v GetAccountSASResult) GetAccountSASPermissions { return v.Permissions }).(GetAccountSASPermissionsOutput)
+func (o GetAccountSASResultOutput) Permissions() GetAccountSASPermissionsPtrOutput {
+	return o.ApplyT(func(v GetAccountSASResult) *GetAccountSASPermissions { return v.Permissions }).(GetAccountSASPermissionsPtrOutput)
 }
 
 func (o GetAccountSASResultOutput) ResourceTypes() GetAccountSASResourceTypesOutput {

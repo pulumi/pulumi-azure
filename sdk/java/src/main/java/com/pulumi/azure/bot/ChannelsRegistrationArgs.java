@@ -177,6 +177,55 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="microsoftAppTenantId")
+    private @Nullable Output<String> microsoftAppTenantId;
+
+    /**
+     * @return The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> microsoftAppTenantId() {
+        return Optional.ofNullable(this.microsoftAppTenantId);
+    }
+
+    /**
+     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+     * 
+     */
+    @Import(name="microsoftAppType")
+    private @Nullable Output<String> microsoftAppType;
+
+    /**
+     * @return The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+     * 
+     */
+    public Optional<Output<String>> microsoftAppType() {
+        return Optional.ofNullable(this.microsoftAppType);
+    }
+
+    /**
+     * The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="microsoftAppUserAssignedIdentityId")
+    private @Nullable Output<String> microsoftAppUserAssignedIdentityId;
+
+    /**
+     * @return The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> microsoftAppUserAssignedIdentityId() {
+        return Optional.ofNullable(this.microsoftAppUserAssignedIdentityId);
+    }
+
+    /**
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
@@ -279,6 +328,9 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
         this.iconUrl = $.iconUrl;
         this.location = $.location;
         this.microsoftAppId = $.microsoftAppId;
+        this.microsoftAppTenantId = $.microsoftAppTenantId;
+        this.microsoftAppType = $.microsoftAppType;
+        this.microsoftAppUserAssignedIdentityId = $.microsoftAppUserAssignedIdentityId;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
@@ -521,6 +573,73 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
          */
         public Builder microsoftAppId(String microsoftAppId) {
             return microsoftAppId(Output.of(microsoftAppId));
+        }
+
+        /**
+         * @param microsoftAppTenantId The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppTenantId(@Nullable Output<String> microsoftAppTenantId) {
+            $.microsoftAppTenantId = microsoftAppTenantId;
+            return this;
+        }
+
+        /**
+         * @param microsoftAppTenantId The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppTenantId(String microsoftAppTenantId) {
+            return microsoftAppTenantId(Output.of(microsoftAppTenantId));
+        }
+
+        /**
+         * @param microsoftAppType The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppType(@Nullable Output<String> microsoftAppType) {
+            $.microsoftAppType = microsoftAppType;
+            return this;
+        }
+
+        /**
+         * @param microsoftAppType The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppType(String microsoftAppType) {
+            return microsoftAppType(Output.of(microsoftAppType));
+        }
+
+        /**
+         * @param microsoftAppUserAssignedIdentityId The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppUserAssignedIdentityId(@Nullable Output<String> microsoftAppUserAssignedIdentityId) {
+            $.microsoftAppUserAssignedIdentityId = microsoftAppUserAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param microsoftAppUserAssignedIdentityId The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder microsoftAppUserAssignedIdentityId(String microsoftAppUserAssignedIdentityId) {
+            return microsoftAppUserAssignedIdentityId(Output.of(microsoftAppUserAssignedIdentityId));
         }
 
         /**

@@ -19,6 +19,8 @@ __all__ = [
     'ApplicationGatewayAuthenticationCertificateArgsDict',
     'ApplicationGatewayAutoscaleConfigurationArgs',
     'ApplicationGatewayAutoscaleConfigurationArgsDict',
+    'ApplicationGatewayBackendArgs',
+    'ApplicationGatewayBackendArgsDict',
     'ApplicationGatewayBackendAddressPoolArgs',
     'ApplicationGatewayBackendAddressPoolArgsDict',
     'ApplicationGatewayBackendHttpSettingArgs',
@@ -43,6 +45,8 @@ __all__ = [
     'ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict',
     'ApplicationGatewayIdentityArgs',
     'ApplicationGatewayIdentityArgsDict',
+    'ApplicationGatewayListenerArgs',
+    'ApplicationGatewayListenerArgsDict',
     'ApplicationGatewayPrivateEndpointConnectionArgs',
     'ApplicationGatewayPrivateEndpointConnectionArgsDict',
     'ApplicationGatewayPrivateLinkConfigurationArgs',
@@ -69,6 +73,8 @@ __all__ = [
     'ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict',
     'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs',
     'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict',
+    'ApplicationGatewayRoutingRuleArgs',
+    'ApplicationGatewayRoutingRuleArgsDict',
     'ApplicationGatewaySkuArgs',
     'ApplicationGatewaySkuArgsDict',
     'ApplicationGatewaySslCertificateArgs',
@@ -482,6 +488,212 @@ class ApplicationGatewayAutoscaleConfigurationArgs:
     @max_capacity.setter
     def max_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_capacity", value)
+
+
+class ApplicationGatewayBackendArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Backend Settings Collection.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port which should be used for this Backend Settings Collection.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol which should be used. Possible values are `Tcp` and `Tls`.
+    """
+    client_ip_preservation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
+    """
+    host_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    probe_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Probe.
+    """
+    probe_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an associated Probe.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
+    """
+    trusted_root_certificate_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of `trusted_root_certificate` names.
+    """
+
+@pulumi.input_type
+class ApplicationGatewayBackendArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[_builtins.str],
+                 client_ip_preservation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 probe_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 probe_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 trusted_root_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the Backend Settings Collection.
+        :param pulumi.Input[_builtins.int] port: The port which should be used for this Backend Settings Collection.
+        :param pulumi.Input[_builtins.str] protocol: The Protocol which should be used. Possible values are `Tcp` and `Tls`.
+        :param pulumi.Input[_builtins.bool] client_ip_preservation_enabled: Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] host_name: Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
+        :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[_builtins.str] probe_id: The ID of the associated Probe.
+        :param pulumi.Input[_builtins.str] probe_name: The name of an associated Probe.
+        :param pulumi.Input[_builtins.int] timeout_in_seconds: The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        if client_ip_preservation_enabled is not None:
+            pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if probe_id is not None:
+            pulumi.set(__self__, "probe_id", probe_id)
+        if probe_name is not None:
+            pulumi.set(__self__, "probe_name", probe_name)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if trusted_root_certificate_names is not None:
+            pulumi.set(__self__, "trusted_root_certificate_names", trusted_root_certificate_names)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Backend Settings Collection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The port which should be used for this Backend Settings Collection.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Protocol which should be used. Possible values are `Tcp` and `Tls`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientIpPreservationEnabled")
+    def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether client IP preservation is enabled for this Backend Settings Collection. Defaults to `false`.
+        """
+        return pulumi.get(self, "client_ip_preservation_enabled")
+
+    @client_ip_preservation_enabled.setter
+    def client_ip_preservation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "client_ip_preservation_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Host header to be sent to the backend servers. Can only be set when `protocol` is `Tls`.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "host_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Rewrite Rule Set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="probeId")
+    def probe_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated Probe.
+        """
+        return pulumi.get(self, "probe_id")
+
+    @probe_id.setter
+    def probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "probe_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="probeName")
+    def probe_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of an associated Probe.
+        """
+        return pulumi.get(self, "probe_name")
+
+    @probe_name.setter
+    def probe_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "probe_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The connection timeout in seconds. Possible values range between `1` and `86400`. Defaults to `30`.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustedRootCertificateNames")
+    def trusted_root_certificate_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of `trusted_root_certificate` names.
+        """
+        return pulumi.get(self, "trusted_root_certificate_names")
+
+    @trusted_root_certificate_names.setter
+    def trusted_root_certificate_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "trusted_root_certificate_names", value)
 
 
 class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
@@ -1880,6 +2092,263 @@ class ApplicationGatewayIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+class ApplicationGatewayListenerArgsDict(TypedDict):
+    frontend_ip_configuration_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Frontend IP Configuration used for this Listener.
+    """
+    frontend_port_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Frontend Port use for this Listener.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Listener.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
+    """
+    frontend_ip_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Frontend Configuration.
+    """
+    frontend_port_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Frontend Port.
+    """
+    host_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
+
+    > **Note:** `host_names` cannot be set when `protocol` is set to `Tcp`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    ssl_certificate_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated SSL Certificate.
+    """
+    ssl_certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the associated SSL Certificate which should be used for this Listener.
+
+    > **Note:** `ssl_certificate_name` must be set when `protocol` is set to `Tls`.
+    """
+    ssl_profile_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated SSL Profile.
+    """
+    ssl_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the associated SSL Profile which should be used for this Listener.
+    """
+
+@pulumi.input_type
+class ApplicationGatewayListenerArgs:
+    def __init__(__self__, *,
+                 frontend_ip_configuration_name: pulumi.Input[_builtins.str],
+                 frontend_port_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 protocol: pulumi.Input[_builtins.str],
+                 frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 frontend_port_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ssl_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ssl_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ssl_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ssl_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The Name of the Frontend IP Configuration used for this Listener.
+        :param pulumi.Input[_builtins.str] frontend_port_name: The Name of the Frontend Port use for this Listener.
+        :param pulumi.Input[_builtins.str] name: The Name of the Listener.
+        :param pulumi.Input[_builtins.str] protocol: The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
+        :param pulumi.Input[_builtins.str] frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
+        :param pulumi.Input[_builtins.str] frontend_port_id: The ID of the associated Frontend Port.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_names: A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
+               
+               > **Note:** `host_names` cannot be set when `protocol` is set to `Tcp`.
+        :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[_builtins.str] ssl_certificate_id: The ID of the associated SSL Certificate.
+        :param pulumi.Input[_builtins.str] ssl_certificate_name: The name of the associated SSL Certificate which should be used for this Listener.
+               
+               > **Note:** `ssl_certificate_name` must be set when `protocol` is set to `Tls`.
+        :param pulumi.Input[_builtins.str] ssl_profile_id: The ID of the associated SSL Profile.
+        :param pulumi.Input[_builtins.str] ssl_profile_name: The name of the associated SSL Profile which should be used for this Listener.
+        """
+        pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
+        pulumi.set(__self__, "frontend_port_name", frontend_port_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocol", protocol)
+        if frontend_ip_configuration_id is not None:
+            pulumi.set(__self__, "frontend_ip_configuration_id", frontend_ip_configuration_id)
+        if frontend_port_id is not None:
+            pulumi.set(__self__, "frontend_port_id", frontend_port_id)
+        if host_names is not None:
+            pulumi.set(__self__, "host_names", host_names)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ssl_certificate_id is not None:
+            pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
+        if ssl_certificate_name is not None:
+            pulumi.set(__self__, "ssl_certificate_name", ssl_certificate_name)
+        if ssl_profile_id is not None:
+            pulumi.set(__self__, "ssl_profile_id", ssl_profile_id)
+        if ssl_profile_name is not None:
+            pulumi.set(__self__, "ssl_profile_name", ssl_profile_name)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIpConfigurationName")
+    def frontend_ip_configuration_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Name of the Frontend IP Configuration used for this Listener.
+        """
+        return pulumi.get(self, "frontend_ip_configuration_name")
+
+    @frontend_ip_configuration_name.setter
+    def frontend_ip_configuration_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "frontend_ip_configuration_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPortName")
+    def frontend_port_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Name of the Frontend Port use for this Listener.
+        """
+        return pulumi.get(self, "frontend_port_name")
+
+    @frontend_port_name.setter
+    def frontend_port_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "frontend_port_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Name of the Listener.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Protocol to use for this Listener. Possible values are `Tcp`, and `Tls`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIpConfigurationId")
+    def frontend_ip_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated Frontend Configuration.
+        """
+        return pulumi.get(self, "frontend_ip_configuration_id")
+
+    @frontend_ip_configuration_id.setter
+    def frontend_ip_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "frontend_ip_configuration_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPortId")
+    def frontend_port_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated Frontend Port.
+        """
+        return pulumi.get(self, "frontend_port_id")
+
+    @frontend_port_id.setter
+    def frontend_port_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "frontend_port_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of Hostname(s) should be used for this Listener. It allows special wildcard characters.
+
+        > **Note:** `host_names` cannot be set when `protocol` is set to `Tcp`.
+        """
+        return pulumi.get(self, "host_names")
+
+    @host_names.setter
+    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "host_names", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Rewrite Rule Set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslCertificateId")
+    def ssl_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated SSL Certificate.
+        """
+        return pulumi.get(self, "ssl_certificate_id")
+
+    @ssl_certificate_id.setter
+    def ssl_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ssl_certificate_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslCertificateName")
+    def ssl_certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the associated SSL Certificate which should be used for this Listener.
+
+        > **Note:** `ssl_certificate_name` must be set when `protocol` is set to `Tls`.
+        """
+        return pulumi.get(self, "ssl_certificate_name")
+
+    @ssl_certificate_name.setter
+    def ssl_certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ssl_certificate_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslProfileId")
+    def ssl_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated SSL Profile.
+        """
+        return pulumi.get(self, "ssl_profile_id")
+
+    @ssl_profile_id.setter
+    def ssl_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ssl_profile_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslProfileName")
+    def ssl_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the associated SSL Profile which should be used for this Listener.
+        """
+        return pulumi.get(self, "ssl_profile_name")
+
+    @ssl_profile_name.setter
+    def ssl_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ssl_profile_name", value)
+
+
 class ApplicationGatewayPrivateEndpointConnectionArgsDict(TypedDict):
     id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -2122,31 +2591,31 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
 class ApplicationGatewayProbeArgsDict(TypedDict):
     interval: pulumi.Input[_builtins.int]
     """
-    The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+    The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
     """
     name: pulumi.Input[_builtins.str]
     """
-    The Name of the Probe.
-    """
-    path: pulumi.Input[_builtins.str]
-    """
-    The Path used for this Probe.
+    The name of the Probe.
     """
     protocol: pulumi.Input[_builtins.str]
     """
-    The Protocol used for this Probe. Possible values are `Http` and `Https`.
+    The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
     """
     timeout: pulumi.Input[_builtins.int]
     """
-    The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+    The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+
+    > **Note:** The `timeout` value should not be greater than the `interval` value.
     """
     unhealthy_threshold: pulumi.Input[_builtins.int]
     """
-    The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+    The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
     """
     host: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+    The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+
+    > **Note:** Exactly one of `host` or `pick_host_name_from_backend_http_settings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
     """
     id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -2155,18 +2624,36 @@ class ApplicationGatewayProbeArgsDict(TypedDict):
     match: NotRequired[pulumi.Input['ApplicationGatewayProbeMatchArgsDict']]
     """
     A `match` block as defined above.
+
+    > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
     """
     minimum_servers: NotRequired[pulumi.Input[_builtins.int]]
     """
     The minimum number of servers that are always marked as healthy. Defaults to `0`.
     """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relative URL path of the Probe. Valid value starts with `/`.
+
+    > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
+    """
     pick_host_name_from_backend_http_settings: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+
+    > **Note:** `pick_host_name_from_backend_http_settings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
     """
     port: NotRequired[pulumi.Input[_builtins.int]]
     """
-    Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+    Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+
+    > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
+    """
+    proxy_protocol_header_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+
+    > **Note:** `proxy_protocol_header_enabled` can only be set when `protocol` is `Tcp` or `Tls`.
     """
 
 @pulumi.input_type
@@ -2174,7 +2661,6 @@ class ApplicationGatewayProbeArgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[_builtins.int],
                  name: pulumi.Input[_builtins.str],
-                 path: pulumi.Input[_builtins.str],
                  protocol: pulumi.Input[_builtins.str],
                  timeout: pulumi.Input[_builtins.int],
                  unhealthy_threshold: pulumi.Input[_builtins.int],
@@ -2182,25 +2668,41 @@ class ApplicationGatewayProbeArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None,
                  match: Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']] = None,
                  minimum_servers: Optional[pulumi.Input[_builtins.int]] = None,
+                 path: Optional[pulumi.Input[_builtins.str]] = None,
                  pick_host_name_from_backend_http_settings: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 port: Optional[pulumi.Input[_builtins.int]] = None,
+                 proxy_protocol_header_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.int] interval: The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
-        :param pulumi.Input[_builtins.str] name: The Name of the Probe.
-        :param pulumi.Input[_builtins.str] path: The Path used for this Probe.
-        :param pulumi.Input[_builtins.str] protocol: The Protocol used for this Probe. Possible values are `Http` and `Https`.
-        :param pulumi.Input[_builtins.int] timeout: The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
-        :param pulumi.Input[_builtins.int] unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
-        :param pulumi.Input[_builtins.str] host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        :param pulumi.Input[_builtins.int] interval: The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
+        :param pulumi.Input[_builtins.str] name: The name of the Probe.
+        :param pulumi.Input[_builtins.str] protocol: The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
+        :param pulumi.Input[_builtins.int] timeout: The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+               
+               > **Note:** The `timeout` value should not be greater than the `interval` value.
+        :param pulumi.Input[_builtins.int] unhealthy_threshold: The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
+        :param pulumi.Input[_builtins.str] host: The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+               
+               > **Note:** Exactly one of `host` or `pick_host_name_from_backend_http_settings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input['ApplicationGatewayProbeMatchArgs'] match: A `match` block as defined above.
+               
+               > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
         :param pulumi.Input[_builtins.int] minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
+        :param pulumi.Input[_builtins.str] path: The relative URL path of the Probe. Valid value starts with `/`.
+               
+               > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
         :param pulumi.Input[_builtins.bool] pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
-        :param pulumi.Input[_builtins.int] port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+               
+               > **Note:** `pick_host_name_from_backend_http_settings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
+        :param pulumi.Input[_builtins.int] port: Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+               
+               > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
+        :param pulumi.Input[_builtins.bool] proxy_protocol_header_enabled: Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+               
+               > **Note:** `proxy_protocol_header_enabled` can only be set when `protocol` is `Tcp` or `Tls`.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "timeout", timeout)
         pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
@@ -2212,16 +2714,20 @@ class ApplicationGatewayProbeArgs:
             pulumi.set(__self__, "match", match)
         if minimum_servers is not None:
             pulumi.set(__self__, "minimum_servers", minimum_servers)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if pick_host_name_from_backend_http_settings is not None:
             pulumi.set(__self__, "pick_host_name_from_backend_http_settings", pick_host_name_from_backend_http_settings)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if proxy_protocol_header_enabled is not None:
+            pulumi.set(__self__, "proxy_protocol_header_enabled", proxy_protocol_header_enabled)
 
     @_builtins.property
     @pulumi.getter
     def interval(self) -> pulumi.Input[_builtins.int]:
         """
-        The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+        The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
         """
         return pulumi.get(self, "interval")
 
@@ -2233,7 +2739,7 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The Name of the Probe.
+        The name of the Probe.
         """
         return pulumi.get(self, "name")
 
@@ -2243,21 +2749,9 @@ class ApplicationGatewayProbeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Path used for this Probe.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "path", value)
-
-    @_builtins.property
-    @pulumi.getter
     def protocol(self) -> pulumi.Input[_builtins.str]:
         """
-        The Protocol used for this Probe. Possible values are `Http` and `Https`.
+        The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
         """
         return pulumi.get(self, "protocol")
 
@@ -2269,7 +2763,9 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter
     def timeout(self) -> pulumi.Input[_builtins.int]:
         """
-        The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+        The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+
+        > **Note:** The `timeout` value should not be greater than the `interval` value.
         """
         return pulumi.get(self, "timeout")
 
@@ -2281,7 +2777,7 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> pulumi.Input[_builtins.int]:
         """
-        The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+        The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
@@ -2293,7 +2789,9 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+
+        > **Note:** Exactly one of `host` or `pick_host_name_from_backend_http_settings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
         """
         return pulumi.get(self, "host")
 
@@ -2318,6 +2816,8 @@ class ApplicationGatewayProbeArgs:
     def match(self) -> Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']]:
         """
         A `match` block as defined above.
+
+        > **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
         """
         return pulumi.get(self, "match")
 
@@ -2338,10 +2838,26 @@ class ApplicationGatewayProbeArgs:
         pulumi.set(self, "minimum_servers", value)
 
     @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The relative URL path of the Probe. Valid value starts with `/`.
+
+        > **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
     @pulumi.getter(name="pickHostNameFromBackendHttpSettings")
     def pick_host_name_from_backend_http_settings(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+
+        > **Note:** `pick_host_name_from_backend_http_settings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
         """
         return pulumi.get(self, "pick_host_name_from_backend_http_settings")
 
@@ -2353,13 +2869,29 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+        Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+
+        > **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
         """
         return pulumi.get(self, "port")
 
     @port.setter
     def port(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="proxyProtocolHeaderEnabled")
+    def proxy_protocol_header_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+
+        > **Note:** `proxy_protocol_header_enabled` can only be set when `protocol` is `Tcp` or `Tls`.
+        """
+        return pulumi.get(self, "proxy_protocol_header_enabled")
+
+    @proxy_protocol_header_enabled.setter
+    def proxy_protocol_header_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "proxy_protocol_header_enabled", value)
 
 
 class ApplicationGatewayProbeMatchArgsDict(TypedDict):
@@ -3377,6 +3909,190 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
     @reroute.setter
     def reroute(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "reroute", value)
+
+
+class ApplicationGatewayRoutingRuleArgsDict(TypedDict):
+    backend_address_pool_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Backend Address Pool which should be used for this Routing Rule.
+    """
+    backend_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Backend Settings which should be used for this Routing Rule.
+    """
+    listener_name: pulumi.Input[_builtins.str]
+    """
+    The Name of the Listener which should be used for this Routing Rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The Name of this Routing Rule.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
+    """
+    backend_address_pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Backend Address Pool.
+    """
+    backend_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Backend Settings.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the Rewrite Rule Set
+    """
+    listener_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the associated Listener.
+    """
+
+@pulumi.input_type
+class ApplicationGatewayRoutingRuleArgs:
+    def __init__(__self__, *,
+                 backend_address_pool_name: pulumi.Input[_builtins.str],
+                 backend_name: pulumi.Input[_builtins.str],
+                 listener_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 priority: pulumi.Input[_builtins.int],
+                 backend_address_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 backend_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 listener_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] backend_address_pool_name: The Name of the Backend Address Pool which should be used for this Routing Rule.
+        :param pulumi.Input[_builtins.str] backend_name: The Name of the Backend Settings which should be used for this Routing Rule.
+        :param pulumi.Input[_builtins.str] listener_name: The Name of the Listener which should be used for this Routing Rule.
+        :param pulumi.Input[_builtins.str] name: The Name of this Routing Rule.
+        :param pulumi.Input[_builtins.int] priority: The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
+        :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the associated Backend Address Pool.
+        :param pulumi.Input[_builtins.str] backend_id: The ID of the associated Backend Settings.
+        :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[_builtins.str] listener_id: The ID of the associated Listener.
+        """
+        pulumi.set(__self__, "backend_address_pool_name", backend_address_pool_name)
+        pulumi.set(__self__, "backend_name", backend_name)
+        pulumi.set(__self__, "listener_name", listener_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        if backend_address_pool_id is not None:
+            pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+        if backend_id is not None:
+            pulumi.set(__self__, "backend_id", backend_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if listener_id is not None:
+            pulumi.set(__self__, "listener_id", listener_id)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPoolName")
+    def backend_address_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Name of the Backend Address Pool which should be used for this Routing Rule.
+        """
+        return pulumi.get(self, "backend_address_pool_name")
+
+    @backend_address_pool_name.setter
+    def backend_address_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backend_address_pool_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendName")
+    def backend_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Name of the Backend Settings which should be used for this Routing Rule.
+        """
+        return pulumi.get(self, "backend_name")
+
+    @backend_name.setter
+    def backend_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "backend_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listenerName")
+    def listener_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Name of the Listener which should be used for this Routing Rule.
+        """
+        return pulumi.get(self, "listener_name")
+
+    @listener_name.setter
+    def listener_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "listener_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Name of this Routing Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[_builtins.int]:
+        """
+        The routing rule priority, indicating the order in which rules are evaluated. Possible values range between `1` and `20000`, with `1` being the highest priority and `20000` being the lowest priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPoolId")
+    def backend_address_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated Backend Address Pool.
+        """
+        return pulumi.get(self, "backend_address_pool_id")
+
+    @backend_address_pool_id.setter
+    def backend_address_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "backend_address_pool_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendId")
+    def backend_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated Backend Settings.
+        """
+        return pulumi.get(self, "backend_id")
+
+    @backend_id.setter
+    def backend_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "backend_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Rewrite Rule Set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listenerId")
+    def listener_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the associated Listener.
+        """
+        return pulumi.get(self, "listener_id")
+
+    @listener_id.setter
+    def listener_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "listener_id", value)
 
 
 class ApplicationGatewaySkuArgsDict(TypedDict):

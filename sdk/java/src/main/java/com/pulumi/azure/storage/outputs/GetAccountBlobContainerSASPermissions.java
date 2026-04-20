@@ -4,9 +4,10 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountBlobContainerSASPermissions {
@@ -14,81 +15,175 @@ public final class GetAccountBlobContainerSASPermissions {
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    private Boolean add;
+    private @Nullable Boolean add;
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    private Boolean create;
+    private @Nullable Boolean create;
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    private Boolean delete;
+    private @Nullable Boolean delete;
+    /**
+     * @return Should Delete version permissions be enabled for this SAS?
+     * 
+     */
+    private @Nullable Boolean deleteVersion;
+    /**
+     * @return Should Execute permissions be enabled for this SAS?
+     * 
+     */
+    private @Nullable Boolean execute;
+    /**
+     * @return Should Find permissions be enabled for this SAS?
+     * 
+     */
+    private @Nullable Boolean find;
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-     * for additional details on the fields above.
+     */
+    private @Nullable Boolean list;
+    /**
+     * @return Should Move permissions be enabled for this SAS?
      * 
      */
-    private Boolean list;
+    private @Nullable Boolean move;
+    /**
+     * @return Should Ownership permissions be enabled for this SAS?
+     * 
+     */
+    private @Nullable Boolean ownership;
+    /**
+     * @return Should Permissions permissions be enabled for this SAS?
+     * 
+     */
+    private @Nullable Boolean permissions;
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    private Boolean read;
+    private @Nullable Boolean read;
+    /**
+     * @return Should Set Immutability Policy permissions be enabled for this SAS?
+     * 
+     */
+    private @Nullable Boolean setImmutabilityPolicy;
+    /**
+     * @return Should Tags permissions be enabled for this SAS?
+     * 
+     */
+    private @Nullable Boolean tags;
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+     * 
      */
-    private Boolean write;
+    private @Nullable Boolean write;
 
     private GetAccountBlobContainerSASPermissions() {}
     /**
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    public Boolean add() {
-        return this.add;
+    public Optional<Boolean> add() {
+        return Optional.ofNullable(this.add);
     }
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    public Boolean create() {
-        return this.create;
+    public Optional<Boolean> create() {
+        return Optional.ofNullable(this.create);
     }
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    public Boolean delete() {
-        return this.delete;
+    public Optional<Boolean> delete() {
+        return Optional.ofNullable(this.delete);
+    }
+    /**
+     * @return Should Delete version permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Boolean> deleteVersion() {
+        return Optional.ofNullable(this.deleteVersion);
+    }
+    /**
+     * @return Should Execute permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Boolean> execute() {
+        return Optional.ofNullable(this.execute);
+    }
+    /**
+     * @return Should Find permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Boolean> find() {
+        return Optional.ofNullable(this.find);
     }
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-     * for additional details on the fields above.
+     */
+    public Optional<Boolean> list() {
+        return Optional.ofNullable(this.list);
+    }
+    /**
+     * @return Should Move permissions be enabled for this SAS?
      * 
      */
-    public Boolean list() {
-        return this.list;
+    public Optional<Boolean> move() {
+        return Optional.ofNullable(this.move);
+    }
+    /**
+     * @return Should Ownership permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Boolean> ownership() {
+        return Optional.ofNullable(this.ownership);
+    }
+    /**
+     * @return Should Permissions permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Boolean> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    public Boolean read() {
-        return this.read;
+    public Optional<Boolean> read() {
+        return Optional.ofNullable(this.read);
+    }
+    /**
+     * @return Should Set Immutability Policy permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Boolean> setImmutabilityPolicy() {
+        return Optional.ofNullable(this.setImmutabilityPolicy);
+    }
+    /**
+     * @return Should Tags permissions be enabled for this SAS?
+     * 
+     */
+    public Optional<Boolean> tags() {
+        return Optional.ofNullable(this.tags);
     }
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+     * 
      */
-    public Boolean write() {
-        return this.write;
+    public Optional<Boolean> write() {
+        return Optional.ofNullable(this.write);
     }
 
     public static Builder builder() {
@@ -100,68 +195,120 @@ public final class GetAccountBlobContainerSASPermissions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean add;
-        private Boolean create;
-        private Boolean delete;
-        private Boolean list;
-        private Boolean read;
-        private Boolean write;
+        private @Nullable Boolean add;
+        private @Nullable Boolean create;
+        private @Nullable Boolean delete;
+        private @Nullable Boolean deleteVersion;
+        private @Nullable Boolean execute;
+        private @Nullable Boolean find;
+        private @Nullable Boolean list;
+        private @Nullable Boolean move;
+        private @Nullable Boolean ownership;
+        private @Nullable Boolean permissions;
+        private @Nullable Boolean read;
+        private @Nullable Boolean setImmutabilityPolicy;
+        private @Nullable Boolean tags;
+        private @Nullable Boolean write;
         public Builder() {}
         public Builder(GetAccountBlobContainerSASPermissions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.add = defaults.add;
     	      this.create = defaults.create;
     	      this.delete = defaults.delete;
+    	      this.deleteVersion = defaults.deleteVersion;
+    	      this.execute = defaults.execute;
+    	      this.find = defaults.find;
     	      this.list = defaults.list;
+    	      this.move = defaults.move;
+    	      this.ownership = defaults.ownership;
+    	      this.permissions = defaults.permissions;
     	      this.read = defaults.read;
+    	      this.setImmutabilityPolicy = defaults.setImmutabilityPolicy;
+    	      this.tags = defaults.tags;
     	      this.write = defaults.write;
         }
 
         @CustomType.Setter
-        public Builder add(Boolean add) {
-            if (add == null) {
-              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "add");
-            }
+        public Builder add(@Nullable Boolean add) {
+
             this.add = add;
             return this;
         }
         @CustomType.Setter
-        public Builder create(Boolean create) {
-            if (create == null) {
-              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "create");
-            }
+        public Builder create(@Nullable Boolean create) {
+
             this.create = create;
             return this;
         }
         @CustomType.Setter
-        public Builder delete(Boolean delete) {
-            if (delete == null) {
-              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "delete");
-            }
+        public Builder delete(@Nullable Boolean delete) {
+
             this.delete = delete;
             return this;
         }
         @CustomType.Setter
-        public Builder list(Boolean list) {
-            if (list == null) {
-              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "list");
-            }
+        public Builder deleteVersion(@Nullable Boolean deleteVersion) {
+
+            this.deleteVersion = deleteVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder execute(@Nullable Boolean execute) {
+
+            this.execute = execute;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder find(@Nullable Boolean find) {
+
+            this.find = find;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder list(@Nullable Boolean list) {
+
             this.list = list;
             return this;
         }
         @CustomType.Setter
-        public Builder read(Boolean read) {
-            if (read == null) {
-              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "read");
-            }
+        public Builder move(@Nullable Boolean move) {
+
+            this.move = move;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ownership(@Nullable Boolean ownership) {
+
+            this.ownership = ownership;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder permissions(@Nullable Boolean permissions) {
+
+            this.permissions = permissions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder read(@Nullable Boolean read) {
+
             this.read = read;
             return this;
         }
         @CustomType.Setter
-        public Builder write(Boolean write) {
-            if (write == null) {
-              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "write");
-            }
+        public Builder setImmutabilityPolicy(@Nullable Boolean setImmutabilityPolicy) {
+
+            this.setImmutabilityPolicy = setImmutabilityPolicy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tags(@Nullable Boolean tags) {
+
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder write(@Nullable Boolean write) {
+
             this.write = write;
             return this;
         }
@@ -170,8 +317,16 @@ public final class GetAccountBlobContainerSASPermissions {
             _resultValue.add = add;
             _resultValue.create = create;
             _resultValue.delete = delete;
+            _resultValue.deleteVersion = deleteVersion;
+            _resultValue.execute = execute;
+            _resultValue.find = find;
             _resultValue.list = list;
+            _resultValue.move = move;
+            _resultValue.ownership = ownership;
+            _resultValue.permissions = permissions;
             _resultValue.read = read;
+            _resultValue.setImmutabilityPolicy = setImmutabilityPolicy;
+            _resultValue.tags = tags;
             _resultValue.write = write;
             return _resultValue;
         }

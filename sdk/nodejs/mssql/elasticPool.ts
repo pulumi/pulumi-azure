@@ -101,6 +101,12 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     declare public readonly enclaveType: pulumi.Output<string>;
     /**
+     * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+     *
+     * > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+     */
+    declare public readonly highAvailabilityReplicaCount: pulumi.Output<number>;
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
     declare public readonly licenseType: pulumi.Output<string>;
@@ -165,6 +171,7 @@ export class ElasticPool extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
             resourceInputs["enclaveType"] = state?.enclaveType;
+            resourceInputs["highAvailabilityReplicaCount"] = state?.highAvailabilityReplicaCount;
             resourceInputs["licenseType"] = state?.licenseType;
             resourceInputs["location"] = state?.location;
             resourceInputs["maintenanceConfigurationName"] = state?.maintenanceConfigurationName;
@@ -192,6 +199,7 @@ export class ElasticPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["enclaveType"] = args?.enclaveType;
+            resourceInputs["highAvailabilityReplicaCount"] = args?.highAvailabilityReplicaCount;
             resourceInputs["licenseType"] = args?.licenseType;
             resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceConfigurationName"] = args?.maintenanceConfigurationName;
@@ -224,6 +232,12 @@ export interface ElasticPoolState {
      * > **Note:** The default value for `enclaveType` field is unset not `Default`.
      */
     enclaveType?: pulumi.Input<string>;
+    /**
+     * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+     *
+     * > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+     */
+    highAvailabilityReplicaCount?: pulumi.Input<number>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
@@ -290,6 +304,12 @@ export interface ElasticPoolArgs {
      * > **Note:** The default value for `enclaveType` field is unset not `Default`.
      */
     enclaveType?: pulumi.Input<string>;
+    /**
+     * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+     *
+     * > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+     */
+    highAvailabilityReplicaCount?: pulumi.Input<number>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */

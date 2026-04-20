@@ -29,7 +29,7 @@ public final class GetAccountBlobContainerSASResult {
      */
     private String id;
     private @Nullable String ipAddress;
-    private GetAccountBlobContainerSASPermissions permissions;
+    private @Nullable GetAccountBlobContainerSASPermissions permissions;
     /**
      * @return The computed Blob Container Shared Access Signature (SAS). The delimiter character (&#39;?&#39;) for the query string is the prefix of `sas`.
      * 
@@ -75,8 +75,8 @@ public final class GetAccountBlobContainerSASResult {
     public Optional<String> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
-    public GetAccountBlobContainerSASPermissions permissions() {
-        return this.permissions;
+    public Optional<GetAccountBlobContainerSASPermissions> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
     /**
      * @return The computed Blob Container Shared Access Signature (SAS). The delimiter character (&#39;?&#39;) for the query string is the prefix of `sas`.
@@ -109,7 +109,7 @@ public final class GetAccountBlobContainerSASResult {
         private @Nullable Boolean httpsOnly;
         private String id;
         private @Nullable String ipAddress;
-        private GetAccountBlobContainerSASPermissions permissions;
+        private @Nullable GetAccountBlobContainerSASPermissions permissions;
         private String sas;
         private String start;
         public Builder() {}
@@ -206,10 +206,8 @@ public final class GetAccountBlobContainerSASResult {
             return this;
         }
         @CustomType.Setter
-        public Builder permissions(GetAccountBlobContainerSASPermissions permissions) {
-            if (permissions == null) {
-              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "permissions");
-            }
+        public Builder permissions(@Nullable GetAccountBlobContainerSASPermissions permissions) {
+
             this.permissions = permissions;
             return this;
         }

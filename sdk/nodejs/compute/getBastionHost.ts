@@ -87,6 +87,10 @@ export interface GetBastionHostResult {
      * The name of the IP configuration.
      */
     readonly name: string;
+    /**
+     * Whether Private-Only deployment is enabled for the Bastion Host.
+     */
+    readonly privateOnlyEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The number of scale units provisioned for the Bastion Host.

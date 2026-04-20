@@ -22,6 +22,11 @@ public final class GetElasticPoolResult {
      */
     private String enclaveType;
     /**
+     * @return Specifies the number of high availability replicas for the elastic pool.
+     * 
+     */
+    private Integer highAvailabilityReplicaCount;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -86,6 +91,13 @@ public final class GetElasticPoolResult {
      */
     public String enclaveType() {
         return this.enclaveType;
+    }
+    /**
+     * @return Specifies the number of high availability replicas for the elastic pool.
+     * 
+     */
+    public Integer highAvailabilityReplicaCount() {
+        return this.highAvailabilityReplicaCount;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -181,6 +193,7 @@ public final class GetElasticPoolResult {
     @CustomType.Builder
     public static final class Builder {
         private String enclaveType;
+        private Integer highAvailabilityReplicaCount;
         private String id;
         private String licenseType;
         private String location;
@@ -198,6 +211,7 @@ public final class GetElasticPoolResult {
         public Builder(GetElasticPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enclaveType = defaults.enclaveType;
+    	      this.highAvailabilityReplicaCount = defaults.highAvailabilityReplicaCount;
     	      this.id = defaults.id;
     	      this.licenseType = defaults.licenseType;
     	      this.location = defaults.location;
@@ -219,6 +233,14 @@ public final class GetElasticPoolResult {
               throw new MissingRequiredPropertyException("GetElasticPoolResult", "enclaveType");
             }
             this.enclaveType = enclaveType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder highAvailabilityReplicaCount(Integer highAvailabilityReplicaCount) {
+            if (highAvailabilityReplicaCount == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "highAvailabilityReplicaCount");
+            }
+            this.highAvailabilityReplicaCount = highAvailabilityReplicaCount;
             return this;
         }
         @CustomType.Setter
@@ -331,6 +353,7 @@ public final class GetElasticPoolResult {
         public GetElasticPoolResult build() {
             final var _resultValue = new GetElasticPoolResult();
             _resultValue.enclaveType = enclaveType;
+            _resultValue.highAvailabilityReplicaCount = highAvailabilityReplicaCount;
             _resultValue.id = id;
             _resultValue.licenseType = licenseType;
             _resultValue.location = location;

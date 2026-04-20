@@ -17,14 +17,14 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
     public static final ResolverInboundEndpointIpConfigurationsArgs Empty = new ResolverInboundEndpointIpConfigurationsArgs();
 
     /**
-     * Private IP address of the IP configuration.
+     * Private IP address of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return Private IP address of the IP configuration.
+     * @return Private IP address of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -32,14 +32,14 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
     }
 
     /**
-     * Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+     * Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateIpAllocationMethod")
     private @Nullable Output<String> privateIpAllocationMethod;
 
     /**
-     * @return Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+     * @return Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateIpAllocationMethod() {
@@ -47,14 +47,14 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
     }
 
     /**
-     * The subnet ID of the IP configuration.
+     * The subnet ID of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The subnet ID of the IP configuration.
+     * @return The subnet ID of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subnetId() {
@@ -88,7 +88,7 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
         }
 
         /**
-         * @param privateIpAddress Private IP address of the IP configuration.
+         * @param privateIpAddress Private IP address of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
         }
 
         /**
-         * @param privateIpAddress Private IP address of the IP configuration.
+         * @param privateIpAddress Private IP address of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
         }
 
         /**
-         * @param privateIpAllocationMethod Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+         * @param privateIpAllocationMethod Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
         }
 
         /**
-         * @param privateIpAllocationMethod Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+         * @param privateIpAllocationMethod Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
         }
 
         /**
-         * @param subnetId The subnet ID of the IP configuration.
+         * @param subnetId The subnet ID of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ResolverInboundEndpointIpConfigurationsArgs extends com.pulum
         }
 
         /**
-         * @param subnetId The subnet ID of the IP configuration.
+         * @param subnetId The subnet ID of the IP configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

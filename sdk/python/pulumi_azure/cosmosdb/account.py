@@ -117,6 +117,9 @@ class AccountArgs:
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_hsm_key_id is not None:
+            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if minimal_tls_version is not None:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
@@ -373,6 +376,7 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 
@@ -621,6 +625,9 @@ class _AccountState:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_hsm_key_id is not None:
+            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
         if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if minimal_tls_version is not None:
@@ -898,6 +905,7 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 
@@ -1891,6 +1899,7 @@ class Account(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "managed_hsm_key_id")
 

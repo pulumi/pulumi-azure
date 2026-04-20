@@ -99,6 +99,10 @@ type ElasticPool struct {
 	//
 	// > **Note:** The default value for `enclaveType` field is unset not `Default`.
 	EnclaveType pulumi.StringOutput `pulumi:"enclaveType"`
+	// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+	//
+	// > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+	HighAvailabilityReplicaCount pulumi.IntOutput `pulumi:"highAvailabilityReplicaCount"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -177,6 +181,10 @@ type elasticPoolState struct {
 	//
 	// > **Note:** The default value for `enclaveType` field is unset not `Default`.
 	EnclaveType *string `pulumi:"enclaveType"`
+	// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+	//
+	// > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -214,6 +222,10 @@ type ElasticPoolState struct {
 	//
 	// > **Note:** The default value for `enclaveType` field is unset not `Default`.
 	EnclaveType pulumi.StringPtrInput
+	// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+	//
+	// > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+	HighAvailabilityReplicaCount pulumi.IntPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -255,6 +267,10 @@ type elasticPoolArgs struct {
 	//
 	// > **Note:** The default value for `enclaveType` field is unset not `Default`.
 	EnclaveType *string `pulumi:"enclaveType"`
+	// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+	//
+	// > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -293,6 +309,10 @@ type ElasticPoolArgs struct {
 	//
 	// > **Note:** The default value for `enclaveType` field is unset not `Default`.
 	EnclaveType pulumi.StringPtrInput
+	// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+	//
+	// > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+	HighAvailabilityReplicaCount pulumi.IntPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -417,6 +437,13 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 // > **Note:** The default value for `enclaveType` field is unset not `Default`.
 func (o ElasticPoolOutput) EnclaveType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.EnclaveType }).(pulumi.StringOutput)
+}
+
+// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+//
+// > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+func (o ElasticPoolOutput) HighAvailabilityReplicaCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.IntOutput { return v.HighAvailabilityReplicaCount }).(pulumi.IntOutput)
 }
 
 // Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.

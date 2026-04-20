@@ -21,15 +21,22 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// Specifies the properties of an alert payload.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomProperties;
+        /// <summary>
+        /// Custom subject override for all email ids in Azure action group.
+        /// </summary>
+        public readonly string? EmailSubject;
 
         [OutputConstructor]
         private ScheduledQueryRulesAlertV2Action(
             ImmutableArray<string> actionGroups,
 
-            ImmutableDictionary<string, string>? customProperties)
+            ImmutableDictionary<string, string>? customProperties,
+
+            string? emailSubject)
         {
             ActionGroups = actionGroups;
             CustomProperties = customProperties;
+            EmailSubject = emailSubject;
         }
     }
 }

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Front Door (standard/premium) Route.
  * 
+ * &gt; **Note:** The `azure.cdn.FrontdoorRoute` resource must **explicitly** reference its associated `azure.cdn.FrontdoorOrigin` resource(s). This can be achieved either by using a `dependsOn` meta-argument that points to the `azure.cdn.FrontdoorOrigin` resource(s), or by specifying the `azure.cdn.FrontdoorOrigin` IDs via the `cdnFrontdoorOriginIds` field.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -265,18 +267,22 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
         return this.cdnFrontdoorOriginGroupId;
     }
     /**
-     * One or more Front Door Origin resource IDs that this Front Door Route will link to.
+     * One or more Front Door Origin resource IDs for this Front Door Route.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      * 
      */
     @Export(name="cdnFrontdoorOriginIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> cdnFrontdoorOriginIds;
+    private Output</* @Nullable */ List<String>> cdnFrontdoorOriginIds;
 
     /**
-     * @return One or more Front Door Origin resource IDs that this Front Door Route will link to.
+     * @return One or more Front Door Origin resource IDs for this Front Door Route.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      * 
      */
-    public Output<List<String>> cdnFrontdoorOriginIds() {
-        return this.cdnFrontdoorOriginIds;
+    public Output<Optional<List<String>>> cdnFrontdoorOriginIds() {
+        return Codegen.optional(this.cdnFrontdoorOriginIds);
     }
     /**
      * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).

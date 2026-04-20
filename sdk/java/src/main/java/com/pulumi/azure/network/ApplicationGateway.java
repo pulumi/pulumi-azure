@@ -8,6 +8,7 @@ import com.pulumi.azure.network.ApplicationGatewayArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayState;
 import com.pulumi.azure.network.outputs.ApplicationGatewayAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.ApplicationGatewayAutoscaleConfiguration;
+import com.pulumi.azure.network.outputs.ApplicationGatewayBackend;
 import com.pulumi.azure.network.outputs.ApplicationGatewayBackendAddressPool;
 import com.pulumi.azure.network.outputs.ApplicationGatewayBackendHttpSetting;
 import com.pulumi.azure.network.outputs.ApplicationGatewayCustomErrorConfiguration;
@@ -17,12 +18,14 @@ import com.pulumi.azure.network.outputs.ApplicationGatewayGatewayIpConfiguration
 import com.pulumi.azure.network.outputs.ApplicationGatewayGlobal;
 import com.pulumi.azure.network.outputs.ApplicationGatewayHttpListener;
 import com.pulumi.azure.network.outputs.ApplicationGatewayIdentity;
+import com.pulumi.azure.network.outputs.ApplicationGatewayListener;
 import com.pulumi.azure.network.outputs.ApplicationGatewayPrivateEndpointConnection;
 import com.pulumi.azure.network.outputs.ApplicationGatewayPrivateLinkConfiguration;
 import com.pulumi.azure.network.outputs.ApplicationGatewayProbe;
 import com.pulumi.azure.network.outputs.ApplicationGatewayRedirectConfiguration;
 import com.pulumi.azure.network.outputs.ApplicationGatewayRequestRoutingRule;
 import com.pulumi.azure.network.outputs.ApplicationGatewayRewriteRuleSet;
+import com.pulumi.azure.network.outputs.ApplicationGatewayRoutingRule;
 import com.pulumi.azure.network.outputs.ApplicationGatewaySku;
 import com.pulumi.azure.network.outputs.ApplicationGatewaySslCertificate;
 import com.pulumi.azure.network.outputs.ApplicationGatewaySslPolicy;
@@ -192,7 +195,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Application Gateway&#39;s can be imported using the `resource id`, e.g.
+ * An Application Gateway can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:network/applicationGateway:ApplicationGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationGateways/myGateway1
@@ -246,16 +249,38 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
      * One or more `backendHttpSettings` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
      */
     @Export(name="backendHttpSettings", refs={List.class,ApplicationGatewayBackendHttpSetting.class}, tree="[0,1]")
-    private Output<List<ApplicationGatewayBackendHttpSetting>> backendHttpSettings;
+    private Output</* @Nullable */ List<ApplicationGatewayBackendHttpSetting>> backendHttpSettings;
 
     /**
      * @return One or more `backendHttpSettings` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
      */
-    public Output<List<ApplicationGatewayBackendHttpSetting>> backendHttpSettings() {
-        return this.backendHttpSettings;
+    public Output<Optional<List<ApplicationGatewayBackendHttpSetting>>> backendHttpSettings() {
+        return Codegen.optional(this.backendHttpSettings);
+    }
+    /**
+     * One or more `backend` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
+     */
+    @Export(name="backends", refs={List.class,ApplicationGatewayBackend.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ApplicationGatewayBackend>> backends;
+
+    /**
+     * @return One or more `backend` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
+     */
+    public Output<Optional<List<ApplicationGatewayBackend>>> backends() {
+        return Codegen.optional(this.backends);
     }
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
@@ -398,16 +423,20 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
      * One or more `httpListener` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+     * 
      */
     @Export(name="httpListeners", refs={List.class,ApplicationGatewayHttpListener.class}, tree="[0,1]")
-    private Output<List<ApplicationGatewayHttpListener>> httpListeners;
+    private Output</* @Nullable */ List<ApplicationGatewayHttpListener>> httpListeners;
 
     /**
      * @return One or more `httpListener` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+     * 
      */
-    public Output<List<ApplicationGatewayHttpListener>> httpListeners() {
-        return this.httpListeners;
+    public Output<Optional<List<ApplicationGatewayHttpListener>>> httpListeners() {
+        return Codegen.optional(this.httpListeners);
     }
     /**
      * An `identity` block as defined below.
@@ -422,6 +451,24 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ApplicationGatewayIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * One or more `listener` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+     * 
+     */
+    @Export(name="listeners", refs={List.class,ApplicationGatewayListener.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ApplicationGatewayListener>> listeners;
+
+    /**
+     * @return One or more `listener` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+     * 
+     */
+    public Output<Optional<List<ApplicationGatewayListener>>> listeners() {
+        return Codegen.optional(this.listeners);
     }
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -510,16 +557,20 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     * 
      */
     @Export(name="requestRoutingRules", refs={List.class,ApplicationGatewayRequestRoutingRule.class}, tree="[0,1]")
-    private Output<List<ApplicationGatewayRequestRoutingRule>> requestRoutingRules;
+    private Output</* @Nullable */ List<ApplicationGatewayRequestRoutingRule>> requestRoutingRules;
 
     /**
      * @return One or more `requestRoutingRule` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     * 
      */
-    public Output<List<ApplicationGatewayRequestRoutingRule>> requestRoutingRules() {
-        return this.requestRoutingRules;
+    public Output<Optional<List<ApplicationGatewayRequestRoutingRule>>> requestRoutingRules() {
+        return Codegen.optional(this.requestRoutingRules);
     }
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -548,6 +599,24 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<ApplicationGatewayRewriteRuleSet>>> rewriteRuleSets() {
         return Codegen.optional(this.rewriteRuleSets);
+    }
+    /**
+     * One or more `routingRule` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     * 
+     */
+    @Export(name="routingRules", refs={List.class,ApplicationGatewayRoutingRule.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ApplicationGatewayRoutingRule>> routingRules;
+
+    /**
+     * @return One or more `routingRule` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     * 
+     */
+    public Output<Optional<List<ApplicationGatewayRoutingRule>>> routingRules() {
+        return Codegen.optional(this.routingRules);
     }
     /**
      * A `sku` block as defined below.

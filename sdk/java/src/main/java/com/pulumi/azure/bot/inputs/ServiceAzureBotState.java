@@ -235,12 +235,16 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
     /**
      * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+     * 
      */
     @Import(name="microsoftAppType")
     private @Nullable Output<String> microsoftAppType;
 
     /**
      * @return The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      * 
      */
     public Optional<Output<String>> microsoftAppType() {
@@ -692,6 +696,8 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
         /**
          * @param microsoftAppType The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+         * 
          * @return builder
          * 
          */
@@ -702,6 +708,8 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param microsoftAppType The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
          * 
          * @return builder
          * 

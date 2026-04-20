@@ -160,14 +160,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="raiPolicyName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> raiPolicyName;
+    private Output<String> raiPolicyName;
 
     /**
      * @return The name of RAI policy.
      * 
      */
-    public Output<Optional<String>> raiPolicyName() {
-        return Codegen.optional(this.raiPolicyName);
+    public Output<String> raiPolicyName() {
+        return this.raiPolicyName;
     }
     /**
      * A `sku` block as defined below.

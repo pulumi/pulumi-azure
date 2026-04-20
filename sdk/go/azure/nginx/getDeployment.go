@@ -75,7 +75,7 @@ type LookupDeploymentResult struct {
 	Capacity int `pulumi:"capacity"`
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint string `pulumi:"dataplaneApiEndpoint"`
-	// Whether metrics are exported to Azure Monitor.
+	// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 	DiagnoseSupportEnabled bool `pulumi:"diagnoseSupportEnabled"`
 	// Preferred email associated with the NGINX Deployment.
 	Email string `pulumi:"email"`
@@ -166,7 +166,7 @@ func (o LookupDeploymentResultOutput) DataplaneApiEndpoint() pulumi.StringOutput
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.DataplaneApiEndpoint }).(pulumi.StringOutput)
 }
 
-// Whether metrics are exported to Azure Monitor.
+// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
 func (o LookupDeploymentResultOutput) DiagnoseSupportEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) bool { return v.DiagnoseSupportEnabled }).(pulumi.BoolOutput)
 }

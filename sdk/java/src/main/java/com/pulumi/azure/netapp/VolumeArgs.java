@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp;
 
 import com.pulumi.azure.netapp.inputs.VolumeCoolAccessArgs;
+import com.pulumi.azure.netapp.inputs.VolumeDataProtectionAdvancedRansomwareArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionBackupPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionReplicationArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionSnapshotPolicyArgs;
@@ -103,6 +104,21 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createFromSnapshotResourceId() {
         return Optional.ofNullable(this.createFromSnapshotResourceId);
+    }
+
+    /**
+     * A `dataProtectionAdvancedRansomware` block as defined below.
+     * 
+     */
+    @Import(name="dataProtectionAdvancedRansomware")
+    private @Nullable Output<VolumeDataProtectionAdvancedRansomwareArgs> dataProtectionAdvancedRansomware;
+
+    /**
+     * @return A `dataProtectionAdvancedRansomware` block as defined below.
+     * 
+     */
+    public Optional<Output<VolumeDataProtectionAdvancedRansomwareArgs>> dataProtectionAdvancedRansomware() {
+        return Optional.ofNullable(this.dataProtectionAdvancedRansomware);
     }
 
     /**
@@ -542,6 +558,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.azureVmwareDataStoreEnabled = $.azureVmwareDataStoreEnabled;
         this.coolAccess = $.coolAccess;
         this.createFromSnapshotResourceId = $.createFromSnapshotResourceId;
+        this.dataProtectionAdvancedRansomware = $.dataProtectionAdvancedRansomware;
         this.dataProtectionBackupPolicy = $.dataProtectionBackupPolicy;
         this.dataProtectionReplication = $.dataProtectionReplication;
         this.dataProtectionSnapshotPolicy = $.dataProtectionSnapshotPolicy;
@@ -696,6 +713,27 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createFromSnapshotResourceId(String createFromSnapshotResourceId) {
             return createFromSnapshotResourceId(Output.of(createFromSnapshotResourceId));
+        }
+
+        /**
+         * @param dataProtectionAdvancedRansomware A `dataProtectionAdvancedRansomware` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionAdvancedRansomware(@Nullable Output<VolumeDataProtectionAdvancedRansomwareArgs> dataProtectionAdvancedRansomware) {
+            $.dataProtectionAdvancedRansomware = dataProtectionAdvancedRansomware;
+            return this;
+        }
+
+        /**
+         * @param dataProtectionAdvancedRansomware A `dataProtectionAdvancedRansomware` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionAdvancedRansomware(VolumeDataProtectionAdvancedRansomwareArgs dataProtectionAdvancedRansomware) {
+            return dataProtectionAdvancedRansomware(Output.of(dataProtectionAdvancedRansomware));
         }
 
         /**

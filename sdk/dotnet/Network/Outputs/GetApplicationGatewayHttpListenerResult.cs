@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string FrontendIpConfigurationId;
         /// <summary>
-        /// The Name of the Frontend IP Configuration used for this HTTP Listener.
+        /// The Name of the Frontend IP Configuration used for this Listener.
         /// </summary>
         public readonly string FrontendIpConfigurationName;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string FrontendPortId;
         /// <summary>
-        /// The Name of the Frontend Port used for this HTTP Listener.
+        /// The Name of the Frontend Port used for this Listener.
         /// </summary>
         public readonly string FrontendPortName;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+        /// A list of Hostname(s) used for this Listener.
         /// </summary>
         public readonly ImmutableArray<string> HostNames;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string SslCertificateId;
         /// <summary>
-        /// The name of the associated SSL Certificate which is used for this HTTP Listener.
+        /// The name of the associated SSL Certificate which is used for this Listener.
         /// </summary>
         public readonly string SslCertificateName;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string SslProfileId;
         /// <summary>
-        /// The name of the associated SSL Profile which is used for this HTTP Listener.
+        /// The name of the associated SSL Profile which is used for this Listener.
         /// </summary>
         public readonly string SslProfileName;
 

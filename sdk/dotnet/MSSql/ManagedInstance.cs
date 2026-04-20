@@ -331,6 +331,14 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** The `GeneralPurposeV2Enabled` property can only be set to `True` when using a General Purpose (`GP_*`) SKU.
+        /// </summary>
+        [Output("generalPurposeV2Enabled")]
+        public Output<bool?> GeneralPurposeV2Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         /// </summary>
         [Output("hybridSecondaryUsage")]
@@ -355,7 +363,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         /// </summary>
         [Output("maintenanceConfigurationName")]
         public Output<string?> MaintenanceConfigurationName { get; private set; } = null!;
@@ -553,6 +561,14 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? DnsZonePartnerId { get; set; }
 
         /// <summary>
+        /// Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** The `GeneralPurposeV2Enabled` property can only be set to `True` when using a General Purpose (`GP_*`) SKU.
+        /// </summary>
+        [Input("generalPurposeV2Enabled")]
+        public Input<bool>? GeneralPurposeV2Enabled { get; set; }
+
+        /// <summary>
         /// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         /// </summary>
         [Input("hybridSecondaryUsage")]
@@ -577,7 +593,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         /// </summary>
         [Input("maintenanceConfigurationName")]
         public Input<string>? MaintenanceConfigurationName { get; set; }
@@ -747,6 +763,14 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
+        /// Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** The `GeneralPurposeV2Enabled` property can only be set to `True` when using a General Purpose (`GP_*`) SKU.
+        /// </summary>
+        [Input("generalPurposeV2Enabled")]
+        public Input<bool>? GeneralPurposeV2Enabled { get; set; }
+
+        /// <summary>
         /// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         /// </summary>
         [Input("hybridSecondaryUsage")]
@@ -771,7 +795,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         /// </summary>
         [Input("maintenanceConfigurationName")]
         public Input<string>? MaintenanceConfigurationName { get; set; }

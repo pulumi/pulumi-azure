@@ -55,6 +55,11 @@ public final class GetBastionHostResult {
      * 
      */
     private String name;
+    /**
+     * @return Whether Private-Only deployment is enabled for the Bastion Host.
+     * 
+     */
+    private Boolean privateOnlyEnabled;
     private String resourceGroupName;
     /**
      * @return The number of scale units provisioned for the Bastion Host.
@@ -149,6 +154,13 @@ public final class GetBastionHostResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether Private-Only deployment is enabled for the Bastion Host.
+     * 
+     */
+    public Boolean privateOnlyEnabled() {
+        return this.privateOnlyEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -219,6 +231,7 @@ public final class GetBastionHostResult {
         private Boolean ipConnectEnabled;
         private String location;
         private String name;
+        private Boolean privateOnlyEnabled;
         private String resourceGroupName;
         private Integer scaleUnits;
         private Boolean sessionRecordingEnabled;
@@ -238,6 +251,7 @@ public final class GetBastionHostResult {
     	      this.ipConnectEnabled = defaults.ipConnectEnabled;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.privateOnlyEnabled = defaults.privateOnlyEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.scaleUnits = defaults.scaleUnits;
     	      this.sessionRecordingEnabled = defaults.sessionRecordingEnabled;
@@ -313,6 +327,14 @@ public final class GetBastionHostResult {
               throw new MissingRequiredPropertyException("GetBastionHostResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privateOnlyEnabled(Boolean privateOnlyEnabled) {
+            if (privateOnlyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "privateOnlyEnabled");
+            }
+            this.privateOnlyEnabled = privateOnlyEnabled;
             return this;
         }
         @CustomType.Setter
@@ -392,6 +414,7 @@ public final class GetBastionHostResult {
             _resultValue.ipConnectEnabled = ipConnectEnabled;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.privateOnlyEnabled = privateOnlyEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.scaleUnits = scaleUnits;
             _resultValue.sessionRecordingEnabled = sessionRecordingEnabled;

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:containerservice/clusterDeploymentSafeguard:ClusterDeploymentSafeguard":
+		r = &ClusterDeploymentSafeguard{}
 	case "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding":
 		r = &ClusterTrustedAccessRoleBinding{}
 	case "azure:containerservice/connectedRegistry:ConnectedRegistry":
@@ -78,6 +80,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/clusterDeploymentSafeguard",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/clusterTrustedAccessRoleBinding",

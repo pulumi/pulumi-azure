@@ -33,12 +33,16 @@ public final class NatGatewayPublicIpAssociationState extends com.pulumi.resourc
     /**
      * The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * 
      */
     @Import(name="publicIpAddressId")
     private @Nullable Output<String> publicIpAddressId;
 
     /**
      * @return The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      * 
      */
     public Optional<Output<String>> publicIpAddressId() {
@@ -94,6 +98,8 @@ public final class NatGatewayPublicIpAssociationState extends com.pulumi.resourc
         /**
          * @param publicIpAddressId The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class NatGatewayPublicIpAssociationState extends com.pulumi.resourc
 
         /**
          * @param publicIpAddressId The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
          * 
          * @return builder
          * 
