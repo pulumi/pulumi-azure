@@ -29,6 +29,8 @@ __all__ = [
     'SnapshotPolicyWeeklyScheduleArgsDict',
     'VolumeCoolAccessArgs',
     'VolumeCoolAccessArgsDict',
+    'VolumeDataProtectionAdvancedRansomwareArgs',
+    'VolumeDataProtectionAdvancedRansomwareArgsDict',
     'VolumeDataProtectionBackupPolicyArgs',
     'VolumeDataProtectionBackupPolicyArgsDict',
     'VolumeDataProtectionReplicationArgs',
@@ -768,6 +770,46 @@ class VolumeCoolAccessArgs:
     @tiering_policy.setter
     def tiering_policy(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "tiering_policy", value)
+
+
+class VolumeDataProtectionAdvancedRansomwareArgsDict(TypedDict):
+    protection_enabled: pulumi.Input[_builtins.bool]
+    """
+    Enable or disable the Advanced Ransomware Protection feature.
+
+    > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+
+    > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+    """
+
+@pulumi.input_type
+class VolumeDataProtectionAdvancedRansomwareArgs:
+    def __init__(__self__, *,
+                 protection_enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] protection_enabled: Enable or disable the Advanced Ransomware Protection feature.
+               
+               > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+               
+               > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+        """
+        pulumi.set(__self__, "protection_enabled", protection_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="protectionEnabled")
+    def protection_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Enable or disable the Advanced Ransomware Protection feature.
+
+        > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+
+        > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+        """
+        return pulumi.get(self, "protection_enabled")
+
+    @protection_enabled.setter
+    def protection_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "protection_enabled", value)
 
 
 class VolumeDataProtectionBackupPolicyArgsDict(TypedDict):

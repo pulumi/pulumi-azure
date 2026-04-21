@@ -8544,20 +8544,28 @@ class ScheduledQueryRulesAlertV2ActionArgsDict(TypedDict):
     """
     Specifies the properties of an alert payload.
     """
+    email_subject: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom subject override for all email ids in Azure action group.
+    """
 
 @pulumi.input_type
 class ScheduledQueryRulesAlertV2ActionArgs:
     def __init__(__self__, *,
                  action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 email_subject: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action_groups: List of Action Group resource IDs to invoke when the alert fires.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: Specifies the properties of an alert payload.
+        :param pulumi.Input[_builtins.str] email_subject: Custom subject override for all email ids in Azure action group.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
+        if email_subject is not None:
+            pulumi.set(__self__, "email_subject", email_subject)
 
     @_builtins.property
     @pulumi.getter(name="actionGroups")
@@ -8582,6 +8590,18 @@ class ScheduledQueryRulesAlertV2ActionArgs:
     @custom_properties.setter
     def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emailSubject")
+    def email_subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Custom subject override for all email ids in Azure action group.
+        """
+        return pulumi.get(self, "email_subject")
+
+    @email_subject.setter
+    def email_subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "email_subject", value)
 
 
 class ScheduledQueryRulesAlertV2CriteriaArgsDict(TypedDict):

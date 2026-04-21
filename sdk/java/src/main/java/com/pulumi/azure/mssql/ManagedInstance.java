@@ -406,6 +406,24 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
+     * Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+     * 
+     * &gt; **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+     * 
+     */
+    @Export(name="generalPurposeV2Enabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> generalPurposeV2Enabled;
+
+    /**
+     * @return Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+     * 
+     * &gt; **Note:** The `generalPurposeV2Enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+     * 
+     */
+    public Output<Optional<Boolean>> generalPurposeV2Enabled() {
+        return Codegen.optional(this.generalPurposeV2Enabled);
+    }
+    /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      * 
      */
@@ -462,14 +480,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
      */
     @Export(name="maintenanceConfigurationName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maintenanceConfigurationName;
 
     /**
-     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      * 
      */
     public Output<Optional<String>> maintenanceConfigurationName() {

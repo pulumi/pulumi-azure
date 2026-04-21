@@ -153,6 +153,21 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether Private-Only deployment is enabled for the Bastion Host.
+     * 
+     */
+    @Import(name="privateOnlyEnabled")
+    private @Nullable Output<Boolean> privateOnlyEnabled;
+
+    /**
+     * @return Whether Private-Only deployment is enabled for the Bastion Host.
+     * 
+     */
+    public Optional<Output<Boolean>> privateOnlyEnabled() {
+        return Optional.ofNullable(this.privateOnlyEnabled);
+    }
+
+    /**
      * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      * 
      */
@@ -318,6 +333,7 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
         this.kerberosEnabled = $.kerberosEnabled;
         this.location = $.location;
         this.name = $.name;
+        this.privateOnlyEnabled = $.privateOnlyEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.scaleUnits = $.scaleUnits;
         this.sessionRecordingEnabled = $.sessionRecordingEnabled;
@@ -525,6 +541,27 @@ public final class BastionHostState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param privateOnlyEnabled Whether Private-Only deployment is enabled for the Bastion Host.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateOnlyEnabled(@Nullable Output<Boolean> privateOnlyEnabled) {
+            $.privateOnlyEnabled = privateOnlyEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateOnlyEnabled Whether Private-Only deployment is enabled for the Bastion Host.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateOnlyEnabled(Boolean privateOnlyEnabled) {
+            return privateOnlyEnabled(Output.of(privateOnlyEnabled));
         }
 
         /**

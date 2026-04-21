@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// NAT Gateway can be imported using the `resource id`, e.g.
+// A NAT Gateway can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
@@ -84,13 +84,15 @@ type NatGateway struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The resource GUID property of the NAT Gateway.
 	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+	// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+	//
+	// > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -137,13 +139,15 @@ type natGatewayState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The resource GUID property of the NAT Gateway.
 	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+	// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+	//
+	// > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -158,13 +162,15 @@ type NatGatewayState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The resource GUID property of the NAT Gateway.
 	ResourceGuid pulumi.StringPtrInput
-	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+	// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+	//
+	// > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
 	Zones pulumi.StringArrayInput
 }
 
@@ -181,13 +187,15 @@ type natGatewayArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+	// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+	//
+	// > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -201,13 +209,15 @@ type NatGatewayArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+	// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+	//
+	// > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
 	Zones pulumi.StringArrayInput
 }
 
@@ -323,7 +333,7 @@ func (o NatGatewayOutput) ResourceGuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
 }
 
-// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 func (o NatGatewayOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }
@@ -333,9 +343,11 @@ func (o NatGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
 //
-// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+// > **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+//
+// > **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
 func (o NatGatewayOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

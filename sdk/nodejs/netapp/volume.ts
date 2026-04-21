@@ -70,6 +70,10 @@ export class Volume extends pulumi.CustomResource {
      */
     declare public readonly createFromSnapshotResourceId: pulumi.Output<string | undefined>;
     /**
+     * A `dataProtectionAdvancedRansomware` block as defined below.
+     */
+    declare public readonly dataProtectionAdvancedRansomware: pulumi.Output<outputs.netapp.VolumeDataProtectionAdvancedRansomware | undefined>;
+    /**
      * A `dataProtectionBackupPolicy` block as defined below.
      */
     declare public readonly dataProtectionBackupPolicy: pulumi.Output<outputs.netapp.VolumeDataProtectionBackupPolicy | undefined>;
@@ -212,6 +216,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["azureVmwareDataStoreEnabled"] = state?.azureVmwareDataStoreEnabled;
             resourceInputs["coolAccess"] = state?.coolAccess;
             resourceInputs["createFromSnapshotResourceId"] = state?.createFromSnapshotResourceId;
+            resourceInputs["dataProtectionAdvancedRansomware"] = state?.dataProtectionAdvancedRansomware;
             resourceInputs["dataProtectionBackupPolicy"] = state?.dataProtectionBackupPolicy;
             resourceInputs["dataProtectionReplication"] = state?.dataProtectionReplication;
             resourceInputs["dataProtectionSnapshotPolicy"] = state?.dataProtectionSnapshotPolicy;
@@ -268,6 +273,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["azureVmwareDataStoreEnabled"] = args?.azureVmwareDataStoreEnabled;
             resourceInputs["coolAccess"] = args?.coolAccess;
             resourceInputs["createFromSnapshotResourceId"] = args?.createFromSnapshotResourceId;
+            resourceInputs["dataProtectionAdvancedRansomware"] = args?.dataProtectionAdvancedRansomware;
             resourceInputs["dataProtectionBackupPolicy"] = args?.dataProtectionBackupPolicy;
             resourceInputs["dataProtectionReplication"] = args?.dataProtectionReplication;
             resourceInputs["dataProtectionSnapshotPolicy"] = args?.dataProtectionSnapshotPolicy;
@@ -328,6 +334,10 @@ export interface VolumeState {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
+    /**
+     * A `dataProtectionAdvancedRansomware` block as defined below.
+     */
+    dataProtectionAdvancedRansomware?: pulumi.Input<inputs.netapp.VolumeDataProtectionAdvancedRansomware>;
     /**
      * A `dataProtectionBackupPolicy` block as defined below.
      */
@@ -480,6 +490,10 @@ export interface VolumeArgs {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
+    /**
+     * A `dataProtectionAdvancedRansomware` block as defined below.
+     */
+    dataProtectionAdvancedRansomware?: pulumi.Input<inputs.netapp.VolumeDataProtectionAdvancedRansomware>;
     /**
      * A `dataProtectionBackupPolicy` block as defined below.
      */

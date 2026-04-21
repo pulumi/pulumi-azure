@@ -87,7 +87,7 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetAccountSASArgs {
     /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      */
     connectionString: string;
     /**
@@ -107,7 +107,7 @@ export interface GetAccountSASArgs {
     /**
      * A `permissions` block as defined below.
      */
-    permissions: inputs.storage.GetAccountSASPermissions;
+    permissions?: inputs.storage.GetAccountSASPermissions;
     /**
      * A `resourceTypes` block as defined below.
      */
@@ -138,7 +138,7 @@ export interface GetAccountSASResult {
      */
     readonly id: string;
     readonly ipAddresses?: string;
-    readonly permissions: outputs.storage.GetAccountSASPermissions;
+    readonly permissions?: outputs.storage.GetAccountSASPermissions;
     readonly resourceTypes: outputs.storage.GetAccountSASResourceTypes;
     /**
      * The computed Account Shared Access Signature (SAS).
@@ -229,7 +229,7 @@ export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi
  */
 export interface GetAccountSASOutputArgs {
     /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      */
     connectionString: pulumi.Input<string>;
     /**
@@ -249,7 +249,7 @@ export interface GetAccountSASOutputArgs {
     /**
      * A `permissions` block as defined below.
      */
-    permissions: pulumi.Input<inputs.storage.GetAccountSASPermissionsArgs>;
+    permissions?: pulumi.Input<inputs.storage.GetAccountSASPermissionsArgs>;
     /**
      * A `resourceTypes` block as defined below.
      */

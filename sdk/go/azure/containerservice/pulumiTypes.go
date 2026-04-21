@@ -1940,7 +1940,7 @@ type FluxConfigurationGitRepository struct {
 	HttpsUser *string `pulumi:"httpsUser"`
 	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
 	LocalAuthReference *string `pulumi:"localAuthReference"`
-	// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+	// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
 	Provider *string `pulumi:"provider"`
 	// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
 	ReferenceType string `pulumi:"referenceType"`
@@ -1978,7 +1978,7 @@ type FluxConfigurationGitRepositoryArgs struct {
 	HttpsUser pulumi.StringPtrInput `pulumi:"httpsUser"`
 	// Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
 	LocalAuthReference pulumi.StringPtrInput `pulumi:"localAuthReference"`
-	// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+	// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 	// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
 	ReferenceType pulumi.StringInput `pulumi:"referenceType"`
@@ -2093,7 +2093,7 @@ func (o FluxConfigurationGitRepositoryOutput) LocalAuthReference() pulumi.String
 	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.LocalAuthReference }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
 func (o FluxConfigurationGitRepositoryOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FluxConfigurationGitRepository) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
@@ -2197,7 +2197,7 @@ func (o FluxConfigurationGitRepositoryPtrOutput) LocalAuthReference() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+// Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
 func (o FluxConfigurationGitRepositoryPtrOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FluxConfigurationGitRepository) *string {
 		if v == nil {
@@ -7479,7 +7479,7 @@ type KubernetesClusterDefaultNodePool struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku *string `pulumi:"osSku"`
@@ -7582,7 +7582,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 	//
 	// > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
@@ -7825,7 +7825,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 //
 // > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
@@ -8166,7 +8166,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporaryNameForRotation` must be specified when attempting a change.
 //
 // > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
@@ -13881,7 +13881,7 @@ func (o KubernetesClusterMonitorMetricsPtrOutput) LabelsAllowed() pulumi.StringP
 }
 
 type KubernetesClusterNetworkProfile struct {
-	// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+	// An `advancedNetworking` block as defined below.
 	AdvancedNetworking *KubernetesClusterNetworkProfileAdvancedNetworking `pulumi:"advancedNetworking"`
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
@@ -13961,7 +13961,7 @@ type KubernetesClusterNetworkProfileInput interface {
 }
 
 type KubernetesClusterNetworkProfileArgs struct {
-	// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+	// An `advancedNetworking` block as defined below.
 	AdvancedNetworking KubernetesClusterNetworkProfileAdvancedNetworkingPtrInput `pulumi:"advancedNetworking"`
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
@@ -14106,7 +14106,7 @@ func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfile
 	}).(KubernetesClusterNetworkProfilePtrOutput)
 }
 
-// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+// An `advancedNetworking` block as defined below.
 func (o KubernetesClusterNetworkProfileOutput) AdvancedNetworking() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileAdvancedNetworking {
 		return v.AdvancedNetworking
@@ -14250,7 +14250,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) Elem() KubernetesClusterNetwor
 	}).(KubernetesClusterNetworkProfileOutput)
 }
 
-// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+// An `advancedNetworking` block as defined below.
 func (o KubernetesClusterNetworkProfilePtrOutput) AdvancedNetworking() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileAdvancedNetworking {
 		if v == nil {
@@ -14447,7 +14447,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidrs() pulumi.StringAr
 type KubernetesClusterNetworkProfileAdvancedNetworking struct {
 	// Is observability enabled? Defaults to `false`.
 	ObservabilityEnabled *bool `pulumi:"observabilityEnabled"`
-	// Is security enabled? Defaults to `false`.
+	// Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
 	SecurityEnabled *bool `pulumi:"securityEnabled"`
 }
 
@@ -14465,7 +14465,7 @@ type KubernetesClusterNetworkProfileAdvancedNetworkingInput interface {
 type KubernetesClusterNetworkProfileAdvancedNetworkingArgs struct {
 	// Is observability enabled? Defaults to `false`.
 	ObservabilityEnabled pulumi.BoolPtrInput `pulumi:"observabilityEnabled"`
-	// Is security enabled? Defaults to `false`.
+	// Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
 	SecurityEnabled pulumi.BoolPtrInput `pulumi:"securityEnabled"`
 }
 
@@ -14551,7 +14551,7 @@ func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) ObservabilityEn
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileAdvancedNetworking) *bool { return v.ObservabilityEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Is security enabled? Defaults to `false`.
+// Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
 func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) SecurityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileAdvancedNetworking) *bool { return v.SecurityEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14590,7 +14590,7 @@ func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) Observabilit
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Is security enabled? Defaults to `false`.
+// Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
 func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) SecurityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileAdvancedNetworking) *bool {
 		if v == nil {

@@ -10,12 +10,15 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class AppTemplateCustomScaleRule {
     /**
      * @return Zero or more `authentication` blocks as defined below.
+     * 
+     * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
      * 
      */
     private @Nullable List<AppTemplateCustomScaleRuleAuthentication> authentications;
@@ -24,6 +27,11 @@ public final class AppTemplateCustomScaleRule {
      * 
      */
     private String customRuleType;
+    /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    private @Nullable String identityId;
     /**
      * @return A map of string key-value pairs to configure the Custom Scale Rule.
      * 
@@ -39,6 +47,8 @@ public final class AppTemplateCustomScaleRule {
     /**
      * @return Zero or more `authentication` blocks as defined below.
      * 
+     * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
+     * 
      */
     public List<AppTemplateCustomScaleRuleAuthentication> authentications() {
         return this.authentications == null ? List.of() : this.authentications;
@@ -49,6 +59,13 @@ public final class AppTemplateCustomScaleRule {
      */
     public String customRuleType() {
         return this.customRuleType;
+    }
+    /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    public Optional<String> identityId() {
+        return Optional.ofNullable(this.identityId);
     }
     /**
      * @return A map of string key-value pairs to configure the Custom Scale Rule.
@@ -76,6 +93,7 @@ public final class AppTemplateCustomScaleRule {
     public static final class Builder {
         private @Nullable List<AppTemplateCustomScaleRuleAuthentication> authentications;
         private String customRuleType;
+        private @Nullable String identityId;
         private Map<String,String> metadata;
         private String name;
         public Builder() {}
@@ -83,6 +101,7 @@ public final class AppTemplateCustomScaleRule {
     	      Objects.requireNonNull(defaults);
     	      this.authentications = defaults.authentications;
     	      this.customRuleType = defaults.customRuleType;
+    	      this.identityId = defaults.identityId;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
         }
@@ -105,6 +124,12 @@ public final class AppTemplateCustomScaleRule {
             return this;
         }
         @CustomType.Setter
+        public Builder identityId(@Nullable String identityId) {
+
+            this.identityId = identityId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
             if (metadata == null) {
               throw new MissingRequiredPropertyException("AppTemplateCustomScaleRule", "metadata");
@@ -124,6 +149,7 @@ public final class AppTemplateCustomScaleRule {
             final var _resultValue = new AppTemplateCustomScaleRule();
             _resultValue.authentications = authentications;
             _resultValue.customRuleType = customRuleType;
+            _resultValue.identityId = identityId;
             _resultValue.metadata = metadata;
             _resultValue.name = name;
             return _resultValue;

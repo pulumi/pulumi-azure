@@ -42,6 +42,11 @@ public final class GetManagedInstanceResult {
      */
     private String fqdn;
     /**
+     * @return Whether the SQL Managed Instance is using the Next-gen General Purpose service tier
+     * 
+     */
+    private Boolean generalPurposeV2Enabled;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -152,6 +157,13 @@ public final class GetManagedInstanceResult {
      */
     public String fqdn() {
         return this.fqdn;
+    }
+    /**
+     * @return Whether the SQL Managed Instance is using the Next-gen General Purpose service tier
+     * 
+     */
+    public Boolean generalPurposeV2Enabled() {
+        return this.generalPurposeV2Enabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -273,6 +285,7 @@ public final class GetManagedInstanceResult {
         private String dnsZone;
         private String dnsZonePartnerId;
         private String fqdn;
+        private Boolean generalPurposeV2Enabled;
         private String id;
         private List<GetManagedInstanceIdentity> identities;
         private String licenseType;
@@ -298,6 +311,7 @@ public final class GetManagedInstanceResult {
     	      this.dnsZone = defaults.dnsZone;
     	      this.dnsZonePartnerId = defaults.dnsZonePartnerId;
     	      this.fqdn = defaults.fqdn;
+    	      this.generalPurposeV2Enabled = defaults.generalPurposeV2Enabled;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.licenseType = defaults.licenseType;
@@ -362,6 +376,14 @@ public final class GetManagedInstanceResult {
               throw new MissingRequiredPropertyException("GetManagedInstanceResult", "fqdn");
             }
             this.fqdn = fqdn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder generalPurposeV2Enabled(Boolean generalPurposeV2Enabled) {
+            if (generalPurposeV2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "generalPurposeV2Enabled");
+            }
+            this.generalPurposeV2Enabled = generalPurposeV2Enabled;
             return this;
         }
         @CustomType.Setter
@@ -503,6 +525,7 @@ public final class GetManagedInstanceResult {
             _resultValue.dnsZone = dnsZone;
             _resultValue.dnsZonePartnerId = dnsZonePartnerId;
             _resultValue.fqdn = fqdn;
+            _resultValue.generalPurposeV2Enabled = generalPurposeV2Enabled;
             _resultValue.id = id;
             _resultValue.identities = identities;
             _resultValue.licenseType = licenseType;

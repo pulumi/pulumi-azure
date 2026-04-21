@@ -13,19 +13,19 @@ namespace Pulumi.Azure.PrivateDns.Inputs
     public sealed class ResolverInboundEndpointIpConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Private IP address of the IP configuration.
+        /// Private IP address of the IP configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         /// <summary>
-        /// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+        /// Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateIpAllocationMethod")]
         public Input<string>? PrivateIpAllocationMethod { get; set; }
 
         /// <summary>
-        /// The subnet ID of the IP configuration.
+        /// The subnet ID of the IP configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

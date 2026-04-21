@@ -65,6 +65,11 @@ public final class GetApplicationGatewayProbe {
      */
     private String protocol;
     /**
+     * @return Whether the proxy protocol header is enabled for this Probe.
+     * 
+     */
+    private Boolean proxyProtocolHeaderEnabled;
+    /**
      * @return The Timeout used for this Probe, indicating when a probe becomes unhealthy.
      * 
      */
@@ -147,6 +152,13 @@ public final class GetApplicationGatewayProbe {
         return this.protocol;
     }
     /**
+     * @return Whether the proxy protocol header is enabled for this Probe.
+     * 
+     */
+    public Boolean proxyProtocolHeaderEnabled() {
+        return this.proxyProtocolHeaderEnabled;
+    }
+    /**
      * @return The Timeout used for this Probe, indicating when a probe becomes unhealthy.
      * 
      */
@@ -180,6 +192,7 @@ public final class GetApplicationGatewayProbe {
         private Boolean pickHostNameFromBackendHttpSettings;
         private Integer port;
         private String protocol;
+        private Boolean proxyProtocolHeaderEnabled;
         private Integer timeout;
         private Integer unhealthyThreshold;
         public Builder() {}
@@ -195,6 +208,7 @@ public final class GetApplicationGatewayProbe {
     	      this.pickHostNameFromBackendHttpSettings = defaults.pickHostNameFromBackendHttpSettings;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
+    	      this.proxyProtocolHeaderEnabled = defaults.proxyProtocolHeaderEnabled;
     	      this.timeout = defaults.timeout;
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
@@ -283,6 +297,14 @@ public final class GetApplicationGatewayProbe {
             return this;
         }
         @CustomType.Setter
+        public Builder proxyProtocolHeaderEnabled(Boolean proxyProtocolHeaderEnabled) {
+            if (proxyProtocolHeaderEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "proxyProtocolHeaderEnabled");
+            }
+            this.proxyProtocolHeaderEnabled = proxyProtocolHeaderEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timeout(Integer timeout) {
             if (timeout == null) {
               throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "timeout");
@@ -310,6 +332,7 @@ public final class GetApplicationGatewayProbe {
             _resultValue.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
             _resultValue.port = port;
             _resultValue.protocol = protocol;
+            _resultValue.proxyProtocolHeaderEnabled = proxyProtocolHeaderEnabled;
             _resultValue.timeout = timeout;
             _resultValue.unhealthyThreshold = unhealthyThreshold;
             return _resultValue;

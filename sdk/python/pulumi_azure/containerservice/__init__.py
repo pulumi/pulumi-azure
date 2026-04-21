@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .cluster_deployment_safeguard import *
 from .cluster_trusted_access_role_binding import *
 from .connected_registry import *
 from .fleet_member import *

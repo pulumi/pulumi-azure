@@ -136,6 +136,24 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
         return this.enclaveType;
     }
     /**
+     * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+     * 
+     * &gt; **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+     * 
+     */
+    @Export(name="highAvailabilityReplicaCount", refs={Integer.class}, tree="[0]")
+    private Output<Integer> highAvailabilityReplicaCount;
+
+    /**
+     * @return Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+     * 
+     * &gt; **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+     * 
+     */
+    public Output<Integer> highAvailabilityReplicaCount() {
+        return this.highAvailabilityReplicaCount;
+    }
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */

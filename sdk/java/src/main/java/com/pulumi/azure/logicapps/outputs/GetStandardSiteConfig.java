@@ -62,6 +62,11 @@ public final class GetStandardSiteConfig {
      */
     private Boolean http2Enabled;
     /**
+     * @return The default action taken when no `ipRestriction` rules match.
+     * 
+     */
+    private String ipRestrictionDefaultAction;
+    /**
      * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
      */
@@ -93,6 +98,11 @@ public final class GetStandardSiteConfig {
      * 
      */
     private Boolean runtimeScaleMonitoringEnabled;
+    /**
+     * @return The default action taken when no `scmIpRestriction` rules match.
+     * 
+     */
+    private String scmIpRestrictionDefaultAction;
     /**
      * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
@@ -194,6 +204,13 @@ public final class GetStandardSiteConfig {
         return this.http2Enabled;
     }
     /**
+     * @return The default action taken when no `ipRestriction` rules match.
+     * 
+     */
+    public String ipRestrictionDefaultAction() {
+        return this.ipRestrictionDefaultAction;
+    }
+    /**
      * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
      */
@@ -236,6 +253,13 @@ public final class GetStandardSiteConfig {
      */
     public Boolean runtimeScaleMonitoringEnabled() {
         return this.runtimeScaleMonitoringEnabled;
+    }
+    /**
+     * @return The default action taken when no `scmIpRestriction` rules match.
+     * 
+     */
+    public String scmIpRestrictionDefaultAction() {
+        return this.scmIpRestrictionDefaultAction;
     }
     /**
      * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -305,12 +329,14 @@ public final class GetStandardSiteConfig {
         private String ftpsState;
         private String healthCheckPath;
         private Boolean http2Enabled;
+        private String ipRestrictionDefaultAction;
         private List<GetStandardSiteConfigIpRestriction> ipRestrictions;
         private String linuxFxVersion;
         private String minTlsVersion;
         private Integer preWarmedInstanceCount;
         private Boolean publicNetworkAccessEnabled;
         private Boolean runtimeScaleMonitoringEnabled;
+        private String scmIpRestrictionDefaultAction;
         private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
         private String scmMinTlsVersion;
         private String scmType;
@@ -330,12 +356,14 @@ public final class GetStandardSiteConfig {
     	      this.ftpsState = defaults.ftpsState;
     	      this.healthCheckPath = defaults.healthCheckPath;
     	      this.http2Enabled = defaults.http2Enabled;
+    	      this.ipRestrictionDefaultAction = defaults.ipRestrictionDefaultAction;
     	      this.ipRestrictions = defaults.ipRestrictions;
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
     	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
+    	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
     	      this.scmMinTlsVersion = defaults.scmMinTlsVersion;
     	      this.scmType = defaults.scmType;
@@ -418,6 +446,14 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder ipRestrictionDefaultAction(String ipRestrictionDefaultAction) {
+            if (ipRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "ipRestrictionDefaultAction");
+            }
+            this.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetStandardSiteConfigIpRestriction> ipRestrictions) {
             if (ipRestrictions == null) {
               throw new MissingRequiredPropertyException("GetStandardSiteConfig", "ipRestrictions");
@@ -466,6 +502,14 @@ public final class GetStandardSiteConfig {
               throw new MissingRequiredPropertyException("GetStandardSiteConfig", "runtimeScaleMonitoringEnabled");
             }
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmIpRestrictionDefaultAction(String scmIpRestrictionDefaultAction) {
+            if (scmIpRestrictionDefaultAction == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmIpRestrictionDefaultAction");
+            }
+            this.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             return this;
         }
         @CustomType.Setter
@@ -538,12 +582,14 @@ public final class GetStandardSiteConfig {
             _resultValue.ftpsState = ftpsState;
             _resultValue.healthCheckPath = healthCheckPath;
             _resultValue.http2Enabled = http2Enabled;
+            _resultValue.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
             _resultValue.ipRestrictions = ipRestrictions;
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.minTlsVersion = minTlsVersion;
             _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
             _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;
             _resultValue.scmMinTlsVersion = scmMinTlsVersion;
             _resultValue.scmType = scmType;

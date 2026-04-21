@@ -365,11 +365,11 @@ func (o ResolverForwardingRuleTargetDnsServerArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ResolverInboundEndpointIpConfigurations struct {
-	// Private IP address of the IP configuration.
+	// Private IP address of the IP configuration. Changing this forces a new resource to be created.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+	// Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	// The subnet ID of the IP configuration.
+	// The subnet ID of the IP configuration. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -385,11 +385,11 @@ type ResolverInboundEndpointIpConfigurationsInput interface {
 }
 
 type ResolverInboundEndpointIpConfigurationsArgs struct {
-	// Private IP address of the IP configuration.
+	// Private IP address of the IP configuration. Changing this forces a new resource to be created.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+	// Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
-	// The subnet ID of the IP configuration.
+	// The subnet ID of the IP configuration. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -470,17 +470,17 @@ func (o ResolverInboundEndpointIpConfigurationsOutput) ToResolverInboundEndpoint
 	}).(ResolverInboundEndpointIpConfigurationsPtrOutput)
 }
 
-// Private IP address of the IP configuration.
+// Private IP address of the IP configuration. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointIpConfigurationsOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverInboundEndpointIpConfigurations) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+// Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointIpConfigurationsOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverInboundEndpointIpConfigurations) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
-// The subnet ID of the IP configuration.
+// The subnet ID of the IP configuration. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverInboundEndpointIpConfigurations) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -509,7 +509,7 @@ func (o ResolverInboundEndpointIpConfigurationsPtrOutput) Elem() ResolverInbound
 	}).(ResolverInboundEndpointIpConfigurationsOutput)
 }
 
-// Private IP address of the IP configuration.
+// Private IP address of the IP configuration. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointIpConfigurationsPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpointIpConfigurations) *string {
 		if v == nil {
@@ -519,7 +519,7 @@ func (o ResolverInboundEndpointIpConfigurationsPtrOutput) PrivateIpAddress() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+// Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointIpConfigurationsPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpointIpConfigurations) *string {
 		if v == nil {
@@ -529,7 +529,7 @@ func (o ResolverInboundEndpointIpConfigurationsPtrOutput) PrivateIpAllocationMet
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subnet ID of the IP configuration.
+// The subnet ID of the IP configuration. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointIpConfigurationsPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpointIpConfigurations) *string {
 		if v == nil {

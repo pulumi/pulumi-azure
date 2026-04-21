@@ -15,6 +15,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     {
         public readonly ImmutableArray<Outputs.GetAppTemplateCustomScaleRuleAuthenticationResult> Authentications;
         public readonly string CustomRuleType;
+        /// <summary>
+        /// ID of the System or User Managed Identity used to execute scale rule.
+        /// </summary>
+        public readonly string IdentityId;
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
         /// The name of the Container App.
@@ -27,12 +31,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string customRuleType,
 
+            string identityId,
+
             ImmutableDictionary<string, string> metadata,
 
             string name)
         {
             Authentications = authentications;
             CustomRuleType = customRuleType;
+            IdentityId = identityId;
             Metadata = metadata;
             Name = name;
         }

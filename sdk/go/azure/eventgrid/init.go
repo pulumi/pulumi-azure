@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventSubscription{}
 	case "azure:eventgrid/namespace:Namespace":
 		r = &Namespace{}
+	case "azure:eventgrid/namespaceTopic:NamespaceTopic":
+		r = &NamespaceTopic{}
 	case "azure:eventgrid/partnerConfiguration:PartnerConfiguration":
 		r = &PartnerConfiguration{}
 	case "azure:eventgrid/partnerNamespace:PartnerNamespace":
@@ -72,6 +74,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"eventgrid/namespace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"eventgrid/namespaceTopic",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

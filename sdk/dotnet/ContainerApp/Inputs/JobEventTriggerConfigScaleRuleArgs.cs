@@ -30,6 +30,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         [Input("customRuleType", required: true)]
         public Input<string> CustomRuleType { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the System or User Managed Identity used to execute scale rule.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
+
         [Input("metadata", required: true)]
         private InputMap<string>? _metadata;
 

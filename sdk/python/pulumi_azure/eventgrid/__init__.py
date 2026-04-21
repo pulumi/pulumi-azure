@@ -16,6 +16,7 @@ from .get_partner_registration import *
 from .get_system_topic import *
 from .get_topic import *
 from .namespace import *
+from .namespace_topic import *
 from .partner_configuration import *
 from .partner_namespace import *
 from .partner_registration import *

@@ -20,14 +20,18 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     public static final ApplicationGatewayProbeArgs Empty = new ApplicationGatewayProbeArgs();
 
     /**
-     * The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+     * The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+     * 
+     * &gt; **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
      * 
      */
     @Import(name="host")
     private @Nullable Output<String> host;
 
     /**
-     * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+     * @return The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+     * 
+     * &gt; **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
      * 
      */
     public Optional<Output<String>> host() {
@@ -50,14 +54,14 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
      * 
      */
     @Import(name="interval", required=true)
     private Output<Integer> interval;
 
     /**
-     * @return The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * @return The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
      * 
      */
     public Output<Integer> interval() {
@@ -67,12 +71,16 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     /**
      * A `match` block as defined above.
      * 
+     * &gt; **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
+     * 
      */
     @Import(name="match")
     private @Nullable Output<ApplicationGatewayProbeMatchArgs> match;
 
     /**
      * @return A `match` block as defined above.
+     * 
+     * &gt; **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
      * 
      */
     public Optional<Output<ApplicationGatewayProbeMatchArgs>> match() {
@@ -95,14 +103,14 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Name of the Probe.
+     * The name of the Probe.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The Name of the Probe.
+     * @return The name of the Probe.
      * 
      */
     public Output<String> name() {
@@ -110,22 +118,28 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Path used for this Probe.
+     * The relative URL path of the Probe. Valid value starts with `/`.
+     * 
+     * &gt; **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
      * 
      */
-    @Import(name="path", required=true)
-    private Output<String> path;
+    @Import(name="path")
+    private @Nullable Output<String> path;
 
     /**
-     * @return The Path used for this Probe.
+     * @return The relative URL path of the Probe. Valid value starts with `/`.
+     * 
+     * &gt; **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
      * 
      */
-    public Output<String> path() {
-        return this.path;
+    public Optional<Output<String>> path() {
+        return Optional.ofNullable(this.path);
     }
 
     /**
      * Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+     * 
+     * &gt; **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
      * 
      */
     @Import(name="pickHostNameFromBackendHttpSettings")
@@ -134,20 +148,26 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     /**
      * @return Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
      * 
+     * &gt; **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
+     * 
      */
     public Optional<Output<Boolean>> pickHostNameFromBackendHttpSettings() {
         return Optional.ofNullable(this.pickHostNameFromBackendHttpSettings);
     }
 
     /**
-     * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+     * Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+     * 
+     * &gt; **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+     * @return Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+     * 
+     * &gt; **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -155,14 +175,14 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Protocol used for this Probe. Possible values are `Http` and `Https`.
+     * The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return The Protocol used for this Probe. Possible values are `Http` and `Https`.
+     * @return The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
      * 
      */
     public Output<String> protocol() {
@@ -170,14 +190,37 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+     * 
+     * &gt; **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+     * 
+     */
+    @Import(name="proxyProtocolHeaderEnabled")
+    private @Nullable Output<Boolean> proxyProtocolHeaderEnabled;
+
+    /**
+     * @return Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+     * 
+     * &gt; **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+     * 
+     */
+    public Optional<Output<Boolean>> proxyProtocolHeaderEnabled() {
+        return Optional.ofNullable(this.proxyProtocolHeaderEnabled);
+    }
+
+    /**
+     * The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+     * 
+     * &gt; **Note:** The `timeout` value should not be greater than the `interval` value.
      * 
      */
     @Import(name="timeout", required=true)
     private Output<Integer> timeout;
 
     /**
-     * @return The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * @return The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+     * 
+     * &gt; **Note:** The `timeout` value should not be greater than the `interval` value.
      * 
      */
     public Output<Integer> timeout() {
@@ -185,14 +228,14 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+     * The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
      * 
      */
     @Import(name="unhealthyThreshold", required=true)
     private Output<Integer> unhealthyThreshold;
 
     /**
-     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+     * @return The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
      * 
      */
     public Output<Integer> unhealthyThreshold() {
@@ -212,6 +255,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         this.pickHostNameFromBackendHttpSettings = $.pickHostNameFromBackendHttpSettings;
         this.port = $.port;
         this.protocol = $.protocol;
+        this.proxyProtocolHeaderEnabled = $.proxyProtocolHeaderEnabled;
         this.timeout = $.timeout;
         this.unhealthyThreshold = $.unhealthyThreshold;
     }
@@ -235,7 +279,9 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param host The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+         * @param host The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+         * 
+         * &gt; **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
          * 
          * @return builder
          * 
@@ -246,7 +292,9 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param host The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+         * @param host The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+         * 
+         * &gt; **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
          * 
          * @return builder
          * 
@@ -277,7 +325,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param interval The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+         * @param interval The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
          * 
          * @return builder
          * 
@@ -288,7 +336,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param interval The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+         * @param interval The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
          * 
          * @return builder
          * 
@@ -300,6 +348,8 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         /**
          * @param match A `match` block as defined above.
          * 
+         * &gt; **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
+         * 
          * @return builder
          * 
          */
@@ -310,6 +360,8 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
 
         /**
          * @param match A `match` block as defined above.
+         * 
+         * &gt; **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
          * 
          * @return builder
          * 
@@ -340,7 +392,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The Name of the Probe.
+         * @param name The name of the Probe.
          * 
          * @return builder
          * 
@@ -351,7 +403,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The Name of the Probe.
+         * @param name The name of the Probe.
          * 
          * @return builder
          * 
@@ -361,18 +413,22 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param path The Path used for this Probe.
+         * @param path The relative URL path of the Probe. Valid value starts with `/`.
+         * 
+         * &gt; **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
          * 
          * @return builder
          * 
          */
-        public Builder path(Output<String> path) {
+        public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
         /**
-         * @param path The Path used for this Probe.
+         * @param path The relative URL path of the Probe. Valid value starts with `/`.
+         * 
+         * &gt; **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
          * 
          * @return builder
          * 
@@ -383,6 +439,8 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
 
         /**
          * @param pickHostNameFromBackendHttpSettings Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+         * 
+         * &gt; **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
          * 
          * @return builder
          * 
@@ -395,6 +453,8 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         /**
          * @param pickHostNameFromBackendHttpSettings Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
          * 
+         * &gt; **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
+         * 
          * @return builder
          * 
          */
@@ -403,7 +463,9 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param port Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+         * @param port Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+         * 
+         * &gt; **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
          * 
          * @return builder
          * 
@@ -414,7 +476,9 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param port Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+         * @param port Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+         * 
+         * &gt; **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
          * 
          * @return builder
          * 
@@ -424,7 +488,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param protocol The Protocol used for this Probe. Possible values are `Http` and `Https`.
+         * @param protocol The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
          * 
          * @return builder
          * 
@@ -435,7 +499,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param protocol The Protocol used for this Probe. Possible values are `Http` and `Https`.
+         * @param protocol The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
          * 
          * @return builder
          * 
@@ -445,7 +509,34 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param timeout The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+         * @param proxyProtocolHeaderEnabled Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+         * 
+         * &gt; **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyProtocolHeaderEnabled(@Nullable Output<Boolean> proxyProtocolHeaderEnabled) {
+            $.proxyProtocolHeaderEnabled = proxyProtocolHeaderEnabled;
+            return this;
+        }
+
+        /**
+         * @param proxyProtocolHeaderEnabled Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+         * 
+         * &gt; **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyProtocolHeaderEnabled(Boolean proxyProtocolHeaderEnabled) {
+            return proxyProtocolHeaderEnabled(Output.of(proxyProtocolHeaderEnabled));
+        }
+
+        /**
+         * @param timeout The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+         * 
+         * &gt; **Note:** The `timeout` value should not be greater than the `interval` value.
          * 
          * @return builder
          * 
@@ -456,7 +547,9 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param timeout The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+         * @param timeout The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+         * 
+         * &gt; **Note:** The `timeout` value should not be greater than the `interval` value.
          * 
          * @return builder
          * 
@@ -466,7 +559,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param unhealthyThreshold The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+         * @param unhealthyThreshold The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
          * 
          * @return builder
          * 
@@ -477,7 +570,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param unhealthyThreshold The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+         * @param unhealthyThreshold The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
          * 
          * @return builder
          * 
@@ -492,9 +585,6 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "name");
-            }
-            if ($.path == null) {
-                throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "path");
             }
             if ($.protocol == null) {
                 throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "protocol");

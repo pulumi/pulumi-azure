@@ -102,7 +102,7 @@ class AccountArgs:
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, `TLS1_2` and `TLS1_3`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -517,7 +517,7 @@ class AccountArgs:
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, `TLS1_2` and `TLS1_3`. Defaults to `TLS1_2` for new storage accounts.
+        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 
@@ -883,7 +883,7 @@ class _AccountState:
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, `TLS1_2` and `TLS1_3`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -1506,7 +1506,7 @@ class _AccountState:
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, `TLS1_2` and `TLS1_3`. Defaults to `TLS1_2` for new storage accounts.
+        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 
@@ -2706,7 +2706,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2023-05-01
+        * `Microsoft.Storage` - 2025-06-01
 
         ## Import
 
@@ -2757,7 +2757,7 @@ class Account(pulumi.CustomResource):
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, `TLS1_2` and `TLS1_3`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -2868,7 +2868,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2023-05-01
+        * `Microsoft.Storage` - 2025-06-01
 
         ## Import
 
@@ -3227,7 +3227,7 @@ class Account(pulumi.CustomResource):
                > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         :param pulumi.Input[_builtins.bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, `TLS1_2` and `TLS1_3`. Defaults to `TLS1_2` for new storage accounts.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
                
@@ -3650,7 +3650,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, `TLS1_2` and `TLS1_3`. Defaults to `TLS1_2` for new storage accounts.
+        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 

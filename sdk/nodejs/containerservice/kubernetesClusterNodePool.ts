@@ -168,6 +168,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     declare public readonly nodeCount: pulumi.Output<number>;
     /**
+     * The current node image version running on this Node Pool.
+     */
+    declare public /*out*/ readonly nodeImageVersion: pulumi.Output<string>;
+    /**
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
     declare public readonly nodeLabels: pulumi.Output<{[key: string]: string}>;
@@ -202,7 +206,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     declare public readonly osDiskType: pulumi.Output<string | undefined>;
     /**
-     * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+     * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
      *
      * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
      */
@@ -313,6 +317,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["mode"] = state?.mode;
             resourceInputs["name"] = state?.name;
             resourceInputs["nodeCount"] = state?.nodeCount;
+            resourceInputs["nodeImageVersion"] = state?.nodeImageVersion;
             resourceInputs["nodeLabels"] = state?.nodeLabels;
             resourceInputs["nodeNetworkProfile"] = state?.nodeNetworkProfile;
             resourceInputs["nodePublicIpEnabled"] = state?.nodePublicIpEnabled;
@@ -386,6 +391,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["windowsProfile"] = args?.windowsProfile;
             resourceInputs["workloadRuntime"] = args?.workloadRuntime;
             resourceInputs["zones"] = args?.zones;
+            resourceInputs["nodeImageVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KubernetesClusterNodePool.__pulumiType, name, resourceInputs, opts);
@@ -470,6 +476,10 @@ export interface KubernetesClusterNodePoolState {
     name?: pulumi.Input<string>;
     nodeCount?: pulumi.Input<number>;
     /**
+     * The current node image version running on this Node Pool.
+     */
+    nodeImageVersion?: pulumi.Input<string>;
+    /**
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -504,7 +514,7 @@ export interface KubernetesClusterNodePoolState {
      */
     osDiskType?: pulumi.Input<string>;
     /**
-     * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+     * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
      *
      * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
      */
@@ -697,7 +707,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     osDiskType?: pulumi.Input<string>;
     /**
-     * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+     * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
      *
      * > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
      */

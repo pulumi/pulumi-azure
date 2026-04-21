@@ -17,6 +17,8 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
         /// <summary>
         /// Zero or more `Authentication` blocks as defined below.
+        /// 
+        /// * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
         /// </summary>
         public InputList<Inputs.AppTemplateCustomScaleRuleAuthenticationGetArgs> Authentications
         {
@@ -29,6 +31,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// </summary>
         [Input("customRuleType", required: true)]
         public Input<string> CustomRuleType { get; set; } = null!;
+
+        /// <summary>
+        /// ID of the System or User Managed Identity used to execute scale rule.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
 
         [Input("metadata", required: true)]
         private InputMap<string>? _metadata;

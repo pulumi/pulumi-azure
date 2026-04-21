@@ -385,7 +385,7 @@ class FluxConfiguration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.KubernetesConfiguration` - 2024-11-01
+        * `Microsoft.KubernetesConfiguration` - 2025-04-01
 
         ## Import
 
@@ -462,7 +462,7 @@ class FluxConfiguration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.KubernetesConfiguration` - 2024-11-01
+        * `Microsoft.KubernetesConfiguration` - 2025-04-01
 
         ## Import
 

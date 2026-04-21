@@ -60,6 +60,11 @@ public final class GetClusterNodePoolResult {
      */
     private Integer nodeCount;
     /**
+     * @return The current node image version running on this Node Pool.
+     * 
+     */
+    private String nodeImageVersion;
+    /**
      * @return A map of Kubernetes Labels applied to each Node in this Node Pool.
      * 
      */
@@ -208,6 +213,13 @@ public final class GetClusterNodePoolResult {
         return this.nodeCount;
     }
     /**
+     * @return The current node image version running on this Node Pool.
+     * 
+     */
+    public String nodeImageVersion() {
+        return this.nodeImageVersion;
+    }
+    /**
      * @return A map of Kubernetes Labels applied to each Node in this Node Pool.
      * 
      */
@@ -343,6 +355,7 @@ public final class GetClusterNodePoolResult {
         private String mode;
         private String name;
         private Integer nodeCount;
+        private String nodeImageVersion;
         private Map<String,String> nodeLabels;
         private Boolean nodePublicIpEnabled;
         private String nodePublicIpPrefixId;
@@ -374,6 +387,7 @@ public final class GetClusterNodePoolResult {
     	      this.mode = defaults.mode;
     	      this.name = defaults.name;
     	      this.nodeCount = defaults.nodeCount;
+    	      this.nodeImageVersion = defaults.nodeImageVersion;
     	      this.nodeLabels = defaults.nodeLabels;
     	      this.nodePublicIpEnabled = defaults.nodePublicIpEnabled;
     	      this.nodePublicIpPrefixId = defaults.nodePublicIpPrefixId;
@@ -479,6 +493,14 @@ public final class GetClusterNodePoolResult {
               throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodeCount");
             }
             this.nodeCount = nodeCount;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nodeImageVersion(String nodeImageVersion) {
+            if (nodeImageVersion == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodeImageVersion");
+            }
+            this.nodeImageVersion = nodeImageVersion;
             return this;
         }
         @CustomType.Setter
@@ -639,6 +661,7 @@ public final class GetClusterNodePoolResult {
             _resultValue.mode = mode;
             _resultValue.name = name;
             _resultValue.nodeCount = nodeCount;
+            _resultValue.nodeImageVersion = nodeImageVersion;
             _resultValue.nodeLabels = nodeLabels;
             _resultValue.nodePublicIpEnabled = nodePublicIpEnabled;
             _resultValue.nodePublicIpPrefixId = nodePublicIpPrefixId;

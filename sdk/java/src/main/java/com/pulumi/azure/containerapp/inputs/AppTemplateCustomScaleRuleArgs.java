@@ -22,12 +22,16 @@ public final class AppTemplateCustomScaleRuleArgs extends com.pulumi.resources.R
     /**
      * Zero or more `authentication` blocks as defined below.
      * 
+     * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
+     * 
      */
     @Import(name="authentications")
     private @Nullable Output<List<AppTemplateCustomScaleRuleAuthenticationArgs>> authentications;
 
     /**
      * @return Zero or more `authentication` blocks as defined below.
+     * 
+     * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
      * 
      */
     public Optional<Output<List<AppTemplateCustomScaleRuleAuthenticationArgs>>> authentications() {
@@ -47,6 +51,21 @@ public final class AppTemplateCustomScaleRuleArgs extends com.pulumi.resources.R
      */
     public Output<String> customRuleType() {
         return this.customRuleType;
+    }
+
+    /**
+     * ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    @Import(name="identityId")
+    private @Nullable Output<String> identityId;
+
+    /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    public Optional<Output<String>> identityId() {
+        return Optional.ofNullable(this.identityId);
     }
 
     /**
@@ -84,6 +103,7 @@ public final class AppTemplateCustomScaleRuleArgs extends com.pulumi.resources.R
     private AppTemplateCustomScaleRuleArgs(AppTemplateCustomScaleRuleArgs $) {
         this.authentications = $.authentications;
         this.customRuleType = $.customRuleType;
+        this.identityId = $.identityId;
         this.metadata = $.metadata;
         this.name = $.name;
     }
@@ -109,6 +129,8 @@ public final class AppTemplateCustomScaleRuleArgs extends com.pulumi.resources.R
         /**
          * @param authentications Zero or more `authentication` blocks as defined below.
          * 
+         * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
+         * 
          * @return builder
          * 
          */
@@ -120,6 +142,8 @@ public final class AppTemplateCustomScaleRuleArgs extends com.pulumi.resources.R
         /**
          * @param authentications Zero or more `authentication` blocks as defined below.
          * 
+         * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
+         * 
          * @return builder
          * 
          */
@@ -129,6 +153,8 @@ public final class AppTemplateCustomScaleRuleArgs extends com.pulumi.resources.R
 
         /**
          * @param authentications Zero or more `authentication` blocks as defined below.
+         * 
+         * * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
          * 
          * @return builder
          * 
@@ -156,6 +182,27 @@ public final class AppTemplateCustomScaleRuleArgs extends com.pulumi.resources.R
          */
         public Builder customRuleType(String customRuleType) {
             return customRuleType(Output.of(customRuleType));
+        }
+
+        /**
+         * @param identityId ID of the System or User Managed Identity used to execute scale rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityId(@Nullable Output<String> identityId) {
+            $.identityId = identityId;
+            return this;
+        }
+
+        /**
+         * @param identityId ID of the System or User Managed Identity used to execute scale rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityId(String identityId) {
+            return identityId(Output.of(identityId));
         }
 
         /**

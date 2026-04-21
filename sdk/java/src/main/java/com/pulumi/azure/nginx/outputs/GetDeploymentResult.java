@@ -42,9 +42,11 @@ public final class GetDeploymentResult {
      */
     private String dataplaneApiEndpoint;
     /**
-     * @return Whether metrics are exported to Azure Monitor.
+     * @deprecated
+     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
+    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
     private Boolean diagnoseSupportEnabled;
     /**
      * @return Preferred email associated with the NGINX Deployment.
@@ -157,9 +159,11 @@ public final class GetDeploymentResult {
         return this.dataplaneApiEndpoint;
     }
     /**
-     * @return Whether metrics are exported to Azure Monitor.
+     * @deprecated
+     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      * 
      */
+    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
     public Boolean diagnoseSupportEnabled() {
         return this.diagnoseSupportEnabled;
     }

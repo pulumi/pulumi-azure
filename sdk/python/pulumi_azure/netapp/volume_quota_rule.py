@@ -343,7 +343,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-06-01
+        * `Microsoft.NetApp` - 2025-12-01
 
         ## Import
 
@@ -464,7 +464,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-06-01
+        * `Microsoft.NetApp` - 2025-12-01
 
         ## Import
 

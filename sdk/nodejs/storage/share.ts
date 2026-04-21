@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Storage` - 2023-05-01
+ * * `Microsoft.Storage` - 2025-06-01
  *
  * ## Import
  *
@@ -121,6 +121,10 @@ export class Share extends pulumi.CustomResource {
      */
     declare public readonly quota: pulumi.Output<number>;
     /**
+     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     */
+    declare public /*out*/ readonly rbacScopeId: pulumi.Output<string>;
+    /**
      * The Resource Manager ID of this File Share.
      *
      * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
@@ -164,6 +168,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["metadata"] = state?.metadata;
             resourceInputs["name"] = state?.name;
             resourceInputs["quota"] = state?.quota;
+            resourceInputs["rbacScopeId"] = state?.rbacScopeId;
             resourceInputs["resourceManagerId"] = state?.resourceManagerId;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
             resourceInputs["storageAccountName"] = state?.storageAccountName;
@@ -181,6 +186,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["quota"] = args?.quota;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["rbacScopeId"] = undefined /*out*/;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
@@ -225,6 +231,10 @@ export interface ShareState {
      * > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
      */
     quota?: pulumi.Input<number>;
+    /**
+     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     */
+    rbacScopeId?: pulumi.Input<string>;
     /**
      * The Resource Manager ID of this File Share.
      *

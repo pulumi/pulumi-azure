@@ -102,7 +102,7 @@ class KubernetesClusterNodePoolArgs:
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param pulumi.Input[_builtins.int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param pulumi.Input[_builtins.str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
@@ -537,7 +537,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 
         > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         """
@@ -771,6 +771,7 @@ class _KubernetesClusterNodePoolState:
                  mode: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  node_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 node_image_version: Optional[pulumi.Input[_builtins.str]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
                  node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -824,6 +825,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[_builtins.str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+        :param pulumi.Input[_builtins.str] node_image_version: The current node image version running on this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
@@ -834,7 +836,7 @@ class _KubernetesClusterNodePoolState:
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param pulumi.Input[_builtins.int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param pulumi.Input[_builtins.str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
@@ -900,6 +902,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "name", name)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if node_image_version is not None:
+            pulumi.set(__self__, "node_image_version", node_image_version)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_network_profile is not None:
@@ -1169,6 +1173,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "node_count", value)
 
     @_builtins.property
+    @pulumi.getter(name="nodeImageVersion")
+    def node_image_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The current node image version running on this Node Pool.
+        """
+        return pulumi.get(self, "node_image_version")
+
+    @node_image_version.setter
+    def node_image_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "node_image_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -1270,7 +1286,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 
         > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         """
@@ -1628,7 +1644,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param pulumi.Input[_builtins.int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param pulumi.Input[_builtins.str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
@@ -1834,6 +1850,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_runtime"] = workload_runtime
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["node_image_version"] = None
         super(KubernetesClusterNodePool, __self__).__init__(
             'azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool',
             resource_name,
@@ -1862,6 +1879,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             mode: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             node_count: Optional[pulumi.Input[_builtins.int]] = None,
+            node_image_version: Optional[pulumi.Input[_builtins.str]] = None,
             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             node_network_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
             node_public_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1919,6 +1937,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+        :param pulumi.Input[_builtins.str] node_image_version: The current node image version running on this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
@@ -1929,7 +1948,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param pulumi.Input[_builtins.int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param pulumi.Input[_builtins.str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
@@ -1981,6 +2000,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
         __props__.__dict__["node_count"] = node_count
+        __props__.__dict__["node_image_version"] = node_image_version
         __props__.__dict__["node_labels"] = node_labels
         __props__.__dict__["node_network_profile"] = node_network_profile
         __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
@@ -2154,6 +2174,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return pulumi.get(self, "node_count")
 
     @_builtins.property
+    @pulumi.getter(name="nodeImageVersion")
+    def node_image_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        The current node image version running on this Node Pool.
+        """
+        return pulumi.get(self, "node_image_version")
+
+    @_builtins.property
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
@@ -2223,7 +2251,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; any other change forces a new resource to be created.
 
         > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         """

@@ -65,6 +65,11 @@ export const getGallery: typeof import("./getGallery").getGallery = null as any;
 export const getGalleryOutput: typeof import("./getGallery").getGalleryOutput = null as any;
 utilities.lazyLoad(exports, ["getGallery","getGalleryOutput"], () => require("./getGallery"));
 
+export { GetManagedDevOpsPoolArgs, GetManagedDevOpsPoolResult, GetManagedDevOpsPoolOutputArgs } from "./getManagedDevOpsPool";
+export const getManagedDevOpsPool: typeof import("./getManagedDevOpsPool").getManagedDevOpsPool = null as any;
+export const getManagedDevOpsPoolOutput: typeof import("./getManagedDevOpsPool").getManagedDevOpsPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDevOpsPool","getManagedDevOpsPoolOutput"], () => require("./getManagedDevOpsPool"));
+
 export { GetNetworkConnectionArgs, GetNetworkConnectionResult, GetNetworkConnectionOutputArgs } from "./getNetworkConnection";
 export const getNetworkConnection: typeof import("./getNetworkConnection").getNetworkConnection = null as any;
 export const getNetworkConnectionOutput: typeof import("./getNetworkConnection").getNetworkConnectionOutput = null as any;
@@ -84,6 +89,11 @@ export { GetProjectPoolArgs, GetProjectPoolResult, GetProjectPoolOutputArgs } fr
 export const getProjectPool: typeof import("./getProjectPool").getProjectPool = null as any;
 export const getProjectPoolOutput: typeof import("./getProjectPool").getProjectPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getProjectPool","getProjectPoolOutput"], () => require("./getProjectPool"));
+
+export { ManagedDevOpsPoolArgs, ManagedDevOpsPoolState } from "./managedDevOpsPool";
+export type ManagedDevOpsPool = import("./managedDevOpsPool").ManagedDevOpsPool;
+export const ManagedDevOpsPool: typeof import("./managedDevOpsPool").ManagedDevOpsPool = null as any;
+utilities.lazyLoad(exports, ["ManagedDevOpsPool"], () => require("./managedDevOpsPool"));
 
 export { NetworkConnectionArgs, NetworkConnectionState } from "./networkConnection";
 export type NetworkConnection = import("./networkConnection").NetworkConnection;
@@ -122,6 +132,8 @@ const _module = {
                 return new EnvironmentType(name, <any>undefined, { urn })
             case "azure:devcenter/gallery:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
+            case "azure:devcenter/managedDevOpsPool:ManagedDevOpsPool":
+                return new ManagedDevOpsPool(name, <any>undefined, { urn })
             case "azure:devcenter/networkConnection:NetworkConnection":
                 return new NetworkConnection(name, <any>undefined, { urn })
             case "azure:devcenter/project:Project":
@@ -141,6 +153,7 @@ pulumi.runtime.registerResourceModule("azure", "devcenter/devBoxDefinition", _mo
 pulumi.runtime.registerResourceModule("azure", "devcenter/devCenter", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/environmentType", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/gallery", _module)
+pulumi.runtime.registerResourceModule("azure", "devcenter/managedDevOpsPool", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/networkConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/project", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/projectEnvironmentType", _module)

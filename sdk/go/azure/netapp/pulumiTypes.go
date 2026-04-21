@@ -1485,6 +1485,159 @@ func (o VolumeCoolAccessPtrOutput) TieringPolicy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeDataProtectionAdvancedRansomware struct {
+	// Enable or disable the Advanced Ransomware Protection feature.
+	//
+	// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+	//
+	// > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+	ProtectionEnabled bool `pulumi:"protectionEnabled"`
+}
+
+// VolumeDataProtectionAdvancedRansomwareInput is an input type that accepts VolumeDataProtectionAdvancedRansomwareArgs and VolumeDataProtectionAdvancedRansomwareOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionAdvancedRansomwareInput` via:
+//
+//	VolumeDataProtectionAdvancedRansomwareArgs{...}
+type VolumeDataProtectionAdvancedRansomwareInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionAdvancedRansomwareOutput() VolumeDataProtectionAdvancedRansomwareOutput
+	ToVolumeDataProtectionAdvancedRansomwareOutputWithContext(context.Context) VolumeDataProtectionAdvancedRansomwareOutput
+}
+
+type VolumeDataProtectionAdvancedRansomwareArgs struct {
+	// Enable or disable the Advanced Ransomware Protection feature.
+	//
+	// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+	//
+	// > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+	ProtectionEnabled pulumi.BoolInput `pulumi:"protectionEnabled"`
+}
+
+func (VolumeDataProtectionAdvancedRansomwareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (i VolumeDataProtectionAdvancedRansomwareArgs) ToVolumeDataProtectionAdvancedRansomwareOutput() VolumeDataProtectionAdvancedRansomwareOutput {
+	return i.ToVolumeDataProtectionAdvancedRansomwareOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionAdvancedRansomwareArgs) ToVolumeDataProtectionAdvancedRansomwareOutputWithContext(ctx context.Context) VolumeDataProtectionAdvancedRansomwareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionAdvancedRansomwareOutput)
+}
+
+func (i VolumeDataProtectionAdvancedRansomwareArgs) ToVolumeDataProtectionAdvancedRansomwarePtrOutput() VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return i.ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionAdvancedRansomwareArgs) ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(ctx context.Context) VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionAdvancedRansomwareOutput).ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(ctx)
+}
+
+// VolumeDataProtectionAdvancedRansomwarePtrInput is an input type that accepts VolumeDataProtectionAdvancedRansomwareArgs, VolumeDataProtectionAdvancedRansomwarePtr and VolumeDataProtectionAdvancedRansomwarePtrOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionAdvancedRansomwarePtrInput` via:
+//
+//	        VolumeDataProtectionAdvancedRansomwareArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeDataProtectionAdvancedRansomwarePtrInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionAdvancedRansomwarePtrOutput() VolumeDataProtectionAdvancedRansomwarePtrOutput
+	ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(context.Context) VolumeDataProtectionAdvancedRansomwarePtrOutput
+}
+
+type volumeDataProtectionAdvancedRansomwarePtrType VolumeDataProtectionAdvancedRansomwareArgs
+
+func VolumeDataProtectionAdvancedRansomwarePtr(v *VolumeDataProtectionAdvancedRansomwareArgs) VolumeDataProtectionAdvancedRansomwarePtrInput {
+	return (*volumeDataProtectionAdvancedRansomwarePtrType)(v)
+}
+
+func (*volumeDataProtectionAdvancedRansomwarePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (i *volumeDataProtectionAdvancedRansomwarePtrType) ToVolumeDataProtectionAdvancedRansomwarePtrOutput() VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return i.ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(context.Background())
+}
+
+func (i *volumeDataProtectionAdvancedRansomwarePtrType) ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(ctx context.Context) VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionAdvancedRansomwarePtrOutput)
+}
+
+type VolumeDataProtectionAdvancedRansomwareOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionAdvancedRansomwareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionAdvancedRansomwareOutput) ToVolumeDataProtectionAdvancedRansomwareOutput() VolumeDataProtectionAdvancedRansomwareOutput {
+	return o
+}
+
+func (o VolumeDataProtectionAdvancedRansomwareOutput) ToVolumeDataProtectionAdvancedRansomwareOutputWithContext(ctx context.Context) VolumeDataProtectionAdvancedRansomwareOutput {
+	return o
+}
+
+func (o VolumeDataProtectionAdvancedRansomwareOutput) ToVolumeDataProtectionAdvancedRansomwarePtrOutput() VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return o.ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(context.Background())
+}
+
+func (o VolumeDataProtectionAdvancedRansomwareOutput) ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(ctx context.Context) VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeDataProtectionAdvancedRansomware) *VolumeDataProtectionAdvancedRansomware {
+		return &v
+	}).(VolumeDataProtectionAdvancedRansomwarePtrOutput)
+}
+
+// Enable or disable the Advanced Ransomware Protection feature.
+//
+// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+//
+// > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+func (o VolumeDataProtectionAdvancedRansomwareOutput) ProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeDataProtectionAdvancedRansomware) bool { return v.ProtectionEnabled }).(pulumi.BoolOutput)
+}
+
+type VolumeDataProtectionAdvancedRansomwarePtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionAdvancedRansomwarePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionAdvancedRansomwarePtrOutput) ToVolumeDataProtectionAdvancedRansomwarePtrOutput() VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionAdvancedRansomwarePtrOutput) ToVolumeDataProtectionAdvancedRansomwarePtrOutputWithContext(ctx context.Context) VolumeDataProtectionAdvancedRansomwarePtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionAdvancedRansomwarePtrOutput) Elem() VolumeDataProtectionAdvancedRansomwareOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionAdvancedRansomware) VolumeDataProtectionAdvancedRansomware {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeDataProtectionAdvancedRansomware
+		return ret
+	}).(VolumeDataProtectionAdvancedRansomwareOutput)
+}
+
+// Enable or disable the Advanced Ransomware Protection feature.
+//
+// > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+//
+// > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+func (o VolumeDataProtectionAdvancedRansomwarePtrOutput) ProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionAdvancedRansomware) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtectionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type VolumeDataProtectionBackupPolicy struct {
 	// Resource ID of the backup policy to apply to the volume.
 	BackupPolicyId string `pulumi:"backupPolicyId"`
@@ -4446,6 +4599,103 @@ func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetSnapshotPolicyWeeklyScheduleOutput)
 }
 
+type GetVolumeDataProtectionAdvancedRansomware struct {
+	// Whether the Advanced Ransomware Protection feature is enabled.
+	ProtectionEnabled bool `pulumi:"protectionEnabled"`
+}
+
+// GetVolumeDataProtectionAdvancedRansomwareInput is an input type that accepts GetVolumeDataProtectionAdvancedRansomwareArgs and GetVolumeDataProtectionAdvancedRansomwareOutput values.
+// You can construct a concrete instance of `GetVolumeDataProtectionAdvancedRansomwareInput` via:
+//
+//	GetVolumeDataProtectionAdvancedRansomwareArgs{...}
+type GetVolumeDataProtectionAdvancedRansomwareInput interface {
+	pulumi.Input
+
+	ToGetVolumeDataProtectionAdvancedRansomwareOutput() GetVolumeDataProtectionAdvancedRansomwareOutput
+	ToGetVolumeDataProtectionAdvancedRansomwareOutputWithContext(context.Context) GetVolumeDataProtectionAdvancedRansomwareOutput
+}
+
+type GetVolumeDataProtectionAdvancedRansomwareArgs struct {
+	// Whether the Advanced Ransomware Protection feature is enabled.
+	ProtectionEnabled pulumi.BoolInput `pulumi:"protectionEnabled"`
+}
+
+func (GetVolumeDataProtectionAdvancedRansomwareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (i GetVolumeDataProtectionAdvancedRansomwareArgs) ToGetVolumeDataProtectionAdvancedRansomwareOutput() GetVolumeDataProtectionAdvancedRansomwareOutput {
+	return i.ToGetVolumeDataProtectionAdvancedRansomwareOutputWithContext(context.Background())
+}
+
+func (i GetVolumeDataProtectionAdvancedRansomwareArgs) ToGetVolumeDataProtectionAdvancedRansomwareOutputWithContext(ctx context.Context) GetVolumeDataProtectionAdvancedRansomwareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionAdvancedRansomwareOutput)
+}
+
+// GetVolumeDataProtectionAdvancedRansomwareArrayInput is an input type that accepts GetVolumeDataProtectionAdvancedRansomwareArray and GetVolumeDataProtectionAdvancedRansomwareArrayOutput values.
+// You can construct a concrete instance of `GetVolumeDataProtectionAdvancedRansomwareArrayInput` via:
+//
+//	GetVolumeDataProtectionAdvancedRansomwareArray{ GetVolumeDataProtectionAdvancedRansomwareArgs{...} }
+type GetVolumeDataProtectionAdvancedRansomwareArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeDataProtectionAdvancedRansomwareArrayOutput() GetVolumeDataProtectionAdvancedRansomwareArrayOutput
+	ToGetVolumeDataProtectionAdvancedRansomwareArrayOutputWithContext(context.Context) GetVolumeDataProtectionAdvancedRansomwareArrayOutput
+}
+
+type GetVolumeDataProtectionAdvancedRansomwareArray []GetVolumeDataProtectionAdvancedRansomwareInput
+
+func (GetVolumeDataProtectionAdvancedRansomwareArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (i GetVolumeDataProtectionAdvancedRansomwareArray) ToGetVolumeDataProtectionAdvancedRansomwareArrayOutput() GetVolumeDataProtectionAdvancedRansomwareArrayOutput {
+	return i.ToGetVolumeDataProtectionAdvancedRansomwareArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeDataProtectionAdvancedRansomwareArray) ToGetVolumeDataProtectionAdvancedRansomwareArrayOutputWithContext(ctx context.Context) GetVolumeDataProtectionAdvancedRansomwareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionAdvancedRansomwareArrayOutput)
+}
+
+type GetVolumeDataProtectionAdvancedRansomwareOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeDataProtectionAdvancedRansomwareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (o GetVolumeDataProtectionAdvancedRansomwareOutput) ToGetVolumeDataProtectionAdvancedRansomwareOutput() GetVolumeDataProtectionAdvancedRansomwareOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionAdvancedRansomwareOutput) ToGetVolumeDataProtectionAdvancedRansomwareOutputWithContext(ctx context.Context) GetVolumeDataProtectionAdvancedRansomwareOutput {
+	return o
+}
+
+// Whether the Advanced Ransomware Protection feature is enabled.
+func (o GetVolumeDataProtectionAdvancedRansomwareOutput) ProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionAdvancedRansomware) bool { return v.ProtectionEnabled }).(pulumi.BoolOutput)
+}
+
+type GetVolumeDataProtectionAdvancedRansomwareArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeDataProtectionAdvancedRansomwareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeDataProtectionAdvancedRansomware)(nil)).Elem()
+}
+
+func (o GetVolumeDataProtectionAdvancedRansomwareArrayOutput) ToGetVolumeDataProtectionAdvancedRansomwareArrayOutput() GetVolumeDataProtectionAdvancedRansomwareArrayOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionAdvancedRansomwareArrayOutput) ToGetVolumeDataProtectionAdvancedRansomwareArrayOutputWithContext(ctx context.Context) GetVolumeDataProtectionAdvancedRansomwareArrayOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionAdvancedRansomwareArrayOutput) Index(i pulumi.IntInput) GetVolumeDataProtectionAdvancedRansomwareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeDataProtectionAdvancedRansomware {
+		return vs[0].([]GetVolumeDataProtectionAdvancedRansomware)[vs[1].(int)]
+	}).(GetVolumeDataProtectionAdvancedRansomwareOutput)
+}
+
 type GetVolumeDataProtectionBackupPolicy struct {
 	// The Resource ID of the backup policy.
 	BackupPolicyId string `pulumi:"backupPolicyId"`
@@ -6022,6 +6272,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklySchedulePtrInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCoolAccessInput)(nil)).Elem(), VolumeCoolAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCoolAccessPtrInput)(nil)).Elem(), VolumeCoolAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionAdvancedRansomwareInput)(nil)).Elem(), VolumeDataProtectionAdvancedRansomwareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionAdvancedRansomwarePtrInput)(nil)).Elem(), VolumeDataProtectionAdvancedRansomwareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionBackupPolicyInput)(nil)).Elem(), VolumeDataProtectionBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionBackupPolicyPtrInput)(nil)).Elem(), VolumeDataProtectionBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
@@ -6056,6 +6308,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyMonthlyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyMonthlyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionAdvancedRansomwareInput)(nil)).Elem(), GetVolumeDataProtectionAdvancedRansomwareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionAdvancedRansomwareArrayInput)(nil)).Elem(), GetVolumeDataProtectionAdvancedRansomwareArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionBackupPolicyInput)(nil)).Elem(), GetVolumeDataProtectionBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionBackupPolicyArrayInput)(nil)).Elem(), GetVolumeDataProtectionBackupPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArgs{})
@@ -6090,6 +6344,8 @@ func init() {
 	pulumi.RegisterOutputType(SnapshotPolicyWeeklySchedulePtrOutput{})
 	pulumi.RegisterOutputType(VolumeCoolAccessOutput{})
 	pulumi.RegisterOutputType(VolumeCoolAccessPtrOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionAdvancedRansomwareOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionAdvancedRansomwarePtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionBackupPolicyOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionReplicationOutput{})
@@ -6124,6 +6380,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSnapshotPolicyMonthlyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeDataProtectionAdvancedRansomwareOutput{})
+	pulumi.RegisterOutputType(GetVolumeDataProtectionAdvancedRansomwareArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionBackupPolicyOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionBackupPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationOutput{})

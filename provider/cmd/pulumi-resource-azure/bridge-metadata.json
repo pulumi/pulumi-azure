@@ -971,6 +971,9 @@
                 "current": "azure:appconfiguration/configurationFeature:ConfigurationFeature",
                 "majorVersion": 6,
                 "fields": {
+                    "custom_filter": {
+                        "maxItemsOne": false
+                    },
                     "targeting_filter": {
                         "maxItemsOne": false,
                         "elem": {
@@ -1541,6 +1544,16 @@
                     "autoscale_configuration": {
                         "maxItemsOne": true
                     },
+                    "backend": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "trusted_root_certificate_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "backend_address_pool": {
                         "maxItemsOne": false,
                         "elem": {
@@ -1608,6 +1621,16 @@
                             }
                         }
                     },
+                    "listener": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "host_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "private_endpoint_connection": {
                         "maxItemsOne": false
                     },
@@ -1669,6 +1692,9 @@
                                 }
                             }
                         }
+                    },
+                    "routing_rule": {
+                        "maxItemsOne": false
                     },
                     "sku": {
                         "maxItemsOne": true
@@ -2202,6 +2228,10 @@
             },
             "azurerm_automation_runtime_environment": {
                 "current": "azure:automation/runtimeEnvironment:RuntimeEnvironment",
+                "majorVersion": 6
+            },
+            "azurerm_automation_runtime_environment_package": {
+                "current": "azure:automation/runtimeEnvironmentPackage:RuntimeEnvironmentPackage",
                 "majorVersion": 6
             },
             "azurerm_automation_schedule": {
@@ -4264,6 +4294,10 @@
                     }
                 }
             },
+            "azurerm_container_app_environment_managed_certificate": {
+                "current": "azure:containerapp/environmentManagedCertificate:EnvironmentManagedCertificate",
+                "majorVersion": 6
+            },
             "azurerm_container_app_environment_storage": {
                 "current": "azure:containerapp/environmentStorage:EnvironmentStorage",
                 "majorVersion": 6
@@ -6080,6 +6114,15 @@
                     }
                 }
             },
+            "azurerm_data_protection_backup_instance_data_lake_storage": {
+                "current": "azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage",
+                "majorVersion": 6,
+                "fields": {
+                    "storage_container_names": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_data_protection_backup_instance_disk": {
                 "current": "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk",
                 "majorVersion": 6
@@ -6159,6 +6202,34 @@
                                 },
                                 "life_cycle": {
                                     "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_data_protection_backup_policy_data_lake_storage": {
+                "current": "azure:dataprotection/backupPolicyDataLakeStorage:BackupPolicyDataLakeStorage",
+                "majorVersion": 6,
+                "fields": {
+                    "backup_schedule": {
+                        "maxItemsOne": false
+                    },
+                    "retention_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "days_of_week": {
+                                    "maxItemsOne": false
+                                },
+                                "months_of_year": {
+                                    "maxItemsOne": false
+                                },
+                                "scheduled_backup_times": {
+                                    "maxItemsOne": false
+                                },
+                                "weeks_of_month": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -7549,6 +7620,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_eventgrid_namespace_topic": {
+                "current": "azure:eventgrid/namespaceTopic:NamespaceTopic",
+                "majorVersion": 6
             },
             "azurerm_eventgrid_partner_configuration": {
                 "current": "azure:eventgrid/partnerConfiguration:PartnerConfiguration",
@@ -11140,6 +11215,15 @@
                     }
                 }
             },
+            "azurerm_kubernetes_cluster_deployment_safeguard": {
+                "current": "azure:containerservice/clusterDeploymentSafeguard:ClusterDeploymentSafeguard",
+                "majorVersion": 6,
+                "fields": {
+                    "excluded_namespaces": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_kubernetes_cluster_extension": {
                 "current": "azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension",
                 "majorVersion": 6,
@@ -11330,6 +11414,12 @@
                                     "maxItemsOne": false
                                 },
                                 "external_tables_to_include": {
+                                    "maxItemsOne": false
+                                },
+                                "functions_to_exclude": {
+                                    "maxItemsOne": false
+                                },
+                                "functions_to_include": {
                                     "maxItemsOne": false
                                 },
                                 "materialized_views_to_exclude": {
@@ -13854,6 +13944,172 @@
                     }
                 }
             },
+            "azurerm_managed_devops_pool": {
+                "current": "azure:devcenter/managedDevOpsPool:ManagedDevOpsPool",
+                "majorVersion": 6,
+                "fields": {
+                    "azure_devops_organization": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "organization": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "projects": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "permission": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "administrator_account": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "groups": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "users": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "stateful_agent": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "automatic_resource_prediction": {
+                                    "maxItemsOne": true
+                                },
+                                "manual_resource_prediction": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "friday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "monday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "saturday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "sunday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "thursday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "tuesday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "wednesday_schedule": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "stateless_agent": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "automatic_resource_prediction": {
+                                    "maxItemsOne": true
+                                },
+                                "manual_resource_prediction": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "friday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "monday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "saturday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "sunday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "thursday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "tuesday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "wednesday_schedule": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "virtual_machine_scale_set_fabric": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "image": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "aliases": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "security": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "key_vault_management": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "key_vault_certificate_ids": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "storage": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_managed_disk": {
                 "current": "azure:compute/managedDisk:ManagedDisk",
                 "majorVersion": 6,
@@ -15746,6 +16002,9 @@
                 "majorVersion": 6,
                 "fields": {
                     "cool_access": {
+                        "maxItemsOne": true
+                    },
+                    "data_protection_advanced_ransomware": {
                         "maxItemsOne": true
                     },
                     "data_protection_backup_policy": {
@@ -18111,6 +18370,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_resource_provider_feature_registration": {
+                "current": "azure:core/resourceProviderFeatureRegistration:ResourceProviderFeatureRegistration",
+                "majorVersion": 6
             },
             "azurerm_resource_provider_registration": {
                 "current": "azure:core/resourceProviderRegistration:ResourceProviderRegistration",
@@ -25002,6 +25265,16 @@
                     "autoscale_configuration": {
                         "maxItemsOne": false
                     },
+                    "backend": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "trusted_root_certificate_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "backend_address_pool": {
                         "maxItemsOne": false,
                         "elem": {
@@ -25069,6 +25342,16 @@
                             }
                         }
                     },
+                    "listener": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "host_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "private_endpoint_connection": {
                         "maxItemsOne": false
                     },
@@ -25130,6 +25413,9 @@
                                 }
                             }
                         }
+                    },
+                    "routing_rule": {
+                        "maxItemsOne": false
                     },
                     "sku": {
                         "maxItemsOne": false
@@ -28704,6 +28990,172 @@
                 "current": "azure:managedapplication/getDefinition:getDefinition",
                 "majorVersion": 6
             },
+            "azurerm_managed_devops_pool": {
+                "current": "azure:devcenter/getManagedDevOpsPool:getManagedDevOpsPool",
+                "majorVersion": 6,
+                "fields": {
+                    "azure_devops_organization": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "organization": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "projects": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "permission": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "administrator_account": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "groups": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "users": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "stateful_agent": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "automatic_resource_prediction": {
+                                    "maxItemsOne": false
+                                },
+                                "manual_resource_prediction": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "friday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "monday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "saturday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "sunday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "thursday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "tuesday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "wednesday_schedule": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "stateless_agent": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "automatic_resource_prediction": {
+                                    "maxItemsOne": false
+                                },
+                                "manual_resource_prediction": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "friday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "monday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "saturday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "sunday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "thursday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "tuesday_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "wednesday_schedule": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "virtual_machine_scale_set_fabric": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "image": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "aliases": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "security": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "key_vault_management": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "key_vault_certificate_ids": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "storage": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_managed_disk": {
                 "current": "azure:compute/getManagedDisk:getManagedDisk",
                 "majorVersion": 6,
@@ -29363,6 +29815,9 @@
                 "current": "azure:netapp/getVolume:getVolume",
                 "majorVersion": 6,
                 "fields": {
+                    "data_protection_advanced_ransomware": {
+                        "maxItemsOne": false
+                    },
                     "data_protection_backup_policy": {
                         "maxItemsOne": false
                     },

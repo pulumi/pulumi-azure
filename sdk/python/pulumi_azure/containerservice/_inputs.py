@@ -1183,7 +1183,7 @@ class FluxConfigurationGitRepositoryArgsDict(TypedDict):
     """
     provider: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+    Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
     """
     ssh_known_hosts_base64: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -1225,7 +1225,7 @@ class FluxConfigurationGitRepositoryArgs:
         :param pulumi.Input[_builtins.str] https_key_base64: Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
         :param pulumi.Input[_builtins.str] https_user: Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
         :param pulumi.Input[_builtins.str] local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
-        :param pulumi.Input[_builtins.str] provider: Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+        :param pulumi.Input[_builtins.str] provider: Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
         :param pulumi.Input[_builtins.str] ssh_known_hosts_base64: Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
         :param pulumi.Input[_builtins.str] ssh_private_key_base64: Specifies the Base64-encoded SSH private key in PEM format.
         :param pulumi.Input[_builtins.int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
@@ -1341,7 +1341,7 @@ class FluxConfigurationGitRepositoryArgs:
     @pulumi.getter
     def provider(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+        Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
         """
         return pulumi.get(self, "provider")
 
@@ -4632,7 +4632,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     os_sku: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+    Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
 
     > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
     """
@@ -4766,7 +4766,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param pulumi.Input[_builtins.int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input[_builtins.str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        :param pulumi.Input[_builtins.str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
                
                > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         :param pulumi.Input[_builtins.str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
@@ -5144,7 +5144,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `AzureLinux3`, `Ubuntu`, `Ubuntu2204`, `Ubuntu2404`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` when os_type=Linux or `Windows2019` if os_type=Windows (`Windows2022` Kubernetes ≥1.33). Changing between `AzureLinux` and `Ubuntu` does not replace the resource; otherwise `temporary_name_for_rotation` must be specified when attempting a change.
 
         > **Note:** `Windows2019` is deprecated and not supported for Kubernetes version ≥1.33.
         """
@@ -8387,7 +8387,7 @@ class KubernetesClusterNetworkProfileArgsDict(TypedDict):
     """
     advanced_networking: NotRequired[pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict']]
     """
-    An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+    An `advanced_networking` block as defined below.
     """
     dns_service_ip: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -8501,7 +8501,7 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
                
                > **Note:** Changing `network_plugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `network_plugin_mode` set to `overlay`.
-        :param pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs'] advanced_networking: An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+        :param pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs'] advanced_networking: An `advanced_networking` block as defined below.
         :param pulumi.Input[_builtins.str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
                
@@ -8599,7 +8599,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="advancedNetworking")
     def advanced_networking(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs']]:
         """
-        An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+        An `advanced_networking` block as defined below.
         """
         return pulumi.get(self, "advanced_networking")
 
@@ -8813,7 +8813,7 @@ class KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict(TypedDict):
     """
     security_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
-    Is security enabled? Defaults to `false`.
+    Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
     """
 
 @pulumi.input_type
@@ -8823,7 +8823,7 @@ class KubernetesClusterNetworkProfileAdvancedNetworkingArgs:
                  security_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] observability_enabled: Is observability enabled? Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] security_enabled: Is security enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] security_enabled: Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
         """
         if observability_enabled is not None:
             pulumi.set(__self__, "observability_enabled", observability_enabled)
@@ -8846,7 +8846,7 @@ class KubernetesClusterNetworkProfileAdvancedNetworkingArgs:
     @pulumi.getter(name="securityEnabled")
     def security_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Is security enabled? Defaults to `false`.
+        Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
         """
         return pulumi.get(self, "security_enabled")
 

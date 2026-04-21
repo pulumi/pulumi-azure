@@ -33,6 +33,7 @@ class ManagedInstanceArgs:
                  collation: Optional[pulumi.Input[_builtins.str]] = None,
                  database_format: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -67,10 +68,13 @@ class ManagedInstanceArgs:
                
                > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         :param pulumi.Input[_builtins.str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] general_purpose_v2_enabled: Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+               
+               > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
         :param pulumi.Input[_builtins.str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
@@ -101,6 +105,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "database_format", database_format)
         if dns_zone_partner_id is not None:
             pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
+        if general_purpose_v2_enabled is not None:
+            pulumi.set(__self__, "general_purpose_v2_enabled", general_purpose_v2_enabled)
         if hybrid_secondary_usage is not None:
             pulumi.set(__self__, "hybrid_secondary_usage", hybrid_secondary_usage)
         if identity is not None:
@@ -279,6 +285,20 @@ class ManagedInstanceArgs:
         pulumi.set(self, "dns_zone_partner_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="generalPurposeV2Enabled")
+    def general_purpose_v2_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+
+        > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+        """
+        return pulumi.get(self, "general_purpose_v2_enabled")
+
+    @general_purpose_v2_enabled.setter
+    def general_purpose_v2_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "general_purpose_v2_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="hybridSecondaryUsage")
     def hybrid_secondary_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -318,7 +338,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="maintenanceConfigurationName")
     def maintenance_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         """
         return pulumi.get(self, "maintenance_configuration_name")
 
@@ -448,6 +468,7 @@ class _ManagedInstanceState:
                  dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  fqdn: Optional[pulumi.Input[_builtins.str]] = None,
+                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -482,11 +503,14 @@ class _ManagedInstanceState:
         :param pulumi.Input[_builtins.str] dns_zone: The Dns Zone where the SQL Managed Instance is located.
         :param pulumi.Input[_builtins.str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
+        :param pulumi.Input[_builtins.bool] general_purpose_v2_enabled: Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+               
+               > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
         :param pulumi.Input[_builtins.str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
@@ -522,6 +546,8 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if general_purpose_v2_enabled is not None:
+            pulumi.set(__self__, "general_purpose_v2_enabled", general_purpose_v2_enabled)
         if hybrid_secondary_usage is not None:
             pulumi.set(__self__, "hybrid_secondary_usage", hybrid_secondary_usage)
         if identity is not None:
@@ -662,6 +688,20 @@ class _ManagedInstanceState:
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
+    @pulumi.getter(name="generalPurposeV2Enabled")
+    def general_purpose_v2_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+
+        > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+        """
+        return pulumi.get(self, "general_purpose_v2_enabled")
+
+    @general_purpose_v2_enabled.setter
+    def general_purpose_v2_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "general_purpose_v2_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="hybridSecondaryUsage")
     def hybrid_secondary_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -713,7 +753,7 @@ class _ManagedInstanceState:
     @pulumi.getter(name="maintenanceConfigurationName")
     def maintenance_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         """
         return pulumi.get(self, "maintenance_configuration_name")
 
@@ -906,6 +946,7 @@ class ManagedInstance(pulumi.CustomResource):
                  collation: Optional[pulumi.Input[_builtins.str]] = None,
                  database_format: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1130,11 +1171,14 @@ class ManagedInstance(pulumi.CustomResource):
                
                > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         :param pulumi.Input[_builtins.str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] general_purpose_v2_enabled: Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+               
+               > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
         :param pulumi.Input[_builtins.str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
@@ -1373,6 +1417,7 @@ class ManagedInstance(pulumi.CustomResource):
                  collation: Optional[pulumi.Input[_builtins.str]] = None,
                  database_format: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1407,6 +1452,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["collation"] = collation
             __props__.__dict__["database_format"] = database_format
             __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
+            __props__.__dict__["general_purpose_v2_enabled"] = general_purpose_v2_enabled
             __props__.__dict__["hybrid_secondary_usage"] = hybrid_secondary_usage
             __props__.__dict__["identity"] = identity
             if license_type is None and not opts.urn:
@@ -1462,6 +1508,7 @@ class ManagedInstance(pulumi.CustomResource):
             dns_zone: Optional[pulumi.Input[_builtins.str]] = None,
             dns_zone_partner_id: Optional[pulumi.Input[_builtins.str]] = None,
             fqdn: Optional[pulumi.Input[_builtins.str]] = None,
+            general_purpose_v2_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             hybrid_secondary_usage: Optional[pulumi.Input[_builtins.str]] = None,
             identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
             license_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1500,11 +1547,14 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dns_zone: The Dns Zone where the SQL Managed Instance is located.
         :param pulumi.Input[_builtins.str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
+        :param pulumi.Input[_builtins.bool] general_purpose_v2_enabled: Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+               
+               > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
         :param pulumi.Input[_builtins.str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
@@ -1536,6 +1586,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["dns_zone"] = dns_zone
         __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
         __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["general_purpose_v2_enabled"] = general_purpose_v2_enabled
         __props__.__dict__["hybrid_secondary_usage"] = hybrid_secondary_usage
         __props__.__dict__["identity"] = identity
         __props__.__dict__["license_type"] = license_type
@@ -1626,6 +1677,16 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "fqdn")
 
     @_builtins.property
+    @pulumi.getter(name="generalPurposeV2Enabled")
+    def general_purpose_v2_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether the SQL Managed Instance should use the Next-gen General Purpose service tier. Defaults to `false`.
+
+        > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
+        """
+        return pulumi.get(self, "general_purpose_v2_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="hybridSecondaryUsage")
     def hybrid_secondary_usage(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -1661,7 +1722,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceConfigurationName")
     def maintenance_configuration_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         """
         return pulumi.get(self, "maintenance_configuration_name")
 

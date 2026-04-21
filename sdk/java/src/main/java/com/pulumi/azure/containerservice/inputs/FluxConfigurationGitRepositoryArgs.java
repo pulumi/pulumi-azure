@@ -78,14 +78,14 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
      * 
      */
     @Import(name="provider")
     private @Nullable Output<String> provider;
 
     /**
-     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
      * 
      */
     public Optional<Output<String>> provider() {
@@ -317,7 +317,7 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param provider Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+         * @param provider Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param provider Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+         * @param provider Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
          * 
          * @return builder
          * 

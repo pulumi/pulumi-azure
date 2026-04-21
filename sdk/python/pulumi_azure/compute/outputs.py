@@ -234,10 +234,10 @@ class BastionHostIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "publicIpAddressId":
-            suggest = "public_ip_address_id"
-        elif key == "subnetId":
+        if key == "subnetId":
             suggest = "subnet_id"
+        elif key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BastionHostIpConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -252,18 +252,21 @@ class BastionHostIpConfiguration(dict):
 
     def __init__(__self__, *,
                  name: _builtins.str,
-                 public_ip_address_id: _builtins.str,
-                 subnet_id: _builtins.str):
+                 subnet_id: _builtins.str,
+                 public_ip_address_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: The name of the IP configuration. Changing this forces a new resource to be created.
-        :param _builtins.str public_ip_address_id: Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
         :param _builtins.str subnet_id: Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
                
                > **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
+        :param _builtins.str public_ip_address_id: Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+               
+               > **Note:** `public_ip_address_id` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `public_ip_address_id` is omitted, the Bastion Host is deployed in Private-Only mode (`private_only_enabled` will be `true`).
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
 
     @_builtins.property
     @pulumi.getter
@@ -274,14 +277,6 @@ class BastionHostIpConfiguration(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> _builtins.str:
-        """
-        Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "public_ip_address_id")
-
-    @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
         """
@@ -290,6 +285,16 @@ class BastionHostIpConfiguration(dict):
         > **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
         """
         return pulumi.get(self, "subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[_builtins.str]:
+        """
+        Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+
+        > **Note:** `public_ip_address_id` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `public_ip_address_id` is omitted, the Bastion Host is deployed in Private-Only mode (`private_only_enabled` will be `true`).
+        """
+        return pulumi.get(self, "public_ip_address_id")
 
 
 @pulumi.output_type

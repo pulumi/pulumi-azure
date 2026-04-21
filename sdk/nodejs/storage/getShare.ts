@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Storage` - 2023-05-01
+ * * `Microsoft.Storage` - 2025-06-01
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,6 +95,10 @@ export interface GetShareResult {
      */
     readonly quota: number;
     /**
+     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     */
+    readonly rbacScopeId: string;
+    /**
      * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      */
     readonly resourceManagerId: string;
@@ -127,7 +131,7 @@ export interface GetShareResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Storage` - 2023-05-01
+ * * `Microsoft.Storage` - 2025-06-01
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

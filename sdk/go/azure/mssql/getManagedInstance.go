@@ -77,6 +77,8 @@ type LookupManagedInstanceResult struct {
 	DnsZonePartnerId string `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance.
 	Fqdn string `pulumi:"fqdn"`
+	// Whether the SQL Managed Instance is using the Next-gen General Purpose service tier
+	GeneralPurposeV2Enabled bool `pulumi:"generalPurposeV2Enabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
@@ -172,6 +174,11 @@ func (o LookupManagedInstanceResultOutput) DnsZonePartnerId() pulumi.StringOutpu
 // The fully qualified domain name of the Azure Managed SQL Instance.
 func (o LookupManagedInstanceResultOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedInstanceResult) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Whether the SQL Managed Instance is using the Next-gen General Purpose service tier
+func (o LookupManagedInstanceResultOutput) GeneralPurposeV2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupManagedInstanceResult) bool { return v.GeneralPurposeV2Enabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

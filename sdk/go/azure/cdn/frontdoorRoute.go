@@ -14,6 +14,8 @@ import (
 
 // Manages a Front Door (standard/premium) Route.
 //
+// > **Note:** The `cdn.FrontdoorRoute` resource must **explicitly** reference its associated `cdn.FrontdoorOrigin` resource(s). This can be achieved either by using a `dependsOn` meta-argument that points to the `cdn.FrontdoorOrigin` resource(s), or by specifying the `cdn.FrontdoorOrigin` IDs via the `cdnFrontdoorOriginIds` field.
+//
 // ## Example Usage
 //
 // ```go
@@ -224,7 +226,9 @@ type FrontdoorRoute struct {
 	CdnFrontdoorEndpointId pulumi.StringOutput `pulumi:"cdnFrontdoorEndpointId"`
 	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId pulumi.StringOutput `pulumi:"cdnFrontdoorOriginGroupId"`
-	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+	// One or more Front Door Origin resource IDs for this Front Door Route.
+	//
+	// > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
 	CdnFrontdoorOriginIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorOriginIds"`
 	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath pulumi.StringPtrOutput `pulumi:"cdnFrontdoorOriginPath"`
@@ -262,9 +266,6 @@ func NewFrontdoorRoute(ctx *pulumi.Context,
 	}
 	if args.CdnFrontdoorOriginGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'CdnFrontdoorOriginGroupId'")
-	}
-	if args.CdnFrontdoorOriginIds == nil {
-		return nil, errors.New("invalid value for required argument 'CdnFrontdoorOriginIds'")
 	}
 	if args.PatternsToMatches == nil {
 		return nil, errors.New("invalid value for required argument 'PatternsToMatches'")
@@ -305,7 +306,9 @@ type frontdoorRouteState struct {
 	CdnFrontdoorEndpointId *string `pulumi:"cdnFrontdoorEndpointId"`
 	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
-	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+	// One or more Front Door Origin resource IDs for this Front Door Route.
+	//
+	// > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
 	CdnFrontdoorOriginIds []string `pulumi:"cdnFrontdoorOriginIds"`
 	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath *string `pulumi:"cdnFrontdoorOriginPath"`
@@ -342,7 +345,9 @@ type FrontdoorRouteState struct {
 	CdnFrontdoorEndpointId pulumi.StringPtrInput
 	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId pulumi.StringPtrInput
-	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+	// One or more Front Door Origin resource IDs for this Front Door Route.
+	//
+	// > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
 	CdnFrontdoorOriginIds pulumi.StringArrayInput
 	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath pulumi.StringPtrInput
@@ -383,7 +388,9 @@ type frontdoorRouteArgs struct {
 	CdnFrontdoorEndpointId string `pulumi:"cdnFrontdoorEndpointId"`
 	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId string `pulumi:"cdnFrontdoorOriginGroupId"`
-	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+	// One or more Front Door Origin resource IDs for this Front Door Route.
+	//
+	// > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
 	CdnFrontdoorOriginIds []string `pulumi:"cdnFrontdoorOriginIds"`
 	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath *string `pulumi:"cdnFrontdoorOriginPath"`
@@ -421,7 +428,9 @@ type FrontdoorRouteArgs struct {
 	CdnFrontdoorEndpointId pulumi.StringInput
 	// The resource ID of the Front Door Origin Group where this Front Door Route should be created.
 	CdnFrontdoorOriginGroupId pulumi.StringInput
-	// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+	// One or more Front Door Origin resource IDs for this Front Door Route.
+	//
+	// > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
 	CdnFrontdoorOriginIds pulumi.StringArrayInput
 	// A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
 	CdnFrontdoorOriginPath pulumi.StringPtrInput
@@ -556,7 +565,9 @@ func (o FrontdoorRouteOutput) CdnFrontdoorOriginGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringOutput { return v.CdnFrontdoorOriginGroupId }).(pulumi.StringOutput)
 }
 
-// One or more Front Door Origin resource IDs that this Front Door Route will link to.
+// One or more Front Door Origin resource IDs for this Front Door Route.
+//
+// > **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
 func (o FrontdoorRouteOutput) CdnFrontdoorOriginIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.CdnFrontdoorOriginIds }).(pulumi.StringArrayOutput)
 }

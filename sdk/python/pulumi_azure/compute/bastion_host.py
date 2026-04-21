@@ -325,6 +325,7 @@ class _BastionHostState:
                  kerberos_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  scale_units: Optional[pulumi.Input[_builtins.int]] = None,
                  session_recording_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -351,6 +352,7 @@ class _BastionHostState:
                > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] private_only_enabled: Whether Private-Only deployment is enabled for the Bastion Host.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
@@ -387,6 +389,8 @@ class _BastionHostState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_only_enabled is not None:
+            pulumi.set(__self__, "private_only_enabled", private_only_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scale_units is not None:
@@ -507,6 +511,18 @@ class _BastionHostState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateOnlyEnabled")
+    def private_only_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether Private-Only deployment is enabled for the Bastion Host.
+        """
+        return pulumi.get(self, "private_only_enabled")
+
+    @private_only_enabled.setter
+    def private_only_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "private_only_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -864,6 +880,7 @@ class BastionHost(pulumi.CustomResource):
             __props__.__dict__["virtual_network_id"] = virtual_network_id
             __props__.__dict__["zones"] = zones
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["private_only_enabled"] = None
         super(BastionHost, __self__).__init__(
             'azure:compute/bastionHost:BastionHost',
             resource_name,
@@ -882,6 +899,7 @@ class BastionHost(pulumi.CustomResource):
             kerberos_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            private_only_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             scale_units: Optional[pulumi.Input[_builtins.int]] = None,
             session_recording_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -912,6 +930,7 @@ class BastionHost(pulumi.CustomResource):
                > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] private_only_enabled: Whether Private-Only deployment is enabled for the Bastion Host.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
@@ -944,6 +963,7 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["kerberos_enabled"] = kerberos_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_only_enabled"] = private_only_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scale_units"] = scale_units
         __props__.__dict__["session_recording_enabled"] = session_recording_enabled
@@ -1024,6 +1044,14 @@ class BastionHost(pulumi.CustomResource):
         Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateOnlyEnabled")
+    def private_only_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether Private-Only deployment is enabled for the Bastion Host.
+        """
+        return pulumi.get(self, "private_only_enabled")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

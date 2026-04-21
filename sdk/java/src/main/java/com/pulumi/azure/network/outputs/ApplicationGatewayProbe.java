@@ -16,7 +16,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayProbe {
     /**
-     * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+     * @return The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+     * 
+     * &gt; **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
      * 
      */
     private @Nullable String host;
@@ -26,12 +28,14 @@ public final class ApplicationGatewayProbe {
      */
     private @Nullable String id;
     /**
-     * @return The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * @return The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
      * 
      */
     private Integer interval;
     /**
      * @return A `match` block as defined above.
+     * 
+     * &gt; **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
      * 
      */
     private @Nullable ApplicationGatewayProbeMatch match;
@@ -41,44 +45,61 @@ public final class ApplicationGatewayProbe {
      */
     private @Nullable Integer minimumServers;
     /**
-     * @return The Name of the Probe.
+     * @return The name of the Probe.
      * 
      */
     private String name;
     /**
-     * @return The Path used for this Probe.
+     * @return The relative URL path of the Probe. Valid value starts with `/`.
+     * 
+     * &gt; **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
      * 
      */
-    private String path;
+    private @Nullable String path;
     /**
      * @return Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+     * 
+     * &gt; **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
      * 
      */
     private @Nullable Boolean pickHostNameFromBackendHttpSettings;
     /**
-     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+     * @return Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+     * 
+     * &gt; **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
      * 
      */
     private @Nullable Integer port;
     /**
-     * @return The Protocol used for this Probe. Possible values are `Http` and `Https`.
+     * @return The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
      * 
      */
     private String protocol;
     /**
-     * @return The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * @return Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+     * 
+     * &gt; **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+     * 
+     */
+    private @Nullable Boolean proxyProtocolHeaderEnabled;
+    /**
+     * @return The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+     * 
+     * &gt; **Note:** The `timeout` value should not be greater than the `interval` value.
      * 
      */
     private Integer timeout;
     /**
-     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+     * @return The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
      * 
      */
     private Integer unhealthyThreshold;
 
     private ApplicationGatewayProbe() {}
     /**
-     * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pickHostNameFromBackendHttpSettings` is set to `true`.
+     * @return The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
+     * 
+     * &gt; **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
      * 
      */
     public Optional<String> host() {
@@ -92,7 +113,7 @@ public final class ApplicationGatewayProbe {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * @return The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
      * 
      */
     public Integer interval() {
@@ -100,6 +121,8 @@ public final class ApplicationGatewayProbe {
     }
     /**
      * @return A `match` block as defined above.
+     * 
+     * &gt; **Note:** `match` cannot be set when `protocol` is set to `Tcp` or `Tls`.
      * 
      */
     public Optional<ApplicationGatewayProbeMatch> match() {
@@ -113,49 +136,66 @@ public final class ApplicationGatewayProbe {
         return Optional.ofNullable(this.minimumServers);
     }
     /**
-     * @return The Name of the Probe.
+     * @return The name of the Probe.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The Path used for this Probe.
+     * @return The relative URL path of the Probe. Valid value starts with `/`.
+     * 
+     * &gt; **Note:** `path` cannot be set when `protocol` is set to `Tcp` or `Tls`. `path` must be specified when `protocol` is `Http` or `Https`.
      * 
      */
-    public String path() {
-        return this.path;
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+     * 
+     * &gt; **Note:** `pickHostNameFromBackendHttpSettings` cannot be set when `protocol` is set to `Tcp` or `Tls`.
      * 
      */
     public Optional<Boolean> pickHostNameFromBackendHttpSettings() {
         return Optional.ofNullable(this.pickHostNameFromBackendHttpSettings);
     }
     /**
-     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+     * @return Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+     * 
+     * &gt; **Note:** In case `port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
      * 
      */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return The Protocol used for this Probe. Possible values are `Http` and `Https`.
+     * @return The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
      * 
      */
     public String protocol() {
         return this.protocol;
     }
     /**
-     * @return The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+     * @return Whether the proxy protocol header is enabled for this Probe. Defaults to `false`.
+     * 
+     * &gt; **Note:** `proxyProtocolHeaderEnabled` can only be set when `protocol` is `Tcp` or `Tls`.
+     * 
+     */
+    public Optional<Boolean> proxyProtocolHeaderEnabled() {
+        return Optional.ofNullable(this.proxyProtocolHeaderEnabled);
+    }
+    /**
+     * @return The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+     * 
+     * &gt; **Note:** The `timeout` value should not be greater than the `interval` value.
      * 
      */
     public Integer timeout() {
         return this.timeout;
     }
     /**
-     * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+     * @return The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
      * 
      */
     public Integer unhealthyThreshold() {
@@ -177,10 +217,11 @@ public final class ApplicationGatewayProbe {
         private @Nullable ApplicationGatewayProbeMatch match;
         private @Nullable Integer minimumServers;
         private String name;
-        private String path;
+        private @Nullable String path;
         private @Nullable Boolean pickHostNameFromBackendHttpSettings;
         private @Nullable Integer port;
         private String protocol;
+        private @Nullable Boolean proxyProtocolHeaderEnabled;
         private Integer timeout;
         private Integer unhealthyThreshold;
         public Builder() {}
@@ -196,6 +237,7 @@ public final class ApplicationGatewayProbe {
     	      this.pickHostNameFromBackendHttpSettings = defaults.pickHostNameFromBackendHttpSettings;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
+    	      this.proxyProtocolHeaderEnabled = defaults.proxyProtocolHeaderEnabled;
     	      this.timeout = defaults.timeout;
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
@@ -241,10 +283,8 @@ public final class ApplicationGatewayProbe {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            if (path == null) {
-              throw new MissingRequiredPropertyException("ApplicationGatewayProbe", "path");
-            }
+        public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
@@ -266,6 +306,12 @@ public final class ApplicationGatewayProbe {
               throw new MissingRequiredPropertyException("ApplicationGatewayProbe", "protocol");
             }
             this.protocol = protocol;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder proxyProtocolHeaderEnabled(@Nullable Boolean proxyProtocolHeaderEnabled) {
+
+            this.proxyProtocolHeaderEnabled = proxyProtocolHeaderEnabled;
             return this;
         }
         @CustomType.Setter
@@ -296,6 +342,7 @@ public final class ApplicationGatewayProbe {
             _resultValue.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
             _resultValue.port = port;
             _resultValue.protocol = protocol;
+            _resultValue.proxyProtocolHeaderEnabled = proxyProtocolHeaderEnabled;
             _resultValue.timeout = timeout;
             _resultValue.unhealthyThreshold = unhealthyThreshold;
             return _resultValue;

@@ -207,8 +207,10 @@ type KubernetesCluster struct {
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringOutput `pulumi:"nodeResourceGroupId"`
-	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
-	OidcIssuerEnabled pulumi.BoolPtrOutput `pulumi:"oidcIssuerEnabled"`
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	//
+	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+	OidcIssuerEnabled pulumi.BoolOutput `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringOutput `pulumi:"oidcIssuerUrl"`
 	// A `omsAgent` block as defined below.
@@ -489,7 +491,9 @@ type kubernetesClusterState struct {
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId *string `pulumi:"nodeResourceGroupId"`
-	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	//
+	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl *string `pulumi:"oidcIssuerUrl"`
@@ -729,7 +733,9 @@ type KubernetesClusterState struct {
 	NodeResourceGroup pulumi.StringPtrInput
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringPtrInput
-	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	//
+	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringPtrInput
@@ -957,7 +963,9 @@ type kubernetesClusterArgs struct {
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	//
+	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// A `omsAgent` block as defined below.
 	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
@@ -1176,7 +1184,9 @@ type KubernetesClusterArgs struct {
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup pulumi.StringPtrInput
-	// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	//
+	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// A `omsAgent` block as defined below.
 	OmsAgent KubernetesClusterOmsAgentPtrInput
@@ -1655,9 +1665,11 @@ func (o KubernetesClusterOutput) NodeResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.NodeResourceGroupId }).(pulumi.StringOutput)
 }
 
-// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
-func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.OidcIssuerEnabled }).(pulumi.BoolPtrOutput)
+// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+//
+// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolOutput { return v.OidcIssuerEnabled }).(pulumi.BoolOutput)
 }
 
 // The OIDC issuer URL that is associated with the cluster.

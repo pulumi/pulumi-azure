@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `AdvancedNetworking` block as defined below. This can only be specified when `NetworkPlugin` is set to `Azure` and `NetworkDataPlane` is set to `Cilium`.
+        /// An `AdvancedNetworking` block as defined below.
         /// </summary>
         [Input("advancedNetworking")]
         public Input<Inputs.KubernetesClusterNetworkProfileAdvancedNetworkingArgs>? AdvancedNetworking { get; set; }

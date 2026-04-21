@@ -94,6 +94,14 @@ namespace Pulumi.Azure.MSSql
         public Output<string> EnclaveType { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+        /// 
+        /// &gt; **Note:** The `HighAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+        /// </summary>
+        [Output("highAvailabilityReplicaCount")]
+        public Output<int> HighAvailabilityReplicaCount { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Output("licenseType")]
@@ -226,6 +234,14 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? EnclaveType { get; set; }
 
         /// <summary>
+        /// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+        /// 
+        /// &gt; **Note:** The `HighAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+        /// </summary>
+        [Input("highAvailabilityReplicaCount")]
+        public Input<int>? HighAvailabilityReplicaCount { get; set; }
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Input("licenseType")]
@@ -324,6 +340,14 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("enclaveType")]
         public Input<string>? EnclaveType { get; set; }
+
+        /// <summary>
+        /// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+        /// 
+        /// &gt; **Note:** The `HighAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+        /// </summary>
+        [Input("highAvailabilityReplicaCount")]
+        public Input<int>? HighAvailabilityReplicaCount { get; set; }
 
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.

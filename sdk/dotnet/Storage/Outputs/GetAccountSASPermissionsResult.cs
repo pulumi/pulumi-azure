@@ -16,68 +16,67 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// Should Add permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Add;
+        public readonly bool? Add;
         /// <summary>
         /// Should Create permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Create;
+        public readonly bool? Create;
         /// <summary>
         /// Should Delete permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Delete;
+        public readonly bool? Delete;
         /// <summary>
         /// Should Filter by Index Tags permissions be enabled for this SAS?
-        /// 
-        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-        /// for additional details on the fields above.
         /// </summary>
-        public readonly bool Filter;
+        public readonly bool? Filter;
         /// <summary>
         /// Should List permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool List;
+        public readonly bool? List;
         /// <summary>
         /// Should Process permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Process;
+        public readonly bool? Process;
         /// <summary>
         /// Should Read permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Read;
+        public readonly bool? Read;
         /// <summary>
         /// Should Get / Set Index Tags permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Tag;
+        public readonly bool? Tag;
         /// <summary>
         /// Should Update permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Update;
+        public readonly bool? Update;
         /// <summary>
         /// Should Write permissions be enabled for this SAS?
+        /// 
+        /// &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
         /// </summary>
-        public readonly bool Write;
+        public readonly bool? Write;
 
         [OutputConstructor]
         private GetAccountSASPermissionsResult(
-            bool add,
+            bool? add,
 
-            bool create,
+            bool? create,
 
-            bool delete,
+            bool? delete,
 
-            bool filter,
+            bool? filter,
 
-            bool list,
+            bool? list,
 
-            bool process,
+            bool? process,
 
-            bool read,
+            bool? read,
 
-            bool tag,
+            bool? tag,
 
-            bool update,
+            bool? update,
 
-            bool write)
+            bool? write)
         {
             Add = add;
             Create = create;

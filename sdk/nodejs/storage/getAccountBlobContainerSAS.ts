@@ -122,9 +122,9 @@ export interface GetAccountBlobContainerSASArgs {
      */
     ipAddress?: string;
     /**
-     * A `permissions` block as defined below.
+     * Should Permissions permissions be enabled for this SAS?
      */
-    permissions: inputs.storage.GetAccountBlobContainerSASPermissions;
+    permissions?: inputs.storage.GetAccountBlobContainerSASPermissions;
     /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */
@@ -149,7 +149,7 @@ export interface GetAccountBlobContainerSASResult {
      */
     readonly id: string;
     readonly ipAddress?: string;
-    readonly permissions: outputs.storage.GetAccountBlobContainerSASPermissions;
+    readonly permissions?: outputs.storage.GetAccountBlobContainerSASPermissions;
     /**
      * The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
      */
@@ -272,9 +272,9 @@ export interface GetAccountBlobContainerSASOutputArgs {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * A `permissions` block as defined below.
+     * Should Permissions permissions be enabled for this SAS?
      */
-    permissions: pulumi.Input<inputs.storage.GetAccountBlobContainerSASPermissionsArgs>;
+    permissions?: pulumi.Input<inputs.storage.GetAccountBlobContainerSASPermissionsArgs>;
     /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */

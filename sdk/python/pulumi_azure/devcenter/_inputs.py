@@ -21,6 +21,66 @@ __all__ = [
     'CatalogCatalogGithubArgsDict',
     'DevCenterIdentityArgs',
     'DevCenterIdentityArgsDict',
+    'ManagedDevOpsPoolAzureDevopsOrganizationArgs',
+    'ManagedDevOpsPoolAzureDevopsOrganizationArgsDict',
+    'ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs',
+    'ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgsDict',
+    'ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs',
+    'ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgsDict',
+    'ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs',
+    'ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgsDict',
+    'ManagedDevOpsPoolIdentityArgs',
+    'ManagedDevOpsPoolIdentityArgsDict',
+    'ManagedDevOpsPoolStatefulAgentArgs',
+    'ManagedDevOpsPoolStatefulAgentArgsDict',
+    'ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs',
+    'ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgsDict',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs',
+    'ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgsDict',
+    'ManagedDevOpsPoolStatelessAgentArgs',
+    'ManagedDevOpsPoolStatelessAgentArgsDict',
+    'ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs',
+    'ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgsDict',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs',
+    'ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgsDict',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgsDict',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgsDict',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgsDict',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs',
+    'ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgsDict',
     'ProjectEnvironmentTypeIdentityArgs',
     'ProjectEnvironmentTypeIdentityArgsDict',
     'ProjectEnvironmentTypeUserRoleAssignmentArgs',
@@ -255,6 +315,2022 @@ class DevCenterIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+class ManagedDevOpsPoolAzureDevopsOrganizationArgsDict(TypedDict):
+    organizations: pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgsDict']]]
+    """
+    One or more `organization` blocks as defined below.
+    """
+    permission: NotRequired[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgsDict']]
+    """
+    A `permission` block as defined below. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolAzureDevopsOrganizationArgs:
+    def __init__(__self__, *,
+                 organizations: pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs']]],
+                 permission: Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs']]] organizations: One or more `organization` blocks as defined below.
+        :param pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs'] permission: A `permission` block as defined below. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "organizations", organizations)
+        if permission is not None:
+            pulumi.set(__self__, "permission", permission)
+
+    @_builtins.property
+    @pulumi.getter
+    def organizations(self) -> pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs']]]:
+        """
+        One or more `organization` blocks as defined below.
+        """
+        return pulumi.get(self, "organizations")
+
+    @organizations.setter
+    def organizations(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs']]]):
+        pulumi.set(self, "organizations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs']]:
+        """
+        A `permission` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "permission")
+
+    @permission.setter
+    def permission(self, value: Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs']]):
+        pulumi.set(self, "permission", value)
+
+
+class ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgsDict(TypedDict):
+    parallelism: pulumi.Input[_builtins.int]
+    """
+    Specifies how many machines can be created at maximum in this organization out of the `maximum_concurrency` of the pool. Possible values range between `1` and `10000`.
+
+    > **Note:** The sum of `parallelism` across orgs should be equal to `maximum_concurrency`.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The Azure DevOps organization URL in which the pool should be created. It must end with a letter or number.
+    """
+    projects: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of projects in which the pool should be created.
+
+    > **Note:** Please refer to [Azure DevOps Project Names](https://learn.microsoft.com/azure/devops/organizations/settings/naming-restrictions?view=azure-devops#project-names) for more information on project naming restrictions.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs:
+    def __init__(__self__, *,
+                 parallelism: pulumi.Input[_builtins.int],
+                 url: pulumi.Input[_builtins.str],
+                 projects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] parallelism: Specifies how many machines can be created at maximum in this organization out of the `maximum_concurrency` of the pool. Possible values range between `1` and `10000`.
+               
+               > **Note:** The sum of `parallelism` across orgs should be equal to `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] url: The Azure DevOps organization URL in which the pool should be created. It must end with a letter or number.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] projects: List of projects in which the pool should be created.
+               
+               > **Note:** Please refer to [Azure DevOps Project Names](https://learn.microsoft.com/azure/devops/organizations/settings/naming-restrictions?view=azure-devops#project-names) for more information on project naming restrictions.
+        """
+        pulumi.set(__self__, "parallelism", parallelism)
+        pulumi.set(__self__, "url", url)
+        if projects is not None:
+            pulumi.set(__self__, "projects", projects)
+
+    @_builtins.property
+    @pulumi.getter
+    def parallelism(self) -> pulumi.Input[_builtins.int]:
+        """
+        Specifies how many machines can be created at maximum in this organization out of the `maximum_concurrency` of the pool. Possible values range between `1` and `10000`.
+
+        > **Note:** The sum of `parallelism` across orgs should be equal to `maximum_concurrency`.
+        """
+        return pulumi.get(self, "parallelism")
+
+    @parallelism.setter
+    def parallelism(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "parallelism", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure DevOps organization URL in which the pool should be created. It must end with a letter or number.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def projects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of projects in which the pool should be created.
+
+        > **Note:** Please refer to [Azure DevOps Project Names](https://learn.microsoft.com/azure/devops/organizations/settings/naming-restrictions?view=azure-devops#project-names) for more information on project naming restrictions.
+        """
+        return pulumi.get(self, "projects")
+
+    @projects.setter
+    def projects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "projects", value)
+
+
+class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    """
+    Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+    """
+    administrator_account: NotRequired[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgsDict']]
+    """
+    An `administrator_account` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[_builtins.str],
+                 administrator_account: Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] kind: Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+        :param pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs'] administrator_account: An `administrator_account` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "kind", kind)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[_builtins.str]:
+        """
+        Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs']]:
+        """
+        An `administrator_account` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_account")
+
+    @administrator_account.setter
+    def administrator_account(self, value: Optional[pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs']]):
+        pulumi.set(self, "administrator_account", value)
+
+
+class ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgsDict(TypedDict):
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of group email addresses. Changing this forces a new resource to be created.
+    """
+    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies a list of user email addresses. Changing this forces a new resource to be created.
+
+    > **Note:** At least one of `groups` and `users` must be specified.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: Specifies a list of group email addresses. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: Specifies a list of user email addresses. Changing this forces a new resource to be created.
+               
+               > **Note:** At least one of `groups` and `users` must be specified.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of group email addresses. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of user email addresses. Changing this forces a new resource to be created.
+
+        > **Note:** At least one of `groups` and `users` must be specified.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users", value)
+
+
+class ManagedDevOpsPoolIdentityArgsDict(TypedDict):
+    identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of managed service identity. The only possible value is `UserAssigned`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs.
+        :param pulumi.Input[_builtins.str] type: The type of managed service identity. The only possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of managed service identity. The only possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+class ManagedDevOpsPoolStatefulAgentArgsDict(TypedDict):
+    automatic_resource_prediction: NotRequired[pulumi.Input['ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgsDict']]
+    """
+    An `automatic_resource_prediction` block as defined below.
+    """
+    grace_period_time_span: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+    """
+    manual_resource_prediction: NotRequired[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgsDict']]
+    """
+    A `manual_resource_prediction` block as defined below.
+    """
+    maximum_agent_lifetime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+
+    > **Note:** Exactly one of `manual_resource_prediction` or `automatic_resource_prediction` may be specified.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentArgs:
+    def __init__(__self__, *,
+                 automatic_resource_prediction: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs']] = None,
+                 grace_period_time_span: Optional[pulumi.Input[_builtins.str]] = None,
+                 manual_resource_prediction: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs']] = None,
+                 maximum_agent_lifetime: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs'] automatic_resource_prediction: An `automatic_resource_prediction` block as defined below.
+        :param pulumi.Input[_builtins.str] grace_period_time_span: Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+        :param pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs'] manual_resource_prediction: A `manual_resource_prediction` block as defined below.
+        :param pulumi.Input[_builtins.str] maximum_agent_lifetime: Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+               
+               > **Note:** Exactly one of `manual_resource_prediction` or `automatic_resource_prediction` may be specified.
+        """
+        if automatic_resource_prediction is not None:
+            pulumi.set(__self__, "automatic_resource_prediction", automatic_resource_prediction)
+        if grace_period_time_span is not None:
+            pulumi.set(__self__, "grace_period_time_span", grace_period_time_span)
+        if manual_resource_prediction is not None:
+            pulumi.set(__self__, "manual_resource_prediction", manual_resource_prediction)
+        if maximum_agent_lifetime is not None:
+            pulumi.set(__self__, "maximum_agent_lifetime", maximum_agent_lifetime)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticResourcePrediction")
+    def automatic_resource_prediction(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs']]:
+        """
+        An `automatic_resource_prediction` block as defined below.
+        """
+        return pulumi.get(self, "automatic_resource_prediction")
+
+    @automatic_resource_prediction.setter
+    def automatic_resource_prediction(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs']]):
+        pulumi.set(self, "automatic_resource_prediction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gracePeriodTimeSpan")
+    def grace_period_time_span(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+        """
+        return pulumi.get(self, "grace_period_time_span")
+
+    @grace_period_time_span.setter
+    def grace_period_time_span(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "grace_period_time_span", value)
+
+    @_builtins.property
+    @pulumi.getter(name="manualResourcePrediction")
+    def manual_resource_prediction(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs']]:
+        """
+        A `manual_resource_prediction` block as defined below.
+        """
+        return pulumi.get(self, "manual_resource_prediction")
+
+    @manual_resource_prediction.setter
+    def manual_resource_prediction(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs']]):
+        pulumi.set(self, "manual_resource_prediction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumAgentLifetime")
+    def maximum_agent_lifetime(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+
+        > **Note:** Exactly one of `manual_resource_prediction` or `automatic_resource_prediction` may be specified.
+        """
+        return pulumi.get(self, "maximum_agent_lifetime")
+
+    @maximum_agent_lifetime.setter
+    def maximum_agent_lifetime(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "maximum_agent_lifetime", value)
+
+
+class ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgsDict(TypedDict):
+    prediction_preference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs:
+    def __init__(__self__, *,
+                 prediction_preference: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] prediction_preference: Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+        """
+        if prediction_preference is not None:
+            pulumi.set(__self__, "prediction_preference", prediction_preference)
+
+    @_builtins.property
+    @pulumi.getter(name="predictionPreference")
+    def prediction_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+        """
+        return pulumi.get(self, "prediction_preference")
+
+    @prediction_preference.setter
+    def prediction_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prediction_preference", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgsDict(TypedDict):
+    all_week_schedule: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
+    """
+    friday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    monday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    saturday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    sunday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    thursday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    time_zone_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+
+    > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+    """
+    tuesday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    wednesday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+
+    > **Note:** Exactly one of `all_week_schedule` or at least one individual daily schedule block must be specified.
+
+    > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs:
+    def __init__(__self__, *,
+                 all_week_schedule: Optional[pulumi.Input[_builtins.int]] = None,
+                 friday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs']]]] = None,
+                 monday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs']]]] = None,
+                 saturday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs']]]] = None,
+                 sunday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs']]]] = None,
+                 thursday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs']]]] = None,
+                 time_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tuesday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs']]]] = None,
+                 wednesday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] all_week_schedule: A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs']]] friday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs']]] monday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs']]] saturday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs']]] sunday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs']]] thursday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[_builtins.str] time_zone_name: Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+               
+               > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs']]] tuesday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs']]] wednesday_schedules: One or more `daily_schedule` blocks as defined below.
+               
+               > **Note:** Exactly one of `all_week_schedule` or at least one individual daily schedule block must be specified.
+               
+               > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+        """
+        if all_week_schedule is not None:
+            pulumi.set(__self__, "all_week_schedule", all_week_schedule)
+        if friday_schedules is not None:
+            pulumi.set(__self__, "friday_schedules", friday_schedules)
+        if monday_schedules is not None:
+            pulumi.set(__self__, "monday_schedules", monday_schedules)
+        if saturday_schedules is not None:
+            pulumi.set(__self__, "saturday_schedules", saturday_schedules)
+        if sunday_schedules is not None:
+            pulumi.set(__self__, "sunday_schedules", sunday_schedules)
+        if thursday_schedules is not None:
+            pulumi.set(__self__, "thursday_schedules", thursday_schedules)
+        if time_zone_name is not None:
+            pulumi.set(__self__, "time_zone_name", time_zone_name)
+        if tuesday_schedules is not None:
+            pulumi.set(__self__, "tuesday_schedules", tuesday_schedules)
+        if wednesday_schedules is not None:
+            pulumi.set(__self__, "wednesday_schedules", wednesday_schedules)
+
+    @_builtins.property
+    @pulumi.getter(name="allWeekSchedule")
+    def all_week_schedule(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "all_week_schedule")
+
+    @all_week_schedule.setter
+    def all_week_schedule(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "all_week_schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fridaySchedules")
+    def friday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "friday_schedules")
+
+    @friday_schedules.setter
+    def friday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs']]]]):
+        pulumi.set(self, "friday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mondaySchedules")
+    def monday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "monday_schedules")
+
+    @monday_schedules.setter
+    def monday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs']]]]):
+        pulumi.set(self, "monday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="saturdaySchedules")
+    def saturday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "saturday_schedules")
+
+    @saturday_schedules.setter
+    def saturday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs']]]]):
+        pulumi.set(self, "saturday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sundaySchedules")
+    def sunday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "sunday_schedules")
+
+    @sunday_schedules.setter
+    def sunday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs']]]]):
+        pulumi.set(self, "sunday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thursdaySchedules")
+    def thursday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "thursday_schedules")
+
+    @thursday_schedules.setter
+    def thursday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs']]]]):
+        pulumi.set(self, "thursday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeZoneName")
+    def time_zone_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+
+        > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+        """
+        return pulumi.get(self, "time_zone_name")
+
+    @time_zone_name.setter
+    def time_zone_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "time_zone_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tuesdaySchedules")
+    def tuesday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "tuesday_schedules")
+
+    @tuesday_schedules.setter
+    def tuesday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs']]]]):
+        pulumi.set(self, "tuesday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wednesdaySchedules")
+    def wednesday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+
+        > **Note:** Exactly one of `all_week_schedule` or at least one individual daily schedule block must be specified.
+
+        > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+        """
+        return pulumi.get(self, "wednesday_schedules")
+
+    @wednesday_schedules.setter
+    def wednesday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs']]]]):
+        pulumi.set(self, "wednesday_schedules", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatelessAgentArgsDict(TypedDict):
+    automatic_resource_prediction: NotRequired[pulumi.Input['ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgsDict']]
+    """
+    An `automatic_resource_prediction` block as defined below.
+    """
+    manual_resource_prediction: NotRequired[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgsDict']]
+    """
+    A `manual_resource_prediction` block as defined below.
+
+    > **Note:** Exactly one of `manual_resource_prediction` or `automatic_resource_prediction` may be specified.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentArgs:
+    def __init__(__self__, *,
+                 automatic_resource_prediction: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs']] = None,
+                 manual_resource_prediction: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs']] = None):
+        """
+        :param pulumi.Input['ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs'] automatic_resource_prediction: An `automatic_resource_prediction` block as defined below.
+        :param pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs'] manual_resource_prediction: A `manual_resource_prediction` block as defined below.
+               
+               > **Note:** Exactly one of `manual_resource_prediction` or `automatic_resource_prediction` may be specified.
+        """
+        if automatic_resource_prediction is not None:
+            pulumi.set(__self__, "automatic_resource_prediction", automatic_resource_prediction)
+        if manual_resource_prediction is not None:
+            pulumi.set(__self__, "manual_resource_prediction", manual_resource_prediction)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticResourcePrediction")
+    def automatic_resource_prediction(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs']]:
+        """
+        An `automatic_resource_prediction` block as defined below.
+        """
+        return pulumi.get(self, "automatic_resource_prediction")
+
+    @automatic_resource_prediction.setter
+    def automatic_resource_prediction(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs']]):
+        pulumi.set(self, "automatic_resource_prediction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="manualResourcePrediction")
+    def manual_resource_prediction(self) -> Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs']]:
+        """
+        A `manual_resource_prediction` block as defined below.
+
+        > **Note:** Exactly one of `manual_resource_prediction` or `automatic_resource_prediction` may be specified.
+        """
+        return pulumi.get(self, "manual_resource_prediction")
+
+    @manual_resource_prediction.setter
+    def manual_resource_prediction(self, value: Optional[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs']]):
+        pulumi.set(self, "manual_resource_prediction", value)
+
+
+class ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgsDict(TypedDict):
+    prediction_preference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs:
+    def __init__(__self__, *,
+                 prediction_preference: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] prediction_preference: Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+        """
+        if prediction_preference is not None:
+            pulumi.set(__self__, "prediction_preference", prediction_preference)
+
+    @_builtins.property
+    @pulumi.getter(name="predictionPreference")
+    def prediction_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+        """
+        return pulumi.get(self, "prediction_preference")
+
+    @prediction_preference.setter
+    def prediction_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prediction_preference", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgsDict(TypedDict):
+    all_week_schedule: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
+    """
+    friday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    monday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    saturday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    sunday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    thursday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    time_zone_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+
+    > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+    """
+    tuesday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+    """
+    wednesday_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgsDict']]]]
+    """
+    One or more `daily_schedule` blocks as defined below.
+
+    > **Note:** Exactly one of `all_week_schedule` or at least one individual daily schedule block must be specified.
+
+    > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs:
+    def __init__(__self__, *,
+                 all_week_schedule: Optional[pulumi.Input[_builtins.int]] = None,
+                 friday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs']]]] = None,
+                 monday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs']]]] = None,
+                 saturday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs']]]] = None,
+                 sunday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs']]]] = None,
+                 thursday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs']]]] = None,
+                 time_zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tuesday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs']]]] = None,
+                 wednesday_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.int] all_week_schedule: A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs']]] friday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs']]] monday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs']]] saturday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs']]] sunday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs']]] thursday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[_builtins.str] time_zone_name: Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+               
+               > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs']]] tuesday_schedules: One or more `daily_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs']]] wednesday_schedules: One or more `daily_schedule` blocks as defined below.
+               
+               > **Note:** Exactly one of `all_week_schedule` or at least one individual daily schedule block must be specified.
+               
+               > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+        """
+        if all_week_schedule is not None:
+            pulumi.set(__self__, "all_week_schedule", all_week_schedule)
+        if friday_schedules is not None:
+            pulumi.set(__self__, "friday_schedules", friday_schedules)
+        if monday_schedules is not None:
+            pulumi.set(__self__, "monday_schedules", monday_schedules)
+        if saturday_schedules is not None:
+            pulumi.set(__self__, "saturday_schedules", saturday_schedules)
+        if sunday_schedules is not None:
+            pulumi.set(__self__, "sunday_schedules", sunday_schedules)
+        if thursday_schedules is not None:
+            pulumi.set(__self__, "thursday_schedules", thursday_schedules)
+        if time_zone_name is not None:
+            pulumi.set(__self__, "time_zone_name", time_zone_name)
+        if tuesday_schedules is not None:
+            pulumi.set(__self__, "tuesday_schedules", tuesday_schedules)
+        if wednesday_schedules is not None:
+            pulumi.set(__self__, "wednesday_schedules", wednesday_schedules)
+
+    @_builtins.property
+    @pulumi.getter(name="allWeekSchedule")
+    def all_week_schedule(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "all_week_schedule")
+
+    @all_week_schedule.setter
+    def all_week_schedule(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "all_week_schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fridaySchedules")
+    def friday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "friday_schedules")
+
+    @friday_schedules.setter
+    def friday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs']]]]):
+        pulumi.set(self, "friday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mondaySchedules")
+    def monday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "monday_schedules")
+
+    @monday_schedules.setter
+    def monday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs']]]]):
+        pulumi.set(self, "monday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="saturdaySchedules")
+    def saturday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "saturday_schedules")
+
+    @saturday_schedules.setter
+    def saturday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs']]]]):
+        pulumi.set(self, "saturday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sundaySchedules")
+    def sunday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "sunday_schedules")
+
+    @sunday_schedules.setter
+    def sunday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs']]]]):
+        pulumi.set(self, "sunday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thursdaySchedules")
+    def thursday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "thursday_schedules")
+
+    @thursday_schedules.setter
+    def thursday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs']]]]):
+        pulumi.set(self, "thursday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeZoneName")
+    def time_zone_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+
+        > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+        """
+        return pulumi.get(self, "time_zone_name")
+
+    @time_zone_name.setter
+    def time_zone_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "time_zone_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tuesdaySchedules")
+    def tuesday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "tuesday_schedules")
+
+    @tuesday_schedules.setter
+    def tuesday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs']]]]):
+        pulumi.set(self, "tuesday_schedules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wednesdaySchedules")
+    def wednesday_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs']]]]:
+        """
+        One or more `daily_schedule` blocks as defined below.
+
+        > **Note:** Exactly one of `all_week_schedule` or at least one individual daily schedule block must be specified.
+
+        > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+        """
+        return pulumi.get(self, "wednesday_schedules")
+
+    @wednesday_schedules.setter
+    def wednesday_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs']]]]):
+        pulumi.set(self, "wednesday_schedules", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgsDict(TypedDict):
+    count: pulumi.Input[_builtins.int]
+    """
+    The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+    """
+    time: pulumi.Input[_builtins.str]
+    """
+    The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[_builtins.int],
+                 time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] count: The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        :param pulumi.Input[_builtins.str] time: The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of standby agents to provision at this time. Possible values range between `0` and `maximum_concurrency`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time", value)
+
+
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict(TypedDict):
+    images: pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgsDict']]]
+    """
+    One or more `image` blocks as defined below.
+    """
+    sku_name: pulumi.Input[_builtins.str]
+    """
+    The Azure SKU name of the machines in the pool.
+
+    > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+    """
+    os_disk_storage_account_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+    """
+    security: NotRequired[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgsDict']]
+    """
+    A `security` block as defined below.
+    """
+    storage: NotRequired[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgsDict']]
+    """
+    A `storage` block as defined below.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subnet ID on which to put all machines created in the pool.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs:
+    def __init__(__self__, *,
+                 images: pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs']]],
+                 sku_name: pulumi.Input[_builtins.str],
+                 os_disk_storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 security: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs']] = None,
+                 storage: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs']] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs']]] images: One or more `image` blocks as defined below.
+        :param pulumi.Input[_builtins.str] sku_name: The Azure SKU name of the machines in the pool.
+               
+               > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+        :param pulumi.Input[_builtins.str] os_disk_storage_account_type: The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+        :param pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs'] security: A `security` block as defined below.
+        :param pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs'] storage: A `storage` block as defined below.
+        :param pulumi.Input[_builtins.str] subnet_id: The subnet ID on which to put all machines created in the pool.
+        """
+        pulumi.set(__self__, "images", images)
+        pulumi.set(__self__, "sku_name", sku_name)
+        if os_disk_storage_account_type is not None:
+            pulumi.set(__self__, "os_disk_storage_account_type", os_disk_storage_account_type)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def images(self) -> pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs']]]:
+        """
+        One or more `image` blocks as defined below.
+        """
+        return pulumi.get(self, "images")
+
+    @images.setter
+    def images(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs']]]):
+        pulumi.set(self, "images", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure SKU name of the machines in the pool.
+
+        > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sku_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osDiskStorageAccountType")
+    def os_disk_storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+        """
+        return pulumi.get(self, "os_disk_storage_account_type")
+
+    @os_disk_storage_account_type.setter
+    def os_disk_storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_disk_storage_account_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def security(self) -> Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs']]:
+        """
+        A `security` block as defined below.
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs']]):
+        pulumi.set(self, "security", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs']]:
+        """
+        A `storage` block as defined below.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs']]):
+        pulumi.set(self, "storage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subnet ID on which to put all machines created in the pool.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgsDict(TypedDict):
+    aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of aliases to reference the image by.
+    """
+    buffer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The percentage of the buffer to be allocated to this image. Possible values are `*` or between `0` and `100`. Defaults to `*`.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of the image.
+    """
+    well_known_image_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The image to use from a well-known set of images made available to customers.
+
+    > **Note:** More information about supported images can be found in [list of Azure Pipelines image predefined aliases](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-images?view=azure-devops&tabs=arm#azure-pipelines-images). You can optionally specify a version in your `well_known_image_name`, for example `windows-2022/latest` or `windows-2022/20250427.1.0`. If you don't specify a version, latest is used.
+
+    > **Note:** Exactly one of `id` or `well_known_image_name` are required per `image`
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs:
+    def __init__(__self__, *,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 buffer: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 well_known_image_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: List of aliases to reference the image by.
+        :param pulumi.Input[_builtins.str] buffer: The percentage of the buffer to be allocated to this image. Possible values are `*` or between `0` and `100`. Defaults to `*`.
+        :param pulumi.Input[_builtins.str] id: The resource id of the image.
+        :param pulumi.Input[_builtins.str] well_known_image_name: The image to use from a well-known set of images made available to customers.
+               
+               > **Note:** More information about supported images can be found in [list of Azure Pipelines image predefined aliases](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-images?view=azure-devops&tabs=arm#azure-pipelines-images). You can optionally specify a version in your `well_known_image_name`, for example `windows-2022/latest` or `windows-2022/20250427.1.0`. If you don't specify a version, latest is used.
+               
+               > **Note:** Exactly one of `id` or `well_known_image_name` are required per `image`
+        """
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if buffer is not None:
+            pulumi.set(__self__, "buffer", buffer)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if well_known_image_name is not None:
+            pulumi.set(__self__, "well_known_image_name", well_known_image_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of aliases to reference the image by.
+        """
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "aliases", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def buffer(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The percentage of the buffer to be allocated to this image. Possible values are `*` or between `0` and `100`. Defaults to `*`.
+        """
+        return pulumi.get(self, "buffer")
+
+    @buffer.setter
+    def buffer(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "buffer", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The resource id of the image.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wellKnownImageName")
+    def well_known_image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The image to use from a well-known set of images made available to customers.
+
+        > **Note:** More information about supported images can be found in [list of Azure Pipelines image predefined aliases](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-images?view=azure-devops&tabs=arm#azure-pipelines-images). You can optionally specify a version in your `well_known_image_name`, for example `windows-2022/latest` or `windows-2022/20250427.1.0`. If you don't specify a version, latest is used.
+
+        > **Note:** Exactly one of `id` or `well_known_image_name` are required per `image`
+        """
+        return pulumi.get(self, "well_known_image_name")
+
+    @well_known_image_name.setter
+    def well_known_image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "well_known_image_name", value)
+
+
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgsDict(TypedDict):
+    interactive_logon_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the agent should run in interactive mode. Defaults to `false`.
+    """
+    key_vault_management: NotRequired[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgsDict']]
+    """
+    A `key_vault_management` block as defined below.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs:
+    def __init__(__self__, *,
+                 interactive_logon_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 key_vault_management: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] interactive_logon_enabled: Specifies whether the agent should run in interactive mode. Defaults to `false`.
+        :param pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs'] key_vault_management: A `key_vault_management` block as defined below.
+        """
+        if interactive_logon_enabled is not None:
+            pulumi.set(__self__, "interactive_logon_enabled", interactive_logon_enabled)
+        if key_vault_management is not None:
+            pulumi.set(__self__, "key_vault_management", key_vault_management)
+
+    @_builtins.property
+    @pulumi.getter(name="interactiveLogonEnabled")
+    def interactive_logon_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the agent should run in interactive mode. Defaults to `false`.
+        """
+        return pulumi.get(self, "interactive_logon_enabled")
+
+    @interactive_logon_enabled.setter
+    def interactive_logon_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "interactive_logon_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultManagement")
+    def key_vault_management(self) -> Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs']]:
+        """
+        A `key_vault_management` block as defined below.
+        """
+        return pulumi.get(self, "key_vault_management")
+
+    @key_vault_management.setter
+    def key_vault_management(self, value: Optional[pulumi.Input['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs']]):
+        pulumi.set(self, "key_vault_management", value)
+
+
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgsDict(TypedDict):
+    key_vault_certificate_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of `versionless_id` from Azure Key vault certificates to install on all machines in the pool.
+    """
+    certificate_store_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies where to store certificates on the machine.
+    """
+    certificate_store_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+    """
+    key_export_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Defines if the key of the certificates should be exportable. Defaults to `false`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs:
+    def __init__(__self__, *,
+                 key_vault_certificate_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 certificate_store_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_store_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_export_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_vault_certificate_ids: A list of `versionless_id` from Azure Key vault certificates to install on all machines in the pool.
+        :param pulumi.Input[_builtins.str] certificate_store_location: Specifies where to store certificates on the machine.
+        :param pulumi.Input[_builtins.str] certificate_store_name: Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+        :param pulumi.Input[_builtins.bool] key_export_enabled: Defines if the key of the certificates should be exportable. Defaults to `false`.
+        """
+        pulumi.set(__self__, "key_vault_certificate_ids", key_vault_certificate_ids)
+        if certificate_store_location is not None:
+            pulumi.set(__self__, "certificate_store_location", certificate_store_location)
+        if certificate_store_name is not None:
+            pulumi.set(__self__, "certificate_store_name", certificate_store_name)
+        if key_export_enabled is not None:
+            pulumi.set(__self__, "key_export_enabled", key_export_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultCertificateIds")
+    def key_vault_certificate_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of `versionless_id` from Azure Key vault certificates to install on all machines in the pool.
+        """
+        return pulumi.get(self, "key_vault_certificate_ids")
+
+    @key_vault_certificate_ids.setter
+    def key_vault_certificate_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "key_vault_certificate_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateStoreLocation")
+    def certificate_store_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies where to store certificates on the machine.
+        """
+        return pulumi.get(self, "certificate_store_location")
+
+    @certificate_store_location.setter
+    def certificate_store_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "certificate_store_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateStoreName")
+    def certificate_store_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+        """
+        return pulumi.get(self, "certificate_store_name")
+
+    @certificate_store_name.setter
+    def certificate_store_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "certificate_store_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyExportEnabled")
+    def key_export_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Defines if the key of the certificates should be exportable. Defaults to `false`.
+        """
+        return pulumi.get(self, "key_export_enabled")
+
+    @key_export_enabled.setter
+    def key_export_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "key_export_enabled", value)
+
+
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgsDict(TypedDict):
+    disk_size_in_gb: pulumi.Input[_builtins.int]
+    """
+    The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+    """
+    caching: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+    """
+    drive_letter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The drive letter for the data disk.
+    """
+    storage_account_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+    """
+
+@pulumi.input_type
+class ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs:
+    def __init__(__self__, *,
+                 disk_size_in_gb: pulumi.Input[_builtins.int],
+                 caching: Optional[pulumi.Input[_builtins.str]] = None,
+                 drive_letter: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] disk_size_in_gb: The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+        :param pulumi.Input[_builtins.str] caching: The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+        :param pulumi.Input[_builtins.str] drive_letter: The drive letter for the data disk.
+        :param pulumi.Input[_builtins.str] storage_account_type: The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+        """
+        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if drive_letter is not None:
+            pulumi.set(__self__, "drive_letter", drive_letter)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @_builtins.property
+    @pulumi.getter(name="diskSizeInGb")
+    def disk_size_in_gb(self) -> pulumi.Input[_builtins.int]:
+        """
+        The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+        """
+        return pulumi.get(self, "disk_size_in_gb")
+
+    @disk_size_in_gb.setter
+    def disk_size_in_gb(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "disk_size_in_gb", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def caching(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+        """
+        return pulumi.get(self, "caching")
+
+    @caching.setter
+    def caching(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "caching", value)
+
+    @_builtins.property
+    @pulumi.getter(name="driveLetter")
+    def drive_letter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The drive letter for the data disk.
+        """
+        return pulumi.get(self, "drive_letter")
+
+    @drive_letter.setter
+    def drive_letter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "drive_letter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_account_type", value)
 
 
 class ProjectEnvironmentTypeIdentityArgsDict(TypedDict):

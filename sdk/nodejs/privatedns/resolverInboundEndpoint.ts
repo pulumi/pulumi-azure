@@ -102,19 +102,19 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      */
     declare public readonly ipConfigurations: pulumi.Output<outputs.privatedns.ResolverInboundEndpointIpConfigurations>;
     /**
-     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
     declare public readonly privateDnsResolverId: pulumi.Output<string>;
     /**
@@ -164,19 +164,19 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
  */
 export interface ResolverInboundEndpointState {
     /**
-     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      */
     ipConfigurations?: pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfigurations>;
     /**
-     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
     privateDnsResolverId?: pulumi.Input<string>;
     /**
@@ -190,19 +190,19 @@ export interface ResolverInboundEndpointState {
  */
 export interface ResolverInboundEndpointArgs {
     /**
-     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      */
     ipConfigurations: pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfigurations>;
     /**
-     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      */
     privateDnsResolverId: pulumi.Input<string>;
     /**

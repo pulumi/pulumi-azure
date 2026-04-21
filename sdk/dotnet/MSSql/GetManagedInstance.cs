@@ -175,6 +175,10 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// Whether the SQL Managed Instance is using the Next-gen General Purpose service tier
+        /// </summary>
+        public readonly bool GeneralPurposeV2Enabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -247,6 +251,8 @@ namespace Pulumi.Azure.MSSql
 
             string fqdn,
 
+            bool generalPurposeV2Enabled,
+
             string id,
 
             ImmutableArray<Outputs.GetManagedInstanceIdentityResult> identities,
@@ -285,6 +291,7 @@ namespace Pulumi.Azure.MSSql
             DnsZone = dnsZone;
             DnsZonePartnerId = dnsZonePartnerId;
             Fqdn = fqdn;
+            GeneralPurposeV2Enabled = generalPurposeV2Enabled;
             Id = id;
             Identities = identities;
             LicenseType = licenseType;

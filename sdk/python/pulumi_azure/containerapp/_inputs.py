@@ -2693,6 +2693,12 @@ class AppTemplateCustomScaleRuleArgsDict(TypedDict):
     authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgsDict']]]]
     """
     Zero or more `authentication` blocks as defined below.
+
+    * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
+    """
+    identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the System or User Managed Identity used to execute scale rule.
     """
 
 @pulumi.input_type
@@ -2701,18 +2707,24 @@ class AppTemplateCustomScaleRuleArgs:
                  custom_rule_type: pulumi.Input[_builtins.str],
                  metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
-                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]] = None):
+                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]] = None,
+                 identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A map of string key-value pairs to configure the Custom Scale Rule.
         :param pulumi.Input[_builtins.str] name: The name of the Scaling Rule
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]] authentications: Zero or more `authentication` blocks as defined below.
+               
+               * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
+        :param pulumi.Input[_builtins.str] identity_id: ID of the System or User Managed Identity used to execute scale rule.
         """
         pulumi.set(__self__, "custom_rule_type", custom_rule_type)
         pulumi.set(__self__, "metadata", metadata)
         pulumi.set(__self__, "name", name)
         if authentications is not None:
             pulumi.set(__self__, "authentications", authentications)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
 
     @_builtins.property
     @pulumi.getter(name="customRuleType")
@@ -2755,12 +2767,26 @@ class AppTemplateCustomScaleRuleArgs:
     def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]]:
         """
         Zero or more `authentication` blocks as defined below.
+
+        * `ìdentity_id`- (Optional) Resource ID for the System or User Assigned Managed identity to use when executing the scale rule.
         """
         return pulumi.get(self, "authentications")
 
     @authentications.setter
     def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]]):
         pulumi.set(self, "authentications", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the System or User Managed Identity used to execute scale rule.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_id", value)
 
 
 class AppTemplateCustomScaleRuleAuthenticationArgsDict(TypedDict):
@@ -4032,6 +4058,10 @@ class JobEventTriggerConfigScaleRuleArgsDict(TypedDict):
     """
     A `authentication` block as defined below.
     """
+    identity_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the System or User Managed Identity used to execute scale rule.
+    """
 
 @pulumi.input_type
 class JobEventTriggerConfigScaleRuleArgs:
@@ -4039,18 +4069,22 @@ class JobEventTriggerConfigScaleRuleArgs:
                  custom_rule_type: pulumi.Input[_builtins.str],
                  metadata: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
-                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]]] = None):
+                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]]] = None,
+                 identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_rule_type: Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata properties to describe the scale rule.
         :param pulumi.Input[_builtins.str] name: Name of the scale rule.
         :param pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]] authentications: A `authentication` block as defined below.
+        :param pulumi.Input[_builtins.str] identity_id: ID of the System or User Managed Identity used to execute scale rule.
         """
         pulumi.set(__self__, "custom_rule_type", custom_rule_type)
         pulumi.set(__self__, "metadata", metadata)
         pulumi.set(__self__, "name", name)
         if authentications is not None:
             pulumi.set(__self__, "authentications", authentications)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
 
     @_builtins.property
     @pulumi.getter(name="customRuleType")
@@ -4099,6 +4133,18 @@ class JobEventTriggerConfigScaleRuleArgs:
     @authentications.setter
     def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]]]):
         pulumi.set(self, "authentications", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the System or User Managed Identity used to execute scale rule.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_id", value)
 
 
 class JobEventTriggerConfigScaleRuleAuthenticationArgsDict(TypedDict):

@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayAuthenticationCertificateArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayAutoscaleConfigurationArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayBackendAddressPoolArgs;
+import com.pulumi.azure.network.inputs.ApplicationGatewayBackendArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayCustomErrorConfigurationArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendIpConfigurationArgs;
@@ -14,12 +15,14 @@ import com.pulumi.azure.network.inputs.ApplicationGatewayGatewayIpConfigurationA
 import com.pulumi.azure.network.inputs.ApplicationGatewayGlobalArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayHttpListenerArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayIdentityArgs;
+import com.pulumi.azure.network.inputs.ApplicationGatewayListenerArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayPrivateEndpointConnectionArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayPrivateLinkConfigurationArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayProbeArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayRedirectConfigurationArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayRequestRoutingRuleArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayRewriteRuleSetArgs;
+import com.pulumi.azure.network.inputs.ApplicationGatewayRoutingRuleArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewaySkuArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewaySslCertificateArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewaySslPolicyArgs;
@@ -91,6 +94,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     /**
      * One or more `backendHttpSettings` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
      */
     @Import(name="backendHttpSettings")
     private @Nullable Output<List<ApplicationGatewayBackendHttpSettingArgs>> backendHttpSettings;
@@ -98,9 +103,30 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     /**
      * @return One or more `backendHttpSettings` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
      */
     public Optional<Output<List<ApplicationGatewayBackendHttpSettingArgs>>> backendHttpSettings() {
         return Optional.ofNullable(this.backendHttpSettings);
+    }
+
+    /**
+     * One or more `backend` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
+     */
+    @Import(name="backends")
+    private @Nullable Output<List<ApplicationGatewayBackendArgs>> backends;
+
+    /**
+     * @return One or more `backend` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     * 
+     */
+    public Optional<Output<List<ApplicationGatewayBackendArgs>>> backends() {
+        return Optional.ofNullable(this.backends);
     }
 
     /**
@@ -260,12 +286,16 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     /**
      * One or more `httpListener` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+     * 
      */
     @Import(name="httpListeners")
     private @Nullable Output<List<ApplicationGatewayHttpListenerArgs>> httpListeners;
 
     /**
      * @return One or more `httpListener` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
      * 
      */
     public Optional<Output<List<ApplicationGatewayHttpListenerArgs>>> httpListeners() {
@@ -285,6 +315,25 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
      */
     public Optional<Output<ApplicationGatewayIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * One or more `listener` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+     * 
+     */
+    @Import(name="listeners")
+    private @Nullable Output<List<ApplicationGatewayListenerArgs>> listeners;
+
+    /**
+     * @return One or more `listener` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+     * 
+     */
+    public Optional<Output<List<ApplicationGatewayListenerArgs>>> listeners() {
+        return Optional.ofNullable(this.listeners);
     }
 
     /**
@@ -380,12 +429,16 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     * 
      */
     @Import(name="requestRoutingRules")
     private @Nullable Output<List<ApplicationGatewayRequestRoutingRuleArgs>> requestRoutingRules;
 
     /**
      * @return One or more `requestRoutingRule` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRequestRoutingRuleArgs>>> requestRoutingRules() {
@@ -420,6 +473,25 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
      */
     public Optional<Output<List<ApplicationGatewayRewriteRuleSetArgs>>> rewriteRuleSets() {
         return Optional.ofNullable(this.rewriteRuleSets);
+    }
+
+    /**
+     * One or more `routingRule` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     * 
+     */
+    @Import(name="routingRules")
+    private @Nullable Output<List<ApplicationGatewayRoutingRuleArgs>> routingRules;
+
+    /**
+     * @return One or more `routingRule` blocks as defined below.
+     * 
+     * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     * 
+     */
+    public Optional<Output<List<ApplicationGatewayRoutingRuleArgs>>> routingRules() {
+        return Optional.ofNullable(this.routingRules);
     }
 
     /**
@@ -583,6 +655,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         this.autoscaleConfiguration = $.autoscaleConfiguration;
         this.backendAddressPools = $.backendAddressPools;
         this.backendHttpSettings = $.backendHttpSettings;
+        this.backends = $.backends;
         this.customErrorConfigurations = $.customErrorConfigurations;
         this.enableHttp2 = $.enableHttp2;
         this.fipsEnabled = $.fipsEnabled;
@@ -595,6 +668,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         this.http2Enabled = $.http2Enabled;
         this.httpListeners = $.httpListeners;
         this.identity = $.identity;
+        this.listeners = $.listeners;
         this.location = $.location;
         this.name = $.name;
         this.privateEndpointConnections = $.privateEndpointConnections;
@@ -604,6 +678,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         this.requestRoutingRules = $.requestRoutingRules;
         this.resourceGroupName = $.resourceGroupName;
         this.rewriteRuleSets = $.rewriteRuleSets;
+        this.routingRules = $.routingRules;
         this.sku = $.sku;
         this.sslCertificates = $.sslCertificates;
         this.sslPolicy = $.sslPolicy;
@@ -720,6 +795,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param backendHttpSettings One or more `backendHttpSettings` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -731,6 +808,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param backendHttpSettings One or more `backendHttpSettings` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -741,11 +820,50 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param backendHttpSettings One or more `backendHttpSettings` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+         * 
          * @return builder
          * 
          */
         public Builder backendHttpSettings(ApplicationGatewayBackendHttpSettingArgs... backendHttpSettings) {
             return backendHttpSettings(List.of(backendHttpSettings));
+        }
+
+        /**
+         * @param backends One or more `backend` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backends(@Nullable Output<List<ApplicationGatewayBackendArgs>> backends) {
+            $.backends = backends;
+            return this;
+        }
+
+        /**
+         * @param backends One or more `backend` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backends(List<ApplicationGatewayBackendArgs> backends) {
+            return backends(Output.of(backends));
+        }
+
+        /**
+         * @param backends One or more `backend` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backends(ApplicationGatewayBackendArgs... backends) {
+            return backends(List.of(backends));
         }
 
         /**
@@ -1005,6 +1123,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param httpListeners One or more `httpListener` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -1016,6 +1136,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param httpListeners One or more `httpListener` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -1025,6 +1147,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
 
         /**
          * @param httpListeners One or more `httpListener` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
          * 
          * @return builder
          * 
@@ -1052,6 +1176,43 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
          */
         public Builder identity(ApplicationGatewayIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param listeners One or more `listener` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listeners(@Nullable Output<List<ApplicationGatewayListenerArgs>> listeners) {
+            $.listeners = listeners;
+            return this;
+        }
+
+        /**
+         * @param listeners One or more `listener` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listeners(List<ApplicationGatewayListenerArgs> listeners) {
+            return listeners(Output.of(listeners));
+        }
+
+        /**
+         * @param listeners One or more `listener` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `httpListener` or `listener` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listeners(ApplicationGatewayListenerArgs... listeners) {
+            return listeners(List.of(listeners));
         }
 
         /**
@@ -1223,6 +1384,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param requestRoutingRules One or more `requestRoutingRule` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -1234,6 +1397,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         /**
          * @param requestRoutingRules One or more `requestRoutingRule` blocks as defined below.
          * 
+         * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -1243,6 +1408,8 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
 
         /**
          * @param requestRoutingRules One or more `requestRoutingRule` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
          * 
          * @return builder
          * 
@@ -1301,6 +1468,43 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
          */
         public Builder rewriteRuleSets(ApplicationGatewayRewriteRuleSetArgs... rewriteRuleSets) {
             return rewriteRuleSets(List.of(rewriteRuleSets));
+        }
+
+        /**
+         * @param routingRules One or more `routingRule` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingRules(@Nullable Output<List<ApplicationGatewayRoutingRuleArgs>> routingRules) {
+            $.routingRules = routingRules;
+            return this;
+        }
+
+        /**
+         * @param routingRules One or more `routingRule` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingRules(List<ApplicationGatewayRoutingRuleArgs> routingRules) {
+            return routingRules(Output.of(routingRules));
+        }
+
+        /**
+         * @param routingRules One or more `routingRule` blocks as defined below.
+         * 
+         * &gt; **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingRules(ApplicationGatewayRoutingRuleArgs... routingRules) {
+            return routingRules(List.of(routingRules));
         }
 
         /**

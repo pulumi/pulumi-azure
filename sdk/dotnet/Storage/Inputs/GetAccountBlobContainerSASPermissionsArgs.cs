@@ -15,41 +15,88 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// Should Add permissions be enabled for this SAS?
         /// </summary>
-        [Input("add", required: true)]
-        public Input<bool> Add { get; set; } = null!;
+        [Input("add")]
+        public Input<bool>? Add { get; set; }
 
         /// <summary>
         /// Should Create permissions be enabled for this SAS?
         /// </summary>
-        [Input("create", required: true)]
-        public Input<bool> Create { get; set; } = null!;
+        [Input("create")]
+        public Input<bool>? Create { get; set; }
 
         /// <summary>
         /// Should Delete permissions be enabled for this SAS?
         /// </summary>
-        [Input("delete", required: true)]
-        public Input<bool> Delete { get; set; } = null!;
+        [Input("delete")]
+        public Input<bool>? Delete { get; set; }
+
+        /// <summary>
+        /// Should Delete version permissions be enabled for this SAS?
+        /// </summary>
+        [Input("deleteVersion")]
+        public Input<bool>? DeleteVersion { get; set; }
+
+        /// <summary>
+        /// Should Execute permissions be enabled for this SAS?
+        /// </summary>
+        [Input("execute")]
+        public Input<bool>? Execute { get; set; }
+
+        /// <summary>
+        /// Should Find permissions be enabled for this SAS?
+        /// </summary>
+        [Input("find")]
+        public Input<bool>? Find { get; set; }
 
         /// <summary>
         /// Should List permissions be enabled for this SAS?
-        /// 
-        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-        /// for additional details on the fields above.
         /// </summary>
-        [Input("list", required: true)]
-        public Input<bool> List { get; set; } = null!;
+        [Input("list")]
+        public Input<bool>? List { get; set; }
+
+        /// <summary>
+        /// Should Move permissions be enabled for this SAS?
+        /// </summary>
+        [Input("move")]
+        public Input<bool>? Move { get; set; }
+
+        /// <summary>
+        /// Should Ownership permissions be enabled for this SAS?
+        /// </summary>
+        [Input("ownership")]
+        public Input<bool>? Ownership { get; set; }
+
+        /// <summary>
+        /// Should Permissions permissions be enabled for this SAS?
+        /// </summary>
+        [Input("permissions")]
+        public Input<bool>? Permissions { get; set; }
 
         /// <summary>
         /// Should Read permissions be enabled for this SAS?
         /// </summary>
-        [Input("read", required: true)]
-        public Input<bool> Read { get; set; } = null!;
+        [Input("read")]
+        public Input<bool>? Read { get; set; }
+
+        /// <summary>
+        /// Should Set Immutability Policy permissions be enabled for this SAS?
+        /// </summary>
+        [Input("setImmutabilityPolicy")]
+        public Input<bool>? SetImmutabilityPolicy { get; set; }
+
+        /// <summary>
+        /// Should Tags permissions be enabled for this SAS?
+        /// </summary>
+        [Input("tags")]
+        public Input<bool>? Tags { get; set; }
 
         /// <summary>
         /// Should Write permissions be enabled for this SAS?
+        /// 
+        /// &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
         /// </summary>
-        [Input("write", required: true)]
-        public Input<bool> Write { get; set; } = null!;
+        [Input("write")]
+        public Input<bool>? Write { get; set; }
 
         public GetAccountBlobContainerSASPermissionsInputArgs()
         {

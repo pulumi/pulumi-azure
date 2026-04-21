@@ -58,6 +58,12 @@ namespace Pulumi.Azure.NetApp
         public Output<string?> CreateFromSnapshotResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// A `DataProtectionAdvancedRansomware` block as defined below.
+        /// </summary>
+        [Output("dataProtectionAdvancedRansomware")]
+        public Output<Outputs.VolumeDataProtectionAdvancedRansomware?> DataProtectionAdvancedRansomware { get; private set; } = null!;
+
+        /// <summary>
         /// A `DataProtectionBackupPolicy` block as defined below.
         /// </summary>
         [Output("dataProtectionBackupPolicy")]
@@ -316,6 +322,12 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
 
         /// <summary>
+        /// A `DataProtectionAdvancedRansomware` block as defined below.
+        /// </summary>
+        [Input("dataProtectionAdvancedRansomware")]
+        public Input<Inputs.VolumeDataProtectionAdvancedRansomwareArgs>? DataProtectionAdvancedRansomware { get; set; }
+
+        /// <summary>
         /// A `DataProtectionBackupPolicy` block as defined below.
         /// </summary>
         [Input("dataProtectionBackupPolicy")]
@@ -546,6 +558,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
+
+        /// <summary>
+        /// A `DataProtectionAdvancedRansomware` block as defined below.
+        /// </summary>
+        [Input("dataProtectionAdvancedRansomware")]
+        public Input<Inputs.VolumeDataProtectionAdvancedRansomwareGetArgs>? DataProtectionAdvancedRansomware { get; set; }
 
         /// <summary>
         /// A `DataProtectionBackupPolicy` block as defined below.

@@ -126,10 +126,8 @@ class GetDeploymentResult:
 
     @_builtins.property
     @pulumi.getter(name="diagnoseSupportEnabled")
+    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
     def diagnose_support_enabled(self) -> _builtins.bool:
-        """
-        Whether metrics are exported to Azure Monitor.
-        """
         return pulumi.get(self, "diagnose_support_enabled")
 
     @_builtins.property

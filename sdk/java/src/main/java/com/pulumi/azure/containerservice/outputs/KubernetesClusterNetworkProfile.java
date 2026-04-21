@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterNetworkProfile {
     /**
-     * @return An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+     * @return An `advancedNetworking` block as defined below.
      * 
      */
     private @Nullable KubernetesClusterNetworkProfileAdvancedNetworking advancedNetworking;
@@ -133,7 +133,7 @@ public final class KubernetesClusterNetworkProfile {
 
     private KubernetesClusterNetworkProfile() {}
     /**
-     * @return An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+     * @return An `advancedNetworking` block as defined below.
      * 
      */
     public Optional<KubernetesClusterNetworkProfileAdvancedNetworking> advancedNetworking() {

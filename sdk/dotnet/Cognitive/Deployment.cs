@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Cognitive
         /// The name of RAI policy.
         /// </summary>
         [Output("raiPolicyName")]
-        public Output<string?> RaiPolicyName { get; private set; } = null!;
+        public Output<string> RaiPolicyName { get; private set; } = null!;
 
         /// <summary>
         /// A `Sku` block as defined below.

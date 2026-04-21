@@ -191,6 +191,7 @@ class _ShareState:
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  quota: Optional[pulumi.Input[_builtins.int]] = None,
+                 rbac_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -212,6 +213,7 @@ class _ShareState:
                > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
                > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        :param pulumi.Input[_builtins.str] rbac_scope_id: The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this File Share.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the storage account in which to create the share.
                
@@ -233,6 +235,8 @@ class _ShareState:
             pulumi.set(__self__, "name", name)
         if quota is not None:
             pulumi.set(__self__, "quota", quota)
+        if rbac_scope_id is not None:
+            pulumi.set(__self__, "rbac_scope_id", rbac_scope_id)
         if resource_manager_id is not None:
             warnings.warn("""this property is deprecated and will be removed 5.0 and replaced by the `id` property.""", DeprecationWarning)
             pulumi.log.warn("""resource_manager_id is deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.""")
@@ -327,6 +331,18 @@ class _ShareState:
     @quota.setter
     def quota(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "quota", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rbacScopeId")
+    def rbac_scope_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
+        """
+        return pulumi.get(self, "rbac_scope_id")
+
+    @rbac_scope_id.setter
+    def rbac_scope_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "rbac_scope_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
@@ -439,7 +455,7 @@ class Share(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2023-05-01
+        * `Microsoft.Storage` - 2025-06-01
 
         ## Import
 
@@ -520,7 +536,7 @@ class Share(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2023-05-01
+        * `Microsoft.Storage` - 2025-06-01
 
         ## Import
 
@@ -573,6 +589,7 @@ class Share(pulumi.CustomResource):
             __props__.__dict__["quota"] = quota
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["rbac_scope_id"] = None
             __props__.__dict__["resource_manager_id"] = None
             __props__.__dict__["url"] = None
         super(Share, __self__).__init__(
@@ -591,6 +608,7 @@ class Share(pulumi.CustomResource):
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             quota: Optional[pulumi.Input[_builtins.int]] = None,
+            rbac_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
             resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
             storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -616,6 +634,7 @@ class Share(pulumi.CustomResource):
                > **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `storage.Account`.
                
                > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
+        :param pulumi.Input[_builtins.str] rbac_scope_id: The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this File Share.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the storage account in which to create the share.
                
@@ -635,6 +654,7 @@ class Share(pulumi.CustomResource):
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["quota"] = quota
+        __props__.__dict__["rbac_scope_id"] = rbac_scope_id
         __props__.__dict__["resource_manager_id"] = resource_manager_id
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["storage_account_name"] = storage_account_name
@@ -696,6 +716,14 @@ class Share(pulumi.CustomResource):
         > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         """
         return pulumi.get(self, "quota")
+
+    @_builtins.property
+    @pulumi.getter(name="rbacScopeId")
+    def rbac_scope_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
+        """
+        return pulumi.get(self, "rbac_scope_id")
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")

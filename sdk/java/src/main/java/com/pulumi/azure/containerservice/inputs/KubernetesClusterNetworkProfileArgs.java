@@ -21,14 +21,14 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     public static final KubernetesClusterNetworkProfileArgs Empty = new KubernetesClusterNetworkProfileArgs();
 
     /**
-     * An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+     * An `advancedNetworking` block as defined below.
      * 
      */
     @Import(name="advancedNetworking")
     private @Nullable Output<KubernetesClusterNetworkProfileAdvancedNetworkingArgs> advancedNetworking;
 
     /**
-     * @return An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+     * @return An `advancedNetworking` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterNetworkProfileAdvancedNetworkingArgs>> advancedNetworking() {
@@ -368,7 +368,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param advancedNetworking An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+         * @param advancedNetworking An `advancedNetworking` block as defined below.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param advancedNetworking An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+         * @param advancedNetworking An `advancedNetworking` block as defined below.
          * 
          * @return builder
          * 

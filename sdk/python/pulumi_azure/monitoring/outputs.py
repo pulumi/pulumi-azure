@@ -6604,6 +6604,8 @@ class ScheduledQueryRulesAlertV2Action(dict):
             suggest = "action_groups"
         elif key == "customProperties":
             suggest = "custom_properties"
+        elif key == "emailSubject":
+            suggest = "email_subject"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRulesAlertV2Action. Access the value via the '{suggest}' property getter instead.")
@@ -6618,15 +6620,19 @@ class ScheduledQueryRulesAlertV2Action(dict):
 
     def __init__(__self__, *,
                  action_groups: Optional[Sequence[_builtins.str]] = None,
-                 custom_properties: Optional[Mapping[str, _builtins.str]] = None):
+                 custom_properties: Optional[Mapping[str, _builtins.str]] = None,
+                 email_subject: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] action_groups: List of Action Group resource IDs to invoke when the alert fires.
         :param Mapping[str, _builtins.str] custom_properties: Specifies the properties of an alert payload.
+        :param _builtins.str email_subject: Custom subject override for all email ids in Azure action group.
         """
         if action_groups is not None:
             pulumi.set(__self__, "action_groups", action_groups)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
+        if email_subject is not None:
+            pulumi.set(__self__, "email_subject", email_subject)
 
     @_builtins.property
     @pulumi.getter(name="actionGroups")
@@ -6643,6 +6649,14 @@ class ScheduledQueryRulesAlertV2Action(dict):
         Specifies the properties of an alert payload.
         """
         return pulumi.get(self, "custom_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="emailSubject")
+    def email_subject(self) -> Optional[_builtins.str]:
+        """
+        Custom subject override for all email ids in Azure action group.
+        """
+        return pulumi.get(self, "email_subject")
 
 
 @pulumi.output_type

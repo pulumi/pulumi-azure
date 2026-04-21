@@ -181,9 +181,6 @@ namespace Pulumi.Azure.Nginx
         /// The dataplane API endpoint of the NGINX Deployment.
         /// </summary>
         public readonly string DataplaneApiEndpoint;
-        /// <summary>
-        /// Whether metrics are exported to Azure Monitor.
-        /// </summary>
         public readonly bool DiagnoseSupportEnabled;
         /// <summary>
         /// Preferred email associated with the NGINX Deployment.

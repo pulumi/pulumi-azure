@@ -173,18 +173,18 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
     }
 
     /**
-     * A `permissions` block as defined below.
+     * Should Permissions permissions be enabled for this SAS?
      * 
      */
-    @Import(name="permissions", required=true)
-    private Output<GetAccountBlobContainerSASPermissionsArgs> permissions;
+    @Import(name="permissions")
+    private @Nullable Output<GetAccountBlobContainerSASPermissionsArgs> permissions;
 
     /**
-     * @return A `permissions` block as defined below.
+     * @return Should Permissions permissions be enabled for this SAS?
      * 
      */
-    public Output<GetAccountBlobContainerSASPermissionsArgs> permissions() {
-        return this.permissions;
+    public Optional<Output<GetAccountBlobContainerSASPermissionsArgs>> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
 
     /**
@@ -452,18 +452,18 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param permissions A `permissions` block as defined below.
+         * @param permissions Should Permissions permissions be enabled for this SAS?
          * 
          * @return builder
          * 
          */
-        public Builder permissions(Output<GetAccountBlobContainerSASPermissionsArgs> permissions) {
+        public Builder permissions(@Nullable Output<GetAccountBlobContainerSASPermissionsArgs> permissions) {
             $.permissions = permissions;
             return this;
         }
 
         /**
-         * @param permissions A `permissions` block as defined below.
+         * @param permissions Should Permissions permissions be enabled for this SAS?
          * 
          * @return builder
          * 
@@ -502,9 +502,6 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
             }
             if ($.expiry == null) {
                 throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "expiry");
-            }
-            if ($.permissions == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "permissions");
             }
             if ($.start == null) {
                 throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "start");

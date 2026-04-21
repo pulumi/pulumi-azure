@@ -10,6 +10,11 @@ export type BackupInstanceBlogStorage = import("./backupInstanceBlogStorage").Ba
 export const BackupInstanceBlogStorage: typeof import("./backupInstanceBlogStorage").BackupInstanceBlogStorage = null as any;
 utilities.lazyLoad(exports, ["BackupInstanceBlogStorage"], () => require("./backupInstanceBlogStorage"));
 
+export { BackupInstanceDataLakeStorageArgs, BackupInstanceDataLakeStorageState } from "./backupInstanceDataLakeStorage";
+export type BackupInstanceDataLakeStorage = import("./backupInstanceDataLakeStorage").BackupInstanceDataLakeStorage;
+export const BackupInstanceDataLakeStorage: typeof import("./backupInstanceDataLakeStorage").BackupInstanceDataLakeStorage = null as any;
+utilities.lazyLoad(exports, ["BackupInstanceDataLakeStorage"], () => require("./backupInstanceDataLakeStorage"));
+
 export { BackupInstanceDiskArgs, BackupInstanceDiskState } from "./backupInstanceDisk";
 export type BackupInstanceDisk = import("./backupInstanceDisk").BackupInstanceDisk;
 export const BackupInstanceDisk: typeof import("./backupInstanceDisk").BackupInstanceDisk = null as any;
@@ -39,6 +44,11 @@ export { BackupPolicyBlobStorageArgs, BackupPolicyBlobStorageState } from "./bac
 export type BackupPolicyBlobStorage = import("./backupPolicyBlobStorage").BackupPolicyBlobStorage;
 export const BackupPolicyBlobStorage: typeof import("./backupPolicyBlobStorage").BackupPolicyBlobStorage = null as any;
 utilities.lazyLoad(exports, ["BackupPolicyBlobStorage"], () => require("./backupPolicyBlobStorage"));
+
+export { BackupPolicyDataLakeStorageArgs, BackupPolicyDataLakeStorageState } from "./backupPolicyDataLakeStorage";
+export type BackupPolicyDataLakeStorage = import("./backupPolicyDataLakeStorage").BackupPolicyDataLakeStorage;
+export const BackupPolicyDataLakeStorage: typeof import("./backupPolicyDataLakeStorage").BackupPolicyDataLakeStorage = null as any;
+utilities.lazyLoad(exports, ["BackupPolicyDataLakeStorage"], () => require("./backupPolicyDataLakeStorage"));
 
 export { BackupPolicyDiskArgs, BackupPolicyDiskState } from "./backupPolicyDisk";
 export type BackupPolicyDisk = import("./backupPolicyDisk").BackupPolicyDisk;
@@ -92,6 +102,8 @@ const _module = {
         switch (type) {
             case "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage":
                 return new BackupInstanceBlogStorage(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupInstanceDataLakeStorage:BackupInstanceDataLakeStorage":
+                return new BackupInstanceDataLakeStorage(name, <any>undefined, { urn })
             case "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk":
                 return new BackupInstanceDisk(name, <any>undefined, { urn })
             case "azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster":
@@ -104,6 +116,8 @@ const _module = {
                 return new BackupInstancePostgresqlFlexibleServer(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage":
                 return new BackupPolicyBlobStorage(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupPolicyDataLakeStorage:BackupPolicyDataLakeStorage":
+                return new BackupPolicyDataLakeStorage(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk":
                 return new BackupPolicyDisk(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster":
@@ -126,12 +140,14 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceBlogStorage", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceDataLakeStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceKubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceMysqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstancePostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstancePostgresqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyBlobStorage", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDataLakeStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyKubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyMysqlFlexibleServer", _module)

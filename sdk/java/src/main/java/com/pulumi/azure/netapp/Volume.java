@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.netapp.VolumeArgs;
 import com.pulumi.azure.netapp.inputs.VolumeState;
 import com.pulumi.azure.netapp.outputs.VolumeCoolAccess;
+import com.pulumi.azure.netapp.outputs.VolumeDataProtectionAdvancedRansomware;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionReplication;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionSnapshotPolicy;
@@ -113,6 +114,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> createFromSnapshotResourceId() {
         return Codegen.optional(this.createFromSnapshotResourceId);
+    }
+    /**
+     * A `dataProtectionAdvancedRansomware` block as defined below.
+     * 
+     */
+    @Export(name="dataProtectionAdvancedRansomware", refs={VolumeDataProtectionAdvancedRansomware.class}, tree="[0]")
+    private Output</* @Nullable */ VolumeDataProtectionAdvancedRansomware> dataProtectionAdvancedRansomware;
+
+    /**
+     * @return A `dataProtectionAdvancedRansomware` block as defined below.
+     * 
+     */
+    public Output<Optional<VolumeDataProtectionAdvancedRansomware>> dataProtectionAdvancedRansomware() {
+        return Codegen.optional(this.dataProtectionAdvancedRansomware);
     }
     /**
      * A `dataProtectionBackupPolicy` block as defined below.

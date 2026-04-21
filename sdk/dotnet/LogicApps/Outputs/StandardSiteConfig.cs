@@ -50,6 +50,12 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
+        /// The action to take when no `IpRestriction` rules match. Possible values are `Allow` and `Deny`.
+        /// 
+        /// &gt; **Note:** If `IpRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `IpRestriction` rules are defined and `Deny` when at least one `IpRestriction` rule is defined.
+        /// </summary>
+        public readonly string? IpRestrictionDefaultAction;
+        /// <summary>
         /// A list of `IpRestriction` objects representing IP restrictions as defined below.
         /// 
         /// &gt; **Note:** User has to explicitly set `IpRestriction` to empty slice (`[]`) to remove it.
@@ -76,6 +82,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `False`.
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
+        /// <summary>
+        /// The action to take when no `ScmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+        /// </summary>
+        public readonly string? ScmIpRestrictionDefaultAction;
         /// <summary>
         /// A list of `ScmIpRestriction` objects representing SCM IP restrictions as defined below.
         /// 
@@ -131,6 +141,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             bool? http2Enabled,
 
+            string? ipRestrictionDefaultAction,
+
             ImmutableArray<Outputs.StandardSiteConfigIpRestriction> ipRestrictions,
 
             string? linuxFxVersion,
@@ -142,6 +154,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
             bool? publicNetworkAccessEnabled,
 
             bool? runtimeScaleMonitoringEnabled,
+
+            string? scmIpRestrictionDefaultAction,
 
             ImmutableArray<Outputs.StandardSiteConfigScmIpRestriction> scmIpRestrictions,
 
@@ -166,12 +180,14 @@ namespace Pulumi.Azure.LogicApps.Outputs
             FtpsState = ftpsState;
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
+            IpRestrictionDefaultAction = ipRestrictionDefaultAction;
             IpRestrictions = ipRestrictions;
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
             PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            ScmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             ScmIpRestrictions = scmIpRestrictions;
             ScmMinTlsVersion = scmMinTlsVersion;
             ScmType = scmType;

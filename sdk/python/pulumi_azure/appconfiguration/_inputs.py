@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ConfigurationFeatureCustomFilterArgs',
+    'ConfigurationFeatureCustomFilterArgsDict',
     'ConfigurationFeatureTargetingFilterArgs',
     'ConfigurationFeatureTargetingFilterArgsDict',
     'ConfigurationFeatureTargetingFilterGroupArgs',
@@ -36,6 +38,54 @@ __all__ = [
     'ConfigurationStoreSecondaryWriteKeyArgs',
     'ConfigurationStoreSecondaryWriteKeyArgsDict',
 ]
+
+class ConfigurationFeatureCustomFilterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the parameter, this could be any string.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    One or more `parameters` blocks as defined below.
+    """
+
+@pulumi.input_type
+class ConfigurationFeatureCustomFilterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the parameter, this could be any string.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: One or more `parameters` blocks as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the parameter, this could be any string.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        One or more `parameters` blocks as defined below.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "parameters", value)
+
 
 class ConfigurationFeatureTargetingFilterArgsDict(TypedDict):
     default_rollout_percentage: pulumi.Input[_builtins.int]

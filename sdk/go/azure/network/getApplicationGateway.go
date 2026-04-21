@@ -75,6 +75,8 @@ type LookupApplicationGatewayResult struct {
 	BackendAddressPools []GetApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings []GetApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
+	// One or more `backend` blocks as defined below.
+	Backends []GetApplicationGatewayBackend `pulumi:"backends"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []GetApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Is FIPS enabled on the Application Gateway?
@@ -99,6 +101,8 @@ type LookupApplicationGatewayResult struct {
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
 	Identities []GetApplicationGatewayIdentity `pulumi:"identities"`
+	// One or more `listener` blocks as defined below.
+	Listeners []GetApplicationGatewayListener `pulumi:"listeners"`
 	// The Azure region where the Application Gateway exists.
 	Location string `pulumi:"location"`
 	// Unique name of the Rewrite Rule
@@ -115,6 +119,8 @@ type LookupApplicationGatewayResult struct {
 	ResourceGroupName   string                                    `pulumi:"resourceGroupName"`
 	// One or more `rewriteRuleSet` blocks as defined below.
 	RewriteRuleSets []GetApplicationGatewayRewriteRuleSet `pulumi:"rewriteRuleSets"`
+	// One or more `routingRule` blocks as defined below.
+	RoutingRules []GetApplicationGatewayRoutingRule `pulumi:"routingRules"`
 	// A `sku` block as defined below.
 	Skus []GetApplicationGatewaySkus `pulumi:"skus"`
 	// One or more `sslCertificate` blocks as defined below.
@@ -201,6 +207,11 @@ func (o LookupApplicationGatewayResultOutput) BackendHttpSettings() GetApplicati
 	}).(GetApplicationGatewayBackendHttpSettingArrayOutput)
 }
 
+// One or more `backend` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) Backends() GetApplicationGatewayBackendArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayBackend { return v.Backends }).(GetApplicationGatewayBackendArrayOutput)
+}
+
 // One or more `customErrorConfiguration` blocks as defined below.
 func (o LookupApplicationGatewayResultOutput) CustomErrorConfigurations() GetApplicationGatewayCustomErrorConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayCustomErrorConfiguration {
@@ -267,6 +278,11 @@ func (o LookupApplicationGatewayResultOutput) Identities() GetApplicationGateway
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayIdentity { return v.Identities }).(GetApplicationGatewayIdentityArrayOutput)
 }
 
+// One or more `listener` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) Listeners() GetApplicationGatewayListenerArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayListener { return v.Listeners }).(GetApplicationGatewayListenerArrayOutput)
+}
+
 // The Azure region where the Application Gateway exists.
 func (o LookupApplicationGatewayResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Location }).(pulumi.StringOutput)
@@ -316,6 +332,11 @@ func (o LookupApplicationGatewayResultOutput) ResourceGroupName() pulumi.StringO
 // One or more `rewriteRuleSet` blocks as defined below.
 func (o LookupApplicationGatewayResultOutput) RewriteRuleSets() GetApplicationGatewayRewriteRuleSetArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayRewriteRuleSet { return v.RewriteRuleSets }).(GetApplicationGatewayRewriteRuleSetArrayOutput)
+}
+
+// One or more `routingRule` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) RoutingRules() GetApplicationGatewayRoutingRuleArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayRoutingRule { return v.RoutingRules }).(GetApplicationGatewayRoutingRuleArrayOutput)
 }
 
 // A `sku` block as defined below.

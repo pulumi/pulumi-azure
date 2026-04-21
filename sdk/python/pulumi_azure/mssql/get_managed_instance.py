@@ -27,7 +27,7 @@ class GetManagedInstanceResult:
     """
     A collection of values returned by getManagedInstance.
     """
-    def __init__(__self__, administrator_login=None, collation=None, customer_managed_key_id=None, dns_zone=None, dns_zone_partner_id=None, fqdn=None, id=None, identities=None, license_type=None, location=None, minimum_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, resource_group_name=None, sku_name=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, vcores=None):
+    def __init__(__self__, administrator_login=None, collation=None, customer_managed_key_id=None, dns_zone=None, dns_zone_partner_id=None, fqdn=None, general_purpose_v2_enabled=None, id=None, identities=None, license_type=None, location=None, minimum_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, resource_group_name=None, sku_name=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, vcores=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -46,6 +46,9 @@ class GetManagedInstanceResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if general_purpose_v2_enabled and not isinstance(general_purpose_v2_enabled, bool):
+            raise TypeError("Expected argument 'general_purpose_v2_enabled' to be a bool")
+        pulumi.set(__self__, "general_purpose_v2_enabled", general_purpose_v2_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -139,6 +142,14 @@ class GetManagedInstanceResult:
         The fully qualified domain name of the Azure Managed SQL Instance.
         """
         return pulumi.get(self, "fqdn")
+
+    @_builtins.property
+    @pulumi.getter(name="generalPurposeV2Enabled")
+    def general_purpose_v2_enabled(self) -> _builtins.bool:
+        """
+        Whether the SQL Managed Instance is using the Next-gen General Purpose service tier
+        """
+        return pulumi.get(self, "general_purpose_v2_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -275,6 +286,7 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             dns_zone=self.dns_zone,
             dns_zone_partner_id=self.dns_zone_partner_id,
             fqdn=self.fqdn,
+            general_purpose_v2_enabled=self.general_purpose_v2_enabled,
             id=self.id,
             identities=self.identities,
             license_type=self.license_type,
@@ -333,6 +345,7 @@ def get_managed_instance(name: Optional[_builtins.str] = None,
         dns_zone=pulumi.get(__ret__, 'dns_zone'),
         dns_zone_partner_id=pulumi.get(__ret__, 'dns_zone_partner_id'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
+        general_purpose_v2_enabled=pulumi.get(__ret__, 'general_purpose_v2_enabled'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
         license_type=pulumi.get(__ret__, 'license_type'),
@@ -388,6 +401,7 @@ def get_managed_instance_output(name: Optional[pulumi.Input[_builtins.str]] = No
         dns_zone=pulumi.get(__response__, 'dns_zone'),
         dns_zone_partner_id=pulumi.get(__response__, 'dns_zone_partner_id'),
         fqdn=pulumi.get(__response__, 'fqdn'),
+        general_purpose_v2_enabled=pulumi.get(__response__, 'general_purpose_v2_enabled'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
         license_type=pulumi.get(__response__, 'license_type'),

@@ -81,7 +81,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Storage` - 2023-05-01
+// * `Microsoft.Storage` - 2025-06-01
 //
 // ## Import
 //
@@ -113,6 +113,8 @@ type Share struct {
 	//
 	// > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntOutput `pulumi:"quota"`
+	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	RbacScopeId pulumi.StringOutput `pulumi:"rbacScopeId"`
 	// The Resource Manager ID of this File Share.
 	//
 	// Deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.
@@ -184,6 +186,8 @@ type shareState struct {
 	//
 	// > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota *int `pulumi:"quota"`
+	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	RbacScopeId *string `pulumi:"rbacScopeId"`
 	// The Resource Manager ID of this File Share.
 	//
 	// Deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.
@@ -223,6 +227,8 @@ type ShareState struct {
 	//
 	// > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntPtrInput
+	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+	RbacScopeId pulumi.StringPtrInput
 	// The Resource Manager ID of this File Share.
 	//
 	// Deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.
@@ -435,6 +441,11 @@ func (o ShareOutput) Name() pulumi.StringOutput {
 // > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 func (o ShareOutput) Quota() pulumi.IntOutput {
 	return o.ApplyT(func(v *Share) pulumi.IntOutput { return v.Quota }).(pulumi.IntOutput)
+}
+
+// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+func (o ShareOutput) RbacScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.RbacScopeId }).(pulumi.StringOutput)
 }
 
 // The Resource Manager ID of this File Share.

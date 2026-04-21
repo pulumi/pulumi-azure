@@ -187,14 +187,14 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
         return this.virtualHubId;
     }
     /**
-     * The ID of virtual network connection.
+     * The ID of virtual network connection. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="virtualNetworkConnectionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkConnectionId;
 
     /**
-     * @return The ID of virtual network connection.
+     * @return The ID of virtual network connection. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> virtualNetworkConnectionId() {

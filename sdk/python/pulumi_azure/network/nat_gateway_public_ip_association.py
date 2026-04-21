@@ -26,6 +26,8 @@ class NatGatewayPublicIpAssociationArgs:
 
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+               
+               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_address_id` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
         """
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
@@ -47,6 +49,8 @@ class NatGatewayPublicIpAssociationArgs:
     def public_ip_address_id(self) -> pulumi.Input[_builtins.str]:
         """
         The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+
+        > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_address_id` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -65,6 +69,8 @@ class _NatGatewayPublicIpAssociationState:
 
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+               
+               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_address_id` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
         """
         if nat_gateway_id is not None:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
@@ -88,6 +94,8 @@ class _NatGatewayPublicIpAssociationState:
     def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+
+        > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_address_id` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -155,6 +163,8 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+               
+               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_address_id` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
         """
         ...
     @overload
@@ -261,6 +271,8 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+               
+               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_address_id` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,6 +295,8 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
     def public_ip_address_id(self) -> pulumi.Output[_builtins.str]:
         """
         The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+
+        > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_address_id` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
         """
         return pulumi.get(self, "public_ip_address_id")
 

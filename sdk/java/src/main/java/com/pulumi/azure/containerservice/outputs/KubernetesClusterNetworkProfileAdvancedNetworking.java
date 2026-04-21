@@ -17,7 +17,7 @@ public final class KubernetesClusterNetworkProfileAdvancedNetworking {
      */
     private @Nullable Boolean observabilityEnabled;
     /**
-     * @return Is security enabled? Defaults to `false`.
+     * @return Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
      * 
      */
     private @Nullable Boolean securityEnabled;
@@ -31,7 +31,7 @@ public final class KubernetesClusterNetworkProfileAdvancedNetworking {
         return Optional.ofNullable(this.observabilityEnabled);
     }
     /**
-     * @return Is security enabled? Defaults to `false`.
+     * @return Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
      * 
      */
     public Optional<Boolean> securityEnabled() {

@@ -129,6 +129,8 @@ type BastionHost struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether Private-Only deployment is enabled for the Bastion Host.
+	PrivateOnlyEnabled pulumi.BoolOutput `pulumi:"privateOnlyEnabled"`
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
@@ -214,6 +216,8 @@ type bastionHostState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether Private-Only deployment is enabled for the Bastion Host.
+	PrivateOnlyEnabled *bool `pulumi:"privateOnlyEnabled"`
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
@@ -267,6 +271,8 @@ type BastionHostState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether Private-Only deployment is enabled for the Bastion Host.
+	PrivateOnlyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
@@ -535,6 +541,11 @@ func (o BastionHostOutput) Location() pulumi.StringOutput {
 // Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 func (o BastionHostOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether Private-Only deployment is enabled for the Bastion Host.
+func (o BastionHostOutput) PrivateOnlyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolOutput { return v.PrivateOnlyEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.

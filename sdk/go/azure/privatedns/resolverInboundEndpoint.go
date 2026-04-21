@@ -117,13 +117,13 @@ import (
 type ResolverInboundEndpoint struct {
 	pulumi.CustomResourceState
 
-	// One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
 	IpConfigurations ResolverInboundEndpointIpConfigurationsOutput `pulumi:"ipConfigurations"`
-	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	PrivateDnsResolverId pulumi.StringOutput `pulumi:"privateDnsResolverId"`
 	// A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -165,26 +165,26 @@ func GetResolverInboundEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverInboundEndpoint resources.
 type resolverInboundEndpointState struct {
-	// One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
 	IpConfigurations *ResolverInboundEndpointIpConfigurations `pulumi:"ipConfigurations"`
-	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	PrivateDnsResolverId *string `pulumi:"privateDnsResolverId"`
 	// A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResolverInboundEndpointState struct {
-	// One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
 	IpConfigurations ResolverInboundEndpointIpConfigurationsPtrInput
-	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	PrivateDnsResolverId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
 	Tags pulumi.StringMapInput
@@ -195,13 +195,13 @@ func (ResolverInboundEndpointState) ElementType() reflect.Type {
 }
 
 type resolverInboundEndpointArgs struct {
-	// One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
 	IpConfigurations ResolverInboundEndpointIpConfigurations `pulumi:"ipConfigurations"`
-	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	PrivateDnsResolverId string `pulumi:"privateDnsResolverId"`
 	// A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
 	Tags map[string]string `pulumi:"tags"`
@@ -209,13 +209,13 @@ type resolverInboundEndpointArgs struct {
 
 // The set of arguments for constructing a ResolverInboundEndpoint resource.
 type ResolverInboundEndpointArgs struct {
-	// One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
 	IpConfigurations ResolverInboundEndpointIpConfigurationsInput
-	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+	// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 	PrivateDnsResolverId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
 	Tags pulumi.StringMapInput
@@ -308,24 +308,24 @@ func (o ResolverInboundEndpointOutput) ToResolverInboundEndpointOutputWithContex
 	return o
 }
 
-// One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+// One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointOutput) IpConfigurations() ResolverInboundEndpointIpConfigurationsOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpoint) ResolverInboundEndpointIpConfigurationsOutput {
 		return v.IpConfigurations
 	}).(ResolverInboundEndpointIpConfigurationsOutput)
 }
 
-// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
 func (o ResolverInboundEndpointOutput) PrivateDnsResolverId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverInboundEndpoint) pulumi.StringOutput { return v.PrivateDnsResolverId }).(pulumi.StringOutput)
 }

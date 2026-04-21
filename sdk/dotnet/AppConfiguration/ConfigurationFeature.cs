@@ -82,6 +82,12 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> ConfigurationStoreId { get; private set; } = null!;
 
         /// <summary>
+        /// A `CustomFilter` block as defined below.
+        /// </summary>
+        [Output("customFilters")]
+        public Output<ImmutableArray<Outputs.ConfigurationFeatureCustomFilter>> CustomFilters { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the App Configuration Feature.
         /// </summary>
         [Output("description")]
@@ -196,6 +202,18 @@ namespace Pulumi.Azure.AppConfiguration
         [Input("configurationStoreId", required: true)]
         public Input<string> ConfigurationStoreId { get; set; } = null!;
 
+        [Input("customFilters")]
+        private InputList<Inputs.ConfigurationFeatureCustomFilterArgs>? _customFilters;
+
+        /// <summary>
+        /// A `CustomFilter` block as defined below.
+        /// </summary>
+        public InputList<Inputs.ConfigurationFeatureCustomFilterArgs> CustomFilters
+        {
+            get => _customFilters ?? (_customFilters = new InputList<Inputs.ConfigurationFeatureCustomFilterArgs>());
+            set => _customFilters = value;
+        }
+
         /// <summary>
         /// The description of the App Configuration Feature.
         /// </summary>
@@ -290,6 +308,18 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Input("configurationStoreId")]
         public Input<string>? ConfigurationStoreId { get; set; }
+
+        [Input("customFilters")]
+        private InputList<Inputs.ConfigurationFeatureCustomFilterGetArgs>? _customFilters;
+
+        /// <summary>
+        /// A `CustomFilter` block as defined below.
+        /// </summary>
+        public InputList<Inputs.ConfigurationFeatureCustomFilterGetArgs> CustomFilters
+        {
+            get => _customFilters ?? (_customFilters = new InputList<Inputs.ConfigurationFeatureCustomFilterGetArgs>());
+            set => _customFilters = value;
+        }
 
         /// <summary>
         /// The description of the App Configuration Feature.

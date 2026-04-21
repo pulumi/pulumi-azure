@@ -13,7 +13,9 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ApplicationGatewayProbeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `PickHostNameFromBackendHttpSettings` is set to `True`.
+        /// The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+        /// 
+        /// &gt; **Note:** Exactly one of `Host` or `PickHostNameFromBackendHttpSettings` must be set when `Protocol` is `Http` or `Https`. Neither can be set when `Protocol` is `Tcp` or `Tls`.
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
@@ -25,13 +27,15 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
         /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
 
         /// <summary>
         /// A `Match` block as defined above.
+        /// 
+        /// &gt; **Note:** `Match` cannot be set when `Protocol` is set to `Tcp` or `Tls`.
         /// </summary>
         [Input("match")]
         public Input<Inputs.ApplicationGatewayProbeMatchArgs>? Match { get; set; }
@@ -43,43 +47,59 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? MinimumServers { get; set; }
 
         /// <summary>
-        /// The Name of the Probe.
+        /// The name of the Probe.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Path used for this Probe.
+        /// The relative URL path of the Probe. Valid value starts with `/`.
+        /// 
+        /// &gt; **Note:** `Path` cannot be set when `Protocol` is set to `Tcp` or `Tls`. `Path` must be specified when `Protocol` is `Http` or `Https`.
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("path")]
+        public Input<string>? Path { get; set; }
 
         /// <summary>
         /// Whether the host header should be picked from the backend HTTP settings. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `PickHostNameFromBackendHttpSettings` cannot be set when `Protocol` is set to `Tcp` or `Tls`.
         /// </summary>
         [Input("pickHostNameFromBackendHttpSettings")]
         public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
 
         /// <summary>
-        /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+        /// Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+        /// 
+        /// &gt; **Note:** In case `Port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+        /// The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// Whether the proxy protocol header is enabled for this Probe. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ProxyProtocolHeaderEnabled` can only be set when `Protocol` is `Tcp` or `Tls`.
+        /// </summary>
+        [Input("proxyProtocolHeaderEnabled")]
+        public Input<bool>? ProxyProtocolHeaderEnabled { get; set; }
+
+        /// <summary>
+        /// The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+        /// 
+        /// &gt; **Note:** The `Timeout` value should not be greater than the `Interval` value.
         /// </summary>
         [Input("timeout", required: true)]
         public Input<int> Timeout { get; set; } = null!;
 
         /// <summary>
-        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+        /// The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
         /// </summary>
         [Input("unhealthyThreshold", required: true)]
         public Input<int> UnhealthyThreshold { get; set; } = null!;

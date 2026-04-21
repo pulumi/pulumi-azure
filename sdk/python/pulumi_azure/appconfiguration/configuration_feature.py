@@ -22,6 +22,7 @@ __all__ = ['ConfigurationFeatureArgs', 'ConfigurationFeature']
 class ConfigurationFeatureArgs:
     def __init__(__self__, *,
                  configuration_store_id: pulumi.Input[_builtins.str],
+                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class ConfigurationFeatureArgs:
         The set of arguments for constructing a ConfigurationFeature resource.
 
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]] custom_filters: A `custom_filter` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the App Configuration Feature.
         :param pulumi.Input[_builtins.bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[_builtins.str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
@@ -49,6 +51,8 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
         """
         pulumi.set(__self__, "configuration_store_id", configuration_store_id)
+        if custom_filters is not None:
+            pulumi.set(__self__, "custom_filters", custom_filters)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
@@ -83,6 +87,18 @@ class ConfigurationFeatureArgs:
     @configuration_store_id.setter
     def configuration_store_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "configuration_store_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customFilters")
+    def custom_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]:
+        """
+        A `custom_filter` block as defined below.
+        """
+        return pulumi.get(self, "custom_filters")
+
+    @custom_filters.setter
+    def custom_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]):
+        pulumi.set(self, "custom_filters", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,6 +234,7 @@ class ConfigurationFeatureArgs:
 class _ConfigurationFeatureState:
     def __init__(__self__, *,
                  configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
@@ -233,6 +250,7 @@ class _ConfigurationFeatureState:
         Input properties used for looking up and filtering ConfigurationFeature resources.
 
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]] custom_filters: A `custom_filter` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the App Configuration Feature.
         :param pulumi.Input[_builtins.bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[_builtins.str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
@@ -246,6 +264,8 @@ class _ConfigurationFeatureState:
         """
         if configuration_store_id is not None:
             pulumi.set(__self__, "configuration_store_id", configuration_store_id)
+        if custom_filters is not None:
+            pulumi.set(__self__, "custom_filters", custom_filters)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
@@ -280,6 +300,18 @@ class _ConfigurationFeatureState:
     @configuration_store_id.setter
     def configuration_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "configuration_store_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customFilters")
+    def custom_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]:
+        """
+        A `custom_filter` block as defined below.
+        """
+        return pulumi.get(self, "custom_filters")
+
+    @custom_filters.setter
+    def custom_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureCustomFilterArgs']]]]):
+        pulumi.set(self, "custom_filters", value)
 
     @_builtins.property
     @pulumi.getter
@@ -418,6 +450,7 @@ class ConfigurationFeature(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
@@ -479,6 +512,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]] custom_filters: A `custom_filter` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the App Configuration Feature.
         :param pulumi.Input[_builtins.bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[_builtins.str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
@@ -558,6 +592,7 @@ class ConfigurationFeature(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  etag: Optional[pulumi.Input[_builtins.str]] = None,
@@ -581,6 +616,7 @@ class ConfigurationFeature(pulumi.CustomResource):
             if configuration_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_store_id'")
             __props__.__dict__["configuration_store_id"] = configuration_store_id
+            __props__.__dict__["custom_filters"] = custom_filters
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["etag"] = etag
@@ -603,6 +639,7 @@ class ConfigurationFeature(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+            custom_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             etag: Optional[pulumi.Input[_builtins.str]] = None,
@@ -622,6 +659,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationFeatureCustomFilterArgs', 'ConfigurationFeatureCustomFilterArgsDict']]]] custom_filters: A `custom_filter` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the App Configuration Feature.
         :param pulumi.Input[_builtins.bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
         :param pulumi.Input[_builtins.str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
@@ -638,6 +676,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         __props__ = _ConfigurationFeatureState.__new__(_ConfigurationFeatureState)
 
         __props__.__dict__["configuration_store_id"] = configuration_store_id
+        __props__.__dict__["custom_filters"] = custom_filters
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["etag"] = etag
@@ -658,6 +697,14 @@ class ConfigurationFeature(pulumi.CustomResource):
         Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "configuration_store_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customFilters")
+    def custom_filters(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationFeatureCustomFilter']]]:
+        """
+        A `custom_filter` block as defined below.
+        """
+        return pulumi.get(self, "custom_filters")
 
     @_builtins.property
     @pulumi.getter

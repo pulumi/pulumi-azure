@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ConfigurationFeatureCustomFilter struct {
+	// The name of the parameter, this could be any string.
+	Name string `pulumi:"name"`
+	// One or more `parameters` blocks as defined below.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// ConfigurationFeatureCustomFilterInput is an input type that accepts ConfigurationFeatureCustomFilterArgs and ConfigurationFeatureCustomFilterOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureCustomFilterInput` via:
+//
+//	ConfigurationFeatureCustomFilterArgs{...}
+type ConfigurationFeatureCustomFilterInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureCustomFilterOutput() ConfigurationFeatureCustomFilterOutput
+	ToConfigurationFeatureCustomFilterOutputWithContext(context.Context) ConfigurationFeatureCustomFilterOutput
+}
+
+type ConfigurationFeatureCustomFilterArgs struct {
+	// The name of the parameter, this could be any string.
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more `parameters` blocks as defined below.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (ConfigurationFeatureCustomFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureCustomFilter)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureCustomFilterArgs) ToConfigurationFeatureCustomFilterOutput() ConfigurationFeatureCustomFilterOutput {
+	return i.ToConfigurationFeatureCustomFilterOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureCustomFilterArgs) ToConfigurationFeatureCustomFilterOutputWithContext(ctx context.Context) ConfigurationFeatureCustomFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureCustomFilterOutput)
+}
+
+// ConfigurationFeatureCustomFilterArrayInput is an input type that accepts ConfigurationFeatureCustomFilterArray and ConfigurationFeatureCustomFilterArrayOutput values.
+// You can construct a concrete instance of `ConfigurationFeatureCustomFilterArrayInput` via:
+//
+//	ConfigurationFeatureCustomFilterArray{ ConfigurationFeatureCustomFilterArgs{...} }
+type ConfigurationFeatureCustomFilterArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationFeatureCustomFilterArrayOutput() ConfigurationFeatureCustomFilterArrayOutput
+	ToConfigurationFeatureCustomFilterArrayOutputWithContext(context.Context) ConfigurationFeatureCustomFilterArrayOutput
+}
+
+type ConfigurationFeatureCustomFilterArray []ConfigurationFeatureCustomFilterInput
+
+func (ConfigurationFeatureCustomFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureCustomFilter)(nil)).Elem()
+}
+
+func (i ConfigurationFeatureCustomFilterArray) ToConfigurationFeatureCustomFilterArrayOutput() ConfigurationFeatureCustomFilterArrayOutput {
+	return i.ToConfigurationFeatureCustomFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationFeatureCustomFilterArray) ToConfigurationFeatureCustomFilterArrayOutputWithContext(ctx context.Context) ConfigurationFeatureCustomFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureCustomFilterArrayOutput)
+}
+
+type ConfigurationFeatureCustomFilterOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureCustomFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationFeatureCustomFilter)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureCustomFilterOutput) ToConfigurationFeatureCustomFilterOutput() ConfigurationFeatureCustomFilterOutput {
+	return o
+}
+
+func (o ConfigurationFeatureCustomFilterOutput) ToConfigurationFeatureCustomFilterOutputWithContext(ctx context.Context) ConfigurationFeatureCustomFilterOutput {
+	return o
+}
+
+// The name of the parameter, this could be any string.
+func (o ConfigurationFeatureCustomFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationFeatureCustomFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `parameters` blocks as defined below.
+func (o ConfigurationFeatureCustomFilterOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConfigurationFeatureCustomFilter) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type ConfigurationFeatureCustomFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationFeatureCustomFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationFeatureCustomFilter)(nil)).Elem()
+}
+
+func (o ConfigurationFeatureCustomFilterArrayOutput) ToConfigurationFeatureCustomFilterArrayOutput() ConfigurationFeatureCustomFilterArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureCustomFilterArrayOutput) ToConfigurationFeatureCustomFilterArrayOutputWithContext(ctx context.Context) ConfigurationFeatureCustomFilterArrayOutput {
+	return o
+}
+
+func (o ConfigurationFeatureCustomFilterArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureCustomFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationFeatureCustomFilter {
+		return vs[0].([]ConfigurationFeatureCustomFilter)[vs[1].(int)]
+	}).(ConfigurationFeatureCustomFilterOutput)
+}
+
 type ConfigurationFeatureTargetingFilter struct {
 	// A number representing the percentage of the entire user base.
 	DefaultRolloutPercentage int `pulumi:"defaultRolloutPercentage"`
@@ -2250,6 +2356,8 @@ func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureCustomFilterInput)(nil)).Elem(), ConfigurationFeatureCustomFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureCustomFilterArrayInput)(nil)).Elem(), ConfigurationFeatureCustomFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureTargetingFilterInput)(nil)).Elem(), ConfigurationFeatureTargetingFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureTargetingFilterArrayInput)(nil)).Elem(), ConfigurationFeatureTargetingFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureTargetingFilterGroupInput)(nil)).Elem(), ConfigurationFeatureTargetingFilterGroupArgs{})
@@ -2286,6 +2394,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreSecondaryReadKeyArrayInput)(nil)).Elem(), GetConfigurationStoreSecondaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreSecondaryWriteKeyInput)(nil)).Elem(), GetConfigurationStoreSecondaryWriteKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreSecondaryWriteKeyArrayInput)(nil)).Elem(), GetConfigurationStoreSecondaryWriteKeyArray{})
+	pulumi.RegisterOutputType(ConfigurationFeatureCustomFilterOutput{})
+	pulumi.RegisterOutputType(ConfigurationFeatureCustomFilterArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterOutput{})
 	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterGroupOutput{})

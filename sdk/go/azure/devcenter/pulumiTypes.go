@@ -579,6 +579,4501 @@ func (o DevCenterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedDevOpsPoolAzureDevopsOrganization struct {
+	// One or more `organization` blocks as defined below.
+	Organizations []ManagedDevOpsPoolAzureDevopsOrganizationOrganization `pulumi:"organizations"`
+	// A `permission` block as defined below. Changing this forces a new resource to be created.
+	Permission *ManagedDevOpsPoolAzureDevopsOrganizationPermission `pulumi:"permission"`
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationArgs and ManagedDevOpsPoolAzureDevopsOrganizationOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationInput` via:
+//
+//	ManagedDevOpsPoolAzureDevopsOrganizationArgs{...}
+type ManagedDevOpsPoolAzureDevopsOrganizationInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationOutput() ManagedDevOpsPoolAzureDevopsOrganizationOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOutput
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationArgs struct {
+	// One or more `organization` blocks as defined below.
+	Organizations ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput `pulumi:"organizations"`
+	// A `permission` block as defined below. Changing this forces a new resource to be created.
+	Permission ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrInput `pulumi:"permission"`
+}
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationArgs) ToManagedDevOpsPoolAzureDevopsOrganizationOutput() ManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationArgs) ToManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationOutput)
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationOutput).ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationPtrInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationArgs, ManagedDevOpsPoolAzureDevopsOrganizationPtr and ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationPtrInput` via:
+//
+//	        ManagedDevOpsPoolAzureDevopsOrganizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolAzureDevopsOrganizationPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput
+}
+
+type managedDevOpsPoolAzureDevopsOrganizationPtrType ManagedDevOpsPoolAzureDevopsOrganizationArgs
+
+func ManagedDevOpsPoolAzureDevopsOrganizationPtr(v *ManagedDevOpsPoolAzureDevopsOrganizationArgs) ManagedDevOpsPoolAzureDevopsOrganizationPtrInput {
+	return (*managedDevOpsPoolAzureDevopsOrganizationPtrType)(v)
+}
+
+func (*managedDevOpsPoolAzureDevopsOrganizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolAzureDevopsOrganizationPtrType) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolAzureDevopsOrganizationPtrType) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOutput) ToManagedDevOpsPoolAzureDevopsOrganizationOutput() ManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOutput) ToManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return o.ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolAzureDevopsOrganization) *ManagedDevOpsPoolAzureDevopsOrganization {
+		return &v
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput)
+}
+
+// One or more `organization` blocks as defined below.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOutput) Organizations() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganization) []ManagedDevOpsPoolAzureDevopsOrganizationOrganization {
+		return v.Organizations
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput)
+}
+
+// A `permission` block as defined below. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOutput) Permission() ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganization) *ManagedDevOpsPoolAzureDevopsOrganizationPermission {
+		return v.Permission
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput) Elem() ManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganization) ManagedDevOpsPoolAzureDevopsOrganization {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolAzureDevopsOrganization
+		return ret
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationOutput)
+}
+
+// One or more `organization` blocks as defined below.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput) Organizations() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganization) []ManagedDevOpsPoolAzureDevopsOrganizationOrganization {
+		if v == nil {
+			return nil
+		}
+		return v.Organizations
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput)
+}
+
+// A `permission` block as defined below. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput) Permission() ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganization) *ManagedDevOpsPoolAzureDevopsOrganizationPermission {
+		if v == nil {
+			return nil
+		}
+		return v.Permission
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationOrganization struct {
+	// Specifies how many machines can be created at maximum in this organization out of the `maximumConcurrency` of the pool. Possible values range between `1` and `10000`.
+	//
+	// > **Note:** The sum of `parallelism` across orgs should be equal to `maximumConcurrency`.
+	Parallelism int `pulumi:"parallelism"`
+	// List of projects in which the pool should be created.
+	//
+	// > **Note:** Please refer to [Azure DevOps Project Names](https://learn.microsoft.com/azure/devops/organizations/settings/naming-restrictions?view=azure-devops#project-names) for more information on project naming restrictions.
+	Projects []string `pulumi:"projects"`
+	// The Azure DevOps organization URL in which the pool should be created. It must end with a letter or number.
+	Url string `pulumi:"url"`
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs and ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput` via:
+//
+//	ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs{...}
+type ManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs struct {
+	// Specifies how many machines can be created at maximum in this organization out of the `maximumConcurrency` of the pool. Possible values range between `1` and `10000`.
+	//
+	// > **Note:** The sum of `parallelism` across orgs should be equal to `maximumConcurrency`.
+	Parallelism pulumi.IntInput `pulumi:"parallelism"`
+	// List of projects in which the pool should be created.
+	//
+	// > **Note:** Please refer to [Azure DevOps Project Names](https://learn.microsoft.com/azure/devops/organizations/settings/naming-restrictions?view=azure-devops#project-names) for more information on project naming restrictions.
+	Projects pulumi.StringArrayInput `pulumi:"projects"`
+	// The Azure DevOps organization URL in which the pool should be created. It must end with a letter or number.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput)
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray and ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput` via:
+//
+//	ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray{ ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs{...} }
+type ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray []ManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return o
+}
+
+// Specifies how many machines can be created at maximum in this organization out of the `maximumConcurrency` of the pool. Possible values range between `1` and `10000`.
+//
+// > **Note:** The sum of `parallelism` across orgs should be equal to `maximumConcurrency`.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) Parallelism() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationOrganization) int { return v.Parallelism }).(pulumi.IntOutput)
+}
+
+// List of projects in which the pool should be created.
+//
+// > **Note:** Please refer to [Azure DevOps Project Names](https://learn.microsoft.com/azure/devops/organizations/settings/naming-restrictions?view=azure-devops#project-names) for more information on project naming restrictions.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) Projects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationOrganization) []string { return v.Projects }).(pulumi.StringArrayOutput)
+}
+
+// The Azure DevOps organization URL in which the pool should be created. It must end with a letter or number.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationOrganization) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput() ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) ToManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolAzureDevopsOrganizationOrganization {
+		return vs[0].([]ManagedDevOpsPoolAzureDevopsOrganizationOrganization)[vs[1].(int)]
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermission struct {
+	// An `administratorAccount` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+	AdministratorAccount *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount `pulumi:"administratorAccount"`
+	// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+	Kind string `pulumi:"kind"`
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationPermissionInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs and ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationPermissionInput` via:
+//
+//	ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs{...}
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs struct {
+	// An `administratorAccount` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+	AdministratorAccount ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrInput `pulumi:"administratorAccount"`
+	// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+	Kind pulumi.StringInput `pulumi:"kind"`
+}
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput)
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput).ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs, ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtr and ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrInput` via:
+//
+//	        ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput
+}
+
+type managedDevOpsPoolAzureDevopsOrganizationPermissionPtrType ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs
+
+func ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtr(v *ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrInput {
+	return (*managedDevOpsPoolAzureDevopsOrganizationPermissionPtrType)(v)
+}
+
+func (*managedDevOpsPoolAzureDevopsOrganizationPermissionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolAzureDevopsOrganizationPermissionPtrType) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolAzureDevopsOrganizationPermissionPtrType) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return o.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolAzureDevopsOrganizationPermission) *ManagedDevOpsPoolAzureDevopsOrganizationPermission {
+		return &v
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput)
+}
+
+// An `administratorAccount` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) AdministratorAccount() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationPermission) *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+		return v.AdministratorAccount
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput)
+}
+
+// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationPermission) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) Elem() ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganizationPermission) ManagedDevOpsPoolAzureDevopsOrganizationPermission {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolAzureDevopsOrganizationPermission
+		return ret
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput)
+}
+
+// An `administratorAccount` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) AdministratorAccount() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganizationPermission) *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+		if v == nil {
+			return nil
+		}
+		return v.AdministratorAccount
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput)
+}
+
+// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganizationPermission) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount struct {
+	// Specifies a list of group email addresses. Changing this forces a new resource to be created.
+	Groups []string `pulumi:"groups"`
+	// Specifies a list of user email addresses. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one of `groups` and `users` must be specified.
+	Users []string `pulumi:"users"`
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs and ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput` via:
+//
+//	ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs{...}
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs struct {
+	// Specifies a list of group email addresses. Changing this forces a new resource to be created.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// Specifies a list of user email addresses. Changing this forces a new resource to be created.
+	//
+	// > **Note:** At least one of `groups` and `users` must be specified.
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput)
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput).ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrInput is an input type that accepts ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs, ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtr and ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrInput` via:
+//
+//	        ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput
+	ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput
+}
+
+type managedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrType ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs
+
+func ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtr(v *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrInput {
+	return (*managedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrType)(v)
+}
+
+func (*managedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrType) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return i.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrType) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return o.ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+		return &v
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput)
+}
+
+// Specifies a list of group email addresses. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) []string {
+		return v.Groups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of user email addresses. Changing this forces a new resource to be created.
+//
+// > **Note:** At least one of `groups` and `users` must be specified.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) []string {
+		return v.Users
+	}).(pulumi.StringArrayOutput)
+}
+
+type ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput) ToManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput) Elem() ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount
+		return ret
+	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput)
+}
+
+// Specifies a list of group email addresses. Changing this forces a new resource to be created.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of user email addresses. Changing this forces a new resource to be created.
+//
+// > **Note:** At least one of `groups` and `users` must be specified.
+func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(pulumi.StringArrayOutput)
+}
+
+type ManagedDevOpsPoolIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of managed service identity. The only possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ManagedDevOpsPoolIdentityInput is an input type that accepts ManagedDevOpsPoolIdentityArgs and ManagedDevOpsPoolIdentityOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolIdentityInput` via:
+//
+//	ManagedDevOpsPoolIdentityArgs{...}
+type ManagedDevOpsPoolIdentityInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolIdentityOutput() ManagedDevOpsPoolIdentityOutput
+	ToManagedDevOpsPoolIdentityOutputWithContext(context.Context) ManagedDevOpsPoolIdentityOutput
+}
+
+type ManagedDevOpsPoolIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of managed service identity. The only possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedDevOpsPoolIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolIdentityArgs) ToManagedDevOpsPoolIdentityOutput() ManagedDevOpsPoolIdentityOutput {
+	return i.ToManagedDevOpsPoolIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolIdentityArgs) ToManagedDevOpsPoolIdentityOutputWithContext(ctx context.Context) ManagedDevOpsPoolIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolIdentityOutput)
+}
+
+func (i ManagedDevOpsPoolIdentityArgs) ToManagedDevOpsPoolIdentityPtrOutput() ManagedDevOpsPoolIdentityPtrOutput {
+	return i.ToManagedDevOpsPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolIdentityArgs) ToManagedDevOpsPoolIdentityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolIdentityOutput).ToManagedDevOpsPoolIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolIdentityPtrInput is an input type that accepts ManagedDevOpsPoolIdentityArgs, ManagedDevOpsPoolIdentityPtr and ManagedDevOpsPoolIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolIdentityPtrInput` via:
+//
+//	        ManagedDevOpsPoolIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolIdentityPtrOutput() ManagedDevOpsPoolIdentityPtrOutput
+	ToManagedDevOpsPoolIdentityPtrOutputWithContext(context.Context) ManagedDevOpsPoolIdentityPtrOutput
+}
+
+type managedDevOpsPoolIdentityPtrType ManagedDevOpsPoolIdentityArgs
+
+func ManagedDevOpsPoolIdentityPtr(v *ManagedDevOpsPoolIdentityArgs) ManagedDevOpsPoolIdentityPtrInput {
+	return (*managedDevOpsPoolIdentityPtrType)(v)
+}
+
+func (*managedDevOpsPoolIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolIdentityPtrType) ToManagedDevOpsPoolIdentityPtrOutput() ManagedDevOpsPoolIdentityPtrOutput {
+	return i.ToManagedDevOpsPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolIdentityPtrType) ToManagedDevOpsPoolIdentityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolIdentityPtrOutput)
+}
+
+type ManagedDevOpsPoolIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolIdentityOutput) ToManagedDevOpsPoolIdentityOutput() ManagedDevOpsPoolIdentityOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolIdentityOutput) ToManagedDevOpsPoolIdentityOutputWithContext(ctx context.Context) ManagedDevOpsPoolIdentityOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolIdentityOutput) ToManagedDevOpsPoolIdentityPtrOutput() ManagedDevOpsPoolIdentityPtrOutput {
+	return o.ToManagedDevOpsPoolIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolIdentityOutput) ToManagedDevOpsPoolIdentityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolIdentity) *ManagedDevOpsPoolIdentity {
+		return &v
+	}).(ManagedDevOpsPoolIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs.
+func (o ManagedDevOpsPoolIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of managed service identity. The only possible value is `UserAssigned`.
+func (o ManagedDevOpsPoolIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolIdentityPtrOutput) ToManagedDevOpsPoolIdentityPtrOutput() ManagedDevOpsPoolIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolIdentityPtrOutput) ToManagedDevOpsPoolIdentityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolIdentityPtrOutput) Elem() ManagedDevOpsPoolIdentityOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolIdentity) ManagedDevOpsPoolIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolIdentity
+		return ret
+	}).(ManagedDevOpsPoolIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs.
+func (o ManagedDevOpsPoolIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of managed service identity. The only possible value is `UserAssigned`.
+func (o ManagedDevOpsPoolIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgent struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePrediction *ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction `pulumi:"automaticResourcePrediction"`
+	// Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+	GracePeriodTimeSpan *string `pulumi:"gracePeriodTimeSpan"`
+	// A `manualResourcePrediction` block as defined below.
+	ManualResourcePrediction *ManagedDevOpsPoolStatefulAgentManualResourcePrediction `pulumi:"manualResourcePrediction"`
+	// Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+	//
+	// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+	MaximumAgentLifetime *string `pulumi:"maximumAgentLifetime"`
+}
+
+// ManagedDevOpsPoolStatefulAgentInput is an input type that accepts ManagedDevOpsPoolStatefulAgentArgs and ManagedDevOpsPoolStatefulAgentOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentArgs{...}
+type ManagedDevOpsPoolStatefulAgentInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentOutput() ManagedDevOpsPoolStatefulAgentOutput
+	ToManagedDevOpsPoolStatefulAgentOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentArgs struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePrediction ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrInput `pulumi:"automaticResourcePrediction"`
+	// Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+	GracePeriodTimeSpan pulumi.StringPtrInput `pulumi:"gracePeriodTimeSpan"`
+	// A `manualResourcePrediction` block as defined below.
+	ManualResourcePrediction ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrInput `pulumi:"manualResourcePrediction"`
+	// Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+	//
+	// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+	MaximumAgentLifetime pulumi.StringPtrInput `pulumi:"maximumAgentLifetime"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentArgs) ToManagedDevOpsPoolStatefulAgentOutput() ManagedDevOpsPoolStatefulAgentOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentArgs) ToManagedDevOpsPoolStatefulAgentOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentOutput)
+}
+
+func (i ManagedDevOpsPoolStatefulAgentArgs) ToManagedDevOpsPoolStatefulAgentPtrOutput() ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentArgs) ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentOutput).ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolStatefulAgentPtrInput is an input type that accepts ManagedDevOpsPoolStatefulAgentArgs, ManagedDevOpsPoolStatefulAgentPtr and ManagedDevOpsPoolStatefulAgentPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentPtrInput` via:
+//
+//	        ManagedDevOpsPoolStatefulAgentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolStatefulAgentPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentPtrOutput() ManagedDevOpsPoolStatefulAgentPtrOutput
+	ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentPtrOutput
+}
+
+type managedDevOpsPoolStatefulAgentPtrType ManagedDevOpsPoolStatefulAgentArgs
+
+func ManagedDevOpsPoolStatefulAgentPtr(v *ManagedDevOpsPoolStatefulAgentArgs) ManagedDevOpsPoolStatefulAgentPtrInput {
+	return (*managedDevOpsPoolStatefulAgentPtrType)(v)
+}
+
+func (*managedDevOpsPoolStatefulAgentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolStatefulAgentPtrType) ToManagedDevOpsPoolStatefulAgentPtrOutput() ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolStatefulAgentPtrType) ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentOutput) ToManagedDevOpsPoolStatefulAgentOutput() ManagedDevOpsPoolStatefulAgentOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentOutput) ToManagedDevOpsPoolStatefulAgentOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentOutput) ToManagedDevOpsPoolStatefulAgentPtrOutput() ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return o.ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolStatefulAgentOutput) ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolStatefulAgent) *ManagedDevOpsPoolStatefulAgent {
+		return &v
+	}).(ManagedDevOpsPoolStatefulAgentPtrOutput)
+}
+
+// An `automaticResourcePrediction` block as defined below.
+func (o ManagedDevOpsPoolStatefulAgentOutput) AutomaticResourcePrediction() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgent) *ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+		return v.AutomaticResourcePrediction
+	}).(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput)
+}
+
+// Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+func (o ManagedDevOpsPoolStatefulAgentOutput) GracePeriodTimeSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgent) *string { return v.GracePeriodTimeSpan }).(pulumi.StringPtrOutput)
+}
+
+// A `manualResourcePrediction` block as defined below.
+func (o ManagedDevOpsPoolStatefulAgentOutput) ManualResourcePrediction() ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgent) *ManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+		return v.ManualResourcePrediction
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput)
+}
+
+// Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+//
+// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+func (o ManagedDevOpsPoolStatefulAgentOutput) MaximumAgentLifetime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgent) *string { return v.MaximumAgentLifetime }).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentPtrOutput) ToManagedDevOpsPoolStatefulAgentPtrOutput() ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentPtrOutput) ToManagedDevOpsPoolStatefulAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentPtrOutput) Elem() ManagedDevOpsPoolStatefulAgentOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgent) ManagedDevOpsPoolStatefulAgent {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolStatefulAgent
+		return ret
+	}).(ManagedDevOpsPoolStatefulAgentOutput)
+}
+
+// An `automaticResourcePrediction` block as defined below.
+func (o ManagedDevOpsPoolStatefulAgentPtrOutput) AutomaticResourcePrediction() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgent) *ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticResourcePrediction
+	}).(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput)
+}
+
+// Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
+func (o ManagedDevOpsPoolStatefulAgentPtrOutput) GracePeriodTimeSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GracePeriodTimeSpan
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `manualResourcePrediction` block as defined below.
+func (o ManagedDevOpsPoolStatefulAgentPtrOutput) ManualResourcePrediction() ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgent) *ManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+		if v == nil {
+			return nil
+		}
+		return v.ManualResourcePrediction
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput)
+}
+
+// Configures the maximum duration an agent in a `stateful` pool can run before it is shut down and discarded. The format for Max time to live for standby agents is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `7.00:00:00`.
+//
+// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+func (o ManagedDevOpsPoolStatefulAgentPtrOutput) MaximumAgentLifetime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumAgentLifetime
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction struct {
+	// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+	PredictionPreference *string `pulumi:"predictionPreference"`
+}
+
+// ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput is an input type that accepts ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs and ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs{...}
+type ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput
+	ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs struct {
+	// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+	PredictionPreference pulumi.StringPtrInput `pulumi:"predictionPreference"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput)
+}
+
+func (i ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput).ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrInput is an input type that accepts ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs, ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtr and ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrInput` via:
+//
+//	        ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput
+	ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput
+}
+
+type managedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrType ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs
+
+func ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtr(v *ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrInput {
+	return (*managedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrType)(v)
+}
+
+func (*managedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrType) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrType) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return o.ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction) *ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+		return &v
+	}).(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput)
+}
+
+// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) PredictionPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction) *string {
+		return v.PredictionPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput) ToManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput) Elem() ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction) ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction
+		return ret
+	}).(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput)
+}
+
+// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+func (o ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput) PredictionPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PredictionPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePrediction struct {
+	// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+	AllWeekSchedule *int `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules []ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules []ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules []ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule `pulumi:"thursdaySchedules"`
+	// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+	//
+	// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+	TimeZoneName *string `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules []ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	//
+	// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+	//
+	// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+	WednesdaySchedules []ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule `pulumi:"wednesdaySchedules"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs struct {
+	// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+	AllWeekSchedule pulumi.IntPtrInput `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput `pulumi:"thursdaySchedules"`
+	// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+	//
+	// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+	TimeZoneName pulumi.StringPtrInput `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	//
+	// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+	//
+	// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+	WednesdaySchedules ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput `pulumi:"wednesdaySchedules"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput)
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput).ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs, ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtr and ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrInput` via:
+//
+//	        ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput
+}
+
+type managedDevOpsPoolStatefulAgentManualResourcePredictionPtrType ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs
+
+func ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtr(v *ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrInput {
+	return (*managedDevOpsPoolStatefulAgentManualResourcePredictionPtrType)(v)
+}
+
+func (*managedDevOpsPoolStatefulAgentManualResourcePredictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolStatefulAgentManualResourcePredictionPtrType) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolStatefulAgentManualResourcePredictionPtrType) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return o.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) *ManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+		return &v
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput)
+}
+
+// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) AllWeekSchedule() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) *int { return v.AllWeekSchedule }).(pulumi.IntPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) FridaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule {
+		return v.FridaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) MondaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule {
+		return v.MondaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) SaturdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule {
+		return v.SaturdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) SundaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule {
+		return v.SundaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ThursdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule {
+		return v.ThursdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+//
+// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) TimeZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) *string { return v.TimeZoneName }).(pulumi.StringPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) TuesdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule {
+		return v.TuesdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+//
+// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+//
+// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) WednesdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule {
+		return v.WednesdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) Elem() ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) ManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolStatefulAgentManualResourcePrediction
+		return ret
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput)
+}
+
+// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) AllWeekSchedule() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AllWeekSchedule
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) FridaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.FridaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) MondaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.MondaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) SaturdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.SaturdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) SundaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.SundaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) ThursdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.ThursdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+//
+// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) TimeZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZoneName
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) TuesdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.TuesdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+//
+// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+//
+// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput) WednesdaySchedules() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatefulAgentManualResourcePrediction) []ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.WednesdaySchedules
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray and ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray{ ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs{...} }
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray []ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray and ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray{ ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs{...} }
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray []ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray and ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray{ ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray and ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray{ ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs{...} }
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray []ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray and ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray{ ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray []ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray and ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray{ ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray []ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs and ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs{...}
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray and ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray{ ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray []ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput() ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgent struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePrediction *ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction `pulumi:"automaticResourcePrediction"`
+	// A `manualResourcePrediction` block as defined below.
+	//
+	// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+	ManualResourcePrediction *ManagedDevOpsPoolStatelessAgentManualResourcePrediction `pulumi:"manualResourcePrediction"`
+}
+
+// ManagedDevOpsPoolStatelessAgentInput is an input type that accepts ManagedDevOpsPoolStatelessAgentArgs and ManagedDevOpsPoolStatelessAgentOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentArgs{...}
+type ManagedDevOpsPoolStatelessAgentInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentOutput() ManagedDevOpsPoolStatelessAgentOutput
+	ToManagedDevOpsPoolStatelessAgentOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentArgs struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePrediction ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrInput `pulumi:"automaticResourcePrediction"`
+	// A `manualResourcePrediction` block as defined below.
+	//
+	// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+	ManualResourcePrediction ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrInput `pulumi:"manualResourcePrediction"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentArgs) ToManagedDevOpsPoolStatelessAgentOutput() ManagedDevOpsPoolStatelessAgentOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentArgs) ToManagedDevOpsPoolStatelessAgentOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentOutput)
+}
+
+func (i ManagedDevOpsPoolStatelessAgentArgs) ToManagedDevOpsPoolStatelessAgentPtrOutput() ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentArgs) ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentOutput).ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolStatelessAgentPtrInput is an input type that accepts ManagedDevOpsPoolStatelessAgentArgs, ManagedDevOpsPoolStatelessAgentPtr and ManagedDevOpsPoolStatelessAgentPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentPtrInput` via:
+//
+//	        ManagedDevOpsPoolStatelessAgentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolStatelessAgentPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentPtrOutput() ManagedDevOpsPoolStatelessAgentPtrOutput
+	ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentPtrOutput
+}
+
+type managedDevOpsPoolStatelessAgentPtrType ManagedDevOpsPoolStatelessAgentArgs
+
+func ManagedDevOpsPoolStatelessAgentPtr(v *ManagedDevOpsPoolStatelessAgentArgs) ManagedDevOpsPoolStatelessAgentPtrInput {
+	return (*managedDevOpsPoolStatelessAgentPtrType)(v)
+}
+
+func (*managedDevOpsPoolStatelessAgentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolStatelessAgentPtrType) ToManagedDevOpsPoolStatelessAgentPtrOutput() ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolStatelessAgentPtrType) ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentPtrOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentOutput) ToManagedDevOpsPoolStatelessAgentOutput() ManagedDevOpsPoolStatelessAgentOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentOutput) ToManagedDevOpsPoolStatelessAgentOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentOutput) ToManagedDevOpsPoolStatelessAgentPtrOutput() ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return o.ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolStatelessAgentOutput) ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolStatelessAgent) *ManagedDevOpsPoolStatelessAgent {
+		return &v
+	}).(ManagedDevOpsPoolStatelessAgentPtrOutput)
+}
+
+// An `automaticResourcePrediction` block as defined below.
+func (o ManagedDevOpsPoolStatelessAgentOutput) AutomaticResourcePrediction() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgent) *ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+		return v.AutomaticResourcePrediction
+	}).(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput)
+}
+
+// A `manualResourcePrediction` block as defined below.
+//
+// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+func (o ManagedDevOpsPoolStatelessAgentOutput) ManualResourcePrediction() ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgent) *ManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+		return v.ManualResourcePrediction
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentPtrOutput) ToManagedDevOpsPoolStatelessAgentPtrOutput() ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentPtrOutput) ToManagedDevOpsPoolStatelessAgentPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentPtrOutput) Elem() ManagedDevOpsPoolStatelessAgentOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgent) ManagedDevOpsPoolStatelessAgent {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolStatelessAgent
+		return ret
+	}).(ManagedDevOpsPoolStatelessAgentOutput)
+}
+
+// An `automaticResourcePrediction` block as defined below.
+func (o ManagedDevOpsPoolStatelessAgentPtrOutput) AutomaticResourcePrediction() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgent) *ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticResourcePrediction
+	}).(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput)
+}
+
+// A `manualResourcePrediction` block as defined below.
+//
+// > **Note:** Exactly one of `manualResourcePrediction` or `automaticResourcePrediction` may be specified.
+func (o ManagedDevOpsPoolStatelessAgentPtrOutput) ManualResourcePrediction() ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgent) *ManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+		if v == nil {
+			return nil
+		}
+		return v.ManualResourcePrediction
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction struct {
+	// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+	PredictionPreference *string `pulumi:"predictionPreference"`
+}
+
+// ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput is an input type that accepts ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs and ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs{...}
+type ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput
+	ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs struct {
+	// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+	PredictionPreference pulumi.StringPtrInput `pulumi:"predictionPreference"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput)
+}
+
+func (i ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput).ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrInput is an input type that accepts ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs, ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtr and ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrInput` via:
+//
+//	        ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput
+	ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput
+}
+
+type managedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrType ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs
+
+func ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtr(v *ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrInput {
+	return (*managedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrType)(v)
+}
+
+func (*managedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrType) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrType) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return o.ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction) *ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+		return &v
+	}).(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput)
+}
+
+// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) PredictionPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction) *string {
+		return v.PredictionPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput) ToManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput) Elem() ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction) ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction
+		return ret
+	}).(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput)
+}
+
+// Specifies the desired balance between cost and performance. Possible values are `MostCostEffective`, `MoreCostEffective`, `Balanced`, `MorePerformance`, and `BestPerformance`. Defaults to `Balanced`.
+func (o ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput) PredictionPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PredictionPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePrediction struct {
+	// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+	AllWeekSchedule *int `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules []ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules []ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules []ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule `pulumi:"thursdaySchedules"`
+	// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+	//
+	// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+	TimeZoneName *string `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules []ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	//
+	// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+	//
+	// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+	WednesdaySchedules []ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule `pulumi:"wednesdaySchedules"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs struct {
+	// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+	AllWeekSchedule pulumi.IntPtrInput `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput `pulumi:"thursdaySchedules"`
+	// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+	//
+	// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+	TimeZoneName pulumi.StringPtrInput `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	//
+	// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+	//
+	// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+	WednesdaySchedules ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput `pulumi:"wednesdaySchedules"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput)
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput).ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs, ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtr and ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrInput` via:
+//
+//	        ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput
+}
+
+type managedDevOpsPoolStatelessAgentManualResourcePredictionPtrType ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs
+
+func ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtr(v *ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrInput {
+	return (*managedDevOpsPoolStatelessAgentManualResourcePredictionPtrType)(v)
+}
+
+func (*managedDevOpsPoolStatelessAgentManualResourcePredictionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolStatelessAgentManualResourcePredictionPtrType) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolStatelessAgentManualResourcePredictionPtrType) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return o.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) *ManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+		return &v
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput)
+}
+
+// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) AllWeekSchedule() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) *int { return v.AllWeekSchedule }).(pulumi.IntPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) FridaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule {
+		return v.FridaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) MondaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule {
+		return v.MondaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) SaturdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule {
+		return v.SaturdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) SundaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule {
+		return v.SundaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ThursdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule {
+		return v.ThursdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+//
+// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) TimeZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) *string { return v.TimeZoneName }).(pulumi.StringPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) TuesdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule {
+		return v.TuesdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+//
+// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+//
+// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) WednesdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule {
+		return v.WednesdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) Elem() ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) ManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolStatelessAgentManualResourcePrediction
+		return ret
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput)
+}
+
+// A number of agents available 24/7 all week. Possible values range between `1` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) AllWeekSchedule() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AllWeekSchedule
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) FridaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.FridaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) MondaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.MondaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) SaturdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.SaturdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) SundaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.SundaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) ThursdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.ThursdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+// Specifies the time zone for the predictions data to be provisioned at. Defaults to `UTC`.
+//
+// > **Note:** A list of possible values for `timeZoneName` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) TimeZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZoneName
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) TuesdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.TuesdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+//
+// > **Note:** Exactly one of `allWeekSchedule` or at least one individual daily schedule block must be specified.
+//
+// > **Note:** Please refer to [Microsoft documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-scaling?view=azure-devops&tabs=azure-cli#manual) for more information about the manual predictions setup.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput) WednesdaySchedules() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolStatelessAgentManualResourcePrediction) []ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.WednesdaySchedules
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray and ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray{ ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs{...} }
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray []ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray and ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray{ ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs{...} }
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray []ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray and ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray{ ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray and ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray{ ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs{...} }
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray []ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray and ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray{ ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray []ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray and ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray{ ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray []ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs and ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs{...}
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs struct {
+	// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+// ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput is an input type that accepts ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray and ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput` via:
+//
+//	ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray{ ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs{...} }
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput
+	ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray []ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return i.ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents to provision at this time. Possible values range between `0` and `maximumConcurrency`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput() ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule {
+		return vs[0].([]ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)[vs[1].(int)]
+	}).(ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabric struct {
+	// One or more `image` blocks as defined below.
+	Images []ManagedDevOpsPoolVirtualMachineScaleSetFabricImage `pulumi:"images"`
+	// The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+	OsDiskStorageAccountType *string `pulumi:"osDiskStorageAccountType"`
+	// A `security` block as defined below.
+	Security *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity `pulumi:"security"`
+	// The Azure SKU name of the machines in the pool.
+	//
+	// > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+	SkuName string `pulumi:"skuName"`
+	// A `storage` block as defined below.
+	Storage *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage `pulumi:"storage"`
+	// The subnet ID on which to put all machines created in the pool.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs and ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricInput` via:
+//
+//	ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{...}
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs struct {
+	// One or more `image` blocks as defined below.
+	Images ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput `pulumi:"images"`
+	// The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+	OsDiskStorageAccountType pulumi.StringPtrInput `pulumi:"osDiskStorageAccountType"`
+	// A `security` block as defined below.
+	Security ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrInput `pulumi:"security"`
+	// The Azure SKU name of the machines in the pool.
+	//
+	// > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+	SkuName pulumi.StringInput `pulumi:"skuName"`
+	// A `storage` block as defined below.
+	Storage ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrInput `pulumi:"storage"`
+	// The subnet ID on which to put all machines created in the pool.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput)
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput).ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs, ManagedDevOpsPoolVirtualMachineScaleSetFabricPtr and ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrInput` via:
+//
+//	        ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput
+}
+
+type managedDevOpsPoolVirtualMachineScaleSetFabricPtrType ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs
+
+func ManagedDevOpsPoolVirtualMachineScaleSetFabricPtr(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrInput {
+	return (*managedDevOpsPoolVirtualMachineScaleSetFabricPtrType)(v)
+}
+
+func (*managedDevOpsPoolVirtualMachineScaleSetFabricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricPtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricPtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return o.ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolVirtualMachineScaleSetFabric) *ManagedDevOpsPoolVirtualMachineScaleSetFabric {
+		return &v
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput)
+}
+
+// One or more `image` blocks as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) Images() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabric) []ManagedDevOpsPoolVirtualMachineScaleSetFabricImage {
+		return v.Images
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput)
+}
+
+// The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) OsDiskStorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabric) *string { return v.OsDiskStorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+// A `security` block as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) Security() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabric) *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+		return v.Security
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput)
+}
+
+// The Azure SKU name of the machines in the pool.
+//
+// > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabric) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// A `storage` block as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) Storage() ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabric) *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+		return v.Storage
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput)
+}
+
+// The subnet ID on which to put all machines created in the pool.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabric) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) Elem() ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabric) ManagedDevOpsPoolVirtualMachineScaleSetFabric {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolVirtualMachineScaleSetFabric
+		return ret
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput)
+}
+
+// One or more `image` blocks as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) Images() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabric) []ManagedDevOpsPoolVirtualMachineScaleSetFabricImage {
+		if v == nil {
+			return nil
+		}
+		return v.Images
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput)
+}
+
+// The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) OsDiskStorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OsDiskStorageAccountType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `security` block as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) Security() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabric) *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+		if v == nil {
+			return nil
+		}
+		return v.Security
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput)
+}
+
+// The Azure SKU name of the machines in the pool.
+//
+// > **Note:** Please refer to the [Microsoft Documentation](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-pool-settings?view=azure-devops&tabs=azure-portal#agent-size) for more information about available SKUs.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) SkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SkuName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `storage` block as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) Storage() ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabric) *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput)
+}
+
+// The subnet ID on which to put all machines created in the pool.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricImage struct {
+	// List of aliases to reference the image by.
+	Aliases []string `pulumi:"aliases"`
+	// The percentage of the buffer to be allocated to this image. Possible values are `*` or between `0` and `100`. Defaults to `*`.
+	Buffer *string `pulumi:"buffer"`
+	// The resource id of the image.
+	Id *string `pulumi:"id"`
+	// The image to use from a well-known set of images made available to customers.
+	//
+	// > **Note:** More information about supported images can be found in [list of Azure Pipelines image predefined aliases](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-images?view=azure-devops&tabs=arm#azure-pipelines-images). You can optionally specify a version in your `wellKnownImageName`, for example `windows-2022/latest` or `windows-2022/20250427.1.0`. If you don't specify a version, latest is used.
+	//
+	// > **Note:** Exactly one of `id` or `wellKnownImageName` are required per `image`
+	WellKnownImageName *string `pulumi:"wellKnownImageName"`
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs and ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput` via:
+//
+//	ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs{...}
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs struct {
+	// List of aliases to reference the image by.
+	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
+	// The percentage of the buffer to be allocated to this image. Possible values are `*` or between `0` and `100`. Defaults to `*`.
+	Buffer pulumi.StringPtrInput `pulumi:"buffer"`
+	// The resource id of the image.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The image to use from a well-known set of images made available to customers.
+	//
+	// > **Note:** More information about supported images can be found in [list of Azure Pipelines image predefined aliases](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-images?view=azure-devops&tabs=arm#azure-pipelines-images). You can optionally specify a version in your `wellKnownImageName`, for example `windows-2022/latest` or `windows-2022/20250427.1.0`. If you don't specify a version, latest is used.
+	//
+	// > **Note:** Exactly one of `id` or `wellKnownImageName` are required per `image`
+	WellKnownImageName pulumi.StringPtrInput `pulumi:"wellKnownImageName"`
+}
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput)
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray and ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput` via:
+//
+//	ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray{ ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs{...} }
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray []ManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return o
+}
+
+// List of aliases to reference the image by.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricImage) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+// The percentage of the buffer to be allocated to this image. Possible values are `*` or between `0` and `100`. Defaults to `*`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) Buffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricImage) *string { return v.Buffer }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the image.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricImage) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The image to use from a well-known set of images made available to customers.
+//
+// > **Note:** More information about supported images can be found in [list of Azure Pipelines image predefined aliases](https://learn.microsoft.com/azure/devops/managed-devops-pools/configure-images?view=azure-devops&tabs=arm#azure-pipelines-images). You can optionally specify a version in your `wellKnownImageName`, for example `windows-2022/latest` or `windows-2022/20250427.1.0`. If you don't specify a version, latest is used.
+//
+// > **Note:** Exactly one of `id` or `wellKnownImageName` are required per `image`
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) WellKnownImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricImage) *string { return v.WellKnownImageName }).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) Index(i pulumi.IntInput) ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedDevOpsPoolVirtualMachineScaleSetFabricImage {
+		return vs[0].([]ManagedDevOpsPoolVirtualMachineScaleSetFabricImage)[vs[1].(int)]
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity struct {
+	// Specifies whether the agent should run in interactive mode. Defaults to `false`.
+	InteractiveLogonEnabled *bool `pulumi:"interactiveLogonEnabled"`
+	// A `keyVaultManagement` block as defined below.
+	KeyVaultManagement *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement `pulumi:"keyVaultManagement"`
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs and ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput` via:
+//
+//	ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs{...}
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs struct {
+	// Specifies whether the agent should run in interactive mode. Defaults to `false`.
+	InteractiveLogonEnabled pulumi.BoolPtrInput `pulumi:"interactiveLogonEnabled"`
+	// A `keyVaultManagement` block as defined below.
+	KeyVaultManagement ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrInput `pulumi:"keyVaultManagement"`
+}
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput)
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput).ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs, ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtr and ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrInput` via:
+//
+//	        ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput
+}
+
+type managedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrType ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs
+
+func ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtr(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrInput {
+	return (*managedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrType)(v)
+}
+
+func (*managedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return o.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+		return &v
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput)
+}
+
+// Specifies whether the agent should run in interactive mode. Defaults to `false`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) InteractiveLogonEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) *bool { return v.InteractiveLogonEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `keyVaultManagement` block as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) KeyVaultManagement() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+		return v.KeyVaultManagement
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput) Elem() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity
+		return ret
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput)
+}
+
+// Specifies whether the agent should run in interactive mode. Defaults to `false`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput) InteractiveLogonEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InteractiveLogonEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `keyVaultManagement` block as defined below.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput) KeyVaultManagement() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultManagement
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement struct {
+	// Specifies where to store certificates on the machine.
+	CertificateStoreLocation *string `pulumi:"certificateStoreLocation"`
+	// Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+	CertificateStoreName *string `pulumi:"certificateStoreName"`
+	// Defines if the key of the certificates should be exportable. Defaults to `false`.
+	KeyExportEnabled *bool `pulumi:"keyExportEnabled"`
+	// A list of `versionlessId` from Azure Key vault certificates to install on all machines in the pool.
+	KeyVaultCertificateIds []string `pulumi:"keyVaultCertificateIds"`
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs and ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput` via:
+//
+//	ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs{...}
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs struct {
+	// Specifies where to store certificates on the machine.
+	CertificateStoreLocation pulumi.StringPtrInput `pulumi:"certificateStoreLocation"`
+	// Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+	CertificateStoreName pulumi.StringPtrInput `pulumi:"certificateStoreName"`
+	// Defines if the key of the certificates should be exportable. Defaults to `false`.
+	KeyExportEnabled pulumi.BoolPtrInput `pulumi:"keyExportEnabled"`
+	// A list of `versionlessId` from Azure Key vault certificates to install on all machines in the pool.
+	KeyVaultCertificateIds pulumi.StringArrayInput `pulumi:"keyVaultCertificateIds"`
+}
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput)
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput).ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs, ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtr and ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrInput` via:
+//
+//	        ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput
+}
+
+type managedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrType ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs
+
+func ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtr(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrInput {
+	return (*managedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrType)(v)
+}
+
+func (*managedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return o.ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+		return &v
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput)
+}
+
+// Specifies where to store certificates on the machine.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) CertificateStoreLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) *string {
+		return v.CertificateStoreLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) CertificateStoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) *string {
+		return v.CertificateStoreName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines if the key of the certificates should be exportable. Defaults to `false`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) KeyExportEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) *bool {
+		return v.KeyExportEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of `versionlessId` from Azure Key vault certificates to install on all machines in the pool.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) KeyVaultCertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) []string {
+		return v.KeyVaultCertificateIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) Elem() ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement
+		return ret
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput)
+}
+
+// Specifies where to store certificates on the machine.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) CertificateStoreLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateStoreLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the certificate store to use on the machine. Possible values are `My` and `Root`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) CertificateStoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateStoreName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines if the key of the certificates should be exportable. Defaults to `false`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) KeyExportEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyExportEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of `versionlessId` from Azure Key vault certificates to install on all machines in the pool.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput) KeyVaultCertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultCertificateIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage struct {
+	// The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+	Caching *string `pulumi:"caching"`
+	// The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+	DiskSizeInGb int `pulumi:"diskSizeInGb"`
+	// The drive letter for the data disk.
+	DriveLetter *string `pulumi:"driveLetter"`
+	// The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs and ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput` via:
+//
+//	ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs{...}
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs struct {
+	// The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+	Caching pulumi.StringPtrInput `pulumi:"caching"`
+	// The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+	DiskSizeInGb pulumi.IntInput `pulumi:"diskSizeInGb"`
+	// The drive letter for the data disk.
+	DriveLetter pulumi.StringPtrInput `pulumi:"driveLetter"`
+	// The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+}
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput)
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput).ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(ctx)
+}
+
+// ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrInput is an input type that accepts ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs, ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtr and ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput values.
+// You can construct a concrete instance of `ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrInput` via:
+//
+//	        ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrInput interface {
+	pulumi.Input
+
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput
+	ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput
+}
+
+type managedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrType ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs
+
+func ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtr(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrInput {
+	return (*managedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrType)(v)
+}
+
+func (*managedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return i.ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *managedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrType) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return o.ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+		return &v
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput)
+}
+
+// The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *string { return v.Caching }).(pulumi.StringPtrOutput)
+}
+
+// The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) DiskSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) int { return v.DiskSizeInGb }).(pulumi.IntOutput)
+}
+
+// The drive letter for the data disk.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) DriveLetter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *string { return v.DriveLetter }).(pulumi.StringPtrOutput)
+}
+
+// The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+type ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput() ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) ToManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutputWithContext(ctx context.Context) ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput {
+	return o
+}
+
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) Elem() ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage
+		return ret
+	}).(ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput)
+}
+
+// The type of caching for the data disk. Possible values are `ReadOnly` and `ReadWrite`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Caching
+	}).(pulumi.StringPtrOutput)
+}
+
+// The initial disk size in gigabytes. Possible values range between `1` and `32767`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) DiskSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The drive letter for the data disk.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) DriveLetter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DriveLetter
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage account type of the data disk. Possible values are `Premium_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, and `StandardSSD_ZRS`. Defaults to `Standard_LRS`.
+func (o ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProjectEnvironmentTypeIdentity struct {
 	// The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
 	//
@@ -1453,6 +5948,3495 @@ func (o GetIdentityArrayOutput) Index(i pulumi.IntInput) GetIdentityOutput {
 	}).(GetIdentityOutput)
 }
 
+type GetManagedDevOpsPoolAzureDevopsOrganization struct {
+	// One or more `organization` blocks as defined below.
+	Organizations []GetManagedDevOpsPoolAzureDevopsOrganizationOrganization `pulumi:"organizations"`
+	// A `permission` block as defined below.
+	Permissions []GetManagedDevOpsPoolAzureDevopsOrganizationPermission `pulumi:"permissions"`
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationArgs and GetManagedDevOpsPoolAzureDevopsOrganizationOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationArgs{...}
+type GetManagedDevOpsPoolAzureDevopsOrganizationInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationArgs struct {
+	// One or more `organization` blocks as defined below.
+	Organizations GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput `pulumi:"organizations"`
+	// A `permission` block as defined below.
+	Permissions GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayInput `pulumi:"permissions"`
+}
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationOutput)
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationArrayInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationArray and GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationArrayInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationArray{ GetManagedDevOpsPoolAzureDevopsOrganizationArgs{...} }
+type GetManagedDevOpsPoolAzureDevopsOrganizationArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationArrayOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationArray []GetManagedDevOpsPoolAzureDevopsOrganizationInput
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return o
+}
+
+// One or more `organization` blocks as defined below.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOutput) Organizations() GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganization) []GetManagedDevOpsPoolAzureDevopsOrganizationOrganization {
+		return v.Organizations
+	}).(GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput)
+}
+
+// A `permission` block as defined below.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOutput) Permissions() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganization) []GetManagedDevOpsPoolAzureDevopsOrganizationPermission {
+		return v.Permissions
+	}).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganization)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolAzureDevopsOrganizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolAzureDevopsOrganization {
+		return vs[0].([]GetManagedDevOpsPoolAzureDevopsOrganization)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolAzureDevopsOrganizationOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationOrganization struct {
+	// Maximum numbers of machines in this organization out of the `maximumConcurrency` of the pool.
+	Parallelism int `pulumi:"parallelism"`
+	// A list of projects in which the pool should be created.
+	Projects []string `pulumi:"projects"`
+	// The URL of the Azure DevOps organization.
+	Url string `pulumi:"url"`
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs and GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs{...}
+type GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs struct {
+	// Maximum numbers of machines in this organization out of the `maximumConcurrency` of the pool.
+	Parallelism pulumi.IntInput `pulumi:"parallelism"`
+	// A list of projects in which the pool should be created.
+	Projects pulumi.StringArrayInput `pulumi:"projects"`
+	// The URL of the Azure DevOps organization.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput)
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray and GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray{ GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs{...} }
+type GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray []GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return o
+}
+
+// Maximum numbers of machines in this organization out of the `maximumConcurrency` of the pool.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) Parallelism() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganizationOrganization) int { return v.Parallelism }).(pulumi.IntOutput)
+}
+
+// A list of projects in which the pool should be created.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) Projects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganizationOrganization) []string { return v.Projects }).(pulumi.StringArrayOutput)
+}
+
+// The URL of the Azure DevOps organization.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganizationOrganization) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganizationOrganization)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolAzureDevopsOrganizationOrganization {
+		return vs[0].([]GetManagedDevOpsPoolAzureDevopsOrganizationOrganization)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermission struct {
+	// An `administratorAccount` block as defined below.
+	AdministratorAccounts []GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount `pulumi:"administratorAccounts"`
+	// The type of Azure DevOps pool permission.
+	Kind string `pulumi:"kind"`
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationPermissionInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs and GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationPermissionInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs{...}
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs struct {
+	// An `administratorAccount` block as defined below.
+	AdministratorAccounts GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayInput `pulumi:"administratorAccounts"`
+	// The type of Azure DevOps pool permission.
+	Kind pulumi.StringInput `pulumi:"kind"`
+}
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput)
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArray and GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArray{ GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs{...} }
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArray []GetManagedDevOpsPoolAzureDevopsOrganizationPermissionInput
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return o
+}
+
+// An `administratorAccount` block as defined below.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) AdministratorAccounts() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganizationPermission) []GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+		return v.AdministratorAccounts
+	}).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput)
+}
+
+// The type of Azure DevOps pool permission.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganizationPermission) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganizationPermission)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolAzureDevopsOrganizationPermission {
+		return vs[0].([]GetManagedDevOpsPoolAzureDevopsOrganizationPermission)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount struct {
+	// A list of group email addresses.
+	Groups []string `pulumi:"groups"`
+	// A list of user email addresses.
+	Users []string `pulumi:"users"`
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs and GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs{...}
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs struct {
+	// A list of group email addresses.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// A list of user email addresses.
+	Users pulumi.StringArrayInput `pulumi:"users"`
+}
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput)
+}
+
+// GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayInput is an input type that accepts GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArray and GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayInput` via:
+//
+//	GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArray{ GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs{...} }
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput
+	ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutputWithContext(context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArray []GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput {
+	return i.ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArray) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return o
+}
+
+// A list of group email addresses.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) []string {
+		return v.Groups
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of user email addresses.
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput) Users() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount) []string {
+		return v.Users
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput() GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput) ToGetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount {
+		return vs[0].([]GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput)
+}
+
+type GetManagedDevOpsPoolIdentity struct {
+	// A list of User Assigned Identity IDs assigned to this Managed DevOps Pool.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of Managed Service Identity that is configured on this Managed DevOps Pool.
+	Type string `pulumi:"type"`
+}
+
+// GetManagedDevOpsPoolIdentityInput is an input type that accepts GetManagedDevOpsPoolIdentityArgs and GetManagedDevOpsPoolIdentityOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolIdentityInput` via:
+//
+//	GetManagedDevOpsPoolIdentityArgs{...}
+type GetManagedDevOpsPoolIdentityInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolIdentityOutput() GetManagedDevOpsPoolIdentityOutput
+	ToGetManagedDevOpsPoolIdentityOutputWithContext(context.Context) GetManagedDevOpsPoolIdentityOutput
+}
+
+type GetManagedDevOpsPoolIdentityArgs struct {
+	// A list of User Assigned Identity IDs assigned to this Managed DevOps Pool.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of Managed Service Identity that is configured on this Managed DevOps Pool.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetManagedDevOpsPoolIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolIdentityArgs) ToGetManagedDevOpsPoolIdentityOutput() GetManagedDevOpsPoolIdentityOutput {
+	return i.ToGetManagedDevOpsPoolIdentityOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolIdentityArgs) ToGetManagedDevOpsPoolIdentityOutputWithContext(ctx context.Context) GetManagedDevOpsPoolIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolIdentityOutput)
+}
+
+// GetManagedDevOpsPoolIdentityArrayInput is an input type that accepts GetManagedDevOpsPoolIdentityArray and GetManagedDevOpsPoolIdentityArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolIdentityArrayInput` via:
+//
+//	GetManagedDevOpsPoolIdentityArray{ GetManagedDevOpsPoolIdentityArgs{...} }
+type GetManagedDevOpsPoolIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolIdentityArrayOutput() GetManagedDevOpsPoolIdentityArrayOutput
+	ToGetManagedDevOpsPoolIdentityArrayOutputWithContext(context.Context) GetManagedDevOpsPoolIdentityArrayOutput
+}
+
+type GetManagedDevOpsPoolIdentityArray []GetManagedDevOpsPoolIdentityInput
+
+func (GetManagedDevOpsPoolIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolIdentityArray) ToGetManagedDevOpsPoolIdentityArrayOutput() GetManagedDevOpsPoolIdentityArrayOutput {
+	return i.ToGetManagedDevOpsPoolIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolIdentityArray) ToGetManagedDevOpsPoolIdentityArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolIdentityArrayOutput)
+}
+
+type GetManagedDevOpsPoolIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolIdentityOutput) ToGetManagedDevOpsPoolIdentityOutput() GetManagedDevOpsPoolIdentityOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolIdentityOutput) ToGetManagedDevOpsPoolIdentityOutputWithContext(ctx context.Context) GetManagedDevOpsPoolIdentityOutput {
+	return o
+}
+
+// A list of User Assigned Identity IDs assigned to this Managed DevOps Pool.
+func (o GetManagedDevOpsPoolIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Managed DevOps Pool.
+func (o GetManagedDevOpsPoolIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolIdentity)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolIdentityArrayOutput) ToGetManagedDevOpsPoolIdentityArrayOutput() GetManagedDevOpsPoolIdentityArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolIdentityArrayOutput) ToGetManagedDevOpsPoolIdentityArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolIdentityArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolIdentityArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolIdentity {
+		return vs[0].([]GetManagedDevOpsPoolIdentity)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolIdentityOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgent struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePredictions []GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction `pulumi:"automaticResourcePredictions"`
+	// The amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete.
+	GracePeriodTimeSpan string `pulumi:"gracePeriodTimeSpan"`
+	// A `manualResourcePrediction` block as defined below.
+	ManualResourcePredictions []GetManagedDevOpsPoolStatefulAgentManualResourcePrediction `pulumi:"manualResourcePredictions"`
+	// The maximum duration an agent in a `stateful` pool can run before it is shut down and discarded.
+	MaximumAgentLifetime string `pulumi:"maximumAgentLifetime"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentArgs and GetManagedDevOpsPoolStatefulAgentOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentArgs{...}
+type GetManagedDevOpsPoolStatefulAgentInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentOutput() GetManagedDevOpsPoolStatefulAgentOutput
+	ToGetManagedDevOpsPoolStatefulAgentOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentArgs struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePredictions GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayInput `pulumi:"automaticResourcePredictions"`
+	// The amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete.
+	GracePeriodTimeSpan pulumi.StringInput `pulumi:"gracePeriodTimeSpan"`
+	// A `manualResourcePrediction` block as defined below.
+	ManualResourcePredictions GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayInput `pulumi:"manualResourcePredictions"`
+	// The maximum duration an agent in a `stateful` pool can run before it is shut down and discarded.
+	MaximumAgentLifetime pulumi.StringInput `pulumi:"maximumAgentLifetime"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentArgs) ToGetManagedDevOpsPoolStatefulAgentOutput() GetManagedDevOpsPoolStatefulAgentOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentArgs) ToGetManagedDevOpsPoolStatefulAgentOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentArray and GetManagedDevOpsPoolStatefulAgentArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentArray{ GetManagedDevOpsPoolStatefulAgentArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentArrayOutput() GetManagedDevOpsPoolStatefulAgentArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentArray []GetManagedDevOpsPoolStatefulAgentInput
+
+func (GetManagedDevOpsPoolStatefulAgentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentArray) ToGetManagedDevOpsPoolStatefulAgentArrayOutput() GetManagedDevOpsPoolStatefulAgentArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentArray) ToGetManagedDevOpsPoolStatefulAgentArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentOutput) ToGetManagedDevOpsPoolStatefulAgentOutput() GetManagedDevOpsPoolStatefulAgentOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentOutput) ToGetManagedDevOpsPoolStatefulAgentOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentOutput {
+	return o
+}
+
+// An `automaticResourcePrediction` block as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentOutput) AutomaticResourcePredictions() GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgent) []GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+		return v.AutomaticResourcePredictions
+	}).(GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput)
+}
+
+// The amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete.
+func (o GetManagedDevOpsPoolStatefulAgentOutput) GracePeriodTimeSpan() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgent) string { return v.GracePeriodTimeSpan }).(pulumi.StringOutput)
+}
+
+// A `manualResourcePrediction` block as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentOutput) ManualResourcePredictions() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgent) []GetManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+		return v.ManualResourcePredictions
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput)
+}
+
+// The maximum duration an agent in a `stateful` pool can run before it is shut down and discarded.
+func (o GetManagedDevOpsPoolStatefulAgentOutput) MaximumAgentLifetime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgent) string { return v.MaximumAgentLifetime }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgent)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentArrayOutput) ToGetManagedDevOpsPoolStatefulAgentArrayOutput() GetManagedDevOpsPoolStatefulAgentArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentArrayOutput) ToGetManagedDevOpsPoolStatefulAgentArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgent {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgent)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction struct {
+	// The desired balance between cost and performance.
+	PredictionPreference string `pulumi:"predictionPreference"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs and GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs{...}
+type GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput() GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput
+	ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs struct {
+	// The desired balance between cost and performance.
+	PredictionPreference pulumi.StringInput `pulumi:"predictionPreference"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput() GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArray and GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArray{ GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput() GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArray []GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput
+
+func (GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArray) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput() GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArray) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput() GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+// The desired balance between cost and performance.
+func (o GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput) PredictionPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction) string {
+		return v.PredictionPreference
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput() GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentAutomaticResourcePrediction)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePrediction struct {
+	// A number of agents available 24/7 all week.
+	AllWeekSchedule int `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule `pulumi:"thursdaySchedules"`
+	// The time zone for the predictions data to be provisioned at.
+	TimeZoneName string `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	WednesdaySchedules []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule `pulumi:"wednesdaySchedules"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs struct {
+	// A number of agents available 24/7 all week.
+	AllWeekSchedule pulumi.IntInput `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput `pulumi:"thursdaySchedules"`
+	// The time zone for the predictions data to be provisioned at.
+	TimeZoneName pulumi.StringInput `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	WednesdaySchedules GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput `pulumi:"wednesdaySchedules"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return o
+}
+
+// A number of agents available 24/7 all week.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) AllWeekSchedule() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) int { return v.AllWeekSchedule }).(pulumi.IntOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) FridaySchedules() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule {
+		return v.FridaySchedules
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) MondaySchedules() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule {
+		return v.MondaySchedules
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) SaturdaySchedules() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule {
+		return v.SaturdaySchedules
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) SundaySchedules() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule {
+		return v.SundaySchedules
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) ThursdaySchedules() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule {
+		return v.ThursdaySchedules
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+// The time zone for the predictions data to be provisioned at.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) TimeZoneName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) string { return v.TimeZoneName }).(pulumi.StringOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) TuesdaySchedules() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule {
+		return v.TuesdaySchedules
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput) WednesdaySchedules() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePrediction) []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule {
+		return v.WednesdaySchedules
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePrediction {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePrediction)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray and GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray{ GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray []GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput() GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgent struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePredictions []GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction `pulumi:"automaticResourcePredictions"`
+	// A `manualResourcePrediction` block as defined below.
+	ManualResourcePredictions []GetManagedDevOpsPoolStatelessAgentManualResourcePrediction `pulumi:"manualResourcePredictions"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentArgs and GetManagedDevOpsPoolStatelessAgentOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentArgs{...}
+type GetManagedDevOpsPoolStatelessAgentInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentOutput() GetManagedDevOpsPoolStatelessAgentOutput
+	ToGetManagedDevOpsPoolStatelessAgentOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentArgs struct {
+	// An `automaticResourcePrediction` block as defined below.
+	AutomaticResourcePredictions GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayInput `pulumi:"automaticResourcePredictions"`
+	// A `manualResourcePrediction` block as defined below.
+	ManualResourcePredictions GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayInput `pulumi:"manualResourcePredictions"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentArgs) ToGetManagedDevOpsPoolStatelessAgentOutput() GetManagedDevOpsPoolStatelessAgentOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentArgs) ToGetManagedDevOpsPoolStatelessAgentOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentArray and GetManagedDevOpsPoolStatelessAgentArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentArray{ GetManagedDevOpsPoolStatelessAgentArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentArrayOutput() GetManagedDevOpsPoolStatelessAgentArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentArray []GetManagedDevOpsPoolStatelessAgentInput
+
+func (GetManagedDevOpsPoolStatelessAgentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentArray) ToGetManagedDevOpsPoolStatelessAgentArrayOutput() GetManagedDevOpsPoolStatelessAgentArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentArray) ToGetManagedDevOpsPoolStatelessAgentArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentOutput) ToGetManagedDevOpsPoolStatelessAgentOutput() GetManagedDevOpsPoolStatelessAgentOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentOutput) ToGetManagedDevOpsPoolStatelessAgentOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentOutput {
+	return o
+}
+
+// An `automaticResourcePrediction` block as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentOutput) AutomaticResourcePredictions() GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgent) []GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+		return v.AutomaticResourcePredictions
+	}).(GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput)
+}
+
+// A `manualResourcePrediction` block as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentOutput) ManualResourcePredictions() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgent) []GetManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+		return v.ManualResourcePredictions
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgent)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentArrayOutput) ToGetManagedDevOpsPoolStatelessAgentArrayOutput() GetManagedDevOpsPoolStatelessAgentArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentArrayOutput) ToGetManagedDevOpsPoolStatelessAgentArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgent {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgent)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction struct {
+	// The desired balance between cost and performance.
+	PredictionPreference string `pulumi:"predictionPreference"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs and GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs{...}
+type GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput() GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput
+	ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs struct {
+	// The desired balance between cost and performance.
+	PredictionPreference pulumi.StringInput `pulumi:"predictionPreference"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput() GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArray and GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArray{ GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput() GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArray []GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput
+
+func (GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArray) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput() GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArray) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput() GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return o
+}
+
+// The desired balance between cost and performance.
+func (o GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput) PredictionPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction) string {
+		return v.PredictionPreference
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput() GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentAutomaticResourcePrediction)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePrediction struct {
+	// A number of agents available 24/7 all week.
+	AllWeekSchedule int `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule `pulumi:"thursdaySchedules"`
+	// The time zone for the predictions data to be provisioned at.
+	TimeZoneName string `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	WednesdaySchedules []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule `pulumi:"wednesdaySchedules"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs struct {
+	// A number of agents available 24/7 all week.
+	AllWeekSchedule pulumi.IntInput `pulumi:"allWeekSchedule"`
+	// One or more `dailySchedule` blocks as defined below.
+	FridaySchedules GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput `pulumi:"fridaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	MondaySchedules GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput `pulumi:"mondaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SaturdaySchedules GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput `pulumi:"saturdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	SundaySchedules GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput `pulumi:"sundaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	ThursdaySchedules GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput `pulumi:"thursdaySchedules"`
+	// The time zone for the predictions data to be provisioned at.
+	TimeZoneName pulumi.StringInput `pulumi:"timeZoneName"`
+	// One or more `dailySchedule` blocks as defined below.
+	TuesdaySchedules GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput `pulumi:"tuesdaySchedules"`
+	// One or more `dailySchedule` blocks as defined below.
+	WednesdaySchedules GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput `pulumi:"wednesdaySchedules"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return o
+}
+
+// A number of agents available 24/7 all week.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) AllWeekSchedule() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) int { return v.AllWeekSchedule }).(pulumi.IntOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) FridaySchedules() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule {
+		return v.FridaySchedules
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) MondaySchedules() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule {
+		return v.MondaySchedules
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) SaturdaySchedules() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule {
+		return v.SaturdaySchedules
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) SundaySchedules() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule {
+		return v.SundaySchedules
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) ThursdaySchedules() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule {
+		return v.ThursdaySchedules
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+// The time zone for the predictions data to be provisioned at.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) TimeZoneName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) string { return v.TimeZoneName }).(pulumi.StringOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) TuesdaySchedules() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule {
+		return v.TuesdaySchedules
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+// One or more `dailySchedule` blocks as defined below.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput) WednesdaySchedules() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePrediction) []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule {
+		return v.WednesdaySchedules
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePrediction)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePrediction {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePrediction)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule struct {
+	// The number of standby agents provisioned at this time.
+	Count int `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time string `pulumi:"time"`
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs{...}
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs struct {
+	// The number of standby agents provisioned at this time.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+// GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput is an input type that accepts GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray and GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput` via:
+//
+//	GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray{ GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs{...} }
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput
+	ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray []GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return i.ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return o
+}
+
+// The number of standby agents provisioned at this time.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule) int {
+		return v.Count
+	}).(pulumi.IntOutput)
+}
+
+// The time of day at which the agent count changes, in 24-hour format `HH:MM:SS`.
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput() GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) ToGetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule {
+		return vs[0].([]GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdaySchedule)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabric struct {
+	// One or more `image` blocks as defined below.
+	Images []GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage `pulumi:"images"`
+	// The storage account type for the OS disk.
+	OsDiskStorageAccountType string `pulumi:"osDiskStorageAccountType"`
+	// A `security` block as defined below.
+	Securities []GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity `pulumi:"securities"`
+	// The Azure SKU of the machines in the pool.
+	SkuName string `pulumi:"skuName"`
+	// A `storage` block as defined below.
+	Storages []GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage `pulumi:"storages"`
+	// The ID of the subnet associated with the Managed DevOps Pool.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs and GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{...}
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs struct {
+	// One or more `image` blocks as defined below.
+	Images GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput `pulumi:"images"`
+	// The storage account type for the OS disk.
+	OsDiskStorageAccountType pulumi.StringInput `pulumi:"osDiskStorageAccountType"`
+	// A `security` block as defined below.
+	Securities GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayInput `pulumi:"securities"`
+	// The Azure SKU of the machines in the pool.
+	SkuName pulumi.StringInput `pulumi:"skuName"`
+	// A `storage` block as defined below.
+	Storages GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayInput `pulumi:"storages"`
+	// The ID of the subnet associated with the Managed DevOps Pool.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput)
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricArray and GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricArray{ GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{...} }
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricArray []GetManagedDevOpsPoolVirtualMachineScaleSetFabricInput
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return o
+}
+
+// One or more `image` blocks as defined below.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) Images() GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabric) []GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage {
+		return v.Images
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput)
+}
+
+// The storage account type for the OS disk.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) OsDiskStorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabric) string { return v.OsDiskStorageAccountType }).(pulumi.StringOutput)
+}
+
+// A `security` block as defined below.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) Securities() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabric) []GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+		return v.Securities
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput)
+}
+
+// The Azure SKU of the machines in the pool.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabric) string { return v.SkuName }).(pulumi.StringOutput)
+}
+
+// A `storage` block as defined below.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) Storages() GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabric) []GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+		return v.Storages
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput)
+}
+
+// The ID of the subnet associated with the Managed DevOps Pool.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabric) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabric)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolVirtualMachineScaleSetFabric {
+		return vs[0].([]GetManagedDevOpsPoolVirtualMachineScaleSetFabric)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage struct {
+	// A list of image aliases.
+	Aliases []string `pulumi:"aliases"`
+	// The percentage of the buffer allocated to this image.
+	Buffer string `pulumi:"buffer"`
+	// The resource id of the image.
+	Id string `pulumi:"id"`
+	// The image name from a well-known set of images made available to customers.
+	WellKnownImageName string `pulumi:"wellKnownImageName"`
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs and GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs{...}
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs struct {
+	// A list of image aliases.
+	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
+	// The percentage of the buffer allocated to this image.
+	Buffer pulumi.StringInput `pulumi:"buffer"`
+	// The resource id of the image.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The image name from a well-known set of images made available to customers.
+	WellKnownImageName pulumi.StringInput `pulumi:"wellKnownImageName"`
+}
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput)
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray and GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray{ GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs{...} }
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray []GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return o
+}
+
+// A list of image aliases.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+// The percentage of the buffer allocated to this image.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) Buffer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage) string { return v.Buffer }).(pulumi.StringOutput)
+}
+
+// The resource id of the image.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The image name from a well-known set of images made available to customers.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput) WellKnownImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage) string { return v.WellKnownImageName }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage {
+		return vs[0].([]GetManagedDevOpsPoolVirtualMachineScaleSetFabricImage)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity struct {
+	// Whether the agent runs in interactive mode.
+	InteractiveLogonEnabled bool `pulumi:"interactiveLogonEnabled"`
+	// A `keyVaultManagement` block as defined below.
+	KeyVaultManagements []GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement `pulumi:"keyVaultManagements"`
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs and GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs{...}
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs struct {
+	// Whether the agent runs in interactive mode.
+	InteractiveLogonEnabled pulumi.BoolInput `pulumi:"interactiveLogonEnabled"`
+	// A `keyVaultManagement` block as defined below.
+	KeyVaultManagements GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayInput `pulumi:"keyVaultManagements"`
+}
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput)
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArray and GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArray{ GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs{...} }
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArray []GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return o
+}
+
+// Whether the agent runs in interactive mode.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) InteractiveLogonEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) bool {
+		return v.InteractiveLogonEnabled
+	}).(pulumi.BoolOutput)
+}
+
+// A `keyVaultManagement` block as defined below.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput) KeyVaultManagements() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity) []GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+		return v.KeyVaultManagements
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity {
+		return vs[0].([]GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurity)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement struct {
+	// The location where the certificates are stored.
+	CertificateStoreLocation string `pulumi:"certificateStoreLocation"`
+	// The certificate store name.
+	CertificateStoreName string `pulumi:"certificateStoreName"`
+	// Whether the keys of the certificates are exportable.
+	KeyExportEnabled bool `pulumi:"keyExportEnabled"`
+	// A list of certificates installed on the machines in the Managed DevOps Pool.
+	KeyVaultCertificateIds []string `pulumi:"keyVaultCertificateIds"`
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs and GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs{...}
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs struct {
+	// The location where the certificates are stored.
+	CertificateStoreLocation pulumi.StringInput `pulumi:"certificateStoreLocation"`
+	// The certificate store name.
+	CertificateStoreName pulumi.StringInput `pulumi:"certificateStoreName"`
+	// Whether the keys of the certificates are exportable.
+	KeyExportEnabled pulumi.BoolInput `pulumi:"keyExportEnabled"`
+	// A list of certificates installed on the machines in the Managed DevOps Pool.
+	KeyVaultCertificateIds pulumi.StringArrayInput `pulumi:"keyVaultCertificateIds"`
+}
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput)
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArray and GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArray{ GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs{...} }
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArray []GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return o
+}
+
+// The location where the certificates are stored.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) CertificateStoreLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) string {
+		return v.CertificateStoreLocation
+	}).(pulumi.StringOutput)
+}
+
+// The certificate store name.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) CertificateStoreName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) string {
+		return v.CertificateStoreName
+	}).(pulumi.StringOutput)
+}
+
+// Whether the keys of the certificates are exportable.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) KeyExportEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) bool {
+		return v.KeyExportEnabled
+	}).(pulumi.BoolOutput)
+}
+
+// A list of certificates installed on the machines in the Managed DevOps Pool.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput) KeyVaultCertificateIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement) []string {
+		return v.KeyVaultCertificateIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement {
+		return vs[0].([]GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagement)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage struct {
+	// The type of caching for the data disk.
+	Caching string `pulumi:"caching"`
+	// The initial disk size in gigabytes.
+	DiskSizeInGb int `pulumi:"diskSizeInGb"`
+	// The drive letter for the data disk.
+	DriveLetter string `pulumi:"driveLetter"`
+	// The storage account type of the data disk.
+	StorageAccountType string `pulumi:"storageAccountType"`
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs and GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs{...}
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs struct {
+	// The type of caching for the data disk.
+	Caching pulumi.StringInput `pulumi:"caching"`
+	// The initial disk size in gigabytes.
+	DiskSizeInGb pulumi.IntInput `pulumi:"diskSizeInGb"`
+	// The drive letter for the data disk.
+	DriveLetter pulumi.StringInput `pulumi:"driveLetter"`
+	// The storage account type of the data disk.
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+}
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput)
+}
+
+// GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayInput is an input type that accepts GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArray and GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput values.
+// You can construct a concrete instance of `GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayInput` via:
+//
+//	GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArray{ GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs{...} }
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput
+	ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutputWithContext(context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArray []GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput {
+	return i.ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArray) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return o
+}
+
+// The type of caching for the data disk.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+// The initial disk size in gigabytes.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) DiskSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) int { return v.DiskSizeInGb }).(pulumi.IntOutput)
+}
+
+// The drive letter for the data disk.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) DriveLetter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) string { return v.DriveLetter }).(pulumi.StringOutput)
+}
+
+// The storage account type of the data disk.
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+type GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)(nil)).Elem()
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput() GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput) ToGetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutputWithContext(ctx context.Context) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput {
+	return o
+}
+
+func (o GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput) Index(i pulumi.IntInput) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage {
+		return vs[0].([]GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorage)[vs[1].(int)]
+	}).(GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput)
+}
+
 type GetProjectEnvironmentTypeIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Dev Center Project Environment Type.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -1814,6 +9798,66 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogGithubPtrInput)(nil)).Elem(), CatalogCatalogGithubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevCenterIdentityInput)(nil)).Elem(), DevCenterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevCenterIdentityPtrInput)(nil)).Elem(), DevCenterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPtrInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermissionInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrInput)(nil)).Elem(), ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolIdentityInput)(nil)).Elem(), ManagedDevOpsPoolIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolIdentityPtrInput)(nil)).Elem(), ManagedDevOpsPoolIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentPtrInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentPtrInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput)(nil)).Elem(), ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrInput)(nil)).Elem(), ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeIdentityInput)(nil)).Elem(), ProjectEnvironmentTypeIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeIdentityPtrInput)(nil)).Elem(), ProjectEnvironmentTypeIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignmentInput)(nil)).Elem(), ProjectEnvironmentTypeUserRoleAssignmentArgs{})
@@ -1826,6 +9870,66 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogGithubArrayInput)(nil)).Elem(), GetCatalogCatalogGithubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityInput)(nil)).Elem(), GetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityArrayInput)(nil)).Elem(), GetIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationArrayInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermissionInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayInput)(nil)).Elem(), GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolIdentityInput)(nil)).Elem(), GetManagedDevOpsPoolIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolIdentityArrayInput)(nil)).Elem(), GetManagedDevOpsPoolIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayInput)(nil)).Elem(), GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayInput)(nil)).Elem(), GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentTypeIdentityInput)(nil)).Elem(), GetProjectEnvironmentTypeIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentTypeIdentityArrayInput)(nil)).Elem(), GetProjectEnvironmentTypeIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectEnvironmentTypeUserRoleAssignmentInput)(nil)).Elem(), GetProjectEnvironmentTypeUserRoleAssignmentArgs{})
@@ -1838,6 +9942,66 @@ func init() {
 	pulumi.RegisterOutputType(CatalogCatalogGithubPtrOutput{})
 	pulumi.RegisterOutputType(DevCenterIdentityOutput{})
 	pulumi.RegisterOutputType(DevCenterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput{})
+	pulumi.RegisterOutputType(ManagedDevOpsPoolVirtualMachineScaleSetFabricStoragePtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentTypeIdentityOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentTypeIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentTypeUserRoleAssignmentOutput{})
@@ -1850,6 +10014,66 @@ func init() {
 	pulumi.RegisterOutputType(GetCatalogCatalogGithubArrayOutput{})
 	pulumi.RegisterOutputType(GetIdentityOutput{})
 	pulumi.RegisterOutputType(GetIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolIdentityOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricImageArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageOutput{})
+	pulumi.RegisterOutputType(GetManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetProjectEnvironmentTypeIdentityOutput{})
 	pulumi.RegisterOutputType(GetProjectEnvironmentTypeIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetProjectEnvironmentTypeUserRoleAssignmentOutput{})

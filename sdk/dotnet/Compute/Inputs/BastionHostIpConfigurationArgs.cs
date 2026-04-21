@@ -20,9 +20,11 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `PublicIpAddressId` is required when `Sku` is `Basic` or `Standard`. When `Sku` is `Premium` and `PublicIpAddressId` is omitted, the Bastion Host is deployed in Private-Only mode (`PrivateOnlyEnabled` will be `True`).
         /// </summary>
-        [Input("publicIpAddressId", required: true)]
-        public Input<string> PublicIpAddressId { get; set; } = null!;
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
 
         /// <summary>
         /// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.

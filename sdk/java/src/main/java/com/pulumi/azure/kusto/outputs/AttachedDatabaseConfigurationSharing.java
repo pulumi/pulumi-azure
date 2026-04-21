@@ -22,6 +22,16 @@ public final class AttachedDatabaseConfigurationSharing {
      */
     private @Nullable List<String> externalTablesToIncludes;
     /**
+     * @return List of functions to exclude from the follower database.
+     * 
+     */
+    private @Nullable List<String> functionsToExcludes;
+    /**
+     * @return List of functions to include in the follower database.
+     * 
+     */
+    private @Nullable List<String> functionsToIncludes;
+    /**
      * @return List of materialized views exclude from the follower database.
      * 
      */
@@ -56,6 +66,20 @@ public final class AttachedDatabaseConfigurationSharing {
      */
     public List<String> externalTablesToIncludes() {
         return this.externalTablesToIncludes == null ? List.of() : this.externalTablesToIncludes;
+    }
+    /**
+     * @return List of functions to exclude from the follower database.
+     * 
+     */
+    public List<String> functionsToExcludes() {
+        return this.functionsToExcludes == null ? List.of() : this.functionsToExcludes;
+    }
+    /**
+     * @return List of functions to include in the follower database.
+     * 
+     */
+    public List<String> functionsToIncludes() {
+        return this.functionsToIncludes == null ? List.of() : this.functionsToIncludes;
     }
     /**
      * @return List of materialized views exclude from the follower database.
@@ -97,6 +121,8 @@ public final class AttachedDatabaseConfigurationSharing {
     public static final class Builder {
         private @Nullable List<String> externalTablesToExcludes;
         private @Nullable List<String> externalTablesToIncludes;
+        private @Nullable List<String> functionsToExcludes;
+        private @Nullable List<String> functionsToIncludes;
         private @Nullable List<String> materializedViewsToExcludes;
         private @Nullable List<String> materializedViewsToIncludes;
         private @Nullable List<String> tablesToExcludes;
@@ -106,6 +132,8 @@ public final class AttachedDatabaseConfigurationSharing {
     	      Objects.requireNonNull(defaults);
     	      this.externalTablesToExcludes = defaults.externalTablesToExcludes;
     	      this.externalTablesToIncludes = defaults.externalTablesToIncludes;
+    	      this.functionsToExcludes = defaults.functionsToExcludes;
+    	      this.functionsToIncludes = defaults.functionsToIncludes;
     	      this.materializedViewsToExcludes = defaults.materializedViewsToExcludes;
     	      this.materializedViewsToIncludes = defaults.materializedViewsToIncludes;
     	      this.tablesToExcludes = defaults.tablesToExcludes;
@@ -129,6 +157,24 @@ public final class AttachedDatabaseConfigurationSharing {
         }
         public Builder externalTablesToIncludes(String... externalTablesToIncludes) {
             return externalTablesToIncludes(List.of(externalTablesToIncludes));
+        }
+        @CustomType.Setter
+        public Builder functionsToExcludes(@Nullable List<String> functionsToExcludes) {
+
+            this.functionsToExcludes = functionsToExcludes;
+            return this;
+        }
+        public Builder functionsToExcludes(String... functionsToExcludes) {
+            return functionsToExcludes(List.of(functionsToExcludes));
+        }
+        @CustomType.Setter
+        public Builder functionsToIncludes(@Nullable List<String> functionsToIncludes) {
+
+            this.functionsToIncludes = functionsToIncludes;
+            return this;
+        }
+        public Builder functionsToIncludes(String... functionsToIncludes) {
+            return functionsToIncludes(List.of(functionsToIncludes));
         }
         @CustomType.Setter
         public Builder materializedViewsToExcludes(@Nullable List<String> materializedViewsToExcludes) {
@@ -170,6 +216,8 @@ public final class AttachedDatabaseConfigurationSharing {
             final var _resultValue = new AttachedDatabaseConfigurationSharing();
             _resultValue.externalTablesToExcludes = externalTablesToExcludes;
             _resultValue.externalTablesToIncludes = externalTablesToIncludes;
+            _resultValue.functionsToExcludes = functionsToExcludes;
+            _resultValue.functionsToIncludes = functionsToIncludes;
             _resultValue.materializedViewsToExcludes = materializedViewsToExcludes;
             _resultValue.materializedViewsToIncludes = materializedViewsToIncludes;
             _resultValue.tablesToExcludes = tablesToExcludes;

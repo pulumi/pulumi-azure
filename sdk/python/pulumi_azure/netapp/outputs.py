@@ -23,6 +23,7 @@ __all__ = [
     'SnapshotPolicyMonthlySchedule',
     'SnapshotPolicyWeeklySchedule',
     'VolumeCoolAccess',
+    'VolumeDataProtectionAdvancedRansomware',
     'VolumeDataProtectionBackupPolicy',
     'VolumeDataProtectionReplication',
     'VolumeDataProtectionSnapshotPolicy',
@@ -40,6 +41,7 @@ __all__ = [
     'GetSnapshotPolicyHourlyScheduleResult',
     'GetSnapshotPolicyMonthlyScheduleResult',
     'GetSnapshotPolicyWeeklyScheduleResult',
+    'GetVolumeDataProtectionAdvancedRansomwareResult',
     'GetVolumeDataProtectionBackupPolicyResult',
     'GetVolumeDataProtectionReplicationResult',
     'GetVolumeGroupOracleVolumeResult',
@@ -632,6 +634,49 @@ class VolumeCoolAccess(dict):
         The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
         """
         return pulumi.get(self, "tiering_policy")
+
+
+@pulumi.output_type
+class VolumeDataProtectionAdvancedRansomware(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectionEnabled":
+            suggest = "protection_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeDataProtectionAdvancedRansomware. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeDataProtectionAdvancedRansomware.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeDataProtectionAdvancedRansomware.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 protection_enabled: _builtins.bool):
+        """
+        :param _builtins.bool protection_enabled: Enable or disable the Advanced Ransomware Protection feature.
+               
+               > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+               
+               > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+        """
+        pulumi.set(__self__, "protection_enabled", protection_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="protectionEnabled")
+    def protection_enabled(self) -> _builtins.bool:
+        """
+        Enable or disable the Advanced Ransomware Protection feature.
+
+        > **Note:** Advanced Ransomware Protection is currently in preview and requires feature registration. For performance considerations and supported regions, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-netapp-files/ransomware-configure).
+
+        > **Note:** It is recommended to enable no more than five volumes per Azure region with ARP to mitigate performance issues, and to increase QoS capacity by 5 to 10 percent due to potential performance impacts.
+        """
+        return pulumi.get(self, "protection_enabled")
 
 
 @pulumi.output_type
@@ -2298,6 +2343,24 @@ class GetSnapshotPolicyWeeklyScheduleResult(dict):
         How many hourly snapshots to keep.
         """
         return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class GetVolumeDataProtectionAdvancedRansomwareResult(dict):
+    def __init__(__self__, *,
+                 protection_enabled: _builtins.bool):
+        """
+        :param _builtins.bool protection_enabled: Whether the Advanced Ransomware Protection feature is enabled.
+        """
+        pulumi.set(__self__, "protection_enabled", protection_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="protectionEnabled")
+    def protection_enabled(self) -> _builtins.bool:
+        """
+        Whether the Advanced Ransomware Protection feature is enabled.
+        """
+        return pulumi.get(self, "protection_enabled")
 
 
 @pulumi.output_type

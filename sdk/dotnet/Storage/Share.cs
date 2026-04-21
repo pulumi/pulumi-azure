@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Storage
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Storage` - 2023-05-01
+    /// * `Microsoft.Storage` - 2025-06-01
     /// 
     /// ## Import
     /// 
@@ -128,6 +128,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("quota")]
         public Output<int> Quota { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID that is supposed to be used as the `Scope` of an `AzurermRoleAssignmet` for this File Share.
+        /// </summary>
+        [Output("rbacScopeId")]
+        public Output<string> RbacScopeId { get; private set; } = null!;
 
         /// <summary>
         /// The Resource Manager ID of this File Share.
@@ -338,6 +344,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("quota")]
         public Input<int>? Quota { get; set; }
+
+        /// <summary>
+        /// The ID that is supposed to be used as the `Scope` of an `AzurermRoleAssignmet` for this File Share.
+        /// </summary>
+        [Input("rbacScopeId")]
+        public Input<string>? RbacScopeId { get; set; }
 
         /// <summary>
         /// The Resource Manager ID of this File Share.

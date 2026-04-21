@@ -20,14 +20,14 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetAccountSASPlainArgs Empty = new GetAccountSASPlainArgs();
 
     /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      * 
      */
     @Import(name="connectionString", required=true)
     private String connectionString;
 
     /**
-     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
+     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      * 
      */
     public String connectionString() {
@@ -87,15 +87,15 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
      * A `permissions` block as defined below.
      * 
      */
-    @Import(name="permissions", required=true)
-    private GetAccountSASPermissions permissions;
+    @Import(name="permissions")
+    private @Nullable GetAccountSASPermissions permissions;
 
     /**
      * @return A `permissions` block as defined below.
      * 
      */
-    public GetAccountSASPermissions permissions() {
-        return this.permissions;
+    public Optional<GetAccountSASPermissions> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
 
     /**
@@ -191,7 +191,7 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
+         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
          * @return builder
          * 
          */
-        public Builder permissions(GetAccountSASPermissions permissions) {
+        public Builder permissions(@Nullable GetAccountSASPermissions permissions) {
             $.permissions = permissions;
             return this;
         }
@@ -297,9 +297,6 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
             }
             if ($.expiry == null) {
                 throw new MissingRequiredPropertyException("GetAccountSASPlainArgs", "expiry");
-            }
-            if ($.permissions == null) {
-                throw new MissingRequiredPropertyException("GetAccountSASPlainArgs", "permissions");
             }
             if ($.resourceTypes == null) {
                 throw new MissingRequiredPropertyException("GetAccountSASPlainArgs", "resourceTypes");

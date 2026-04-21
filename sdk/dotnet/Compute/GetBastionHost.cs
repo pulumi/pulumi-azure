@@ -197,6 +197,10 @@ namespace Pulumi.Azure.Compute
         /// The name of the IP configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether Private-Only deployment is enabled for the Bastion Host.
+        /// </summary>
+        public readonly bool PrivateOnlyEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The number of scale units provisioned for the Bastion Host.
@@ -245,6 +249,8 @@ namespace Pulumi.Azure.Compute
 
             string name,
 
+            bool privateOnlyEnabled,
+
             string resourceGroupName,
 
             int scaleUnits,
@@ -269,6 +275,7 @@ namespace Pulumi.Azure.Compute
             IpConnectEnabled = ipConnectEnabled;
             Location = location;
             Name = name;
+            PrivateOnlyEnabled = privateOnlyEnabled;
             ResourceGroupName = resourceGroupName;
             ScaleUnits = scaleUnits;
             SessionRecordingEnabled = sessionRecordingEnabled;

@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Storage
         private string? _connectionString;
 
         /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of a `azure.storage.Account` resource.
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of an `azure.storage.Account` resource.
         /// </summary>
         public string? ConnectionString
         {
@@ -296,8 +296,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `Permissions` block as defined below.
         /// </summary>
-        [Input("permissions", required: true)]
-        public Inputs.GetAccountSASPermissionsArgs Permissions { get; set; } = null!;
+        [Input("permissions")]
+        public Inputs.GetAccountSASPermissionsArgs? Permissions { get; set; }
 
         /// <summary>
         /// A `ResourceTypes` block as defined below.
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Storage
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of a `azure.storage.Account` resource.
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of an `azure.storage.Account` resource.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -370,8 +370,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `Permissions` block as defined below.
         /// </summary>
-        [Input("permissions", required: true)]
-        public Input<Inputs.GetAccountSASPermissionsInputArgs> Permissions { get; set; } = null!;
+        [Input("permissions")]
+        public Input<Inputs.GetAccountSASPermissionsInputArgs>? Permissions { get; set; }
 
         /// <summary>
         /// A `ResourceTypes` block as defined below.
@@ -415,7 +415,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         public readonly string? IpAddresses;
-        public readonly Outputs.GetAccountSASPermissionsResult Permissions;
+        public readonly Outputs.GetAccountSASPermissionsResult? Permissions;
         public readonly Outputs.GetAccountSASResourceTypesResult ResourceTypes;
         /// <summary>
         /// The computed Account Shared Access Signature (SAS).
@@ -437,7 +437,7 @@ namespace Pulumi.Azure.Storage
 
             string? ipAddresses,
 
-            Outputs.GetAccountSASPermissionsResult permissions,
+            Outputs.GetAccountSASPermissionsResult? permissions,
 
             Outputs.GetAccountSASResourceTypesResult resourceTypes,
 

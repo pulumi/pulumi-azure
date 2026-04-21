@@ -43,6 +43,8 @@ class PublicIpArgs:
         :param pulumi.Input[_builtins.str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
                
                > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+               
+               !> **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
@@ -57,14 +59,16 @@ class PublicIpArgs:
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
-               > **Note** Only `static` IP address allocation is supported for IPv6.
+               > **Note** Only `Static` IP address allocation is supported for IPv6.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
-               > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+               > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocation_method` to be set to `Static`.
+               
+               !> **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocation_method` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -115,6 +119,8 @@ class PublicIpArgs:
         Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 
         > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+
+        !> **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -228,7 +234,7 @@ class PublicIpArgs:
         """
         The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
-        > **Note** Only `static` IP address allocation is supported for IPv6.
+        > **Note** Only `Static` IP address allocation is supported for IPv6.
         """
         return pulumi.get(self, "ip_version")
 
@@ -288,9 +294,11 @@ class PublicIpArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
-        > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+        > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocation_method` to be set to `Static`.
+
+        !> **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocation_method` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         """
         return pulumi.get(self, "sku")
 
@@ -368,6 +376,8 @@ class _PublicIpState:
         :param pulumi.Input[_builtins.str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
                
                > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+               
+               !> **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
                
@@ -383,15 +393,17 @@ class _PublicIpState:
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
-               > **Note** Only `static` IP address allocation is supported for IPv6.
+               > **Note** Only `Static` IP address allocation is supported for IPv6.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
-               > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+               > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocation_method` to be set to `Static`.
+               
+               !> **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocation_method` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -448,6 +460,8 @@ class _PublicIpState:
         Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 
         > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+
+        !> **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -573,7 +587,7 @@ class _PublicIpState:
         """
         The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
-        > **Note** Only `static` IP address allocation is supported for IPv6.
+        > **Note** Only `Static` IP address allocation is supported for IPv6.
         """
         return pulumi.get(self, "ip_version")
 
@@ -645,9 +659,11 @@ class _PublicIpState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
-        > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+        > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocation_method` to be set to `Static`.
+
+        !> **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocation_method` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         """
         return pulumi.get(self, "sku")
 
@@ -766,6 +782,8 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
                
                > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+               
+               !> **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
                
@@ -779,15 +797,17 @@ class PublicIp(pulumi.CustomResource):
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
-               > **Note** Only `static` IP address allocation is supported for IPv6.
+               > **Note** Only `Static` IP address allocation is supported for IPv6.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
-               > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+               > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocation_method` to be set to `Static`.
+               
+               !> **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocation_method` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -948,6 +968,8 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
                
                > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+               
+               !> **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
         :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
                
@@ -963,15 +985,17 @@ class PublicIp(pulumi.CustomResource):
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
-               > **Note** Only `static` IP address allocation is supported for IPv6.
+               > **Note** Only `Static` IP address allocation is supported for IPv6.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku: The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
-               > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+               > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocation_method` to be set to `Static`.
+               
+               !> **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocation_method` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         :param pulumi.Input[_builtins.str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
                
                > **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
@@ -1013,6 +1037,8 @@ class PublicIp(pulumi.CustomResource):
         Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 
         > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+
+        !> **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -1098,7 +1124,7 @@ class PublicIp(pulumi.CustomResource):
         """
         The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
-        > **Note** Only `static` IP address allocation is supported for IPv6.
+        > **Note** Only `Static` IP address allocation is supported for IPv6.
         """
         return pulumi.get(self, "ip_version")
 
@@ -1146,9 +1172,11 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+        The SKU of the Public IP. Possible values are `Basic`, `Standard`, and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
-        > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+        > **Note** Public IP `Standard` and `StandardV2` SKUs require `allocation_method` to be set to `Static`.
+
+        !> **Note:** `sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `allocation_method` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         """
         return pulumi.get(self, "sku")
 

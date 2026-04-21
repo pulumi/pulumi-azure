@@ -7658,20 +7658,35 @@ func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) Index(i pu
 
 type GetAccountBlobContainerSASPermissions struct {
 	// Should Add permissions be enabled for this SAS?
-	Add bool `pulumi:"add"`
+	Add *bool `pulumi:"add"`
 	// Should Create permissions be enabled for this SAS?
-	Create bool `pulumi:"create"`
+	Create *bool `pulumi:"create"`
 	// Should Delete permissions be enabled for this SAS?
-	Delete bool `pulumi:"delete"`
+	Delete *bool `pulumi:"delete"`
+	// Should Delete version permissions be enabled for this SAS?
+	DeleteVersion *bool `pulumi:"deleteVersion"`
+	// Should Execute permissions be enabled for this SAS?
+	Execute *bool `pulumi:"execute"`
+	// Should Find permissions be enabled for this SAS?
+	Find *bool `pulumi:"find"`
 	// Should List permissions be enabled for this SAS?
-	//
-	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-	// for additional details on the fields above.
-	List bool `pulumi:"list"`
+	List *bool `pulumi:"list"`
+	// Should Move permissions be enabled for this SAS?
+	Move *bool `pulumi:"move"`
+	// Should Ownership permissions be enabled for this SAS?
+	Ownership *bool `pulumi:"ownership"`
+	// Should Permissions permissions be enabled for this SAS?
+	Permissions *bool `pulumi:"permissions"`
 	// Should Read permissions be enabled for this SAS?
-	Read bool `pulumi:"read"`
+	Read *bool `pulumi:"read"`
+	// Should Set Immutability Policy permissions be enabled for this SAS?
+	SetImmutabilityPolicy *bool `pulumi:"setImmutabilityPolicy"`
+	// Should Tags permissions be enabled for this SAS?
+	Tags *bool `pulumi:"tags"`
 	// Should Write permissions be enabled for this SAS?
-	Write bool `pulumi:"write"`
+	//
+	// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+	Write *bool `pulumi:"write"`
 }
 
 // GetAccountBlobContainerSASPermissionsInput is an input type that accepts GetAccountBlobContainerSASPermissionsArgs and GetAccountBlobContainerSASPermissionsOutput values.
@@ -7687,20 +7702,35 @@ type GetAccountBlobContainerSASPermissionsInput interface {
 
 type GetAccountBlobContainerSASPermissionsArgs struct {
 	// Should Add permissions be enabled for this SAS?
-	Add pulumi.BoolInput `pulumi:"add"`
+	Add pulumi.BoolPtrInput `pulumi:"add"`
 	// Should Create permissions be enabled for this SAS?
-	Create pulumi.BoolInput `pulumi:"create"`
+	Create pulumi.BoolPtrInput `pulumi:"create"`
 	// Should Delete permissions be enabled for this SAS?
-	Delete pulumi.BoolInput `pulumi:"delete"`
+	Delete pulumi.BoolPtrInput `pulumi:"delete"`
+	// Should Delete version permissions be enabled for this SAS?
+	DeleteVersion pulumi.BoolPtrInput `pulumi:"deleteVersion"`
+	// Should Execute permissions be enabled for this SAS?
+	Execute pulumi.BoolPtrInput `pulumi:"execute"`
+	// Should Find permissions be enabled for this SAS?
+	Find pulumi.BoolPtrInput `pulumi:"find"`
 	// Should List permissions be enabled for this SAS?
-	//
-	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-	// for additional details on the fields above.
-	List pulumi.BoolInput `pulumi:"list"`
+	List pulumi.BoolPtrInput `pulumi:"list"`
+	// Should Move permissions be enabled for this SAS?
+	Move pulumi.BoolPtrInput `pulumi:"move"`
+	// Should Ownership permissions be enabled for this SAS?
+	Ownership pulumi.BoolPtrInput `pulumi:"ownership"`
+	// Should Permissions permissions be enabled for this SAS?
+	Permissions pulumi.BoolPtrInput `pulumi:"permissions"`
 	// Should Read permissions be enabled for this SAS?
-	Read pulumi.BoolInput `pulumi:"read"`
+	Read pulumi.BoolPtrInput `pulumi:"read"`
+	// Should Set Immutability Policy permissions be enabled for this SAS?
+	SetImmutabilityPolicy pulumi.BoolPtrInput `pulumi:"setImmutabilityPolicy"`
+	// Should Tags permissions be enabled for this SAS?
+	Tags pulumi.BoolPtrInput `pulumi:"tags"`
 	// Should Write permissions be enabled for this SAS?
-	Write pulumi.BoolInput `pulumi:"write"`
+	//
+	// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+	Write pulumi.BoolPtrInput `pulumi:"write"`
 }
 
 func (GetAccountBlobContainerSASPermissionsArgs) ElementType() reflect.Type {
@@ -7713,6 +7743,47 @@ func (i GetAccountBlobContainerSASPermissionsArgs) ToGetAccountBlobContainerSASP
 
 func (i GetAccountBlobContainerSASPermissionsArgs) ToGetAccountBlobContainerSASPermissionsOutputWithContext(ctx context.Context) GetAccountBlobContainerSASPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountBlobContainerSASPermissionsOutput)
+}
+
+func (i GetAccountBlobContainerSASPermissionsArgs) ToGetAccountBlobContainerSASPermissionsPtrOutput() GetAccountBlobContainerSASPermissionsPtrOutput {
+	return i.ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetAccountBlobContainerSASPermissionsArgs) ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountBlobContainerSASPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountBlobContainerSASPermissionsOutput).ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(ctx)
+}
+
+// GetAccountBlobContainerSASPermissionsPtrInput is an input type that accepts GetAccountBlobContainerSASPermissionsArgs, GetAccountBlobContainerSASPermissionsPtr and GetAccountBlobContainerSASPermissionsPtrOutput values.
+// You can construct a concrete instance of `GetAccountBlobContainerSASPermissionsPtrInput` via:
+//
+//	        GetAccountBlobContainerSASPermissionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAccountBlobContainerSASPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToGetAccountBlobContainerSASPermissionsPtrOutput() GetAccountBlobContainerSASPermissionsPtrOutput
+	ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(context.Context) GetAccountBlobContainerSASPermissionsPtrOutput
+}
+
+type getAccountBlobContainerSASPermissionsPtrType GetAccountBlobContainerSASPermissionsArgs
+
+func GetAccountBlobContainerSASPermissionsPtr(v *GetAccountBlobContainerSASPermissionsArgs) GetAccountBlobContainerSASPermissionsPtrInput {
+	return (*getAccountBlobContainerSASPermissionsPtrType)(v)
+}
+
+func (*getAccountBlobContainerSASPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountBlobContainerSASPermissions)(nil)).Elem()
+}
+
+func (i *getAccountBlobContainerSASPermissionsPtrType) ToGetAccountBlobContainerSASPermissionsPtrOutput() GetAccountBlobContainerSASPermissionsPtrOutput {
+	return i.ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getAccountBlobContainerSASPermissionsPtrType) ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountBlobContainerSASPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountBlobContainerSASPermissionsPtrOutput)
 }
 
 type GetAccountBlobContainerSASPermissionsOutput struct{ *pulumi.OutputState }
@@ -7729,37 +7800,252 @@ func (o GetAccountBlobContainerSASPermissionsOutput) ToGetAccountBlobContainerSA
 	return o
 }
 
+func (o GetAccountBlobContainerSASPermissionsOutput) ToGetAccountBlobContainerSASPermissionsPtrOutput() GetAccountBlobContainerSASPermissionsPtrOutput {
+	return o.ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetAccountBlobContainerSASPermissionsOutput) ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountBlobContainerSASPermissionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAccountBlobContainerSASPermissions) *GetAccountBlobContainerSASPermissions {
+		return &v
+	}).(GetAccountBlobContainerSASPermissionsPtrOutput)
+}
+
 // Should Add permissions be enabled for this SAS?
-func (o GetAccountBlobContainerSASPermissionsOutput) Add() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
+func (o GetAccountBlobContainerSASPermissionsOutput) Add() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Add }).(pulumi.BoolPtrOutput)
 }
 
 // Should Create permissions be enabled for this SAS?
-func (o GetAccountBlobContainerSASPermissionsOutput) Create() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
+func (o GetAccountBlobContainerSASPermissionsOutput) Create() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Create }).(pulumi.BoolPtrOutput)
 }
 
 // Should Delete permissions be enabled for this SAS?
-func (o GetAccountBlobContainerSASPermissionsOutput) Delete() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
+func (o GetAccountBlobContainerSASPermissionsOutput) Delete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Delete }).(pulumi.BoolPtrOutput)
+}
+
+// Should Delete version permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) DeleteVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.DeleteVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Should Execute permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) Execute() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Execute }).(pulumi.BoolPtrOutput)
+}
+
+// Should Find permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) Find() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Find }).(pulumi.BoolPtrOutput)
 }
 
 // Should List permissions be enabled for this SAS?
-//
-// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-// for additional details on the fields above.
-func (o GetAccountBlobContainerSASPermissionsOutput) List() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
+func (o GetAccountBlobContainerSASPermissionsOutput) List() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.List }).(pulumi.BoolPtrOutput)
+}
+
+// Should Move permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) Move() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Move }).(pulumi.BoolPtrOutput)
+}
+
+// Should Ownership permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) Ownership() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Ownership }).(pulumi.BoolPtrOutput)
+}
+
+// Should Permissions permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) Permissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Permissions }).(pulumi.BoolPtrOutput)
 }
 
 // Should Read permissions be enabled for this SAS?
-func (o GetAccountBlobContainerSASPermissionsOutput) Read() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
+func (o GetAccountBlobContainerSASPermissionsOutput) Read() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Read }).(pulumi.BoolPtrOutput)
+}
+
+// Should Set Immutability Policy permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) SetImmutabilityPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.SetImmutabilityPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Should Tags permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsOutput) Tags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Tags }).(pulumi.BoolPtrOutput)
 }
 
 // Should Write permissions be enabled for this SAS?
-func (o GetAccountBlobContainerSASPermissionsOutput) Write() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
+//
+// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+func (o GetAccountBlobContainerSASPermissionsOutput) Write() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) *bool { return v.Write }).(pulumi.BoolPtrOutput)
+}
+
+type GetAccountBlobContainerSASPermissionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAccountBlobContainerSASPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountBlobContainerSASPermissions)(nil)).Elem()
+}
+
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) ToGetAccountBlobContainerSASPermissionsPtrOutput() GetAccountBlobContainerSASPermissionsPtrOutput {
+	return o
+}
+
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) ToGetAccountBlobContainerSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountBlobContainerSASPermissionsPtrOutput {
+	return o
+}
+
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Elem() GetAccountBlobContainerSASPermissionsOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) GetAccountBlobContainerSASPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret GetAccountBlobContainerSASPermissions
+		return ret
+	}).(GetAccountBlobContainerSASPermissionsOutput)
+}
+
+// Should Add permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Add() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Add
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Create permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Create() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Delete permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Delete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Delete version permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) DeleteVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteVersion
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Execute permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Execute() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Execute
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Find permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Find() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Find
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should List permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) List() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.List
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Move permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Move() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Move
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Ownership permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Ownership() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Ownership
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Permissions permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Permissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Read permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Read() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Read
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Set Immutability Policy permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) SetImmutabilityPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SetImmutabilityPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Tags permissions be enabled for this SAS?
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Tags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Write permissions be enabled for this SAS?
+//
+// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
+func (o GetAccountBlobContainerSASPermissionsPtrOutput) Write() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountBlobContainerSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Write
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetAccountCustomDomain struct {
@@ -7985,28 +8271,27 @@ func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdenti
 
 type GetAccountSASPermissions struct {
 	// Should Add permissions be enabled for this SAS?
-	Add bool `pulumi:"add"`
+	Add *bool `pulumi:"add"`
 	// Should Create permissions be enabled for this SAS?
-	Create bool `pulumi:"create"`
+	Create *bool `pulumi:"create"`
 	// Should Delete permissions be enabled for this SAS?
-	Delete bool `pulumi:"delete"`
+	Delete *bool `pulumi:"delete"`
 	// Should Filter by Index Tags permissions be enabled for this SAS?
-	//
-	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-	// for additional details on the fields above.
-	Filter bool `pulumi:"filter"`
+	Filter *bool `pulumi:"filter"`
 	// Should List permissions be enabled for this SAS?
-	List bool `pulumi:"list"`
+	List *bool `pulumi:"list"`
 	// Should Process permissions be enabled for this SAS?
-	Process bool `pulumi:"process"`
+	Process *bool `pulumi:"process"`
 	// Should Read permissions be enabled for this SAS?
-	Read bool `pulumi:"read"`
+	Read *bool `pulumi:"read"`
 	// Should Get / Set Index Tags permissions be enabled for this SAS?
-	Tag bool `pulumi:"tag"`
+	Tag *bool `pulumi:"tag"`
 	// Should Update permissions be enabled for this SAS?
-	Update bool `pulumi:"update"`
+	Update *bool `pulumi:"update"`
 	// Should Write permissions be enabled for this SAS?
-	Write bool `pulumi:"write"`
+	//
+	// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+	Write *bool `pulumi:"write"`
 }
 
 // GetAccountSASPermissionsInput is an input type that accepts GetAccountSASPermissionsArgs and GetAccountSASPermissionsOutput values.
@@ -8022,28 +8307,27 @@ type GetAccountSASPermissionsInput interface {
 
 type GetAccountSASPermissionsArgs struct {
 	// Should Add permissions be enabled for this SAS?
-	Add pulumi.BoolInput `pulumi:"add"`
+	Add pulumi.BoolPtrInput `pulumi:"add"`
 	// Should Create permissions be enabled for this SAS?
-	Create pulumi.BoolInput `pulumi:"create"`
+	Create pulumi.BoolPtrInput `pulumi:"create"`
 	// Should Delete permissions be enabled for this SAS?
-	Delete pulumi.BoolInput `pulumi:"delete"`
+	Delete pulumi.BoolPtrInput `pulumi:"delete"`
 	// Should Filter by Index Tags permissions be enabled for this SAS?
-	//
-	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-	// for additional details on the fields above.
-	Filter pulumi.BoolInput `pulumi:"filter"`
+	Filter pulumi.BoolPtrInput `pulumi:"filter"`
 	// Should List permissions be enabled for this SAS?
-	List pulumi.BoolInput `pulumi:"list"`
+	List pulumi.BoolPtrInput `pulumi:"list"`
 	// Should Process permissions be enabled for this SAS?
-	Process pulumi.BoolInput `pulumi:"process"`
+	Process pulumi.BoolPtrInput `pulumi:"process"`
 	// Should Read permissions be enabled for this SAS?
-	Read pulumi.BoolInput `pulumi:"read"`
+	Read pulumi.BoolPtrInput `pulumi:"read"`
 	// Should Get / Set Index Tags permissions be enabled for this SAS?
-	Tag pulumi.BoolInput `pulumi:"tag"`
+	Tag pulumi.BoolPtrInput `pulumi:"tag"`
 	// Should Update permissions be enabled for this SAS?
-	Update pulumi.BoolInput `pulumi:"update"`
+	Update pulumi.BoolPtrInput `pulumi:"update"`
 	// Should Write permissions be enabled for this SAS?
-	Write pulumi.BoolInput `pulumi:"write"`
+	//
+	// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+	Write pulumi.BoolPtrInput `pulumi:"write"`
 }
 
 func (GetAccountSASPermissionsArgs) ElementType() reflect.Type {
@@ -8056,6 +8340,47 @@ func (i GetAccountSASPermissionsArgs) ToGetAccountSASPermissionsOutput() GetAcco
 
 func (i GetAccountSASPermissionsArgs) ToGetAccountSASPermissionsOutputWithContext(ctx context.Context) GetAccountSASPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASPermissionsOutput)
+}
+
+func (i GetAccountSASPermissionsArgs) ToGetAccountSASPermissionsPtrOutput() GetAccountSASPermissionsPtrOutput {
+	return i.ToGetAccountSASPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetAccountSASPermissionsArgs) ToGetAccountSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountSASPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASPermissionsOutput).ToGetAccountSASPermissionsPtrOutputWithContext(ctx)
+}
+
+// GetAccountSASPermissionsPtrInput is an input type that accepts GetAccountSASPermissionsArgs, GetAccountSASPermissionsPtr and GetAccountSASPermissionsPtrOutput values.
+// You can construct a concrete instance of `GetAccountSASPermissionsPtrInput` via:
+//
+//	        GetAccountSASPermissionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAccountSASPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToGetAccountSASPermissionsPtrOutput() GetAccountSASPermissionsPtrOutput
+	ToGetAccountSASPermissionsPtrOutputWithContext(context.Context) GetAccountSASPermissionsPtrOutput
+}
+
+type getAccountSASPermissionsPtrType GetAccountSASPermissionsArgs
+
+func GetAccountSASPermissionsPtr(v *GetAccountSASPermissionsArgs) GetAccountSASPermissionsPtrInput {
+	return (*getAccountSASPermissionsPtrType)(v)
+}
+
+func (*getAccountSASPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountSASPermissions)(nil)).Elem()
+}
+
+func (i *getAccountSASPermissionsPtrType) ToGetAccountSASPermissionsPtrOutput() GetAccountSASPermissionsPtrOutput {
+	return i.ToGetAccountSASPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getAccountSASPermissionsPtrType) ToGetAccountSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountSASPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASPermissionsPtrOutput)
 }
 
 type GetAccountSASPermissionsOutput struct{ *pulumi.OutputState }
@@ -8072,57 +8397,192 @@ func (o GetAccountSASPermissionsOutput) ToGetAccountSASPermissionsOutputWithCont
 	return o
 }
 
+func (o GetAccountSASPermissionsOutput) ToGetAccountSASPermissionsPtrOutput() GetAccountSASPermissionsPtrOutput {
+	return o.ToGetAccountSASPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetAccountSASPermissionsOutput) ToGetAccountSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountSASPermissionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAccountSASPermissions) *GetAccountSASPermissions {
+		return &v
+	}).(GetAccountSASPermissionsPtrOutput)
+}
+
 // Should Add permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Add() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Add() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Add }).(pulumi.BoolPtrOutput)
 }
 
 // Should Create permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Create() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Create() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Create }).(pulumi.BoolPtrOutput)
 }
 
 // Should Delete permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Delete() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Delete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Delete }).(pulumi.BoolPtrOutput)
 }
 
 // Should Filter by Index Tags permissions be enabled for this SAS?
-//
-// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-// for additional details on the fields above.
-func (o GetAccountSASPermissionsOutput) Filter() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Filter }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Filter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Filter }).(pulumi.BoolPtrOutput)
 }
 
 // Should List permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) List() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) List() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.List }).(pulumi.BoolPtrOutput)
 }
 
 // Should Process permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Process() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Process }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Process() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Process }).(pulumi.BoolPtrOutput)
 }
 
 // Should Read permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Read() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Read() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Read }).(pulumi.BoolPtrOutput)
 }
 
 // Should Get / Set Index Tags permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Tag() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Tag }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Tag() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Tag }).(pulumi.BoolPtrOutput)
 }
 
 // Should Update permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Update() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Update }).(pulumi.BoolOutput)
+func (o GetAccountSASPermissionsOutput) Update() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Update }).(pulumi.BoolPtrOutput)
 }
 
 // Should Write permissions be enabled for this SAS?
-func (o GetAccountSASPermissionsOutput) Write() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
+//
+// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+func (o GetAccountSASPermissionsOutput) Write() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountSASPermissions) *bool { return v.Write }).(pulumi.BoolPtrOutput)
+}
+
+type GetAccountSASPermissionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAccountSASPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountSASPermissions)(nil)).Elem()
+}
+
+func (o GetAccountSASPermissionsPtrOutput) ToGetAccountSASPermissionsPtrOutput() GetAccountSASPermissionsPtrOutput {
+	return o
+}
+
+func (o GetAccountSASPermissionsPtrOutput) ToGetAccountSASPermissionsPtrOutputWithContext(ctx context.Context) GetAccountSASPermissionsPtrOutput {
+	return o
+}
+
+func (o GetAccountSASPermissionsPtrOutput) Elem() GetAccountSASPermissionsOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) GetAccountSASPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret GetAccountSASPermissions
+		return ret
+	}).(GetAccountSASPermissionsOutput)
+}
+
+// Should Add permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Add() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Add
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Create permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Create() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Delete permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Delete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Filter by Index Tags permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Filter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Filter
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should List permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) List() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.List
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Process permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Process() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Process
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Read permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Read() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Read
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Get / Set Index Tags permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Tag() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Update permissions be enabled for this SAS?
+func (o GetAccountSASPermissionsPtrOutput) Update() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should Write permissions be enabled for this SAS?
+//
+// > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+func (o GetAccountSASPermissionsPtrOutput) Write() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAccountSASPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Write
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetAccountSASResourceTypes struct {
@@ -9976,11 +10436,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountAzureFilesAuthenticationActiveDirectoryInput)(nil)).Elem(), GetAccountAzureFilesAuthenticationActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput)(nil)).Elem(), GetAccountAzureFilesAuthenticationActiveDirectoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountBlobContainerSASPermissionsInput)(nil)).Elem(), GetAccountBlobContainerSASPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountBlobContainerSASPermissionsPtrInput)(nil)).Elem(), GetAccountBlobContainerSASPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomDomainInput)(nil)).Elem(), GetAccountCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomDomainArrayInput)(nil)).Elem(), GetAccountCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASPermissionsInput)(nil)).Elem(), GetAccountSASPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASPermissionsPtrInput)(nil)).Elem(), GetAccountSASPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASResourceTypesInput)(nil)).Elem(), GetAccountSASResourceTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASServicesInput)(nil)).Elem(), GetAccountSASServicesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContainersContainerInput)(nil)).Elem(), GetContainersContainerArgs{})
@@ -10101,11 +10563,13 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountAzureFilesAuthenticationActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountBlobContainerSASPermissionsOutput{})
+	pulumi.RegisterOutputType(GetAccountBlobContainerSASPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountSASPermissionsOutput{})
+	pulumi.RegisterOutputType(GetAccountSASPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountSASResourceTypesOutput{})
 	pulumi.RegisterOutputType(GetAccountSASServicesOutput{})
 	pulumi.RegisterOutputType(GetContainersContainerOutput{})

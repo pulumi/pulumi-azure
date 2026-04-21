@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Import
     /// 
-    /// NAT Gateway can be imported using the `resource id`, e.g.
+    /// A NAT Gateway can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+        /// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -107,9 +107,11 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+        /// &gt; **Note:** For `Standard`, `Zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+        /// 
+        /// &gt; **Note:** `Zones` must be omitted when `SkuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -185,7 +187,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+        /// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -206,9 +208,11 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+        /// &gt; **Note:** For `Standard`, `Zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+        /// 
+        /// &gt; **Note:** `Zones` must be omitted when `SkuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
         /// </summary>
         public InputList<string> Zones
         {
@@ -255,7 +259,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGuid { get; set; }
 
         /// <summary>
-        /// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+        /// The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -276,9 +280,11 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+        /// &gt; **Note:** For `Standard`, `Zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+        /// 
+        /// &gt; **Note:** `Zones` must be omitted when `SkuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
         /// </summary>
         public InputList<string> Zones
         {

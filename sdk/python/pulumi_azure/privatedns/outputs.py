@@ -222,9 +222,9 @@ class ResolverInboundEndpointIpConfigurations(dict):
                  private_ip_address: Optional[_builtins.str] = None,
                  private_ip_allocation_method: Optional[_builtins.str] = None):
         """
-        :param _builtins.str subnet_id: The subnet ID of the IP configuration.
-        :param _builtins.str private_ip_address: Private IP address of the IP configuration.
-        :param _builtins.str private_ip_allocation_method: Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+        :param _builtins.str subnet_id: The subnet ID of the IP configuration. Changing this forces a new resource to be created.
+        :param _builtins.str private_ip_address: Private IP address of the IP configuration. Changing this forces a new resource to be created.
+        :param _builtins.str private_ip_allocation_method: Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if private_ip_address is not None:
@@ -236,7 +236,7 @@ class ResolverInboundEndpointIpConfigurations(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
         """
-        The subnet ID of the IP configuration.
+        The subnet ID of the IP configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -244,7 +244,7 @@ class ResolverInboundEndpointIpConfigurations(dict):
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[_builtins.str]:
         """
-        Private IP address of the IP configuration.
+        Private IP address of the IP configuration. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -252,7 +252,7 @@ class ResolverInboundEndpointIpConfigurations(dict):
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[_builtins.str]:
         """
-        Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+        Private IP address allocation method. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_ip_allocation_method")
 

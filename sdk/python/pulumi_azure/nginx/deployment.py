@@ -52,7 +52,6 @@ class DeploymentArgs:
         :param pulumi.Input[_builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
-        :param pulumi.Input[_builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[_builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below.
@@ -71,6 +70,9 @@ class DeploymentArgs:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if diagnose_support_enabled is not None:
+            warnings.warn("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""", DeprecationWarning)
+            pulumi.log.warn("""diagnose_support_enabled is deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
         if diagnose_support_enabled is not None:
             pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
@@ -170,10 +172,8 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="diagnoseSupportEnabled")
+    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
     def diagnose_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Should the metrics be exported to Azure Monitor?
-        """
         return pulumi.get(self, "diagnose_support_enabled")
 
     @diagnose_support_enabled.setter
@@ -341,7 +341,6 @@ class _DeploymentState:
                
                > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[_builtins.str] dataplane_api_endpoint: The dataplane API endpoint of the NGINX Deployment.
-        :param pulumi.Input[_builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[_builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below.
@@ -368,6 +367,9 @@ class _DeploymentState:
             pulumi.set(__self__, "capacity", capacity)
         if dataplane_api_endpoint is not None:
             pulumi.set(__self__, "dataplane_api_endpoint", dataplane_api_endpoint)
+        if diagnose_support_enabled is not None:
+            warnings.warn("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""", DeprecationWarning)
+            pulumi.log.warn("""diagnose_support_enabled is deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
         if diagnose_support_enabled is not None:
             pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
@@ -459,10 +461,8 @@ class _DeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="diagnoseSupportEnabled")
+    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
     def diagnose_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Should the metrics be exported to Azure Monitor?
-        """
         return pulumi.get(self, "diagnose_support_enabled")
 
     @diagnose_support_enabled.setter
@@ -717,7 +717,6 @@ class Deployment(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="standardv3_Monthly",
             location=example.location,
-            diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
@@ -752,7 +751,6 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
-        :param pulumi.Input[_builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[_builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
         :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below.
@@ -818,7 +816,6 @@ class Deployment(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="standardv3_Monthly",
             location=example.location,
-            diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
@@ -954,7 +951,6 @@ class Deployment(pulumi.CustomResource):
                
                > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[_builtins.str] dataplane_api_endpoint: The dataplane API endpoint of the NGINX Deployment.
-        :param pulumi.Input[_builtins.bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[_builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
         :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below.
@@ -1035,10 +1031,8 @@ class Deployment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="diagnoseSupportEnabled")
+    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
     def diagnose_support_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Should the metrics be exported to Azure Monitor?
-        """
         return pulumi.get(self, "diagnose_support_enabled")
 
     @_builtins.property

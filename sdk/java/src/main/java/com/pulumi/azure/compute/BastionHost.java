@@ -243,6 +243,20 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Whether Private-Only deployment is enabled for the Bastion Host.
+     * 
+     */
+    @Export(name="privateOnlyEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> privateOnlyEnabled;
+
+    /**
+     * @return Whether Private-Only deployment is enabled for the Bastion Host.
+     * 
+     */
+    public Output<Boolean> privateOnlyEnabled() {
+        return this.privateOnlyEnabled;
+    }
+    /**
      * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      * 
      */

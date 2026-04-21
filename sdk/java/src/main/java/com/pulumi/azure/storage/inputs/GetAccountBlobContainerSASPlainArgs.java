@@ -172,18 +172,18 @@ public final class GetAccountBlobContainerSASPlainArgs extends com.pulumi.resour
     }
 
     /**
-     * A `permissions` block as defined below.
+     * Should Permissions permissions be enabled for this SAS?
      * 
      */
-    @Import(name="permissions", required=true)
-    private GetAccountBlobContainerSASPermissions permissions;
+    @Import(name="permissions")
+    private @Nullable GetAccountBlobContainerSASPermissions permissions;
 
     /**
-     * @return A `permissions` block as defined below.
+     * @return Should Permissions permissions be enabled for this SAS?
      * 
      */
-    public GetAccountBlobContainerSASPermissions permissions() {
-        return this.permissions;
+    public Optional<GetAccountBlobContainerSASPermissions> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
 
     /**
@@ -349,12 +349,12 @@ public final class GetAccountBlobContainerSASPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param permissions A `permissions` block as defined below.
+         * @param permissions Should Permissions permissions be enabled for this SAS?
          * 
          * @return builder
          * 
          */
-        public Builder permissions(GetAccountBlobContainerSASPermissions permissions) {
+        public Builder permissions(@Nullable GetAccountBlobContainerSASPermissions permissions) {
             $.permissions = permissions;
             return this;
         }
@@ -379,9 +379,6 @@ public final class GetAccountBlobContainerSASPlainArgs extends com.pulumi.resour
             }
             if ($.expiry == null) {
                 throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPlainArgs", "expiry");
-            }
-            if ($.permissions == null) {
-                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPlainArgs", "permissions");
             }
             if ($.start == null) {
                 throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPlainArgs", "start");

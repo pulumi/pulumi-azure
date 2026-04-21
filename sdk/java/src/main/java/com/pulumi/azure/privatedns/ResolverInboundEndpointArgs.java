@@ -19,14 +19,14 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
     public static final ResolverInboundEndpointArgs Empty = new ResolverInboundEndpointArgs();
 
     /**
-     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ipConfigurations", required=true)
     private Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations;
 
     /**
-     * @return One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations() {
@@ -34,14 +34,14 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -49,14 +49,14 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,14 +64,14 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateDnsResolverId", required=true)
     private Output<String> privateDnsResolverId;
 
     /**
-     * @return Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> privateDnsResolverId() {
@@ -122,7 +122,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param location Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param location Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param name Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param name Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privateDnsResolverId Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param privateDnsResolverId Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privateDnsResolverId Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param privateDnsResolverId Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

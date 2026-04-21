@@ -93,7 +93,7 @@ type Deployment struct {
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of RAI policy.
-	RaiPolicyName pulumi.StringPtrOutput `pulumi:"raiPolicyName"`
+	RaiPolicyName pulumi.StringOutput `pulumi:"raiPolicyName"`
 	// A `sku` block as defined below.
 	Sku DeploymentSkuOutput `pulumi:"sku"`
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
@@ -319,8 +319,8 @@ func (o DeploymentOutput) Name() pulumi.StringOutput {
 }
 
 // The name of RAI policy.
-func (o DeploymentOutput) RaiPolicyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.RaiPolicyName }).(pulumi.StringPtrOutput)
+func (o DeploymentOutput) RaiPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.RaiPolicyName }).(pulumi.StringOutput)
 }
 
 // A `sku` block as defined below.

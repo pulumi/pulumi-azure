@@ -35,6 +35,11 @@ export type EnvironmentDaprComponent = import("./environmentDaprComponent").Envi
 export const EnvironmentDaprComponent: typeof import("./environmentDaprComponent").EnvironmentDaprComponent = null as any;
 utilities.lazyLoad(exports, ["EnvironmentDaprComponent"], () => require("./environmentDaprComponent"));
 
+export { EnvironmentManagedCertificateArgs, EnvironmentManagedCertificateState } from "./environmentManagedCertificate";
+export type EnvironmentManagedCertificate = import("./environmentManagedCertificate").EnvironmentManagedCertificate;
+export const EnvironmentManagedCertificate: typeof import("./environmentManagedCertificate").EnvironmentManagedCertificate = null as any;
+utilities.lazyLoad(exports, ["EnvironmentManagedCertificate"], () => require("./environmentManagedCertificate"));
+
 export { EnvironmentStorageArgs, EnvironmentStorageState } from "./environmentStorage";
 export type EnvironmentStorage = import("./environmentStorage").EnvironmentStorage;
 export const EnvironmentStorage: typeof import("./environmentStorage").EnvironmentStorage = null as any;
@@ -82,6 +87,8 @@ const _module = {
                 return new EnvironmentCustomDomain(name, <any>undefined, { urn })
             case "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent":
                 return new EnvironmentDaprComponent(name, <any>undefined, { urn })
+            case "azure:containerapp/environmentManagedCertificate:EnvironmentManagedCertificate":
+                return new EnvironmentManagedCertificate(name, <any>undefined, { urn })
             case "azure:containerapp/environmentStorage:EnvironmentStorage":
                 return new EnvironmentStorage(name, <any>undefined, { urn })
             case "azure:containerapp/job:Job":
@@ -97,5 +104,6 @@ pulumi.runtime.registerResourceModule("azure", "containerapp/environment", _modu
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentDaprComponent", _module)
+pulumi.runtime.registerResourceModule("azure", "containerapp/environmentManagedCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/environmentStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "containerapp/job", _module)

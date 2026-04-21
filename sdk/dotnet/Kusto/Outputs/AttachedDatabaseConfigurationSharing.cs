@@ -22,6 +22,14 @@ namespace Pulumi.Azure.Kusto.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExternalTablesToIncludes;
         /// <summary>
+        /// List of functions to exclude from the follower database.
+        /// </summary>
+        public readonly ImmutableArray<string> FunctionsToExcludes;
+        /// <summary>
+        /// List of functions to include in the follower database.
+        /// </summary>
+        public readonly ImmutableArray<string> FunctionsToIncludes;
+        /// <summary>
         /// List of materialized views exclude from the follower database.
         /// </summary>
         public readonly ImmutableArray<string> MaterializedViewsToExcludes;
@@ -44,6 +52,10 @@ namespace Pulumi.Azure.Kusto.Outputs
 
             ImmutableArray<string> externalTablesToIncludes,
 
+            ImmutableArray<string> functionsToExcludes,
+
+            ImmutableArray<string> functionsToIncludes,
+
             ImmutableArray<string> materializedViewsToExcludes,
 
             ImmutableArray<string> materializedViewsToIncludes,
@@ -54,6 +66,8 @@ namespace Pulumi.Azure.Kusto.Outputs
         {
             ExternalTablesToExcludes = externalTablesToExcludes;
             ExternalTablesToIncludes = externalTablesToIncludes;
+            FunctionsToExcludes = functionsToExcludes;
+            FunctionsToIncludes = functionsToIncludes;
             MaterializedViewsToExcludes = materializedViewsToExcludes;
             MaterializedViewsToIncludes = materializedViewsToIncludes;
             TablesToExcludes = tablesToExcludes;

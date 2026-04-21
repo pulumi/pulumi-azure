@@ -27,7 +27,7 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, auto_scaling_enabled=None, eviction_policy=None, gpu_driver=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_enabled=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
+    def __init__(__self__, auto_scaling_enabled=None, eviction_policy=None, gpu_driver=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_image_version=None, node_labels=None, node_public_ip_enabled=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
         if auto_scaling_enabled and not isinstance(auto_scaling_enabled, bool):
             raise TypeError("Expected argument 'auto_scaling_enabled' to be a bool")
         pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
@@ -61,6 +61,9 @@ class GetClusterNodePoolResult:
         if node_count and not isinstance(node_count, int):
             raise TypeError("Expected argument 'node_count' to be a int")
         pulumi.set(__self__, "node_count", node_count)
+        if node_image_version and not isinstance(node_image_version, str):
+            raise TypeError("Expected argument 'node_image_version' to be a str")
+        pulumi.set(__self__, "node_image_version", node_image_version)
         if node_labels and not isinstance(node_labels, dict):
             raise TypeError("Expected argument 'node_labels' to be a dict")
         pulumi.set(__self__, "node_labels", node_labels)
@@ -191,6 +194,14 @@ class GetClusterNodePoolResult:
         The current number of Nodes in the Node Pool.
         """
         return pulumi.get(self, "node_count")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeImageVersion")
+    def node_image_version(self) -> _builtins.str:
+        """
+        The current node image version running on this Node Pool.
+        """
+        return pulumi.get(self, "node_image_version")
 
     @_builtins.property
     @pulumi.getter(name="nodeLabels")
@@ -343,6 +354,7 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             mode=self.mode,
             name=self.name,
             node_count=self.node_count,
+            node_image_version=self.node_image_version,
             node_labels=self.node_labels,
             node_public_ip_enabled=self.node_public_ip_enabled,
             node_public_ip_prefix_id=self.node_public_ip_prefix_id,
@@ -412,6 +424,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[_builtins.str] = Non
         mode=pulumi.get(__ret__, 'mode'),
         name=pulumi.get(__ret__, 'name'),
         node_count=pulumi.get(__ret__, 'node_count'),
+        node_image_version=pulumi.get(__ret__, 'node_image_version'),
         node_labels=pulumi.get(__ret__, 'node_labels'),
         node_public_ip_enabled=pulumi.get(__ret__, 'node_public_ip_enabled'),
         node_public_ip_prefix_id=pulumi.get(__ret__, 'node_public_ip_prefix_id'),
@@ -478,6 +491,7 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
         mode=pulumi.get(__response__, 'mode'),
         name=pulumi.get(__response__, 'name'),
         node_count=pulumi.get(__response__, 'node_count'),
+        node_image_version=pulumi.get(__response__, 'node_image_version'),
         node_labels=pulumi.get(__response__, 'node_labels'),
         node_public_ip_enabled=pulumi.get(__response__, 'node_public_ip_enabled'),
         node_public_ip_prefix_id=pulumi.get(__response__, 'node_public_ip_prefix_id'),

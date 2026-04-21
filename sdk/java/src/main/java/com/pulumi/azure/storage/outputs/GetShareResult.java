@@ -38,6 +38,11 @@ public final class GetShareResult {
      */
     private Integer quota;
     /**
+     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * 
+     */
+    private String rbacScopeId;
+    /**
      * @deprecated
      * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
@@ -80,6 +85,13 @@ public final class GetShareResult {
         return this.quota;
     }
     /**
+     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * 
+     */
+    public String rbacScopeId() {
+        return this.rbacScopeId;
+    }
+    /**
      * @deprecated
      * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
@@ -109,6 +121,7 @@ public final class GetShareResult {
         private Map<String,String> metadata;
         private String name;
         private Integer quota;
+        private String rbacScopeId;
         private String resourceManagerId;
         private @Nullable String storageAccountId;
         private @Nullable String storageAccountName;
@@ -120,6 +133,7 @@ public final class GetShareResult {
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
     	      this.quota = defaults.quota;
+    	      this.rbacScopeId = defaults.rbacScopeId;
     	      this.resourceManagerId = defaults.resourceManagerId;
     	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageAccountName = defaults.storageAccountName;
@@ -167,6 +181,14 @@ public final class GetShareResult {
             return this;
         }
         @CustomType.Setter
+        public Builder rbacScopeId(String rbacScopeId) {
+            if (rbacScopeId == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "rbacScopeId");
+            }
+            this.rbacScopeId = rbacScopeId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceManagerId(String resourceManagerId) {
             if (resourceManagerId == null) {
               throw new MissingRequiredPropertyException("GetShareResult", "resourceManagerId");
@@ -193,6 +215,7 @@ public final class GetShareResult {
             _resultValue.metadata = metadata;
             _resultValue.name = name;
             _resultValue.quota = quota;
+            _resultValue.rbacScopeId = rbacScopeId;
             _resultValue.resourceManagerId = resourceManagerId;
             _resultValue.storageAccountId = storageAccountId;
             _resultValue.storageAccountName = storageAccountName;

@@ -28,7 +28,7 @@ class GetShareResult:
     """
     A collection of values returned by getShare.
     """
-    def __init__(__self__, acls=None, id=None, metadata=None, name=None, quota=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None):
+    def __init__(__self__, acls=None, id=None, metadata=None, name=None, quota=None, rbac_scope_id=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None):
         if acls and not isinstance(acls, list):
             raise TypeError("Expected argument 'acls' to be a list")
         pulumi.set(__self__, "acls", acls)
@@ -44,6 +44,9 @@ class GetShareResult:
         if quota and not isinstance(quota, int):
             raise TypeError("Expected argument 'quota' to be a int")
         pulumi.set(__self__, "quota", quota)
+        if rbac_scope_id and not isinstance(rbac_scope_id, str):
+            raise TypeError("Expected argument 'rbac_scope_id' to be a str")
+        pulumi.set(__self__, "rbac_scope_id", rbac_scope_id)
         if resource_manager_id and not isinstance(resource_manager_id, str):
             raise TypeError("Expected argument 'resource_manager_id' to be a str")
         pulumi.set(__self__, "resource_manager_id", resource_manager_id)
@@ -92,6 +95,14 @@ class GetShareResult:
         return pulumi.get(self, "quota")
 
     @_builtins.property
+    @pulumi.getter(name="rbacScopeId")
+    def rbac_scope_id(self) -> _builtins.str:
+        """
+        The ID that is supposed to be used as the `scope` of an `azurerm_role_assignmet` for this File Share.
+        """
+        return pulumi.get(self, "rbac_scope_id")
+
+    @_builtins.property
     @pulumi.getter(name="resourceManagerId")
     @_utilities.deprecated("""this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
     def resource_manager_id(self) -> _builtins.str:
@@ -119,6 +130,7 @@ class AwaitableGetShareResult(GetShareResult):
             metadata=self.metadata,
             name=self.name,
             quota=self.quota,
+            rbac_scope_id=self.rbac_scope_id,
             resource_manager_id=self.resource_manager_id,
             storage_account_id=self.storage_account_id,
             storage_account_name=self.storage_account_name)
@@ -152,7 +164,7 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2023-05-01
+    * `Microsoft.Storage` - 2025-06-01
 
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
@@ -178,6 +190,7 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         quota=pulumi.get(__ret__, 'quota'),
+        rbac_scope_id=pulumi.get(__ret__, 'rbac_scope_id'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
@@ -209,7 +222,7 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2023-05-01
+    * `Microsoft.Storage` - 2025-06-01
 
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
@@ -234,6 +247,7 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
         quota=pulumi.get(__response__, 'quota'),
+        rbac_scope_id=pulumi.get(__response__, 'rbac_scope_id'),
         resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
         storage_account_id=pulumi.get(__response__, 'storage_account_id'),
         storage_account_name=pulumi.get(__response__, 'storage_account_name')))

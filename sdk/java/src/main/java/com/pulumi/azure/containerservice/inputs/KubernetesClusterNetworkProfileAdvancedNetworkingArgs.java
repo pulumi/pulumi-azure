@@ -31,14 +31,14 @@ public final class KubernetesClusterNetworkProfileAdvancedNetworkingArgs extends
     }
 
     /**
-     * Is security enabled? Defaults to `false`.
+     * Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
      * 
      */
     @Import(name="securityEnabled")
     private @Nullable Output<Boolean> securityEnabled;
 
     /**
-     * @return Is security enabled? Defaults to `false`.
+     * @return Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
      * 
      */
     public Optional<Output<Boolean>> securityEnabled() {
@@ -92,7 +92,7 @@ public final class KubernetesClusterNetworkProfileAdvancedNetworkingArgs extends
         }
 
         /**
-         * @param securityEnabled Is security enabled? Defaults to `false`.
+         * @param securityEnabled Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class KubernetesClusterNetworkProfileAdvancedNetworkingArgs extends
         }
 
         /**
-         * @param securityEnabled Is security enabled? Defaults to `false`.
+         * @param securityEnabled Is security enabled? Defaults to `false`. This can only be enabled (set to `true`) when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
          * 
          * @return builder
          * 

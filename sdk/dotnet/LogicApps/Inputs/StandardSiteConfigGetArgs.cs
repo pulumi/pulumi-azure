@@ -66,6 +66,14 @@ namespace Pulumi.Azure.LogicApps.Inputs
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
 
+        /// <summary>
+        /// The action to take when no `IpRestriction` rules match. Possible values are `Allow` and `Deny`.
+        /// 
+        /// &gt; **Note:** If `IpRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `IpRestriction` rules are defined and `Deny` when at least one `IpRestriction` rule is defined.
+        /// </summary>
+        [Input("ipRestrictionDefaultAction")]
+        public Input<string>? IpRestrictionDefaultAction { get; set; }
+
         [Input("ipRestrictions")]
         private InputList<Inputs.StandardSiteConfigIpRestrictionGetArgs>? _ipRestrictions;
 
@@ -110,6 +118,12 @@ namespace Pulumi.Azure.LogicApps.Inputs
         /// </summary>
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
+
+        /// <summary>
+        /// The action to take when no `ScmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+        /// </summary>
+        [Input("scmIpRestrictionDefaultAction")]
+        public Input<string>? ScmIpRestrictionDefaultAction { get; set; }
 
         [Input("scmIpRestrictions")]
         private InputList<Inputs.StandardSiteConfigScmIpRestrictionGetArgs>? _scmIpRestrictions;

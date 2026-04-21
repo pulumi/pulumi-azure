@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * NAT Gateway can be imported using the `resource id`, e.g.
+ * A NAT Gateway can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
@@ -156,14 +156,14 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return this.resourceGuid;
     }
     /**
-     * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+     * The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuName;
 
     /**
-     * @return The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+     * @return The SKU which should be used. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> skuName() {
@@ -184,18 +184,22 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * &gt; **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+     * 
+     * &gt; **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+     * @return A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * &gt; **Note:** For `Standard`, `zones` may be omitted for a no-zone deployment or set to a single Availability Zone. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#availability-zones).
+     * 
+     * &gt; **Note:** `zones` must be omitted when `skuName` is set to `StandardV2`. `StandardV2` NAT Gateways are zone-redundant by default and Azure automatically deploys across all available zones. For more information, please see the [Azure documentation](https://learn.microsoft.com/azure/nat-gateway/nat-overview#standardv2-nat-gateway).
      * 
      */
     public Output<Optional<List<String>>> zones() {

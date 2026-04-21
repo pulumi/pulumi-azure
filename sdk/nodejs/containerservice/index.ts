@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ClusterDeploymentSafeguardArgs, ClusterDeploymentSafeguardState } from "./clusterDeploymentSafeguard";
+export type ClusterDeploymentSafeguard = import("./clusterDeploymentSafeguard").ClusterDeploymentSafeguard;
+export const ClusterDeploymentSafeguard: typeof import("./clusterDeploymentSafeguard").ClusterDeploymentSafeguard = null as any;
+utilities.lazyLoad(exports, ["ClusterDeploymentSafeguard"], () => require("./clusterDeploymentSafeguard"));
+
 export { ClusterTrustedAccessRoleBindingArgs, ClusterTrustedAccessRoleBindingState } from "./clusterTrustedAccessRoleBinding";
 export type ClusterTrustedAccessRoleBinding = import("./clusterTrustedAccessRoleBinding").ClusterTrustedAccessRoleBinding;
 export const ClusterTrustedAccessRoleBinding: typeof import("./clusterTrustedAccessRoleBinding").ClusterTrustedAccessRoleBinding = null as any;
@@ -170,6 +175,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:containerservice/clusterDeploymentSafeguard:ClusterDeploymentSafeguard":
+                return new ClusterDeploymentSafeguard(name, <any>undefined, { urn })
             case "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding":
                 return new ClusterTrustedAccessRoleBinding(name, <any>undefined, { urn })
             case "azure:containerservice/connectedRegistry:ConnectedRegistry":
@@ -219,6 +226,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "containerservice/clusterDeploymentSafeguard", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/clusterTrustedAccessRoleBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/fleetMember", _module)

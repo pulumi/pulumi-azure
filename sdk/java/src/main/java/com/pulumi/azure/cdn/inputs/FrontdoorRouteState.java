@@ -83,14 +83,18 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more Front Door Origin resource IDs that this Front Door Route will link to.
+     * One or more Front Door Origin resource IDs for this Front Door Route.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      * 
      */
     @Import(name="cdnFrontdoorOriginIds")
     private @Nullable Output<List<String>> cdnFrontdoorOriginIds;
 
     /**
-     * @return One or more Front Door Origin resource IDs that this Front Door Route will link to.
+     * @return One or more Front Door Origin resource IDs for this Front Door Route.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
      * 
      */
     public Optional<Output<List<String>>> cdnFrontdoorOriginIds() {
@@ -376,7 +380,9 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs that this Front Door Route will link to.
+         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs for this Front Door Route.
+         * 
+         * &gt; **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
          * 
          * @return builder
          * 
@@ -387,7 +393,9 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs that this Front Door Route will link to.
+         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs for this Front Door Route.
+         * 
+         * &gt; **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
          * 
          * @return builder
          * 
@@ -397,7 +405,9 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs that this Front Door Route will link to.
+         * @param cdnFrontdoorOriginIds One or more Front Door Origin resource IDs for this Front Door Route.
+         * 
+         * &gt; **Note:** The `cdnFrontdoorOriginIds` field is not transmitted to the Azure API; it is used exclusively by Terraform to determine correct resource provisioning and destruction order. If this field is omitted, a `dependsOn` meta-argument referencing the corresponding `azure.cdn.FrontdoorOrigin` resource(s) is required. When importing an existing `azure.cdn.FrontdoorRoute resource`, you must manually add either the `cdnFrontdoorOriginIds` field or the `dependsOn` meta-argument to the configuration post-import.
          * 
          * @return builder
          * 

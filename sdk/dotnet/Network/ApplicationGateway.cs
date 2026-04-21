@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Import
     /// 
-    /// Application Gateway's can be imported using the `resource id`, e.g.
+    /// An Application Gateway can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:network/applicationGateway:ApplicationGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationGateways/myGateway1
@@ -196,9 +196,19 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `BackendHttpSettings` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `BackendHttpSettings` or `Backend` must be specified.
         /// </summary>
         [Output("backendHttpSettings")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSetting>> BackendHttpSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `Backend` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `BackendHttpSettings` or `Backend` must be specified.
+        /// </summary>
+        [Output("backends")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackend>> Backends { get; private set; } = null!;
 
         /// <summary>
         /// One or more `CustomErrorConfiguration` blocks as defined below.
@@ -259,6 +269,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `HttpListener` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `HttpListener` or `Listener` must be specified.
         /// </summary>
         [Output("httpListeners")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListener>> HttpListeners { get; private set; } = null!;
@@ -268,6 +280,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ApplicationGatewayIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `Listener` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `HttpListener` or `Listener` must be specified.
+        /// </summary>
+        [Output("listeners")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayListener>> Listeners { get; private set; } = null!;
 
         /// <summary>
         /// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -307,6 +327,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `RequestRoutingRule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `RequestRoutingRule` or `RoutingRule` must be specified.
         /// </summary>
         [Output("requestRoutingRules")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRule>> RequestRoutingRules { get; private set; } = null!;
@@ -322,6 +344,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("rewriteRuleSets")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSet>> RewriteRuleSets { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `RoutingRule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `RequestRoutingRule` or `RoutingRule` must be specified.
+        /// </summary>
+        [Output("routingRules")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRoutingRule>> RoutingRules { get; private set; } = null!;
 
         /// <summary>
         /// A `Sku` block as defined below.
@@ -461,16 +491,32 @@ namespace Pulumi.Azure.Network
             set => _backendAddressPools = value;
         }
 
-        [Input("backendHttpSettings", required: true)]
+        [Input("backendHttpSettings")]
         private InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs>? _backendHttpSettings;
 
         /// <summary>
         /// One or more `BackendHttpSettings` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `BackendHttpSettings` or `Backend` must be specified.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs> BackendHttpSettings
         {
             get => _backendHttpSettings ?? (_backendHttpSettings = new InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs>());
             set => _backendHttpSettings = value;
+        }
+
+        [Input("backends")]
+        private InputList<Inputs.ApplicationGatewayBackendArgs>? _backends;
+
+        /// <summary>
+        /// One or more `Backend` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `BackendHttpSettings` or `Backend` must be specified.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayBackendArgs> Backends
+        {
+            get => _backends ?? (_backends = new InputList<Inputs.ApplicationGatewayBackendArgs>());
+            set => _backends = value;
         }
 
         [Input("customErrorConfigurations")]
@@ -554,11 +600,13 @@ namespace Pulumi.Azure.Network
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
 
-        [Input("httpListeners", required: true)]
+        [Input("httpListeners")]
         private InputList<Inputs.ApplicationGatewayHttpListenerArgs>? _httpListeners;
 
         /// <summary>
         /// One or more `HttpListener` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `HttpListener` or `Listener` must be specified.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayHttpListenerArgs> HttpListeners
         {
@@ -571,6 +619,20 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationGatewayIdentityArgs>? Identity { get; set; }
+
+        [Input("listeners")]
+        private InputList<Inputs.ApplicationGatewayListenerArgs>? _listeners;
+
+        /// <summary>
+        /// One or more `Listener` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `HttpListener` or `Listener` must be specified.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayListenerArgs> Listeners
+        {
+            get => _listeners ?? (_listeners = new InputList<Inputs.ApplicationGatewayListenerArgs>());
+            set => _listeners = value;
+        }
 
         /// <summary>
         /// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -620,11 +682,13 @@ namespace Pulumi.Azure.Network
             set => _redirectConfigurations = value;
         }
 
-        [Input("requestRoutingRules", required: true)]
+        [Input("requestRoutingRules")]
         private InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs>? _requestRoutingRules;
 
         /// <summary>
         /// One or more `RequestRoutingRule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `RequestRoutingRule` or `RoutingRule` must be specified.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs> RequestRoutingRules
         {
@@ -648,6 +712,20 @@ namespace Pulumi.Azure.Network
         {
             get => _rewriteRuleSets ?? (_rewriteRuleSets = new InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs>());
             set => _rewriteRuleSets = value;
+        }
+
+        [Input("routingRules")]
+        private InputList<Inputs.ApplicationGatewayRoutingRuleArgs>? _routingRules;
+
+        /// <summary>
+        /// One or more `RoutingRule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `RequestRoutingRule` or `RoutingRule` must be specified.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayRoutingRuleArgs> RoutingRules
+        {
+            get => _routingRules ?? (_routingRules = new InputList<Inputs.ApplicationGatewayRoutingRuleArgs>());
+            set => _routingRules = value;
         }
 
         /// <summary>
@@ -797,11 +875,27 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `BackendHttpSettings` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `BackendHttpSettings` or `Backend` must be specified.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendHttpSettingGetArgs> BackendHttpSettings
         {
             get => _backendHttpSettings ?? (_backendHttpSettings = new InputList<Inputs.ApplicationGatewayBackendHttpSettingGetArgs>());
             set => _backendHttpSettings = value;
+        }
+
+        [Input("backends")]
+        private InputList<Inputs.ApplicationGatewayBackendGetArgs>? _backends;
+
+        /// <summary>
+        /// One or more `Backend` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `BackendHttpSettings` or `Backend` must be specified.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayBackendGetArgs> Backends
+        {
+            get => _backends ?? (_backends = new InputList<Inputs.ApplicationGatewayBackendGetArgs>());
+            set => _backends = value;
         }
 
         [Input("customErrorConfigurations")]
@@ -890,6 +984,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `HttpListener` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `HttpListener` or `Listener` must be specified.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayHttpListenerGetArgs> HttpListeners
         {
@@ -902,6 +998,20 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationGatewayIdentityGetArgs>? Identity { get; set; }
+
+        [Input("listeners")]
+        private InputList<Inputs.ApplicationGatewayListenerGetArgs>? _listeners;
+
+        /// <summary>
+        /// One or more `Listener` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `HttpListener` or `Listener` must be specified.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayListenerGetArgs> Listeners
+        {
+            get => _listeners ?? (_listeners = new InputList<Inputs.ApplicationGatewayListenerGetArgs>());
+            set => _listeners = value;
+        }
 
         /// <summary>
         /// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -968,6 +1078,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `RequestRoutingRule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `RequestRoutingRule` or `RoutingRule` must be specified.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRequestRoutingRuleGetArgs> RequestRoutingRules
         {
@@ -991,6 +1103,20 @@ namespace Pulumi.Azure.Network
         {
             get => _rewriteRuleSets ?? (_rewriteRuleSets = new InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs>());
             set => _rewriteRuleSets = value;
+        }
+
+        [Input("routingRules")]
+        private InputList<Inputs.ApplicationGatewayRoutingRuleGetArgs>? _routingRules;
+
+        /// <summary>
+        /// One or more `RoutingRule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** At least one of `RequestRoutingRule` or `RoutingRule` must be specified.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayRoutingRuleGetArgs> RoutingRules
+        {
+            get => _routingRules ?? (_routingRules = new InputList<Inputs.ApplicationGatewayRoutingRuleGetArgs>());
+            set => _routingRules = value;
         }
 
         /// <summary>

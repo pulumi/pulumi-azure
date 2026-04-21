@@ -25,7 +25,7 @@ public final class GetAccountSASResult {
      */
     private String id;
     private @Nullable String ipAddresses;
-    private GetAccountSASPermissions permissions;
+    private @Nullable GetAccountSASPermissions permissions;
     private GetAccountSASResourceTypes resourceTypes;
     /**
      * @return The computed Account Shared Access Signature (SAS).
@@ -56,8 +56,8 @@ public final class GetAccountSASResult {
     public Optional<String> ipAddresses() {
         return Optional.ofNullable(this.ipAddresses);
     }
-    public GetAccountSASPermissions permissions() {
-        return this.permissions;
+    public Optional<GetAccountSASPermissions> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
     public GetAccountSASResourceTypes resourceTypes() {
         return this.resourceTypes;
@@ -93,7 +93,7 @@ public final class GetAccountSASResult {
         private @Nullable Boolean httpsOnly;
         private String id;
         private @Nullable String ipAddresses;
-        private GetAccountSASPermissions permissions;
+        private @Nullable GetAccountSASPermissions permissions;
         private GetAccountSASResourceTypes resourceTypes;
         private String sas;
         private GetAccountSASServices services;
@@ -152,10 +152,8 @@ public final class GetAccountSASResult {
             return this;
         }
         @CustomType.Setter
-        public Builder permissions(GetAccountSASPermissions permissions) {
-            if (permissions == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASResult", "permissions");
-            }
+        public Builder permissions(@Nullable GetAccountSASPermissions permissions) {
+
             this.permissions = permissions;
             return this;
         }

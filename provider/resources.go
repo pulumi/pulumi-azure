@@ -1039,11 +1039,12 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "policy_resource_policy_exemption.html.markdown",
 				},
 			},
-			"azurerm_subscription_template_deployment": {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
-			"azurerm_custom_provider":                  {Tok: azureResource(azureCore, "CustomProvider")},
-			"azurerm_resource_provider_registration":   {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
-			"azurerm_subscription":                     {Tok: azureResource(azureCore, "Subscription")},
-			"azurerm_subscription_policy_assignment":   {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
+			"azurerm_resource_provider_feature_registration": {Tok: azureResource(azureCore, "ResourceProviderFeatureRegistration")},
+			"azurerm_subscription_template_deployment":       {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
+			"azurerm_custom_provider":                        {Tok: azureResource(azureCore, "CustomProvider")},
+			"azurerm_resource_provider_registration":         {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
+			"azurerm_subscription":                           {Tok: azureResource(azureCore, "Subscription")},
+			"azurerm_subscription_policy_assignment":         {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
 			"azurerm_subscription_policy_exemption": {
 				Tok: azureResource(azureCore, "SubscriptionPolicyExemption"),
 				Docs: &tfbridge.DocInfo{
@@ -2821,6 +2822,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_credential_user_managed_identity": {
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
+			"azurerm_managed_devops_pool": {Tok: azureResource(azureDevCenter, "ManagedDevOpsPool")},
 
 			"azurerm_chaos_studio_capability": {
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2885,6 +2887,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_source_control_token": {Tok: azureDataSource(azureAppService, "getSourceControlToken")},
 			"azurerm_windows_function_app": {Tok: azureDataSource(azureAppService, "getWindowsFunctionApp")},
 			"azurerm_windows_web_app":      {Tok: azureDataSource(azureAppService, "getWindowsWebApp")},
+			"azurerm_managed_devops_pool":  {Tok: azureDataSource(azureDevCenter, "getManagedDevOpsPool")},
 
 			"azurerm_managed_api":    {Tok: azureDataSource(azureConnections, "getManagedApi")},
 			"azurerm_api_connection": {Tok: azureDataSource(azureConnections, "getApiConnection")},

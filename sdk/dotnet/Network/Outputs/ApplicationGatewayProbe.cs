@@ -14,7 +14,9 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayProbe
     {
         /// <summary>
-        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `PickHostNameFromBackendHttpSettings` is set to `True`.
+        /// The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+        /// 
+        /// &gt; **Note:** Exactly one of `Host` or `PickHostNameFromBackendHttpSettings` must be set when `Protocol` is `Http` or `Https`. Neither can be set when `Protocol` is `Tcp` or `Tls`.
         /// </summary>
         public readonly string? Host;
         /// <summary>
@@ -22,11 +24,13 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// The interval between two consecutive probes in seconds. Possible values range from `1` to `86400`.
         /// </summary>
         public readonly int Interval;
         /// <summary>
         /// A `Match` block as defined above.
+        /// 
+        /// &gt; **Note:** `Match` cannot be set when `Protocol` is set to `Tcp` or `Tls`.
         /// </summary>
         public readonly Outputs.ApplicationGatewayProbeMatch? Match;
         /// <summary>
@@ -34,31 +38,45 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? MinimumServers;
         /// <summary>
-        /// The Name of the Probe.
+        /// The name of the Probe.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Path used for this Probe.
+        /// The relative URL path of the Probe. Valid value starts with `/`.
+        /// 
+        /// &gt; **Note:** `Path` cannot be set when `Protocol` is set to `Tcp` or `Tls`. `Path` must be specified when `Protocol` is `Http` or `Https`.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
         /// <summary>
         /// Whether the host header should be picked from the backend HTTP settings. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `PickHostNameFromBackendHttpSettings` cannot be set when `Protocol` is set to `Tcp` or `Tls`.
         /// </summary>
         public readonly bool? PickHostNameFromBackendHttpSettings;
         /// <summary>
-        /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
+        /// Custom port which will be used for probing the backend servers. Possible values range from `1` to `65535`.
+        /// 
+        /// &gt; **Note:** In case `Port` is not set, the port from the backend settings will be used. This property is valid for `Basic`, `Standard_v2`, and `WAF_v2` SKUs only.
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
+        /// The protocol used for this Probe. Possible values are `Http`, `Https`, `Tcp`, and `Tls`.
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+        /// Whether the proxy protocol header is enabled for this Probe. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** `ProxyProtocolHeaderEnabled` can only be set when `Protocol` is `Tcp` or `Tls`.
+        /// </summary>
+        public readonly bool? ProxyProtocolHeaderEnabled;
+        /// <summary>
+        /// The timeout in seconds used for this Probe, which indicates when a Probe becomes unhealthy. Possible values range from `1` to `86400`.
+        /// 
+        /// &gt; **Note:** The `Timeout` value should not be greater than the `Interval` value.
         /// </summary>
         public readonly int Timeout;
         /// <summary>
-        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
+        /// The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
         /// </summary>
         public readonly int UnhealthyThreshold;
 
@@ -76,13 +94,15 @@ namespace Pulumi.Azure.Network.Outputs
 
             string name,
 
-            string path,
+            string? path,
 
             bool? pickHostNameFromBackendHttpSettings,
 
             int? port,
 
             string protocol,
+
+            bool? proxyProtocolHeaderEnabled,
 
             int timeout,
 
@@ -98,6 +118,7 @@ namespace Pulumi.Azure.Network.Outputs
             PickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
             Port = port;
             Protocol = protocol;
+            ProxyProtocolHeaderEnabled = proxyProtocolHeaderEnabled;
             Timeout = timeout;
             UnhealthyThreshold = unhealthyThreshold;
         }

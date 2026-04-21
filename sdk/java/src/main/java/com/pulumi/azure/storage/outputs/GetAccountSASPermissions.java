@@ -4,9 +4,10 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountSASPermissions {
@@ -14,129 +15,127 @@ public final class GetAccountSASPermissions {
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    private Boolean add;
+    private @Nullable Boolean add;
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    private Boolean create;
+    private @Nullable Boolean create;
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    private Boolean delete;
+    private @Nullable Boolean delete;
     /**
      * @return Should Filter by Index Tags permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-     * for additional details on the fields above.
-     * 
      */
-    private Boolean filter;
+    private @Nullable Boolean filter;
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
      */
-    private Boolean list;
+    private @Nullable Boolean list;
     /**
      * @return Should Process permissions be enabled for this SAS?
      * 
      */
-    private Boolean process;
+    private @Nullable Boolean process;
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    private Boolean read;
+    private @Nullable Boolean read;
     /**
      * @return Should Get / Set Index Tags permissions be enabled for this SAS?
      * 
      */
-    private Boolean tag;
+    private @Nullable Boolean tag;
     /**
      * @return Should Update permissions be enabled for this SAS?
      * 
      */
-    private Boolean update;
+    private @Nullable Boolean update;
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+     * 
      */
-    private Boolean write;
+    private @Nullable Boolean write;
 
     private GetAccountSASPermissions() {}
     /**
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    public Boolean add() {
-        return this.add;
+    public Optional<Boolean> add() {
+        return Optional.ofNullable(this.add);
     }
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    public Boolean create() {
-        return this.create;
+    public Optional<Boolean> create() {
+        return Optional.ofNullable(this.create);
     }
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    public Boolean delete() {
-        return this.delete;
+    public Optional<Boolean> delete() {
+        return Optional.ofNullable(this.delete);
     }
     /**
      * @return Should Filter by Index Tags permissions be enabled for this SAS?
      * 
-     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-     * for additional details on the fields above.
-     * 
      */
-    public Boolean filter() {
-        return this.filter;
+    public Optional<Boolean> filter() {
+        return Optional.ofNullable(this.filter);
     }
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
      */
-    public Boolean list() {
-        return this.list;
+    public Optional<Boolean> list() {
+        return Optional.ofNullable(this.list);
     }
     /**
      * @return Should Process permissions be enabled for this SAS?
      * 
      */
-    public Boolean process() {
-        return this.process;
+    public Optional<Boolean> process() {
+        return Optional.ofNullable(this.process);
     }
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    public Boolean read() {
-        return this.read;
+    public Optional<Boolean> read() {
+        return Optional.ofNullable(this.read);
     }
     /**
      * @return Should Get / Set Index Tags permissions be enabled for this SAS?
      * 
      */
-    public Boolean tag() {
-        return this.tag;
+    public Optional<Boolean> tag() {
+        return Optional.ofNullable(this.tag);
     }
     /**
      * @return Should Update permissions be enabled for this SAS?
      * 
      */
-    public Boolean update() {
-        return this.update;
+    public Optional<Boolean> update() {
+        return Optional.ofNullable(this.update);
     }
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
+     * &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
+     * 
      */
-    public Boolean write() {
-        return this.write;
+    public Optional<Boolean> write() {
+        return Optional.ofNullable(this.write);
     }
 
     public static Builder builder() {
@@ -148,16 +147,16 @@ public final class GetAccountSASPermissions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean add;
-        private Boolean create;
-        private Boolean delete;
-        private Boolean filter;
-        private Boolean list;
-        private Boolean process;
-        private Boolean read;
-        private Boolean tag;
-        private Boolean update;
-        private Boolean write;
+        private @Nullable Boolean add;
+        private @Nullable Boolean create;
+        private @Nullable Boolean delete;
+        private @Nullable Boolean filter;
+        private @Nullable Boolean list;
+        private @Nullable Boolean process;
+        private @Nullable Boolean read;
+        private @Nullable Boolean tag;
+        private @Nullable Boolean update;
+        private @Nullable Boolean write;
         public Builder() {}
         public Builder(GetAccountSASPermissions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -174,82 +173,62 @@ public final class GetAccountSASPermissions {
         }
 
         @CustomType.Setter
-        public Builder add(Boolean add) {
-            if (add == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "add");
-            }
+        public Builder add(@Nullable Boolean add) {
+
             this.add = add;
             return this;
         }
         @CustomType.Setter
-        public Builder create(Boolean create) {
-            if (create == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "create");
-            }
+        public Builder create(@Nullable Boolean create) {
+
             this.create = create;
             return this;
         }
         @CustomType.Setter
-        public Builder delete(Boolean delete) {
-            if (delete == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "delete");
-            }
+        public Builder delete(@Nullable Boolean delete) {
+
             this.delete = delete;
             return this;
         }
         @CustomType.Setter
-        public Builder filter(Boolean filter) {
-            if (filter == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "filter");
-            }
+        public Builder filter(@Nullable Boolean filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
-        public Builder list(Boolean list) {
-            if (list == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "list");
-            }
+        public Builder list(@Nullable Boolean list) {
+
             this.list = list;
             return this;
         }
         @CustomType.Setter
-        public Builder process(Boolean process) {
-            if (process == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "process");
-            }
+        public Builder process(@Nullable Boolean process) {
+
             this.process = process;
             return this;
         }
         @CustomType.Setter
-        public Builder read(Boolean read) {
-            if (read == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "read");
-            }
+        public Builder read(@Nullable Boolean read) {
+
             this.read = read;
             return this;
         }
         @CustomType.Setter
-        public Builder tag(Boolean tag) {
-            if (tag == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "tag");
-            }
+        public Builder tag(@Nullable Boolean tag) {
+
             this.tag = tag;
             return this;
         }
         @CustomType.Setter
-        public Builder update(Boolean update) {
-            if (update == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "update");
-            }
+        public Builder update(@Nullable Boolean update) {
+
             this.update = update;
             return this;
         }
         @CustomType.Setter
-        public Builder write(Boolean write) {
-            if (write == null) {
-              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "write");
-            }
+        public Builder write(@Nullable Boolean write) {
+
             this.write = write;
             return this;
         }

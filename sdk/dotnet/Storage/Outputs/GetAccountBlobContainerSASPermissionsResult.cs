@@ -16,50 +16,105 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// Should Add permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Add;
+        public readonly bool? Add;
         /// <summary>
         /// Should Create permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Create;
+        public readonly bool? Create;
         /// <summary>
         /// Should Delete permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Delete;
+        public readonly bool? Delete;
+        /// <summary>
+        /// Should Delete version permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? DeleteVersion;
+        /// <summary>
+        /// Should Execute permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? Execute;
+        /// <summary>
+        /// Should Find permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? Find;
         /// <summary>
         /// Should List permissions be enabled for this SAS?
-        /// 
-        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-        /// for additional details on the fields above.
         /// </summary>
-        public readonly bool List;
+        public readonly bool? List;
+        /// <summary>
+        /// Should Move permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? Move;
+        /// <summary>
+        /// Should Ownership permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? Ownership;
+        /// <summary>
+        /// Should Permissions permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? Permissions;
         /// <summary>
         /// Should Read permissions be enabled for this SAS?
         /// </summary>
-        public readonly bool Read;
+        public readonly bool? Read;
+        /// <summary>
+        /// Should Set Immutability Policy permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? SetImmutabilityPolicy;
+        /// <summary>
+        /// Should Tags permissions be enabled for this SAS?
+        /// </summary>
+        public readonly bool? Tags;
         /// <summary>
         /// Should Write permissions be enabled for this SAS?
+        /// 
+        /// &gt; **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
         /// </summary>
-        public readonly bool Write;
+        public readonly bool? Write;
 
         [OutputConstructor]
         private GetAccountBlobContainerSASPermissionsResult(
-            bool add,
+            bool? add,
 
-            bool create,
+            bool? create,
 
-            bool delete,
+            bool? delete,
 
-            bool list,
+            bool? deleteVersion,
 
-            bool read,
+            bool? execute,
 
-            bool write)
+            bool? find,
+
+            bool? list,
+
+            bool? move,
+
+            bool? ownership,
+
+            bool? permissions,
+
+            bool? read,
+
+            bool? setImmutabilityPolicy,
+
+            bool? tags,
+
+            bool? write)
         {
             Add = add;
             Create = create;
             Delete = delete;
+            DeleteVersion = deleteVersion;
+            Execute = execute;
+            Find = find;
             List = list;
+            Move = move;
+            Ownership = ownership;
+            Permissions = permissions;
             Read = read;
+            SetImmutabilityPolicy = setImmutabilityPolicy;
+            Tags = tags;
             Write = write;
         }
     }

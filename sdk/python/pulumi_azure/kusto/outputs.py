@@ -33,6 +33,10 @@ class AttachedDatabaseConfigurationSharing(dict):
             suggest = "external_tables_to_excludes"
         elif key == "externalTablesToIncludes":
             suggest = "external_tables_to_includes"
+        elif key == "functionsToExcludes":
+            suggest = "functions_to_excludes"
+        elif key == "functionsToIncludes":
+            suggest = "functions_to_includes"
         elif key == "materializedViewsToExcludes":
             suggest = "materialized_views_to_excludes"
         elif key == "materializedViewsToIncludes":
@@ -56,6 +60,8 @@ class AttachedDatabaseConfigurationSharing(dict):
     def __init__(__self__, *,
                  external_tables_to_excludes: Optional[Sequence[_builtins.str]] = None,
                  external_tables_to_includes: Optional[Sequence[_builtins.str]] = None,
+                 functions_to_excludes: Optional[Sequence[_builtins.str]] = None,
+                 functions_to_includes: Optional[Sequence[_builtins.str]] = None,
                  materialized_views_to_excludes: Optional[Sequence[_builtins.str]] = None,
                  materialized_views_to_includes: Optional[Sequence[_builtins.str]] = None,
                  tables_to_excludes: Optional[Sequence[_builtins.str]] = None,
@@ -63,6 +69,8 @@ class AttachedDatabaseConfigurationSharing(dict):
         """
         :param Sequence[_builtins.str] external_tables_to_excludes: List of external tables exclude from the follower database.
         :param Sequence[_builtins.str] external_tables_to_includes: List of external tables to include in the follower database.
+        :param Sequence[_builtins.str] functions_to_excludes: List of functions to exclude from the follower database.
+        :param Sequence[_builtins.str] functions_to_includes: List of functions to include in the follower database.
         :param Sequence[_builtins.str] materialized_views_to_excludes: List of materialized views exclude from the follower database.
         :param Sequence[_builtins.str] materialized_views_to_includes: List of materialized views to include in the follower database.
         :param Sequence[_builtins.str] tables_to_excludes: List of tables to exclude from the follower database.
@@ -72,6 +80,10 @@ class AttachedDatabaseConfigurationSharing(dict):
             pulumi.set(__self__, "external_tables_to_excludes", external_tables_to_excludes)
         if external_tables_to_includes is not None:
             pulumi.set(__self__, "external_tables_to_includes", external_tables_to_includes)
+        if functions_to_excludes is not None:
+            pulumi.set(__self__, "functions_to_excludes", functions_to_excludes)
+        if functions_to_includes is not None:
+            pulumi.set(__self__, "functions_to_includes", functions_to_includes)
         if materialized_views_to_excludes is not None:
             pulumi.set(__self__, "materialized_views_to_excludes", materialized_views_to_excludes)
         if materialized_views_to_includes is not None:
@@ -96,6 +108,22 @@ class AttachedDatabaseConfigurationSharing(dict):
         List of external tables to include in the follower database.
         """
         return pulumi.get(self, "external_tables_to_includes")
+
+    @_builtins.property
+    @pulumi.getter(name="functionsToExcludes")
+    def functions_to_excludes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of functions to exclude from the follower database.
+        """
+        return pulumi.get(self, "functions_to_excludes")
+
+    @_builtins.property
+    @pulumi.getter(name="functionsToIncludes")
+    def functions_to_includes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of functions to include in the follower database.
+        """
+        return pulumi.get(self, "functions_to_includes")
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToExcludes")

@@ -83,7 +83,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				ClusterName:       followerCluster.Name,
-//				ClusterResourceId: followedCluster.ID(),
+//				ClusterId:         followedCluster.ID(),
 //				DatabaseName:      exampleDatabase.Name,
 //				Sharing: &kusto.AttachedDatabaseConfigurationSharingArgs{
 //					ExternalTablesToExcludes: pulumi.StringArray{
@@ -91,6 +91,12 @@ import (
 //					},
 //					ExternalTablesToIncludes: pulumi.StringArray{
 //						pulumi.String("ExternalTable1"),
+//					},
+//					FunctionsToExcludes: pulumi.StringArray{
+//						pulumi.String("Function2"),
+//					},
+//					FunctionsToIncludes: pulumi.StringArray{
+//						pulumi.String("Function1"),
 //					},
 //					MaterializedViewsToExcludes: pulumi.StringArray{
 //						pulumi.String("MaterializedViewTable2"),
@@ -142,6 +148,12 @@ type AttachedDatabaseConfiguration struct {
 	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+	DatabaseNameOverride pulumi.StringPtrOutput `pulumi:"databaseNameOverride"`
+	// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+	//
+	// > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+	DatabaseNamePrefix pulumi.StringPtrOutput `pulumi:"databaseNamePrefix"`
 	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind pulumi.StringPtrOutput `pulumi:"defaultPrincipalModificationKind"`
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -203,6 +215,12 @@ type attachedDatabaseConfigurationState struct {
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
+	// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+	DatabaseNameOverride *string `pulumi:"databaseNameOverride"`
+	// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+	//
+	// > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+	DatabaseNamePrefix *string `pulumi:"databaseNamePrefix"`
 	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind *string `pulumi:"defaultPrincipalModificationKind"`
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -226,6 +244,12 @@ type AttachedDatabaseConfigurationState struct {
 	ClusterResourceId pulumi.StringPtrInput
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
+	// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+	DatabaseNameOverride pulumi.StringPtrInput
+	// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+	//
+	// > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+	DatabaseNamePrefix pulumi.StringPtrInput
 	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind pulumi.StringPtrInput
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -251,6 +275,12 @@ type attachedDatabaseConfigurationArgs struct {
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
+	// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+	DatabaseNameOverride *string `pulumi:"databaseNameOverride"`
+	// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+	//
+	// > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+	DatabaseNamePrefix *string `pulumi:"databaseNamePrefix"`
 	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind *string `pulumi:"defaultPrincipalModificationKind"`
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -273,6 +303,12 @@ type AttachedDatabaseConfigurationArgs struct {
 	ClusterResourceId pulumi.StringPtrInput
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
+	// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+	DatabaseNameOverride pulumi.StringPtrInput
+	// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+	//
+	// > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+	DatabaseNamePrefix pulumi.StringPtrInput
 	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind pulumi.StringPtrInput
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -395,6 +431,18 @@ func (o AttachedDatabaseConfigurationOutput) ClusterResourceId() pulumi.StringOu
 // The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 func (o AttachedDatabaseConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The database name to use for the attached database instead of using the original database name. Relevant only when attaching to a specific database.
+func (o AttachedDatabaseConfigurationOutput) DatabaseNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringPtrOutput { return v.DatabaseNameOverride }).(pulumi.StringPtrOutput)
+}
+
+// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+//
+// > **Note:** Exactly one of  `databaseNameOverride` and `databaseNamePrefix` can be specified.
+func (o AttachedDatabaseConfigurationOutput) DatabaseNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringPtrOutput { return v.DatabaseNamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.

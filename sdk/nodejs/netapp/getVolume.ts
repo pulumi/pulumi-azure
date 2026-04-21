@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-06-01
+ * * `Microsoft.NetApp` - 2025-12-01
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +77,10 @@ export interface GetVolumeResult {
      */
     readonly acceptGrowCapacityPoolForShortTermCloneSplit: string;
     readonly accountName: string;
+    /**
+     * An Advanced Ransomware Protection (ARP) data protection block.
+     */
+    readonly dataProtectionAdvancedRansomwares: outputs.netapp.GetVolumeDataProtectionAdvancedRansomware[];
     /**
      * A data protecion backup policy block
      */
@@ -170,7 +174,7 @@ export interface GetVolumeResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-06-01
+ * * `Microsoft.NetApp` - 2025-12-01
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

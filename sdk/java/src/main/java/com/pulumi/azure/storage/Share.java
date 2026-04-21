@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Storage` - 2023-05-01
+ * * `Microsoft.Storage` - 2025-06-01
  * 
  * ## Import
  * 
@@ -203,6 +203,20 @@ public class Share extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> quota() {
         return this.quota;
+    }
+    /**
+     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * 
+     */
+    @Export(name="rbacScopeId", refs={String.class}, tree="[0]")
+    private Output<String> rbacScopeId;
+
+    /**
+     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * 
+     */
+    public Output<String> rbacScopeId() {
+        return this.rbacScopeId;
     }
     /**
      * The Resource Manager ID of this File Share.

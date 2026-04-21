@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourcePolicyExemption{}
 	case "azure:core/resourcePolicyRemediation:ResourcePolicyRemediation":
 		r = &ResourcePolicyRemediation{}
+	case "azure:core/resourceProviderFeatureRegistration:ResourceProviderFeatureRegistration":
+		r = &ResourceProviderFeatureRegistration{}
 	case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
 		r = &ResourceProviderRegistration{}
 	case "azure:core/subscription:Subscription":
@@ -148,6 +150,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/resourcePolicyRemediation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/resourceProviderFeatureRegistration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

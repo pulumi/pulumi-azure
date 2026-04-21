@@ -372,33 +372,38 @@ class BastionHostIpConfigurationArgsDict(TypedDict):
     """
     The name of the IP configuration. Changing this forces a new resource to be created.
     """
-    public_ip_address_id: pulumi.Input[_builtins.str]
-    """
-    Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
-    """
     subnet_id: pulumi.Input[_builtins.str]
     """
     Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 
     > **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
     """
+    public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+
+    > **Note:** `public_ip_address_id` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `public_ip_address_id` is omitted, the Bastion Host is deployed in Private-Only mode (`private_only_enabled` will be `true`).
+    """
 
 @pulumi.input_type
 class BastionHostIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 public_ip_address_id: pulumi.Input[_builtins.str],
-                 subnet_id: pulumi.Input[_builtins.str]):
+                 subnet_id: pulumi.Input[_builtins.str],
+                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IP configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_ip_address_id: Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
                
                > **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
+        :param pulumi.Input[_builtins.str] public_ip_address_id: Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+               
+               > **Note:** `public_ip_address_id` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `public_ip_address_id` is omitted, the Bastion Host is deployed in Private-Only mode (`private_only_enabled` will be `true`).
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
 
     @_builtins.property
     @pulumi.getter
@@ -413,18 +418,6 @@ class BastionHostIpConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "public_ip_address_id")
-
-    @public_ip_address_id.setter
-    def public_ip_address_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "public_ip_address_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -437,6 +430,20 @@ class BastionHostIpConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subnet_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
+
+        > **Note:** `public_ip_address_id` is required when `sku` is `Basic` or `Standard`. When `sku` is `Premium` and `public_ip_address_id` is omitted, the Bastion Host is deployed in Private-Only mode (`private_only_enabled` will be `true`).
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "public_ip_address_id", value)
 
 
 class CapacityReservationSkuArgsDict(TypedDict):

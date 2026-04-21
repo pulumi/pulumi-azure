@@ -174,7 +174,7 @@ import (
 //
 // ## Import
 //
-// Application Gateway's can be imported using the `resource id`, e.g.
+// An Application Gateway can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:network/applicationGateway:ApplicationGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationGateways/myGateway1
@@ -189,7 +189,13 @@ type ApplicationGateway struct {
 	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayOutput `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayOutput `pulumi:"backendHttpSettings"`
+	// One or more `backend` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+	Backends ApplicationGatewayBackendArrayOutput `pulumi:"backends"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayOutput `pulumi:"customErrorConfigurations"`
 	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
@@ -211,9 +217,15 @@ type ApplicationGateway struct {
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	Http2Enabled pulumi.BoolOutput `pulumi:"http2Enabled"`
 	// One or more `httpListener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
 	HttpListeners ApplicationGatewayHttpListenerArrayOutput `pulumi:"httpListeners"`
 	// An `identity` block as defined below.
 	Identity ApplicationGatewayIdentityPtrOutput `pulumi:"identity"`
+	// One or more `listener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
+	Listeners ApplicationGatewayListenerArrayOutput `pulumi:"listeners"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -227,11 +239,17 @@ type ApplicationGateway struct {
 	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayOutput `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayOutput `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets ApplicationGatewayRewriteRuleSetArrayOutput `pulumi:"rewriteRuleSets"`
+	// One or more `routingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+	RoutingRules ApplicationGatewayRoutingRuleArrayOutput `pulumi:"routingRules"`
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySkuOutput `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
@@ -266,9 +284,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	if args.BackendAddressPools == nil {
 		return nil, errors.New("invalid value for required argument 'BackendAddressPools'")
 	}
-	if args.BackendHttpSettings == nil {
-		return nil, errors.New("invalid value for required argument 'BackendHttpSettings'")
-	}
 	if args.FrontendIpConfigurations == nil {
 		return nil, errors.New("invalid value for required argument 'FrontendIpConfigurations'")
 	}
@@ -277,12 +292,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	}
 	if args.GatewayIpConfigurations == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayIpConfigurations'")
-	}
-	if args.HttpListeners == nil {
-		return nil, errors.New("invalid value for required argument 'HttpListeners'")
-	}
-	if args.RequestRoutingRules == nil {
-		return nil, errors.New("invalid value for required argument 'RequestRoutingRules'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -320,7 +329,13 @@ type applicationGatewayState struct {
 	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
 	BackendHttpSettings []ApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
+	// One or more `backend` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+	Backends []ApplicationGatewayBackend `pulumi:"backends"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
@@ -342,9 +357,15 @@ type applicationGatewayState struct {
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// One or more `httpListener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
 	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// An `identity` block as defined below.
 	Identity *ApplicationGatewayIdentity `pulumi:"identity"`
+	// One or more `listener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
+	Listeners []ApplicationGatewayListener `pulumi:"listeners"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -358,11 +379,17 @@ type applicationGatewayState struct {
 	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations []ApplicationGatewayRedirectConfiguration `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
 	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets []ApplicationGatewayRewriteRuleSet `pulumi:"rewriteRuleSets"`
+	// One or more `routingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+	RoutingRules []ApplicationGatewayRoutingRule `pulumi:"routingRules"`
 	// A `sku` block as defined below.
 	Sku *ApplicationGatewaySku `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
@@ -395,7 +422,13 @@ type ApplicationGatewayState struct {
 	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
 	// One or more `backendHttpSettings` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayInput
+	// One or more `backend` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+	Backends ApplicationGatewayBackendArrayInput
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
@@ -417,9 +450,15 @@ type ApplicationGatewayState struct {
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput
 	// One or more `httpListener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
 	HttpListeners ApplicationGatewayHttpListenerArrayInput
 	// An `identity` block as defined below.
 	Identity ApplicationGatewayIdentityPtrInput
+	// One or more `listener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
+	Listeners ApplicationGatewayListenerArrayInput
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -433,11 +472,17 @@ type ApplicationGatewayState struct {
 	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayInput
 	// One or more `requestRoutingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets ApplicationGatewayRewriteRuleSetArrayInput
+	// One or more `routingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+	RoutingRules ApplicationGatewayRoutingRuleArrayInput
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySkuPtrInput
 	// One or more `sslCertificate` blocks as defined below.
@@ -474,7 +519,13 @@ type applicationGatewayArgs struct {
 	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
 	BackendHttpSettings []ApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
+	// One or more `backend` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+	Backends []ApplicationGatewayBackend `pulumi:"backends"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
@@ -496,9 +547,15 @@ type applicationGatewayArgs struct {
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// One or more `httpListener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
 	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// An `identity` block as defined below.
 	Identity *ApplicationGatewayIdentity `pulumi:"identity"`
+	// One or more `listener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
+	Listeners []ApplicationGatewayListener `pulumi:"listeners"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -510,11 +567,17 @@ type applicationGatewayArgs struct {
 	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations []ApplicationGatewayRedirectConfiguration `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
 	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets []ApplicationGatewayRewriteRuleSet `pulumi:"rewriteRuleSets"`
+	// One or more `routingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+	RoutingRules []ApplicationGatewayRoutingRule `pulumi:"routingRules"`
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySku `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
@@ -548,7 +611,13 @@ type ApplicationGatewayArgs struct {
 	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
 	// One or more `backendHttpSettings` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayInput
+	// One or more `backend` blocks as defined below.
+	//
+	// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+	Backends ApplicationGatewayBackendArrayInput
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
@@ -570,9 +639,15 @@ type ApplicationGatewayArgs struct {
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput
 	// One or more `httpListener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
 	HttpListeners ApplicationGatewayHttpListenerArrayInput
 	// An `identity` block as defined below.
 	Identity ApplicationGatewayIdentityPtrInput
+	// One or more `listener` blocks as defined below.
+	//
+	// > **Note:** At least one of `httpListener` or `listener` must be specified.
+	Listeners ApplicationGatewayListenerArrayInput
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -584,11 +659,17 @@ type ApplicationGatewayArgs struct {
 	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayInput
 	// One or more `requestRoutingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets ApplicationGatewayRewriteRuleSetArrayInput
+	// One or more `routingRule` blocks as defined below.
+	//
+	// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+	RoutingRules ApplicationGatewayRoutingRuleArrayInput
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySkuInput
 	// One or more `sslCertificate` blocks as defined below.
@@ -722,10 +803,19 @@ func (o ApplicationGatewayOutput) BackendAddressPools() ApplicationGatewayBacken
 }
 
 // One or more `backendHttpSettings` blocks as defined below.
+//
+// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
 func (o ApplicationGatewayOutput) BackendHttpSettings() ApplicationGatewayBackendHttpSettingArrayOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayBackendHttpSettingArrayOutput {
 		return v.BackendHttpSettings
 	}).(ApplicationGatewayBackendHttpSettingArrayOutput)
+}
+
+// One or more `backend` blocks as defined below.
+//
+// > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+func (o ApplicationGatewayOutput) Backends() ApplicationGatewayBackendArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayBackendArrayOutput { return v.Backends }).(ApplicationGatewayBackendArrayOutput)
 }
 
 // One or more `customErrorConfiguration` blocks as defined below.
@@ -785,6 +875,8 @@ func (o ApplicationGatewayOutput) Http2Enabled() pulumi.BoolOutput {
 }
 
 // One or more `httpListener` blocks as defined below.
+//
+// > **Note:** At least one of `httpListener` or `listener` must be specified.
 func (o ApplicationGatewayOutput) HttpListeners() ApplicationGatewayHttpListenerArrayOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayHttpListenerArrayOutput { return v.HttpListeners }).(ApplicationGatewayHttpListenerArrayOutput)
 }
@@ -792,6 +884,13 @@ func (o ApplicationGatewayOutput) HttpListeners() ApplicationGatewayHttpListener
 // An `identity` block as defined below.
 func (o ApplicationGatewayOutput) Identity() ApplicationGatewayIdentityPtrOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayIdentityPtrOutput { return v.Identity }).(ApplicationGatewayIdentityPtrOutput)
+}
+
+// One or more `listener` blocks as defined below.
+//
+// > **Note:** At least one of `httpListener` or `listener` must be specified.
+func (o ApplicationGatewayOutput) Listeners() ApplicationGatewayListenerArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayListenerArrayOutput { return v.Listeners }).(ApplicationGatewayListenerArrayOutput)
 }
 
 // The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -831,6 +930,8 @@ func (o ApplicationGatewayOutput) RedirectConfigurations() ApplicationGatewayRed
 }
 
 // One or more `requestRoutingRule` blocks as defined below.
+//
+// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
 func (o ApplicationGatewayOutput) RequestRoutingRules() ApplicationGatewayRequestRoutingRuleArrayOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRequestRoutingRuleArrayOutput {
 		return v.RequestRoutingRules
@@ -845,6 +946,13 @@ func (o ApplicationGatewayOutput) ResourceGroupName() pulumi.StringOutput {
 // One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 func (o ApplicationGatewayOutput) RewriteRuleSets() ApplicationGatewayRewriteRuleSetArrayOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRewriteRuleSetArrayOutput { return v.RewriteRuleSets }).(ApplicationGatewayRewriteRuleSetArrayOutput)
+}
+
+// One or more `routingRule` blocks as defined below.
+//
+// > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+func (o ApplicationGatewayOutput) RoutingRules() ApplicationGatewayRoutingRuleArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRoutingRuleArrayOutput { return v.RoutingRules }).(ApplicationGatewayRoutingRuleArrayOutput)
 }
 
 // A `sku` block as defined below.

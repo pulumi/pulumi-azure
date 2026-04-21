@@ -53,7 +53,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "standardv3_Monthly",
  *     location: example.location,
- *     diagnoseSupportEnabled: true,
  *     automaticUpgradeChannel: "stable",
  *     frontendPublic: {
  *         ipAddresses: [examplePublicIp.id],
@@ -128,7 +127,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dataplaneApiEndpoint: pulumi.Output<string>;
     /**
-     * Should the metrics be exported to Azure Monitor?
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      */
     declare public readonly diagnoseSupportEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -286,7 +285,7 @@ export interface DeploymentState {
      */
     dataplaneApiEndpoint?: pulumi.Input<string>;
     /**
-     * Should the metrics be exported to Azure Monitor?
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      */
     diagnoseSupportEnabled?: pulumi.Input<boolean>;
     /**
@@ -374,7 +373,7 @@ export interface DeploymentArgs {
      */
     capacity?: pulumi.Input<number>;
     /**
-     * Should the metrics be exported to Azure Monitor?
+     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
      */
     diagnoseSupportEnabled?: pulumi.Input<boolean>;
     /**

@@ -48,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-06-01
+// * `Microsoft.NetApp` - 2025-12-01
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeResult
@@ -78,6 +78,8 @@ type LookupVolumeResult struct {
 	// The accept grow capacity pool for short term clone split property.
 	AcceptGrowCapacityPoolForShortTermCloneSplit string `pulumi:"acceptGrowCapacityPoolForShortTermCloneSplit"`
 	AccountName                                  string `pulumi:"accountName"`
+	// An Advanced Ransomware Protection (ARP) data protection block.
+	DataProtectionAdvancedRansomwares []GetVolumeDataProtectionAdvancedRansomware `pulumi:"dataProtectionAdvancedRansomwares"`
 	// A data protecion backup policy block
 	DataProtectionBackupPolicies []GetVolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicies"`
 	// Volume data protection replication block
@@ -166,6 +168,13 @@ func (o LookupVolumeResultOutput) AcceptGrowCapacityPoolForShortTermCloneSplit()
 
 func (o LookupVolumeResultOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// An Advanced Ransomware Protection (ARP) data protection block.
+func (o LookupVolumeResultOutput) DataProtectionAdvancedRansomwares() GetVolumeDataProtectionAdvancedRansomwareArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionAdvancedRansomware {
+		return v.DataProtectionAdvancedRansomwares
+	}).(GetVolumeDataProtectionAdvancedRansomwareArrayOutput)
 }
 
 // A data protecion backup policy block

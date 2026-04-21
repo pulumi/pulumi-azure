@@ -15,6 +15,8 @@ import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
 import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypePlainArgs;
 import com.pulumi.azure.devcenter.inputs.GetGalleryArgs;
 import com.pulumi.azure.devcenter.inputs.GetGalleryPlainArgs;
+import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
+import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolPlainArgs;
 import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionArgs;
 import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionPlainArgs;
 import com.pulumi.azure.devcenter.inputs.GetPlainArgs;
@@ -29,6 +31,7 @@ import com.pulumi.azure.devcenter.outputs.GetCatalogResult;
 import com.pulumi.azure.devcenter.outputs.GetDevBoxDefinitionResult;
 import com.pulumi.azure.devcenter.outputs.GetEnvironmentTypeResult;
 import com.pulumi.azure.devcenter.outputs.GetGalleryResult;
+import com.pulumi.azure.devcenter.outputs.GetManagedDevOpsPoolResult;
 import com.pulumi.azure.devcenter.outputs.GetNetworkConnectionResult;
 import com.pulumi.azure.devcenter.outputs.GetProjectEnvironmentTypeResult;
 import com.pulumi.azure.devcenter.outputs.GetProjectPoolResult;
@@ -1511,6 +1514,251 @@ public final class DevcenterFunctions {
      */
     public static CompletableFuture<GetGalleryResult> getGalleryPlain(GetGalleryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:devcenter/getGallery:getGallery", TypeShape.of(GetGalleryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed DevOps Pool.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getManagedDevOpsPool(GetManagedDevOpsPoolArgs.builder()
+     *             .name("example-mdp")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevOpsInfrastructure` - 2025-09-20
+     * 
+     */
+    public static Output<GetManagedDevOpsPoolResult> getManagedDevOpsPool(GetManagedDevOpsPoolArgs args) {
+        return getManagedDevOpsPool(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed DevOps Pool.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getManagedDevOpsPool(GetManagedDevOpsPoolArgs.builder()
+     *             .name("example-mdp")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevOpsInfrastructure` - 2025-09-20
+     * 
+     */
+    public static CompletableFuture<GetManagedDevOpsPoolResult> getManagedDevOpsPoolPlain(GetManagedDevOpsPoolPlainArgs args) {
+        return getManagedDevOpsPoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed DevOps Pool.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getManagedDevOpsPool(GetManagedDevOpsPoolArgs.builder()
+     *             .name("example-mdp")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevOpsInfrastructure` - 2025-09-20
+     * 
+     */
+    public static Output<GetManagedDevOpsPoolResult> getManagedDevOpsPool(GetManagedDevOpsPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:devcenter/getManagedDevOpsPool:getManagedDevOpsPool", TypeShape.of(GetManagedDevOpsPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed DevOps Pool.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getManagedDevOpsPool(GetManagedDevOpsPoolArgs.builder()
+     *             .name("example-mdp")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevOpsInfrastructure` - 2025-09-20
+     * 
+     */
+    public static Output<GetManagedDevOpsPoolResult> getManagedDevOpsPool(GetManagedDevOpsPoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:devcenter/getManagedDevOpsPool:getManagedDevOpsPool", TypeShape.of(GetManagedDevOpsPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed DevOps Pool.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devcenter.DevcenterFunctions;
+     * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevcenterFunctions.getManagedDevOpsPool(GetManagedDevOpsPoolArgs.builder()
+     *             .name("example-mdp")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DevOpsInfrastructure` - 2025-09-20
+     * 
+     */
+    public static CompletableFuture<GetManagedDevOpsPoolResult> getManagedDevOpsPoolPlain(GetManagedDevOpsPoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:devcenter/getManagedDevOpsPool:getManagedDevOpsPool", TypeShape.of(GetManagedDevOpsPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Dev Center Network Connection.

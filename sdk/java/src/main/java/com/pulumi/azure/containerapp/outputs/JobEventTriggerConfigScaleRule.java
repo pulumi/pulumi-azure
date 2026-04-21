@@ -10,6 +10,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -24,6 +25,11 @@ public final class JobEventTriggerConfigScaleRule {
      * 
      */
     private String customRuleType;
+    /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    private @Nullable String identityId;
     /**
      * @return Metadata properties to describe the scale rule.
      * 
@@ -51,6 +57,13 @@ public final class JobEventTriggerConfigScaleRule {
         return this.customRuleType;
     }
     /**
+     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * 
+     */
+    public Optional<String> identityId() {
+        return Optional.ofNullable(this.identityId);
+    }
+    /**
      * @return Metadata properties to describe the scale rule.
      * 
      */
@@ -76,6 +89,7 @@ public final class JobEventTriggerConfigScaleRule {
     public static final class Builder {
         private @Nullable List<JobEventTriggerConfigScaleRuleAuthentication> authentications;
         private String customRuleType;
+        private @Nullable String identityId;
         private Map<String,String> metadata;
         private String name;
         public Builder() {}
@@ -83,6 +97,7 @@ public final class JobEventTriggerConfigScaleRule {
     	      Objects.requireNonNull(defaults);
     	      this.authentications = defaults.authentications;
     	      this.customRuleType = defaults.customRuleType;
+    	      this.identityId = defaults.identityId;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
         }
@@ -105,6 +120,12 @@ public final class JobEventTriggerConfigScaleRule {
             return this;
         }
         @CustomType.Setter
+        public Builder identityId(@Nullable String identityId) {
+
+            this.identityId = identityId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
             if (metadata == null) {
               throw new MissingRequiredPropertyException("JobEventTriggerConfigScaleRule", "metadata");
@@ -124,6 +145,7 @@ public final class JobEventTriggerConfigScaleRule {
             final var _resultValue = new JobEventTriggerConfigScaleRule();
             _resultValue.authentications = authentications;
             _resultValue.customRuleType = customRuleType;
+            _resultValue.identityId = identityId;
             _resultValue.metadata = metadata;
             _resultValue.name = name;
             return _resultValue;

@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnvironmentCustomDomain{}
 	case "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent":
 		r = &EnvironmentDaprComponent{}
+	case "azure:containerapp/environmentManagedCertificate:EnvironmentManagedCertificate":
+		r = &EnvironmentManagedCertificate{}
 	case "azure:containerapp/environmentStorage:EnvironmentStorage":
 		r = &EnvironmentStorage{}
 	case "azure:containerapp/job:Job":
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerapp/environmentDaprComponent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerapp/environmentManagedCertificate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

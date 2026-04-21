@@ -89,11 +89,11 @@ type PublicIpPrefix struct {
 	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -154,11 +154,11 @@ type publicIpPrefixState struct {
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -187,11 +187,11 @@ type PublicIpPrefixState struct {
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -222,11 +222,11 @@ type publicIpPrefixArgs struct {
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -254,11 +254,11 @@ type PublicIpPrefixArgs struct {
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+	// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
-	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -394,14 +394,14 @@ func (o PublicIpPrefixOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicIpPrefix) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-//
-// > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+// The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
 func (o PublicIpPrefixOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpPrefix) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+// The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 func (o PublicIpPrefixOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIpPrefix) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
 }

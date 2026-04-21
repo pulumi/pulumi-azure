@@ -113,12 +113,16 @@ public class NatGatewayPublicIpAssociation extends com.pulumi.resources.CustomRe
     /**
      * The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * 
      */
     @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
     private Output<String> publicIpAddressId;
 
     /**
      * @return The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
      * 
      */
     public Output<String> publicIpAddressId() {

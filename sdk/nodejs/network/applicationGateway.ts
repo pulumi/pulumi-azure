@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Application Gateway's can be imported using the `resource id`, e.g.
+ * An Application Gateway can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:network/applicationGateway:ApplicationGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationGateways/myGateway1
@@ -155,8 +155,16 @@ export class ApplicationGateway extends pulumi.CustomResource {
     declare public readonly backendAddressPools: pulumi.Output<outputs.network.ApplicationGatewayBackendAddressPool[]>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
+     *
+     * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
      */
-    declare public readonly backendHttpSettings: pulumi.Output<outputs.network.ApplicationGatewayBackendHttpSetting[]>;
+    declare public readonly backendHttpSettings: pulumi.Output<outputs.network.ApplicationGatewayBackendHttpSetting[] | undefined>;
+    /**
+     * One or more `backend` blocks as defined below.
+     *
+     * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     */
+    declare public readonly backends: pulumi.Output<outputs.network.ApplicationGatewayBackend[] | undefined>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
@@ -199,12 +207,20 @@ export class ApplicationGateway extends pulumi.CustomResource {
     declare public readonly http2Enabled: pulumi.Output<boolean>;
     /**
      * One or more `httpListener` blocks as defined below.
+     *
+     * > **Note:** At least one of `httpListener` or `listener` must be specified.
      */
-    declare public readonly httpListeners: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[]>;
+    declare public readonly httpListeners: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
     declare public readonly identity: pulumi.Output<outputs.network.ApplicationGatewayIdentity | undefined>;
+    /**
+     * One or more `listener` blocks as defined below.
+     *
+     * > **Note:** At least one of `httpListener` or `listener` must be specified.
+     */
+    declare public readonly listeners: pulumi.Output<outputs.network.ApplicationGatewayListener[] | undefined>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -231,8 +247,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
     declare public readonly redirectConfigurations: pulumi.Output<outputs.network.ApplicationGatewayRedirectConfiguration[] | undefined>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
+     *
+     * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      */
-    declare public readonly requestRoutingRules: pulumi.Output<outputs.network.ApplicationGatewayRequestRoutingRule[]>;
+    declare public readonly requestRoutingRules: pulumi.Output<outputs.network.ApplicationGatewayRequestRoutingRule[] | undefined>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -241,6 +259,12 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
     declare public readonly rewriteRuleSets: pulumi.Output<outputs.network.ApplicationGatewayRewriteRuleSet[] | undefined>;
+    /**
+     * One or more `routingRule` blocks as defined below.
+     *
+     * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     */
+    declare public readonly routingRules: pulumi.Output<outputs.network.ApplicationGatewayRoutingRule[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
@@ -301,6 +325,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["autoscaleConfiguration"] = state?.autoscaleConfiguration;
             resourceInputs["backendAddressPools"] = state?.backendAddressPools;
             resourceInputs["backendHttpSettings"] = state?.backendHttpSettings;
+            resourceInputs["backends"] = state?.backends;
             resourceInputs["customErrorConfigurations"] = state?.customErrorConfigurations;
             resourceInputs["enableHttp2"] = state?.enableHttp2;
             resourceInputs["fipsEnabled"] = state?.fipsEnabled;
@@ -313,6 +338,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["http2Enabled"] = state?.http2Enabled;
             resourceInputs["httpListeners"] = state?.httpListeners;
             resourceInputs["identity"] = state?.identity;
+            resourceInputs["listeners"] = state?.listeners;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["privateEndpointConnections"] = state?.privateEndpointConnections;
@@ -322,6 +348,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["requestRoutingRules"] = state?.requestRoutingRules;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["rewriteRuleSets"] = state?.rewriteRuleSets;
+            resourceInputs["routingRules"] = state?.routingRules;
             resourceInputs["sku"] = state?.sku;
             resourceInputs["sslCertificates"] = state?.sslCertificates;
             resourceInputs["sslPolicy"] = state?.sslPolicy;
@@ -337,9 +364,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             if (args?.backendAddressPools === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendAddressPools'");
             }
-            if (args?.backendHttpSettings === undefined && !opts.urn) {
-                throw new Error("Missing required property 'backendHttpSettings'");
-            }
             if (args?.frontendIpConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendIpConfigurations'");
             }
@@ -348,12 +372,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             }
             if (args?.gatewayIpConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayIpConfigurations'");
-            }
-            if (args?.httpListeners === undefined && !opts.urn) {
-                throw new Error("Missing required property 'httpListeners'");
-            }
-            if (args?.requestRoutingRules === undefined && !opts.urn) {
-                throw new Error("Missing required property 'requestRoutingRules'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -365,6 +383,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["autoscaleConfiguration"] = args?.autoscaleConfiguration;
             resourceInputs["backendAddressPools"] = args?.backendAddressPools;
             resourceInputs["backendHttpSettings"] = args?.backendHttpSettings;
+            resourceInputs["backends"] = args?.backends;
             resourceInputs["customErrorConfigurations"] = args?.customErrorConfigurations;
             resourceInputs["enableHttp2"] = args?.enableHttp2;
             resourceInputs["fipsEnabled"] = args?.fipsEnabled;
@@ -377,6 +396,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["http2Enabled"] = args?.http2Enabled;
             resourceInputs["httpListeners"] = args?.httpListeners;
             resourceInputs["identity"] = args?.identity;
+            resourceInputs["listeners"] = args?.listeners;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["privateLinkConfigurations"] = args?.privateLinkConfigurations;
@@ -385,6 +405,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["requestRoutingRules"] = args?.requestRoutingRules;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["rewriteRuleSets"] = args?.rewriteRuleSets;
+            resourceInputs["routingRules"] = args?.routingRules;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["sslCertificates"] = args?.sslCertificates;
             resourceInputs["sslPolicy"] = args?.sslPolicy;
@@ -420,8 +441,16 @@ export interface ApplicationGatewayState {
     backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendAddressPool>[]>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
+     *
+     * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
      */
     backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
+    /**
+     * One or more `backend` blocks as defined below.
+     *
+     * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     */
+    backends?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackend>[]>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
@@ -464,12 +493,20 @@ export interface ApplicationGatewayState {
     http2Enabled?: pulumi.Input<boolean>;
     /**
      * One or more `httpListener` blocks as defined below.
+     *
+     * > **Note:** At least one of `httpListener` or `listener` must be specified.
      */
     httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
     /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
+    /**
+     * One or more `listener` blocks as defined below.
+     *
+     * > **Note:** At least one of `httpListener` or `listener` must be specified.
+     */
+    listeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayListener>[]>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -496,6 +533,8 @@ export interface ApplicationGatewayState {
     redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
+     *
+     * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      */
     requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[]>;
     /**
@@ -506,6 +545,12 @@ export interface ApplicationGatewayState {
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
     rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
+    /**
+     * One or more `routingRule` blocks as defined below.
+     *
+     * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     */
+    routingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRoutingRule>[]>;
     /**
      * A `sku` block as defined below.
      */
@@ -568,8 +613,16 @@ export interface ApplicationGatewayArgs {
     backendAddressPools: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendAddressPool>[]>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
+     *
+     * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
      */
-    backendHttpSettings: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
+    backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
+    /**
+     * One or more `backend` blocks as defined below.
+     *
+     * > **Note:** At least one of `backendHttpSettings` or `backend` must be specified.
+     */
+    backends?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackend>[]>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
@@ -612,12 +665,20 @@ export interface ApplicationGatewayArgs {
     http2Enabled?: pulumi.Input<boolean>;
     /**
      * One or more `httpListener` blocks as defined below.
+     *
+     * > **Note:** At least one of `httpListener` or `listener` must be specified.
      */
-    httpListeners: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
+    httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
     /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
+    /**
+     * One or more `listener` blocks as defined below.
+     *
+     * > **Note:** At least one of `httpListener` or `listener` must be specified.
+     */
+    listeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayListener>[]>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -640,8 +701,10 @@ export interface ApplicationGatewayArgs {
     redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
+     *
+     * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
      */
-    requestRoutingRules: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[]>;
+    requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -650,6 +713,12 @@ export interface ApplicationGatewayArgs {
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
     rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
+    /**
+     * One or more `routingRule` blocks as defined below.
+     *
+     * > **Note:** At least one of `requestRoutingRule` or `routingRule` must be specified.
+     */
+    routingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRoutingRule>[]>;
     /**
      * A `sku` block as defined below.
      */

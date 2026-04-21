@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnvironmentType{}
 	case "azure:devcenter/gallery:Gallery":
 		r = &Gallery{}
+	case "azure:devcenter/managedDevOpsPool:ManagedDevOpsPool":
+		r = &ManagedDevOpsPool{}
 	case "azure:devcenter/networkConnection:NetworkConnection":
 		r = &NetworkConnection{}
 	case "azure:devcenter/project:Project":
@@ -82,6 +84,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"devcenter/gallery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"devcenter/managedDevOpsPool",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

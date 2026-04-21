@@ -135,6 +135,11 @@ export type ResourcePolicyRemediation = import("./resourcePolicyRemediation").Re
 export const ResourcePolicyRemediation: typeof import("./resourcePolicyRemediation").ResourcePolicyRemediation = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicyRemediation"], () => require("./resourcePolicyRemediation"));
 
+export { ResourceProviderFeatureRegistrationArgs, ResourceProviderFeatureRegistrationState } from "./resourceProviderFeatureRegistration";
+export type ResourceProviderFeatureRegistration = import("./resourceProviderFeatureRegistration").ResourceProviderFeatureRegistration;
+export const ResourceProviderFeatureRegistration: typeof import("./resourceProviderFeatureRegistration").ResourceProviderFeatureRegistration = null as any;
+utilities.lazyLoad(exports, ["ResourceProviderFeatureRegistration"], () => require("./resourceProviderFeatureRegistration"));
+
 export { ResourceProviderRegistrationArgs, ResourceProviderRegistrationState } from "./resourceProviderRegistration";
 export type ResourceProviderRegistration = import("./resourceProviderRegistration").ResourceProviderRegistration;
 export const ResourceProviderRegistration: typeof import("./resourceProviderRegistration").ResourceProviderRegistration = null as any;
@@ -214,6 +219,8 @@ const _module = {
                 return new ResourcePolicyExemption(name, <any>undefined, { urn })
             case "azure:core/resourcePolicyRemediation:ResourcePolicyRemediation":
                 return new ResourcePolicyRemediation(name, <any>undefined, { urn })
+            case "azure:core/resourceProviderFeatureRegistration:ResourceProviderFeatureRegistration":
+                return new ResourceProviderFeatureRegistration(name, <any>undefined, { urn })
             case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
                 return new ResourceProviderRegistration(name, <any>undefined, { urn })
             case "azure:core/subscription:Subscription":
@@ -251,6 +258,7 @@ pulumi.runtime.registerResourceModule("azure", "core/resourceGroupTemplateDeploy
 pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyRemediation", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourceProviderFeatureRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceProviderRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscription", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionCostManagementExport", _module)

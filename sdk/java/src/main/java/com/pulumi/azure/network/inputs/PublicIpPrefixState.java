@@ -132,18 +132,14 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+     * The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+     * @return The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -151,14 +147,18 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     @Import(name="skuTier")
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * @return The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -389,9 +389,7 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sku The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+         * @param sku The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -402,9 +400,7 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sku The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+         * @param sku The SKU of the Public IP Prefix. Possible values are `Standard` and `StandardV2`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -414,7 +410,9 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * @param skuTier The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
          * 
          * @return builder
          * 
@@ -425,7 +423,9 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * @param skuTier The SKU Tier that should be used for the Public IP Prefix. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
          * 
          * @return builder
          * 

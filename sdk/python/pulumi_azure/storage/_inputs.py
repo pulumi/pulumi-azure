@@ -4076,342 +4076,512 @@ class TableAclAccessPolicyArgs:
 
 
 class GetAccountBlobContainerSASPermissionsArgsDict(TypedDict):
-    add: _builtins.bool
+    add: NotRequired[_builtins.bool]
     """
     Should Add permissions be enabled for this SAS?
     """
-    create: _builtins.bool
+    create: NotRequired[_builtins.bool]
     """
     Should Create permissions be enabled for this SAS?
     """
-    delete: _builtins.bool
+    delete: NotRequired[_builtins.bool]
     """
     Should Delete permissions be enabled for this SAS?
     """
-    list: _builtins.bool
+    delete_version: NotRequired[_builtins.bool]
+    """
+    Should Delete version permissions be enabled for this SAS?
+    """
+    execute: NotRequired[_builtins.bool]
+    """
+    Should Execute permissions be enabled for this SAS?
+    """
+    find: NotRequired[_builtins.bool]
+    """
+    Should Find permissions be enabled for this SAS?
+    """
+    list: NotRequired[_builtins.bool]
     """
     Should List permissions be enabled for this SAS?
-
-    Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-    for additional details on the fields above.
     """
-    read: _builtins.bool
+    move: NotRequired[_builtins.bool]
+    """
+    Should Move permissions be enabled for this SAS?
+    """
+    ownership: NotRequired[_builtins.bool]
+    """
+    Should Ownership permissions be enabled for this SAS?
+    """
+    permissions: NotRequired[_builtins.bool]
+    """
+    Should Permissions permissions be enabled for this SAS?
+    """
+    read: NotRequired[_builtins.bool]
     """
     Should Read permissions be enabled for this SAS?
     """
-    write: _builtins.bool
+    set_immutability_policy: NotRequired[_builtins.bool]
+    """
+    Should Set Immutability Policy permissions be enabled for this SAS?
+    """
+    tags: NotRequired[_builtins.bool]
+    """
+    Should Tags permissions be enabled for this SAS?
+    """
+    write: NotRequired[_builtins.bool]
     """
     Should Write permissions be enabled for this SAS?
+
+    > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
     """
 
 @pulumi.input_type
 class GetAccountBlobContainerSASPermissionsArgs:
     def __init__(__self__, *,
-                 add: _builtins.bool,
-                 create: _builtins.bool,
-                 delete: _builtins.bool,
-                 list: _builtins.bool,
-                 read: _builtins.bool,
-                 write: _builtins.bool):
+                 add: Optional[_builtins.bool] = None,
+                 create: Optional[_builtins.bool] = None,
+                 delete: Optional[_builtins.bool] = None,
+                 delete_version: Optional[_builtins.bool] = None,
+                 execute: Optional[_builtins.bool] = None,
+                 find: Optional[_builtins.bool] = None,
+                 list: Optional[_builtins.bool] = None,
+                 move: Optional[_builtins.bool] = None,
+                 ownership: Optional[_builtins.bool] = None,
+                 permissions: Optional[_builtins.bool] = None,
+                 read: Optional[_builtins.bool] = None,
+                 set_immutability_policy: Optional[_builtins.bool] = None,
+                 tags: Optional[_builtins.bool] = None,
+                 write: Optional[_builtins.bool] = None):
         """
         :param _builtins.bool add: Should Add permissions be enabled for this SAS?
         :param _builtins.bool create: Should Create permissions be enabled for this SAS?
         :param _builtins.bool delete: Should Delete permissions be enabled for this SAS?
+        :param _builtins.bool delete_version: Should Delete version permissions be enabled for this SAS?
+        :param _builtins.bool execute: Should Execute permissions be enabled for this SAS?
+        :param _builtins.bool find: Should Find permissions be enabled for this SAS?
         :param _builtins.bool list: Should List permissions be enabled for this SAS?
-               
-               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-               for additional details on the fields above.
+        :param _builtins.bool move: Should Move permissions be enabled for this SAS?
+        :param _builtins.bool ownership: Should Ownership permissions be enabled for this SAS?
+        :param _builtins.bool permissions: Should Permissions permissions be enabled for this SAS?
         :param _builtins.bool read: Should Read permissions be enabled for this SAS?
+        :param _builtins.bool set_immutability_policy: Should Set Immutability Policy permissions be enabled for this SAS?
+        :param _builtins.bool tags: Should Tags permissions be enabled for this SAS?
         :param _builtins.bool write: Should Write permissions be enabled for this SAS?
+               
+               > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
         """
-        pulumi.set(__self__, "add", add)
-        pulumi.set(__self__, "create", create)
-        pulumi.set(__self__, "delete", delete)
-        pulumi.set(__self__, "list", list)
-        pulumi.set(__self__, "read", read)
-        pulumi.set(__self__, "write", write)
+        if add is not None:
+            pulumi.set(__self__, "add", add)
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if delete_version is not None:
+            pulumi.set(__self__, "delete_version", delete_version)
+        if execute is not None:
+            pulumi.set(__self__, "execute", execute)
+        if find is not None:
+            pulumi.set(__self__, "find", find)
+        if list is not None:
+            pulumi.set(__self__, "list", list)
+        if move is not None:
+            pulumi.set(__self__, "move", move)
+        if ownership is not None:
+            pulumi.set(__self__, "ownership", ownership)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if read is not None:
+            pulumi.set(__self__, "read", read)
+        if set_immutability_policy is not None:
+            pulumi.set(__self__, "set_immutability_policy", set_immutability_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if write is not None:
+            pulumi.set(__self__, "write", write)
 
     @_builtins.property
     @pulumi.getter
-    def add(self) -> _builtins.bool:
+    def add(self) -> Optional[_builtins.bool]:
         """
         Should Add permissions be enabled for this SAS?
         """
         return pulumi.get(self, "add")
 
     @add.setter
-    def add(self, value: _builtins.bool):
+    def add(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "add", value)
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> _builtins.bool:
+    def create(self) -> Optional[_builtins.bool]:
         """
         Should Create permissions be enabled for this SAS?
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: _builtins.bool):
+    def create(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> _builtins.bool:
+    def delete(self) -> Optional[_builtins.bool]:
         """
         Should Delete permissions be enabled for this SAS?
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: _builtins.bool):
+    def delete(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
+    @pulumi.getter(name="deleteVersion")
+    def delete_version(self) -> Optional[_builtins.bool]:
+        """
+        Should Delete version permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "delete_version")
+
+    @delete_version.setter
+    def delete_version(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "delete_version", value)
+
+    @_builtins.property
     @pulumi.getter
-    def list(self) -> _builtins.bool:
+    def execute(self) -> Optional[_builtins.bool]:
+        """
+        Should Execute permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "execute")
+
+    @execute.setter
+    def execute(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "execute", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def find(self) -> Optional[_builtins.bool]:
+        """
+        Should Find permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "find")
+
+    @find.setter
+    def find(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "find", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def list(self) -> Optional[_builtins.bool]:
         """
         Should List permissions be enabled for this SAS?
-
-        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
-        for additional details on the fields above.
         """
         return pulumi.get(self, "list")
 
     @list.setter
-    def list(self, value: _builtins.bool):
+    def list(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "list", value)
 
     @_builtins.property
     @pulumi.getter
-    def read(self) -> _builtins.bool:
+    def move(self) -> Optional[_builtins.bool]:
+        """
+        Should Move permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "move")
+
+    @move.setter
+    def move(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "move", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ownership(self) -> Optional[_builtins.bool]:
+        """
+        Should Ownership permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "ownership")
+
+    @ownership.setter
+    def ownership(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "ownership", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> Optional[_builtins.bool]:
+        """
+        Should Permissions permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "permissions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def read(self) -> Optional[_builtins.bool]:
         """
         Should Read permissions be enabled for this SAS?
         """
         return pulumi.get(self, "read")
 
     @read.setter
-    def read(self, value: _builtins.bool):
+    def read(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "read", value)
 
     @_builtins.property
+    @pulumi.getter(name="setImmutabilityPolicy")
+    def set_immutability_policy(self) -> Optional[_builtins.bool]:
+        """
+        Should Set Immutability Policy permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "set_immutability_policy")
+
+    @set_immutability_policy.setter
+    def set_immutability_policy(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "set_immutability_policy", value)
+
+    @_builtins.property
     @pulumi.getter
-    def write(self) -> _builtins.bool:
+    def tags(self) -> Optional[_builtins.bool]:
+        """
+        Should Tags permissions be enabled for this SAS?
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def write(self) -> Optional[_builtins.bool]:
         """
         Should Write permissions be enabled for this SAS?
+
+        > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas) for additional details on the fields above.
         """
         return pulumi.get(self, "write")
 
     @write.setter
-    def write(self, value: _builtins.bool):
+    def write(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "write", value)
 
 
 class GetAccountSASPermissionsArgsDict(TypedDict):
-    add: _builtins.bool
+    add: NotRequired[_builtins.bool]
     """
     Should Add permissions be enabled for this SAS?
     """
-    create: _builtins.bool
+    create: NotRequired[_builtins.bool]
     """
     Should Create permissions be enabled for this SAS?
     """
-    delete: _builtins.bool
+    delete: NotRequired[_builtins.bool]
     """
     Should Delete permissions be enabled for this SAS?
     """
-    filter: _builtins.bool
+    filter: NotRequired[_builtins.bool]
     """
     Should Filter by Index Tags permissions be enabled for this SAS?
-
-    Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-    for additional details on the fields above.
     """
-    list: _builtins.bool
+    list: NotRequired[_builtins.bool]
     """
     Should List permissions be enabled for this SAS?
     """
-    process: _builtins.bool
+    process: NotRequired[_builtins.bool]
     """
     Should Process permissions be enabled for this SAS?
     """
-    read: _builtins.bool
+    read: NotRequired[_builtins.bool]
     """
     Should Read permissions be enabled for this SAS?
     """
-    tag: _builtins.bool
+    tag: NotRequired[_builtins.bool]
     """
     Should Get / Set Index Tags permissions be enabled for this SAS?
     """
-    update: _builtins.bool
+    update: NotRequired[_builtins.bool]
     """
     Should Update permissions be enabled for this SAS?
     """
-    write: _builtins.bool
+    write: NotRequired[_builtins.bool]
     """
     Should Write permissions be enabled for this SAS?
+
+    > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
     """
 
 @pulumi.input_type
 class GetAccountSASPermissionsArgs:
     def __init__(__self__, *,
-                 add: _builtins.bool,
-                 create: _builtins.bool,
-                 delete: _builtins.bool,
-                 filter: _builtins.bool,
-                 list: _builtins.bool,
-                 process: _builtins.bool,
-                 read: _builtins.bool,
-                 tag: _builtins.bool,
-                 update: _builtins.bool,
-                 write: _builtins.bool):
+                 add: Optional[_builtins.bool] = None,
+                 create: Optional[_builtins.bool] = None,
+                 delete: Optional[_builtins.bool] = None,
+                 filter: Optional[_builtins.bool] = None,
+                 list: Optional[_builtins.bool] = None,
+                 process: Optional[_builtins.bool] = None,
+                 read: Optional[_builtins.bool] = None,
+                 tag: Optional[_builtins.bool] = None,
+                 update: Optional[_builtins.bool] = None,
+                 write: Optional[_builtins.bool] = None):
         """
         :param _builtins.bool add: Should Add permissions be enabled for this SAS?
         :param _builtins.bool create: Should Create permissions be enabled for this SAS?
         :param _builtins.bool delete: Should Delete permissions be enabled for this SAS?
         :param _builtins.bool filter: Should Filter by Index Tags permissions be enabled for this SAS?
-               
-               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-               for additional details on the fields above.
         :param _builtins.bool list: Should List permissions be enabled for this SAS?
         :param _builtins.bool process: Should Process permissions be enabled for this SAS?
         :param _builtins.bool read: Should Read permissions be enabled for this SAS?
         :param _builtins.bool tag: Should Get / Set Index Tags permissions be enabled for this SAS?
         :param _builtins.bool update: Should Update permissions be enabled for this SAS?
         :param _builtins.bool write: Should Write permissions be enabled for this SAS?
+               
+               > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
         """
-        pulumi.set(__self__, "add", add)
-        pulumi.set(__self__, "create", create)
-        pulumi.set(__self__, "delete", delete)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "list", list)
-        pulumi.set(__self__, "process", process)
-        pulumi.set(__self__, "read", read)
-        pulumi.set(__self__, "tag", tag)
-        pulumi.set(__self__, "update", update)
-        pulumi.set(__self__, "write", write)
+        if add is not None:
+            pulumi.set(__self__, "add", add)
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if list is not None:
+            pulumi.set(__self__, "list", list)
+        if process is not None:
+            pulumi.set(__self__, "process", process)
+        if read is not None:
+            pulumi.set(__self__, "read", read)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+        if write is not None:
+            pulumi.set(__self__, "write", write)
 
     @_builtins.property
     @pulumi.getter
-    def add(self) -> _builtins.bool:
+    def add(self) -> Optional[_builtins.bool]:
         """
         Should Add permissions be enabled for this SAS?
         """
         return pulumi.get(self, "add")
 
     @add.setter
-    def add(self, value: _builtins.bool):
+    def add(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "add", value)
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> _builtins.bool:
+    def create(self) -> Optional[_builtins.bool]:
         """
         Should Create permissions be enabled for this SAS?
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: _builtins.bool):
+    def create(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> _builtins.bool:
+    def delete(self) -> Optional[_builtins.bool]:
         """
         Should Delete permissions be enabled for this SAS?
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: _builtins.bool):
+    def delete(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> _builtins.bool:
+    def filter(self) -> Optional[_builtins.bool]:
         """
         Should Filter by Index Tags permissions be enabled for this SAS?
-
-        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
-        for additional details on the fields above.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: _builtins.bool):
+    def filter(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def list(self) -> _builtins.bool:
+    def list(self) -> Optional[_builtins.bool]:
         """
         Should List permissions be enabled for this SAS?
         """
         return pulumi.get(self, "list")
 
     @list.setter
-    def list(self, value: _builtins.bool):
+    def list(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "list", value)
 
     @_builtins.property
     @pulumi.getter
-    def process(self) -> _builtins.bool:
+    def process(self) -> Optional[_builtins.bool]:
         """
         Should Process permissions be enabled for this SAS?
         """
         return pulumi.get(self, "process")
 
     @process.setter
-    def process(self, value: _builtins.bool):
+    def process(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "process", value)
 
     @_builtins.property
     @pulumi.getter
-    def read(self) -> _builtins.bool:
+    def read(self) -> Optional[_builtins.bool]:
         """
         Should Read permissions be enabled for this SAS?
         """
         return pulumi.get(self, "read")
 
     @read.setter
-    def read(self, value: _builtins.bool):
+    def read(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "read", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> _builtins.bool:
+    def tag(self) -> Optional[_builtins.bool]:
         """
         Should Get / Set Index Tags permissions be enabled for this SAS?
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: _builtins.bool):
+    def tag(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> _builtins.bool:
+    def update(self) -> Optional[_builtins.bool]:
         """
         Should Update permissions be enabled for this SAS?
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: _builtins.bool):
+    def update(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "update", value)
 
     @_builtins.property
     @pulumi.getter
-    def write(self) -> _builtins.bool:
+    def write(self) -> Optional[_builtins.bool]:
         """
         Should Write permissions be enabled for this SAS?
+
+        > **Note:** Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas) for additional details on the fields above.
         """
         return pulumi.get(self, "write")
 
     @write.setter
-    def write(self, value: _builtins.bool):
+    def write(self, value: Optional[_builtins.bool]):
         pulumi.set(self, "write", value)
 
 

@@ -115,6 +115,7 @@ namespace Pulumi.Azure.Monitoring
     ///                 { "key", "value" },
     ///                 { "key2", "value2" },
     ///             },
+    ///             EmailSubject = "Email Header",
     ///         },
     ///         Identity = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2IdentityArgs
     ///         {

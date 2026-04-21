@@ -117,6 +117,7 @@ import (
 //						"key":  pulumi.String("value"),
 //						"key2": pulumi.String("value2"),
 //					},
+//					EmailSubject: pulumi.String("Email Header"),
 //				},
 //				Identity: &monitoring.ScheduledQueryRulesAlertV2IdentityArgs{
 //					Type: pulumi.String("UserAssigned"),

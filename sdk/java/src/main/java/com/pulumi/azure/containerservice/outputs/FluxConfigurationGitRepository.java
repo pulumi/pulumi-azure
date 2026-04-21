@@ -34,7 +34,7 @@ public final class FluxConfigurationGitRepository {
      */
     private @Nullable String localAuthReference;
     /**
-     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
      * 
      */
     private @Nullable String provider;
@@ -104,7 +104,7 @@ public final class FluxConfigurationGitRepository {
         return Optional.ofNullable(this.localAuthReference);
     }
     /**
-     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`, `GitHub`.
      * 
      */
     public Optional<String> provider() {

@@ -49,6 +49,25 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+     * 
+     * &gt; **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+     * 
+     */
+    @Import(name="highAvailabilityReplicaCount")
+    private @Nullable Output<Integer> highAvailabilityReplicaCount;
+
+    /**
+     * @return Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+     * 
+     * &gt; **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+     * 
+     */
+    public Optional<Output<Integer>> highAvailabilityReplicaCount() {
+        return Optional.ofNullable(this.highAvailabilityReplicaCount);
+    }
+
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
@@ -236,6 +255,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
 
     private ElasticPoolState(ElasticPoolState $) {
         this.enclaveType = $.enclaveType;
+        this.highAvailabilityReplicaCount = $.highAvailabilityReplicaCount;
         this.licenseType = $.licenseType;
         this.location = $.location;
         this.maintenanceConfigurationName = $.maintenanceConfigurationName;
@@ -299,6 +319,31 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enclaveType(String enclaveType) {
             return enclaveType(Output.of(enclaveType));
+        }
+
+        /**
+         * @param highAvailabilityReplicaCount Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+         * 
+         * &gt; **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder highAvailabilityReplicaCount(@Nullable Output<Integer> highAvailabilityReplicaCount) {
+            $.highAvailabilityReplicaCount = highAvailabilityReplicaCount;
+            return this;
+        }
+
+        /**
+         * @param highAvailabilityReplicaCount Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
+         * 
+         * &gt; **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder highAvailabilityReplicaCount(Integer highAvailabilityReplicaCount) {
+            return highAvailabilityReplicaCount(Output.of(highAvailabilityReplicaCount));
         }
 
         /**

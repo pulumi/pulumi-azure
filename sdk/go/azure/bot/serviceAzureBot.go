@@ -14,78 +14,6 @@ import (
 
 // Manages an Azure Bot Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
-//				Name:              pulumi.String("example-appinsights"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				ApplicationType:   pulumi.String("web"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleApiKey, err := appinsights.NewApiKey(ctx, "example", &appinsights.ApiKeyArgs{
-//				Name:                  pulumi.String("example-appinsightsapikey"),
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				ReadPermissions: pulumi.StringArray{
-//					pulumi.String("aggregate"),
-//					pulumi.String("api"),
-//					pulumi.String("draft"),
-//					pulumi.String("extendqueries"),
-//					pulumi.String("search"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bot.NewServiceAzureBot(ctx, "example", &bot.ServiceAzureBotArgs{
-//				Name:                              pulumi.String("exampleazurebot"),
-//				ResourceGroupName:                 example.Name,
-//				Location:                          pulumi.String("global"),
-//				MicrosoftAppId:                    pulumi.String(pulumi.String(current.ClientId)),
-//				Sku:                               pulumi.String("F0"),
-//				Endpoint:                          pulumi.String("https://example.com"),
-//				DeveloperAppInsightsApiKey:        exampleApiKey.ApiKey,
-//				DeveloperAppInsightsApplicationId: exampleInsights.AppId,
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Azure Bot Services can be imported using the `resource id`, e.g.
@@ -127,7 +55,9 @@ type ServiceAzureBot struct {
 	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppTenantId pulumi.StringPtrOutput `pulumi:"microsoftAppTenantId"`
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
-	MicrosoftAppType pulumi.StringPtrOutput `pulumi:"microsoftAppType"`
+	//
+	// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+	MicrosoftAppType pulumi.StringOutput `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether public network access is enabled. Defaults to `true`.
@@ -223,6 +153,8 @@ type serviceAzureBotState struct {
 	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppTenantId *string `pulumi:"microsoftAppTenantId"`
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
 	MicrosoftAppType *string `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -270,6 +202,8 @@ type ServiceAzureBotState struct {
 	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppTenantId pulumi.StringPtrInput
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
 	MicrosoftAppType pulumi.StringPtrInput
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -321,6 +255,8 @@ type serviceAzureBotArgs struct {
 	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppTenantId *string `pulumi:"microsoftAppTenantId"`
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
 	MicrosoftAppType *string `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -369,6 +305,8 @@ type ServiceAzureBotArgs struct {
 	// The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
 	MicrosoftAppTenantId pulumi.StringPtrInput
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
 	MicrosoftAppType pulumi.StringPtrInput
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -544,8 +482,10 @@ func (o ServiceAzureBotOutput) MicrosoftAppTenantId() pulumi.StringPtrOutput {
 }
 
 // The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
-func (o ServiceAzureBotOutput) MicrosoftAppType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.MicrosoftAppType }).(pulumi.StringPtrOutput)
+//
+// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+func (o ServiceAzureBotOutput) MicrosoftAppType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringOutput { return v.MicrosoftAppType }).(pulumi.StringOutput)
 }
 
 // The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.

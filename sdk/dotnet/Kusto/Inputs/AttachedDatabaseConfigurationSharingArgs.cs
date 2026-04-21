@@ -36,6 +36,30 @@ namespace Pulumi.Azure.Kusto.Inputs
             set => _externalTablesToIncludes = value;
         }
 
+        [Input("functionsToExcludes")]
+        private InputList<string>? _functionsToExcludes;
+
+        /// <summary>
+        /// List of functions to exclude from the follower database.
+        /// </summary>
+        public InputList<string> FunctionsToExcludes
+        {
+            get => _functionsToExcludes ?? (_functionsToExcludes = new InputList<string>());
+            set => _functionsToExcludes = value;
+        }
+
+        [Input("functionsToIncludes")]
+        private InputList<string>? _functionsToIncludes;
+
+        /// <summary>
+        /// List of functions to include in the follower database.
+        /// </summary>
+        public InputList<string> FunctionsToIncludes
+        {
+            get => _functionsToIncludes ?? (_functionsToIncludes = new InputList<string>());
+            set => _functionsToIncludes = value;
+        }
+
         [Input("materializedViewsToExcludes")]
         private InputList<string>? _materializedViewsToExcludes;
 

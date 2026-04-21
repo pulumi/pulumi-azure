@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ConfigurationFeatureCustomFilter',
     'ConfigurationFeatureTargetingFilter',
     'ConfigurationFeatureTargetingFilterGroup',
     'ConfigurationFeatureTimewindowFilter',
@@ -35,6 +36,36 @@ __all__ = [
     'GetConfigurationStoreSecondaryReadKeyResult',
     'GetConfigurationStoreSecondaryWriteKeyResult',
 ]
+
+@pulumi.output_type
+class ConfigurationFeatureCustomFilter(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 parameters: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str name: The name of the parameter, this could be any string.
+        :param Mapping[str, _builtins.str] parameters: One or more `parameters` blocks as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the parameter, this could be any string.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        One or more `parameters` blocks as defined below.
+        """
+        return pulumi.get(self, "parameters")
+
 
 @pulumi.output_type
 class ConfigurationFeatureTargetingFilter(dict):

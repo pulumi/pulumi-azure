@@ -126,6 +126,21 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * 
+     */
+    @Import(name="rbacScopeId")
+    private @Nullable Output<String> rbacScopeId;
+
+    /**
+     * @return The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+     * 
+     */
+    public Optional<Output<String>> rbacScopeId() {
+        return Optional.ofNullable(this.rbacScopeId);
+    }
+
+    /**
      * The Resource Manager ID of this File Share.
      * 
      * @deprecated
@@ -218,6 +233,7 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         this.metadata = $.metadata;
         this.name = $.name;
         this.quota = $.quota;
+        this.rbacScopeId = $.rbacScopeId;
         this.resourceManagerId = $.resourceManagerId;
         this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
@@ -392,6 +408,27 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder quota(Integer quota) {
             return quota(Output.of(quota));
+        }
+
+        /**
+         * @param rbacScopeId The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rbacScopeId(@Nullable Output<String> rbacScopeId) {
+            $.rbacScopeId = rbacScopeId;
+            return this;
+        }
+
+        /**
+         * @param rbacScopeId The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rbacScopeId(String rbacScopeId) {
+            return rbacScopeId(Output.of(rbacScopeId));
         }
 
         /**

@@ -66,6 +66,10 @@ export interface GetElasticPoolResult {
      */
     readonly enclaveType: string;
     /**
+     * Specifies the number of high availability replicas for the elastic pool.
+     */
+    readonly highAvailabilityReplicaCount: number;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

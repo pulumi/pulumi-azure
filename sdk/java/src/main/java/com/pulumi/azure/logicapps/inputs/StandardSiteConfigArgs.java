@@ -157,6 +157,25 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     * &gt; **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+     * 
+     */
+    @Import(name="ipRestrictionDefaultAction")
+    private @Nullable Output<String> ipRestrictionDefaultAction;
+
+    /**
+     * @return The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     * &gt; **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+     * 
+     */
+    public Optional<Output<String>> ipRestrictionDefaultAction() {
+        return Optional.ofNullable(this.ipRestrictionDefaultAction);
+    }
+
+    /**
      * A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
      * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -260,6 +279,21 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<Boolean>> runtimeScaleMonitoringEnabled() {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
+    }
+
+    /**
+     * The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     */
+    @Import(name="scmIpRestrictionDefaultAction")
+    private @Nullable Output<String> scmIpRestrictionDefaultAction;
+
+    /**
+     * @return The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+     * 
+     */
+    public Optional<Output<String>> scmIpRestrictionDefaultAction() {
+        return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
 
     /**
@@ -391,12 +425,14 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         this.ftpsState = $.ftpsState;
         this.healthCheckPath = $.healthCheckPath;
         this.http2Enabled = $.http2Enabled;
+        this.ipRestrictionDefaultAction = $.ipRestrictionDefaultAction;
         this.ipRestrictions = $.ipRestrictions;
         this.linuxFxVersion = $.linuxFxVersion;
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
+        this.scmIpRestrictionDefaultAction = $.scmIpRestrictionDefaultAction;
         this.scmIpRestrictions = $.scmIpRestrictions;
         this.scmMinTlsVersion = $.scmMinTlsVersion;
         this.scmType = $.scmType;
@@ -614,6 +650,31 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param ipRestrictionDefaultAction The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+         * 
+         * &gt; **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipRestrictionDefaultAction(@Nullable Output<String> ipRestrictionDefaultAction) {
+            $.ipRestrictionDefaultAction = ipRestrictionDefaultAction;
+            return this;
+        }
+
+        /**
+         * @param ipRestrictionDefaultAction The action to take when no `ipRestriction` rules match. Possible values are `Allow` and `Deny`.
+         * 
+         * &gt; **Note:** If `ipRestrictionDefaultAction` is not configured, it is implicitly set to `Allow` when no `ipRestriction` rules are defined and `Deny` when at least one `ipRestriction` rule is defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipRestrictionDefaultAction(String ipRestrictionDefaultAction) {
+            return ipRestrictionDefaultAction(Output.of(ipRestrictionDefaultAction));
+        }
+
+        /**
          * @param ipRestrictions A list of `ipRestriction` objects representing IP restrictions as defined below.
          * 
          * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
@@ -765,6 +826,27 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
          */
         public Builder runtimeScaleMonitoringEnabled(Boolean runtimeScaleMonitoringEnabled) {
             return runtimeScaleMonitoringEnabled(Output.of(runtimeScaleMonitoringEnabled));
+        }
+
+        /**
+         * @param scmIpRestrictionDefaultAction The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmIpRestrictionDefaultAction(@Nullable Output<String> scmIpRestrictionDefaultAction) {
+            $.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
+            return this;
+        }
+
+        /**
+         * @param scmIpRestrictionDefaultAction The action to take when no `scmIpRestriction` rules match. Possible values are `Allow` and `Deny`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmIpRestrictionDefaultAction(String scmIpRestrictionDefaultAction) {
+            return scmIpRestrictionDefaultAction(Output.of(scmIpRestrictionDefaultAction));
         }
 
         /**

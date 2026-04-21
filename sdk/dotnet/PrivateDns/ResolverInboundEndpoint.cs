@@ -111,25 +111,25 @@ namespace Pulumi.Azure.PrivateDns
     public partial class ResolverInboundEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One `IpConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// One `IpConfigurations` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<Outputs.ResolverInboundEndpointIpConfigurations> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateDnsResolverId")]
         public Output<string> PrivateDnsResolverId { get; private set; } = null!;
@@ -187,25 +187,25 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class ResolverInboundEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One `IpConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// One `IpConfigurations` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipConfigurations", required: true)]
         public Input<Inputs.ResolverInboundEndpointIpConfigurationsArgs> IpConfigurations { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateDnsResolverId", required: true)]
         public Input<string> PrivateDnsResolverId { get; set; } = null!;
@@ -231,25 +231,25 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class ResolverInboundEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One `IpConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// One `IpConfigurations` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipConfigurations")]
         public Input<Inputs.ResolverInboundEndpointIpConfigurationsGetArgs>? IpConfigurations { get; set; }
 
         /// <summary>
-        /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateDnsResolverId")]
         public Input<string>? PrivateDnsResolverId { get; set; }

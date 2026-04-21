@@ -10,7 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AIFoundry
 {
     /// <summary>
-    /// Manages an AI Foundry Project.
+    /// Manages a Microsoft Foundry Hub (classic) Project resource.
+    /// 
+    /// &gt; **Note:** Hub‑based projects are considered legacy and are not compatible with the new Foundry experience. Microsoft recommends using the new Microsoft Foundry project resource, which should be provisioned using
+    /// `azure.cognitive.Account` and `azure.cognitive.AccountProject`.
     /// 
     /// ## Example Usage
     /// 
