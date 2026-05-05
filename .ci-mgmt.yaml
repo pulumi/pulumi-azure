@@ -4,6 +4,7 @@ parallel: 1
 timeout: 90
 generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion
+disableMajorProviderUpgrades: true
 freeDiskSpaceBeforeTest: true
 freeDiskSpaceBeforeBuild: true
 freeDiskSpaceBeforeSdkBuild: true
