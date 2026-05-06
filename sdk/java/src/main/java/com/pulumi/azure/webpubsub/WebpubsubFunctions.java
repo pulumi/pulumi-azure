@@ -36,8 +36,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.azure.webpubsub.ServiceArgs;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -100,8 +100,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.azure.webpubsub.ServiceArgs;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -164,8 +164,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.azure.webpubsub.ServiceArgs;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -228,8 +228,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.azure.webpubsub.ServiceArgs;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -292,8 +292,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.azure.webpubsub.ServiceArgs;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetPrivateLinkResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -352,8 +352,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -400,8 +400,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -448,8 +448,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -496,8 +496,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -544,8 +544,8 @@ public final class WebpubsubFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.webpubsub.WebpubsubFunctions;
      * import com.pulumi.azure.webpubsub.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

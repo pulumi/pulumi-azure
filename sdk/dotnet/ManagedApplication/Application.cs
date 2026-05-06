@@ -51,15 +51,15 @@ namespace Pulumi.Azure.ManagedApplication
     ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
     ///             {
     ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 RoleDefinitionId = Output.Tuple(Std.Index.Split.Invoke(new()
+    ///                 RoleDefinitionId = Output.Tuple(Std.Split.Invoke(new()
     ///                 {
     ///                     Separator = "/",
     ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///                 }), Std.Index.Split.Invoke(new()
+    ///                 }), Std.Split.Invoke(new()
     ///                 {
     ///                     Separator = "/",
     ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///                 }).Apply(invoke =&gt; invoke.Result).Length).Apply(values =&gt;
+    ///                 }).Apply(invoke =&gt; invoke.Result).Length()).Apply(values =&gt;
     ///                 {
     ///                     var invoke = values.Item1;
     ///                     var length = values.Item2;

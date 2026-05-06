@@ -240,7 +240,7 @@ import (
 // exampleNetworkManagerSecurityAdminConfiguration.ID(),
 // },
 // Triggers: pulumi.StringMap{
-// "source_port_ranges": pulumi.String(exampleNetworkManagerAdminRule.SourcePortRanges.ApplyT(func(sourcePortRanges interface{}) (std.JoinResult, error) {
+// "source_port_ranges": pulumi.String(exampleNetworkManagerAdminRule.SourcePortRanges.ApplyT(func(sourcePortRanges []string) (std.JoinResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
 // val := invoke.Result
 // return &val, nil

@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Automation
     ///         ApplicationId = "00000000-0000-0000-0000-000000000000",
     ///         TenantId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SubscriptionId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
-    ///         CertificateThumbprint = Std.Index.File.Invoke(new()
+    ///         CertificateThumbprint = Std.File.Invoke(new()
     ///         {
     ///             Input = "automation_certificate_test.thumb",
     ///         }).Apply(invoke =&gt; invoke.Result),

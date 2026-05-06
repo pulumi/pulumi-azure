@@ -60,11 +60,11 @@ import * as utilities from "../utilities";
  *     location: test.location,
  *     resourceGroupName: test.name,
  *     parentCustomIpPrefixId: global.id,
- *     cidr: global.cidr.apply(cidr => std.cidrsubnetOutput({
- *         input: cidr,
+ *     cidr: std.cidrsubnetOutput({
+ *         input: global.cidr,
  *         newbits: 16,
  *         netnum: 1,
- *     })).apply(invoke => invoke.result),
+ *     }).apply(invoke => invoke.result),
  *     zones: ["1"],
  * });
  * ```

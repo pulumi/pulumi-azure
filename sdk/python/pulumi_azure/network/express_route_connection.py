@@ -413,7 +413,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=5,
+            bandwidth_in_gbps=float(5),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -508,7 +508,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=5,
+            bandwidth_in_gbps=float(5),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",

@@ -85,6 +85,124 @@ import (
 //
 // ### Global Virtual Network Peering)
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// location := []string{
+// "uksouth",
+// "southeastasia",
+// };
+// if param := cfg.GetObject("location"); param != nil {
+// location = param
+// }
+// vnetAddressSpace := []string{
+// "10.0.0.0/16",
+// "10.1.0.0/16",
+// };
+// if param := cfg.GetObject("vnetAddressSpace"); param != nil {
+// vnetAddressSpace = param
+// }
+// var example []*core.ResourceGroup
+//
+//	for index := 0; index < len(location); index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := core.NewResourceGroup(ctx, fmt.Sprintf("example-%v", key0), &core.ResourceGroupArgs{
+// Name: pulumi.Sprintf("rg-global-vnet-peering-%v", val0),
+// Location: location[val0],
+// })
+// if err != nil {
+// return err
+// }
+// example = append(example, __res)
+// }
+// var vnet []*network.VirtualNetwork
+//
+//	for index := 0; index < len(location); index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := network.NewVirtualNetwork(ctx, fmt.Sprintf("vnet-%v", key0), &network.VirtualNetworkArgs{
+// Name: pulumi.Sprintf("vnet-%v", val0),
+// ResourceGroupName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:21,31-46)[val0],
+// AddressSpaces: pulumi.StringArray{
+// vnetAddressSpace[val0],
+// },
+// Location: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:23,31-50)[val0],
+// })
+// if err != nil {
+// return err
+// }
+// vnet = append(vnet, __res)
+// }
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: vnet[val0].AddressSpace[val0],
+// Newbits: 13,
+// Netnum: 0,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// var nva []*network.Subnet
+//
+//	for index := 0; index < len(location); index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := network.NewSubnet(ctx, fmt.Sprintf("nva-%v", key0), &network.SubnetArgs{
+// Name: pulumi.String("nva"),
+// ResourceGroupName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:31,32-47)[val0],
+// VirtualNetworkName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:32,32-44)[val0],
+// AddressPrefix: invokeCidrsubnet.Result,
+// })
+// if err != nil {
+// return err
+// }
+// nva = append(nva, __res)
+// }
+// // enable global peering between the two virtual network
+// var peering []*network.VirtualNetworkPeering
+//
+//	for index := 0; index < len(location); index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := network.NewVirtualNetworkPeering(ctx, fmt.Sprintf("peering-%v", key0), &network.VirtualNetworkPeeringArgs{
+// Name: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:46,53-65)[int(1 - val0)].ApplyT(func(names string) (string, error) {
+// return fmt.Sprintf("peering-to-%v", names), nil
+// }).(pulumi.StringOutput),
+// ResourceGroupName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:47,39-54)[val0],
+// VirtualNetworkName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:48,39-51)[val0],
+// RemoteVirtualNetworkId: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:49,39-49)[int(1 - val0)],
+// AllowVirtualNetworkAccess: pulumi.Bool(true),
+// AllowForwardedTraffic: pulumi.Bool(true),
+// AllowGatewayTransit: pulumi.Bool(false),
+// })
+// if err != nil {
+// return err
+// }
+// peering = append(peering, __res)
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ### Triggers)
 //
 // ```go
@@ -142,7 +260,7 @@ import (
 // VirtualNetworkName: example_1.Name,
 // RemoteVirtualNetworkId: example_2.ID(),
 // Triggers: pulumi.StringMap{
-// "remote_address_space": pulumi.String(example_2.AddressSpaces.ApplyT(func(addressSpaces interface{}) (std.JoinResult, error) {
+// "remote_address_space": pulumi.String(example_2.AddressSpaces.ApplyT(func(addressSpaces []string) (std.JoinResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
 // val := invoke.Result
 // return &val, nil
@@ -165,7 +283,7 @@ import (
 // VirtualNetworkName: example_2.Name,
 // RemoteVirtualNetworkId: example_1.ID(),
 // Triggers: pulumi.StringMap{
-// "remote_address_space": pulumi.String(example_1.AddressSpaces.ApplyT(func(addressSpaces interface{}) (std.JoinResult, error) {
+// "remote_address_space": pulumi.String(example_1.AddressSpaces.ApplyT(func(addressSpaces []string) (std.JoinResult, error) {
 // %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
 // val := invoke.Result
 // return &val, nil

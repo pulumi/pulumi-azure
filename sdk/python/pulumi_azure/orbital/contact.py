@@ -254,8 +254,8 @@ class Contact(pulumi.CustomResource):
             location="westeurope",
             norad_id="12345",
             links=[{
-                "bandwidth_mhz": 100,
-                "center_frequency_mhz": 101,
+                "bandwidth_mhz": float(100),
+                "center_frequency_mhz": float(101),
                 "direction": "Uplink",
                 "polarization": "LHCP",
                 "name": "examplename",
@@ -299,8 +299,8 @@ class Contact(pulumi.CustomResource):
             links=[{
                 "channels": [{
                     "name": "channelname",
-                    "bandwidth_mhz": 100,
-                    "center_frequency_mhz": 101,
+                    "bandwidth_mhz": float(100),
+                    "center_frequency_mhz": float(101),
                     "end_points": [{
                         "end_point_name": "AQUA_command",
                         "ip_address": "10.0.1.0",
@@ -373,8 +373,8 @@ class Contact(pulumi.CustomResource):
             location="westeurope",
             norad_id="12345",
             links=[{
-                "bandwidth_mhz": 100,
-                "center_frequency_mhz": 101,
+                "bandwidth_mhz": float(100),
+                "center_frequency_mhz": float(101),
                 "direction": "Uplink",
                 "polarization": "LHCP",
                 "name": "examplename",
@@ -418,8 +418,8 @@ class Contact(pulumi.CustomResource):
             links=[{
                 "channels": [{
                     "name": "channelname",
-                    "bandwidth_mhz": 100,
-                    "center_frequency_mhz": 101,
+                    "bandwidth_mhz": float(100),
+                    "center_frequency_mhz": float(101),
                     "end_points": [{
                         "end_point_name": "AQUA_command",
                         "ip_address": "10.0.1.0",

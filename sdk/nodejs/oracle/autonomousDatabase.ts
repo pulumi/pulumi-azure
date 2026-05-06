@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     autoScalingForStorageEnabled: false,
  *     virtualNetworkId: "example",
  *     adminPassword: "example",
- *     autoScalingEnabled: "example",
+ *     autoScalingEnabled: "example" === "true",
  *     characterSet: "example",
  *     computeCount: 1.23456,
  *     nationalCharacterSet: "example",

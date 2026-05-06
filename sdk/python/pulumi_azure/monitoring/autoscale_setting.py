@@ -412,7 +412,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 75,
+                            "threshold": float(75),
                             "metric_namespace": "microsoft.compute/virtualmachinescalesets",
                             "dimensions": [{
                                 "name": "AppName",
@@ -436,7 +436,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 25,
+                            "threshold": float(25),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -532,7 +532,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -550,7 +550,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -652,7 +652,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -670,7 +670,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -804,7 +804,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 75,
+                            "threshold": float(75),
                             "metric_namespace": "microsoft.compute/virtualmachinescalesets",
                             "dimensions": [{
                                 "name": "AppName",
@@ -828,7 +828,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 25,
+                            "threshold": float(25),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -924,7 +924,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -942,7 +942,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",
@@ -1044,7 +1044,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "GreaterThan",
-                            "threshold": 90,
+                            "threshold": float(90),
                         },
                         "scale_action": {
                             "direction": "Increase",
@@ -1062,7 +1062,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                             "time_window": "PT5M",
                             "time_aggregation": "Average",
                             "operator": "LessThan",
-                            "threshold": 10,
+                            "threshold": float(10),
                         },
                         "scale_action": {
                             "direction": "Decrease",

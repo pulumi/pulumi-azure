@@ -232,7 +232,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
         example = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("example",
             name="a9dbe818-56e7-5878-c0ce-a1477692c1d6",
             managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
-            scope=user.scope,
+            scope=output(user.scope).apply(lambda x: str(x)),
             role_definition_id=user.resource_manager_id,
             principal_id=current["objectId"])
         ```
@@ -274,7 +274,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
         example = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("example",
             name="a9dbe818-56e7-5878-c0ce-a1477692c1d6",
             managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
-            scope=user.scope,
+            scope=output(user.scope).apply(lambda x: str(x)),
             role_definition_id=user.resource_manager_id,
             principal_id=current["objectId"])
         ```

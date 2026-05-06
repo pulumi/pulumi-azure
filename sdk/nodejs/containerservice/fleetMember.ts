@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     dnsPrefix: "acctestaksexample",
  *     defaultNodePool: {
  *         name: "example-value",
- *         nodeCount: "example-value",
+ *         nodeCount: Number("example-value"),
  *         vmSize: "example-value",
  *         upgradeSettings: {
  *             maxSurge: "example-value",

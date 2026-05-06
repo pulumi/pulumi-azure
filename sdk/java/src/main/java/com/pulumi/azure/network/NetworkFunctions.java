@@ -140,8 +140,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -189,8 +189,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -287,8 +287,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -336,8 +336,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -385,8 +385,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -434,8 +434,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -532,8 +532,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetApplicationSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -630,8 +630,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -680,8 +680,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -730,8 +730,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -780,8 +780,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -830,8 +830,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetExpressRouteCircuitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -880,8 +880,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -929,8 +929,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -978,8 +978,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1027,8 +1027,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1076,8 +1076,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1125,8 +1125,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1174,8 +1174,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1223,8 +1223,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1272,8 +1272,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1321,8 +1321,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1370,8 +1370,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1419,8 +1419,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1468,8 +1468,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1517,8 +1517,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1566,8 +1566,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1615,8 +1615,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1664,8 +1664,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1713,8 +1713,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1762,8 +1762,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1811,8 +1811,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1860,8 +1860,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1909,8 +1909,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1958,8 +1958,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2007,8 +2007,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2056,8 +2056,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2105,8 +2105,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2154,8 +2154,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2203,8 +2203,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2252,8 +2252,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2301,8 +2301,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2420,8 +2420,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2469,8 +2469,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2518,8 +2518,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2567,8 +2567,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2616,8 +2616,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2665,8 +2665,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2714,8 +2714,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2763,8 +2763,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2812,8 +2812,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2861,8 +2861,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2917,8 +2917,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2993,8 +2993,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3069,8 +3069,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3145,8 +3145,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3221,8 +3221,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3290,8 +3290,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3339,8 +3339,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3388,8 +3388,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3437,8 +3437,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3486,8 +3486,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerConnectivityConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3544,8 +3544,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerIpamPoolArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerIpamPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3627,8 +3627,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerIpamPoolArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerIpamPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3710,8 +3710,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerIpamPoolArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerIpamPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3793,8 +3793,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerIpamPoolArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerIpamPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3876,8 +3876,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerIpamPoolArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerIpamPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3959,8 +3959,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4042,8 +4042,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4125,8 +4125,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4208,8 +4208,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4291,8 +4291,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4365,8 +4365,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4414,8 +4414,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4463,8 +4463,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4512,8 +4512,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4561,8 +4561,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4610,8 +4610,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4659,8 +4659,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4708,8 +4708,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4757,8 +4757,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4806,8 +4806,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4856,8 +4856,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4911,8 +4911,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4966,8 +4966,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5021,8 +5021,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5076,8 +5076,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterArgs;
      * import com.pulumi.azure.network.inputs.GetNetworkSecurityPerimeterProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5130,8 +5130,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5179,8 +5179,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5228,8 +5228,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5277,8 +5277,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5326,8 +5326,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5377,8 +5377,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5426,8 +5426,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.compute.VirtualMachineArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5525,8 +5525,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5574,8 +5574,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.compute.VirtualMachineArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5673,8 +5673,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5722,8 +5722,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.compute.VirtualMachineArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5821,8 +5821,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5870,8 +5870,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.compute.VirtualMachineArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5969,8 +5969,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6018,8 +6018,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.compute.VirtualMachineArgs;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6115,8 +6115,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6163,8 +6163,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6211,8 +6211,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6259,8 +6259,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6307,8 +6307,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIPsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6357,8 +6357,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6408,8 +6408,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6459,8 +6459,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6510,8 +6510,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6561,8 +6561,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetPublicIpPrefixArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6610,8 +6610,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6659,8 +6659,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6708,8 +6708,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6757,8 +6757,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6806,8 +6806,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteFilterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6855,8 +6855,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6903,8 +6903,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6951,8 +6951,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6999,8 +6999,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7047,8 +7047,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7095,8 +7095,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7146,8 +7146,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7197,8 +7197,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7248,8 +7248,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7299,8 +7299,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetServiceTagsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7350,8 +7350,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7400,8 +7400,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7450,8 +7450,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7500,8 +7500,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7550,8 +7550,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7602,8 +7602,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7652,8 +7652,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7702,8 +7702,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7752,8 +7752,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7802,8 +7802,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7850,8 +7850,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7899,8 +7899,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7948,8 +7948,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7997,8 +7997,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8046,8 +8046,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8095,8 +8095,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8144,8 +8144,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8193,8 +8193,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8242,8 +8242,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8291,8 +8291,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8340,8 +8340,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8390,8 +8390,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8440,8 +8440,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8490,8 +8490,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8540,8 +8540,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8590,8 +8590,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8640,8 +8640,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8690,8 +8690,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8740,8 +8740,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8790,8 +8790,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8840,8 +8840,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8889,8 +8889,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8938,8 +8938,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8987,8 +8987,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9036,8 +9036,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9085,8 +9085,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9134,8 +9134,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9183,8 +9183,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9232,8 +9232,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9281,8 +9281,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9331,8 +9331,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9386,8 +9386,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9441,8 +9441,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9496,8 +9496,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9551,8 +9551,8 @@ public final class NetworkFunctions {
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9605,8 +9605,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9662,8 +9662,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9719,8 +9719,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9776,8 +9776,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9833,8 +9833,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9890,8 +9890,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9939,8 +9939,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9988,8 +9988,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10037,8 +10037,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10086,8 +10086,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10135,8 +10135,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10184,8 +10184,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10233,8 +10233,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10282,8 +10282,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10331,8 +10331,8 @@ public final class NetworkFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
      * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

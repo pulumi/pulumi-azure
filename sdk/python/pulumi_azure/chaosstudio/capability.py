@@ -140,7 +140,7 @@ class Capability(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
             },
             identity={
@@ -205,7 +205,7 @@ class Capability(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
             },
             identity={

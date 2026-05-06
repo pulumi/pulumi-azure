@@ -262,7 +262,7 @@ class CollectorPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=1,
+            bandwidth_in_gbps=float(1),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",
@@ -353,7 +353,7 @@ class CollectorPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=1,
+            bandwidth_in_gbps=float(1),
             sku={
                 "tier": "Standard",
                 "family": "MeteredData",

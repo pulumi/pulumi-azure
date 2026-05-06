@@ -346,8 +346,8 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("example",
             name="example",
@@ -429,8 +429,8 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("example",
             name="example",

@@ -38,8 +38,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -87,8 +87,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -234,8 +234,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -283,8 +283,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -333,8 +333,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -383,8 +383,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -433,8 +433,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -533,8 +533,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -582,8 +582,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -631,8 +631,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -680,8 +680,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -729,8 +729,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -780,8 +780,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -835,8 +835,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -890,8 +890,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -945,8 +945,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1000,8 +1000,8 @@ public final class SiterecoveryFunctions {
      * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
      * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
      * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

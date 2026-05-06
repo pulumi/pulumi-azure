@@ -648,7 +648,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             time_window=30,
             trigger={
                 "operator": "GreaterThan",
-                "threshold": 3,
+                "threshold": float(3),
             },
             tags={
                 "foo": "bar",
@@ -679,7 +679,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             time_window=30,
             trigger={
                 "operator": "GreaterThan",
-                "threshold": 3,
+                "threshold": float(3),
             },
             tags={
                 "foo": "bar",
@@ -776,7 +776,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             time_window=30,
             trigger={
                 "operator": "GreaterThan",
-                "threshold": 3,
+                "threshold": float(3),
             },
             tags={
                 "foo": "bar",
@@ -807,7 +807,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             time_window=30,
             trigger={
                 "operator": "GreaterThan",
-                "threshold": 3,
+                "threshold": float(3),
             },
             tags={
                 "foo": "bar",

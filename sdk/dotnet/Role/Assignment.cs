@@ -212,10 +212,10 @@ namespace Pulumi.Azure.Role
     ///         PrincipalType = "ServicePrincipal",
     ///         Description = "Role Based Access Control Administrator role assignment with ABAC Condition.",
     ///         ConditionVersion = "2.0",
-    ///         Condition = Output.Tuple(Std.Index.Basename.Invoke(new()
+    ///         Condition = Output.Tuple(Std.Basename.Invoke(new()
     ///         {
     ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         }), Std.Index.Basename.Invoke(new()
+    ///         }), Std.Basename.Invoke(new()
     ///         {
     ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
     ///         })).Apply(values =&gt;

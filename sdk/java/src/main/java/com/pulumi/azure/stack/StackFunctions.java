@@ -32,8 +32,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -83,8 +83,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -134,8 +134,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -236,8 +236,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -287,8 +287,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -336,8 +336,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -385,8 +385,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -434,8 +434,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class StackFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.stack.StackFunctions;
      * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

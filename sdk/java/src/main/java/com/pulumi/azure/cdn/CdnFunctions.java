@@ -50,8 +50,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -92,8 +92,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -134,8 +134,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -176,8 +176,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -218,8 +218,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -260,8 +260,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -302,8 +302,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -344,8 +344,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -386,8 +386,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -428,8 +428,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -470,8 +470,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -511,8 +511,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -552,8 +552,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -593,8 +593,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -634,8 +634,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorFirewallPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -675,8 +675,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -717,8 +717,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -759,8 +759,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -801,8 +801,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -843,8 +843,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorOriginGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -885,8 +885,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -935,8 +935,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -985,8 +985,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1035,8 +1035,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1085,8 +1085,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1135,8 +1135,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1184,8 +1184,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1233,8 +1233,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1282,8 +1282,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1331,8 +1331,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1380,8 +1380,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1422,8 +1422,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1464,8 +1464,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1506,8 +1506,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1548,8 +1548,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1590,8 +1590,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1632,8 +1632,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1674,8 +1674,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1716,8 +1716,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1758,8 +1758,8 @@ public final class CdnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

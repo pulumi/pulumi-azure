@@ -69,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			eventhub, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
+//			eventhub2, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("my-eventhub"),
 //				NamespaceId:      eventhubNs.ID(),
 //				PartitionCount:   pulumi.Int(1),
@@ -81,7 +81,7 @@ import (
 //			consumerGroup, err := eventhub.NewConsumerGroup(ctx, "consumer_group", &eventhub.ConsumerGroupArgs{
 //				Name:              pulumi.String("my-eventhub-consumergroup"),
 //				NamespaceName:     eventhubNs.Name,
-//				EventhubName:      eventhub.Name,
+//				EventhubName:      eventhub2.Name,
 //				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
@@ -93,7 +93,7 @@ import (
 //				Location:           example.Location,
 //				ClusterName:        cluster.Name,
 //				DatabaseName:       database.Name,
-//				EventhubId:         eventhub.ID(),
+//				EventhubId:         eventhub2.ID(),
 //				ConsumerGroup:      consumerGroup.Name,
 //				TableName:          pulumi.String("my-table"),
 //				MappingRuleName:    pulumi.String("my-table-mapping"),

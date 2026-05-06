@@ -41,8 +41,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -90,8 +90,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -139,8 +139,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -188,8 +188,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -237,8 +237,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -286,8 +286,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -329,8 +329,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -372,8 +372,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -415,8 +415,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -458,8 +458,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetMongoDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -501,8 +501,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -543,8 +543,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -585,8 +585,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -627,8 +627,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -669,8 +669,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetRestorableDatabaseAccountsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -711,8 +711,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -753,8 +753,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -795,8 +795,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -837,8 +837,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -879,8 +879,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -921,8 +921,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -963,8 +963,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1005,8 +1005,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1047,8 +1047,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1089,8 +1089,8 @@ public final class CosmosdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
      * import com.pulumi.azure.cosmosdb.inputs.GetSqlRoleDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

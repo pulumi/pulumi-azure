@@ -478,9 +478,9 @@ class Prefix(pulumi.CustomResource):
             location=test["location"],
             resource_group_name=test["name"],
             parent_custom_ip_prefix_id=global_.id,
-            cidr=global_.cidr.apply(lambda cidr: std.cidrsubnet_output(input=cidr,
+            cidr=std.cidrsubnet_output(input=global_.cidr,
                 newbits=16,
-                netnum=1)).apply(lambda invoke: invoke.result),
+                netnum=1).apply(lambda invoke: invoke.result),
             zones=["1"])
         ```
 
@@ -571,9 +571,9 @@ class Prefix(pulumi.CustomResource):
             location=test["location"],
             resource_group_name=test["name"],
             parent_custom_ip_prefix_id=global_.id,
-            cidr=global_.cidr.apply(lambda cidr: std.cidrsubnet_output(input=cidr,
+            cidr=std.cidrsubnet_output(input=global_.cidr,
                 newbits=16,
-                netnum=1)).apply(lambda invoke: invoke.result),
+                netnum=1).apply(lambda invoke: invoke.result),
             zones=["1"])
         ```
 

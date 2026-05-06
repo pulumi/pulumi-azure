@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     tenantId: current.then(current => current.tenantId),
- *     principalId: current.then(current => current.principalId),
+ *     principalId: output(current.then(current => current.principalId)).apply(x =>String(x)),
  *     principalType: "App",
  *     role: "AllDatabasesAdmin",
  * });

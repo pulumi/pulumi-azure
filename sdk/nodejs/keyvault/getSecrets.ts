@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleGetSecret = example.then(example => std.toset({
  *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getSecret({
- *     name: __key,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getSecret({
+ *     name: String(__key),
  *     keyVaultId: existing.id,
  * }) }), {}));
  * ```
@@ -79,8 +79,8 @@ export interface GetSecretsResult {
  * });
  * const exampleGetSecret = example.then(example => std.toset({
  *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: azure.keyvault.getSecret({
- *     name: __key,
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getSecret({
+ *     name: String(__key),
  *     keyVaultId: existing.id,
  * }) }), {}));
  * ```

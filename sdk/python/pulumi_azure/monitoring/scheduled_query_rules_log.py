@@ -376,7 +376,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                 "metric_name": "UsedCapacity",
                 "aggregation": "Average",
                 "operator": "LessThan",
-                "threshold": 10,
+                "threshold": float(10),
             }],
             actions=[{
                 "action_group_id": example_action_group.id,
@@ -475,7 +475,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                 "metric_name": "UsedCapacity",
                 "aggregation": "Average",
                 "operator": "LessThan",
-                "threshold": 10,
+                "threshold": float(10),
             }],
             actions=[{
                 "action_group_id": example_action_group.id,

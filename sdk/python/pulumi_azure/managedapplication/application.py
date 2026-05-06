@@ -381,7 +381,7 @@ class Application(pulumi.CustomResource):
                 "service_principal_id": current.object_id,
                 "role_definition_id": len(std.split(separator="/",
                     text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[length - 1]),
+                    text=builtin.id).result[int(length - 1)]),
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
@@ -465,7 +465,7 @@ class Application(pulumi.CustomResource):
                 "service_principal_id": current.object_id,
                 "role_definition_id": len(std.split(separator="/",
                     text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[length - 1]),
+                    text=builtin.id).result[int(length - 1)]),
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",

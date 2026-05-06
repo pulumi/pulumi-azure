@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.TokenPassword;
  * import com.pulumi.azure.containerservice.TokenPasswordArgs;
  * import com.pulumi.azure.containerservice.inputs.TokenPasswordPassword1Args;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .sku("Basic")
  *             .adminEnabled(false)
- *             .georeplicationLocations(List.of(            
+ *             .georeplicationLocations(Arrays.asList(            
  *                 "East US",
  *                 "West Europe"))
  *             .build());

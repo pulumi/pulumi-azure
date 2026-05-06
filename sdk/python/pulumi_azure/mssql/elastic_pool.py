@@ -566,7 +566,7 @@ class ElasticPool(pulumi.CustomResource):
             location=example.location,
             server_name=example_server.name,
             license_type="LicenseIncluded",
-            max_size_gb=756,
+            max_size_gb=float(756),
             sku={
                 "name": "BasicPool",
                 "tier": "Basic",
@@ -575,7 +575,7 @@ class ElasticPool(pulumi.CustomResource):
             },
             per_database_settings={
                 "min_capacity": 0.25,
-                "max_capacity": 4,
+                "max_capacity": float(4),
             })
         ```
 
@@ -653,7 +653,7 @@ class ElasticPool(pulumi.CustomResource):
             location=example.location,
             server_name=example_server.name,
             license_type="LicenseIncluded",
-            max_size_gb=756,
+            max_size_gb=float(756),
             sku={
                 "name": "BasicPool",
                 "tier": "Basic",
@@ -662,7 +662,7 @@ class ElasticPool(pulumi.CustomResource):
             },
             per_database_settings={
                 "min_capacity": 0.25,
-                "max_capacity": 4,
+                "max_capacity": float(4),
             })
         ```
 

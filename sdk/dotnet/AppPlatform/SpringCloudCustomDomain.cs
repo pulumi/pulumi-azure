@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudCustomDomain = new Azure.AppPlatform.SpringCloudCustomDomain("example", new()
     ///     {
-    ///         Name = Std.Index.Join.Invoke(new()
+    ///         Name = Std.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]

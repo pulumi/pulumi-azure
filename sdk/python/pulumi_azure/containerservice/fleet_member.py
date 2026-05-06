@@ -192,7 +192,7 @@ class FleetMember(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",
@@ -259,7 +259,7 @@ class FleetMember(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "node_count": "example-value",
+                "node_count": int("example-value"),
                 "vm_size": "example-value",
                 "upgrade_settings": {
                     "max_surge": "example-value",

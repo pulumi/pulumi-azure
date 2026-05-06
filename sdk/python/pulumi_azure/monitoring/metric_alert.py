@@ -645,7 +645,7 @@ class MetricAlert(pulumi.CustomResource):
                 "metric_name": "Transactions",
                 "aggregation": "Total",
                 "operator": "GreaterThan",
-                "threshold": 50,
+                "threshold": float(50),
                 "dimensions": [{
                     "name": "ApiName",
                     "operator": "Include",
@@ -744,7 +744,7 @@ class MetricAlert(pulumi.CustomResource):
                 "metric_name": "Transactions",
                 "aggregation": "Total",
                 "operator": "GreaterThan",
-                "threshold": 50,
+                "threshold": float(50),
                 "dimensions": [{
                     "name": "ApiName",
                     "operator": "Include",

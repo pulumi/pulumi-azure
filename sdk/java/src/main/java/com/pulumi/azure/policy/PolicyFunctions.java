@@ -41,8 +41,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -90,8 +90,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -139,8 +139,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -188,8 +188,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -237,8 +237,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -286,8 +286,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -327,8 +327,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -368,8 +368,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -409,8 +409,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -450,8 +450,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -491,8 +491,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -532,8 +532,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -573,8 +573,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -614,8 +614,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -655,8 +655,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -696,8 +696,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -737,8 +737,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -778,8 +778,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -819,8 +819,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -860,8 +860,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -901,8 +901,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -942,8 +942,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -983,8 +983,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1024,8 +1024,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1065,8 +1065,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1106,8 +1106,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1147,8 +1147,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1197,8 +1197,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1247,8 +1247,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1297,8 +1297,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1347,8 +1347,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.policy.PolicyFunctions;
      * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

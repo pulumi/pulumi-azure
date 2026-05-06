@@ -685,7 +685,7 @@ class SpringCloudService(pulumi.CustomResource):
             },
             trace={
                 "connection_string": example_insights.connection_string,
-                "sample_rate": 10,
+                "sample_rate": float(10),
             },
             tags={
                 "Env": "staging",
@@ -761,7 +761,7 @@ class SpringCloudService(pulumi.CustomResource):
             },
             trace={
                 "connection_string": example_insights.connection_string,
-                "sample_rate": 10,
+                "sample_rate": float(10),
             },
             tags={
                 "Env": "staging",

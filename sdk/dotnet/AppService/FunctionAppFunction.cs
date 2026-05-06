@@ -167,7 +167,7 @@ namespace Pulumi.Azure.AppService
     ///             new Azure.AppService.Inputs.FunctionAppFunctionFileArgs
     ///             {
     ///                 Name = "run.csx",
-    ///                 Content = Std.Index.File.Invoke(new()
+    ///                 Content = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "exampledata/run.csx",
     ///                 }).Apply(invoke =&gt; invoke.Result),

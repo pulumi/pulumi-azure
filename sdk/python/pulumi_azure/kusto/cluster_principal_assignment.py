@@ -324,7 +324,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             resource_group_name=example.name,
             cluster_name=example_cluster.name,
             tenant_id=current.tenant_id,
-            principal_id=current.principal_id,
+            principal_id=output(current.principal_id).apply(lambda x: str(x)),
             principal_type="App",
             role="AllDatabasesAdmin")
         ```
@@ -387,7 +387,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             resource_group_name=example.name,
             cluster_name=example_cluster.name,
             tenant_id=current.tenant_id,
-            principal_id=current.principal_id,
+            principal_id=output(current.principal_id).apply(lambda x: str(x)),
             principal_type="App",
             role="AllDatabasesAdmin")
         ```

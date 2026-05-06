@@ -319,7 +319,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
         example_budget_management_group = azure.consumption.BudgetManagementGroup("example",
             name="example",
             management_group_id=example.id,
-            amount=1000,
+            amount=float(1000),
             time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",
@@ -410,7 +410,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
         example_budget_management_group = azure.consumption.BudgetManagementGroup("example",
             name="example",
             management_group_id=example.id,
-            amount=1000,
+            amount=float(1000),
             time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",

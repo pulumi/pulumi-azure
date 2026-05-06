@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = new azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("example", {
  *     name: "a9dbe818-56e7-5878-c0ce-a1477692c1d6",
  *     managedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.id,
- *     scope: user.then(user => user.scope),
+ *     scope: output(user.then(user => user.scope)).apply(x =>String(x)),
  *     roleDefinitionId: user.then(user => user.resourceManagerId),
  *     principalId: current.objectId,
  * });

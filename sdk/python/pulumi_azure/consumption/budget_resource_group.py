@@ -322,7 +322,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         example_budget_resource_group = azure.consumption.BudgetResourceGroup("example",
             name="example",
             resource_group_id=example.id,
-            amount=1000,
+            amount=float(1000),
             time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",
@@ -418,7 +418,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         example_budget_resource_group = azure.consumption.BudgetResourceGroup("example",
             name="example",
             resource_group_id=example.id,
-            amount=1000,
+            amount=float(1000),
             time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",

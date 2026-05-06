@@ -32,8 +32,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
      * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
      * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -91,8 +91,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
      * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
      * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -207,8 +207,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
          * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
          * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -270,8 +270,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
          * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
          * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -332,8 +332,8 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
          * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
          * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;

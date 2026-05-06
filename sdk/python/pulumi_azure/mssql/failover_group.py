@@ -302,7 +302,7 @@ class FailoverGroup(pulumi.CustomResource):
             server_id=primary.id,
             sku_name="S1",
             collation="SQL_Latin1_General_CP1_CI_AS",
-            max_size_gb=200)
+            max_size_gb=float(200))
         example_failover_group = azure.mssql.FailoverGroup("example",
             name="example",
             server_id=primary.id,
@@ -383,7 +383,7 @@ class FailoverGroup(pulumi.CustomResource):
             server_id=primary.id,
             sku_name="S1",
             collation="SQL_Latin1_General_CP1_CI_AS",
-            max_size_gb=200)
+            max_size_gb=float(200))
         example_failover_group = azure.mssql.FailoverGroup("example",
             name="example",
             server_id=primary.id,

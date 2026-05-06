@@ -39,8 +39,8 @@ public final class LbFunctions {
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
      * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -95,8 +95,8 @@ public final class LbFunctions {
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
      * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -151,8 +151,8 @@ public final class LbFunctions {
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
      * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -207,8 +207,8 @@ public final class LbFunctions {
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
      * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -263,8 +263,8 @@ public final class LbFunctions {
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
      * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -416,8 +416,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -465,8 +465,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -514,8 +514,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -563,8 +563,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -612,8 +612,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -661,8 +661,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -710,8 +710,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -759,8 +759,8 @@ public final class LbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.lb.LbFunctions;
      * import com.pulumi.azure.lb.inputs.GetLBOutboundRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

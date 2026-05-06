@@ -38,8 +38,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -87,8 +87,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -234,8 +234,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetAccountArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -283,8 +283,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -333,8 +333,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -383,8 +383,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -433,8 +433,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -535,8 +535,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -587,8 +587,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -639,8 +639,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -691,8 +691,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -743,8 +743,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -793,8 +793,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -842,8 +842,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -891,8 +891,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -940,8 +940,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -989,8 +989,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
      * import com.pulumi.azure.batch.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.MSSql
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azurerm.Index.SqlServer("example", new()
+    ///     var exampleSqlServer = new Azurerm.SqlServer("example", new()
     ///     {
     ///         Name = "mysqlserver",
     ///         ResourceGroupName = example.Name,

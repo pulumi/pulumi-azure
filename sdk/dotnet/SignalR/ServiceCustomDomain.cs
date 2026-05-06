@@ -97,7 +97,7 @@ namespace Pulumi.Azure.SignalR
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = Std.Index.Filebase64.Invoke(new()
+    ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "certificate-to-import.pfx",
     ///             }).Apply(invoke =&gt; invoke.Result),

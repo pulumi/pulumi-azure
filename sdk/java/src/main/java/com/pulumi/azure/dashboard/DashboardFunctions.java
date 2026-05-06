@@ -32,8 +32,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
      * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
      * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -138,8 +138,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
      * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -191,8 +191,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
      * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -244,8 +244,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
      * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -297,8 +297,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dashboard.DashboardFunctions;
      * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -346,8 +346,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dashboard.DashboardFunctions;
      * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -395,8 +395,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dashboard.DashboardFunctions;
      * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -444,8 +444,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dashboard.DashboardFunctions;
      * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -493,8 +493,8 @@ public final class DashboardFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.dashboard.DashboardFunctions;
      * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

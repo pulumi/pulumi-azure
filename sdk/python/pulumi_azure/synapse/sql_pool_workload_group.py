@@ -345,8 +345,8 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         ```
 
@@ -419,8 +419,8 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             importance="normal",
             max_resource_percent=100,
             min_resource_percent=0,
-            max_resource_percent_per_request=3,
-            min_resource_percent_per_request=3,
+            max_resource_percent_per_request=float(3),
+            min_resource_percent_per_request=float(3),
             query_execution_timeout_in_seconds=0)
         ```
 

@@ -21428,7 +21428,7 @@ export namespace compute {
          *     sku: {
          *         name: vmSku,
          *         tier: "Standard",
-         *         capacity: instanceCount,
+         *         capacity: Number(instanceCount),
          *     },
          *     identity: {
          *         type: "SystemAssigned",

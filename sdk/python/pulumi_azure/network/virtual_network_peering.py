@@ -555,10 +555,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         peering = []
         for range in [{"value": i} for i in range(0, len(location))]:
             peering.append(azure.network.VirtualNetworkPeering(f"peering-{range['value']}",
-                name=[__item.name for __item in vnet][1 - range["value"]].apply(lambda names: f"peering-to-{names}"),
+                name=[__item.name for __item in vnet][int(1 - range["value"])].apply(lambda names: f"peering-to-{names}"),
                 resource_group_name=[__item.name for __item in example][range["value"]],
                 virtual_network_name=[__item.name for __item in vnet][range["value"]],
-                remote_virtual_network_id=[__item.id for __item in vnet][1 - range["value"]],
+                remote_virtual_network_id=[__item.id for __item in vnet][int(1 - range["value"])],
                 allow_virtual_network_access=True,
                 allow_forwarded_traffic=True,
                 allow_gateway_transit=False))
@@ -728,10 +728,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         peering = []
         for range in [{"value": i} for i in range(0, len(location))]:
             peering.append(azure.network.VirtualNetworkPeering(f"peering-{range['value']}",
-                name=[__item.name for __item in vnet][1 - range["value"]].apply(lambda names: f"peering-to-{names}"),
+                name=[__item.name for __item in vnet][int(1 - range["value"])].apply(lambda names: f"peering-to-{names}"),
                 resource_group_name=[__item.name for __item in example][range["value"]],
                 virtual_network_name=[__item.name for __item in vnet][range["value"]],
-                remote_virtual_network_id=[__item.id for __item in vnet][1 - range["value"]],
+                remote_virtual_network_id=[__item.id for __item in vnet][int(1 - range["value"])],
                 allow_virtual_network_access=True,
                 allow_forwarded_traffic=True,
                 allow_gateway_transit=False))

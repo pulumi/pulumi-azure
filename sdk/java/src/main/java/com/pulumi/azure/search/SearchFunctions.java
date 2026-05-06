@@ -31,8 +31,8 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
      * import com.pulumi.azure.search.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -86,8 +86,8 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
      * import com.pulumi.azure.search.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -141,8 +141,8 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
      * import com.pulumi.azure.search.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -196,8 +196,8 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
      * import com.pulumi.azure.search.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -251,8 +251,8 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
      * import com.pulumi.azure.search.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

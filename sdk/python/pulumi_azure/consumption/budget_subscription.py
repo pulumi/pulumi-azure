@@ -331,7 +331,7 @@ class BudgetSubscription(pulumi.CustomResource):
         example_budget_subscription = azure.consumption.BudgetSubscription("example",
             name="example",
             subscription_id=current.id,
-            amount=1000,
+            amount=float(1000),
             time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",
@@ -430,7 +430,7 @@ class BudgetSubscription(pulumi.CustomResource):
         example_budget_subscription = azure.consumption.BudgetSubscription("example",
             name="example",
             subscription_id=current.id,
-            amount=1000,
+            amount=float(1000),
             time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",

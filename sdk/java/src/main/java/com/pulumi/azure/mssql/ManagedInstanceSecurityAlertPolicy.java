@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ManagedInstanceSecurityAlertPolicy;
  * import com.pulumi.azure.mssql.ManagedInstanceSecurityAlertPolicyArgs;
  * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .disableBgpRoutePropagation(false)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(List.of(exampleSubnet))
+ *                 .dependsOn(Arrays.asList(exampleSubnet))
  *                 .build());
  * 
  *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()

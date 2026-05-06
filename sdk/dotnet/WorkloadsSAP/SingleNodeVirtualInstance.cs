@@ -27,13 +27,13 @@ namespace Pulumi.Azure.WorkloadsSAP
     /// {
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var examplePrivateKey = new Tls.Index.PrivateKey("example", new()
+    ///     var examplePrivateKey = new Tls.PrivateKey("example", new()
     ///     {
     ///         Algorithm = "RSA",
     ///         RsaBits = 4096,
     ///     });
     /// 
-    ///     var example = Tls.Index.PublicKey.Invoke(new()
+    ///     var example = Tls.PublicKey.Invoke(new()
     ///     {
     ///         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
     ///     });

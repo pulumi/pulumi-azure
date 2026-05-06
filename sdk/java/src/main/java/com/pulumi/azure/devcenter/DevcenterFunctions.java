@@ -59,8 +59,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -108,8 +108,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -157,8 +157,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -206,8 +206,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -255,8 +255,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -304,8 +304,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetAttachedNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -353,8 +353,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetAttachedNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -402,8 +402,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetAttachedNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -451,8 +451,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetAttachedNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -500,8 +500,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetAttachedNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -549,8 +549,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -598,8 +598,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -647,8 +647,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -696,8 +696,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -745,8 +745,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetCatalogArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -794,8 +794,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetDevBoxDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -843,8 +843,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetDevBoxDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -892,8 +892,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetDevBoxDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -941,8 +941,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetDevBoxDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -990,8 +990,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetDevBoxDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1039,8 +1039,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1088,8 +1088,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1137,8 +1137,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1186,8 +1186,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1235,8 +1235,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1284,8 +1284,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetGalleryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1333,8 +1333,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetGalleryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1382,8 +1382,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetGalleryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1431,8 +1431,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetGalleryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1480,8 +1480,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetGalleryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1529,8 +1529,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1578,8 +1578,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1627,8 +1627,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1676,8 +1676,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1725,8 +1725,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetManagedDevOpsPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1774,8 +1774,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1823,8 +1823,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1872,8 +1872,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1921,8 +1921,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1970,8 +1970,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetNetworkConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2019,8 +2019,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2068,8 +2068,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2117,8 +2117,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2166,8 +2166,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2215,8 +2215,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2264,8 +2264,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2313,8 +2313,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2362,8 +2362,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2411,8 +2411,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2460,8 +2460,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectEnvironmentTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2509,8 +2509,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2558,8 +2558,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2607,8 +2607,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2656,8 +2656,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2705,8 +2705,8 @@ public final class DevcenterFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.devcenter.DevcenterFunctions;
      * import com.pulumi.azure.devcenter.inputs.GetProjectPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
