@@ -292,7 +292,7 @@ export type GetTopicFunctionArgs = servicebus.GetTopicFunctionArgs;
 /**
  * @deprecated This type has moved to the [servicebus] module.
  */
-export type TopicEventSubscriptionArgs = servicebus.TopicAuthorizationRuleArgs;
+export type TopicEventSubscriptionArgs = servicebus.TopicEventSubscriptionArgs;
 
 declare module "./topic" {
     interface Topic {
